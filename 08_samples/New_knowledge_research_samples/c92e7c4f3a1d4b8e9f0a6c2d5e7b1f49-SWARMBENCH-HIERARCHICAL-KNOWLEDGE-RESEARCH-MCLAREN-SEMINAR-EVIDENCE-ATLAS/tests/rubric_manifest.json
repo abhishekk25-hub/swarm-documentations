@@ -1,0 +1,149 @@
+{
+  "task_id": "c92e7c4f3a1d4b8e9f0a6c2d5e7b1f49",
+  "verifier_type": "hybrid",
+  "total_checks": 20,
+  "verifier_implementation_functions": ["static_required_paths", "static_corpus_schema_coverage", "static_card_shard_coverage", "static_method_matrix_integrity", "static_seminar_shape", "static_trajectory_shape", "static_claim_audit_links", "oracle_sentinel_titles", "oracle_sentinel_years", "oracle_official_urls", "oracle_card_coverage", "oracle_version_diversity", "oracle_evidence_enums", "oracle_historical_anchor_years", "oracle_historical_anchor_cards", "oracle_historical_anchor_urls", "oracle_historical_anchor_evidence", "llm_evidence_cards", "llm_top_level_markdown", "llm_claim_audit_templates"],
+  "markdown_llm_validation_policy": "Every agent-generated Markdown deliverable is judged inside tests/verify.py through W&B Inference: all 72 evidence cards plus theme_synthesis.md, research_trajectory.md, and seminar_plan.md.",
+  "checks": {
+    "static_checks_1": {
+      "weight": 1,
+      "check_function": "static_required_paths",
+      "agent_output_path": "/logs/agent/output/",
+      "detailed_explanation_of_checks": "Required artifacts exist.",
+      "how_it_prevents_task_authenticity_violation": "Rejects incomplete packs."
+    },
+    "static_checks_2": {
+      "weight": 1,
+      "check_function": "static_corpus_schema_coverage",
+      "agent_output_path": "/logs/agent/output/corpus_map.csv",
+      "detailed_explanation_of_checks": "check_static emits static_checks_2 after requiring 240 canonical rows, all 24 shards, populated required fields, unique official positions, at least 230 distinct title/year pairs, and at least 220 distinct stable URLs.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a convenient partial bibliography."
+    },
+    "static_checks_3": {
+      "weight": 1,
+      "check_function": "static_card_shard_coverage",
+      "agent_output_path": "/logs/agent/output/evidence_cards/",
+      "detailed_explanation_of_checks": "check_static emits static_checks_3 only for 72 distinct cards that each identify exactly one distinct canonical record, with exactly three matched records from every shard.",
+      "how_it_prevents_task_authenticity_violation": "Rejects duplicated-card padding."
+    },
+    "static_checks_4": {
+      "weight": 1,
+      "check_function": "static_method_matrix_integrity",
+      "agent_output_path": "/logs/agent/output/method_comparison_matrix.csv",
+      "detailed_explanation_of_checks": "check_static emits static_checks_4 only when every card has one complete matrix row, each substantive field has broad non-not_reported coverage and meaningful value diversity, and every source URL is HTTP(S).",
+      "how_it_prevents_task_authenticity_violation": "Rejects a detached generic matrix."
+    },
+    "static_checks_5": {
+      "weight": 1,
+      "check_function": "static_seminar_shape",
+      "agent_output_path": "/logs/agent/output/seminar_plan.md",
+      "detailed_explanation_of_checks": "The plan has 14 weekly units.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a generic short syllabus."
+    },
+    "static_checks_6": {
+      "weight": 1,
+      "check_function": "static_trajectory_shape",
+      "agent_output_path": "/logs/agent/output/research_trajectory.md",
+      "detailed_explanation_of_checks": "The trajectory satisfies the required scale.",
+      "how_it_prevents_task_authenticity_violation": "Rejects token narrative."
+    },
+    "static_checks_7": {
+      "weight": 1,
+      "check_function": "static_claim_audit_links",
+      "agent_output_path": "/logs/agent/output/claim_audit.csv",
+      "detailed_explanation_of_checks": "check_static emits static_checks_7 only when audit rows cover all three narratives, use valid support statuses, resolve their card IDs and URLs, include caveats, and the local index links resolve without banned sources or submitted programs.",
+      "how_it_prevents_task_authenticity_violation": "Rejects untraceable synthesis."
+    },
+    "partial_oracle_checks_1": {
+      "weight": 1,
+      "check_function": "oracle_sentinel_titles",
+      "agent_output_path": "/logs/agent/output/corpus_map.csv",
+      "detailed_explanation_of_checks": "All held-out real publication titles appear in the canonical map.",
+      "how_it_prevents_task_authenticity_violation": "Rejects unrelated or fabricated corpora."
+    },
+    "partial_oracle_checks_2": {
+      "weight": 1,
+      "check_function": "oracle_sentinel_years",
+      "agent_output_path": "/logs/agent/output/corpus_map.csv",
+      "detailed_explanation_of_checks": "Held-out works retain their checked years.",
+      "how_it_prevents_task_authenticity_violation": "Rejects title-pattern metadata invention."
+    },
+    "partial_oracle_checks_3": {
+      "weight": 1,
+      "check_function": "oracle_official_urls",
+      "agent_output_path": "/logs/agent/output/corpus_map.csv",
+      "detailed_explanation_of_checks": "Held-out works retain official CMU provenance.",
+      "how_it_prevents_task_authenticity_violation": "Rejects aggregator-only provenance."
+    },
+    "partial_oracle_checks_4": {
+      "weight": 1,
+      "check_function": "oracle_card_coverage",
+      "agent_output_path": "/logs/agent/output/evidence_cards/",
+      "detailed_explanation_of_checks": "check_partial_oracle emits partial_oracle_checks_4 only when at least seven of the ten held-out works are represented in cards.",
+      "how_it_prevents_task_authenticity_violation": "Rejects cards concentrated in one convenient period."
+    },
+    "partial_oracle_checks_5": {
+      "weight": 1,
+      "check_function": "oracle_version_diversity",
+      "agent_output_path": "/logs/agent/output/corpus_map.csv",
+      "detailed_explanation_of_checks": "check_partial_oracle emits partial_oracle_checks_5 only when the ten held-out works preserve at least six distinct version groups.",
+      "how_it_prevents_task_authenticity_violation": "Rejects blanket deduplication."
+    },
+    "partial_oracle_checks_6": {
+      "weight": 1,
+      "check_function": "oracle_evidence_enums",
+      "agent_output_path": "/logs/agent/output/corpus_map.csv",
+      "detailed_explanation_of_checks": "Held-out works use valid evidence enums.",
+      "how_it_prevents_task_authenticity_violation": "Rejects malformed evidence status."
+    },
+    "partial_oracle_checks_7": {
+      "weight": 1,
+      "check_function": "oracle_historical_anchor_years",
+      "agent_output_path": "/logs/agent/output/corpus_map.csv",
+      "detailed_explanation_of_checks": "Five additional held-out works spanning 1998–2020 appear as canonical records with their verified publication years.",
+      "how_it_prevents_task_authenticity_violation": "Rejects shallow recent-only mapping and invented historical metadata."
+    },
+    "partial_oracle_checks_8": {
+      "weight": 1,
+      "check_function": "oracle_historical_anchor_cards",
+      "agent_output_path": "/logs/agent/output/evidence_cards/",
+      "detailed_explanation_of_checks": "At least four of five historical anchors are represented in final evidence cards.",
+      "how_it_prevents_task_authenticity_violation": "Rejects evidence selection that omits the programme's historical development."
+    },
+    "partial_oracle_checks_9": {
+      "weight": 1,
+      "check_function": "oracle_historical_anchor_urls",
+      "agent_output_path": "/logs/agent/output/corpus_map.csv",
+      "detailed_explanation_of_checks": "Every held-out 1998–2020 historical anchor has a distinct official CMU paper-level URL, rather than only the bibliography-page URL.",
+      "how_it_prevents_task_authenticity_violation": "Rejects historical records that are copied without primary-corpus provenance."
+    },
+    "partial_oracle_checks_10": {
+      "weight": 1,
+      "check_function": "oracle_historical_anchor_evidence",
+      "agent_output_path": "/logs/agent/output/corpus_map.csv",
+      "detailed_explanation_of_checks": "Every held-out historical anchor is classified as paper_or_abstract_read.",
+      "how_it_prevents_task_authenticity_violation": "Rejects historical coverage supported only by bibliography-level metadata."
+    },
+    "reward_hacking_checks_1": {
+      "weight": 1,
+      "check_function": "llm_evidence_cards",
+      "agent_output_path": "/logs/agent/output/evidence_cards/*.md",
+      "detailed_explanation_of_checks": "check_markdown_with_llm emits reward_hacking_checks_1 only when W&B judges every card against externally retrieved source text for identity, source grounding, calibrated claims, concrete limitations, and non-generic cross-links.",
+      "how_it_prevents_task_authenticity_violation": "Rejects title-derived summaries and templated cards."
+    },
+    "reward_hacking_checks_2": {
+      "weight": 1,
+      "check_function": "llm_top_level_markdown",
+      "agent_output_path": "/logs/agent/output/*.md",
+      "detailed_explanation_of_checks": "check_markdown_with_llm emits reward_hacking_checks_2 only when W&B judges every top-level narrative for card grounding, calibrated claims, and the artifact-specific theme, trajectory, or 14-week seminar constraints.",
+      "how_it_prevents_task_authenticity_violation": "Rejects generic synthesis and curriculum prose."
+    },
+    "reward_hacking_checks_3": {
+      "weight": 1,
+      "check_function": "llm_claim_audit_templates",
+      "agent_output_path": "/logs/agent/output/",
+      "detailed_explanation_of_checks": "check_markdown_with_llm emits reward_hacking_checks_3 only when W&B verifies claim-audit calibration (including non-affirmative not_supported claims) and verify.py finds no placeholder language across Markdown deliverables.",
+      "how_it_prevents_task_authenticity_violation": "Rejects unsupported conclusions and filler."
+    }
+  }
+}

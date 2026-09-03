@@ -1,0 +1,407 @@
+coordination_pattern: hierarchical
+
+# Genuine 3-tier hierarchy (dag_depth = 3, widest tier = 20):
+#
+#   Tier 1  - 20 readers (one scope each). Sixteen are pinned to a specific North Coast
+#             Water Board enforcement document; four are cross-cutting specialists scoped
+#             to a facet that genuinely spans several orders (supersession relationships,
+#             the enforcement-escalation timeline, compliance deadlines, and the
+#             discharger / parcel / waterway identifiers). Every reader reads its
+#             document(s) from a fixed PDF URL on the pinned public mirror
+#             (raw.githubusercontent.com, pinned to a commit SHA) - no reader depends on the
+#             JavaScript adopted-orders search page or the board's bot-filtered site - and
+#             writes grounded findings to its own shard under /logs/agent/.
+#   Tier 2  - 3 consolidators. Each consumes only the reader shards in its group and writes
+#             a consolidated shard plus a short notes file. This tier consumes Tier-1 output
+#             before anything reaches the assembler, which is what makes the depth real
+#             rather than a flat fan-out.
+#   Tier 3  - 2 parallel assemblers that both consume the three consolidations: a
+#             ledger-assembler that builds the chronology ledger, crosslink matrix,
+#             contradiction log and the three charts, and a dedicated dossier-author that
+#             writes the centerpiece site_dossier.docx. Splitting the narrative out keeps a
+#             single overloaded assembler from dropping the most token-heavy deliverable.
+#
+# Every URL below is a direct, fetchable PDF on the pinned mirror (verified 200/real PDF).
+# The same sixteen documents, with their official waterboards.ca.gov links, are listed in
+# instruction.md, so the single agent and the multi-agent system start from identical
+# information; this file only adds the coordination structure (who reads what, in what
+# order). It contains no oracle values, answer-key content, or hints that shortcut the
+# reading. Record either the mirror URL or the document's official waterboards.ca.gov URL as
+# source_url in each row.
+#
+# Every reader writes its findings DIRECTLY to /logs/agent/ (never /workspace) so a partial
+# run still leaves a scorable ledger. Ledger schema for every shard:
+# finding_id,order_id,discharger,county,waterway,apn,event_date,topic,regulator_finding,
+# quote,source_url. order_id is the order number (e.g. R1-2024-0044) or the file name where
+# there is no clean number; quote is exact verbatim text from the order; regulator_finding
+# is the reader's own paraphrase, different text from the quote.
+
+sub_tasks:
+
+  # ---------------- Tier 1, group A: Humboldt, Del Norte, and the relationship specialists ----------------
+
+  - id: reader-larabee-0044
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read order R1-2024-0044 (Larabee Ranch Holdings LLC, Humboldt County),
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2024-0044.pdf
+      Read it end to end and write several distinct grounded findings for this order to
+      /logs/agent/findings_larabee.csv in the ledger schema, spanning more than one topic.
+      Each row carries one full-sentence verbatim quote from the order and a regulator_finding
+      written in your own words that is different text from the quote; set the topic column to
+      exactly one of the nine canonical topic labels in instruction.md, never an invented
+      label.
+
+  - id: reader-mcgaughey-0026
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read order R1-2024-0026 (Vern McGaughey and the Vern C. McGaughey Trust, Humboldt
+      County),
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2024-0026.pdf
+      Read it end to end and write several distinct grounded findings for this order to
+      /logs/agent/findings_mcgaughey.csv in the ledger schema, spanning more than one topic.
+      Each row carries one full-sentence verbatim quote from the order and a regulator_finding
+      written in your own words that is different text from the quote; set the topic column to
+      exactly one of the nine canonical topic labels in instruction.md, never an invented
+      label.
+
+  - id: reader-lieberman-0047
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read order R1-2024-0047 (Aaron Lieberman, Paradise Valley LLC, Northland Management
+      Group LLC and Northcoast Investment Group LLC, Humboldt County),
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2024-0047.pdf
+      Read it end to end and write several distinct grounded findings for this order to
+      /logs/agent/findings_lieberman.csv in the ledger schema, spanning more than one topic.
+      Each row carries one full-sentence verbatim quote from the order and a regulator_finding
+      written in your own words that is different text from the quote; set the topic column to
+      exactly one of the nine canonical topic labels in instruction.md, never an invented
+      label.
+
+  - id: reader-lieberman-acl-0033
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the Administrative Civil Liability complaint R1-2025-0033 against Aaron Lieberman
+      and Paradise Valley LLC for failing to submit the cleanup plan that order R1-2024-0047
+      required (Humboldt County),
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2025-0033_ACLC.pdf
+      Read it end to end and write several distinct grounded findings for this document to
+      /logs/agent/findings_lieberman_acl.csv in the ledger schema, spanning more than one
+      topic. Each row carries one full-sentence verbatim quote from the document and a
+      regulator_finding written in your own words that is different text from the quote; set
+      the topic column to exactly one of the nine canonical topic labels in instruction.md,
+      never an invented label.
+
+  - id: reader-reservation-0015
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read order R1-2024-0015 (Reservation Ranch and Smith River Ranch LLC, Del Norte
+      County), which amends and supersedes order R1-2021-0023,
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2024-0015.pdf
+      Read it end to end and write several distinct grounded findings for this order to
+      /logs/agent/findings_reservation.csv in the ledger schema, spanning more than one topic.
+      Each row carries one full-sentence verbatim quote from the order and a regulator_finding
+      written in your own words that is different text from the quote; set the topic column to
+      exactly one of the nine canonical topic labels in instruction.md, never an invented
+      label.
+
+  - id: reader-supersession
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Cover the revise / amend / supersede relationships that the orders carry. Read order
+      R1-2024-0015 (which amends and supersedes R1-2021-0023),
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2024-0015.pdf
+      and order R1-2022-0019 (which revises R1-2018-0012),
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/22_0019HrstRdSpCAO.pdf
+      For each relationship write grounded findings - which order governs now and what changed
+      - to /logs/agent/findings_supersession.csv in the ledger schema, each row carrying one
+      full-sentence verbatim quote that states the relationship and a regulator_finding in
+      your own words that is different text from the quote.
+
+  - id: reader-escalation-timeline
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Cover the enforcement-escalation timeline for the Lieberman / Paradise Valley site.
+      Read order R1-2024-0047,
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2024-0047.pdf
+      and the later ACL complaint R1-2025-0033,
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2025-0033_ACLC.pdf
+      Write dated, grounded findings tracing the directive, its deadline and the alleged
+      failure to /logs/agent/findings_escalation.csv in the ledger schema, each row carrying
+      one full-sentence verbatim quote and a regulator_finding in your own words that is
+      different text from the quote.
+
+  # ---------------- Tier 1, group B: Mendocino ----------------
+
+  - id: reader-hearst-0019
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read order R1-2022-0019 (Sanel Ljesnjanin, Uchenna Ukazim and Hearst Willits Properties
+      LLC, Mendocino County), which revises order R1-2018-0012,
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/22_0019HrstRdSpCAO.pdf
+      Read it end to end and write several distinct grounded findings for this order to
+      /logs/agent/findings_hearst.csv in the ledger schema, spanning more than one topic.
+      Each row carries one full-sentence verbatim quote from the order and a regulator_finding
+      written in your own words that is different text from the quote; set the topic column to
+      exactly one of the nine canonical topic labels in instruction.md, never an invented
+      label.
+
+  - id: reader-harding-0054
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read order R1-2024-0054 (Michael Harding, Mendocino County),
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/r1-2024-0054.pdf
+      Read it end to end and write several distinct grounded findings for this order to
+      /logs/agent/findings_harding.csv in the ledger schema, spanning more than one topic.
+      Each row carries one full-sentence verbatim quote from the order and a regulator_finding
+      written in your own words that is different text from the quote; set the topic column to
+      exactly one of the nine canonical topic labels in instruction.md, never an invented
+      label.
+
+  - id: reader-vizcaino-0016
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read order R1-2025-0016 (Margarita Vizcaino Andrade, Mendocino County),
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2025-0016.pdf
+      Read it end to end and write several distinct grounded findings for this order to
+      /logs/agent/findings_vizcaino.csv in the ledger schema, spanning more than one topic.
+      Each row carries one full-sentence verbatim quote from the order and a regulator_finding
+      written in your own words that is different text from the quote; set the topic column to
+      exactly one of the nine canonical topic labels in instruction.md, never an invented
+      label.
+
+  - id: reader-ghosttrain-0032
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read order R1-2025-0032 (Ghost Train LLC, Mendocino County), a long order with
+      attachments,
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2025-0032.pdf
+      Read it end to end including its attachments and write several distinct grounded
+      findings for this order to /logs/agent/findings_ghosttrain.csv in the ledger schema,
+      spanning more than one topic. Each row carries one full-sentence verbatim quote from the
+      order and a regulator_finding written in your own words that is different text from the
+      quote; set the topic column to exactly one of the nine canonical topic labels in
+      instruction.md, never an invented label.
+
+  - id: reader-herrera-0043
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read order R1-2025-0043 (Jorge Sanchez Herrera, Mendocino County),
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2025-0043.pdf
+      Read it end to end and write several distinct grounded findings for this order to
+      /logs/agent/findings_herrera.csv in the ledger schema, spanning more than one topic.
+      Each row carries one full-sentence verbatim quote from the order and a regulator_finding
+      written in your own words that is different text from the quote; set the topic column to
+      exactly one of the nine canonical topic labels in instruction.md, never an invented
+      label.
+
+  - id: reader-istas
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the Istas and Carrillo Cleanup and Abatement Order (Laurence Istas, Yesenia
+      Carrillo and Raul Carrillo, Mendocino County),
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/istas-carrillo-cao.pdf
+      Read it end to end and write several distinct grounded findings for this order to
+      /logs/agent/findings_istas.csv in the ledger schema, spanning more than one topic.
+      Each row carries one full-sentence verbatim quote from the order and a regulator_finding
+      written in your own words that is different text from the quote; set the topic column to
+      exactly one of the nine canonical topic labels in instruction.md, never an invented
+      label.
+
+  # ---------------- Tier 1, group C: Trinity, Sonoma, and the cross-cutting specialists ----------------
+
+  - id: reader-sabankaya-0037
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read order R1-2024-0037 (Nezih and Semih Sabankaya and ICRS LLC, Trinity County),
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2024-0037.pdf
+      Read it end to end and write several distinct grounded findings for this order to
+      /logs/agent/findings_sabankaya.csv in the ledger schema, spanning more than one topic.
+      Each row carries one full-sentence verbatim quote from the order and a regulator_finding
+      written in your own words that is different text from the quote; set the topic column to
+      exactly one of the nine canonical topic labels in instruction.md, never an invented
+      label.
+
+  - id: reader-ogkush-0050
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read order R1-2024-0050 (OG Kush Diet LLC and Ivan Vlahov, Trinity County),
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2024-0050.pdf
+      Read it end to end and write several distinct grounded findings for this order to
+      /logs/agent/findings_ogkush.csv in the ledger schema, spanning more than one topic.
+      Each row carries one full-sentence verbatim quote from the order and a regulator_finding
+      written in your own words that is different text from the quote; set the topic column to
+      exactly one of the nine canonical topic labels in instruction.md, never an invented
+      label.
+
+  - id: reader-krasilsa
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the Krasilsa Pacific Farms LLC enforcement order (Sonoma County),
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/kras-r1-2019-0045-9-ext.pdf
+      Read it end to end and write several distinct grounded findings for this order to
+      /logs/agent/findings_krasilsa.csv in the ledger schema, spanning more than one topic.
+      Each row carries one full-sentence verbatim quote from the order and a regulator_finding
+      written in your own words that is different text from the quote; set the topic column to
+      exactly one of the nine canonical topic labels in instruction.md, never an invented
+      label.
+
+  - id: reader-brite-0036
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read order R1-2025-0036 (340 Center Street LLC, the former Brite Cleaners site at 340
+      Center Street, Healdsburg, Sonoma County; volatile organic compounds and metals in soil
+      and groundwater),
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2025-0036.pdf
+      Read it end to end and write several distinct grounded findings for this order to
+      /logs/agent/findings_brite.csv in the ledger schema, spanning more than one topic.
+      Each row carries one full-sentence verbatim quote from the order and a regulator_finding
+      written in your own words that is different text from the quote; set the topic column to
+      exactly one of the nine canonical topic labels in instruction.md, never an invented
+      label.
+
+  - id: reader-cityventures-0042
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the Administrative Civil Liability matter R1-2024-0042 against City Ventures
+      Homebuilding LLC for construction stormwater discharges at the Fox Hollow site in Santa
+      Rosa (Sonoma County), Attachment A,
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2024-0042_Attach_A.pdf
+      Read it end to end and write several distinct grounded findings for this document to
+      /logs/agent/findings_cityventures.csv in the ledger schema, spanning more than one
+      topic. Each row carries one full-sentence verbatim quote from the document and a
+      regulator_finding written in your own words that is different text from the quote; set
+      the topic column to exactly one of the nine canonical topic labels in instruction.md,
+      never an invented label.
+
+  - id: reader-deadlines
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Cover the compliance and submittal deadlines and the monitoring / reporting obligations
+      the board imposed across the heaviest orders: R1-2024-0044,
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2024-0044.pdf
+      ; R1-2024-0037,
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2024-0037.pdf
+      ; R1-2024-0047,
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2024-0047.pdf
+      ; and R1-2025-0032,
+      https://raw.githubusercontent.com/karthick-e1/northcoast-water-orders/574b8941112f212d853e75345998d1df37222bb0/orders/R1-2025-0032.pdf
+      Write one grounded finding per deadline or obligation to
+      /logs/agent/findings_deadlines.csv in the ledger schema, each row carrying the date, one
+      full-sentence verbatim quote and a regulator_finding in your own words that is different
+      text from the quote.
+
+  - id: reader-identifiers
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Cover the identifiers the crosslink matrix is checked against: for each order you can
+      reach, capture the discharger name, the assessor parcel number(s), the waste discharge
+      identification (WDID) number where the order gives one, and the receiving waterway.
+      Work from the same direct PDF URLs the other readers use. Write one grounded finding per
+      order to /logs/agent/findings_identifiers.csv in the ledger schema, each row carrying one
+      full-sentence verbatim quote that states the identifier and a regulator_finding in your
+      own words that is different text from the quote.
+
+  # ---------------- Tier 2: 3 consolidators ----------------
+
+  - id: consolidator-group-a
+    parallel_group: consolidate
+    depends_on: [reader-larabee-0044, reader-mcgaughey-0026, reader-lieberman-0047, reader-lieberman-acl-0033, reader-reservation-0015, reader-supersession, reader-escalation-timeline]
+    subagent_type: explore
+    description: >-
+      Consolidate the Humboldt / Del Norte group and the relationship specialists. Read the
+      group's reader shards under /logs/agent/, and write a consolidated shard
+      /logs/agent/region_a_consolidated.csv (same ledger schema) plus a short
+      /logs/agent/region_a_notes.md. Leave the reader shards in place.
+
+  - id: consolidator-group-b
+    parallel_group: consolidate
+    depends_on: [reader-hearst-0019, reader-harding-0054, reader-vizcaino-0016, reader-ghosttrain-0032, reader-herrera-0043, reader-istas]
+    subagent_type: explore
+    description: >-
+      Consolidate the Mendocino County group. Read the group's reader shards under
+      /logs/agent/, and write /logs/agent/region_b_consolidated.csv (same ledger schema) plus
+      a short /logs/agent/region_b_notes.md. Leave the reader shards in place.
+
+  - id: consolidator-group-c
+    parallel_group: consolidate
+    depends_on: [reader-sabankaya-0037, reader-ogkush-0050, reader-krasilsa, reader-brite-0036, reader-cityventures-0042, reader-deadlines, reader-identifiers]
+    subagent_type: explore
+    description: >-
+      Consolidate the Trinity / Sonoma group and the cross-cutting specialists. Read the
+      group's reader shards under /logs/agent/, and write
+      /logs/agent/region_c_consolidated.csv (same ledger schema) plus a short
+      /logs/agent/region_c_notes.md. Leave the reader shards in place.
+
+  # ---------------- Tier 3: two parallel assemblers (data artifacts + dossier) ----------------
+
+  - id: ledger-assembler
+    parallel_group: assemble
+    depends_on: [consolidator-group-a, consolidator-group-b, consolidator-group-c]
+    subagent_type: explore
+    description: >-
+      From the three consolidations (region_a_consolidated.csv, region_b_consolidated.csv and
+      region_c_consolidated.csv) produce four data deliverables under /logs/agent/: the merged
+      chronology ledger enforcement_chronology.csv (schema finding_id,order_id,discharger,
+      county,waterway,apn,event_date,topic,regulator_finding,quote,source_url), keeping every
+      distinct grounded finding rather than trimming to a handful; the crosslink_matrix.csv
+      (schema discharger,apn,order_id,waterway,county,supersedes,superseded_by,related_orders);
+      the contradiction_log.csv (schema issue_id,order_id,issue_type,description,
+      related_order_id,quote,source_url); and the three charts drawn straight off the ledger,
+      chart_findings_by_topic.png, chart_findings_by_county.png and chart_findings_by_waterway.png.
+      Do not write site_dossier.docx - the dossier author handles that from the same
+      consolidations.
+
+  - id: dossier-author
+    parallel_group: assemble
+    depends_on: [consolidator-group-a, consolidator-group-b, consolidator-group-c]
+    subagent_type: explore
+    description: >-
+      Write the centerpiece narrative deliverable site_dossier.docx under /logs/agent/,
+      covering the content and the sections the instruction requires of the dossier. This is
+      your only job, so make it thorough (well over 1500 words) and finish it. Base every
+      part of it on the three consolidations (region_a_consolidated.csv,
+      region_b_consolidated.csv, region_c_consolidated.csv and their notes) so the dossier
+      agrees with the ledger, crosslink matrix and charts on the same dischargers, sites and
+      counts, and say something specific to each site rather than the same line with the name
+      swapped.

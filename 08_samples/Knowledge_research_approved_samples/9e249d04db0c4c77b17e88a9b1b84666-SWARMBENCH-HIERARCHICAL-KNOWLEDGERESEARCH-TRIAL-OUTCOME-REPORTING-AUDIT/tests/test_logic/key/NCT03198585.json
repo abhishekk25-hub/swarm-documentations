@@ -1,0 +1,626 @@
+{
+ "nct": "NCT03198585",
+ "prespecification_version": 1,
+ "prespecification_date": "2017-06-29",
+ "publications": [
+  "PMC13235861",
+  "PMC6588901",
+  "PMC8882292"
+ ],
+ "prespecified_units": [
+  {
+   "uid": "pri1",
+   "measure": "Change in plasma concentrations of NT-proBNP",
+   "role": "primary",
+   "timeframe": "90 days",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC13235861",
+   "reported_label": "NT-proBNP",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This is an exploratory substudy analysis from the Empire HF trial, which has been previously published.",
+   "result_quote": "NT-proBNP, median (IQR), ng/L\n582\n478\n-47 [660]\n605\n520\n3 [675]\n-50\n[-240 to 141]\n0.610\n\n[303-1020]\n[278-968]\n[309-1080]\n[262-1085]"
+  },
+  {
+   "uid": "sec1",
+   "measure": "Change in daily activity level measured by patient-worn accelerometers as change in the amount of daily average accelerometer units",
+   "role": "secondary",
+   "timeframe": "90 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec2",
+   "measure": "Change in body composition assessed by DXA scan",
+   "role": "secondary",
+   "timeframe": "90 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec4",
+   "measure": "Change in plasma volume assessed by hematocrit and hemoglobin",
+   "role": "secondary",
+   "timeframe": "90 days",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC8882292",
+   "reported_label": "Plasma volume (mL)",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "The increase in plasma GDF15 was inversely associated with a decrease in left ventricular end-systolic ( R  = - 0.23, p = 0.031), and end-diastolic volume ( R  = - 0.29, p = 0.0066)."
+  },
+  {
+   "uid": "sec5",
+   "measure": "Change in glucose metabolism assessed by oral glucose tolerance test",
+   "role": "secondary",
+   "timeframe": "90 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec6",
+   "measure": "Change in ketone supply to the heart assessed by blood ketones",
+   "role": "secondary",
+   "timeframe": "90 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec7",
+   "measure": "Change in renal function assessed by Cr-51 EDTA clearance",
+   "role": "secondary",
+   "timeframe": "90 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec8",
+   "measure": "Change in uric acid",
+   "role": "secondary",
+   "timeframe": "90 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec9",
+   "measure": "Change in urine albumin/creatinine ratio",
+   "role": "secondary",
+   "timeframe": "90 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec12",
+   "measure": "Cardiac hemodynamics during sub-maximal exercise assessed by right heart catheterization including pulmonary capillary wedge pressure to cardiac index ratio",
+   "role": "secondary",
+   "timeframe": "90 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec13",
+   "measure": "Cardiac hemodynamics during sub-maximal exercise assessed by right heart catheterization including left ventricular contractile reserve",
+   "role": "secondary",
+   "timeframe": "90 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec14",
+   "measure": "Health-related quality of life assessed by the questionnaire KCCQ",
+   "role": "secondary",
+   "timeframe": "90 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec15",
+   "measure": "Health-related quality of life assessed by the questionnaire EQ-5D-5L",
+   "role": "secondary",
+   "timeframe": "90 days",
+   "reported": false,
+   "change_disclosed": false
+  }
+ ],
+ "additional_units": [
+  {
+   "rid": "PMC13235861#0",
+   "reporting_document": "PMC13235861",
+   "reported_label": "changes in RV free wall strain (RVFWS)",
+   "reported_instrument": "Q-analysis of the Echopac software",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary endpoint of this exploratory substudy was changes in RV free wall strain (RVFWS) across the whole cohort.",
+   "result_quote": "1 RV dysfunction is associated with progression and prognosis in HF patients, 2 with earlier studies showing that each 1% worsening in RV free wall strain (RVFWS) was independently associated with a 5% increased risk of all-cause mortality."
+  },
+  {
+   "rid": "PMC13235861#1",
+   "reporting_document": "PMC13235861",
+   "reported_label": "RVFWS",
+   "reported_instrument": "Q-analysis of the Echopac software",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary efficacy measure in the exploratory substudy was the between-group difference in the change in RVFWS from baseline to 12-week follow-up.",
+   "result_quote": "RVFWS, mean [SD], %\n-16.4\n[6.2]\n-16.0\n[5.8]\n-0.2\n[5.5]\n-16.9\n[5.9]\n-16.0\n[5.4]\n1.0\n[4.0]\n-2.4\n[-2.4 to 0.7]\n0.295"
+  },
+  {
+   "rid": "PMC13235861#2",
+   "reporting_document": "PMC13235861",
+   "reported_label": "Lower RVFWS tertile",
+   "reported_instrument": "Q-analysis of the Echopac software",
+   "reported_role": "primary",
+   "role_evidence_quote": "RVFWS was also stratified into tertiles based on baseline RVFWS.",
+   "result_quote": "patients in the lowest tertile demonstrated a significant improvement with empagliflozin (treatment effect: -2.9% [95% CI: -5.0 to -0.3]; P = .027)."
+  },
+  {
+   "rid": "PMC13235861#3",
+   "reporting_document": "PMC13235861",
+   "reported_label": "Lower RVFWS tertile",
+   "reported_instrument": "Q-analysis of the Echopac software",
+   "reported_role": "primary",
+   "role_evidence_quote": "Patients were stratified into subgroups based on tertiles of baseline values of RVFWS.",
+   "result_quote": "Lower RVFWS tertile, mean [SD], %\n-9.7\n[2.4]\n-14.1\n[4.9]\n-4.2\n[5.0]\n-11.3\n[2.6]\n-12.7\n[5.1]\n-0.9\n[4.4]\n-2.9\n[-5.0 to -0.3]\n0.027"
+  },
+  {
+   "rid": "PMC13235861#4",
+   "reporting_document": "PMC13235861",
+   "reported_label": "Middle RVFWS tertile",
+   "reported_instrument": "Q-analysis of the Echopac software",
+   "reported_role": "primary",
+   "role_evidence_quote": "Patients were stratified into subgroups based on tertiles of baseline values of RVFWS.",
+   "result_quote": "Middle RVFWS tertile, mean [SD], %\n-15.9\n[1.6]\n-14.8\n[5.1]\n1.1\n[4.9]\n-16.1\n[1.2]\n-14.7\n[2.67]\n1.4\n[2.4]\n-0.3\n[-2.4 to 1.8]\n0.786"
+  },
+  {
+   "rid": "PMC13235861#5",
+   "reporting_document": "PMC13235861",
+   "reported_label": "Upper RVFWS tertile",
+   "reported_instrument": "Q-analysis of the Echopac software",
+   "reported_role": "primary",
+   "role_evidence_quote": "Patients were stratified into subgroups based on tertiles of baseline values of RVFWS.",
+   "result_quote": "Upper RVFWS tertile, mean [SD], %\n-23.4\n[3.9]\n-20.9\n[4.9]\n2.7\n[4.3]\n-23.2\n[4.9]\n-20.5\n[5.12]\n2.2\n[4.5]\n0.2\n[-2.4 to 2.6]\n0.943"
+  },
+  {
+   "rid": "PMC13235861#6",
+   "reporting_document": "PMC13235861",
+   "reported_label": "changes in tricuspid annular plane systolic excursion (TAPSE)",
+   "reported_instrument": "M-mode cursor over the lateral tricuspid annulus",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary endpoints included changes in tricuspid annular plane systolic excursion (TAPSE) and RV S' velocity.",
+   "result_quote": "Compared to placebo, empagliflozin did not have a significant impact on TAPSE [adjusted treatment effect: -0.06 cm (95% CI: -0.18 to 0.07); P = .78] or RV S' [adjusted treatment effect: -0.006 cm/s (95%: -0.014 to 0.002); P = .14], on the overall population ( Table 3 , Figure 1 )."
+  },
+  {
+   "rid": "PMC13235861#7",
+   "reporting_document": "PMC13235861",
+   "reported_label": "TAPSE",
+   "reported_instrument": "M-mode cursor over the lateral tricuspid annulus",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary exploratory measures included the between-group differences in the changes of TAPSE and RV S' velocity.",
+   "result_quote": "TAPSE, mean [SD], cm\n2.1\n[0.6]\n2.0\n[0.6]\n-0.1\n[0.4]\n2.1\n[0.6]\n2.1\n[0.6]\n0.0\n[0.4]\n-0.06\n[-0.18 to 0.07]\n0.378"
+  },
+  {
+   "rid": "PMC13235861#8",
+   "reporting_document": "PMC13235861",
+   "reported_label": "RV S' velocity",
+   "reported_instrument": "tissue Doppler imaging (TDI)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary endpoints included changes in tricuspid annular plane systolic excursion (TAPSE) and RV S' velocity.",
+   "result_quote": "RV S' wave was measured using tissue Doppler imaging (TDI) from the A4C view by placing the Doppler cursor on the lateral tricuspid annulus to record the peak systolic velocity (S' wave) in cm/s, representing RV longitudinal systolic function."
+  },
+  {
+   "rid": "PMC13235861#9",
+   "reporting_document": "PMC13235861",
+   "reported_label": "RV S'",
+   "reported_instrument": "tissue Doppler imaging (TDI)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary exploratory measures included the between-group differences in the changes of TAPSE and RV S' velocity.",
+   "result_quote": "RV S', mean [SD], m/s\n0.11\n[0.03]\n0.10\n[0.03]\n-0.01\n[0.02]\n0.11\n[0.03]\n0.11\n[0.03]\n0.01\n[0.03]\n-0.006\n[-0.0136 to 0.0019]\n0.141"
+  },
+  {
+   "rid": "PMC13235861#10",
+   "reporting_document": "PMC13235861",
+   "reported_label": "TR max PG",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This is an exploratory substudy analysis from the Empire HF trial, which has been previously published.",
+   "result_quote": "TR max PG, mean[SD], mmHg\n21\n[12]\n20\n[10]\n-0.6\n[11]\n21\n[9]\n21\n[9]\n0.3\n[9.0]\n-0.7\n[-3.9 to 1.8]\n0.646"
+  },
+  {
+   "rid": "PMC13235861#11",
+   "reporting_document": "PMC13235861",
+   "reported_label": "LVEF",
+   "reported_instrument": "biplane method of disks (Simpsons s Biplane)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Importantly, this study is exploratory, which should be taken into account when interpreting the cardiac reverse remodelling results.",
+   "result_quote": "LVEF, mean [SD], %\n35\n[9.2]\n37\n[10.9]\n2.4\n[7.5]\n36\n[9.3]\n38\n[9.0]\n1.0\n[8.4]\n1.2\n[-1.2 to 3.6]\n0.315"
+  },
+  {
+   "rid": "PMC13235861#12",
+   "reporting_document": "PMC13235861",
+   "reported_label": "LV Mass index",
+   "reported_instrument": "biplane method of disks (Simpsons s Biplane)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Importantly, this study is exploratory, which should be taken into account when interpreting the cardiac reverse remodelling results.",
+   "result_quote": "LV Mass index, mean [SD], g/m 2\n41\n[20]\n40\n[17]\n-1.1\n[8]\n36\n[13]\n37\n[13]\n1.4\n[8]\n-2.5\n[-4.4 to -0.8]\n0.043"
+  },
+  {
+   "rid": "PMC13235861#13",
+   "reporting_document": "PMC13235861",
+   "reported_label": "LV End-diastolic volume",
+   "reported_instrument": "biplane method of disks (Simpsons s Biplane)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Importantly, this study is exploratory, which should be taken into account when interpreting the cardiac reverse remodelling results.",
+   "result_quote": "LV End-diastolic volume, mean (SD), mL\n167\n[79]\n154\n[57]\n-8.9\n[30]\n159\n[60]\n160\n[57]\n2.8\n[39.5]\n-12\n[-22.4 to -1.2]\n0.029"
+  },
+  {
+   "rid": "PMC13235861#14",
+   "reporting_document": "PMC13235861",
+   "reported_label": "LV End-systolic volume",
+   "reported_instrument": "biplane method of disks (Simpsons s Biplane)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Importantly, this study is exploratory, which should be taken into account when interpreting the cardiac reverse remodelling results.",
+   "result_quote": "LV End-systolic volume, mean (SD), mL\n112\n[66]\n100\n[50]\n-8.5\n[26]\n104\n[48]\n102\n[44]\n0.2\n[31.2]\n-9\n[-17.5 to -0.2]\n0.046"
+  },
+  {
+   "rid": "PMC13235861#15",
+   "reporting_document": "PMC13235861",
+   "reported_label": "Systolic",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This is an exploratory substudy analysis from the Empire HF trial, which has been previously published.",
+   "result_quote": "Systolic, mean (SD), mmHg\n119\n[18]\n115\n[14]\n-4.4\n[15]\n121\n[16]\n121\n[14]\n0.2\n[13]\n-5\n[-8.6 to -0.6]\n0.023"
+  },
+  {
+   "rid": "PMC13235861#16",
+   "reporting_document": "PMC13235861",
+   "reported_label": "Diastolic",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This is an exploratory substudy analysis from the Empire HF trial, which has been previously published.",
+   "result_quote": "Diastolic, mean (SD), mmHg\n72\n[11]\n71\n[10]\n-1.0\n[10]\n74\n[12]\n72\n[12]\n-1.3\n[9]\n0.3\n[-2.5 to 3.0]\n0.838"
+  },
+  {
+   "rid": "PMC13235861#18",
+   "reporting_document": "PMC13235861",
+   "reported_label": "Haematocrit",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This is an exploratory substudy analysis from the Empire HF trial, which has been previously published.",
+   "result_quote": "Haematocrit, mean [SD], %\n42\n[4]\n44\n[4]\n2.1\n[2.4]\n41\n[4]\n41\n[4]\n-0.1\n[2.3]\n2.1\n[1.47 to 2.81]\n<0.001"
+  },
+  {
+   "rid": "PMC13235861#19",
+   "reporting_document": "PMC13235861",
+   "reported_label": "Plasma volume",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This is an exploratory substudy analysis from the Empire HF trial, which has been previously published.",
+   "result_quote": "Plasma volume, mean [SD], mL\n3040\n[409]\n2898\n[383]\n-135\n[135]\n3181\n[460]\n3187\n[424]\n9\n[144]\n-144\n[-184 to -104]\n<0.001"
+  },
+  {
+   "rid": "PMC13235861#20",
+   "reporting_document": "PMC13235861",
+   "reported_label": "Weight",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This is an exploratory substudy analysis from the Empire HF trial, which has been previously published.",
+   "result_quote": "Weight, mean [SD], kg\n90.8\n[16.6]\n89.4\n[16.1]\n-1.18\n[1.8]\n94.2\n[18.4]\n94.2\n[17.6]\n0.16\n[2.64]\n-1.3\n[-2.0 to -0.7]\n<0.001"
+  },
+  {
+   "rid": "PMC13235861#21",
+   "reporting_document": "PMC13235861",
+   "reported_label": "BMI",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This is an exploratory substudy analysis from the Empire HF trial, which has been previously published.",
+   "result_quote": "BMI, mean [SD], kg/m 2\n29.3\n[4.5]\n28.9\n[4.3]\n-0.4\n[0.6]\n29.8\n[5.4]\n29.7\n[5.2]\n0.1\n[0.8]\n-0.4\n[-0.6 to -0.2]\n<0.001"
+  },
+  {
+   "rid": "PMC8882292#0",
+   "reporting_document": "PMC8882292",
+   "reported_label": "plasma GDF-15",
+   "reported_instrument": "GDF-15 Roche Elecsys Assay",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary efficacy measure was the between-group difference in the change of plasma GDF-15 from baseline to 12 weeks follow-up.",
+   "result_quote": "Patients treated with empagliflozin experienced a statistically significant (9%) increase in plasma GDF-15 compared to placebo (adjusted ratio of change: 1.09 [95% confidence interval (CI), 1.03 to 1.15]: p = 0.0040)."
+  },
+  {
+   "rid": "PMC8882292#1",
+   "reporting_document": "PMC8882292",
+   "reported_label": "GDF-15 (pg/mL)",
+   "reported_instrument": "GDF-15 Roche Elecsys Assay",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary efficacy measure was the between-group difference in the change of plasma GDF-15 from baseline to 12 weeks follow-up.",
+   "result_quote": "Plasma growth differentiation factor-15 (GDF-15) biomarker levels increase in response to inflammation and tissue injury, and increased levels of GDF-15 are associated with increased risk of mortality in patients with heart failure with reduced ejection fraction (HFrEF)."
+  },
+  {
+   "rid": "PMC8882292#2",
+   "reporting_document": "PMC8882292",
+   "reported_label": "GDF-15 (pg/mL)",
+   "reported_instrument": "GDF-15 Roche Elecsys Assay",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary efficacy measure was the between-group difference in the change of plasma GDF-15 from baseline to 12 weeks follow-up.",
+   "result_quote": "Plasma growth differentiation factor-15 (GDF-15) biomarker levels increase in response to inflammation and tissue injury, and increased levels of GDF-15 are associated with increased risk of mortality in patients with heart failure with reduced ejection fraction (HFrEF)."
+  },
+  {
+   "rid": "PMC8882292#3",
+   "reporting_document": "PMC8882292",
+   "reported_label": "plasma GDF-15",
+   "reported_instrument": "GDF-15 Roche Elecsys Assay",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary efficacy measure was the between-group difference in the change of plasma GDF-15 from baseline to 12 weeks follow-up.",
+   "result_quote": "Median plasma GDF-15 was 1189 (918-1720) pg/mL at baseline, and 1394 (970-1942) pg/mL at 12 weeks with Empagliflozin."
+  },
+  {
+   "rid": "PMC8882292#4",
+   "reporting_document": "PMC8882292",
+   "reported_label": "plasma GDF-15",
+   "reported_instrument": "GDF-15 Roche Elecsys Assay",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary efficacy measure was the between-group difference in the change of plasma GDF-15 from baseline to 12 weeks follow-up.",
+   "result_quote": "Placebo: median plasma GDF-15 at baseline and at 12 weeks was baseline 1299 (952-1823) pg/mL, and 1271 (879-1872) pg/mL, respectively (Table 2 ; Fig. 2 )."
+  },
+  {
+   "rid": "PMC8882292#5",
+   "reporting_document": "PMC8882292",
+   "reported_label": "plasma GDF-15",
+   "reported_instrument": "GDF-15 Roche Elecsys Assay",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary efficacy measure was the between-group difference in the change of plasma GDF-15 from baseline to 12 weeks follow-up.",
+   "result_quote": "Median plasma GDF-15 was 1980 (1434-2608) pg/mL in the 23 (12%) patients with diabetes compared to those without 1169 (861-1632) pg/mL, with a borderline tendency towards no effect in patients with diabetes, p for interaction 0.08."
+  },
+  {
+   "rid": "PMC8882292#6",
+   "reporting_document": "PMC8882292",
+   "reported_label": "plasma GDF-15",
+   "reported_instrument": "GDF-15 Roche Elecsys Assay",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary efficacy measure was the between-group difference in the change of plasma GDF-15 from baseline to 12 weeks follow-up.",
+   "result_quote": "In the small group of patients with diabetes and who were treated with metformin there was no increase in plasma GDF-15 with empagliflozin, p for interaction = 0.01 (Fig. 3 )."
+  },
+  {
+   "rid": "PMC8882292#7",
+   "reporting_document": "PMC8882292",
+   "reported_label": "plasma hsCRP",
+   "reported_instrument": "Atellica essay, and Cobas8000 platform",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary exploratory measures included the between-group differences in the changes of hsCRP and hsTNT.",
+   "result_quote": "There were no significant changes in the inflammatory biomarker plasma hsCRP (adjusted ratio of change: 1.09 [95%CI, 0.86 to 1.38]: p = 0.48), nor in hsTNT (adjusted ratio of change: 1.09 [95%CI, 0.97 to 1.19]: p = 0.18) in patients treated with empagliflozin compared to placebo (Table 2 )."
+  },
+  {
+   "rid": "PMC8882292#8",
+   "reporting_document": "PMC8882292",
+   "reported_label": "hsCRP (mg/L)",
+   "reported_instrument": "Atellica essay, and Cobas8000 platform",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary exploratory measures included the between-group differences in the changes of hsCRP and hsTNT.",
+   "result_quote": "Changes from baseline to 12 weeks in plasma levels of GDF-15, high-sensitive C-reactive protein (hsCRP), and high-sensitive troponin T (hsTNT) were assessed."
+  },
+  {
+   "rid": "PMC8882292#9",
+   "reporting_document": "PMC8882292",
+   "reported_label": "hsCRP (mg/L)",
+   "reported_instrument": "Atellica essay, and Cobas8000 platform",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary exploratory measures included the between-group differences in the changes of hsCRP and hsTNT.",
+   "result_quote": "Changes from baseline to 12 weeks in plasma levels of GDF-15, high-sensitive C-reactive protein (hsCRP), and high-sensitive troponin T (hsTNT) were assessed."
+  },
+  {
+   "rid": "PMC8882292#10",
+   "reporting_document": "PMC8882292",
+   "reported_label": "plasma hsTNT",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary exploratory measures included the between-group differences in the changes of hsCRP and hsTNT.",
+   "result_quote": "There were no significant changes in the inflammatory biomarker plasma hsCRP (adjusted ratio of change: 1.09 [95%CI, 0.86 to 1.38]: p = 0.48), nor in hsTNT (adjusted ratio of change: 1.09 [95%CI, 0.97 to 1.19]: p = 0.18) in patients treated with empagliflozin compared to placebo (Table 2 )."
+  },
+  {
+   "rid": "PMC8882292#11",
+   "reporting_document": "PMC8882292",
+   "reported_label": "hsTNT (ng/L)",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary exploratory measures included the between-group differences in the changes of hsCRP and hsTNT.",
+   "result_quote": "Changes from baseline to 12 weeks in plasma levels of GDF-15, high-sensitive C-reactive protein (hsCRP), and high-sensitive troponin T (hsTNT) were assessed."
+  },
+  {
+   "rid": "PMC8882292#12",
+   "reporting_document": "PMC8882292",
+   "reported_label": "hsTNT (ng/L)",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary exploratory measures included the between-group differences in the changes of hsCRP and hsTNT.",
+   "result_quote": "Changes from baseline to 12 weeks in plasma levels of GDF-15, high-sensitive C-reactive protein (hsCRP), and high-sensitive troponin T (hsTNT) were assessed."
+  },
+  {
+   "rid": "PMC8882292#13",
+   "reporting_document": "PMC8882292",
+   "reported_label": "LVESV (mL)",
+   "reported_instrument": "biplane method of disks",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "The increase in plasma GDF-15 from baseline to 12 weeks by empagliflozin was inversely correlated with a decrease in LVESV ( R  = - 0.23, p = 0.031), and LVEDV ( R  = - 0.29, p = 0.0066), with a significant between-group difference association to the change in GDF-15 (Table 3 )."
+  },
+  {
+   "rid": "PMC8882292#14",
+   "reporting_document": "PMC8882292",
+   "reported_label": "BMI (kg/ m 2 )",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "weight, BMI, HbA 1C , and the renal parameters;"
+  },
+  {
+   "rid": "PMC8882292#16",
+   "reporting_document": "PMC8882292",
+   "reported_label": "baseline plasma levels of GDF-15",
+   "reported_instrument": "GDF-15 Roche Elecsys Assay",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "Baseline plasma levels of GDF-15 were associated with the baseline plasma levels of hsCRP ( R  = 0.22, p = 0.0020), hsTNT ( R  = 0.32, p < 0.0001), and NT-proBNP ( R  = 0.37, p < 0.0001)."
+  },
+  {
+   "rid": "PMC8882292#17",
+   "reporting_document": "PMC8882292",
+   "reported_label": "the change in GDF-15",
+   "reported_instrument": "GDF-15 Roche Elecsys Assay",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "The increase in plasma GDF-15 from baseline to 12 weeks by empagliflozin was inversely correlated with a decrease in LVESV ( R  = - 0.23, p = 0.031), and LVEDV ( R  = - 0.29, p = 0.0066), with a significant between-group difference association to the change in GDF-15 (Table 3 )."
+  },
+  {
+   "rid": "PMC8882292#18",
+   "reporting_document": "PMC8882292",
+   "reported_label": "LVESV (mL)",
+   "reported_instrument": "biplane method of disks",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "LVESV (mL)\n - 0.23\n0.031\n0.099\n0.37\n0.035"
+  },
+  {
+   "rid": "PMC8882292#19",
+   "reporting_document": "PMC8882292",
+   "reported_label": "LVEDV (mL)",
+   "reported_instrument": "biplane method of disks",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "LVEDV (mL)\n - 0.29\n0.0066\n0.12\n0.29\n0.011"
+  },
+  {
+   "rid": "PMC8882292#20",
+   "reporting_document": "PMC8882292",
+   "reported_label": "LVM (g/m 2 )",
+   "reported_instrument": "biplane method of disks",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "There was no association between the increase in plasma GDF-15 and the decreases in LAVI, or LVM (Table 3 )."
+  },
+  {
+   "rid": "PMC8882292#21",
+   "reporting_document": "PMC8882292",
+   "reported_label": "LVM (g/m 2 )",
+   "reported_instrument": "biplane method of disks",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "LVM (g/m 2 )\n - 0.10\n0.32\n0.03\n0.77\n0.36"
+  },
+  {
+   "rid": "PMC8882292#22",
+   "reporting_document": "PMC8882292",
+   "reported_label": "LAVI (ml/m 2 )",
+   "reported_instrument": "biplane method of disks",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "There was no association between the increase in plasma GDF-15 and the decreases in LAVI, or LVM (Table 3 )."
+  },
+  {
+   "rid": "PMC8882292#23",
+   "reporting_document": "PMC8882292",
+   "reported_label": "LAVI (ml/m 2 )",
+   "reported_instrument": "biplane method of disks",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "LAVI (ml/m 2 )\n - 0.02\n0.86\n0.05\n0.64\n0.64"
+  },
+  {
+   "rid": "PMC8882292#24",
+   "reporting_document": "PMC8882292",
+   "reported_label": "systolic blood pressure",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "Finally, there was a borderline significant association between the increase in plasma GDF-15 with the decrease in systolic blood pressure from baseline to follow-up ( R  = - 0.20, p = 0.052) (Table 3 )."
+  },
+  {
+   "rid": "PMC8882292#25",
+   "reporting_document": "PMC8882292",
+   "reported_label": "SBP (mmHg)",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "SBP (mmHg)\n - 0.20\n0.052\n - 0.12\n0.24\n0.50"
+  },
+  {
+   "rid": "PMC8882292#26",
+   "reporting_document": "PMC8882292",
+   "reported_label": "weight loss",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "The increase in plasma GDF-15 from baseline in empagliflozin recipients was unrelated to weight loss ( R  = - 0.10, p = 0.42), or BMI ( R  = - 0.089, p = 0.39) (Tables 2 , 3 )."
+  },
+  {
+   "rid": "PMC8882292#27",
+   "reporting_document": "PMC8882292",
+   "reported_label": "Weight (kg)",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "Weight (kg)\n - 0.08\n0.418\n - 0.24\n0.020\n0.13"
+  },
+  {
+   "rid": "PMC8882292#28",
+   "reporting_document": "PMC8882292",
+   "reported_label": "HbA1c (mmol/L)",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "There was no significant correlation between the increase in plasma GDF-15 and the decrease in plasma volume ( R  = 0.015, p = 0.89), the decrease HbA1c ( R  = 0.14, p = 0.18), or the increase in haematocrit ( R  = - 0.043, p = 0.68) (Tables 2 , 3 )."
+  },
+  {
+   "rid": "PMC8882292#29",
+   "reporting_document": "PMC8882292",
+   "reported_label": "HbA1c (mmol/L)",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "HbA1c (mmol/L)\n0.08\n0.429\n - 0.15\n0.147\n0.096"
+  },
+  {
+   "rid": "PMC8882292#30",
+   "reporting_document": "PMC8882292",
+   "reported_label": "BMI (kg/m 2 )",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "BMI (kg/m 2 )\n - 0.10\n0.394\n - 0.26\n0.012\n0.12"
+  },
+  {
+   "rid": "PMC8882292#31",
+   "reporting_document": "PMC8882292",
+   "reported_label": "Haematocrit (%)",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "Haematocrit (%)\n - 0.04\n0.679\n - 0.03\n0.76\n0.94"
+  },
+  {
+   "rid": "PMC8882292#32",
+   "reporting_document": "PMC8882292",
+   "reported_label": "Plasma volume (mL)",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "There was no significant correlation between the increase in plasma GDF-15 and the decrease in plasma volume ( R  = 0.015, p = 0.89), the decrease HbA1c ( R  = 0.14, p = 0.18), or the increase in haematocrit ( R  = - 0.043, p = 0.68) (Tables 2 , 3 )."
+  },
+  {
+   "rid": "PMC8882292#33",
+   "reporting_document": "PMC8882292",
+   "reported_label": "Plasma volume (mL)",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "Plasma volume (mL)\n0.01\n0.887\n - 0.07\n0.498\n0.55"
+  },
+  {
+   "rid": "PMC8882292#34",
+   "reporting_document": "PMC8882292",
+   "reported_label": "eGFR (mL/min/1 73 m 2 )",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pearson's correlation coefficients, the corresponding two-sided 95%CIs, and p-values were calculated to examine the association between the change in the log-transformed plasma GDF-15 concentrations from baseline to 12 weeks and the following changes in the cardiac, renal, and metabolic measurements; LVESV, LVEDV, LAVI, LVM, systolic blood pressure, the metabolic parameters; weight, BMI, HbA 1C , and the renal parameters; haematocrit, estimated glomerular filtration rate (eGFR), and plasma volume.",
+   "result_quote": "eGFR (mL/min/1 73 m 2 )\n - 0.42\n < 0.0001\n - 0.53\n < 0.0001\n0.68"
+  }
+ ],
+ "dropped_unusable_units": []
+}

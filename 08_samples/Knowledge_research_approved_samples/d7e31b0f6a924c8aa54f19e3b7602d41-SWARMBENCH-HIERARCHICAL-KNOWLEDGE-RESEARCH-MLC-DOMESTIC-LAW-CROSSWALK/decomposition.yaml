@@ -1,0 +1,243 @@
+version: '1.0'
+coordination_pattern: hierarchical
+orchestrator_guidance: 'Optimize for one-pass execution. Dispatch frame--as-of and prep--provision-index together, then dispatch the four cluster leads together. The orchestrator never dispatches a crosswalk--* role: each cluster lead exclusively spawns its own six listed band workers, waits for those six sessions to finish, and returns their completion summary. After all leads return, dispatch the four cluster reducers together, then dispatch reduce--workbook-rows, reduce--unresolved-queue, reduce--lineage-graph and reduce--source-coverage together. Dispatch publish--workbook next and publish--board-package last. Every role has one owner. The orchestrator itself does not retry, respawn, recursively delegate, or redispatch a role; report a failed dispatch once in the final report and never initiate a replacement at the orchestrator level. Each cluster lead retains a bounded, at-most-once-per-worker dispatch allowance for its own six band workers, described in each lead''s own sub-task entry below. Open a downstream stage when its declared dependencies have returned, not by polling or duplicating their work. The orchestrator writes no deliverable, no sub-task may write a deliverable another sub-task owns, and only the four cluster leads spawn sub-agents.'
+sub_tasks:
+- id: frame--as-of
+  parallel_group: prepare
+  depends_on: []
+  description: 'You own the crosswalk as-of frame and nothing else: confirm the cutoff date 2026-07-30, the twelve iso3 codes and the citation conventions section 4 of /input_artifacts/crosswalk_standard.md governs, then read /input_artifacts/common/mlc_compendium_2026.txt for the ratification date of each of the twelve jurisdictions and /input_artifacts/common/mlc_article22_report_form_2025.txt for the reporting headings a jurisdiction has to answer under, and /input_artifacts/corpus_note.md for the archivist''s account of the staged corpus. Report, as text, the cutoff, the jurisdiction list in csv order with each ratification date, the Article 22 reporting headings, the instrument_id naming rule and what the corpus note records about the staged files. Write no files under /logs/agent and do not spawn sub-agents.'
+- id: prep--provision-index
+  parallel_group: prepare
+  depends_on: []
+  description: 'You own the provision-band index and nothing else: read /input_artifacts/provisions_registry.csv and section 2 of /input_artifacts/crosswalk_standard.md, and report the twenty-four band_ids with their provision_id lists and cluster_ids as text. Write no files under /logs/agent and do not spawn sub-agents.'
+- id: lead--c1
+  parallel_group: root
+  depends_on:
+  - frame--as-of
+  - prep--provision-index
+  description: You are the dispatch lead for cluster C1 (minimum requirements for seafarers) and provide dispatch context only. After frame--as-of and prep--provision-index have returned, dispatch exactly the six crosswalk sub-agents for your cluster (crosswalk--c1-b01, crosswalk--c1-b02, crosswalk--c1-b03, crosswalk--c1-b04, crosswalk--c1-b05, crosswalk--c1-b06), one per band sub-task, passing the frame and provision-index results in each dispatch. Wait for all six sessions to finish. You may dispatch any one of your six band sub-tasks a second time, at most once per band sub-task; spawn no other replacements and no further sub-agents. Do not read domestic sources or write shard files. Return one text completion summary naming the six band_ids, the shard files delivered, and any band you dispatched a second time; write no files under /logs/agent.
+- id: lead--c2
+  parallel_group: root
+  depends_on:
+  - frame--as-of
+  - prep--provision-index
+  description: You are the dispatch lead for cluster C2 (conditions of employment) and provide dispatch context only. After frame--as-of and prep--provision-index have returned, dispatch exactly the six crosswalk sub-agents for your cluster (crosswalk--c2-b07, crosswalk--c2-b08, crosswalk--c2-b09, crosswalk--c2-b10, crosswalk--c2-b11, crosswalk--c2-b12), one per band sub-task, passing the frame and provision-index results in each dispatch. Wait for all six sessions to finish. You may dispatch any one of your six band sub-tasks a second time, at most once per band sub-task; spawn no other replacements and no further sub-agents. Do not read domestic sources or write shard files. Return one text completion summary naming the six band_ids, the shard files delivered, and any band you dispatched a second time; write no files under /logs/agent.
+- id: lead--c3
+  parallel_group: root
+  depends_on:
+  - frame--as-of
+  - prep--provision-index
+  description: You are the dispatch lead for cluster C3 (accommodation, food, medical and welfare) and provide dispatch context only. After frame--as-of and prep--provision-index have returned, dispatch exactly the six crosswalk sub-agents for your cluster (crosswalk--c3-b13, crosswalk--c3-b14, crosswalk--c3-b15, crosswalk--c3-b16, crosswalk--c3-b17, crosswalk--c3-b18), one per band sub-task, passing the frame and provision-index results in each dispatch. Wait for all six sessions to finish. You may dispatch any one of your six band sub-tasks a second time, at most once per band sub-task; spawn no other replacements and no further sub-agents. Do not read domestic sources or write shard files. Return one text completion summary naming the six band_ids, the shard files delivered, and any band you dispatched a second time; write no files under /logs/agent.
+- id: lead--c4
+  parallel_group: root
+  depends_on:
+  - frame--as-of
+  - prep--provision-index
+  description: You are the dispatch lead for cluster C4 (compliance and enforcement) and provide dispatch context only. After frame--as-of and prep--provision-index have returned, dispatch exactly the six crosswalk sub-agents for your cluster (crosswalk--c4-b19, crosswalk--c4-b20, crosswalk--c4-b21, crosswalk--c4-b22, crosswalk--c4-b23, crosswalk--c4-b24), one per band sub-task, passing the frame and provision-index results in each dispatch. Wait for all six sessions to finish. You may dispatch any one of your six band sub-tasks a second time, at most once per band sub-task; spawn no other replacements and no further sub-agents. Do not read domestic sources or write shard files. Return one text completion summary naming the six band_ids, the shard files delivered, and any band you dispatched a second time; write no files under /logs/agent.
+- id: crosswalk--c1-b01
+  parallel_group: band
+  depends_on:
+  - lead--c1
+  description: 'You own provision band B01 of cluster C1 and nothing else. Start after lead--c1 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C1-B01.json to the contract of section 9.1. Use the dispatch context from lead--c1. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c1-b02
+  parallel_group: band
+  depends_on:
+  - lead--c1
+  description: 'You own provision band B02 of cluster C1 and nothing else. Start after lead--c1 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C1-B02.json to the contract of section 9.1. Use the dispatch context from lead--c1. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c1-b03
+  parallel_group: band
+  depends_on:
+  - lead--c1
+  description: 'You own provision band B03 of cluster C1 and nothing else. Start after lead--c1 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C1-B03.json to the contract of section 9.1. Use the dispatch context from lead--c1. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c1-b04
+  parallel_group: band
+  depends_on:
+  - lead--c1
+  description: 'You own provision band B04 of cluster C1 and nothing else. Start after lead--c1 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C1-B04.json to the contract of section 9.1. Use the dispatch context from lead--c1. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c1-b05
+  parallel_group: band
+  depends_on:
+  - lead--c1
+  description: 'You own provision band B05 of cluster C1 and nothing else. Start after lead--c1 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C1-B05.json to the contract of section 9.1. Use the dispatch context from lead--c1. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c1-b06
+  parallel_group: band
+  depends_on:
+  - lead--c1
+  description: 'You own provision band B06 of cluster C1 and nothing else. Start after lead--c1 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C1-B06.json to the contract of section 9.1. Use the dispatch context from lead--c1. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c2-b07
+  parallel_group: band
+  depends_on:
+  - lead--c2
+  description: 'You own provision band B07 of cluster C2 and nothing else. Start after lead--c2 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C2-B07.json to the contract of section 9.1. Use the dispatch context from lead--c2. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c2-b08
+  parallel_group: band
+  depends_on:
+  - lead--c2
+  description: 'You own provision band B08 of cluster C2 and nothing else. Start after lead--c2 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C2-B08.json to the contract of section 9.1. Use the dispatch context from lead--c2. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c2-b09
+  parallel_group: band
+  depends_on:
+  - lead--c2
+  description: 'You own provision band B09 of cluster C2 and nothing else. Start after lead--c2 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C2-B09.json to the contract of section 9.1. Use the dispatch context from lead--c2. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c2-b10
+  parallel_group: band
+  depends_on:
+  - lead--c2
+  description: 'You own provision band B10 of cluster C2 and nothing else. Start after lead--c2 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C2-B10.json to the contract of section 9.1. Use the dispatch context from lead--c2. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c2-b11
+  parallel_group: band
+  depends_on:
+  - lead--c2
+  description: 'You own provision band B11 of cluster C2 and nothing else. Start after lead--c2 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C2-B11.json to the contract of section 9.1. Use the dispatch context from lead--c2. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c2-b12
+  parallel_group: band
+  depends_on:
+  - lead--c2
+  description: 'You own provision band B12 of cluster C2 and nothing else. Start after lead--c2 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C2-B12.json to the contract of section 9.1. Use the dispatch context from lead--c2. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c3-b13
+  parallel_group: band
+  depends_on:
+  - lead--c3
+  description: 'You own provision band B13 of cluster C3 and nothing else. Start after lead--c3 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C3-B13.json to the contract of section 9.1. Use the dispatch context from lead--c3. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c3-b14
+  parallel_group: band
+  depends_on:
+  - lead--c3
+  description: 'You own provision band B14 of cluster C3 and nothing else. Start after lead--c3 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C3-B14.json to the contract of section 9.1. Use the dispatch context from lead--c3. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c3-b15
+  parallel_group: band
+  depends_on:
+  - lead--c3
+  description: 'You own provision band B15 of cluster C3 and nothing else. Start after lead--c3 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C3-B15.json to the contract of section 9.1. Use the dispatch context from lead--c3. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c3-b16
+  parallel_group: band
+  depends_on:
+  - lead--c3
+  description: 'You own provision band B16 of cluster C3 and nothing else. Start after lead--c3 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C3-B16.json to the contract of section 9.1. Use the dispatch context from lead--c3. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c3-b17
+  parallel_group: band
+  depends_on:
+  - lead--c3
+  description: 'You own provision band B17 of cluster C3 and nothing else. Start after lead--c3 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C3-B17.json to the contract of section 9.1. Use the dispatch context from lead--c3. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c3-b18
+  parallel_group: band
+  depends_on:
+  - lead--c3
+  description: 'You own provision band B18 of cluster C3 and nothing else. Start after lead--c3 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C3-B18.json to the contract of section 9.1. Use the dispatch context from lead--c3. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c4-b19
+  parallel_group: band
+  depends_on:
+  - lead--c4
+  description: 'You own provision band B19 of cluster C4 and nothing else. Start after lead--c4 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C4-B19.json to the contract of section 9.1. Use the dispatch context from lead--c4. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c4-b20
+  parallel_group: band
+  depends_on:
+  - lead--c4
+  description: 'You own provision band B20 of cluster C4 and nothing else. Start after lead--c4 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C4-B20.json to the contract of section 9.1. Use the dispatch context from lead--c4. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c4-b21
+  parallel_group: band
+  depends_on:
+  - lead--c4
+  description: 'You own provision band B21 of cluster C4 and nothing else. Start after lead--c4 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C4-B21.json to the contract of section 9.1. Use the dispatch context from lead--c4. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c4-b22
+  parallel_group: band
+  depends_on:
+  - lead--c4
+  description: 'You own provision band B22 of cluster C4 and nothing else. Start after lead--c4 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C4-B22.json to the contract of section 9.1. Use the dispatch context from lead--c4. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c4-b23
+  parallel_group: band
+  depends_on:
+  - lead--c4
+  description: 'You own provision band B23 of cluster C4 and nothing else. Start after lead--c4 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C4-B23.json to the contract of section 9.1. Use the dispatch context from lead--c4. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: crosswalk--c4-b24
+  parallel_group: band
+  depends_on:
+  - lead--c4
+  description: 'You own provision band B24 of cluster C4 and nothing else. Start after lead--c4 has provided dispatch context from frame--as-of and prep--provision-index. For every provision_id in the band and every iso3 in /input_artifacts/jurisdictions.csv, read /input_artifacts/mlc_2006_authoritative.txt, /input_artifacts/source_manifest.json, and /input_artifacts/domestic_sources/<ISO3>/ as defined in section 1.4 of /input_artifacts/crosswalk_standard.md, with status assignment governed by section 3, and write /logs/agent/shards/SHARD-C4-B24.json to the contract of section 9.1. Use the dispatch context from lead--c4. Report, as text, per band: cell count, status counts and unresolved count. Touch no file outside your own shard and spawn no sub-agents.'
+- id: reduce--c1
+  parallel_group: cluster-reduce
+  depends_on:
+  - crosswalk--c1-b01
+  - crosswalk--c1-b02
+  - crosswalk--c1-b03
+  - crosswalk--c1-b04
+  - crosswalk--c1-b05
+  - crosswalk--c1-b06
+  description: 'You own cluster C1 post-leaf synthesis and nothing else. After all six band shards for cluster C1 exist under /logs/agent/shards/, read them and return as text: reconciliation of the six non-overlapping shards covering expected band/shard presence, combined cell and status counts, duplicate or missing canonical cell keys within cluster scope, and instrument_id collisions or conflicts before workbook integration. Write no files under /logs/agent and spawn no sub-agents.'
+- id: reduce--c2
+  parallel_group: cluster-reduce
+  depends_on:
+  - crosswalk--c2-b07
+  - crosswalk--c2-b08
+  - crosswalk--c2-b09
+  - crosswalk--c2-b10
+  - crosswalk--c2-b11
+  - crosswalk--c2-b12
+  description: 'You own cluster C2 post-leaf synthesis and nothing else. After all six band shards for cluster C2 exist under /logs/agent/shards/, read them and return as text: reconciliation of the six non-overlapping shards covering expected band/shard presence, combined cell and status counts, duplicate or missing canonical cell keys within cluster scope, and instrument_id collisions or conflicts before workbook integration. Write no files under /logs/agent and spawn no sub-agents.'
+- id: reduce--c3
+  parallel_group: cluster-reduce
+  depends_on:
+  - crosswalk--c3-b13
+  - crosswalk--c3-b14
+  - crosswalk--c3-b15
+  - crosswalk--c3-b16
+  - crosswalk--c3-b17
+  - crosswalk--c3-b18
+  description: 'You own cluster C3 post-leaf synthesis and nothing else. After all six band shards for cluster C3 exist under /logs/agent/shards/, read them and return as text: reconciliation of the six non-overlapping shards covering expected band/shard presence, combined cell and status counts, duplicate or missing canonical cell keys within cluster scope, and instrument_id collisions or conflicts before workbook integration. Write no files under /logs/agent and spawn no sub-agents.'
+- id: reduce--c4
+  parallel_group: cluster-reduce
+  depends_on:
+  - crosswalk--c4-b19
+  - crosswalk--c4-b20
+  - crosswalk--c4-b21
+  - crosswalk--c4-b22
+  - crosswalk--c4-b23
+  - crosswalk--c4-b24
+  description: 'You own cluster C4 post-leaf synthesis and nothing else. After all six band shards for cluster C4 exist under /logs/agent/shards/, read them and return as text: reconciliation of the six non-overlapping shards covering expected band/shard presence, combined cell and status counts, duplicate or missing canonical cell keys within cluster scope, and instrument_id collisions or conflicts before workbook integration. Write no files under /logs/agent and spawn no sub-agents.'
+- id: reduce--workbook-rows
+  parallel_group: integrate
+  depends_on:
+  - reduce--c1
+  - reduce--c2
+  - reduce--c3
+  - reduce--c4
+  description: Build the row sets for the Mapping, Evidence, Instruments, Amendments and Summary sheets of /logs/agent/mlc_transposition_workbook.xlsx from all twenty-four shard files per sections 9.2 and 13 of /input_artifacts/crosswalk_standard.md. Write the row sets to /workspace/staging/workbook_rows.json as one JSON object keyed by sheet name. Write only that staging file and spawn no sub-agents.
+- id: reduce--unresolved-queue
+  parallel_group: integrate
+  depends_on:
+  - reduce--c1
+  - reduce--c2
+  - reduce--c3
+  - reduce--c4
+  description: Build /logs/agent/unresolved_research_queue.csv to the contract of section 9.4 from all twenty-four shard files. Write only that file and spawn no sub-agents.
+- id: reduce--lineage-graph
+  parallel_group: integrate
+  depends_on:
+  - reduce--c1
+  - reduce--c2
+  - reduce--c3
+  - reduce--c4
+  description: Build /logs/agent/article_lineage_graph.json to the contract of sections 9.3 and 17 from all twenty-four shard files. Write only that file and spawn no sub-agents.
+- id: reduce--source-coverage
+  parallel_group: integrate
+  depends_on:
+  - reduce--c1
+  - reduce--c2
+  - reduce--c3
+  - reduce--c4
+  description: Build /logs/agent/source_coverage.csv to the contract of sections 9.5 and 14 from all twenty-four shard files and /input_artifacts/source_manifest.json. Write only that file and spawn no sub-agents.
+- id: publish--workbook
+  parallel_group: publish
+  depends_on:
+  - reduce--workbook-rows
+  - reduce--unresolved-queue
+  - reduce--source-coverage
+  description: Write /logs/agent/mlc_transposition_workbook.xlsx with six sheets Mapping, Evidence, Instruments, Amendments, Unresolved and Summary per section 9.2, taking row content from /workspace/staging/workbook_rows.json and unresolved rows from /logs/agent/unresolved_research_queue.csv. Write only that file and spawn no sub-agents.
+- id: publish--board-package
+  parallel_group: board-package
+  depends_on:
+  - publish--workbook
+  - reduce--lineage-graph
+  - reduce--unresolved-queue
+  - reduce--source-coverage
+  description: Publish the three mutually reconciled board-facing files from the settled workbook, lineage graph, unresolved queue, source coverage and twenty-four shards. Write /logs/agent/method_audit.json to section 9.6, /logs/agent/comparative_legal_memorandum.md to section 9.7, and /logs/agent/comparative_legal_memorandum.pdf to section 9.8. The audit and memorandum use the same settled figures, and the PDF carries the markdown memorandum. Write only those three files and spawn no sub-agents.

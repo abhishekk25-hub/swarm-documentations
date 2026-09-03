@@ -1,0 +1,3 @@
+# 2025 AIME II Problem 3
+
+Four unit squares form a $2 \times 2$ grid. Each of the $12$ unit line segments forming the sides of the squares is colored either red or blue in such a way that each unit square has $2$ red sides and $2$ blue sides. One example is shown below (red is solid, blue is dashed). Find the number of such colorings.

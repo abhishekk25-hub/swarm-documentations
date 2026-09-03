@@ -1,0 +1,341 @@
+sub_tasks:
+- id: orchestrator--manifest-router
+  depends_on: []
+  parallel_group: discovery
+  agent_type: general
+  description: "You are the Manifest Router. Fetch the listing from https://raw.githubusercontent.com/vinodbaste/swarmbench-competition-math-corpus/main/manifest.json, whose problems array lists the batch, each with id, title, and text_url. Split the problems into six contiguous batches by listing order (batch-a through batch-f, roughly equal in size). Record the routing in /workspace/routing.md as six sections, one per batch, each listing the problems assigned to it with their id, title, and text_url. Do not work the problems yourself."
+- id: lead--batch-a
+  depends_on: [orchestrator--manifest-router]
+  parallel_group: batch-managers
+  agent_type: general
+  description: "You are the Batch-A Manager. From /workspace/routing.md, take only the problems listed under batch-a, and record one assignment per problem under /workspace/assign/batch-a/ as one file per slot from 01 upward, each giving that problem's id, title, and text_url, so every leaf worker in your batch picks up exactly one problem. Do not work the problems yourself."
+- id: lead--batch-b
+  depends_on: [orchestrator--manifest-router]
+  parallel_group: batch-managers
+  agent_type: general
+  description: "You are the Batch-B Manager. From /workspace/routing.md, take only the problems listed under batch-b, and record one assignment per problem under /workspace/assign/batch-b/ as one file per slot from 01 upward, each giving that problem's id, title, and text_url, so every leaf worker in your batch picks up exactly one problem. Do not work the problems yourself."
+- id: lead--batch-c
+  depends_on: [orchestrator--manifest-router]
+  parallel_group: batch-managers
+  agent_type: general
+  description: "You are the Batch-C Manager. From /workspace/routing.md, take only the problems listed under batch-c, and record one assignment per problem under /workspace/assign/batch-c/ as one file per slot from 01 upward, each giving that problem's id, title, and text_url, so every leaf worker in your batch picks up exactly one problem. Do not work the problems yourself."
+- id: lead--batch-d
+  depends_on: [orchestrator--manifest-router]
+  parallel_group: batch-managers
+  agent_type: general
+  description: "You are the Batch-D Manager. From /workspace/routing.md, take only the problems listed under batch-d, and record one assignment per problem under /workspace/assign/batch-d/ as one file per slot from 01 upward, each giving that problem's id, title, and text_url, so every leaf worker in your batch picks up exactly one problem. Do not work the problems yourself."
+- id: lead--batch-e
+  depends_on: [orchestrator--manifest-router]
+  parallel_group: batch-managers
+  agent_type: general
+  description: "You are the Batch-E Manager. From /workspace/routing.md, take only the problems listed under batch-e, and record one assignment per problem under /workspace/assign/batch-e/ as one file per slot from 01 upward, each giving that problem's id, title, and text_url, so every leaf worker in your batch picks up exactly one problem. Do not work the problems yourself."
+- id: lead--batch-f
+  depends_on: [orchestrator--manifest-router]
+  parallel_group: batch-managers
+  agent_type: general
+  description: "You are the Batch-F Manager. From /workspace/routing.md, take only the problems listed under batch-f, and record one assignment per problem under /workspace/assign/batch-f/ as one file per slot from 01 upward, each giving that problem's id, title, and text_url, so every leaf worker in your batch picks up exactly one problem. Do not work the problems yourself."
+- id: worker--batch-a-01
+  depends_on: [lead--batch-a]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-a, slot 01. Your scope is the single problem named in your assignment at /workspace/assign/batch-a/01.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-a-02
+  depends_on: [lead--batch-a]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-a, slot 02. Your scope is the single problem named in your assignment at /workspace/assign/batch-a/02.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-a-03
+  depends_on: [lead--batch-a]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-a, slot 03. Your scope is the single problem named in your assignment at /workspace/assign/batch-a/03.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-a-04
+  depends_on: [lead--batch-a]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-a, slot 04. Your scope is the single problem named in your assignment at /workspace/assign/batch-a/04.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-a-05
+  depends_on: [lead--batch-a]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-a, slot 05. Your scope is the single problem named in your assignment at /workspace/assign/batch-a/05.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-a-06
+  depends_on: [lead--batch-a]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-a, slot 06. Your scope is the single problem named in your assignment at /workspace/assign/batch-a/06.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-a-07
+  depends_on: [lead--batch-a]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-a, slot 07. Your scope is the single problem named in your assignment at /workspace/assign/batch-a/07.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-a-08
+  depends_on: [lead--batch-a]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-a, slot 08. Your scope is the single problem named in your assignment at /workspace/assign/batch-a/08.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-a-09
+  depends_on: [lead--batch-a]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-a, slot 09. Your scope is the single problem named in your assignment at /workspace/assign/batch-a/09.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-a-10
+  depends_on: [lead--batch-a]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-a, slot 10. Your scope is the single problem named in your assignment at /workspace/assign/batch-a/10.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-b-01
+  depends_on: [lead--batch-b]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-b, slot 01. Your scope is the single problem named in your assignment at /workspace/assign/batch-b/01.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-b-02
+  depends_on: [lead--batch-b]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-b, slot 02. Your scope is the single problem named in your assignment at /workspace/assign/batch-b/02.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-b-03
+  depends_on: [lead--batch-b]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-b, slot 03. Your scope is the single problem named in your assignment at /workspace/assign/batch-b/03.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-b-04
+  depends_on: [lead--batch-b]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-b, slot 04. Your scope is the single problem named in your assignment at /workspace/assign/batch-b/04.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-b-05
+  depends_on: [lead--batch-b]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-b, slot 05. Your scope is the single problem named in your assignment at /workspace/assign/batch-b/05.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-b-06
+  depends_on: [lead--batch-b]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-b, slot 06. Your scope is the single problem named in your assignment at /workspace/assign/batch-b/06.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-b-07
+  depends_on: [lead--batch-b]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-b, slot 07. Your scope is the single problem named in your assignment at /workspace/assign/batch-b/07.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-b-08
+  depends_on: [lead--batch-b]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-b, slot 08. Your scope is the single problem named in your assignment at /workspace/assign/batch-b/08.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-b-09
+  depends_on: [lead--batch-b]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-b, slot 09. Your scope is the single problem named in your assignment at /workspace/assign/batch-b/09.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-b-10
+  depends_on: [lead--batch-b]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-b, slot 10. Your scope is the single problem named in your assignment at /workspace/assign/batch-b/10.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-c-01
+  depends_on: [lead--batch-c]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-c, slot 01. Your scope is the single problem named in your assignment at /workspace/assign/batch-c/01.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-c-02
+  depends_on: [lead--batch-c]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-c, slot 02. Your scope is the single problem named in your assignment at /workspace/assign/batch-c/02.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-c-03
+  depends_on: [lead--batch-c]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-c, slot 03. Your scope is the single problem named in your assignment at /workspace/assign/batch-c/03.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-c-04
+  depends_on: [lead--batch-c]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-c, slot 04. Your scope is the single problem named in your assignment at /workspace/assign/batch-c/04.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-c-05
+  depends_on: [lead--batch-c]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-c, slot 05. Your scope is the single problem named in your assignment at /workspace/assign/batch-c/05.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-c-06
+  depends_on: [lead--batch-c]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-c, slot 06. Your scope is the single problem named in your assignment at /workspace/assign/batch-c/06.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-c-07
+  depends_on: [lead--batch-c]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-c, slot 07. Your scope is the single problem named in your assignment at /workspace/assign/batch-c/07.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-c-08
+  depends_on: [lead--batch-c]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-c, slot 08. Your scope is the single problem named in your assignment at /workspace/assign/batch-c/08.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-c-09
+  depends_on: [lead--batch-c]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-c, slot 09. Your scope is the single problem named in your assignment at /workspace/assign/batch-c/09.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-c-10
+  depends_on: [lead--batch-c]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-c, slot 10. Your scope is the single problem named in your assignment at /workspace/assign/batch-c/10.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-d-01
+  depends_on: [lead--batch-d]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-d, slot 01. Your scope is the single problem named in your assignment at /workspace/assign/batch-d/01.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-d-02
+  depends_on: [lead--batch-d]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-d, slot 02. Your scope is the single problem named in your assignment at /workspace/assign/batch-d/02.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-d-03
+  depends_on: [lead--batch-d]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-d, slot 03. Your scope is the single problem named in your assignment at /workspace/assign/batch-d/03.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-d-04
+  depends_on: [lead--batch-d]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-d, slot 04. Your scope is the single problem named in your assignment at /workspace/assign/batch-d/04.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-d-05
+  depends_on: [lead--batch-d]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-d, slot 05. Your scope is the single problem named in your assignment at /workspace/assign/batch-d/05.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-d-06
+  depends_on: [lead--batch-d]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-d, slot 06. Your scope is the single problem named in your assignment at /workspace/assign/batch-d/06.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-d-07
+  depends_on: [lead--batch-d]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-d, slot 07. Your scope is the single problem named in your assignment at /workspace/assign/batch-d/07.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-d-08
+  depends_on: [lead--batch-d]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-d, slot 08. Your scope is the single problem named in your assignment at /workspace/assign/batch-d/08.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-d-09
+  depends_on: [lead--batch-d]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-d, slot 09. Your scope is the single problem named in your assignment at /workspace/assign/batch-d/09.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-d-10
+  depends_on: [lead--batch-d]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-d, slot 10. Your scope is the single problem named in your assignment at /workspace/assign/batch-d/10.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-e-01
+  depends_on: [lead--batch-e]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-e, slot 01. Your scope is the single problem named in your assignment at /workspace/assign/batch-e/01.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-e-02
+  depends_on: [lead--batch-e]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-e, slot 02. Your scope is the single problem named in your assignment at /workspace/assign/batch-e/02.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-e-03
+  depends_on: [lead--batch-e]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-e, slot 03. Your scope is the single problem named in your assignment at /workspace/assign/batch-e/03.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-e-04
+  depends_on: [lead--batch-e]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-e, slot 04. Your scope is the single problem named in your assignment at /workspace/assign/batch-e/04.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-e-05
+  depends_on: [lead--batch-e]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-e, slot 05. Your scope is the single problem named in your assignment at /workspace/assign/batch-e/05.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-e-06
+  depends_on: [lead--batch-e]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-e, slot 06. Your scope is the single problem named in your assignment at /workspace/assign/batch-e/06.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-e-07
+  depends_on: [lead--batch-e]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-e, slot 07. Your scope is the single problem named in your assignment at /workspace/assign/batch-e/07.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-e-08
+  depends_on: [lead--batch-e]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-e, slot 08. Your scope is the single problem named in your assignment at /workspace/assign/batch-e/08.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-e-09
+  depends_on: [lead--batch-e]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-e, slot 09. Your scope is the single problem named in your assignment at /workspace/assign/batch-e/09.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-e-10
+  depends_on: [lead--batch-e]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-e, slot 10. Your scope is the single problem named in your assignment at /workspace/assign/batch-e/10.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-f-01
+  depends_on: [lead--batch-f]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-f, slot 01. Your scope is the single problem named in your assignment at /workspace/assign/batch-f/01.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-f-02
+  depends_on: [lead--batch-f]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-f, slot 02. Your scope is the single problem named in your assignment at /workspace/assign/batch-f/02.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-f-03
+  depends_on: [lead--batch-f]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-f, slot 03. Your scope is the single problem named in your assignment at /workspace/assign/batch-f/03.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-f-04
+  depends_on: [lead--batch-f]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-f, slot 04. Your scope is the single problem named in your assignment at /workspace/assign/batch-f/04.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-f-05
+  depends_on: [lead--batch-f]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-f, slot 05. Your scope is the single problem named in your assignment at /workspace/assign/batch-f/05.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-f-06
+  depends_on: [lead--batch-f]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-f, slot 06. Your scope is the single problem named in your assignment at /workspace/assign/batch-f/06.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-f-07
+  depends_on: [lead--batch-f]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-f, slot 07. Your scope is the single problem named in your assignment at /workspace/assign/batch-f/07.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-f-08
+  depends_on: [lead--batch-f]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-f, slot 08. Your scope is the single problem named in your assignment at /workspace/assign/batch-f/08.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-f-09
+  depends_on: [lead--batch-f]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-f, slot 09. Your scope is the single problem named in your assignment at /workspace/assign/batch-f/09.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: worker--batch-f-10
+  depends_on: [lead--batch-f]
+  parallel_group: workers
+  agent_type: explore
+  description: "You are leaf worker batch-f, slot 10. Your scope is the single problem named in your assignment at /workspace/assign/batch-f/10.txt, if one is present; handle only that problem. Produce its answer-key entry and write it to /logs/agent/records/<id>.json with the fields problem_id, title, final_answer, principal_method, key_relation, and topic (one of algebra, number_theory, geometry, or combinatorics), then append the same row to /logs/agent/problems.csv with those columns."
+- id: reducer--workbook-assembler
+  depends_on: [worker--batch-a-01, worker--batch-a-02, worker--batch-a-03, worker--batch-a-04, worker--batch-a-05, worker--batch-a-06, worker--batch-a-07, worker--batch-a-08, worker--batch-a-09, worker--batch-a-10, worker--batch-b-01, worker--batch-b-02, worker--batch-b-03, worker--batch-b-04, worker--batch-b-05, worker--batch-b-06, worker--batch-b-07, worker--batch-b-08, worker--batch-b-09, worker--batch-b-10, worker--batch-c-01, worker--batch-c-02, worker--batch-c-03, worker--batch-c-04, worker--batch-c-05, worker--batch-c-06, worker--batch-c-07, worker--batch-c-08, worker--batch-c-09, worker--batch-c-10, worker--batch-d-01, worker--batch-d-02, worker--batch-d-03, worker--batch-d-04, worker--batch-d-05, worker--batch-d-06, worker--batch-d-07, worker--batch-d-08, worker--batch-d-09, worker--batch-d-10, worker--batch-e-01, worker--batch-e-02, worker--batch-e-03, worker--batch-e-04, worker--batch-e-05, worker--batch-e-06, worker--batch-e-07, worker--batch-e-08, worker--batch-e-09, worker--batch-e-10, worker--batch-f-01, worker--batch-f-02, worker--batch-f-03, worker--batch-f-04, worker--batch-f-05, worker--batch-f-06, worker--batch-f-07, worker--batch-f-08, worker--batch-f-09, worker--batch-f-10]
+  parallel_group: reduce
+  agent_type: general
+  description: "You are the Reducer. The leaf workers have written one per-problem JSON file under /logs/agent/records/, which is your single source of truth. Assemble those records into the required deliverables under /logs/agent/: problems.xlsx with a problems sheet (one row per problem, columns problem_id, title, final_answer, principal_method, key_relation, topic) and a summary sheet (metric and value rows giving the total problem count and the counts per topic, consistent with the problems sheet); and brief.md, a few hundred words on how the set breaks down across topics, which problems were the stubborn ones, and anything worth watching, grounded in the records. Carry each problem final_answer and topic through exactly as its record states them. Confirm both deliverables exist and are non-empty."

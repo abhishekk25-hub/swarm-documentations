@@ -1,0 +1,619 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+# depends_on edges record DATAFLOW (who consumes whose artefacts).
+# They are not the spawn tree. Spawn ownership is orchestrator ->
+# jurisdiction coordinator -> theme-block reader (dag_depth=3).
+sub_tasks:
+  - id: discover-catalog
+    description: >-
+      Lock the 180-claim catalog from /input_artifacts/claim_catalog.json, confirm
+      the ten jurisdiction source_url values in source_manifest.json, and write
+      /logs/agent/catalog_lock.json listing claim_id ranges per jurisdiction.
+      Do not fetch instruments yet.
+    depends_on: []
+    parallel_group: setup
+  - id: read-us_itar-b1
+    description: >-
+      Read US_ITAR claims XCL-0001..XCL-0006 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-us_itar-b1.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-us_itar
+  - id: read-us_itar-b2
+    description: >-
+      Read US_ITAR claims XCL-0007..XCL-0012 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-us_itar-b2.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-us_itar
+  - id: read-us_itar-b3
+    description: >-
+      Read US_ITAR claims XCL-0013..XCL-0018 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-us_itar-b3.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-us_itar
+  - id: coord-us_itar
+    description: >-
+      You own consistency inside US_ITAR; do not rewrite other jurisdictions.
+      Consume your three reader partial CSVs, enforce rulebook closed lists and
+      quote discipline, recompute tightness scores, and write
+      /logs/agent/coord_us_itar.csv for this jurisdiction only.
+      Spawn ownership for your readers sits under you; depends_on below is dataflow.
+    depends_on:
+      - read-us_itar-b1
+      - read-us_itar-b2
+      - read-us_itar-b3
+    parallel_group: coordinators
+  - id: read-wassenaar-b1
+    description: >-
+      Read WASSENAAR claims XCL-0019..XCL-0024 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-wassenaar-b1.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-wassenaar
+  - id: read-wassenaar-b2
+    description: >-
+      Read WASSENAAR claims XCL-0025..XCL-0030 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-wassenaar-b2.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-wassenaar
+  - id: read-wassenaar-b3
+    description: >-
+      Read WASSENAAR claims XCL-0031..XCL-0036 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-wassenaar-b3.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-wassenaar
+  - id: coord-wassenaar
+    description: >-
+      You own consistency inside WASSENAAR; do not rewrite other jurisdictions.
+      Consume your three reader partial CSVs, enforce rulebook closed lists and
+      quote discipline, recompute tightness scores, and write
+      /logs/agent/coord_wassenaar.csv for this jurisdiction only.
+      Spawn ownership for your readers sits under you; depends_on below is dataflow.
+    depends_on:
+      - read-wassenaar-b1
+      - read-wassenaar-b2
+      - read-wassenaar-b3
+    parallel_group: coordinators
+  - id: read-de_bafa-b1
+    description: >-
+      Read DE_BAFA claims XCL-0037..XCL-0042 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-de_bafa-b1.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-de_bafa
+  - id: read-de_bafa-b2
+    description: >-
+      Read DE_BAFA claims XCL-0043..XCL-0048 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-de_bafa-b2.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-de_bafa
+  - id: read-de_bafa-b3
+    description: >-
+      Read DE_BAFA claims XCL-0049..XCL-0054 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-de_bafa-b3.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-de_bafa
+  - id: coord-de_bafa
+    description: >-
+      You own consistency inside DE_BAFA; do not rewrite other jurisdictions.
+      Consume your three reader partial CSVs, enforce rulebook closed lists and
+      quote discipline, recompute tightness scores, and write
+      /logs/agent/coord_de_bafa.csv for this jurisdiction only.
+      Spawn ownership for your readers sits under you; depends_on below is dataflow.
+    depends_on:
+      - read-de_bafa-b1
+      - read-de_bafa-b2
+      - read-de_bafa-b3
+    parallel_group: coordinators
+  - id: read-ca_eipa-b1
+    description: >-
+      Read CA_EIPA claims XCL-0055..XCL-0060 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-ca_eipa-b1.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-ca_eipa
+  - id: read-ca_eipa-b2
+    description: >-
+      Read CA_EIPA claims XCL-0061..XCL-0066 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-ca_eipa-b2.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-ca_eipa
+  - id: read-ca_eipa-b3
+    description: >-
+      Read CA_EIPA claims XCL-0067..XCL-0072 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-ca_eipa-b3.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-ca_eipa
+  - id: coord-ca_eipa
+    description: >-
+      You own consistency inside CA_EIPA; do not rewrite other jurisdictions.
+      Consume your three reader partial CSVs, enforce rulebook closed lists and
+      quote discipline, recompute tightness scores, and write
+      /logs/agent/coord_ca_eipa.csv for this jurisdiction only.
+      Spawn ownership for your readers sits under you; depends_on below is dataflow.
+    depends_on:
+      - read-ca_eipa-b1
+      - read-ca_eipa-b2
+      - read-ca_eipa-b3
+    parallel_group: coordinators
+  - id: read-in_scomet-b1
+    description: >-
+      Read IN_SCOMET claims XCL-0073..XCL-0078 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-in_scomet-b1.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-in_scomet
+  - id: read-in_scomet-b2
+    description: >-
+      Read IN_SCOMET claims XCL-0079..XCL-0084 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-in_scomet-b2.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-in_scomet
+  - id: read-in_scomet-b3
+    description: >-
+      Read IN_SCOMET claims XCL-0085..XCL-0090 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-in_scomet-b3.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-in_scomet
+  - id: coord-in_scomet
+    description: >-
+      You own consistency inside IN_SCOMET; do not rewrite other jurisdictions.
+      Consume your three reader partial CSVs, enforce rulebook closed lists and
+      quote discipline, recompute tightness scores, and write
+      /logs/agent/coord_in_scomet.csv for this jurisdiction only.
+      Spawn ownership for your readers sits under you; depends_on below is dataflow.
+    depends_on:
+      - read-in_scomet-b1
+      - read-in_scomet-b2
+      - read-in_scomet-b3
+    parallel_group: coordinators
+  - id: read-ie_dual-b1
+    description: >-
+      Read IE_DUAL claims XCL-0091..XCL-0096 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-ie_dual-b1.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-ie_dual
+  - id: read-ie_dual-b2
+    description: >-
+      Read IE_DUAL claims XCL-0097..XCL-0102 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-ie_dual-b2.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-ie_dual
+  - id: read-ie_dual-b3
+    description: >-
+      Read IE_DUAL claims XCL-0103..XCL-0108 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-ie_dual-b3.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-ie_dual
+  - id: coord-ie_dual
+    description: >-
+      You own consistency inside IE_DUAL; do not rewrite other jurisdictions.
+      Consume your three reader partial CSVs, enforce rulebook closed lists and
+      quote discipline, recompute tightness scores, and write
+      /logs/agent/coord_ie_dual.csv for this jurisdiction only.
+      Spawn ownership for your readers sits under you; depends_on below is dataflow.
+    depends_on:
+      - read-ie_dual-b1
+      - read-ie_dual-b2
+      - read-ie_dual-b3
+    parallel_group: coordinators
+  - id: read-se_isp-b1
+    description: >-
+      Read SE_ISP claims XCL-0109..XCL-0114 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-se_isp-b1.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-se_isp
+  - id: read-se_isp-b2
+    description: >-
+      Read SE_ISP claims XCL-0115..XCL-0120 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-se_isp-b2.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-se_isp
+  - id: read-se_isp-b3
+    description: >-
+      Read SE_ISP claims XCL-0121..XCL-0126 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-se_isp-b3.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-se_isp
+  - id: coord-se_isp
+    description: >-
+      You own consistency inside SE_ISP; do not rewrite other jurisdictions.
+      Consume your three reader partial CSVs, enforce rulebook closed lists and
+      quote discipline, recompute tightness scores, and write
+      /logs/agent/coord_se_isp.csv for this jurisdiction only.
+      Spawn ownership for your readers sits under you; depends_on below is dataflow.
+    depends_on:
+      - read-se_isp-b1
+      - read-se_isp-b2
+      - read-se_isp-b3
+    parallel_group: coordinators
+  - id: read-nz_sgca-b1
+    description: >-
+      Read NZ_SGCA claims XCL-0127..XCL-0132 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-nz_sgca-b1.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-nz_sgca
+  - id: read-nz_sgca-b2
+    description: >-
+      Read NZ_SGCA claims XCL-0133..XCL-0138 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-nz_sgca-b2.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-nz_sgca
+  - id: read-nz_sgca-b3
+    description: >-
+      Read NZ_SGCA claims XCL-0139..XCL-0144 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-nz_sgca-b3.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-nz_sgca
+  - id: coord-nz_sgca
+    description: >-
+      You own consistency inside NZ_SGCA; do not rewrite other jurisdictions.
+      Consume your three reader partial CSVs, enforce rulebook closed lists and
+      quote discipline, recompute tightness scores, and write
+      /logs/agent/coord_nz_sgca.csv for this jurisdiction only.
+      Spawn ownership for your readers sits under you; depends_on below is dataflow.
+    depends_on:
+      - read-nz_sgca-b1
+      - read-nz_sgca-b2
+      - read-nz_sgca-b3
+    parallel_group: coordinators
+  - id: read-il_export-b1
+    description: >-
+      Read IL_EXPORT claims XCL-0145..XCL-0150 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-il_export-b1.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-il_export
+  - id: read-il_export-b2
+    description: >-
+      Read IL_EXPORT claims XCL-0151..XCL-0156 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-il_export-b2.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-il_export
+  - id: read-il_export-b3
+    description: >-
+      Read IL_EXPORT claims XCL-0157..XCL-0162 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-il_export-b3.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-il_export
+  - id: coord-il_export
+    description: >-
+      You own consistency inside IL_EXPORT; do not rewrite other jurisdictions.
+      Consume your three reader partial CSVs, enforce rulebook closed lists and
+      quote discipline, recompute tightness scores, and write
+      /logs/agent/coord_il_export.csv for this jurisdiction only.
+      Spawn ownership for your readers sits under you; depends_on below is dataflow.
+    depends_on:
+      - read-il_export-b1
+      - read-il_export-b2
+      - read-il_export-b3
+    parallel_group: coordinators
+  - id: read-uk_ecju-b1
+    description: >-
+      Read UK_ECJU claims XCL-0163..XCL-0168 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-uk_ecju-b1.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-uk_ecju
+  - id: read-uk_ecju-b2
+    description: >-
+      Read UK_ECJU claims XCL-0169..XCL-0174 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-uk_ecju-b2.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-uk_ecju
+  - id: read-uk_ecju-b3
+    description: >-
+      Read UK_ECJU claims XCL-0175..XCL-0180 from the catalog. Fetch
+      the jurisdiction source_url live. For each claim, locate the passage
+      named by locator_hint/focus_prompt, write obligation_paraphrase in your
+      own words, copy a verbatim 12-60 word evidence_quote that appears in
+      full in the fetched text, assign closed-list classifications from the
+      rulebook, compute control_tightness_score, and draft a short note.
+      Write /logs/agent/partial_read-uk_ecju-b3.csv with those rows only.
+      Mark the theme absent honestly when the instrument does not speak to it.
+    depends_on:
+      - discover-catalog
+    parallel_group: readers-uk_ecju
+  - id: coord-uk_ecju
+    description: >-
+      You own consistency inside UK_ECJU; do not rewrite other jurisdictions.
+      Consume your three reader partial CSVs, enforce rulebook closed lists and
+      quote discipline, recompute tightness scores, and write
+      /logs/agent/coord_uk_ecju.csv for this jurisdiction only.
+      Spawn ownership for your readers sits under you; depends_on below is dataflow.
+    depends_on:
+      - read-uk_ecju-b1
+      - read-uk_ecju-b2
+      - read-uk_ecju-b3
+    parallel_group: coordinators
+  - id: interim-assembly
+    description: >-
+      Concatenate all ten coordinator CSVs into /logs/agent/export_screening_matrix.csv
+      with one row per catalog claim and no duplicates. Checkpoint the matrix to disk
+      before any synthesis branch runs.
+    depends_on:
+      - coord-us_itar
+      - coord-wassenaar
+      - coord-de_bafa
+      - coord-ca_eipa
+      - coord-in_scomet
+      - coord-ie_dual
+      - coord-se_isp
+      - coord-nz_sgca
+      - coord-il_export
+      - coord-uk_ecju
+    parallel_group: checkpoint
+  - id: analyse-class
+    description: >-
+      Class-audit branch. Consume /logs/agent/export_screening_matrix.csv and the
+      rulebook. Re-check each row's control_class against the instrument_family
+      recorded for that claim in the catalog and against the rulebook definition
+      of that class. Write /logs/agent/class_audit.json with disputed rows.
+    depends_on:
+      - interim-assembly
+      - coord-us_itar
+      - coord-wassenaar
+      - coord-de_bafa
+      - coord-ca_eipa
+      - coord-in_scomet
+      - coord-ie_dual
+      - coord-se_isp
+      - coord-nz_sgca
+      - coord-il_export
+      - coord-uk_ecju
+    parallel_group: analysis
+  - id: analyse-conflict
+    description: >-
+      Conflict branch, parallel with analyse-class. Consume the matrix. Form
+      crosswalk_group_id values linking the same control_theme across two or more
+      jurisdictions, draft reconciliation notes, and draft exception_conflict_ledger
+      rows where control classes diverge in a way that would mislead a single global
+      compliance claim. Write /logs/agent/conflict_audit.json.
+    depends_on:
+      - interim-assembly
+      - coord-us_itar
+      - coord-wassenaar
+      - coord-de_bafa
+      - coord-ca_eipa
+      - coord-in_scomet
+      - coord-ie_dual
+      - coord-se_isp
+      - coord-nz_sgca
+      - coord-il_export
+      - coord-uk_ecju
+    parallel_group: analysis
+  - id: write-atlas
+    description: >-
+      Consume class_audit.json, conflict_audit.json and export_screening_matrix.csv.
+      Write the full /logs/agent/jurisdiction_control_atlas.json with per-jurisdiction
+      arcs and per-group reconciliation notes, and the final
+      /logs/agent/exception_conflict_ledger.csv.
+    depends_on:
+      - analyse-class
+      - analyse-conflict
+      - interim-assembly
+    parallel_group: writing
+  - id: build-charts
+    description: >-
+      Consume export_screening_matrix.csv, class_audit.json and
+      conflict_audit.json. Render the four charts into /logs/agent/
+      control_class_distribution.png, tightness_score_histogram.png,
+      theme_coverage_by_jurisdiction.png, conflict_density.png and write
+      /logs/agent/chart_data.json whose series equal the matrix counts.
+    depends_on:
+      - analyse-class
+      - analyse-conflict
+      - interim-assembly
+    parallel_group: writing
+  - id: compose-briefing
+    description: >-
+      Final assembly. Consume jurisdiction_control_atlas.json,
+      exception_conflict_ledger.csv, chart_data.json, class_audit.json and the
+      matrix. Write /logs/agent/counsel_briefing.json with claims_reviewed,
+      jurisdictions_covered, control_class_counts, mean_tightness_score,
+      highest_tightness_themes, most_conflicted_jurisdiction_pairs,
+      regime_comparison, recommended_actions and summary. Do not invent control
+      classes the matrix does not support.
+    depends_on:
+      - write-atlas
+      - build-charts
+      - analyse-class
+      - analyse-conflict
+      - interim-assembly
+    parallel_group: synthesis

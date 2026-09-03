@@ -1,0 +1,273 @@
+{
+  "description": "Hidden deterministic semantic anchors for source-grounded heritage storyboard review. Each group is OR-matched; the verifier expects enough groups to appear in memo reasoning, not every term.",
+  "case_min_anchor_hits": 4,
+  "case_min_entity_anchor_hits": 3,
+  "case_min_danger_hits": 2,
+  "case_min_visual_hits": 2,
+  "cases": {
+    "WHR-001": {
+      "accepted_themes": ["conflict_or_instability", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Bamiyan"], ["Buddha", "Buddhas"], ["Taliban", "destroyed", "destruction"], ["cliff", "niche", "caves"], ["Afghanistan"]],
+      "danger_groups": [["Taliban", "destroyed", "destruction"], ["conflict", "war", "armed"], ["fragile", "conservation", "archaeological"]],
+      "visual_groups": [["Buddha", "Buddhas"], ["cliff", "niche", "caves"], ["mural", "cultural landscape"]]
+    },
+    "WHR-002": {
+      "accepted_themes": ["water_or_climate_pressure", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Minaret"], ["Jam"], ["Hari Rud", "Jam Rud", "river"], ["erosion", "flood", "leaning"], ["looting", "illicit"]],
+      "danger_groups": [["erosion", "flood", "river"], ["leaning", "stabilization", "structural"], ["looting", "illicit"]],
+      "visual_groups": [["minaret"], ["river", "valley"], ["archaeological remains"]]
+    },
+    "WHR-003": {
+      "accepted_themes": ["urban_or_development_pressure"],
+      "anchor_groups": [["Vienna"], ["Heumarkt", "high-rise", "high rise"], ["urban", "development"], ["Baroque", "Ringstrasse", "historic centre"], ["Austria"]],
+      "danger_groups": [["Heumarkt", "high-rise", "high rise"], ["urban", "development"], ["visual integrity", "skyline"]],
+      "visual_groups": [["historic centre"], ["Ringstrasse", "Baroque"], ["skyline", "urban"]]
+    },
+    "WHR-004": {
+      "accepted_themes": ["urban_or_development_pressure", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Potosi", "Potosí"], ["Cerro Rico"], ["mining", "miners"], ["subsidence", "collapse", "instability"], ["silver"]],
+      "danger_groups": [["mining", "miners"], ["subsidence", "collapse", "instability"], ["Cerro Rico"]],
+      "visual_groups": [["Cerro Rico"], ["silver", "mining"], ["colonial", "historic city"]]
+    },
+    "WHR-005": {
+      "accepted_themes": ["ecological_or_species_pressure", "conflict_or_instability"],
+      "anchor_groups": [["Manovo"], ["St Floris", "Floris"], ["poaching", "poachers"], ["armed", "security"], ["wildlife", "savanna", "rhinoceros", "elephant"]],
+      "danger_groups": [["poaching", "poachers"], ["armed", "security"], ["wildlife", "rhinoceros", "elephant"]],
+      "visual_groups": [["savanna"], ["wildlife", "elephant", "rhinoceros"], ["national park"]]
+    },
+    "WHR-006": {
+      "accepted_themes": ["ecological_or_species_pressure", "urban_or_development_pressure"],
+      "anchor_groups": [["Nimba"], ["strict nature reserve"], ["mining", "iron ore"], ["chimpanzee", "toad", "species"], ["refugee", "pressure"]],
+      "danger_groups": [["mining", "iron ore"], ["refugee", "pressure"], ["species", "habitat"]],
+      "visual_groups": [["mount", "mountain"], ["chimpanzee", "toad", "species"], ["forest", "reserve"]]
+    },
+    "WHR-007": {
+      "accepted_themes": ["ecological_or_species_pressure", "conflict_or_instability"],
+      "anchor_groups": [["Garamba"], ["rhinoceros", "rhino"], ["elephant", "giraffe"], ["poaching", "poachers"], ["armed", "conflict"]],
+      "danger_groups": [["poaching", "poachers"], ["armed", "conflict"], ["rhinoceros", "rhino", "elephant"]],
+      "visual_groups": [["rhinoceros", "rhino"], ["elephant", "giraffe"], ["savanna", "park"]]
+    },
+    "WHR-008": {
+      "accepted_themes": ["ecological_or_species_pressure", "conflict_or_instability", "urban_or_development_pressure"],
+      "anchor_groups": [["Kahuzi", "Biega"], ["gorilla"], ["poaching"], ["mining", "coltan"], ["forest"]],
+      "danger_groups": [["poaching"], ["mining", "coltan"], ["gorilla", "forest"]],
+      "visual_groups": [["gorilla"], ["forest"], ["Kahuzi", "Biega"]]
+    },
+    "WHR-009": {
+      "accepted_themes": ["ecological_or_species_pressure", "conflict_or_instability"],
+      "anchor_groups": [["Okapi"], ["Ituri"], ["militia", "armed", "security"], ["poaching", "mining"], ["wildlife", "forest"]],
+      "danger_groups": [["militia", "armed", "security"], ["poaching", "mining"], ["okapi", "wildlife"]],
+      "visual_groups": [["okapi"], ["Ituri", "forest"], ["reserve"]]
+    },
+    "WHR-010": {
+      "accepted_themes": ["ecological_or_species_pressure", "conflict_or_instability"],
+      "anchor_groups": [["Virunga"], ["mountain gorilla", "gorilla"], ["volcano", "Ruwenzori", "rift"], ["armed", "conflict", "militia"], ["oil", "poaching"]],
+      "danger_groups": [["armed", "conflict", "militia"], ["oil", "poaching"], ["gorilla", "wildlife"]],
+      "visual_groups": [["gorilla"], ["volcano", "Ruwenzori", "rift"], ["national park"]]
+    },
+    "WHR-011": {
+      "accepted_themes": ["ecological_or_species_pressure", "urban_or_development_pressure"],
+      "anchor_groups": [["Rio Platano", "Río Plátano"], ["Biosphere"], ["illegal logging", "logging"], ["cattle", "agricultural"], ["indigenous", "Miskito"]],
+      "danger_groups": [["illegal logging", "logging"], ["cattle", "agricultural"], ["management", "encroachment"]],
+      "visual_groups": [["rainforest", "forest"], ["river"], ["indigenous", "Miskito"]]
+    },
+    "WHR-012": {
+      "accepted_themes": ["ecological_or_species_pressure", "urban_or_development_pressure"],
+      "anchor_groups": [["Sumatra"], ["Leuser", "Kerinci", "Bukit Barisan"], ["orangutan", "tiger", "rhino", "elephant"], ["deforestation", "logging"], ["road", "agriculture", "poaching"]],
+      "danger_groups": [["deforestation", "logging"], ["road", "agriculture"], ["poaching", "species"]],
+      "visual_groups": [["orangutan", "tiger", "rhino", "elephant"], ["rainforest", "forest"], ["Leuser", "Kerinci", "Bukit Barisan"]]
+    },
+    "WHR-013": {
+      "accepted_themes": ["water_or_climate_pressure", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Ashur", "Assur", "Qal"], ["Tigris"], ["Makhoul", "dam"], ["archaeological", "city"], ["Iraq", "Sherqat"]],
+      "danger_groups": [["Makhoul", "dam"], ["Tigris", "flood"], ["archaeological", "threat"]],
+      "visual_groups": [["archaeological"], ["Tigris"], ["Assur", "Ashur"]]
+    },
+    "WHR-014": {
+      "accepted_themes": ["conflict_or_instability", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Hatra"], ["Islamic State", "ISIL", "ISIS", "Daesh"], ["destruction", "destroyed", "vandal"], ["Parthian", "temple"], ["Iraq"]],
+      "danger_groups": [["Islamic State", "ISIL", "ISIS", "Daesh"], ["destruction", "destroyed", "vandal"], ["conflict", "armed"]],
+      "visual_groups": [["temple"], ["Parthian"], ["Hatra"]]
+    },
+    "WHR-015": {
+      "accepted_themes": ["conflict_or_instability", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Samarra"], ["Abbasid"], ["spiral minaret", "Malwiya", "Great Mosque"], ["conflict", "military", "war"], ["archaeological city"]],
+      "danger_groups": [["conflict", "military", "war"], ["archaeological", "damage"], ["inscribed", "danger"]],
+      "visual_groups": [["spiral minaret", "Malwiya"], ["Great Mosque"], ["Abbasid"]]
+    },
+    "WHR-016": {
+      "accepted_themes": ["structural_or_archaeological_fragility", "governance_or_documentation_gap", "conflict_or_instability"],
+      "anchor_groups": [["Jerusalem"], ["walls", "Old City"], ["Al-Aqsa", "Western Wall", "Dome of the Rock"], ["Jordan"], ["religious", "holy"]],
+      "danger_groups": [["conflict", "tension"], ["Jordan", "holy"], ["walls", "Old City"]],
+      "visual_groups": [["walls"], ["Dome of the Rock", "Al-Aqsa", "Western Wall"], ["old city"]]
+    },
+    "WHR-017": {
+      "accepted_themes": ["water_or_climate_pressure", "ecological_or_species_pressure"],
+      "anchor_groups": [["Turkana"], ["Lake"], ["Omo", "Koobi Fora"], ["drought", "climate", "receding water level", "siltation"], ["crocodile", "hippopotamus", "waterfowl"]],
+      "danger_groups": [["drought", "climate"], ["receding water level", "siltation"], ["poaching", "human-wildlife"]],
+      "visual_groups": [["Lake"], ["crocodile", "hippopotamus", "waterfowl"], ["Koobi Fora", "fossil"]]
+    },
+    "WHR-018": {
+      "accepted_themes": ["structural_or_archaeological_fragility", "governance_or_documentation_gap"],
+      "anchor_groups": [["Rachid Karami", "Tripoli"], ["Oscar Niemeyer", "Niemeyer"], ["fair", "international fair"], ["modern", "modernist"], ["deterioration", "abandoned"]],
+      "danger_groups": [["deterioration", "abandoned"], ["structural", "conservation"], ["modernist", "fair"]],
+      "visual_groups": [["Niemeyer"], ["modernist"], ["fair", "pavilion"]]
+    },
+    "WHR-019": {
+      "accepted_themes": ["structural_or_archaeological_fragility", "conflict_or_instability"],
+      "anchor_groups": [["Cyrene"], ["Greek", "Hellenic", "Roman"], ["Libya"], ["earthquake", "ruins"], ["necropolis", "Apollo", "Temple of Zeus"]],
+      "danger_groups": [["conflict", "instability"], ["archaeological", "ruins"], ["earthquake", "damage"]],
+      "visual_groups": [["Temple of Zeus", "Apollo"], ["necropolis"], ["Greek", "Roman"]]
+    },
+    "WHR-020": {
+      "accepted_themes": ["structural_or_archaeological_fragility", "conflict_or_instability"],
+      "anchor_groups": [["Leptis Magna"], ["Roman"], ["Libya"], ["Mediterranean", "coastal"], ["arch", "theatre", "market"]],
+      "danger_groups": [["conflict", "instability"], ["archaeological", "ruins"], ["coastal", "erosion"]],
+      "visual_groups": [["arch"], ["theatre", "market"], ["Roman"]]
+    },
+    "WHR-021": {
+      "accepted_themes": ["conflict_or_instability", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Sabratha"], ["Roman"], ["theatre"], ["Libya"], ["conflict", "armed", "militia", "ISIS", "Islamic State"]],
+      "danger_groups": [["conflict", "armed", "militia"], ["ISIS", "Islamic State"], ["archaeological", "damage"]],
+      "visual_groups": [["theatre"], ["Roman"], ["Sabratha"]]
+    },
+    "WHR-022": {
+      "accepted_themes": ["structural_or_archaeological_fragility", "conflict_or_instability"],
+      "anchor_groups": [["Tadrart", "Acacus"], ["rock art", "paintings"], ["vandalism", "graffiti"], ["Libya"], ["Sahara", "desert"]],
+      "danger_groups": [["vandalism", "graffiti"], ["conflict", "instability"], ["rock art", "paintings"]],
+      "visual_groups": [["rock art", "paintings"], ["Sahara", "desert"], ["Tadrart", "Acacus"]]
+    },
+    "WHR-023": {
+      "accepted_themes": ["structural_or_archaeological_fragility", "water_or_climate_pressure", "conflict_or_instability"],
+      "anchor_groups": [["Djenne", "Djenné"], ["mud", "earthen"], ["Great Mosque"], ["flood", "rain", "deterioration"], ["Mali"]],
+      "danger_groups": [["deterioration", "rain", "flood"], ["conflict", "instability"], ["mud", "earthen"]],
+      "visual_groups": [["Great Mosque"], ["mud", "earthen"], ["old towns"]]
+    },
+    "WHR-024": {
+      "accepted_themes": ["conflict_or_instability", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Timbuktu"], ["mausoleum", "mausoleums"], ["manuscript", "manuscripts"], ["Ansar Dine", "jihadist", "Islamist"], ["destruction", "destroyed"]],
+      "danger_groups": [["Ansar Dine", "jihadist", "Islamist"], ["destruction", "destroyed"], ["conflict", "armed"]],
+      "visual_groups": [["mausoleum", "mausoleums"], ["manuscript", "manuscripts"], ["Timbuktu"]]
+    },
+    "WHR-025": {
+      "accepted_themes": ["structural_or_archaeological_fragility", "conflict_or_instability"],
+      "anchor_groups": [["Askia"], ["tomb"], ["Gao"], ["earthen", "mud"], ["Mali"]],
+      "danger_groups": [["conflict", "instability"], ["earthen", "mud"], ["conservation", "management"]],
+      "visual_groups": [["tomb"], ["earthen", "mud"], ["Gao"]]
+    },
+    "WHR-026": {
+      "accepted_themes": ["ecological_or_species_pressure", "water_or_climate_pressure"],
+      "anchor_groups": [["Gulf of California"], ["vaquita"], ["totoaba"], ["fishing", "fisheries", "overfishing", "trawling"], ["marine", "islands"]],
+      "danger_groups": [["vaquita"], ["fishing", "fisheries", "overfishing", "trawling"], ["marine", "species"]],
+      "visual_groups": [["marine", "islands"], ["vaquita", "totoaba"], ["turquoise waters", "desert"]]
+    },
+    "WHR-027": {
+      "accepted_themes": ["water_or_climate_pressure", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Nan Madol"], ["islets"], ["canals"], ["Pohnpei"], ["mangrove", "water", "erosion"]],
+      "danger_groups": [["mangrove", "water"], ["canals", "islets"], ["stone", "archaeological"]],
+      "visual_groups": [["islets"], ["canals"], ["stone"]]
+    },
+    "WHR-028": {
+      "accepted_themes": ["ecological_or_species_pressure", "conflict_or_instability"],
+      "anchor_groups": [["Air", "Aïr"], ["Tenere", "Ténéré"], ["Niger"], ["addax", "gazelle"], ["armed", "rebellion", "poaching"]],
+      "danger_groups": [["armed", "rebellion"], ["poaching"], ["addax", "gazelle"]],
+      "visual_groups": [["desert"], ["addax", "gazelle"], ["Air", "Tenere"]]
+    },
+    "WHR-029": {
+      "accepted_themes": ["structural_or_archaeological_fragility", "water_or_climate_pressure"],
+      "anchor_groups": [["Portobelo"], ["San Lorenzo"], ["fortifications", "forts"], ["Caribbean"], ["deterioration", "structural"]],
+      "danger_groups": [["deterioration", "structural"], ["fortifications", "forts"], ["conservation", "management"]],
+      "visual_groups": [["fortifications", "forts"], ["Caribbean"], ["Portobelo", "San Lorenzo"]]
+    },
+    "WHR-030": {
+      "accepted_themes": ["water_or_climate_pressure", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Chan Chan"], ["adobe"], ["Chimu", "Chimú"], ["El Nino", "El Niño", "rain"], ["erosion"]],
+      "danger_groups": [["El Nino", "El Niño", "rain"], ["erosion"], ["adobe"]],
+      "visual_groups": [["adobe"], ["Chimu", "Chimú"], ["Chan Chan"]]
+    },
+    "WHR-031": {
+      "accepted_themes": ["urban_or_development_pressure", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Rosia Montana", "Roșia Montană"], ["mining"], ["Roman"], ["gold"], ["landscape"]],
+      "danger_groups": [["mining"], ["gold"], ["landscape", "development"]],
+      "visual_groups": [["mining"], ["Roman"], ["landscape"]]
+    },
+    "WHR-032": {
+      "accepted_themes": ["conflict_or_instability", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Kosovo"], ["Decani", "Gračanica", "Gracanica", "Patriarchate"], ["monastery", "church"], ["Serbia"], ["conflict", "security"]],
+      "danger_groups": [["conflict", "security"], ["monastery", "church"], ["protection", "management"]],
+      "visual_groups": [["monastery", "church"], ["Decani", "Gracanica", "Patriarchate"], ["medieval"]]
+    },
+    "WHR-033": {
+      "accepted_themes": ["ecological_or_species_pressure", "water_or_climate_pressure"],
+      "anchor_groups": [["East Rennell"], ["Lake Tegano", "Tegano"], ["Solomon"], ["logging"], ["invasive", "rats", "sea level"]],
+      "danger_groups": [["logging"], ["invasive", "rats"], ["sea level", "climate"]],
+      "visual_groups": [["Lake Tegano", "Tegano"], ["forest"], ["island", "atoll"]]
+    },
+    "WHR-034": {
+      "accepted_themes": ["conflict_or_instability", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Hebron", "Al-Khalil"], ["Mamluk", "Ottoman"], ["Ibrahimi", "Patriarchs"], ["Palestine"], ["conflict", "restrictions"]],
+      "danger_groups": [["conflict", "restrictions"], ["urban", "historic fabric"], ["management", "governance"]],
+      "visual_groups": [["Mamluk", "Ottoman"], ["Ibrahimi", "Patriarchs"], ["old town"]]
+    },
+    "WHR-035": {
+      "accepted_themes": ["urban_or_development_pressure", "water_or_climate_pressure"],
+      "anchor_groups": [["Battir"], ["terraces", "terraced"], ["irrigation"], ["railway", "separation wall", "barrier"], ["olives", "vines"]],
+      "danger_groups": [["separation wall", "barrier"], ["irrigation", "water"], ["terraces", "landscape"]],
+      "visual_groups": [["terraces", "terraced"], ["irrigation"], ["olives", "vines"]]
+    },
+    "WHR-036": {
+      "accepted_themes": ["conflict_or_instability", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Saint Hilarion", "Tell Umm Amer", "Umm Amer"], ["monastery"], ["Gaza"], ["Byzantine"], ["conflict", "war"]],
+      "danger_groups": [["conflict", "war"], ["monastery"], ["damage", "archaeological"]],
+      "visual_groups": [["monastery"], ["Byzantine"], ["Gaza"]]
+    },
+    "WHR-037": {
+      "accepted_themes": ["conflict_or_instability", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Aleppo"], ["citadel", "souq", "suq"], ["war", "conflict"], ["destruction", "damage"], ["Syria"]],
+      "danger_groups": [["war", "conflict"], ["destruction", "damage"], ["armed"]],
+      "visual_groups": [["citadel"], ["souq", "suq"], ["old city"]]
+    },
+    "WHR-038": {
+      "accepted_themes": ["conflict_or_instability", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Damascus"], ["Umayyad", "mosque"], ["old city"], ["Syria"], ["war", "conflict"]],
+      "danger_groups": [["war", "conflict"], ["damage", "risk"], ["old city"]],
+      "visual_groups": [["Umayyad", "mosque"], ["old city"], ["Damascus"]]
+    },
+    "WHR-039": {
+      "accepted_themes": ["conflict_or_instability", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Palmyra"], ["Temple of Bel", "Bel"], ["Arch of Triumph", "arch"], ["ISIS", "Islamic State", "Daesh"], ["destruction", "destroyed"]],
+      "danger_groups": [["ISIS", "Islamic State", "Daesh"], ["destruction", "destroyed"], ["conflict", "war"]],
+      "visual_groups": [["Temple of Bel", "Bel"], ["Arch of Triumph", "arch"], ["ruins"]]
+    },
+    "WHR-040": {
+      "accepted_themes": ["conflict_or_instability", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Kyiv", "Kiev"], ["Saint-Sophia", "Sophia"], ["Kyiv-Pechersk", "Pechersk"], ["missile", "war", "invasion"], ["Ukraine"]],
+      "danger_groups": [["missile", "war", "invasion"], ["conflict"], ["monastic", "cathedral"]],
+      "visual_groups": [["Saint-Sophia", "Sophia"], ["Kyiv-Pechersk", "Pechersk"], ["cathedral", "lavra"]]
+    },
+    "WHR-041": {
+      "accepted_themes": ["conflict_or_instability", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Lviv", "L'viv"], ["historic centre", "ensemble"], ["Ukraine"], ["missile", "war", "invasion"], ["buffer zone"]],
+      "danger_groups": [["missile", "war", "invasion"], ["conflict"], ["buffer zone", "historic centre"]],
+      "visual_groups": [["historic centre", "ensemble"], ["buffer zone"], ["Lviv", "L'viv"]]
+    },
+    "WHR-042": {
+      "accepted_themes": ["water_or_climate_pressure", "ecological_or_species_pressure"],
+      "anchor_groups": [["Everglades"], ["wetland"], ["water flow", "hydrology"], ["Hurricane Andrew", "hurricane"], ["Florida"]],
+      "danger_groups": [["water flow", "hydrology"], ["hurricane"], ["wetland", "ecological"]],
+      "visual_groups": [["wetland"], ["Everglades"], ["Florida"]]
+    },
+    "WHR-043": {
+      "accepted_themes": ["urban_or_development_pressure", "structural_or_archaeological_fragility", "conflict_or_instability"],
+      "anchor_groups": [["Zabid"], ["Yemen"], ["historic town"], ["houses", "deterioration"], ["urban", "concrete"]],
+      "danger_groups": [["houses", "historic town"], ["urban", "concrete"], ["conflict", "management"]],
+      "visual_groups": [["historic town"], ["houses"], ["Zabid"]]
+    },
+    "WHR-044": {
+      "accepted_themes": ["conflict_or_instability", "structural_or_archaeological_fragility"],
+      "anchor_groups": [["Sana", "Sana'a"], ["Yemen"], ["tower houses", "tower-house"], ["bombing", "airstrike", "conflict"], ["old city"]],
+      "danger_groups": [["bombing", "airstrike", "conflict"], ["damage", "destruction"], ["tower houses", "old city"]],
+      "visual_groups": [["tower houses", "tower-house"], ["old city"], ["Sana", "Sana'a"]]
+    }
+  }
+}

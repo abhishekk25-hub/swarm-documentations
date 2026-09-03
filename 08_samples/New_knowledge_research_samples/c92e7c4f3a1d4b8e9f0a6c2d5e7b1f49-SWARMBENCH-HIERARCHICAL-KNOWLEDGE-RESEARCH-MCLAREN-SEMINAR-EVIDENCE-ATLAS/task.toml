@@ -1,0 +1,28 @@
+[task]
+name = "swarmbench/c92e7c4f3a1d4b8e9f0a6c2d5e7b1f49-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-MCLAREN-SEMINAR-EVIDENCE-ATLAS"
+description = "Browse Professor Bruce M. McLaren's real 200+ publication record and paper-level sources to produce a source-cited doctoral seminar evidence atlas, methodological comparison matrix, research trajectory, and claim audit."
+
+[metadata]
+verifier_type = "hybrid"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["browsing", "long_horizon", "long_writing"]
+dag_depth = 4
+dag_width = 24
+dag_width_definition = "Twenty-four concurrent, consecutive, non-overlapping bibliography-shard auditors map the live official record and each create three source-supported evidence cards before review and synthesis."
+human_solving_hours_estimate = 94.0
+human_solving_hours_justification = "Map and reconcile 240 bibliography records x 4 minutes = 16 hours; retrieve and interpret 72 paper-level sources x 30 minutes = 36 hours; resolve versions and source conflicts = 8 hours; build six comparative themes x 2 hours = 12 hours; write the trajectory, seminar plan, and claim audit = 16 hours; cross-artifact citation and link QA = 6 hours; total = 94 hours."
+estimated_sub_agents = 34
+input_token_estimate = 425000
+reference_link = "https://www.cs.cmu.edu/~bmclaren/publications.html"
+why_multi_agent = "Observed single-agent calibration showed a spec- and schema-following breakdown under single-context overload: it mapped a broad corpus but failed to assemble the required evidence-card directory, matrix, narratives, audit, and index into the exact output package. The task requires 24 disjoint bibliography shards, 72 source-supported cards, and cross-artifact identifiers to remain consistent through synthesis. A hierarchy helps by assigning bounded shard work and independent artifact review, while final integration remains difficult because claims, methods, themes, readings, and audit rows must agree."
+build_status = "trial_calibrated_with_execution_logs"
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 8192
+build_timeout_sec = 1200
+network_enabled = true

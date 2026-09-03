@@ -1,0 +1,88 @@
+{
+  "package": "winter-2026-27-lock-outage-programme",
+  "compiled_utc": "2026-08-20T00:00:00Z",
+  "external_source": {
+    "name": "USDOT/BTS National Transportation Atlas Database - Waterway Locks (USACE NDC Lock Characteristics)",
+    "service_url": "https://services7.arcgis.com/n1YM8pTrFmm7L4hs/ArcGIS/rest/services/Locks/FeatureServer/0",
+    "catalogue_url": "https://hub.arcgis.com/datasets/usdot::waterway-locks",
+    "retrieved_utc": "2026-08-18T00:00:00Z",
+    "pinned_as": "ntad_waterway_locks.json",
+    "note": "Attributes are carried through unchanged apart from dropping the empty SE_ANNO_CAD_DATA column. This file is the authority for chamber identity, river, river mile, chamber count, usable dimensions, lift, district and operational status."
+  },
+  "operational_records_note": "Constructed division and industry operating records for the season, compiled against the pinned chamber inventory. See provenance_statement.",
+  "files": [
+    {
+      "filename": "bulkhead_sets.csv",
+      "runtime_path": "/input_artifacts/bulkhead_sets.csv",
+      "bytes": 537,
+      "sha256": "37927c7d986442f28626726e2d8b299ecd156286af83c262eaa74dc9180fa72d",
+      "record_count": 9,
+      "origin": "constructed-operational",
+      "description": "9 dewatering bulkhead sets, their class, home berth and seasonal availability."
+    },
+    {
+      "filename": "candidate_work_items.csv",
+      "runtime_path": "/input_artifacts/candidate_work_items.csv",
+      "bytes": 8254,
+      "sha256": "297f557cb32cd06239e78fe72ae4ad25cf5248751403e0a7f4aab5e369c504d2",
+      "record_count": 72,
+      "origin": "constructed-operational",
+      "description": "The 72 major-maintenance work items the districts nominated against those chambers for this season, with component, duration, resource class and deferral history."
+    },
+    {
+      "filename": "condition_findings.jsonl",
+      "runtime_path": "/input_artifacts/condition_findings.jsonl",
+      "bytes": 116261,
+      "sha256": "333669beb9202b2068149070de7c23e65c9fd95d0ae551231a7403b4eae7ed73",
+      "record_count": 140,
+      "origin": "constructed-operational",
+      "description": "140 inspection notes written against those work items across the 2026 survey cycle, one JSON object per line. Each note is free narrative written by the inspecting party: the notes vary in length, sentence order and phrasing, they state no condition class, and several carry readings from earlier cycles or from a different component at the same chamber alongside the reading that governs."
+    },
+    {
+      "filename": "dewatering_crews.csv",
+      "runtime_path": "/input_artifacts/dewatering_crews.csv",
+      "bytes": 404,
+      "sha256": "8e2f5f73422a6a1a91a8c844c94512acabd42ec1dc80f053dd32def68ffe524a",
+      "record_count": 7,
+      "origin": "constructed-operational",
+      "description": "7 dewatering crews, their class, districts served and seasonal availability."
+    },
+    {
+      "filename": "district_season_windows.csv",
+      "runtime_path": "/input_artifacts/district_season_windows.csv",
+      "bytes": 478,
+      "sha256": "4df0f464b2be8a51ab830a7c45069c0f955d589661d86d3281bd9376c0555a09",
+      "record_count": 6,
+      "origin": "constructed-operational",
+      "description": "Per-district outage windows for the winter 2026-27 season."
+    },
+    {
+      "filename": "ntad_waterway_locks.json",
+      "runtime_path": "/input_artifacts/ntad_waterway_locks.json",
+      "bytes": 211349,
+      "sha256": "7c34e06dcc513f98223a4554994bdebe99f5869a3be3bfab34d3db77e4a923d4",
+      "record_count": 234,
+      "origin": "external-public-verbatim",
+      "description": "Unmodified USACE NDC lock-characteristics records as published in the USDOT/BTS National Transportation Atlas Database Waterway Locks layer, retrieved from the live feature service. 234 chambers nationwide; the 57 on the MISSISSIPPI, ILLINOIS and OHIO are the ones this programme covers. Every chamber identity, river mile, chamber count, usable dimension, lift, district and status used anywhere in the task comes from this file."
+    },
+    {
+      "filename": "programme_rules.md",
+      "runtime_path": "/input_artifacts/programme_rules.md",
+      "bytes": 9633,
+      "sha256": "c923165b8c3a6a94fa3c3292d198294247b0034dd90b5103a44e9e91bf4a9a5d",
+      "record_count": null,
+      "origin": "constructed-policy",
+      "description": "Division navigation branch programming rules in force for the winter 2026-27 season, including the condition threshold bands and the severance limits."
+    },
+    {
+      "filename": "tow_commitments.csv",
+      "runtime_path": "/input_artifacts/tow_commitments.csv",
+      "bytes": 7262,
+      "sha256": "2e64194ea24d587f214e0b6d0f9aeb51bead108920139017942faee860fd2bc9",
+      "record_count": 66,
+      "origin": "constructed-operational",
+      "description": "66 seasonal tow movements lodged by operators, with route segments, tow geometry, tonnage and transit window."
+    }
+  ],
+  "provenance_statement": "One file in this package is real and is carried verbatim: ntad_waterway_locks.json is the USACE NDC lock-characteristics record set as published in the USDOT/BTS National Transportation Atlas Database, retrieved from the live feature service and unmodified apart from dropping the empty SE_ANNO_CAD_DATA column. Chamber identity, river, river mile, chamber count, usable dimensions, lift, district and operational status all come from it, and every other file is keyed to those real chambers. The seven operational files - the programme rules, the work items, the inspection notes, the tow commitments, the crew and bulkhead rosters and the district windows - are CONSTRUCTED records, not captured ones. They are modelled on how a USACE division actually programmes winter lock maintenance, but no real division record was used and none should be cited as evidence of real USACE practice. They are stated here as constructed so that no reviewer or downstream user mistakes them for sourced material. Within the inspection notes, the readings attributed to earlier survey cycles and to other components at the same chamber are deliberate distractors: real inspection prose carries the same clutter, and the task is to read past it."
+}

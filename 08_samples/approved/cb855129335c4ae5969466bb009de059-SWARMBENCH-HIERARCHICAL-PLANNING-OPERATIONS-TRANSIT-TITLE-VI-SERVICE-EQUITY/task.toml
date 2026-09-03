@@ -1,0 +1,32 @@
+[task]
+name = "swarmbench/cb855129335c4ae5969466bb009de059-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-TRANSIT-TITLE-VI-SERVICE-EQUITY"
+description = "FY2026 transit Title VI service-equity Board packet: from agency files, a GTFS export, ACS demographics, an adopted policy, a 25-comment record and an authorities list, reconcile conflicts, compute minority/low-income people-trips, make the disparate-impact and disproportionate-burden findings, verify and cite 13 live FTA/CFR/Census sources, disposition every comment, and deliver an Excel workbook, a long evidence-backed report and three charts, graded by a deterministic weighted rubric."
+
+[metadata]
+verifier_type = "executable"
+domain = "planning-operations"
+coordination_pattern = "hierarchical"
+secondary_classification = ["browsing", "long_writing"]
+dag_depth = 3
+dag_width = 14
+human_solving_hours_estimate = 30.0
+human_solving_hours_justification = "Reconcile the adopted proposal against the GTFS export and build the canonical route table with the major-change screen, conflicts and data-quality exclusions = 240 min; compute people-trips (overall, minority, low-income, before/after, annualized) and the aggregate disparate-impact / disproportionate-burden rollup = 360 min; confirm and freeze citations for 13 authorities and ACS tables against the official sources (FTA Circular 4702.1B, 42 USC 2000d, 49 CFR Part 21, DOT Order 5610.2C, EO 12898, ACS B03002/C17002/B08201/C16001/B01001, NTD, GTFS, ACS MOE) = 300 min; triage and disposition all 25 public comments = 150 min; write the long evidence-backed board report (twelve sections, a per-route justification for every changed route, transit-dependent population context, public-comment synthesis) = 480 min; three charts = 90 min; workbook + report assembly and internal-consistency reconciliation = 180 min. Total ~1800 min ~= 30h."
+estimated_sub_agents = 13
+input_token_estimate = 110000
+reference_link = "https://www.transit.dot.gov/sites/fta.dot.gov/files/docs/FTA_Title_VI_FINAL.pdf , https://www.ecfr.gov/current/title-49/subtitle-A/part-21 , https://data.census.gov/table/ACSDT5Y2022.B03002 , https://data.census.gov/table/ACSDT5Y2022.C17002 , https://data.census.gov/table/ACSDT5Y2022.B08201 , https://gtfs.org/documentation/schedule/reference/"
+why_multi_agent = "The deliverable is a full Board packet whose hard part is breadth, not arithmetic. A single code-capable agent can script the numeric core (per-route people-trips and the aggregate disparate-impact / disproportionate-burden rollup) correctly at any scale, so the analysis carries only modest weight in the rubric. The score is dominated by work that does NOT compress into one script and that a single context cannot sustain to completion: confirming and freezing citations for thirteen distinct live authorities and ACS tables (load-bearing browsing, each requiring an actual retrieval), writing a long evidence-backed report with a specific justification for every changed route and a transit-dependent population context, and dispositioning all twenty-five public comments including triaging out-of-scope asks. In one context the agent reliably finishes the script but truncates the browsing, the route-by-route narrative, and the comment synthesis, so coverage degrades. The work routes naturally to a hierarchical specialist team: a data-reconciliation steward owning the canonical route table, conflicts and exclusions; three research specialists that partition the thirteen sources (legal authorities, ACS data tables, reference standards) so the browsing is done in parallel and verified; two people-trips analysts and an aggregate-equity lead for the computation; section writers that split the long report (route-by-route narrative, public-comment synthesis, and the framing sections); a visualization specialist; and a reducer that reconciles every part against the policy and assembles the workbook and the written report. Partitioning the breadth across specialists is what keeps citation, route-narrative and comment coverage complete, which is exactly where the single agent falls short."
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 900
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600
+
+# Requires outbound internet so the regulatory-research specialist can reach the live FTA
+# Circular 4702.1B / DOT Title VI pages and the Census ACS table sources to freeze citations.
+network_enabled = true

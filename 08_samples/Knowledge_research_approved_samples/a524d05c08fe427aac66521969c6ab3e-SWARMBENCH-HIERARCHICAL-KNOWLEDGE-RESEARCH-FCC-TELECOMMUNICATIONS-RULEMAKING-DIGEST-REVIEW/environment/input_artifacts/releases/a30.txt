@@ -1,0 +1,912 @@
+FCC RULEMAKING RELEASE
+Rule subject: Call Authentication Trust Anchor
+Document number: 2025-15809
+Issuing agency: Federal Communications Commission
+Responsible Bureau: Media Bureau
+Federal Register citation: 90 FR 40241
+Publication date: 2025-08-19
+
+Federal Register, Volume 90 Issue 158 (Tuesday, August 19, 2025)
+
+
+[Federal Register Volume 90, Number 158 (Tuesday, August 19, 2025)]
+[Rules and Regulations]
+[Pages 40241-40256]
+From the Federal Register Online via the Government Publishing Office [ www.gpo.gov ]
+[FR Doc No: 2025-15809]
+
+
+=======================================================================
+-----------------------------------------------------------------------
+
+FEDERAL COMMUNICATIONS COMMISSION
+
+47 CFR Part 64
+
+[WC Docket No. 17-97; FCC 24-120; FR ID 304848]
+
+
+Call Authentication Trust Anchor
+
+AGENCY: Federal Communications Commission.
+
+ACTION: Final rule.
+
+-----------------------------------------------------------------------
+
+SUMMARY: In this document, the Federal Communications Commission
+(Commission) adopts rules that strengthen the Commission's caller ID
+authentication requirements by establishing clear practices for
+providers that rely on third parties to fulfill their STIR/SHAKEN
+implementation obligations. The rules authorize providers with a STIR/
+SHAKEN implementation obligation to engage third parties to perform the
+technological act of digitally ``signing'' calls consistent with the
+requirements of the STIR/SHAKEN technical standards so long as: the
+provider with the implementation obligation makes the ``attestation-
+level'' decisions for authenticating caller ID information; and all
+calls are signed using the certificate of the provider with the
+implementation obligation--not the certificate of a third party. The
+rules also explicitly require all providers with a STIR/SHAKEN
+implementation obligation to obtain a Service Provider Code (SPC) token
+from the STIR/SHAKEN Policy Administrator and present that token to a
+STIR/SHAKEN Certificate Authority to obtain a digital certificate.
+Additionally, the rules include recordkeeping requirements for third-
+party authentication arrangements to enable the Commission to monitor
+compliance with and enforce Commission rules.
+
+DATES: These rules are effective September 18, 2025.
+
+FOR FURTHER INFORMATION CONTACT: For further information about the
+Notice of Proposed Rulemaking, contact Emily Caditz, Attorney Advisor,
+Competition Policy Division, Wireline Competition Bureau, at
+ [email protected] . For additional information concerning the
+Paperwork Reduction Act proposed information collection requirements
+contained in this document, send an email to [email protected] or contact
+Nicole Ongele at (202) 418-2991.
+
+SUPPLEMENTARY INFORMATION: This is a summary of the Commission's Report
+and Order in WC Docket No. 17-97, FCC 24-120, adopted on November 21,
+2024 and released on November 22, 2024. The complete text of this
+document is available for download at https://docs.fcc.gov/public/attachments/FCC-24-120A1.pdf .
+
+Synopsis
+
+I. Discussion
+
+ In this Report and Order, we take a number of steps to support the
+STIR/SHAKEN framework and promote trust in our country's voice
+networks. We do so by authorizing providers with a STIR/SHAKEN
+implementation obligation to work with third parties to perform the
+technological act of signing calls to fulfill their compliance
+obligations under the Commission's rules, but establishing clear limits
+to ensure that such third-party arrangements neither undermine
+adherence to the requirements of the STIR/SHAKEN technical standards
+nor allow providers to avoid accountability for noncompliance. By
+``STIR/SHAKEN implementation obligation,'' we mean the applicable
+requirement under the Commission's rules that a provider implement
+STIR/SHAKEN in the IP portions of their networks by a date certain,
+subject to certain exceptions. When referencing those providers
+``without'' a STIR/SHAKEN implementation obligation, we mean those
+providers that are subject to an implementation extension, such as a
+provider with an entirely non-IP network or one that is unable to
+obtain the necessary SPC token to authenticate caller ID information,
+or that are exempted from our caller ID authentication requirements
+because they lack control over the network infrastructure necessary to
+implement STIR/SHAKEN. First, we define ``third-party authentication''
+for the purposes of the rules we adopt today. Next, we limit the third-
+party authentication arrangements authorized under the Commission's
+rules to those in which the provider with the STIR/SHAKEN
+implementation obligation: (1) makes all attestation level decisions,
+consistent with the STIR/SHAKEN technical standards; and (2) ensures
+that all calls are signed using its own certificate obtained from a
+STIR/SHAKEN Certificate Authority--not the certificate of a third
+party. Utilizing a third party to sign traffic without complying with
+the requirements we adopt today will constitute a violation of the
+Commission's caller ID authentication rules. We further require that
+any provider certifying to partial or complete STIR/SHAKEN
+implementation in the Robocall Mitigation Database must be registered
+with the STIR/SHAKEN Policy
+
+[[Page 40242]]
+
+Administrator, obtain its own SPC token from the Policy Administrator,
+use that token to generate a certificate with the Certificate
+Authority, and authenticate all its calls with that certificate,
+whether directly or through a third party. We also adopt recordkeeping
+requirements regarding third-party authentication arrangements to
+ensure compliance with the rules we adopt today and promote
+accountability in the event that any such arrangement leads to abuse of
+the voice network. Based on our review of the record, we find that
+taking these steps will enable providers to obtain the economic and
+other benefits of utilizing third-party technical solutions for STIR/
+SHAKEN implementation without compromising the integrity of the STIR/
+SHAKEN technical standards and governance model. This, in turn, will
+protect consumers by promoting more ubiquitous and accurate caller ID
+authentication.
+
+A. Authorizing Third-Party Authentication Subject to Limitations To
+Prevent Abuse
+
+1. Defining the Scope of Third-Party Authentication
+ We first define ``third-party authentication'' for the purposes of
+the rules we adopt today, and also delineate the types of providers
+that are covered by the rules. In the Sixth Caller ID Authentication
+Further Notice (88 FR 29035, May 5, 2023), we sought comment on the
+types of third-party arrangements being used by providers, including
+whether providers are entering into agreements with third parties to
+perform all or part of their authentication responsibilities. We sought
+specific comment on the solutions detailed in the 2021 Small Providers
+Report produced by the NANC, which described third-party solutions that
+providers could engage to perform the technological act of signing
+calls, including ``hosted SHAKEN'' services offered in a public or
+private cloud and ``carrier SHAKEN'' services in which calls are signed
+by an intermediate provider. As described in the NANC Report, in both
+of these scenarios, the provider with the STIR/SHAKEN implementation
+obligation determines the appropriate attestation level for a call and
+the third-party solution signs the call using the obligated provider's
+token. We also sought comment on several scenarios addressed in the
+ATIS-1000088 Technical Report in which a provider with a STIR/SHAKEN
+implementation obligation lacks a direct relationship with the end user
+of the voice service. These scenarios involve circumstances where the
+end user of the voice service is not the same as the ``customer,'' as
+defined by the ATIS-1000088 Technical Report, such as when a wholesale
+provider originates a call onto the public network for its reseller
+customer that initiated the call on behalf of an end user. ATIS-1000088
+defines ``customer'' as ``[t]ypically a service provider's subscriber,
+which may or may not be the ultimate end-user of the telecommunications
+service.'' Under this definition, a customer ``may be a person,
+enterprise, reseller, or value-added service provider.'' An ``end-
+user'' is defined as ``[t]he entity ultimately consuming the VoIP-based
+telecommunications service,'' which may be ``the direct customer of [an
+originating] service provider or may indirectly use the VoIP-based
+telecommunications service through another entity such as a reseller or
+value-added service provider.'' ATIS-1000088, therefore, makes clear
+that, in some cases, the ``customer'' and ``end user'' are not the
+same. We additionally sought comment on whether we should limit any
+rule authorizing third-party authentication to the scenarios discussed
+by the Small Providers Report or those in the ATIS-1000088 Technical
+Report, or take a broader approach.
+ Based on our review of the record, and for the purposes of the
+rules we adopt today, we define ``third-party authentication'' to refer
+to scenarios in which a provider with a STIR/SHAKEN implementation
+obligation under the Commission's rules enters into an agreement with
+another party--a ``third party''--to perform the technological act of
+signing calls on the provider's behalf. This definition of third-party
+authentication includes, for example, the ``hosted SHAKEN'' and
+``carrier SHAKEN'' solutions that are described in the Small Providers
+Report. It excludes instances in which a provider with a STIR/SHAKEN
+implementation obligation authenticates its own traffic, and simply has
+a customer that is not the end user that initiated the call. We find
+that this definition is consistent with the caller ID authentication
+roles defined by the Commission's rules and the ATIS standards, and
+will establish a clear scope for the third-party authentication
+practices we authorize herein.
+ The Commission's rules establish three categories of providers with
+STIR/SHAKEN caller ID authentication obligations: (1) voice service
+providers that originate calls; (2) non-gateway intermediate providers
+that carry or process the calls without originating or terminating
+them; and (3) gateway providers that receive calls from foreign
+originating or intermediate providers at their US facilities and
+transmit them downstream. The Commission's rules further state that the
+STIR/SHAKEN implementation obligation applies to providers with control
+over the network infrastructure necessary to implement STIR/SHAKEN.
+Providers that meet these criteria are obligated to implement STIR/
+SHAKEN and are thus the entities that would be the ``first parties'' in
+any third-party authentication arrangement authorized by our rules,
+i.e., they are the parties with the ultimate compliance obligation.
+That compliance obligation does not change simply because the provider
+has an upstream customer (e.g., a reseller or a value-added service
+provider) that is not the ultimate end user of the voice service and
+does not itself have a STIR/SHAKEN implementation obligation, e.g., a
+reseller that qualifies for the STIR/SHAKEN exemption or a value-added
+service provider (VASP) that provides communications services that are
+ancillary to the voice service. A VASP may provide services such as
+arranging for telephone number assignments from a service provider to a
+particular customer of the VASP or for the VASP's use irrespective of
+customer. As is often true with respect to resellers, an ``originating
+[service provider] typically knows the VASP customer and does not have
+direct knowledge'' of the VASP's end users. In these scenarios, the
+Technical Report provides guidance on the steps a provider with STIR/
+SHAKEN implementation obligation must take to verify its customer's
+identity and right to use a number, as required to provide an A- or B-
+level attestation. For instance, in the context of voice service
+providers, we agree with CCA that ``[w]here, consistent with ATIS
+standards, an originating service provider provides an attestation for
+calls from its own reseller or [VASP] customer, it is not engaging in
+third party authentication[; i]t is instead using its certificate to
+provide an appropriate attestation to traffic from its own customers.''
+Stated differently, the originating service provider in that example is
+performing its own STIR/SHAKEN implementation obligation and is not
+acting as a third party for its upstream customer. Thus, if a wholesale
+provider originates a call onto the public network on behalf of a
+reseller customer that lacks control over the network infrastructure
+necessary to implement STIR/SHAKEN, it is the wholesale provider that
+has the STIR/SHAKEN implementation obligation, not the reseller. In
+this scenario, the wholesale provider is obligated to use
+
+[[Page 40243]]
+
+STIR/SHAKEN to authenticate the caller ID pursuant to its own
+obligation under the Commission's rules, not as a third party for the
+reseller that is exempt from STIR/SHAKEN implementation requirements.
+Our framework authorizes all providers with a STIR/SHAKEN
+implementation obligation, regardless of their position in the call
+path, and subject to the limitations we set in place, to engage a third
+party for the technological act of signing calls. Therefore, where an
+intermediate provider (either a non-gateway intermediate provider or
+gateway provider) has a STIR/SHAKEN implementation obligation, it may
+fulfill that obligation through a third party subject to these same
+rules.
+ We find that any other interpretation would be inconsistent with
+the requirements for making attestation-level decisions when
+authenticating calls in the ATIS standards and reference documents.
+ATIS-1000074 only permits A- and B-level attestations to be made by
+providers that originate calls onto the IP-based service provider
+network. Although not defined in ATIS-1000074, that standard uses the
+term originating service provider, or OSP, consistent with related
+standards documents, such as ATIS-1000089, which defines originating
+service provider as: ``[t]he service provider that handles the outgoing
+calls from a customer at the point at which they are entering the
+public network. The OSP performs the SHAKEN Authentication function.''
+Thus, when an originating service provider authenticates a call based
+on what it knows about its customer and its customer's right to use a
+telephone number, it is performing its own STIR/SHAKEN implementation
+obligation, not that of its upstream customer in a third-party
+capacity. In these circumstances, it is the responsibility of the
+originating service provider to utilize reasonable ``Know Your
+Customer'' (KYC) protocols to establish a credible evidentiary basis
+for a ``direct authenticated relationship with [its] customer'' and/or
+verification of its customer's right to use the telephone number
+appearing in the caller ID field, sufficient to apply an A- or B-level
+attestation under the ATIS standards. USTelecom, CTIA, and Numeracle
+urge us to adopt a definition of the term ``customer'' that is narrower
+than the one employed by the ATIS standards and reference documents.
+Specifically, they ask that we define ``customer'' to mean solely the
+end user that initiated the voice service, whether an individual or
+organizational entity. We decline to do so at this time because it is
+not necessary for the purposes of the third-party authentication rules
+we adopt today. We make clear above that the ``first party'' within any
+third-party arrangement is the entity with a STIR/SHAKEN implementation
+obligation, which under our existing rules and precedent, will
+necessarily be a voice service provider, intermediate provider, or
+gateway provider with control over the network infrastructure necessary
+to implement STIR/SHAKEN. As explained herein, whether the provider's
+customer is the ultimate end user of the voice service or another
+upstream entity is not dispositive of whether the provider has a STIR/
+SHAKEN implementation obligation and whether it may enter into an
+agreement with a third-party to perform the technological act of
+signing calls in fulfillment of that obligation subject to the
+requirements we adopt today. Further, we agree with NCTA, CCA,
+INCOMPAS, and ACA Connects that narrowing the definition of
+``customer'' to mean solely the entity that initiates the voice service
+would be a significant departure from a plain reading of the ATIS
+standards and reference documents, and could be disruptive to the use
+cases that those standards and reference documents clearly contemplate
+as functioning within the STIR/SHAKEN ecosystem. ZipDX asks us to
+provide clarification as to the operation of our rules, including
+applicable KYC requirements, in a variety of hypothetical caller ID
+authentication arrangements. We decline to do so at this time, and find
+that commenting further on any given permutation of an authentication
+arrangement absent a more focused record on these matters would be
+unproductive. As we have explained above, the guidance we provide in
+this Order aligns with the text of the ATIS standards, including those
+which contemplate more complex calling arrangements between resellers
+and wholesalers such as those ZipDX describes.
+ We thus decline ZipDX's suggestion that we incorporate providers
+that lack control over the network infrastructure necessary to
+implement STIR/SHAKEN as first parties under this framework when they
+``hold [themselves] out as the originating service provider (even
+though [they] do[ ] not actually `touch' the call)'' and ``arrange for
+somebody (the infamous third party) to sign the calls'' for them. For
+the reasons discussed above, such a fluid conception of ``originating
+service provider'' would conflict with the text of the Commission's
+rules establishing the scope of providers subject to a STIR/SHAKEN
+implementation obligation and would be inconsistent with how the ATIS
+standards and technical reports use that term. We similarly reject
+other commenters' understanding of ``third-party authentication'' that
+describe scenarios in which a provider without a STIR/SHAKEN
+implementation obligation, such as a provider that lacks control over
+the network infrastructure necessary to implement STIR/SHAKEN, would be
+considered the ``first party.'' We understand that there are currently
+voice service resellers that are voluntarily attempting to authenticate
+caller ID information despite not having control over the network
+infrastructure necessary to implement STIR/SHAKEN and, thus, lacking a
+STIR/SHAKEN implementation obligation under the Commission's rules. We
+understand that they often do so by relying on their wholesale
+providers to sign their calls. As explained above, such arrangements do
+not fall within the definition of third-party authentication that we
+adopt today, except insofar as the wholesale provider with the STIR/
+SHAKEN implementation obligation opts to use a third party to perform
+the technological act of signing calls on its behalf. We nevertheless
+encourage voice service resellers engaged in any form of authentication
+arrangement with wholesalers to provide such wholesalers with enough
+information to enable them to determine the appropriate attestation
+level of the calls initiated by the resellers' end users, pursuant to
+the wholesaler's obligations under the Commission's rules and the STIR/
+SHAKEN standards.
+2. Authorized Third-Party Authentication Practices
+ We next authorize providers with a STIR/SHAKEN implementation
+obligation to enlist the help of a third-party subject to certain
+conditions. In the Sixth Caller ID Authentication Further Notice (88 FR
+29035, May 5, 2023), we sought comment on whether we should amend the
+Commission's rules to explicitly authorize third-party authentication
+and what, if any, limitations we should place on that authorization to
+ensure compliance with authentication requirements and the reliability
+of the STIR/SHAKEN framework. Based on the evidence in the record, we
+permit providers with a STIR/SHAKEN implementation obligation under the
+Commission's rules to engage third parties to perform the technological
+act of signing calls as required by the STIR/SHAKEN standards, subject
+to two conditions: (1) the provider with the implementation
+
+[[Page 40244]]
+
+obligation must make all attestation-level decisions, consistent with
+the requirements of the technical standards; and (2) all calls must be
+signed using the certificate of the provider with the implementation
+obligation. Relying on third parties to sign traffic without complying
+with these requirements will constitute a violation of the Commission's
+caller ID authentication rules. The rules we adopt today are not
+limited to arrangements based on a ``Hosted SHAKEN'' model or the
+``Carrier SHAKEN'' model, or any other particular technological
+solution. We agree with TransNexus that limiting third-party
+authentication to currently existing technical solutions is unnecessary
+and may even inadvertently prevent innovation should new solutions be
+developed in the future. We will monitor any new solutions that may
+develop and may revisit this subject should action to address new risks
+be warranted. As explained below, we find that this approach will
+ensure the accountability necessary to maintain trust in the STIR/
+SHAKEN framework and will promote accurate and reliable A- and B-level
+attestations.
+ Commenters broadly agree that there are benefits to third-party
+authentication. Numeracle notes that third-party authentication is
+``necessary and beneficial for the timely and efficient implementation
+of STIR/SHAKEN.'' INCOMPAS adds that, ``[e]ngaging in third-party
+caller ID authentication benefits the STIR/SHAKEN ecosystem by
+increasing the number of calls that are signed with a SHAKEN signature
+and by expanding the variety of signing options available to voice
+service providers and their customers.'' According to USTelecom, ``for
+some providers, including smaller providers with limited resources,
+relying on third parties is essential to deploy STIR/SHAKEN in a cost-
+effective way. In addition, for certain equipment, including legacy IP
+equipment, third-party signing can be an effective and efficient means
+to deploy signing capabilities that otherwise would be cost-
+prohibitive.'' USTelecom's assertion accords with the NANC Small
+Providers Report, which concludes that third-party authentication may
+benefit small providers by reducing the costs associated with STIR/
+SHAKEN implementation.
+ The record also indicates, however, that certain types of third-
+party authentication practices can undermine confidence in the STIR/
+SHAKEN framework, and that guardrails are necessary. TransNexus argues
+that arrangements in which a ``downstream transit provider
+authenticates calls using its own STI certificate and its specific
+means to determine the attestation level'' present serious problems by
+``undermin[ing] STIR/SHAKEN and robocall prevention,'' and ``enabl[ing]
+bad actors . . . to hide illegal robocalls amidst other calls
+authenticated by the transit provider.'' ACA Connects adds that
+``[t]hird-party call authentication could raise serious concerns in
+some contexts, including in situations where a provider employs a
+third-party for call authentication as a ploy to avoid scrutiny and
+accountability.'' NTCA similarly argues that, ``[w]hile [third-party
+services] are a valuable option for providers' compliance with the
+Commission's caller-ID authentication rules, the potential for bad
+actors to utilize certain variations of these arrangements in a way
+that could undermine the integrity of the STIR/SHAKEN ecosystem cannot
+be overlooked.'' NTCA and USTelecom agree that safeguards ``are
+necessary to maintain trust in the STIR/SHAKEN ecosystem and allow
+these arrangements to function as intended for legitimate providers.''
+ We thus balance the benefits and concerns associated with third-
+party authentication by adopting a rule that allows the practice
+subject to the two conditions specified above: (1) the provider with
+the STIR/SHAKEN implementation obligation must make all attestation-
+level decisions, consistent with the requirements of the technical
+standards; and (2) all calls must be signed using the certificate of
+the provider with the implementation obligation. We disagree with
+TransNexus's argument that we should simply issue a declaratory ruling
+to clarify that the Commission's rules already require voice service
+providers and intermediate providers to ensure that calls that they
+initiate onto the voice network are signed with their certificate, and
+to make all attestation-level decisions, regardless of which entity
+actually performs the act of signing. We instead find that codifying
+the rules through this Eighth Report and Order will not only ensure
+that all parties are the same page regarding their STIR/SHAKEN
+implementation obligations moving forward, but will also give us
+additional enforcement tools in the event a bad actor originating
+service provider attempts to hide behind a third party to obscure its
+identity. These key guardrails will allow providers to realize the
+benefits of third-party authentication without compromising the
+integrity of the trust and governance structure upon which STIR/SHAKEN
+relies. They will ensure that responsibility for properly
+authenticating a call's caller ID information--including complying with
+the attestation requirements of the ATIS standards--remains with the
+party assigned the STIR/SHAKEN implementation obligation under the
+Commission's rules, and will prevent providers from shirking their due-
+diligence duties by shifting STIR/SHAKEN authentication procedures to
+third parties. Under this approach, originating service providers that
+rely on delegate certificates to establish a customer's right to use a
+telephone number, as required for an A-level attestation, may continue
+to do so to the extent permitted by the ATIS standards. These delegate
+certificates ``provid[e] an end user or other VoIP entity with the
+ability to create and sign a PASSporT on its calls using a set of
+credentials . . . associated with [the] delegate certificate that is
+specific to the telephone number resources [which] that end user or
+other VoIP entity is authorized to use,'' though originating service
+providers may choose to ``ignor[e] all PASSporTs signed with delegate
+certificate credentials.'' Because the originating service provider is
+ultimately responsible for making all attestation-level decisions and
+providing that information to a third-party performing the
+technological act of signing a call, the originating service provider
+remains responsible for vetting their customers and the criteria for
+applying A-level attestations, whether or not a delegate certificate is
+accepted. We decline SOMOS' suggestion that we should mandate
+acceptance of delegate certificates by providers in this Eighth Report
+and Order, as such a mandate is beyond the scope of the third-party
+authentication rules that we adopt today and the record in this
+proceeding is insufficient to weigh the benefits and burdens of
+imposing such a requirement. By requiring calls to be signed using the
+certificate of the provider with the implementation obligation, the
+STIR/SHAKEN governance model will be able to function as intended by
+making it easier to identify providers responsible for any
+authentication information transmitted with a call and facilitating
+enforcement remedies that may be needed for failures to comply with
+authentication requirements, including, for example, revocation of a
+provider's SPC token by the Secure Telephone Identity Governance
+Authority (STI-GA). We agree with commenters that the sharing of a
+provider's certificate with a third-
+
+[[Page 40245]]
+
+party authenticator for the purpose of populating the identity header
+of a call does not create a security risk or undermine the STIR/SHAKEN
+trust model. As TransNexus states, STIR/SHAKEN certificates are similar
+to other secure certificates used extensively on the internet: ``Most
+certificate holders provision their certificates and private keys to be
+hosted by third parties. These companies are experts in securing
+digital assets, and they use technology best practices and systems to
+minimize risks.'' Further, we conclude that a provider's direction to a
+third-party authenticator as to which attestation level to apply to a
+given call does not raise concerns about privacy or confidentiality. As
+Numeracle confirms, ``the service provider should be able to pass its
+direction for attestation on to systems maintained by vendors used for
+technical support to apply the appropriate attestation level to the
+service provider's own calls without having to also supply its [third-
+party authenticator] with contextual data related to its decision.''
+NCTA states that any information that may need to be shared ``is
+typically no more information than would be shared in connection with
+other robocall mitigation efforts, such as traceback or other
+initiatives to combat abusive calling practices . . . .'' No commenter
+argues third-party authentication practices, or specifically the
+sharing of information and certificates with third parties to perform
+the technological act of signing calls, presents security, privacy, or
+confidentiality concerns. A few commenters note that the STI-GA is
+working on ways to address ``improper attestations,'' and last year
+published a document providing guidance regarding what it considers to
+be ``improper attestation,'' to ``support STI GA processes and
+policies,'' including its token revocation process. By adopting
+guardrails on third-party authentication practices and ensuring that
+all calls are signed with the token of the provider with the STIR/
+SHAKEN implementation obligation, rather than a third party that may
+perform the technological functions of signing a call for that
+provider, we assist in the STI-GA's effort to address improper
+attestation by increasing transparency.
+ We find that this approach will also guard against improper A- and
+B-level attestations by parties that are not originating service
+providers. Under the ATIS standards, an A- or B-level attestation can
+only be applied if the provider authenticating the call originates it
+onto the public network. That ATIS criterion can be satisfied in the
+context of a third-party arrangement where the originating service
+provider either: (1) arranges with a third party to perform the
+technological act of signing a call before the provider originates the
+call onto the public network; or (2) originates the call onto the
+public network with an agreement in place for a downstream intermediate
+provider to perform the technological act of signing the call. The
+second requirement of A- and B-level attestation, i.e., confirmation
+that an originating service provider has a ``direct authenticated
+relationship'' with its customer and can identify the customer, is a
+determination that cannot be made by a third party with no relationship
+to that customer. The last requirement for an A-level attestation,
+i.e., confirmation that the originating service provider has
+established that the customer has a legitimate right to use the
+telephone number that appears in the caller ID, also necessarily
+requires due diligence by the originating service provider. We thus
+agree with commenters in the record that it is inconsistent with the
+Commission's rules and the ATIS standards to allow third parties to
+make such determinations. Since, as discussed above, the calls will
+need to be signed using the originating service provider's certificate,
+the rules we adopt today will ensure that such originating service
+providers are held accountable for improper attestation-level decisions
+for the calls they originate onto the public network, even if the
+technological act of signing the calls is performed by a third party.
+ Commenters generally support our adoption of these guardrails. CTIA
+and Numeracle argue that this approach ``is consistent with the
+existing [ATIS] standards and the FCC's regulatory framework for STIR/
+SHAKEN implementation.'' CTIA also notes that requiring the use of ``an
+originating [service] provider's [certificate] will better achieve the
+goals of the STIR/SHAKEN framework to promote a trusted voice ecosystem
+and increase transparency and integrity of caller ID information.''
+USTelecom contends that, ``when calls are signed with the originating
+[service] provider's token, the Commission, the provider community, and
+analytics providers will have the information they need to take action
+should an originating [service] provider prove to routinely originate
+and authenticate illegal robocalls . . . .'' TransNexus argues that
+such limitations will, inter alia, ``improve the quality of caller [ID]
+authentication information available to terminating providers,'' and
+thereby improve their call analytics.
+ We are not persuaded, however, by the arguments advanced by the few
+commenters that oppose the guardrails we adopt today. INCOMPAS argues
+that we should not adopt any rules governing third-party
+authentication, and specifically opposes requiring providers to ensure
+that third-party authenticators sign calls using the provider's
+certificate. INCOMPAS implies that third-party authentication
+arrangements using the third party's certificate, rather than the
+originating service provider's, do not impede traceback efforts because
+``domestic originating providers . . . typically are identified to the
+Industry Traceback Group (`ITG') by the signing company'' in such
+arrangements, and use of an origination identifier or ``origID'' by
+third-party signing providers would be sufficient to ``ensure that the
+Commission or ITG can identify the source of any illegal robocalls.''
+We disagree. The origID field is an ``opaque identifier'' that ``does
+not convey any [service provider] or customer information in and of
+itself.'' Moreover, use of the origID field is permitted, but not
+required, by the ATIS standards, which do not establish detailed
+specifications regarding its use by providers. The approach described
+by INCOMPAS requires the ITG to obtain the cooperation of a third-party
+signing provider before it can identify the originator of an illegal
+call. In contrast, requiring third-party signers to use the originating
+service provider's token will allow the ITG to directly identify the
+originating service provider, thereby improving the efficiency of the
+traceback process and accountability within the STIR/SHAKEN ecosystem.
+INCOMPAS argues that instead we should ``rely on the authority of the
+Enforcement Bureau to address those instances when an illegal
+robocaller is attempting to evade accountability through third-party
+authentication[, and] . . . rely on the [STI-GA] to address any ongoing
+issues or gaps in the standards that lead to attestation abuse.'' We
+are committed to enforcing the Commission's rules against illegal
+robocallers and agree that the STI-GA should exercise its authority to
+hold providers accountable for non-compliance with the ATIS standards.
+That does not mean, however, that we should not proactively adopt
+common-sense guardrails to prevent abuse of third-party authentication
+arrangements. By codifying these new rules, we give more certainty to
+providers seeking to comply with our caller ID
+
+[[Page 40246]]
+
+authentication framework, establish clear standards that the
+Enforcement Bureau can apply when investigating misconduct, and enable
+the STIR/SHAKEN ecosystem to realize additional benefits, such as
+making authentication information more valuable for call analytics. We
+thus reject INCOMPAS's inference that it is sufficient to simply rely
+on providers to voluntarily establish appropriate parameters for the
+application of STIR/SHAKEN technical standards in commercial
+arrangements with third parties. As discussed below, we require all
+third-party authentication arrangements to be memorialized in written
+agreements that comport with the rules we adopt today. INCOMPAS and VON
+also argue that changes to the Commission's rules may risk creating
+regulatory conflict with foreign jurisdictions, but provide no detail
+as to why imposing guardrails on third-party authentication would cause
+such an issue. While we acknowledge that maintaining ``interoperability
+among SHAKEN systems internationally'' is certainly important in
+protecting domestic consumers from illegal robocalls originating
+abroad, our action today eliminates the risk of such regulatory
+conflict by remaining consistent with the ATIS standards.
+
+B. Implementation and Compliance Requirements
+
+ In this Section, we adopt several implementation requirements for
+providers that utilize third-party authentication and amend certain
+rules to comport with those requirements. In the Sixth Caller ID
+Authentication Further Notice (88 FR 29035, May 5, 2023), the
+Commission sought comment on whether any other rules would need to be
+amended if it explicitly authorized third-party authentication.
+Specifically, and as described below, we require all providers with a
+STIR/SHAKEN implementation obligation to: (1) obtain an SPC Token and
+digital certificate; (2) certify to complete or partial implementation
+in the Robocall Mitigation Database only if they have obtained an SPC
+token and digital certificate and sign calls with their certificate;
+and (3) memorialize and maintain records of any third-party
+authentication agreement(s) they have entered into, subject to certain
+limitations.
+ Requirement to Obtain a Token and Digital Certificate. Consistent
+with the third-party authentication rule we adopt today, all providers
+with a STIR/SHAKEN implementation obligation under the Commission's
+rules will now be explicitly required to obtain an SPC token from the
+Policy Administrator and present that token to a STIR/SHAKEN
+Certificate Authority to obtain a digital certificate. This requirement
+is necessary now that all calls, whether technologically signed
+directly by the provider with the STIR/SHAKEN implementation obligation
+or by a third party, must be signed with the former's certificate,
+thereby ensuring that accountability for compliance with our caller ID
+authentication rules remains with the party required to implement STIR/
+SHAKEN under the Commission's rules. The record indicates that
+requiring all providers with a STIR/SHAKEN implementation obligation to
+obtain their own SPC tokens and digital certificates will also result
+in other benefits, such as ``encourag[ing] continued innovation''
+within the existing STIR/SHAKEN framework and ensuring that providers
+with STIR/SHAKEN implementation obligations under the Commission's
+rules ``have a fair and proportionate financial stake in the STIR/
+SHAKEN ecosystem.'' We believe the positive effects of this requirement
+will be far-reaching, as the record indicates that many providers
+claiming to have implemented STIR/SHAKEN have not obtained their own
+tokens and certificates. Indeed, TransNexus estimates ``that about 64%
+of providers'' in the Robocall Mitigation Database that claim STIR/
+SHAKEN implementation are not registered with the Policy Administrator.
+ We disagree with INCOMPAS that ``requiring all providers to obtain
+a token that could be used by a third-party authenticator would
+necessitate changes with both the industry's token access policies and
+the Commission's current administration of voice service providers.''
+In support of its arguments, INCOMPAS merely lists the STI-GA's SPC
+token access standards, including the requirement to obtain an
+Operating Company Number (OCN), and states that many providers ``do not
+operate a business model that allows them to get an OCN.'' INCOMPAS
+does not, however, explain why this would be the case for any provider
+with a STIR/SHAKEN implementation obligation, much less ``many''
+providers with STIR/SHAKEN implementation obligations. In fact, in
+recent years, the Wireline Competition Bureau has repeatedly found that
+few providers are currently unable to obtain an SPC token due to
+revisions made to the STI-GA token access policy in May 2021.
+Consistent with this finding, the record in this proceeding evidences
+that the barriers to and costs associated with obtaining and
+maintaining SPC tokens and digital certificates are low, including for
+small providers. Moreover, the compliance deadline we adopt below
+provides ample time for all sizes of providers to come into compliance
+with our newly adopted rules, thereby minimizing any compliance
+burdens. While INCOMPAS states that some providers are unable to get an
+OCN ``from the Commission,'' OCNs are assigned by the National Exchange
+Carrier Association (NECA). INCOMPAS also states that ``voice service
+providers are required to provide the STI Policy Administrator with
+all-associated IP addresses as part of acquiring a Service Provider
+Code token,'' and claims that this is a highly burdensome step.
+INCOMPAS does not explain why supplying IP addresses to the Policy
+Administrator is highly burdensome, however, or why any burden of
+submitting the information would outweigh the benefits of requiring
+providers with a STIR/SHAKEN implementation obligation to register with
+the Policy Administrator. We note that the Policy Administrator states
+that it collects IP addresses from providers for the purpose of
+whitelisting. According to the National Institute of Standards and
+Technology's Computer Security Resource Center (CSRC), a whitelist can
+be defined as ``[a]n approved list or register of entities that are
+provided a particular privilege, service, mobility, access or
+recognition.'' We note that providers that cannot obtain an SPC token
+after diligently pursuing one from the Policy Administrator may still
+claim an implementation extension under the Commission's existing
+rules. While the Commission sought comment on whether to eliminate the
+SPC token extension in the Sixth Caller ID Authentication Further
+Notice (88 FR 29035, May 5, 2023), we decline to do so at this time. In
+March 2023, the Commission updated its requirements for submissions to
+the Robocall Mitigation Database, including a new requirement that
+providers claiming a STIR/SHAKEN implementation extension or exemption
+explicitly state the rule that excepts it from compliance and why the
+provider qualifies for the extension or exemption. All providers were
+required to file submissions to the Robocall Mitigation Database that
+comply with this and additional content requirements by February 26,
+2024. These filings are currently under review. As part of that
+assessment, the Wireline Competition Bureau will determine the number
+of providers still relying on the SPC token extension and the merit of
+the justifications submitted by those claiming the extension. We
+
+[[Page 40247]]
+
+will be better able to determine whether to retain or eliminate the SPC
+token extension at that time.
+ Robocall Mitigation Database Certifications. Consistent with the
+foregoing requirements, we update the Commission's rules to prohibit
+any provider with a STIR/SHAKEN implementation obligation from
+certifying to complete or partial implementation in the Robocall
+Mitigation Database unless they have obtained an SPC token and digital
+certificate and sign calls with their certificate, either themselves or
+when working with a third party to perform the technological act of
+signing calls having met the necessary conditions we impose in this
+Order. In the Sixth Caller ID Authentication Further Notice (88 FR
+29035, May 5, 2023), the Commission sought comment on whether it should
+``prohibit providers from certifying to having implemented STIR/SHAKEN
+in the Robocall Mitigation Database unless their calls are signed with
+their own SPC token, whether directly or through a third party.'' For
+all of the reasons discussed above, we agree with TransNexus that
+providers that have a STIR/SHAKEN implementation obligation but rely on
+third-party authentication arrangements using the third party's
+certificate are not in compliance with the governance model established
+by STIR/SHAKEN technical standards, which require providers to obtain
+an SPC token and digital certificate to authenticate calls. Such
+providers should not, therefore, claim to have implemented STIR/SHAKEN
+pursuant to the technical standards required by the Commission's rules
+in the Robocall Mitigation Database. While we recognize that some of
+these providers may have relied on third-party SPC tokens and
+certificates out of a good faith belief that such arrangements are
+permissible under the Commission's rules in the past, such practices
+will now be expressly prohibited by our rules, and providers that have
+relied on third-party tokens and digital certificates in the past will
+now need to obtain their own SPC tokens and certificates and use them
+to sign calls, consistent with the requirements of the STIR/SHAKEN
+standards and the compliance deadlines we set below. Providers that do
+not obtain and use an SPC token and certificate must update their
+Robocall Mitigation Database certifications to state that they have not
+fully or partially implemented STIR/SHAKEN to avoid being referred to
+the Enforcement Bureau for violations of the Commission's rules,
+including the rules governing certifications submitted to the Robocall
+Mitigation Database and the obligation to submit information to the
+Commission that is true, accurate, and up-to-date. Providers that
+qualify for a STIR/SHAKEN implementation extension because they cannot
+satisfy the requirements to obtain an SPC token can claim the extension
+in their Robocall Mitigation Database submissions at this time.
+ We decline to adopt new content requirements for Robocall
+Mitigation Database certifications at this time. In the Sixth Caller ID
+Authentication Further Notice (88 FR 29035, May 5, 2023), the
+Commission sought comment on requiring providers to submit additional
+information to the Robocall Mitigation Database, ``including the
+identity of the third party providing [their authentication] solution,
+any requirements the provider has imposed on the third party to ensure
+compliance with the requirements of the ATIS technical standards and
+the Commission's rules, and what the provider itself does to ensure
+compliance with those requirements under the third-party
+arrangement[.]'' In response to the Further Notice, commenters suggest
+that we should require providers to submit a variety of additional
+information to the Robocall Mitigation Database, including evidence of
+registration with the Policy Administrator, the identity of any third-
+party authentication solutions they use, and information that details
+their Know Your Customer standards.
+ We conclude that any value of requiring providers to submit this
+information at this time is minimal, and does not warrant the
+additional operational and administrative burdens of requiring
+providers to update their Robocall Mitigation Database submissions. For
+instance, now that we require all providers with a STIR/SHAKEN
+implementation obligation to obtain their own SPC token from the Policy
+Administrator and a digital certificate from a Certification Authority,
+we conclude it unnecessary for providers to make a further showing at
+this time that they are registered with the Policy Administrator, as
+TransNexus suggests. Moreover, as Numeracle points out, the Policy
+Administrator's list of providers authorized to participate in STIR/
+SHAKEN is publicly available, allowing Commission staff to easily
+verify a provider's registration status without further expanding the
+Robocall Mitigation filing requirements. We also believe it is
+unnecessary to require providers to identify any third-party
+authentication solutions they use in their Robocall Mitigation Database
+submissions, as NCTA suggests. Under the rules we adopt today, which
+require calls to be signed using the digital certificate of the
+provider with the STIR/SHAKEN implementation obligation, responsibility
+and accountability for compliance with the STIR/SHAKEN standards will
+be traced back to that provider, not a third-party entity that
+technologically signs the call. Further, we agree with INCOMPAS that
+requiring providers to identify the specific third-party solutions that
+they may employ to perform the technological act of signing calls could
+require providers to update their Robocall Mitigation Database
+submissions more frequently if such solutions change, thereby
+increasing administrative burdens for providers with minimal benefit.
+Lastly, providers are already required to describe in their robocall
+mitigation plans how they comply with their existing obligation to know
+their customers under the Commission's rules. We, thus, decline to
+further amend our requirements for Robocall Mitigation Database
+certifications at this time, but we will closely observe how providers
+comply with the requirements we adopt today to determine whether
+additional information would assist our compliance reviews and
+enforcement activities in the future. ZipDX proposes that ``[n]ew
+[Robocall Mitigation Database] registrations should not immediately
+become active. Instead, FCC staff should vet the registration to ensure
+that the applicant has a token from the STI-PA and if not, that the
+filed RMP contain a thorough, credible explanation as to why not.'' In
+August 2024, we launched a separate proceeding to consider procedural
+measures for improving the overall quality of information submitted to
+the Robocall Mitigation Database. We believe that addressing ZipDX's
+procedural proposal would be more appropriate in the context of that
+proceeding, and thus decline to do so here. ACA Connects argues that
+the ``Commission could further require reseller providers to disclose
+to the Commission (on a confidential basis), the identity of any
+wholesale provider that authenticates some or all of their calls.'' As
+discussed above, however, in the context of a wholesale provider
+originating a call onto the public network for a reseller which lacks
+control over the network infrastructure necessary to implement STIR/
+SHAKEN, it is the wholesale provider that has the STIR/SHAKEN
+implementation obligation, that must authenticate the calls using its
+own digital certificate.
+
+[[Page 40248]]
+
+ Recordkeeping. To ensure compliance with the requirements we adopt
+herein for third-party authentication, and to enable the Commission to
+monitor such compliance and enforce its rules, we require that
+providers that choose to work with a third party to perform
+technological act of signing calls do so pursuant to a written
+agreement. In the Sixth Caller ID Authentication Further Notice (88 FR
+29035, May 5, 2023), the Commission sought comment on the measures it
+would ``need to implement to monitor compliance with its rules if
+third-party authentication arrangements are employed.'' No commenter
+raises arguments for or against recordkeeping requirements. The
+required written agreement must specify the specific tasks that the
+third party will perform on the provider's behalf and confirm that
+provider will: (1) make all attestation-level decisions for calls
+signed pursuant to the agreement, and (2) ensure that all calls will be
+signed using the provider's certificate. Providers may be required to
+submit a copy of the agreement to the Commission in connection with a
+review of the provider's compliance with the Commission's rules or an
+investigation by the Enforcement Bureau. To the extent that an
+agreement between a provider with the STIR/SHAKEN implementation
+obligation and a third party contains confidential information,
+providers may seek confidential treatment for that information. We
+require that a current agreement be in place for as long as any third-
+party authentication arrangement exists, and that all copies of third-
+party agreements be maintained for a period of two years from the end
+or termination of the agreement. We emphasize that there must be a
+memorialized agreement between the provider with the STIR/SHAKEN
+implementation obligation and the third party performing the
+technological act of signing a call for the arrangement to be
+considered third-party authentication under the rules we adopt today.
+For example, the Commission's rules require voice service providers to
+authenticate the traffic that they originate, and, if they fail to do
+so, non-gateway intermediate providers must themselves authenticate any
+unauthenticated calls they receive directly from originating providers.
+Consequently, an intermediate provider that receives an unauthenticated
+call from an originating provider does not engage in third-party
+authentication simply because it is the entity that uses STIR/SHAKEN to
+authenticate the call. In such an instance, the intermediate provider
+is discharging its own authentication obligation under the Commission's
+rules by signing the unsigned traffic. For this reason, we do not share
+ZipDX's concern about a lack of accountability for calls in the event
+that a wholesale provider might claim that it should be ``deemed an
+intermediate provider'' in relation to a reseller customer. If,
+however, the originating service provider has executed an agreement for
+its immediate downstream intermediate provider to perform the
+technological act of signing a call on the originating provider's
+behalf, subject to the conditions adopted in this Eighth Report and
+Order, that would qualify as a third-party authentication arrangement.
+We thus reject INCOMPAS's argument that our definition of third-party
+authentication should apply when downstream providers are merely
+``signing calls that were not signed up-stream,'' even if the
+downstream provider ``may not be offering signing service per se.''
+ Compliance Deadline. The new third-party authentication guardrails
+we adopt in this Report and Order include recordkeeping and Robocall
+Mitigation Database certification requirements under 47 CFR
+64.6301(b)(3)-(b)(5), 64.6302(f)(3)-(f)(5), and 64.6305(d)-(f), which
+may contain new or modified information collections subject to review
+by the Office of Management and Budget (OMB) under the Paperwork
+Reduction Act (PRA). While the remaining amendments to Sec. Sec.
+64.6301 through 64.6305 adopted in this Report and Order do not
+themselves require OMB approval, in practice, compliance with the
+requirements of these provisions will likely entail compliance with the
+provisions of 64.6301(b)(3) through (5), 64.6302(f)(3) through (5), and
+64.6305(d) through (f), respectively. Therefore, we set a compliance
+deadline for all our newly adopted requirements of 30 days after
+publication of this Report and Order in the Federal Register following
+OMB approval, or 210 days after release of this Report and Order,
+whichever is later.
+ We expect that requiring providers to comply with all of the
+obligations we adopt in the Report and Order on the same date will
+facilitate compliance with our rules, and consequently we elect to
+delay the effectiveness of the entirety of the modifications to
+Sec. Sec. 64.6301 through 64.6305 pending OMB approval of Sec. Sec.
+64.6301(b)(3) through (5), 64.6302(f)(3) through (5), and 64.6305(d)
+through (f). Consistent with the Commission's approach in prior
+rulemakings, we direct the Wireline Competition Bureau to announce
+effective dates for 47 CFR 64.6301 through 64.6305 through Public
+Notice. Any provider with a STIR/SHAKEN implementation obligation that
+has failed to both: (1) obtain an SPC token from the Policy
+Administrator and a digital certificate from a Certificate Authority;
+and (2) ensure that all calls that it is required to authenticate are
+signed using its own digital certificate, will be required to update
+their certifications in the Robocall Mitigation Database to state that
+they have not fully or partially implemented STIR/SHAKEN by the
+effective date of the rules listed in this paragraph as announced by
+Public Notice.
+ The record reflects support for our adoption of a single compliance
+deadline for our third-party authentication obligations based on the
+schedule above. Commenters explain that providers using third-party
+authentication solutions may have to make a number of commercial and
+network changes to comply with the newly adopted authentication and
+robocall mitigation requirements, such as creating new commercial
+arrangements with customers or third-party vendors, taking the steps
+needed to obtain a token and certificate, determining the process for
+assigning an attestation level, and making changes to their network to
+sign calls with their own token. We agree with NCTA that adopting a
+transition period would ``promote fairness and avoid exposing providers
+relying on good faith on non-conforming third-party solutions to the
+threat of immediate liability.'' We also agree with INCOMPAS that
+``[w]hile the evolution toward broad token access should be encouraged,
+expecting a flash-cut'' to such a change would not be practical.
+Therefore, we grant providers a reasonable amount of time to adjust
+their third-party call authentication practices to comply with the
+rules we adopt today, and will not require compliance with these rules
+sooner than 210 days after release of this Report and Order. Although
+we find that this approach will allow sufficient time for providers to
+adjust their third-party authentication practices, providers should
+comply with our new rules as soon as reasonably practicable. In this
+instance, we agree with INCOMPAS and CCA that a period of at least 210
+days following the release of this Report and Order will ensure that
+providers have sufficient time to achieve compliance with our new
+rules.

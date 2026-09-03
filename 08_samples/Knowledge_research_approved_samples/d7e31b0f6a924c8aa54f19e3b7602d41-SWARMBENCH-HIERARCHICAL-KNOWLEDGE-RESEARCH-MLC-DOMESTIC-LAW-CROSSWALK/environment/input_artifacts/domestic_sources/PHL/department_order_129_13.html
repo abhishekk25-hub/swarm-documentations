@@ -1,0 +1,609 @@
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>DOLE DEPARTMENT ORDER NO. 129, S. 2013 - RULES AND REGULATIONS GOVERNING THE EMPLOYMENT AND WORKING CONDITIONS OF SEAFARERS ONBOARD SHIPS ENGAGED IN DOMESTIC SHIPPING - Supreme Court E-Library</title>
+    <link rel="stylesheet" href="https://elibrary.judiciary.gov.ph/assets/css/style.css" type="text/css" media="screen" />
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="feed/" />
+    <link rel="pingback" href="xmlrpc.php" />
+    <link rel="shortcut icon" href="https://elibrary.judiciary.gov.ph/assets/images/favicon.ico"/>
+    <script type="text/javascript" src="https://elibrary.judiciary.gov.ph/assets/js/jquery.js"></script>
+    <script type="text/javascript" src="https://elibrary.judiciary.gov.ph/assets/js/superfish.min.js"></script>
+    <script type="text/javascript" src="https://elibrary.judiciary.gov.ph/assets/js/supersubs.js"></script>
+    <script type="text/javascript" src="https://elibrary.judiciary.gov.ph/assets/js/cookies.js"></script>
+    <script type="text/javascript" src="https://elibrary.judiciary.gov.ph/assets/js/fontResizer.js"></script>
+    <script type="text/javascript" src="https://elibrary.judiciary.gov.ph/assets/js/theme.js"></script>
+    <script type="text/javascript" src="https://elibrary.judiciary.gov.ph/assets/js/section_menu.js"></script>
+
+    <!-- START DataTable -->
+
+        <!-- START LOAD SCRIPTS -->
+        
+        <!-- ✅ load jQuery ✅ -->
+        <!-- <script type="text/javascript" src="https://elibrary.judiciary.gov.ph/assets/js/jquery-3.7.1.min.js"></script> -->
+        <link rel="stylesheet" href="https://elibrary.judiciary.gov.ph/assets/DataTables/datatables.css" type="text/css" media="screen" />
+        <!-- ✅ load DataTables ✅ -->
+        <script type="text/javascript" src="https://elibrary.judiciary.gov.ph/assets/DataTables/datatables.js"></script>
+
+        <!-- END LOAD SCRIPTS -->
+    
+        <!-- START RA -->
+        <script>
+            jQuery( function ($) {
+                $('#ra').DataTable({
+                    // Options go here
+                    "processing": true,
+                    //"stateSave": true,
+                    "serverSide": true,
+                    "order":[],
+                    "pagingType": "full_numbers",
+                    "ajax": {
+                        url: "https://elibrary.judiciary.gov.ph/republic_acts/fetch_ra",
+                        type: "POST",
+                        data:{  'csrf_test_name' : 'f88b45865b1e539a3961e2255c157a30' },
+                    },
+                    "columnDefs":[{
+                        "targets":[0, 2],
+                        "orderable":false,
+                        /*'targets': [2,],    // this will invoke the below function on all cells
+                        'createdCell': function(td, cellData, rowData, row, col) {
+                            // this will give each cell an ID
+                            $(td).attr('id', 'cms_default_document_title');
+                        },*/
+                    },],
+                });
+            });
+        </script>
+        <!-- END RA -->
+
+             <!-- START PHILREP -->
+        <script>
+            jQuery( function ($) {
+                $('#volumes').DataTable({
+                    "pagingType": "full_numbers",
+                    "order":[[0], "desc"],
+                    "columnDefs":[
+                        {
+							//Targets column 2 (Files column) and prevents from being
+							//orderable
+                            "targets":[2],
+                            "orderable":false,
+                        },
+                        {
+                            // Target column 1 and tells DataTables to order column 1
+							//using data from Column0
+                            "targets": [1],
+                            "orderData": [0],
+                        },
+						
+						{
+							//Hides column 0 and prevents it from being searchable.
+							target: [0],
+							visible: false,
+							searchable: false,
+						},
+                    ],
+                });
+            });
+        </script>
+
+        <!-- START CASE INDEX -->
+        <script>
+            jQuery( function ($) {
+                $('#caseindex').DataTable({
+                    "pagingType": "full_numbers",
+                    "order":[],
+                    "columnDefs":[{
+                        "targets":[0,1],
+                        "orderable":false,
+                    },],
+                });
+            });
+        </script>
+        <!-- END CASEINDEX -->
+
+        <!-- START LAWYERS LIST -->
+        <script>
+            jQuery( function ($) {
+                $('#lawlist').DataTable({
+                    // INITIALIZATION OPTIONS GO HERE.
+                    "processing": true,
+                    //"stateSave": true,
+                    "serverSide": true,
+                    // ORDERING IS ENABLED BUT THERE IS NO DEFAULT ORDER.
+                    "order":[],
+                    "pagingType": "full_numbers",
+                    "ajax": {
+                        url: "https://elibrary.judiciary.gov.ph/lawyers_list/fetch_lawlist",
+                        type: "POST",
+                        data:{  'csrf_test_name' : 'f88b45865b1e539a3961e2255c157a30' },
+                    },
+                    "columnDefs":[{
+                        // "targets" ARE THE TABLE COLUMNS THAT ARE TO BE INITIALIZED.
+                        // STARTING WITH 0 AS THE FIRST COLUMN. HERE, TARGETED COLUMNS ARE
+                        // 2, 3, 4.
+                        "targets":[2, 3, 4],
+                        // TARGETED COLUMNS ARE NOT ORDERABLE.
+                        "orderable":false,
+                        /*'targets': [2,],    // this will invoke the below function on all cells
+                        'createdCell': function(td, cellData, rowData, row, col) {
+                            // this will give each cell an ID
+                            $(td).attr('id', 'cms_default_document_title');
+                        },*/
+                    },],
+                });
+            });
+        </script>
+        <!-- END LAWYERS LIST -->
+
+        <!-- START DataTables STYLES -->
+    
+        <!-- START REPUBLIC ACTS STYLES-->
+        <style>
+            table#ra {
+                font-family: calibri, candara, segoe, segoe ui, optima, arial;
+                font-size: 1.25em;
+                font-weight: bold;
+            }
+            td#cms_default_document_title {
+                text-align: justify;
+            }
+        
+            td#cms_default_document_title:after {
+                content: "";
+                display: inline-block;
+                width: 100%;
+            }
+        </style>
+        <!-- END REPUBLIC ACTS START STYLES -->
+
+        <!-- START PHILREP STYLES -->
+        <style>
+            table#volumes {
+                font-family: calibri, candara, segoe, segoe ui, optima, arial;
+                font-size: 1.25em;
+                font-weight: bold;
+            }
+        </style>
+        <!-- END PHILREP STYLES -->
+
+        <!-- START CASEINDEX STYLES -->
+        <style>
+            table#caseindex {
+                font-family: calibri, candara, segoe, segoe ui, optima, arial;
+                font-size: 1.25em;
+                font-weight: bold;
+            }
+        </style>
+        <!-- END CASEINDEX STYLES -->
+
+        <!-- START LAWYERS LIST STYLES -->
+        <style>
+            table#lawlist {
+                font-family: calibri, candara, segoe, segoe ui, optima, arial;
+                font-size: 1.2em;
+            }
+            
+        </style>
+        <!-- END LAWYERS LIST STYLES -->
+
+        <!-- END DataTables STYLES -->
+    
+    <!-- END DataTable -->
+
+    <link rel="stylesheet" href="https://elibrary.judiciary.gov.ph/assets/css/mystyle.css" type="text/css" media="screen" />
+
+    
+    
+    <!-- remove 04.29.19 for console search-->
+    <!-- <meta name='robots' content='noindex,nofollow' /> -->
+
+    <link rel='stylesheet' id='wp_sidebarlogin_css_styles-css'  href='https://elibrary.judiciary.gov.ph/assets/css/style_login.css?ver=3.3.1' type='text/css' media='all' />
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://elibrary.judiciary.gov.ph/assets/css/all.css">
+    <!-- jquery confirm -->
+    <link rel="stylesheet" href="https://elibrary.judiciary.gov.ph/assets/css/jquery-confirm.min.css">
+    <!-- jconfirm modal custom theme -->
+    <style>
+        .jconfirm.jconfirm-custom .jconfirm-bg{
+            background-color: rgba(13,0,45,0.95);
+        }
+        .jconfirm.jconfirm-custom .jconfirm-box{
+            color: #ccc;
+            text-align: center;
+            background-color: transparent;
+        }
+
+        /* Exclamation animation start */
+        .jconfirm.jconfirm-custom.jconfirm-open .jconfirm-box .jconfirm-title-c .jconfirm-icon-c {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        .jconfirm.jconfirm-custom .jconfirm-box div.jconfirm-title-c .jconfirm-icon-c {
+            -webkit-transition: -webkit-transform .5s;
+            transition: -webkit-transform .5s;
+            transition: transform .5s;
+            transition: transform .5s,-webkit-transform .5s;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+            display: block;
+            margin-right: 0;
+            margin-left: 0;
+            margin-bottom: 10px;
+            font-size: 69px;
+            color: #ccc;
+        }
+        /* Exclamation animation end */
+
+        .jconfirm.jconfirm-custom .jconfirm-box .jconfirm-buttons button{
+            font-size: 16px;
+            border-radius: 2px;
+            background: rgb(13,0,45);
+            text-shadow: none;
+            border: none;
+            color: #ccc;
+            padding: 10px;
+            min-width: 100px;
+        }
+        .jconfirm.jconfirm-custom .jconfirm-box .jconfirm-buttons button:hover{
+            background: #ccc;
+            color: rgb(13,0,45);
+        }
+        .jconfirm.jconfirm-custom .jconfirm-box .jconfirm-title-c{
+            font-family: Tahoma, Verdana, serif;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .jconfirm.jconfirm-custom .jconfirm-box .jconfirm-content{
+            font-family: Tahoma, Verdana, serif;
+            text-align: justify;
+            font-size: 18px;
+        }
+        /* Targets content list item */
+        .jconfirm.jconfirm-custom .jconfirm-box .jconfirm-content li{
+            margin: 20px;
+        }
+        .jconfirm.jconfirm-my-theme .jconfirm-box .jconfirm-content-pane{
+        }
+    </style>
+
+<!-- FOR DTSEARCH -->
+<!-- START -->
+    <META NAME="AddedReference" CONTENT="InsertedForFormBuilder" HREF="https://elibrary.judiciary.gov.ph/assets/searchform/dtSearch_help.html">
+    <META NAME="AddedReference" CONTENT="InsertedForFormBuilder" HREF="https://elibrary.judiciary.gov.ph/assets/searchform/dtSearch_pdfhelp.pdf">
+    <META NAME="AddedReference" CONTENT="InsertedForFormBuilder" HREF="https://elibrary.judiciary.gov.ph/assets/searchform/dtSearch_WebSearchForm.css">
+    <META NAME="AddedReference" CONTENT="InsertedForFormBuilder" HREF="https://elibrary.judiciary.gov.ph/assets/searchform/dtSearch_SearchResults.css">
+    <META NAME="AddedReference" CONTENT="InsertedForFormBuilder" HREF="https://elibrary.judiciary.gov.ph/assets/searchform/dtSearch_Utilities.js">
+    <META NAME="AddedReference" CONTENT="InsertedForFormBuilder" HREF="https://elibrary.judiciary.gov.ph/assets/searchform/dtSearch_SearchResults.js">
+    <META NAME="AddedReference" CONTENT="InsertedForFormBuilder" HREF="https://elibrary.judiciary.gov.ph/assets/searchform/dtSearch_WebSearchForm.js">
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://elibrary.judiciary.gov.ph/searchforms/custom.css"> -->
+
+    <style type='text/css'>
+        body{
+            /*background-image:url(searchforms/images/bg-blue.jpg);*/
+            /*background-size: 100% auto;*/
+            background-position:center top;
+            background-color: #193C74;
+            background-repeat:no-repeat;
+            background-position:fixed;
+            /*font-family: "Trebuchet MS";*/
+            font-size:10px;
+            /*color:#FFFFFF;*/
+            margin:0px 0px 0px 0px;
+        }
+        .forms{
+            font-size:10px;
+            border:1px solid #000000;
+        }
+        #cont_left{
+            width: 250px;
+            height: 400px;
+            background-color: #fff;
+            margin-left: 3%;
+            margin-top: 12%;
+            position: relative;
+        }
+        #cont_main{
+            width: 900px;
+            height: 400px;
+            background-color: #fff;
+            top:153px;
+            left: 300px;
+            position: absolute;
+        }
+        table{
+            position: relative;
+            top: 3px;
+        }
+        #copyright{
+            position: fixed;
+            bottom:-1%;
+            right: 1%;
+            z-index: -10;
+        }
+        #bared{
+            position: fixed;
+            bottom:0px;
+            right: 0px;
+            z-index: -9;
+            background-color: #000;
+            width: 2000px;
+            height: 20px;
+            padding-bottom: 2px;
+            padding-right: 2px;
+        }
+        iframe{
+            display:block;
+        }
+        /*change font size from 60px to 40px*/
+        div#blog-line h1 a {font-family: Georgia, serif; font-size:40px;  color:#fff;} 
+
+        /*change font size from 40px to 14px, letter spacing from -2px to 1px*/
+        div#blog-line h1 {font:14px Arial, serif; padding:20px 0; margin:0; color:#fff; letter-spacing:1px;}
+    </style>
+    <script>
+        // this deletes the cookie when called
+        function Delete_Cookie( name, path, domain ) {
+        if ( Get_Cookie( name ) ) document.cookie = name + "=" +
+        ( ( path ) ? ";path=" + path : "") +
+        ( ( domain ) ? ";domain=" + domain : "" ) +
+        ";expires=Thu, 01-Jan-1970 00:00:01 GMT";
+        }
+    </script>
+<!-- FOR DTSEARCH -->
+<!-- END -->
+<script>
+
+</script>
+
+</head>
+<!-- <body onLoad="Delete_Cookie( name, path, domain )"> -->
+<body>
+
+<div id="outline">
+<div id="blog-line">
+    <!-- blog title and tag line -->
+    <h1><a href="https://elibrary.judiciary.gov.ph/">Supreme Court E-Library</a> <br /> Information At Your Fingertips</h1> 
+</div>
+
+<!-- page navigation -->
+<div id="nav" class="clearfix">
+    <ul class="sf-menu">
+        <!--Comment out to remove Home in the header
+        <li class="page_item "><a href="http://10.10.100.51">Home</a></li>-->
+        <li class="page_item page-item-11 current_page_item"><a href="https://elibrary.judiciary.gov.ph/">HOME</a></li>
+        <!-- <li class=""><a href="https://elibrary.judiciary.gov.ph/assets/images/memorabilia/2023 Bar Passers.pdf">2023 Bar Passers</a></li> -->
+        <!-- <li class="page_item page-item-92"><a href="https://elibrary.judiciary.gov.ph/secquestion/secquestion_main">REGISTER HERE</a></li> -->
+        <li class="page_item page-item-202"><a href="https://elibrary.judiciary.gov.ph/philippinereports">PHILIPPINE REPORTS E-BOOKS</a>
+        <li class="page_item page-item-202"><a href="https://elibrary.judiciary.gov.ph/republic_acts">REPUBLIC ACTS</a>
+        <li class="page_item page-item-202"><a href="https://elibrary.judiciary.gov.ph/supremecourtjustices/chiefjusticelist/">CHIEF JUSTICES</a> 
+   <!-- <li class="page_item page-item-202"><a href="https://elibrary.judiciary.gov.ph/supremecourtjustices/scjmain">JUDICIARY MEMORABILIA HALL</a> -->
+            <ul class="children">
+				 <!--<li class="page_item page-item-202"><a href="https://elibrary.judiciary.gov.ph/supremecourtjustices/incumbentjusticelist/">Incumbent Justices</a></li>-->
+				 <!--<li class="page_item page-item-202"><a href="https://elibrary.judiciary.gov.ph/supremecourtjustices/chiefjusticelist/">Chief Justices</a></li>-->
+                <!-- <li class="page_item page-item-202"><a href="https://elibrary.judiciary.gov.ph/supremecourtjustices/associatejusticelist">Associate Justices</a></li> -->
+            </ul> 
+        </li>
+        <li class="page_item page-item-94"><a href="https://elibrary.judiciary.gov.ph/advisory/newsandadvisories/">NEWS & ADVISORIES</a></li>
+        <!--<li class="page_item page-item-544"><a href="links/">Links</a></li>-->
+        <li class="page_item page-item-546"><a href="https://elibrary.judiciary.gov.ph/sitemap/sitemap_main">SITE MAP</a></li>
+        <!--<li class="page_item page-item-548"><a href="feedback/">Feedback</a></li>-->
+        <li class="page_item page-item-84"><a href="https://elibrary.judiciary.gov.ph/aboutus/aboutus_main">ABOUT US</a>
+            <ul class='children'>
+                <li class="page_item page-item-86"><a href="https://elibrary.judiciary.gov.ph/aboutus/scelibrary">The Supreme Court E-Library</a></li>
+            <!-- <li class="page_item page-item-88"><a href="https://elibrary.judiciary.gov.ph/aboutus/elib_history">History of the E-Library</a></li> -->
+                <li class="page_item page-item-90"><a href="https://elibrary.judiciary.gov.ph/aboutus/elibrary_team">The E-Library Development Team</a></li>
+            </ul>
+        </li>
+        <!-- <li class="page_item page-item-548"><a href="https://elibrary.judiciary.gov.ph/contactus/contactus_main">CONTACT US</a></li> -->
+         
+    </ul>
+    <ul id="mail_rss">
+    <!--<li><a href="feed/">RSS</a></li>-->
+    </ul>           
+    <!-- ending header template -->
+</div>
+
+<div id="content" class="clearfix">
+<div id="right">
+<!-- FOR Toggle posts-->
+<p id="toggle-all"><a href="#" id="toggle" class="hide-all">Toggle posts</a></p>
+<!-- For FONT-SIZE changer  -->
+<p id="font-resize">
+<a id="default" href="#">A </a><a id="larger" href="#">A+ </a><a id="largest" href="#">A++</a>
+</p>
+<!-- widget -->
+
+<!---02/28/2022--->
+<!-- Search button only appears when not in the search page. -->
+<div id="wp_sidebarlogin-3" class="widget">
+    <p>
+        <!-- <STRONG>TO START</STRONG> click <STRONG>E-Library Search</STRONG>. -->
+        <center>
+            <b>CLICK THE IMAGE TO SEARCH</b>
+            <a href="https://elibrary.judiciary.gov.ph/search" target="_self">
+                <img src="https://elibrary.judiciary.gov.ph/assets/images/memorabilia/search_button.png"  alt="Elibrary Search"  title="E-Library Search" />
+            </a>
+        </center>
+  </p>
+</div>
+
+<!-- For Advisory
+<div id="container_faq">
+
+    <table border='0'>
+    <tr valign='center'>
+        <td>ADVISORY:</td>
+    </tr>
+    <tr valign='center'>
+        <td><div align='justify'>The Supreme Court E-Library will undergo a system
+		maintenance on March 28-31, 2024 and will be inaccessible during this period.<br><br>
+		Thank you for your understanding!<br><br></div></td>
+		
+    </tr>   
+</table>
+</div>
+<br>
+-->
+
+
+<div id="container_faq">
+    <center>
+        <!--[<A HREF="https://elibrary.judiciary.gov.ph/secquestion/secquestion_main"><b>REGISTER</b></A>]  | [<A HREF="https://elibrary.judiciary.gov.ph/aboutus/faq"><b>FAQs</b></A>]
+        <b>CONTACT US</b><br>
+        <STRONG>(02)8524-2706</STRONG>-->
+    </center>
+    <table border='0'>
+    <tr valign='center'>
+        <td>CONTACT:</td>
+    </tr>
+    <tr valign='center'>
+        <td>Supreme Court of the Philippines <br>
+		    Library Services,<br> 
+			Padre Faura, Ermita, Manila, Philippines 1000</td>
+    </tr>
+    <tr valign='center'>
+        <td>(632) 8524-2706</td>
+    </tr>
+    <tr valign='center'>
+        <td>libraryservices.sc@judiciary.gov.ph<br></td>
+    </tr>
+</table>
+</div>
+
+<br>
+<div id="container_seal">
+
+<center><a href="https://npcregistration.privacy.gov.ph/certificate/organizationRegistration/64a7c5e47c2074390ec3ccb5" target="_blank"><img src="https://elibrary.judiciary.gov.ph/assets/images/memorabilia/CORSeal.jpg"/></a></center>
+   
+</div>
+
+<div class="widget_quick">
+    
+<img src="https://elibrary.judiciary.gov.ph/assets/images/memorabilia
+/quick_links/header.png"/></a>
+    
+<a href="http://sc.judiciary.gov.ph/" title="Supreme Court of the Philippines" target="_blank"><img src="https://elibrary.judiciary.gov.ph/assets/images/memorabilia
+/quick_links/sc.png"  alt="Supreme Court of the Philippines"  title="Supreme Court of the Philippines" /></a>
+
+<a href="http://ca.judiciary.gov.ph/" title="Cour of Appeals" target="_blank"><img src="https://elibrary.judiciary.gov.ph/assets/images/memorabilia
+/quick_links/ca.png"  alt="Cour of Appeals"  title="Cour of Appeals" /></a>
+
+<a href="http://sb.judiciary.gov.ph/" title="Sandiganbayan" target="_blank"><img src="https://elibrary.judiciary.gov.ph/assets/images/memorabilia
+/quick_links/sb.png"  alt="Sandiganbayan"  title="Sandiganbayan" /></a>
+
+<a href="http://cta.judiciary.gov.ph/" title="Court of Tax Appeals" target="_blank"><img src="https://elibrary.judiciary.gov.ph/assets/images/memorabilia
+/quick_links/cta.png"  alt="Court of Tax Appeals"  title="Court of Tax Appeals" /></a></li>
+
+<a href="http://jbc.judiciary.gov.ph/" title="Judicial and Bar Council" target="_blank"><img src="https://elibrary.judiciary.gov.ph/assets/images/memorabilia
+/quick_links/jbc.png"  alt="Judicial and Bar Council"  title="Judicial and Bar Council" /></a>
+
+<a href="http://oca.judiciary.gov.ph/" title="Office of the Court Administrator" target="_blank"><img src="https://elibrary.judiciary.gov.ph/assets/images/memorabilia
+/quick_links/oca.png"  alt="Office of the Court Administrator"  title="Office of the Court Administrator" /></a>
+
+<a href="http://philja.judiciary.gov.ph/" title="Philippine Judicial Academy" target="_blank"><img src="https://elibrary.judiciary.gov.ph/assets/images/memorabilia
+/quick_links/philja.png"  alt="Philippine Judicial Academy"  title="Philippine Judicial Academy" /></a>
+
+<!--
+<a href="http://pmc.judiciary.gov.ph/" title="Philippine Meditation Center" target="_blank"><img src="https://elibrary.judiciary.gov.ph/assets/images/memorabilia
+/quick_links/pmc.png"  alt="Philippine Meditation Center"  title="Philippine Meditation Center" /></a>
+-->
+
+</div>
+
+<div id="linkcat-5" class="widget"><h4>Foreign Supreme Courts</h4>
+    <ul class='xoxo blogroll'>
+<li><a href="http://www.scourt.go.kr" target="_blank">Korea, South</a></li>
+<li><a href="http://www.kehakiman.gov.my/jugdment/fc/latest.shtml" target="_blank">Malaysia</a></li>
+<li><a href="http://www.supcourt.gov.sg/" target="_blank">Singapore</a></li>
+<li><a href="http://www.supremecourtus.gov/" target="_blank">United States of America</a></li>
+
+    </ul>
+</div>
+</div>
+<div id="left">
+<div class="single_content">
+<br>    
+<div align='right'><img src='https://elibrary.judiciary.gov.ph/assets/images/printer.png'>&nbsp;&nbsp;<a href='https://elibrary.judiciary.gov.ph/thebookshelf/showdocsfriendly/10/70746' target='_blank'>View printer friendly version</a></div>
+<br>
+   
+				
+				<BR><BR>
+				<CENTER>				
+				<H2 style='background-color:#cccccc;padding-top:10px;padding-bottom:10px;'>
+				[ DOLE DEPARTMENT ORDER NO. 129, S. 2013, June 07, 2013 ]</H2>
+				<H3>RULES AND REGULATIONS GOVERNING THE EMPLOYMENT AND WORKING CONDITIONS OF SEAFARERS ONBOARD SHIPS ENGAGED IN DOMESTIC SHIPPING</H3>
+				</CENTER>
+				<BR><BR><div align="justify">Pursuant to the authority of the Secretary of Labor and Employment to promulgate the necessary rules and regulations under Article 5 of the Labor Code of the Philippines, as amended, the Administrative Code of 1987, as amended, and in compliance with the Maritime Labour Convention, 2006, the following rules and regulations are hereby issued providing maritime labor standards to ensure the protection and welfare of seafarers employed onboard ships engaged in domestic shipping: <p align="center"><b>RULE I <br> COVERAGE AND DEFINITION OF TERMS</b> </p><p> <b>SECTION 1. <em>Coverage</em>.</b> - This Rules and Regulations shall apply to shipowners and seafarers referred herein where employer-employee relationship exists. It shall cover Philippine registered ships engaged in domestic shipping other than the following categories of ships: </p><table width="100%" border="0"> <tbody><tr valign="top"> <td width="3%"><div align="justify">a)</div></td> <td width="97%"><div align="justify">Warships and naval auxiliaries;</div></td> </tr> <tr valign="top"> <td><div align="justify">b)</div></td> <td><div align="justify">Government ships not engaged in commercial operation: and</div></td> </tr> <tr valign="top"> <td><div align="justify">c)</div></td> <td><div align="justify">Fishing vessels. </div></td> </tr> </tbody></table> <p><strong>SECTION 2.<em> Definition of Terms.</em> </strong>- As used herein, the following terms shall mean: </p><table width="100%" border="0"> <tbody><tr valign="top"> <td width="3%"><div align="justify">a)</div></td> <td width="97%"><div align="justify">“<strong>BLR</strong>” refers to the Bureau of Labor Relations of the Department of Labor and Employment (DOLE);</div></td> </tr> <tr valign="top"> <td><div align="justify">b)</div></td> <td><div align="justify">“<strong>BWC</strong>” refers to the Bureau of Working Conditions of the DOLE;</div></td> </tr> <tr valign="top"> <td><div align="justify">c)</div></td> <td><div align="justify">“<strong>Cadet</strong>” refers to a student of maritime educational institution, who is required to undergo onboard training to complete the educational requirements for a maritime degree or technical course;</div></td> </tr> <tr valign="top"> <td><div align="justify">d)</div></td> <td><div align="justify">“<strong>Certificate of Compliance</strong>” refers to the certificate issued to a ship after being found compliant with this Rules and Regulations;</div></td> </tr> <tr valign="top"> <td><div align="justify">e)</div></td> <td><div align="justify">“<strong>DOLE</strong>” refers to the Department of Labor and Employment;</div></td> </tr> <tr valign="top"> <td><div align="justify">f)</div></td> <td><div align="justify">“<strong>Domestic Shipping</strong>” refers to the transport of passenger or cargo, or both, by ships duly registered and licensed under Philippine law to engage in trade and commerce between Philippine ports and within Philippine territorial or internal waters, for hire or compensation, with general or limited clientele, whether permanent, occasional, or incidental, with or without fixed routes, and done for contractual or commercial purposes<sup style="color: rgb(255, 0, 0);">[1]</sup>;</div></td> </tr> <tr valign="top"> <td><div align="justify">g)</div></td> <td><div align="justify">“<strong>Gross Tonnage</strong>” refers to the gross tonnage calculated in accordance with the tonnage measurement regulations contained in Annex I to the International Convention on Tonnage Measurement of Ships, 1969, or any successor Convention. For ships covered by the tonnage measurement interim scheme adopted by the International Maritime Organization, the gross tonnage is that which is included in the remarks column of the International Tonnage Certificate (1969)<sup style="color: rgb(255, 0, 0);">[2]</sup>;</div></td> </tr> <tr valign="top"> <td><div align="justify">h)</div></td> <td><div align="justify">“<strong>Homeport</strong>” refers to the port where the ship is registered;</div></td> </tr> <tr valign="top"> <td><div align="justify">i)</div></td> <td><div align="justify">“<strong>Labor Standards</strong>” refers to the minimum requirements prescribed by existing laws, rules and regulations and other issuances relating to wages, hours of work, allowances and other monetary and welfare benefits, including those set by the occupational safety and health standards;</div></td> </tr> <tr valign="top"> <td><div align="justify">j)</div></td> <td><div align="justify">“<strong>MOSH</strong>” refers to Maritime Occupational Safety and Health Guidelines;</div></td> </tr> <tr valign="top"> <td><div align="justify">k)</div></td> <td><div align="justify">“<strong>Port of Registry</strong>” refers to the port in the Philippines where the ship’s record of registry is being kept and maintained. It is likewise the homeport where the ship’s first entry into the registry was made;</div></td> </tr> <tr valign="top"> <td><div align="justify">l)</div></td> <td><div align="justify">“<strong>Regional Director</strong>” refers to the Director of the Regional Office of the DOLE;</div></td> </tr> <tr valign="top"> <td><div align="justify">m)</div></td> <td><div align="justify">“<strong>Regional Office</strong>” refers to the Regional Office of the DOLE;</div></td> </tr> <tr valign="top"> <td><div align="justify">n)</div></td> <td><div align="justify">“<strong>Seafarer</strong>” refers to any person employed, engaged or works in any capacity onboard Philippine registered ships<sup style="color: rgb(255, 0, 0);">[3]</sup>; </div></td> </tr> <tr valign="top"> <td><div align="justify">o)</div></td> <td><div align="justify">“<strong>Secretary</strong>” refers to the Secretary of Labor and Employment; </div></td> </tr> <tr valign="top"> <td><div align="justify">p)</div></td> <td><div align="justify">“<strong>Ship</strong>” or “<strong>Vessel</strong>” refers to any kind, class or type of craft or artificial contrivance capable of floating in water, designed to be used, or capable of being used, as a means of floating in water transport in the domestic trade for the carriage of passengers or cargo, or both, utilizing its own motive power or that of another<sup style="color: rgb(255, 0, 0);">[4]</sup>; and</div></td> </tr> <tr valign="top"> <td><div align="justify">q)</div></td> <td><div align="justify">“<strong>Shipowner</strong>” refers to the owner of the ship/shipping enterprise or another organization or person, such as the manager, agent or bareboat charter, who has assumed responsibility for the operation of the ship from the owner who, on assuming such responsibility has agreed to take over the duties and responsibilities imposed on shipowners in accordance with the Maritime Labor Convention, 2006 (MLC, 2006) regardless of whether any other organization or persons fulfill certain of the duties or responsibilities on behalf of the shipowner. </div></td> </tr> </tbody></table> <p align="center"> <b>RULE II <br> MINIMUM REQUIREMENTS FOR SEAFARERS TO WORK ON A SHIP</b> </p><p> <b>SECTION 1. <em>Minimum Age</em>. </b>- No person below eighteen (18) years old shall work, be employed or be engaged onboard a ship. </p><p><b>SECTION 2. <em>Medical Certificate</em>. </b>- The seafarer shall hold a valid medical certificate issued by a medical facility duly accredited by the Department of Health (DOH) for that purpose, in accordance with its existing rules and regulations. </p><p> <strong>SECTION 3. <em>Training and Qualifications.</em> </strong>- Only seafarers certified by appropriate government agencies, shall work, be employed or be engaged onboard a ship. </p><p> <strong>SECTION 4. <em>Recruitment and Placement.</em> </strong>- The DOLE existing guidelines on recruitment and placement and/or contracting and subcontracting work arrangement shall govern the recruitment and placement of seafarers. No fees or other charges for recruitment, placement or for providing employment to seafarers shall be borne directly or indirectly, in whole or in part, by the seafarer. </p><p> However, fees for pre-employment medical examination may be shouldered by the seafarers. </p><p align="center"><b>RULE III<br> CONDITIONS OF EMPLOYMENT</b> </p><p> <b>SECTION 1. <em>Employment Agreement for Seafarers.</em></b> - There shall be an agreement in writing between the shipowner and the seafarer, which shall include the following terms: </p><table width="100%" border="0"> <tbody><tr valign="top"> <td width="3%"><div align="justify">a)</div></td> <td width="97%"> <div align="justify">the seafarer’s full name, date of birth or age, and birthplace; </div></td> </tr> <tr valign="top"> <td><div align="justify">b)</div></td> <td><div align="justify">the shipowner’s name and address; </div></td> </tr> <tr valign="top"> <td><div align="justify">c)</div></td> <td> <div align="justify">the place where and date when the seafarer's employment agreement is entered into; </div></td> </tr> <tr valign="top"> <td><div align="justify">d)</div></td> <td><div align="justify">the capacity in which the seafarer is to be employed;</div></td> </tr> <tr valign="top"> <td><div align="justify">e)</div></td> <td> <div align="justify">the amount of the seafarer's salary, and the formula used for calculating the same;</div></td> </tr> <tr valign="top"> <td><div align="justify">f)</div></td> <td><div align="justify">hours of work;</div></td> </tr> <tr valign="top"> <td><div align="justify">g)</div></td> <td><div align="justify">wages and wage-related benefits, which include the following: overtime pay, holiday pay, premium pay, paid leaves, 13th month pay;</div></td> </tr> <tr valign="top"> <td><div align="justify">h)</div></td> <td> <div align="justify">social security and welfare benefits;</div></td> </tr> <tr valign="top"> <td><div align="justify">i)</div></td> <td><div align="justify">separation pay and retirement pay; and</div></td> </tr> <tr valign="top"> <td><div align="justify">j)</div></td> <td><div align="justify">other benefits in accordance with law, company policy or agreements.</div></td> </tr> </tbody></table> <p>The foregoing employment agreement shall be in a working language and in English, executed in three (3) original copies before the commencement of employment. The shipowner and the seafarer shall each have a signed original of the agreement and an electronic copy thereof shall be submitted to the DOLE through the BWC. A signed original shall be made available onboard the ship. </p><p>The seafarer shall be given an opportunity to examine and seek advice on the agreement before signing. </p><p><b>SECTION 2. <em>Minimum Benefits</em>. </b>- The seafarers are entitled to not less than the following benefits pursuant to the Labor Code of the Philippines, as amended, unless otherwise indicated: </p><table width="100%" border="0"> <tbody><tr valign="top"> <td width="3%"><div align="justify">a)</div></td> <td width="97%"><div align="justify">Wages for actual work hours and days shall not be lower than the applicable minimum wage rates in the domicile or head office of the shipowner, whichever is higher. Wages shall be paid at least once every two weeks or twice a month at intervals not exceeding 16 days. </div></td> </tr> <tr valign="top"> <td><div align="justify">b)</div></td> <td> <div align="justify">Twelve (12) Regular Holidays with pay pursuant to Executive Order No. 292 otherwise known as the Administrative Code of 1987 as amended by Republic Act No. 9849. The seafarer shall be paid holiday pay of 100% of the regular rate even if he/she did not report for work. If the seafarer is required to work on said holiday, he/she shall be paid 200% of the regular rate.</div></td> </tr> <tr valign="top"> <td><div align="justify">c)</div></td> <td> <div align="justify">Three (3) Special Days (non-working) pursuant to Executive Order No. 292 otherwise known as the Administrative Code of 1987 as amended by Republic Act No. 9849 and such other special days as may be declared. If the seafarer is required to work on a special day, he/she shall be paid an additional premium pay of 30% of the basic wage.</div></td> </tr> <tr valign="top"> <td><div align="justify">d)</div></td> <td><div align="justify">Rest day of twenty-four (24) consecutive hours for every six (6) consecutive working days. If the seafarer is required to work on a rest day, he/she shall be paid an additional premium pay of 30% of the basic wage. Whenever work is performed on a rest day which also happens to be a special day, he/she is entitled to an additional 50% of the basic wage.</div></td> </tr> <tr valign="top"> <td><div align="justify">e)</div></td> <td><div align="justify">Overtime pay for work in excess of eight hours a day, equivalent to the basic hourly rate plus an additional of at least 25% thereof on ordinary days, or regular hourly rate plus an additional of at least 30% thereof if overtime work is rendered on regular holidays, special days or rest days.</div></td> </tr> <tr valign="top"> <td><div align="justify">f)</div></td> <td><div align="justify">Night shift pay of an additional 10% of the regular wage rate for work between 10:00 pm and 6:00 am of the following day.</div></td> </tr> <tr valign="top"> <td><div align="justify">g)</div></td> <td> <div align="justify">Paid service incentive leave of five days for every year of service.</div></td> </tr> <tr valign="top"> <td><div align="justify">h)</div></td> <td><div align="justify">13th month pay pursuant to Presidential Decree No. 851, as amended, equivalent to 1/12 of the total basic salary earned within the calendar year to be given not later than 24 December of every year.</div></td> </tr> <tr valign="top"> <td><div align="justify">i)</div></td> <td> <div align="justify">Paid maternity leave of sixty (60) days for normal delivery or seventy eight (78) days for caesarian section delivery, pursuant to Republic Act No. 8282, otherwise known as the Social Security Act of 1997.</div></td> </tr> <tr valign="top"> <td><div align="justify">j)</div></td> <td><div align="justify">Paid paternity leave of seven (7) days, pursuant to Republic Act No. 8187, otherwise known as the Paternity Leave Act of 1996.</div></td> </tr> <tr valign="top"> <td><div align="justify">k)</div></td> <td> <div align="justify">Paid parental leave of seven (7) days for solo parents pursuant to Republic Act No. 8972, otherwise known as the Solo Parents’ Welfare Act of 2000. </div></td> </tr> <tr valign="top"> <td><div align="justify">l)</div></td> <td> <div align="justify">Paid leave of ten (10) days for victims of violence against women and their children, pursuant to Republic Act No. 9262 otherwise known as the Anti-Violence Against Women and Their Children Act of 2004. </div></td> </tr> <tr valign="top"> <td><div align="justify">m)</div></td> <td> <div align="justify">Paid special leave of not more than sixty (60) days due to surgery for any gynecological disorder, pursuant to Republic Act No. 9710, otherwise known as the Magna Carta of Women.</div></td> </tr> <tr valign="top"> <td><div align="justify">n)</div></td> <td> <div align="justify">Retirement pay upon reaching the age of sixty (60) or more but not beyond sixty-five (65) years old, pursuant to Republic No. 7641.</div></td> </tr> </tbody></table> <p>The foregoing minimum benefits shall be without prejudice to any company policy, contract, or collective bargaining agreement (CBA) providing for better terms and conditions of employment </p><p> <b>SECTION 3.<em> Hours of Work.</em> </b>- The normal hours of work of a seafarer shall not exceed eight (8) hours a day. </p><p>If the seafarer is required to work beyond eight (8) hours, the maximum hours of work shall not exceed fourteen (14) hours in any 24-hour period and seventy-two (72) hours in any seven-day period. </p><p> <strong>SECTION 4. <em>Hours of Rest</em></strong> - The minimum hours of rest for seafarers shall not be less than ten (10) hours in any 24-hour period, and seventy-seven (77) hours in any seven-day period. The ten (10) hours of rest may be divided into not more than two periods. One of the two periods shall be at least six hours in length. The interval between consecutive periods of rest shall not exceed fourteen (14) hours. </p><p> In cases where the hours of work exceeds fourteen (14) hours due to overriding safety and operational conditions of the ship, the hours of rest in any seven-day period shall not be less than seventy (70) hours. </p><p><strong>SECTION 5. <em>Waiting Time.</em></strong> - Waiting time shall not be considered as compensable working time if the seafarer is completely relieved from his/her duty and can use the time effectively for his/her own purpose. </p><p><strong>SECTION 6. <em>Posting and Record Keeping of Shipboard Working Arrangement.</em> </strong>The shipowner shall post, in an easily accessible place, a table of shipboard working arrangements containing the schedule of service at sea and at port, and the maximum hours of work or minimum hours of rest in working language and in English. </p><p>The shipowner shall likewise maintain records of the seafarer’s daily hours of work or rest for the purpose of monitoring compliance thereof. </p><p> <strong>SECTION 7. <em>Right to Security of Tenure</em>. </strong>- Seafarers shall enjoy security of tenure in their employment as provided by law. Their services can only be terminated for just or authorized causes pursuant to the provisions of the Labor Code, as amended. </p><p><strong>SECTION 8. <em>Right to Self-Organization and Collective Bargaining</em>.</strong> - Seafarers shall have the right to form, join or assist in the formation of a labor organization of their own choosing for purposes of collective bargaining and to engage in concerted activities in accordance with law. </p><p>When there is a CBA, it shall be registered with the concerned DOLE Regional Office. A copy thereof shall be maintained onboard the ship. </p><p align="center"> <b>RULE IV<br> ACCOMMODATION, FOOD AND CATERING</b></p><p> <b>SECTION 1. <em>Accommodation.</em></b> - Seafarers shall be provided with decent accommodations and recreational facilities onboard in accordance with the standards set under applicable laws and regulations. </p><p><b>SECTION 2. <em>Food and Catering.</em></b> - The shipowner shall ensure protection and promotion of the health of the seafarer and ensure that ships carry onboard food and drinking water of appropriate quality, quantity and nutritional value that adequately cover the requirements of the ship and take into consideration the differing cultural and religious backgrounds. The foods and drinks and the preparation thereof shall be in accordance with the standards of the Sanitation Code of the Philippines and pertinent laws, rules and regulations implemented by the DOH. </p><p align="center"><b>RULE V <br> OCCUPATIONAL SAFETY AND HEALTH</b> </p><p><strong>SECTION 1. <em>Occupational Safety and Health Policy and Program.</em></strong> - The shipowner shall adopt, implement and promote occupational safety and health policies and programs on ships, consistent with the Maritime Occupational Safety and Health Guidelines (MOSH) for the maritime industry including the 1996 ILO Code of Practice entitled Accident Prevention On-Board Ship, at Sea and In Port and subsequent versions, which shall include the following subjects: </p><table width="100%" border="0"> <tbody><tr valign="top"> <td width="3%"><div align="justify">a)</div></td> <td width="97%"><div align="justify">Prevention of occupational accidents and diseases, including measures to reduce and prevent risk of exposure to harmful chemicals and physical hazards, such as heat, noise and vibration, as well as the risk of injury or disease that may arise from the use of equipment and machinery onboard ship; </div></td> </tr> <tr valign="top"> <td><div align="justify">b)</div></td> <td><div align="justify">Prevention and control of Alcoholism, Hepatitis B, HIV/AIDS and Tuberculosis; </div></td> </tr> <tr valign="top"> <td><div align="justify">c)</div></td> <td><div align="justify">Prevention of sexual harassment; </div></td> </tr> <tr valign="top"> <td><div align="justify">d)</div></td> <td> <div align="justify">Risk evaluation, training and instruction to seafarers;</div></td> </tr> <tr valign="top"> <td><div align="justify">e)</div></td> <td><div align="justify">Emergency preparedness;</div></td> </tr> <tr valign="top"> <td><div align="justify">f)</div></td> <td> <div align="justify">Promotion of Drug-free workplace; </div></td> </tr> <tr valign="top"> <td><div align="justify">g)</div></td> <td> <div align="justify">Monitoring of work environment, engineering and design control compliance with safe work procedures, safe use and maintenance of machine or equipment and the use of appropriate Personal Protective Equipment (PPE); and </div></td> </tr> <tr valign="top"> <td><div align="justify">h)</div></td> <td><div align="justify">Reporting and correction of unsafe conditions as well as investigation and reporting of onboard occupational accidents.</div></td> </tr> </tbody></table> <p><b>SECTION 2. <em>Safety and Health Committee.</em> </b>- The shipowner shall establish a safety and health committee, onboard or onshore, to develop and implement the safety and health policy and programs to promote the welfare of the seafarers. </p><p>In case of onshore health and safety committee, the shipowner shall designate a safety and health officer onboard the ship to implement the policy and program. </p><p><b>SECTION 3. <em>Medical Care On board Ship and Onshore</em>. </b>- The shipowner shall provide adequate medical services and medicine chest onboard, and access to shore facilities for the protection of the health of the seafarers, as well as the corresponding medical and/or trained personnel who shall provide first-aid and medical care pursuant to the MOSH. </p><p> The shipowner shall ensure that seafarers have access to treatment for sickness or injury, hospitalization and essential dental care. </p><p> The seafarer shall have the right to consult a qualified physician or dentist without delay in ports of call, where practicable. </p><p><b>SECTION 4. <em>Maritime Occupational Safety and Health (MOSH) Guidelines</em>.</b> - The DOLE, through the Occupational Safety and Health Center (OSHC), shall formulate guidelines, within fifteen (15) days from issuance of this Rules and Regulations, for the implementation of the Occupational Safety and Health Policy and Program for seafarers. </p><p align="center"> <b>RULE VI <br> SOCIAL SECURITY</b> </p><p><b>SECTION 1. <em>Coverage and Benefits</em>.</b> - Without prejudice to established policy, collective bargaining agreement or other applicable employment agreement, all seafarers shall be covered by the Social Security System (Republic Act No 1161, as amended by Republic Act No. 8282), Employees’ Compensation and State Insurance Fund (Presidential Decree No. 626), PhilHealth (Republic Act No. 7875, as amended by Republic Act No. 9241), and the Pag-IBIG Fund (Republic Act No. 7742), and other applicable laws. The seafarers shall be entitled to all the benefits in accordance with the respective policies, laws, rules and regulations. </p><p align="center"><b>RULE VII <br> SHIPBOARD TRAINING OF CADETS</b> </p><p> <strong>SECTION 1. <em>Applicability.</em> </strong>- The following rules as provided for in this Rules and Regulations shall apply in the shipboard training of cadets: Section 2 (Medical Certificate) of Rule II; Section 1 (Accommodation) and Section 2 (Food and Catering) of Rule IV; Section 1 (Occupational Safety and Health Policy and Program) of Rule V; and Rule IX (Complaint Procedures and Mechanism). </p><p><b>SECTION 2. <em>Shipboard Training Agreement for Cadets</em>.</b> - There shall be a written agreement between the shipowner on one hand, and the cadet and the maritime institution/school on the other, which shall embody the following terms and conditions: </p><table width="100%" border="0"> <tbody><tr valign="top"> <td width="3%"><div align="justify">a)</div></td> <td width="97%"><div align="justify">the cadet’s full name, date of birth or age (at least 16 years old), and birthplace; </div></td> </tr> <tr valign="top"> <td><div align="justify">b)</div></td> <td> <div align="justify">the maritime institution’s/ school’s name and address;.</div></td> </tr> <tr valign="top"> <td><div align="justify">c)</div></td> <td> <div align="justify">the shipowner’s name and address; </div></td> </tr> <tr valign="top"> <td><div align="justify">d)</div></td> <td> <div align="justify">the place where and date when the cadet's agreement is entered into;</div></td> </tr> <tr valign="top"> <td><div align="justify">e)</div></td> <td> <div align="justify">the capacity in which the cadet is to be trained;</div></td> </tr> <tr valign="top"> <td><div align="justify">f)</div></td> <td> <div align="justify">the amount of the cadet's stipend or allowance, if any;</div></td> </tr> <tr valign="top"> <td><div align="justify">g)</div></td> <td> <div align="justify">required number of hours of training and hours of rest which should not be less than that prescribed under Sections 3 and 4 of Rule III; and</div></td> </tr> <tr valign="top"> <td><div align="justify">h)</div></td> <td> <div align="justify">other benefits in accordance with law, company policy or agreements.</div></td> </tr> </tbody></table> <p>The foregoing agreement shall be in a working language and in English, executed in three (3) original copies before the commencement of the shipboard training. The shipowner and the cadet and the maritime institution/school shall each have a signed original of the agreement and an electronic copy thereof shall be submitted to the DOLE through the BWC. A signed original shall be made available on board the ship. </p><p align="center"><b>RULE VIII <br> COMPLIANCE AND ENFORCEMENT</b> </p><p> <b>SECTION 1. <em>Compliance and Enforcement</em> </b>- All shipowners engaged in domestic shipping, shall comply with the provisions of this Rules and Regulations and shall be made principally liable for any violations hereof. </p><p>The Secretary or his/her duly authorized representative, pursuant to Article 128 of the Labor Code, as amended, shall enforce the provisions of this Rules and Regulations in accordance with the Labor Laws Compliance System (LLCS). </p><p> <b>SECTION 2. <em>Assessment and Certification</em>. </b>- The Regional Office having jurisdiction over the homeport of the ship shall conduct the following: </p><table width="100%" border="0"> <tbody><tr valign="top"> <td width="3%"><div align="justify">2.1</div></td> <td colspan="2"><div align="justify"><b><i>Joint Assessment </i></b>- The Joint Assessment shall be conducted on all Philippine domestic ships covered by this Rules and Regulations. A Certificate of Compliance shall be issued by the Regional Director to ships found to be compliant. </div> <p align="justify">With respect to ships of less than 200 gross tonnage, the implementation of Section 1 (Employment Agreement for Seafarers), Section 3 (Hours of Work) and Section 4 (Hours of Rest) of Rule III shall be covered by a one (1) year phase-in program of the DOLE. The DOLE shall develop a technical assistance plan for shipowners to facilitate phase-in and eventual compliance with the provisions of this Rules and Regulations.<br><br></p></td> </tr> <tr valign="top"> <td><div align="justify">2.2</div></td> <td colspan="2"><div align="justify"><b><i>Validity of Certificate.</i></b> - The Certificate shall be valid for two (2) years.</div></td> </tr> <tr valign="top"> <td>&nbsp;</td> <td colspan="2">&nbsp;</td> </tr> <tr valign="top"> <td><div align="justify">2.3</div></td> <td colspan="2"><div align="justify"><b><i>Renewal of Certificate.</i></b> - The application for renewal of certificate shall be filed by the shipowner within sixty (60) days prior to its expiration with the issuing authority informing the place, date and time of the availability of the ship for succeeding assessment. The new certificate shall be valid from the date of completion of the assessment. </div></td> </tr> <tr valign="top"> <td>&nbsp;</td> <td colspan="2">&nbsp;</td> </tr> <tr valign="top"> <td><div align="justify">2.4</div></td> <td colspan="2"><div align="justify"><b><i>Revocation of Certificate. </i></b>- The Certificate referred herein shall cease to be valid in any of the following cases: </div></td> </tr> <tr valign="top"> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> </tr> <tr valign="top"> <td><br></td> <td><div align="justify">a)</div></td> <td><div align="justify">Joint assessment is not completed within the prescribed period due to the fault of the shipowner;</div></td> </tr> <tr valign="top"> <td><br></td> <td><div align="justify">b)</div></td> <td> <div align="justify">Violations or deficiencies found during the conduct of joint assessment were not corrected within the prescribed period; </div></td> </tr> <tr valign="top"> <td><br></td> <td><div align="justify">c)</div></td> <td><div align="justify">The ship changes flag; </div></td> </tr> <tr valign="top"> <td><br></td> <td><div align="justify">d)</div></td> <td><div align="justify">The shipowner ceases to assume the responsibility for the operation of the ship;</div></td> </tr> <tr valign="top"> <td><br></td> <td><div align="justify">e)</div></td> <td> <div align="justify">The seaworthiness of the ship has not been certified or the certificates issued by the MARINA cease to be valid or has been revoked; and</div></td> </tr> <tr valign="top"> <td><br></td> <td width="3%"><div align="justify">f)</div></td> <td width="93%"> <div align="justify">Other grounds as may be determined by the Secretary.</div></td> </tr> <tr valign="top"> <td>&nbsp;</td> <td colspan="2">&nbsp;</td> </tr> <tr valign="top"> <td><div align="justify">2.5</div></td> <td colspan="2"><div align="justify"><b><i>Compliance Visit </i></b>- If there are report of violation/s of this Rules and Regulations, imminent danger, occurrence of accident, or as may be deemed necessary, the Secretary or his/her authorized representatives may order a compliance visit pursuant to the procedures of the LLCS.</div></td> </tr> <tr valign="top"> <td>&nbsp;</td> <td colspan="2">&nbsp;</td> </tr> <tr valign="top"> <td><div align="justify">2.6</div></td> <td colspan="2"><div align="justify"><b><i>Notice of Results (NR). </i></b>- After the conduct of the joint assessment, the duly authorized DOLE Labor Law Compliance Officer (LLCO) shall provide the shipowner a copy of the accomplished Maritime Labor Compliance Assessment Checklist showing the results of the assessment conducted. The accomplished Checklist shall provide guidance on the corrective measures to be undertaken by the shipowner in case of findings of deficiencies and shall serve as basis in the formulation of the action plan. In case no action plan is formulated within the prescribed period of ten (10) days, a Notice of Results indicating the noted deficiencies shall be issued by the LLCO.</div></td> </tr> <tr valign="top"> <td>&nbsp;</td> <td colspan="2">&nbsp;</td> </tr> <tr valign="top"> <td><div align="justify">2.7</div></td> <td colspan="2"><div align="justify"><b><i>Coordination with Relevant Government Agencies.</i></b> - The conduct of the joint assessment may, as required by regional peculiarities, be covered by a Memorandum of Agreement to ensure proper coordination with the Maritime Industry Authority (MARINA), Philippine Coast Guard (PCG) and other relevant government agencies having maritime jurisdiction and supervision.</div></td> </tr> </tbody></table> <p><b>SECTION 3. <em>Issuance of Compliance Order</em>. </b>- In case the shipowner refuses or fails to voluntarily correct or rectify the deficiencies noted after the conduct of the joint assessment/compliance visit within the applicable prescribed period, the Secretary or his/her duly authorized representative shall, after due notice and hearing, issue the corresponding Compliance Order to effect the necessary correction or restitution. </p><p><b>SECTION 4.<em> Prohibition to Leave Port</em> </b>- The Secretary or his/her duly authorized representative shall recommend to the PCG to prohibit a ship from leaving port in the following instances: </p><table width="100%" border="0"> <tbody><tr valign="top"> <td width="3%"><div align="justify">a)</div></td> <td width="97%"><div align="justify">If the findings of the joint assessment/compliance visit constitute serious breach of this Rules and Regulations;</div></td> </tr> <tr valign="top"> <td><div align="justify">b)</div></td> <td> <div align="justify">Imminent danger to the ship and/or to the life or limbs of the seafarer; </div></td> </tr> <tr valign="top"> <td><div align="justify">c)</div></td> <td><div align="justify">Denial of access to the ship or refusal to allow the conduct of joint assessment/compliance visit;</div></td> </tr> <tr valign="top"> <td><div align="justify">d)</div></td> <td> <div align="justify">Failure/refusal to secure the required Certificate of Compliance; </div></td> </tr> <tr valign="top"> <td><div align="justify">e)</div></td> <td> <div align="justify">Revocation of the Certificate of Compliance; and</div></td> </tr> <tr valign="top"> <td><div align="justify">f)</div></td> <td> <div align="justify">Under other circumstances analogous or similar to the foregoing and other grounds as may be determined by the Secretary.</div></td> </tr> </tbody></table> <p><b>SECTION 5. <em>Disposition of Cases</em>. </b>- Any findings of violation of this Rules and Regulations arising from the conduct of assessment/compliance visit shall be resolved in accordance with the LLCS. </p><p><b>SECTION 6. <em>Manual of Procedure</em>. </b>- A DOLE Manual of Assessment and Certification shall be issued by the BWC to effectively implement the provisions of this Rules and Regulations. </p><p align="center"> <b>RULE IX<br> COMPLAINT PROCEDURE AND MECHANISM</b> </p><p> <b>SECTION 1.<em> Onboard/Onshore Complaint Procedures. </em></b>– When a CBA exists between the bargaining agent of the seafarers and the shipowner, the parties shall establish a machinery for the adjustment and resolution of grievances arising from the interpretation or implementation of their CBA and those arising from the interpretation or enforcement of company personnel policies. </p><p> In the absence of a CBA, the shipowner shall establish a grievance procedure or any machinery that will ensure fair, effective and expeditious handling of seafarers’ complaints for violation of this Rules and Regulations, and employment agreement.</p><p> Seafarers may avail of the DOLE conciliation-mediation services under the Single Entry Approach (SEnA) pursuant to Department Order No. 107, Series of 2010, by filing a request for assistance with the DOLE Regional/Provincial/Field Offices.</p><p align="center"> <b>RULE X <br> MISCELLANEOUS PROVISIONS</b> </p><p> <b>SECTION 1.<em> Oversight Function of the Maritime Industry Tripartite Council (MITC).</em></b> - The MITC, created by virtue of a Memorandum of Agreement entered into by the stakeholders in the maritime industry, shall exercise oversight functions to ensure the effective implementation of this Rules and Regulations. </p><p> <b>SECTION 2. <em>Non-diminution of Benefits</em>.</b> - Nothing in this Rules and Regulations shall be construed to eliminate or in any way diminish supplements or other benefits being enjoyed at the time of the issuance thereof. </p><p><b>SECTION 3. <em>Repealing Clause.</em></b> - All policies, issuances, rules and regulations and agreements inconsistent with this Department Order are hereby repealed or modified accordingly. </p><p><b>SECTION 4. <em>Effectivity</em>. </b>- This Department Order shall take effect fifteen (15) days after its publication in a newspaper of general circulation. </p><p align="center"><br> (SGD.) ROSALINDA DIMAPILIS-BALDOZ <i><br> Secretary<br><br></i> </p><hr width="60%" align="LEFT" noshade="noshade" size="1"> <sup style="color: rgb(255, 0, 0);">[1]</sup> RA 9295 <p> <sup style="color: rgb(255, 0, 0);">[2]</sup> MLC, 2006</p> <p> <sup style="color: rgb(255, 0, 0);">[3]</sup> MLC, 2006</p> <p> <sup style="color: rgb(255, 0, 0);">[4]</sup> RA 9295 </p> </div>
+				  
+
+
+  
+</div>
+</div>
+</div>
+<!-- footer template -->
+<div id="appendix" class="clearfix">
+<div class="app_widget">
+<!-- sidebar_bottom_left -->
+</div>
+
+<!-- Comment out to remove Find Widget in sidebar bottom left-->
+<!--
+<div class="widget">
+<h4>Find it!</h4>
+-->
+
+<div id="credits"><center>&copy; Supreme Court E-Library 2019<br />
+This website was designed and developed, and is maintained, by the E-Library Technical Staff in collaboration with the Management Information Systems Office.</center></div>
+</div>
+
+</div>
+
+<!-- <script src="https://elibrary.judiciary.gov.ph/assets/js/jquery-3.3.1.js"></script> -->
+<!-- <script src="https://elibrary.judiciary.gov.ph/assets/js/jquery-confirm.min.js"></script> -->
+
+<!-- <script>
+var jq = jQuery.noConflict();
+    // Checks if first time to visit the site and displays a popup if it is.
+    if(sessionStorage.getItem('firstVisit')){
+        sessionStorage.setItem('firstVisit','1');
+    }else{
+        sessionStorage.setItem('firstVisit','0');
+    }
+    jq(document).ready(function(){
+        if(sessionStorage.getItem('firstVisit') === "0")
+        {
+            jq.alert({
+                icon: 'fas fa-exclamation-triangle',
+                title: 'NOTICE',
+                animation: 'scale',
+                closeAnimation: 'zoom',
+                animationBounce: 2.5,
+                animationSpeed: 500,
+                buttons:{
+                    gotIt: {
+                        text: '<b>Click Here!</b>',
+                    }
+                },
+                boxWidth: '40%',
+                useBootstrap: false,
+                content: ''+
+                '<ol>'+
+                '<li><i>(05-02-2019)</i> Registration for a new E-library account is currently unavailable. However, existing accounts may still be used and accessed. We apologize for any inconvenience.</li>'+						
+                '</ol>',
+                theme: 'custom',
+            });
+        }
+    });
+</script>-->
+
+</body>
+</html>

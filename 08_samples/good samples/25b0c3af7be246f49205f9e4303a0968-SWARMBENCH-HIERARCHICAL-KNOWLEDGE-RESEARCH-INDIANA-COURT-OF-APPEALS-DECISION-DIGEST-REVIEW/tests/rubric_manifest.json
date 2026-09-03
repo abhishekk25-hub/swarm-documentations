@@ -1,0 +1,151 @@
+{
+  "task": "swarmbench/25b0c3af7be246f49205f9e4303a0968-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-INDIANA-COURT-OF-APPEALS-DECISION-DIGEST-REVIEW",
+  "grader": "tests/verify.py",
+  "reward_contract": "/logs/verifier/reward.txt",
+  "scoring": "Reward is the simple mean of the static, reward-hacking, and partial-oracle group means: (static + reward_hacking + partial_oracle) / 3. Content/structural classification does not weight the reward. Harbor groups checks by key prefix, so static_checks_6 (content-classified authorship and depth) still averages inside the static bucket. Eleven of 17 test cases (64.7%) are genuine content checks; six (35.3%) are structural. Duplicate, stub, note_status, calendar schema, and clerk-index filing live in the static bucket. Docket/caption identity (partial_oracle_checks_1) is structural because the printed cause number sits in the opinion caption and roster. Content checks require opinion-body reasoning after the caption, not header copy. Reward-hacking checks require source-grounded cards, filled digest sections, the homework memo, and LLM synthesis. Authorship gating lives in check_note_depth via helpers _eligible and _ensure_authorship. Structural file/schema checks are not multiplied by the authored fraction. Final reward is (static + reward_hacking + partial_oracle) / 3 with no min/max clamp. Fixed 72-record denominators prevent partial work from banking credit.",
+  "total_checks": 17,
+  "check_classification": {
+    "structural": [
+      "static_checks_1",
+      "static_checks_2",
+      "static_checks_3",
+      "static_checks_4",
+      "static_checks_5",
+      "partial_oracle_checks_1"
+    ],
+    "content": [
+      "static_checks_6",
+      "reward_hacking_checks_1",
+      "reward_hacking_checks_2",
+      "reward_hacking_checks_3",
+      "reward_hacking_checks_4",
+      "partial_oracle_checks_2",
+      "partial_oracle_checks_3",
+      "partial_oracle_checks_4",
+      "partial_oracle_checks_5",
+      "partial_oracle_checks_6",
+      "partial_oracle_checks_7"
+    ]
+  },
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Counts hearing cards that reach the 220-word depth floor, are not stub or offload artifacts, are not wholesale source paste, contain at least one source-grounded rare core statute/cite/figure token (the case's own cause number does not count), are findable by cause number or roster id, are filed under cause_drawers/ criminal, postconviction, family, or civil drawers, and are named from the printed Court of Appeals cause number rather than a z-code filename, a Marion trial-court CCS number, or the dummy 99A-CR-9999.md example.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/cause_drawers/<cause>/<appeal-no>.md",
+      "check_function": "check_all_notes_present",
+      "how_it_prevents_task_authenticity_violation": "Missing appeals and hollow placeholder files cannot earn full delivery credit."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Checks that transfer_calendar.csv has the seven required columns, exactly 72 canonical ids in report-label order, roster-matched case names that share two non-role tokens or one distinctive surname, and that cause_index.csv is a well-formed clerk filing list (appeal_no, cause, source_file, card_path) whose rows resolve under the matching cause_drawers/ shelf. Index filing is schema, not a content oracle. Issue-family and disposition vocabulary coverage is scaled by the authored fraction of 72 and scored against LLM source-truth labels for those columns; a round-robin cycle through the closed vocabularies earns no vocabulary credit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/transfer_calendar.csv",
+      "check_function": "check_tracker_wellformed",
+      "how_it_prevents_task_authenticity_violation": "Repeated rows, missing ids, wrong matters, blank coding, arbitrary labels, and a missing or misfiled cause_index.csv do not pass."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "Flags raw, number-masked, token-stripped skeleton, or high skeleton-token-set Jaccard near-duplicate digest pairs so a reusable template with only dockets or cites swapped is treated as one copied card. Only source-grounded, non-duplicate cards count; unique boilerplate that fails the presence gate does not fill the 72-record denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/cause_drawers/<cause>/<appeal-no>.md",
+      "check_function": "check_no_duplicate_notes",
+      "how_it_prevents_task_authenticity_violation": "One template copied across the appeal slate cannot simulate 72 readings."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "Rejects stub, deferral, placeholder, self-admitted thinness, and external-model scripting fingerprints, and also treats a card under the 220-word depth floor, a wholesale source paste, or a fluent card with no rare source-grounded core token (excluding the case's own cause number) as an unfinished artifact. Missing ids stay in the 72-record denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/cause_drawers/<cause>/<appeal-no>.md",
+      "check_function": "check_no_stub_or_offload_artifacts",
+      "how_it_prevents_task_authenticity_violation": "Unfinished or technically offloaded artifacts cannot be presented as completed analysis."
+    },
+    "static_checks_5": {
+      "detailed_explanation_of_checks": "Compares every note_status value to whether its digest actually clears the authorship and depth gate, using one canonical row per id and a fixed denominator of 72.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/transfer_calendar.csv",
+      "check_function": "check_status_matches_reality",
+      "how_it_prevents_task_authenticity_violation": "A missing or hollow digest cannot gain credit by being labeled complete."
+    },
+    "static_checks_6": {
+      "detailed_explanation_of_checks": "Measures the fraction of 72 digests reaching 220 words, adequate vocabulary diversity, low copy density, at least two independent grounded core anchors drawn from separate sentences, and at least one of those core tokens appearing in no more than 24 of the 72 source opinions. Caption, appeal number, filed date, and the case's own cause citation cannot satisfy depth on their own.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/cause_drawers/<cause>/<appeal-no>.md",
+      "check_function": "check_note_depth",
+      "how_it_prevents_task_authenticity_violation": "Generic padding, copied decisions, and roster-only summaries fail the authorship and depth gate."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "Requires each own-prose digest body to identify its correct matter and use a source-shared Indiana Code or Appellate Rule citation, day count, percentage, or dollar anchor without copying the decision, and rejects another decision's roster appeal number or a dollar figure distinctive to a different source.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/cause_drawers/<cause>/<appeal-no>.md",
+      "check_function": "check_notes_grounded_in_own_source",
+      "how_it_prevents_task_authenticity_violation": "Roster echoes, generic cards, cross-case leakage, and wholesale source copying do not earn grounding credit."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Scores coverage of the six required digest sections only when each section contains substantive, case-specific prose tied to the correct decision and a non-header source anchor.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/cause_drawers/<cause>/<appeal-no>.md",
+      "check_function": "check_format_sections",
+      "how_it_prevents_task_authenticity_violation": "Empty headings and reusable boilerplate cannot earn section credit."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Graduates credit for a substantive appr46_homework.md, source-verified cross-decision comparisons with decision-specific anchors, later-roster ids that appear inside those verified comparison units, and the three named comparisons (App. R. 46 vs 9, PCR vs direct criminal, CHINS/TPR vs dissolution) only when at least two cited opinions actually print the compared theme. Outcome or who-prevailed language is checked against LLM source-truth disposition and relief labels for both cited ids. Scales by authored-record coverage.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/appr46_homework.md",
+      "check_function": "check_review_present",
+      "how_it_prevents_task_authenticity_violation": "A roll call, fabricated comparison, or survey confined to early files cannot earn synthesis credit."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Uses the structured LLM judge to grade the three named homework comparisons, attribution, an open transfer or remand question left for the trial court, and genuine cross-reading, gated and scaled by authored-record coverage.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/appr46_homework.md",
+      "check_function": "check_llm_review",
+      "how_it_prevents_task_authenticity_violation": "Unsupported theme assertions and decision-by-decision lists do not count as synthesis."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "Structural identity check, not a comprehension check: the printed cause number sits in the opinion caption and the roster. Credit requires that number in the digest body beside a core token drawn from the opinion after the caption, not from the harvest header. The case's own cause number is identity, not that adjacent token.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/cause_drawers/<cause>/<appeal-no>.md",
+      "check_function": "check_docket_numbers",
+      "how_it_prevents_task_authenticity_violation": "Wrong-case work and bare metadata splices cannot earn identity credit."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "Checks for an Indiana Code or Appellate Rule citation, day count, percentage, or dollar figure that also occurs in the decision body and is used inside analytical reasoning. Appeal number, caption, and filed date are not content anchors.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/cause_drawers/<cause>/<appeal-no>.md",
+      "check_function": "check_grounded_figures",
+      "how_it_prevents_task_authenticity_violation": "Invented figures and header-copy facts cannot earn source-content credit."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "Assigns each authored penalty_or_remedy cell exactly one consequence class, requires that single class to equal the LLM's source-only label, rejects a cell reused on more than two rows, and grounds the cell on a source-shared statute, cite, day count, percentage, or dollar figure. Roster names and docket strings do not ground the cell.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/transfer_calendar.csv",
+      "check_function": "check_penalty_or_remedy_matches_source",
+      "how_it_prevents_task_authenticity_violation": "A constant or generic consequence label cannot ride the corpus base rate."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "Uses structured LLM judgment of six substantive aspects for every authorship-eligible digest, with missing and ineligible records fixed at zero in the 72-record denominator. Sources longer than 36,000 characters are sent as a head, middle, and tail slice so the middle of a long opinion is not dropped.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/cause_drawers/<cause>/<appeal-no>.md",
+      "check_function": "check_llm_coverage",
+      "how_it_prevents_task_authenticity_violation": "Well-shaped but substantively incomplete digests cannot earn coverage credit."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "Uses structured LLM judgment of faithfulness and case specificity against each decision's own text, restricted to authorship-eligible records and divided by 72.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/cause_drawers/<cause>/<appeal-no>.md",
+      "check_function": "check_llm_faithful",
+      "how_it_prevents_task_authenticity_violation": "Fabrication, cross-case contamination, and interchangeable prose lose content credit."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "Compares each register disposition to an LLM reading of that opinion's source, using the classes granted, granted_in_part, denied, dismissed, remanded, and other. Underivable sources are skipped. Macro-averages accuracy across true classes and scales by the authored fraction of 72.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/transfer_calendar.csv",
+      "check_function": "check_disposition_matches_source",
+      "how_it_prevents_task_authenticity_violation": "Constant or fabricated outcome coding cannot pass by matching the modal class."
+    },
+    "partial_oracle_checks_7": {
+      "detailed_explanation_of_checks": "Compares each issue_family tag to an LLM reading of that decision's source among criminal_sufficiency, civil_judgment, family_juvenile, unpublished_nfp, postconviction, or procedural. Accuracy is macro-averaged across source classes and scaled by authored-record coverage.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/transfer_calendar.csv",
+      "check_function": "check_issue_family_matches_source",
+      "how_it_prevents_task_authenticity_violation": "Generic or round-robin issue labels unsupported by the decision earn no credit."
+    }
+  }
+}

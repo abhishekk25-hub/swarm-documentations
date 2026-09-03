@@ -1,0 +1,267 @@
+{
+  "task_id": "d6530756070046849c0ed5feae2d4204",
+  "verifier_type": "executable",
+  "scoring_method": "Each check scores in [0.0,1.0] at weight 1 and belongs to exactly one bucket (4 static, 14 reward-hacking, 10 partial-oracle). Each bucket total is the plain mean of that bucket's own check scores, with no per-check weighting inside a bucket, and is reported in /logs/verifier/reward.json as total_static_check_score, total_reward_hacking_check_score and total_partial_oracle_check_score. The final reward combines those three totals with the canonical 1:2:3 weighting: reward = (total_static_check_score*1 + total_reward_hacking_check_score*2 + total_partial_oracle_check_score*3) / 6, so structural work carries the least weight (a 1/6 = 16.7% structural share) and the partial-oracle bucket the most, giving a content share of 5/6. No caps, floors, multipliers, conditional overrides, additional terms or mode-specific branches are applied on top. Every per-incident check reads at most one row per report_no (the first occurrence), so duplicate rows can never raise a numerator. verify.py makes zero model calls and never uses the network; if a check raises or the run crashes it writes a machine-readable marker to /logs/verifier/verifier_status.json instead of passing the failure off as a graded zero. Nothing under tests/reference_inputs/ holds a determination for any report: incidents_reference.json carries the same report_no / report_date / product_category / brand / coded-severity / incident_description / company_comment columns the agent reads in /input_artifacts/incident_reports.csv, and policy_constants.json restates the rules of surveillance_policy.md. The determination checks apply those published rules to each report's own text when the verifier runs and score what that text supports, giving partial credit to an alternative reading the same text also evidences.",
+  "total_checks": 28,
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Scores presence of the three required deliverables as the mean of three equal parts: /logs/agent/hazard_register.json parses and yields a non-empty incidents array, /logs/agent/board_docket.csv parses to at least one data row, and /logs/agent/hazard_review_memo.md exists with at least 500 characters.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json",
+        "/logs/agent/board_docket.csv",
+        "/logs/agent/hazard_review_memo.md"
+      ],
+      "check_function": "check_output_files_present",
+      "how_it_prevents_task_authenticity_violation": "Stops a run from ending after only planning in /workspace and never writing the packet to /logs/agent, which instruction.md names as an outright failure of the job, and stops a run from delivering two of the three artifacts and calling it done."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Loads the corpus report_no set from tests/reference_inputs/incidents_reference.json (the same ids the agent reads from incident_reports.csv) and scores the fraction of those 204 reports that appear at least once in the register's incidents array.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_incident_coverage",
+      "how_it_prevents_task_authenticity_violation": "Stops a run from working a convenient subset of the corpus and presenting it as the full sweep. Because the denominator is the whole corpus, dropping the reports that are slow to read costs score directly rather than quietly shrinking the job."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "For each corpus report present in the register, checks that its row carries a brand_family resolving to a family in the published register, a failure_mode that is one of the nine policy families, a harm_level in H0-H3, a severity_conflict value parseable as a boolean, a company_posture that is one of the six policy postures, an evidence_grade that is one of the four policy grades, and a non-empty pattern_id. Scored as the fraction of corpus reports whose row satisfies all seven.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_schema_valid",
+      "how_it_prevents_task_authenticity_violation": "Stops a run from emitting rows with invented label vocabulary, blank determination fields, or free-text placeholders where a policy label belongs, all of which would let a downstream reader believe a determination was made where none was."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "Compares each register row's brand_family against the family that /input_artifacts/brand_register.csv maps that report's brand_as_reported string to. Scored as the fraction of the 204 corpus reports resolved to the published family. The corpus carries 50 distinct reported brand strings collapsing to 26 families, including casing variants and parent, sub-brand and corporate names for the same family.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_brand_family_resolution",
+      "how_it_prevents_task_authenticity_violation": "This is a published lookup rather than a judgement, so it sits in the structural bucket where it carries the least weight. It prevents a run from grouping patterns off the raw brand string, which would silently split one brand family's hazard pattern into several and suppress the trigger arithmetic downstream."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "Indexes every row of the incidents array by report_no and scores the fraction of emitted rows that are a real corpus report listed exactly once. Rows repeating a report_no and rows carrying a report_no absent from the corpus both reduce the score, and the detail line reports both counts separately.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_no_duplicate_incidents",
+      "how_it_prevents_task_authenticity_violation": "Stops a run from inflating apparent coverage by repeating rows or inventing report numbers. Combined with the first-occurrence rule used by every per-incident check, duplicating a well-classified row can never raise any other numerator either."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "For each corpus report, tests its rationale on four conditions: at least 60 characters; the report's own report_no appears in the text; at least 3 distinctive content words from that report's own incident_description appear (stopwords excluded); and the note is authored rather than boilerplate. Authorship is measured two ways. First, every run of 5 consecutive words the rationale shares with its own narrative is deleted and digits normalised, and at least 40 characters must remain that are not 85%-contained in another report's remaining text while contributing fewer than 6 four-word grams of their own. Second, that remaining text is reduced to a skeleton by replacing every word drawn from the report's own account, every word of the method's closed label vocabulary, and every token carrying a digit with a slot marker, then collapsing adjacent slots; a rationale whose skeleton is shared by more than 34% of the corpus is flagged. Scored as the fraction of corpus reports passing all four.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_rationale_grounding",
+      "how_it_prevents_task_authenticity_violation": "This is the main anti-padding guard on the per-incident work, and it closes three ways of filling 204 rationale fields without reading 204 accounts. Pasting narrative text back into the field is defeated because the shared 5-gram runs are stripped before anything is measured. Emitting one sentence per failure-mode family with the labels swapped is defeated by the containment test. Slot-filling a single fixed template with a couple of report-specific words - which clears the containment test easily, because the substituted words break most of the shared grams - is defeated by the skeleton test, since the label vocabulary and the report's own words are exactly what gets slotted out before the shapes are compared. A run that writes a determination per report passes; a run that generates them in bulk does not."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Tests that the register actually partitions the corpus, as the mean of four terms: the fraction of register rows whose pattern_id resolves to a declared pattern; the fraction of declared patterns whose member_report_nos list is exactly the set of rows claiming that pattern_id; the fraction of the corpus covered by the union of all declared memberships; and a term penalising reports claimed by more than one pattern.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_pattern_partition_integrity",
+      "how_it_prevents_task_authenticity_violation": "Stops a run from shipping a pattern array that is decorative rather than derived: patterns whose membership lists were written independently of the incident rows, pattern ids that point at nothing, or a pattern set that double-counts reports to make several patterns look better evidenced than the corpus supports."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Tests that each pattern is a genuine (brand_family, failure_mode) grouping, as the mean of three terms: the fraction of patterns all of whose member rows share one brand-family and failure-mode pair; the fraction that additionally declare that same pair as their own key; and a term penalising the same key appearing on more than one pattern.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_pattern_key_consistency",
+      "how_it_prevents_task_authenticity_violation": "The third term is the one that matters most here. Because a hazard pattern's incidents are spread across product categories, the natural failure is to leave one pattern split into two along the category boundary the work was divided on. A repeated key is exactly that fingerprint, and a split pattern accumulates its countable incidents more slowly and so triggers later or not at all."
+    },
+    "reward_hacking_checks_5": {
+      "detailed_explanation_of_checks": "For every pattern, recomputes incident_count as the number of register rows claiming it and countable_count as the number of those rows the register itself grades Corroborated or Uncontested, and compares both against the values the pattern declares. Scored as the mean of the two agreement fractions.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_countable_count_consistency",
+      "how_it_prevents_task_authenticity_violation": "Stops a run from asserting a countable count that its own incident grades do not support. countable_count is the quantity every trigger rule reads, so a pattern that simply declares a plausible-looking number would otherwise be able to manufacture or suppress a reportability trigger without any of the underlying grading having been done."
+    },
+    "reward_hacking_checks_6": {
+      "detailed_explanation_of_checks": "Scored as the mean of two terms. The first is internal: for each register row, re-derives the evidence grade from that row's own company_posture and harm_level using the policy's derivation table (Corroborated for a recall or remedy posture, Contested for a disputing posture, otherwise Uncontested when harm is H1 or above and Insufficient when harm is H0) and compares it with the grade the row declares. The second is anchored outside the agent's own claims: of the 128 corpus reports whose company_comment field is empty, it scores the fraction the register records with posture None.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_grade_derivation_consistency",
+      "how_it_prevents_task_authenticity_violation": "The grade is a mechanical consequence of two reads, so any divergence means it was asserted rather than derived. On its own, though, that first term is satisfiable by a run that fabricates postures and harm levels uniformly and then applies the table to its own fabrication. The second term closes that: whether a firm filed a response at all is a property of the source data rather than anyone's judgement, so a run inventing postures in bulk fails it immediately. It is not the same error the posture-support check scores, which looks only at the 76 reports that DO carry a response."
+    },
+    "reward_hacking_checks_7": {
+      "detailed_explanation_of_checks": "Recomputes each pattern's trigger entirely from the agent's OWN classifications: it takes that pattern's member rows, keeps the ones the register grades countable, applies rule A (3 countable in any rolling 365-day window), rule B (2 countable at H2 or above in any rolling 540-day window) and rule C (a countable H3 plus at least 2 countable in total), takes the earliest satisfied date, and derives the filing deadline and exposure days from it. Compares the recomputed rule, trigger date, filing deadline and exposure days against the four values the pattern declares; scored as the fraction of those four fields matching, averaged over patterns.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_trigger_internal_consistency",
+      "how_it_prevents_task_authenticity_violation": "Measures whether the temporal arithmetic was actually run, independently of whether the underlying reads match the corpus. A run can fail the reading and still earn this by doing the arithmetic correctly on what it read, and a run that reads well but writes plausible-looking trigger dates it never computed fails it. Keeping the two capabilities on separate checks also avoids charging a single misread twice."
+    },
+    "reward_hacking_checks_8": {
+      "detailed_explanation_of_checks": "Tests the docket against the method's seating rule as the mean of six terms: the row count against the cycle's 20-slot capacity; slot numbers forming the sequence 1..n; each row sitting on the business day its slot maps to, counting two slots per business day from the as-of date; no sitting day carrying more than two seatings; adjacent slot pairs respecting the method's full three-level order (exposure days descending, then trigger date ascending, then pattern id ascending); and docket rows naming a pattern_id that exists in the register.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/board_docket.csv",
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_docket_ordering_and_capacity",
+      "how_it_prevents_task_authenticity_violation": "The docket is the one artifact whose ordering is fully determined by the method, so it is where an unearned answer shows. This stops a run from seating whatever it happened to find first, from over-filling the cycle past the board's real capacity, and from emitting a docket that does not join back to the register it supposedly derives from."
+    },
+    "reward_hacking_checks_9": {
+      "detailed_explanation_of_checks": "Scored as the mean of two halves. The first recomputes fifteen summary metrics from the register's own arrays (incident total, pattern total, severity-conflict count, the four evidence-grade counts, the four disposition counts, triggered patterns, board slots used, backlog count and maximum exposure days) and scores how many the declared summary reproduces within a tolerance of one. The second scores whether the portfolio those metrics describe sits inside the range the corpus itself supports, comparing incident total, pattern total, conflict count and triggered-pattern count against bands derived from the corpus at verify time, and requiring seats used not to exceed the board capacity.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_summary_consistency",
+      "how_it_prevents_task_authenticity_violation": "A summary block is the cheapest part of the packet to fabricate and the part a reader is most likely to quote. The first half stops a summary that contradicts the rows beneath it; the second stops a summary that is internally tidy but describes a portfolio the corpus cannot produce, such as a triggered inventory several times what the evidence supports."
+    },
+    "reward_hacking_checks_10": {
+      "detailed_explanation_of_checks": "Scores the memo as the mean of seven terms: the eleven required sections present; the seven key concepts present; absence of placeholder tokens such as TBD, TODO or [insert]; length against a 7,000-character expectation; the share of ALL declared patterns named in the text (denominated over the full pattern set, with no cap); the distinctness of the 240-character window around each named pattern after report numbers AND pattern ids are stripped out, measured over every named pattern rather than a sample; and a distinct-12-gram ratio rescaled from 0.40 to 0.70.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_review_memo.md"
+      ],
+      "check_function": "check_memo_structure",
+      "how_it_prevents_task_authenticity_violation": "This is the anti-padding guard on the long-form deliverable, and its coverage terms are denominated over the true pattern count so a memo that discusses a convenient subset cannot reach full credit on them. Stripping pattern ids before comparing windows defeats the standard way of inflating a memo - emitting one near-identical stub per pattern so the document looks per-pattern while saying the same thing every time. The 12-gram ratio catches the same trick at document scale, and the placeholder scan catches a skeleton shipped as finished work. Whether the memo's determinations are actually right is scored separately by reward_hacking_checks_14, so this check carries only the padding question."
+    },
+    "reward_hacking_checks_11": {
+      "detailed_explanation_of_checks": "Scored as the mean of two halves. The first recomputes the register's real figures (incident total, pattern total, severity-conflict count, triggered patterns, board seats used, backlog count, maximum exposure days and each non-zero evidence-grade count) and tests whether each appears in the memo as a standalone number inside a 110-character window that also carries the matching subject words, so a number that merely happens to appear elsewhere in unrelated prose does not count. The second reuses the corpus-plausibility score, so figures quoted faithfully but describing a portfolio the corpus cannot produce do not earn full credit.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_review_memo.md",
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_memo_register_agreement",
+      "how_it_prevents_task_authenticity_violation": "Forces the written review to be the same piece of work as the structured register rather than generic product-safety prose written alongside it: a memo that never states its own portfolio's numbers, or states numbers that contradict the register, cannot pass. This check deliberately asks only whether the figures agree, not whether the memo analyses them, so a memo that states its headline totals in an executive summary is not punished for doing what a real review does. Whether the memo actually carries a determination per pattern is scored separately by reward_hacking_checks_14, which is what a hollow memo of well-formed prose fails."
+    },
+    "reward_hacking_checks_12": {
+      "detailed_explanation_of_checks": "For every row of /logs/agent/board_docket.csv, joins back to the pattern the register declares under the same pattern_id and compares the seven substantive columns the instruction requires the docket to carry - brand_family, failure_mode, trigger_rule, trigger_date, filing_deadline, exposure_days and countable_count - against that pattern's own declared values, with dates and numbers parsed rather than string-matched. Scored as the mean fraction of those seven agreeing, over docket rows, so a row that names a pattern_id the register does not declare contributes zero.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/board_docket.csv",
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_docket_register_agreement",
+      "how_it_prevents_task_authenticity_violation": "instruction.md requires the register, the docket and the memo to agree with each other, and names ten columns the docket must carry. Without this check the docket's numeric columns are never compared to anything: a docket whose exposure and trigger values were produced independently of the register, or simply invented in a consistent order, would score full marks on ordering alone. Reconciling three separately produced deliverables is exactly the step a run under time pressure drops, so this is where that shortcut surfaces."
+    },
+    "reward_hacking_checks_13": {
+      "detailed_explanation_of_checks": "instruction.md requires every pattern to carry a basis note saying which incidents drove the trigger and why the disposition follows. For each declared pattern this tests four conditions: the note is at least 50 characters; it names its own pattern_id or at least one of its own member report numbers; it quotes at least one of that pattern's own counts (its incident count or its countable count) as a standalone number; and it is not near-wholly contained in another pattern's note while adding fewer than six four-word grams of its own. Scored as the fraction of declared patterns passing all four.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_basis_grounding",
+      "how_it_prevents_task_authenticity_violation": "Before this check the basis field was a required deliverable with no rubric coverage at all, so it could be left empty or filled with one repeated sentence at no cost. Requiring each note to carry its own identifiers and its own figures means it cannot be written without the pattern's membership and counts actually in hand. The check deliberately does not demand stylistic uniqueness: patterns that close for the same reason legitimately read alike, so penalising that would punish honest work rather than padding."
+    },
+    "reward_hacking_checks_14": {
+      "detailed_explanation_of_checks": "For every pattern the register declares, locates its pattern_id in the memo and reads the window around it, then tests whether that window states the four things a determination is made of, as the register itself records them: the pattern's brand family, its failure mode, its disposition, and its countable count as a standalone number. Scored as the mean fraction of those four over ALL declared patterns, so a pattern the memo never discusses scores zero rather than being excluded from the denominator.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_review_memo.md",
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_memo_determination_fidelity",
+      "how_it_prevents_task_authenticity_violation": "The other memo checks measure padding and figure agreement but never test whether the per-pattern determinations the memo states are the determinations the register actually made. This closes that: a memo of well-formed, lexically varied prose whose per-pattern claims drift from the register cannot pass. Because the register's own determinations are independently scored against the corpus by the partial-oracle bucket, agreement here is transitively agreement with the corpus, without charging a single wrong determination twice."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "Determines, for every one of the 204 reports, whether it counts toward a reportability trigger, by applying the policy's grade table to the harm level read from that report's own account and the posture read from the firm's own filed response at verify time, then compares that against whether the register's declared grade is Corroborated or Uncontested. Scored as the mean of the F1 over the countable set and plain agreement across the corpus.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_countable_population_oracle",
+      "how_it_prevents_task_authenticity_violation": "This is the hinge of the whole review: every trigger date, deadline, exposure figure and disposition downstream moves when the countable population is wrong, and getting it right needs both halves of the evidence read. Scoring F1 alongside agreement means neither declaring everything countable nor declaring nothing countable earns credit, so the check cannot be satisfied by a blanket default."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "Identifies the subset of reports whose account fires exactly one strict failure-mode cue AND where the policy's published precedence order lands on that same family, so membership of the subset is not in dispute, then scores the fraction of that subset the register classifies into the family the cue names. The second condition is deliberate: without it the subset would penalise a run for correctly applying the precedence rule the policy states.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_failure_mode_unambiguous",
+      "how_it_prevents_task_authenticity_violation": "Gives a hard floor on the classification work that no defaulting strategy reaches. These are the reports whose failure mode a careful reader cannot miss, so a low score here is direct evidence that the accounts were not read rather than evidence of a defensible difference of reading."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "Scores the failure-mode classification across all 204 reports as the mean of a micro and a macro term. Full credit is given where the register names the family the published precedence order reads out of that report's account; half credit where it names a different family the same account also genuinely evidences. The macro term averages per-class precision and recall over the failure-mode classes carrying at least five reports, so the nine-way taxonomy is scored class-balanced rather than dominated by its largest family.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_failure_mode_support",
+      "how_it_prevents_task_authenticity_violation": "The class-balanced term is what stops the cheapest classification strategy from scoring: because thermal and fire accounts are the largest family in the corpus, a run that collapses ambiguous accounts into it, or into the residual family, keeps a respectable raw hit rate but loses the macro term outright. Half credit for a defensible alternative reading keeps the check honest about accounts that genuinely evidence more than one family."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "Takes the two ends of the harm scale where the account settles the question outright - reports describing an emergency department visit, hospital admission, surgery, fracture or death, and reports describing no personal harm at all - and scores each end separately as the fraction sitting at the level its own account states, then averages the two ends.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_harm_unambiguous",
+      "how_it_prevents_task_authenticity_violation": "Averaging the two ends rather than pooling them is what makes this check unhackable by volume. The no-harm end is roughly four times the size of the severe end, so a run that simply declares every report H0 - the single most attractive shortcut, because it makes almost everything Insufficient and suppresses the whole trigger workload - is capped at half credit instead of scoring near eight tenths."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "Scores the harm level across all 204 reports as the mean of a micro and a macro term, on the ordinal H0-H3 scale. Full credit where the register sits at the level the account substantiates, half credit where it sits exactly one level away, none where it is two or more levels away. The macro term averages per-level precision and recall over the levels carrying at least five reports.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_harm_support",
+      "how_it_prevents_task_authenticity_violation": "Half credit for an adjacent level reflects that the boundary between first aid and professional treatment is a real judgement, while a two-level miss is not. The class-balanced term again prevents the H0-everywhere shortcut, since it forces credit to be earned separately at each treated and severe level rather than pooled across the corpus."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "Over the reports whose coded victim-severity value maps to a comparable band, re-derives at verify time whether the harm level the account substantiates differs from that band, and compares against the register's severity_conflict flag. Reported as true positives, false positives and misses, and scored as the mean of F1 and accuracy.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_severity_conflict_detection",
+      "how_it_prevents_task_authenticity_violation": "instruction.md asks explicitly for these disagreements to be surfaced rather than smoothed over. Scoring F1 alongside accuracy means the flag has to track the real disagreements: flagging everything and flagging nothing both fail, so the check can only be satisfied by comparing each account against its own coded value."
+    },
+    "partial_oracle_checks_7": {
+      "detailed_explanation_of_checks": "Over the 76 reports carrying a filed company response, scores the posture determination as the mean of a micro and a macro term. Full credit where the register names the posture the policy's precedence order reads out of the response text at verify time; half credit where it names another posture the same response also genuinely supports. The macro term averages per-class precision and recall over the posture classes carrying at least five reports.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_posture_support",
+      "how_it_prevents_task_authenticity_violation": "Most filed responses are house boilerplate reused verbatim across unrelated reports, and many recite standards compliance in one sentence and commit to a remedy in the next. The class-balanced term stops a run from reading tone instead of commitment and labelling every response Standards Assurance Only, which would be the largest single class and would wrongly move those incidents out of the corroborated population."
+    },
+    "partial_oracle_checks_8": {
+      "detailed_explanation_of_checks": "Rebuilds the hazard patterns from the corpus at verify time - grouping all 204 reports by the brand family the published register gives them and the failure mode read from their accounts - then matches the agent's patterns to them by (brand family, failure mode) key rather than by id, since ids are the agent's to assign, and scores each corpus-derived pattern by the Jaccard overlap between its true member set and the member set the agent's pattern under that key holds. Denominated over all 65 corpus-derived patterns, so a pattern the register never formed scores zero. The detail line reports the mean separately for the 47 patterns whose incidents sit in one product category and the 18 whose incidents span several.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_pattern_consolidation_oracle",
+      "how_it_prevents_task_authenticity_violation": "This is the check that makes the consolidation step load-bearing rather than decorative. Eleven of the corpus's 65 patterns are merge-critical: they cross a reportability trigger only once their incidents from different product categories are combined, and eight of those hold a seat on the board docket. A register that reads every account correctly but leaves patterns split along the category boundary the reading was divided on, or that emits one pattern per report, holds only a fraction of each pattern's members and cannot score here, however self-consistent its own arithmetic is on the fragments."
+    },
+    "partial_oracle_checks_9": {
+      "detailed_explanation_of_checks": "For each of the 65 corpus-derived patterns, matched to the agent's patterns by (brand family, failure mode) key, scores the mean of three parts: the trigger rule matching the rule that actually fires on the corpus, the trigger date matching exactly (half credit within 14 days) and the exposure days matching exactly (half credit within 14 days). Whether the pattern was formed completely in the first place is scored separately by check_pattern_consolidation_oracle, so one consolidation failure is not charged twice.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_trigger_exposure_oracle",
+      "how_it_prevents_task_authenticity_violation": "Denominating over the corpus-derived pattern set rather than over whatever the agent produced stops a run from being rewarded for a small tidy pattern set that ignores most of the corpus. Graduated date and exposure credit means a nearly-right trigger still scores, so the check pays for the accumulation reasoning rather than only for an exact date, and a run that writes plausible dates it never derived cannot match the rule that fires."
+    },
+    "partial_oracle_checks_10": {
+      "detailed_explanation_of_checks": "Scored as the mean of two halves. The first compares each pattern's declared disposition against the disposition the method assigns once the corpus-derived trigger and the board's 20-slot capacity are worked out, denominated over all 65 patterns the corpus yields. The second compares the set of patterns actually seated on /logs/agent/board_docket.csv against the set that should be heard this cycle, matching by (brand family, failure mode) key and scoring F1 so both seating the wrong patterns and leaving the right ones off are penalised.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/board_docket.csv",
+        "/logs/agent/hazard_register.json"
+      ],
+      "check_function": "check_disposition_docket_oracle",
+      "how_it_prevents_task_authenticity_violation": "The corpus yields more reportable patterns than the cycle has board slots, so the seating is genuinely contested and cannot be produced by seating everything that triggered. Scoring the seated set by F1 against the corpus-derived seating means the ranking has to be earned from correct exposure figures, which in turn depend on the reading, the grading and the pattern consolidation all having been done."
+    }
+  }
+}

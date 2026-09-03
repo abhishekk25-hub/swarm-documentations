@@ -1,0 +1,2616 @@
+﻿[
+    {
+        "source":  "phase_2_1_sample_tasks",
+        "folder":  "3115eef3e82f4ccd969a2bb18369827f-SWARMBENCH-PIPELINE-PLANNING-OPERATIONS-HAZMAT-OUTBOUND-CONSOLIDATION-TRANSPORT-COMPLIANCE",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "hazmat_truth.json (29.1 KB)",
+                      "justification.md (11.4 KB)",
+                      "placarding.json (2.5 KB)",
+                      "rubric_manifest.json (29.3 KB)",
+                      "segregation.json (7.2 KB)",
+                      "test.sh (0.4 KB)",
+                      "verify.py (33.9 KB)"
+                  ],
+        "input_artifacts":  [
+                                "dispatch_handbook.md (6.4 KB)",
+                                "hazmat_table_excerpt.csv (25.6 KB)",
+                                "provenance.md (5.1 KB)",
+                                "shipment_manifest.csv (10.7 KB)",
+                                "rules\\49cfr_172_504_placarding.md (2.7 KB)",
+                                "rules\\49cfr_177_848_segregation.md (3.9 KB)"
+                            ],
+        "verifier_type":  "executable",
+        "coordination":  "pipeline",
+        "instruction_lines":  148,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.0",
+                                                      "reward_json":  0.0,
+                                                      "tokens_in":  94660,
+                                                      "tokens_out":  52566,
+                                                      "n_errored":  0,
+                                                      "n_retries":  0,
+                                                      "run_id":  "3115eef3e82f4ccd969a2bb18369827f__9JAeNSz",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "opencode-internal.log",
+                                                                          "opencode.txt",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "reward.json",
+                                                                             "reward.txt",
+                                                                             "test-output.log",
+                                                                             "test-stdout.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "0.9841",
+                                                     "reward_json":  0.9841,
+                                                     "tokens_in":  6315602,
+                                                     "tokens_out":  521968,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "3115eef3e82f4ccd969a2bb18369827f__CZemMcH",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "dispatch_brief.md",
+                                                                         "opencode-internal.log",
+                                                                         "opencode.txt",
+                                                                         "trajectory.json",
+                                                                         "transport_plan.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "reward.json",
+                                                                            "reward.txt",
+                                                                            "test-output.log",
+                                                                            "test-stdout.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "phase_2_1_sample_tasks",
+        "folder":  "920c05e0e5044965830c93d976fe24cd-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-CA-REGIONAL-DROUGHT-WATER-SYSTEM-READINESS-SWEEP",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "partial_oracle.json (10939 KB)",
+                      "rubric_manifest.json (44.1 KB)",
+                      "test.sh (1.1 KB)",
+                      "verify.py (88.9 KB)"
+                  ],
+        "input_artifacts":  [
+                                "readiness_rulebook.md (6.6 KB)",
+                                "source_manifest.json (2.4 KB)",
+                                "system_catalog.json (30.7 KB)"
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "hierarchical",
+        "instruction_lines":  36,
+        "instruction_headings":  [
+                                     "## Building each row",
+                                     "## Charts and board summary"
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.4021",
+                                                      "tokens_in":  5099389,
+                                                      "tokens_out":  90166,
+                                                      "n_errored":  0,
+                                                      "n_retries":  0,
+                                                      "run_id":  "920c05e0e5044965830c93d976fe24cd__nVMxmjF",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "chart_data.json",
+                                                                          "demand_actions.png",
+                                                                          "high_priority_systems.png",
+                                                                          "opencode-internal.log",
+                                                                          "opencode.txt",
+                                                                          "output.json",
+                                                                          "readiness_matrix.csv",
+                                                                          "readiness_priority.png",
+                                                                          "supply_risk.png",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "reward.txt",
+                                                                             "test-output.log",
+                                                                             "test-stdout.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "0.691",
+                                                     "tokens_in":  38891169,
+                                                     "tokens_out":  1103053,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "920c05e0e5044965830c93d976fe24cd__9pWuw6g",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "chart_data.json",
+                                                                         "demand_actions.png",
+                                                                         "high_priority_systems.png",
+                                                                         "opencode-internal.log",
+                                                                         "opencode.txt",
+                                                                         "output.json",
+                                                                         "readiness_matrix.csv",
+                                                                         "readiness_priority.png",
+                                                                         "supply_risk.png",
+                                                                         "trajectory.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "reward.txt",
+                                                                            "test-output.log",
+                                                                            "test-stdout.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "phase_2_1_sample_tasks",
+        "folder":  "a69998878d6943428d9ef09e746c67e6-SWARMBENCH-HIERARCHICAL-PLANNING-RURAL-TELEHEALTH-ROLLOUT-ALLOCATION",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "rubric_manifest.json (22.2 KB)",
+                      "sites_corpus.json (501.8 KB)",
+                      "test.sh (1 KB)",
+                      "verify.py (55.7 KB)"
+                  ],
+        "input_artifacts":  [
+                                "sites.json (501.8 KB)"
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "hierarchical",
+        "instruction_lines":  29,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.4857",
+                                                      "reward_json":  0.4857,
+                                                      "tokens_in":  486661,
+                                                      "tokens_out":  23028,
+                                                      "n_errored":  0,
+                                                      "n_retries":  0,
+                                                      "run_id":  "a69998878d6943428d9ef09e746c67e6__LAXymcu",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "allocations_batch01.csv",
+                                                                          "allocations_batch02.csv",
+                                                                          "allocations_batch03.csv",
+                                                                          "allocations_batch04.csv",
+                                                                          "allocations_batch05.csv",
+                                                                          "allocations_batch06.csv",
+                                                                          "allocations_batch07.csv",
+                                                                          "allocations_batch08.csv",
+                                                                          "allocations_batch09.csv",
+                                                                          "allocations_batch10.csv",
+                                                                          "chart_sites_by_service.json",
+                                                                          "chart_sites_by_service.png",
+                                                                          "chart_sites_by_state.json",
+                                                                          "chart_sites_by_state.png",
+                                                                          "chart_sites_by_tier.json",
+                                                                          "chart_sites_by_tier.png",
+                                                                          "coverage_matrix.csv",
+                                                                          "deployment_plan.docx",
+                                                                          "gap_log.csv",
+                                                                          "opencode-internal.log",
+                                                                          "opencode.txt",
+                                                                          "resource_bracket.csv",
+                                                                          "site_allocation_ledger.csv",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "judge_justification.txt",
+                                                                             "reward.json",
+                                                                             "reward.txt",
+                                                                             "test-output.log",
+                                                                             "test-stdout.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "0.7429",
+                                                     "reward_json":  0.7429,
+                                                     "tokens_in":  3801410,
+                                                     "tokens_out":  569243,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "a69998878d6943428d9ef09e746c67e6__Rq9ZzJt",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "alloc_a1.csv",
+                                                                         "alloc_a2.csv",
+                                                                         "alloc_a3.csv",
+                                                                         "alloc_a4.csv",
+                                                                         "alloc_a5.csv",
+                                                                         "alloc_a6.csv",
+                                                                         "alloc_a7.csv",
+                                                                         "alloc_b1.csv",
+                                                                         "alloc_b2.csv",
+                                                                         "alloc_b3.csv",
+                                                                         "alloc_b4.csv",
+                                                                         "alloc_b5.csv",
+                                                                         "alloc_b6.csv",
+                                                                         "alloc_b7.csv",
+                                                                         "alloc_c1.csv",
+                                                                         "alloc_c2.csv",
+                                                                         "alloc_c3.csv",
+                                                                         "alloc_c4.csv",
+                                                                         "alloc_c5.csv",
+                                                                         "alloc_c6.csv",
+                                                                         "chart_sites_by_service.json",
+                                                                         "chart_sites_by_service.png",
+                                                                         "chart_sites_by_state.json",
+                                                                         "chart_sites_by_state.png",
+                                                                         "chart_sites_by_tier.json",
+                                                                         "chart_sites_by_tier.png",
+                                                                         "coverage_matrix.csv",
+                                                                         "deployment_plan.docx",
+                                                                         "gap_log.csv",
+                                                                         "group_a_consolidated.csv",
+                                                                         "group_a_notes.md",
+                                                                         "group_b_consolidated.csv",
+                                                                         "group_b_notes.md",
+                                                                         "group_c_consolidated.csv",
+                                                                         "group_c_notes.md",
+                                                                         "opencode-internal.log",
+                                                                         "opencode.txt",
+                                                                         "resource_bracket.csv",
+                                                                         "site_allocation_ledger.csv",
+                                                                         "trajectory.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "judge_justification.txt",
+                                                                            "reward.json",
+                                                                            "reward.txt",
+                                                                            "test-output.log",
+                                                                            "test-stdout.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "phase_2_1_sample_tasks",
+        "folder":  "be59a36f64664c3084565f771c7dccc2-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-DELIVERY-WAVE-PLAN",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "rubric_manifest.json (23.7 KB)",
+                      "test.sh (0.5 KB)",
+                      "verify.py (95.1 KB)"
+                  ],
+        "input_artifacts":  [
+                                "delivery_planning_rules.md (16.4 KB)",
+                                "proposals.json (1956.3 KB)",
+                                "sources.json (1.7 KB)"
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "hierarchical",
+        "instruction_lines":  11,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.0167",
+                                                      "reward_json":  0.0167,
+                                                      "degraded":  false,
+                                                      "tokens_in":  131304,
+                                                      "tokens_out":  9201,
+                                                      "n_errored":  0,
+                                                      "n_retries":  0,
+                                                      "run_id":  "be59a36f64664c3084565f771c7dccc2__kVRHaEk",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "opencode-internal.log",
+                                                                          "opencode.txt",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "reward.json",
+                                                                             "reward.txt",
+                                                                             "test-output.log",
+                                                                             "test-stdout.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "0.5276",
+                                                     "reward_json":  0.5276,
+                                                     "degraded":  false,
+                                                     "tokens_in":  32538408,
+                                                     "tokens_out":  1952846,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "be59a36f64664c3084565f771c7dccc2__7CB7mDb",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "assessments.json",
+                                                                         "audit_trail.log",
+                                                                         "consolidation.json",
+                                                                         "delivery_plan.json",
+                                                                         "dependency_graph.json",
+                                                                         "opencode-internal.log",
+                                                                         "opencode.txt",
+                                                                         "trajectory.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "reward.json",
+                                                                            "reward.txt",
+                                                                            "test-output.log",
+                                                                            "test-stdout.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "phase_2_1_sample_tasks",
+        "folder":  "bf376a79798a4521b8e1626a83ba8af0-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-USGS-EARTH-SCIENCE-FIELD-STUDY-GUIDE",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "records_key.json (517.7 KB)",
+                      "rubric_manifest.json (18.5 KB)",
+                      "test.sh (0.5 KB)",
+                      "verify.py (61.8 KB)"
+                  ],
+        "input_artifacts":  [
+                                "discipline_roots.csv (0.5 KB)",
+                                "report_roster.csv (14.5 KB)",
+                                "study_index_guidelines.md (3.5 KB)",
+                                "reports\\a-model-uncertainty-quantification-protocol-for--r012.md (44.6 KB)",
+                                "reports\\an-evaluation-of-the-effects-of-different-deicin-r026.md (89.9 KB)",
+                                "reports\\aquifer-storage-change-and-storage-properties-ri-r048.md (90 KB)",
+                                "reports\\arsenic-and-isotope-concentrations-in-the-lower--r022.md (87.3 KB)",
+                                "reports\\assessing-natural-recharge-in-indian-wells-valle-r045.md (86.3 KB)",
+                                "reports\\assessing-the-state-of-hydrologic-science-in-the-r044.md (91.7 KB)",
+                                "reports\\assessment-of-groundwater-quantity-and-quality-c-r004.md (89.3 KB)",
+                                "reports\\assessment-of-the-interconnection-between-tampa--r061.md (91.2 KB)",
+                                "reports\\assessment-of-water-chemistry-of-the-coconino-aq-r031.md (83.5 KB)",
+                                "reports\\characterization-of-stream-water-quality-and-gro-r034.md (90 KB)",
+                                "reports\\characterization-of-the-hydrogeologic-framework--r056.md (93.5 KB)",
+                                "reports\\climate-change-and-future-water-availability-in--r049.md (94.5 KB)",
+                                "reports\\comparison-of-hydrologic-data-and-water-budgets--r013.md (91.9 KB)",
+                                "reports\\completion-summary-for-monitor-wells-nrf-17-and-r032.md (87.2 KB)",
+                                "reports\\computation-of-regional-groundwater-budgets-for--r005.md (92.7 KB)",
+                                "reports\\conceptual-and-numerical-groundwater-flow-model--r007.md (92.6 KB)",
+                                "reports\\data-gap-analysis-for-estimation-of-agricultural-r059.md (57.1 KB)",
+                                "reports\\determination-of-baseline-water-quality-conditio-r043.md (86.1 KB)",
+                                "reports\\escherichia-coli-monitoring-and-assessment-in-20-r023.md (85.3 KB)",
+                                "reports\\estimated-hydrogeologic-spatial-and-temporal-dis-r063.md (91.4 KB)",
+                                "reports\\estimating-domestic-self-supplied-water-use-in-r-r051.md (85.6 KB)",
+                                "reports\\evaluation-of-water-quality-in-the-langford-vall-r024.md (86.8 KB)",
+                                "reports\\evidence-of-nitrate-attenuation-in-intertidal-an-r040.md (86.7 KB)",
+                                "reports\\geochemical-and-hydrological-investigations-of-h-r054.md (89.9 KB)",
+                                "reports\\groundwater-age-estimates-for-the-mississippi-ri-r035.md (86.4 KB)",
+                                "reports\\groundwater-and-surface-water-interactions-in-th-r001.md (88 KB)",
+                                "reports\\groundwater-budget-for-the-mountain-home-area-so-r006.md (94.1 KB)",
+                                "reports\\groundwater-budget-for-the-surficial-aquifer-sur-r064.md (57.7 KB)",
+                                "reports\\groundwater-hydrology-groundwater-and-surface-wa-r036.md (94.4 KB)",
+                                "reports\\groundwater-level-elevations-in-the-bedrock-aqui-r046.md (87.7 KB)",
+                                "reports\\groundwater-level-elevations-in-the-denver-basin-r050.md (88.8 KB)",
+                                "reports\\groundwater-quality-and-groundwater-levels-in-do-r041.md (41.7 KB)",
+                                "reports\\groundwater-response-to-managed-aquifer-recharge-r009.md (87 KB)",
+                                "reports\\groundwater-storage-change-in-the-north-phoenix--r066.md (70.8 KB)",
+                                "reports\\hydraulic-conductivity-and-transmissivity-estima-r055.md (58.9 KB)",
+                                "reports\\hydrogeologic-characterization-of-the-cahuilla-v-r019.md (92.4 KB)",
+                                "reports\\hydrogeologic-conceptualization-of-the-arroyos-s-r016.md (89.7 KB)",
+                                "reports\\hydrogeologic-framework-and-conceptual-groundwat-r018.md (91.1 KB)",
+                                "reports\\hydrogeologic-framework-and-conceptual-model-of--r047.md (91.1 KB)",
+                                "reports\\hydrogeologic-framework-of-the-mountain-home-are-r065.md (93 KB)",
+                                "reports\\hydrogeologic-mapping-and-three-dimensional-geol-r057.md (92.5 KB)",
+                                "reports\\hydrogeology-and-groundwater-quality-in-the-snak-r033.md (94 KB)",
+                                "reports\\hydrogeology-of-unconsolidated-and-bedrock-aquif-r062.md (89 KB)",
+                                "reports\\hydrologic-investigations-and-a-preliminary-conc-r021.md (87.3 KB)",
+                                "reports\\inset-groundwater-flow-models-for-the-cache-and-r015.md (92.2 KB)",
+                                "reports\\iodine-129-in-the-eastern-snake-river-plain-r038.md (88.3 KB)",
+                                "reports\\methods-for-estimating-selected-low-flow-statist-r010.md (90.5 KB)",
+                                "reports\\multidecadal-change-in-pesticide-concentrations--r028.md (91.3 KB)",
+                                "reports\\paleomagnetic-correlation-of-surface-and-subsurf-r020.md (91.9 KB)",
+                                "reports\\perchlorate-metals-organic-compounds-and-lead-is-r039.md (88.9 KB)",
+                                "reports\\quality-of-groundwater-used-for-domestic-supply--r025.md (93.5 KB)",
+                                "reports\\quality-of-groundwater-used-for-domestic-supply--r042.md (65.8 KB)",
+                                "reports\\reconnaissance-of-potential-alternate-water-supp-r027.md (84.6 KB)",
+                                "reports\\shallow-hydrogeologic-framework-of-the-tully-val-r052.md (107.6 KB)",
+                                "reports\\simulated-hydrologic-responses-to-proposed-waste-r011.md (79.2 KB)",
+                                "reports\\simulating-present-and-future-groundwater-surfac-r014.md (93 KB)",
+                                "reports\\simulation-of-groundwater-flow-in-the-silurian-a-r002.md (93.3 KB)",
+                                "reports\\simulation-of-groundwater-flow-in-wake-county-no-r008.md (94.3 KB)",
+                                "reports\\simulation-of-groundwater-flow-to-evaluate-hydro-r003.md (135.6 KB)",
+                                "reports\\sources-of-water-and-salts-for-the-zuni-r029.md (87.9 KB)",
+                                "reports\\status-of-water-level-altitudes-and-long-term-r058.md (89.9 KB)",
+                                "reports\\three-dimensional-hydrogeologic-framework-model--r060.md (90 KB)",
+                                "reports\\top-elevation-of-glacial-till-and-thickness-of-r017.md (72.6 KB)",
+                                "reports\\treatability-study-to-evaluate-bioremediation-of-r053.md (91.5 KB)",
+                                "reports\\u-s-geological-survey-integrated-water-availabil-r037.md (82.2 KB)",
+                                "reports\\water-resources-inventory-and-assessment-at-kata-r030.md (71.7 KB)"
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "hierarchical",
+        "instruction_lines":  60,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.0000",
+                                                      "tokens_in":  7581222,
+                                                      "tokens_out":  87667,
+                                                      "n_errored":  0,
+                                                      "n_retries":  0,
+                                                      "run_id":  "bf376a79798a4521b8e1626a83ba8af0__xhwyx8x",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "build_jsonld.py",
+                                                                          "debug_parse.py",
+                                                                          "generate_records.py",
+                                                                          "method_map.jsonld",
+                                                                          "opencode-internal.log",
+                                                                          "opencode.txt",
+                                                                          "parsed_reports.json",
+                                                                          "parse_reports.py",
+                                                                          "report_summaries.json",
+                                                                          "summarize_reports.py",
+                                                                          "test_parse.py",
+                                                                          "trajectory.json",
+                                                                          "validation_log.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "reward.txt",
+                                                                             "test-output.log",
+                                                                             "test-stdout.txt",
+                                                                             "verify_justification.txt",
+                                                                             "verify_status.json"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "0.5877",
+                                                     "tokens_in":  40770881,
+                                                     "tokens_out":  1147174,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "bf376a79798a4521b8e1626a83ba8af0__AXH7R5p",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "method_map.jsonld",
+                                                                         "opencode-internal.log",
+                                                                         "opencode.txt",
+                                                                         "trajectory.json",
+                                                                         "validation_log.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "reward.txt",
+                                                                            "test-output.log",
+                                                                            "test-stdout.txt",
+                                                                            "verify_justification.txt",
+                                                                            "verify_status.json"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "019f12670f93731697b118fa22752ed0-SWARMBENCH-SPECIALIST-DATAANALYSIS-SOVEREIGN-RESILIENCE-DIAGNOSTIC",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "judge.py (27.8 KB)",
+                      "test.sh (0.9 KB)"
+                  ],
+        "input_artifacts":  [
+                                "diagnostic_brief.md (8.8 KB)"
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "specialist-routing",
+        "instruction_lines":  21,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_json":  0.7115384615384616,
+                                                      "tokens_in":  3717504,
+                                                      "tokens_out":  55793,
+                                                      "n_errored":  0,
+                                                      "n_retries":  0,
+                                                      "run_id":  "019f12670f93731697b118fa22752ed0__2yGB7EB",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "cohort.csv",
+                                                                          "composite_index.csv",
+                                                                          "data_gaps.csv",
+                                                                          "diagnostic_report.md",
+                                                                          "domain_climate.csv",
+                                                                          "domain_education.csv",
+                                                                          "domain_governance.csv",
+                                                                          "domain_health.csv",
+                                                                          "domain_macro.csv",
+                                                                          "domain_poverty.csv",
+                                                                          "judge_justification.txt",
+                                                                          "opencode.txt",
+                                                                          "resilience_race.mp4",
+                                                                          "source_audit.csv",
+                                                                          "summary.csv",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "judge_justification.txt",
+                                                                             "pip-install.log",
+                                                                             "reward.json",
+                                                                             "test-stdout.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_json":  0.9423076923076923,
+                                                     "tokens_in":  236327,
+                                                     "tokens_out":  10124,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "019f12670f93731697b118fa22752ed0__q998ECF",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "cohort.csv",
+                                                                         "composite_index.csv",
+                                                                         "data_gaps.csv",
+                                                                         "diagnostic_report.md",
+                                                                         "domain_climate.csv",
+                                                                         "domain_education.csv",
+                                                                         "domain_governance.csv",
+                                                                         "domain_health.csv",
+                                                                         "domain_macro.csv",
+                                                                         "domain_poverty.csv",
+                                                                         "judge_justification.txt",
+                                                                         "opencode.txt",
+                                                                         "resilience_race.mp4",
+                                                                         "source_audit.csv",
+                                                                         "summary.csv",
+                                                                         "trajectory.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "judge_justification.txt",
+                                                                            "pip-install.log",
+                                                                            "reward.json",
+                                                                            "test-stdout.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "0e4009871bff4666a10d1468ad1a422b-SWARMBENCH-HIERARCHICAL-BROWSING-TAXCOURT-OUTCOMES",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "cohort.json (5.2 KB)",
+                      "judge.py (13.6 KB)",
+                      "test.sh (0.3 KB)",
+                      "alan-brian-fabian-2022.txt (95.1 KB)",
+                      "alexander-c-deitch-2022.txt (92.3 KB)",
+                      "aspro-2021.txt (62.1 KB)",
+                      "barry-a-hacker-celeste-hacker-2022.txt (78.1 KB)",
+                      "belmont-interests-inc-2022.txt (81.9 KB)",
+                      "champions-retreat-golf-founders-2022.txt (88.6 KB)",
+                      "continuing-life-communities-thousand-oak-2022.txt (101.9 KB)",
+                      "dana-ray-reynolds-2021.txt (58.1 KB)",
+                      "daniel-s-jacobs-2021.txt (51.8 KB)",
+                      "darren-magarro-samantha-l-braen-2023.txt (92.4 KB)",
+                      "dirk-braen-kerry-lynn-braen-2023.txt (92.4 KB)",
+                      "duane-pankratz-2021.txt (49.8 KB)",
+                      "edward-francis-bachner-2023.txt (72.2 KB)",
+                      "estate-of-charles-p-morgan-2021.txt (64.9 KB)",
+                      "estate-of-scott-m-hoensheid-2023.txt (127 KB)",
+                      "estate-of-semone-grossman-2021.txt (76.7 KB)",
+                      "estate-of-william-a-v-cecil-2023.txt (70 KB)",
+                      "eugene-csipkay-kathleen-csipkay-2023.txt (92.4 KB)",
+                      "genecure-2022.txt (99.4 KB)",
+                      "george-s-harrington-2021.txt (57.6 KB)",
+                      "humbolt-investments-2023.txt (72.8 KB)",
+                      "hyatt-hotels-corporation-subsidiaries-2023.txt (110.2 KB)",
+                      "janet-r-braen-2023.txt (92.4 KB)",
+                      "johannes-lamprecht-linda-lamprecht-2022.txt (79.6 KB)",
+                      "jonathan-d-barry-susan-s-barry-2022.txt (92.3 KB)",
+                      "joshua-braen-2023.txt (92.4 KB)",
+                      "kari-jane-freman-2023.txt (79.5 KB)",
+                      "kyle-d-simpson-christen-simpson-2023.txt (77.2 KB)",
+                      "leon-max-2021.txt (61.2 KB)",
+                      "linda-j-martin-john-a-martin-2021.txt (49.8 KB)",
+                      "louis-p-smaldino-2021.txt (59.1 KB)",
+                      "michael-j-rogerson-2022.txt (87.3 KB)",
+                      "murfam-enterprises-llc-2023.txt (82.2 KB)",
+                      "nathaniel-a-carter-stella-c-carter-2023.txt (114.5 KB)",
+                      "om-p-soni-anjali-soni-2021.txt (55.4 KB)",
+                      "preston-olsen-elizabeth-olsen-2021.txt (58 KB)",
+                      "purple-heart-patient-center-2021.txt (65.5 KB)",
+                      "ralph-g-evans-2023.txt (114.5 KB)",
+                      "robert-a-di-giorgio-2023.txt (82.9 KB)",
+                      "robert-s-clark-2021.txt (50.4 KB)",
+                      "samuel-braen-2023.txt (92.4 KB)",
+                      "scott-braen-cielo-destefano-braen-2023.txt (92.4 KB)",
+                      "steven-f-hoakison-judy-c-hoakison-2022.txt (76.3 KB)",
+                      "thomas-l-siebert-deborah-s-siebert-2021.txt (43.9 KB)",
+                      "tikar-2021.txt (60.5 KB)",
+                      "william-e-flynn-2021.txt (52.5 KB)",
+                      "william-g-allen-2023.txt (72.8 KB)",
+                      "william-r-huff-cathy-markey-huff-2021.txt (57 KB)"
+                  ],
+        "input_artifacts":  [
+
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "hierarchical",
+        "instruction_lines":  17,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.4678",
+                                                      "tokens_in":  3028500,
+                                                      "tokens_out":  29922,
+                                                      "n_errored":  0,
+                                                      "n_retries":  0,
+                                                      "run_id":  "0e4009871bff4666a10d1468ad1a422b__WChRvac",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "brief.md",
+                                                                          "opencode.txt",
+                                                                          "opinions.xlsx",
+                                                                          "trajectory.json",
+                                                                          "verify_justification.txt"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "reward.txt",
+                                                                             "test-output.log",
+                                                                             "test-stdout.txt",
+                                                                             "verify_justification.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "0.8735",
+                                                     "tokens_in":  375564,
+                                                     "tokens_out":  26294,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "0e4009871bff4666a10d1468ad1a422b__7ywZcvp",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "brief.md",
+                                                                         "opencode.txt",
+                                                                         "opinions.xlsx",
+                                                                         "trajectory.json",
+                                                                         "verify_justification.txt"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "reward.txt",
+                                                                            "test-output.log",
+                                                                            "test-stdout.txt",
+                                                                            "verify_justification.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "1585f6366bcf45b7a88553f2417cdace-SWARMBENCH-PIPELINE-CREATIVEVISUALIZATION-HERITAGE-44CASE-QA-WEBRESEARCH-SEMANTIC-FINAL",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "rubric_config.json (0.9 KB)",
+                      "semantic_key.json (19.8 KB)",
+                      "test.sh (0.4 KB)",
+                      "verify.py (41.3 KB)",
+                      "source_index.json (29.2 KB)",
+                      "commons_file_page.wikitext.txt (1.7 KB)",
+                      "unesco_property_page.txt (24.6 KB)",
+                      "wikidata_entity.json (1 KB)",
+                      "wikipedia_article.txt (83 KB)",
+                      "commons_file_page.wikitext.txt (0.9 KB)",
+                      "unesco_property_page.txt (19.4 KB)",
+                      "wikidata_entity.json (52.5 KB)",
+                      "wikipedia_article.txt (25.5 KB)",
+                      "commons_file_page.wikitext.txt (0.6 KB)",
+                      "unesco_property_page.txt (22.5 KB)",
+                      "wikidata_entity.json (26.9 KB)",
+                      "wikipedia_article.txt (10.5 KB)",
+                      "commons_file_page.wikitext.txt (0.6 KB)",
+                      "unesco_property_page.txt (22.2 KB)",
+                      "wikidata_entity.json (133.4 KB)",
+                      "wikipedia_article.txt (44.2 KB)",
+                      "commons_file_page.wikitext.txt (0.7 KB)",
+                      "unesco_property_page.txt (16.9 KB)",
+                      "wikidata_entity.json (58.6 KB)",
+                      "wikipedia_article.txt (7.5 KB)",
+                      "commons_file_page.wikitext.txt (1.3 KB)",
+                      "unesco_property_page.txt (18.4 KB)",
+                      "wikidata_entity.json (67.1 KB)",
+                      "wikipedia_article.txt (11.4 KB)",
+                      "commons_file_page.wikitext.txt (0.6 KB)",
+                      "unesco_property_page.txt (18.8 KB)",
+                      "wikidata_entity.json (70.1 KB)",
+                      "wikipedia_article.txt (23.6 KB)",
+                      "commons_file_page.wikitext.txt (1.3 KB)",
+                      "unesco_property_page.txt (18.8 KB)",
+                      "wikidata_entity.json (79 KB)",
+                      "wikipedia_article.txt (16.3 KB)",
+                      "commons_file_page.wikitext.txt (0.5 KB)",
+                      "unesco_property_page.txt (19.4 KB)",
+                      "wikidata_entity.json (56.5 KB)",
+                      "wikipedia_article.txt (15.6 KB)",
+                      "commons_file_page.wikitext.txt (1.7 KB)",
+                      "unesco_property_page.txt (23.3 KB)",
+                      "wikidata_entity.json (126 KB)",
+                      "wikipedia_article.txt (53.1 KB)",
+                      "commons_file_page.wikitext.txt (0.8 KB)",
+                      "unesco_property_page.txt (22.1 KB)",
+                      "wikidata_entity.json (75.2 KB)",
+                      "wikipedia_article.txt (22.5 KB)",
+                      "commons_file_page.wikitext.txt (0.8 KB)",
+                      "unesco_property_page.txt (25.4 KB)",
+                      "wikidata_entity.json (59.8 KB)",
+                      "wikipedia_article.txt (9.7 KB)",
+                      "commons_file_page.wikitext.txt (1.1 KB)",
+                      "unesco_property_page.txt (23.1 KB)",
+                      "wikidata_entity.json (106.7 KB)",
+                      "wikipedia_article.txt (35 KB)",
+                      "commons_file_page.wikitext.txt (0.6 KB)",
+                      "unesco_property_page.txt (24.3 KB)",
+                      "wikidata_entity.json (6.8 KB)",
+                      "wikipedia_article.txt (26.9 KB)",
+                      "commons_file_page.wikitext.txt (1 KB)",
+                      "unesco_property_page.txt (18.4 KB)",
+                      "wikidata_entity.json (0.1 KB)",
+                      "wikipedia_article.txt (24.7 KB)",
+                      "commons_file_page.wikitext.txt (1.4 KB)",
+                      "unesco_property_page.txt (14.1 KB)",
+                      "wikidata_entity.json (27.3 KB)",
+                      "wikipedia_article.txt (60.6 KB)",
+                      "commons_file_page.wikitext.txt (0.9 KB)",
+                      "unesco_property_page.txt (20.9 KB)",
+                      "wikidata_entity.json (46.1 KB)",
+                      "wikipedia_article.txt (2.3 KB)",
+                      "commons_file_page.wikitext.txt (0.9 KB)",
+                      "unesco_property_page.txt (18.3 KB)",
+                      "wikidata_entity.json (21.9 KB)",
+                      "wikipedia_article.txt (4.3 KB)",
+                      "commons_file_page.wikitext.txt (0.4 KB)",
+                      "unesco_property_page.txt (11.5 KB)",
+                      "wikidata_entity.json (126 KB)",
+                      "wikipedia_article.txt (60 KB)",
+                      "commons_file_page.wikitext.txt (1 KB)",
+                      "unesco_property_page.txt (19 KB)",
+                      "wikidata_entity.json (113.9 KB)",
+                      "wikipedia_article.txt (39.2 KB)",
+                      "commons_file_page.wikitext.txt (0.8 KB)",
+                      "unesco_property_page.txt (11.7 KB)",
+                      "wikidata_entity.json (35.7 KB)",
+                      "wikipedia_article.txt (5.6 KB)",
+                      "commons_file_page.wikitext.txt (0.9 KB)",
+                      "unesco_property_page.txt (12.6 KB)",
+                      "wikidata_entity.json (58.2 KB)",
+                      "wikipedia_article.txt (15.5 KB)",
+                      "commons_file_page.wikitext.txt (0.7 KB)",
+                      "unesco_property_page.txt (19.3 KB)",
+                      "wikidata_entity.json (31.6 KB)",
+                      "wikipedia_article.txt (6.9 KB)",
+                      "commons_file_page.wikitext.txt (0.7 KB)",
+                      "unesco_property_page.txt (22.5 KB)",
+                      "wikidata_entity.json (6.3 KB)",
+                      "wikipedia_article.txt (101.2 KB)",
+                      "commons_file_page.wikitext.txt (0.9 KB)",
+                      "unesco_property_page.txt (20.1 KB)",
+                      "wikidata_entity.json (48.1 KB)",
+                      "wikipedia_article.txt (3.7 KB)",
+                      "commons_file_page.wikitext.txt (0.8 KB)",
+                      "unesco_property_page.txt (29.1 KB)",
+                      "wikidata_entity.json (48.2 KB)",
+                      "wikipedia_article.txt (27 KB)",
+                      "commons_file_page.wikitext.txt (0.8 KB)",
+                      "unesco_property_page.txt (20 KB)",
+                      "wikidata_entity.json (73.7 KB)",
+                      "wikipedia_article.txt (25.6 KB)",
+                      "commons_file_page.wikitext.txt (0.7 KB)",
+                      "unesco_property_page.txt (17.8 KB)",
+                      "wikidata_entity.json (0.1 KB)",
+                      "wikipedia_article.txt (20.6 KB)",
+                      "commons_file_page.wikitext.txt (0.9 KB)",
+                      "unesco_property_page.txt (19.7 KB)",
+                      "wikidata_entity.json (30.6 KB)",
+                      "wikipedia_article.txt (12.3 KB)",
+                      "commons_file_page.wikitext.txt (0.6 KB)",
+                      "unesco_property_page.txt (19.4 KB)",
+                      "wikidata_entity.json (80.3 KB)",
+                      "wikipedia_article.txt (41.9 KB)",
+                      "commons_file_page.wikitext.txt (1 KB)",
+                      "unesco_property_page.txt (24.3 KB)",
+                      "wikidata_entity.json (26.7 KB)",
+                      "wikipedia_article.txt (22.1 KB)",
+                      "commons_file_page.wikitext.txt (0.7 KB)",
+                      "unesco_property_page.txt (17 KB)",
+                      "wikidata_entity.json (36.5 KB)",
+                      "wikipedia_article.txt (8.7 KB)",
+                      "commons_file_page.wikitext.txt (0.7 KB)",
+                      "unesco_property_page.txt (24.2 KB)",
+                      "wikidata_entity.json (38.8 KB)",
+                      "wikipedia_article.txt (6.3 KB)",
+                      "commons_file_page.wikitext.txt (0.9 KB)",
+                      "unesco_property_page.txt (23.8 KB)",
+                      "wikidata_entity.json (24.1 KB)",
+                      "wikipedia_article.txt (36.3 KB)",
+                      "commons_file_page.wikitext.txt (0.4 KB)",
+                      "unesco_property_page.txt (17.5 KB)",
+                      "wikidata_entity.json (41.4 KB)",
+                      "wikipedia_article.txt (39.5 KB)",
+                      "commons_file_page.wikitext.txt (0.7 KB)",
+                      "unesco_property_page.txt (13.2 KB)",
+                      "wikidata_entity.json (28 KB)",
+                      "wikipedia_article.txt (7.5 KB)",
+                      "commons_file_page.wikitext.txt (0.9 KB)",
+                      "unesco_property_page.txt (20.8 KB)",
+                      "wikidata_entity.json (42.4 KB)",
+                      "wikipedia_article.txt (49.7 KB)",
+                      "commons_file_page.wikitext.txt (1.1 KB)",
+                      "unesco_property_page.txt (20.8 KB)",
+                      "wikidata_entity.json (49.4 KB)",
+                      "wikipedia_article.txt (25.5 KB)",
+                      "commons_file_page.wikitext.txt (1.1 KB)",
+                      "unesco_property_page.txt (19.6 KB)",
+                      "wikidata_entity.json (180.3 KB)",
+                      "wikipedia_article.txt (229 KB)",
+                      "commons_file_page.wikitext.txt (0.7 KB)",
+                      "unesco_property_page.txt (24.5 KB)",
+                      "wikidata_entity.json (0.8 KB)",
+                      "wikipedia_article.txt (129.9 KB)",
+                      "commons_file_page.wikitext.txt (0.5 KB)",
+                      "unesco_property_page.txt (20 KB)",
+                      "wikidata_entity.json (0.1 KB)",
+                      "wikipedia_article.txt (13.2 KB)",
+                      "commons_file_page.wikitext.txt (0.9 KB)",
+                      "unesco_property_page.txt (20.3 KB)",
+                      "wikidata_entity.json (201.5 KB)",
+                      "wikipedia_article.txt (110.1 KB)",
+                      "commons_file_page.wikitext.txt (1.1 KB)",
+                      "unesco_property_page.txt (18.3 KB)",
+                      "wikidata_entity.json (0.1 KB)",
+                      "wikipedia_article.txt (15.1 KB)",
+                      "commons_file_page.wikitext.txt (0.8 KB)",
+                      "unesco_property_page.txt (20 KB)",
+                      "wikidata_entity.json (0.1 KB)",
+                      "wikipedia_article.txt (6.7 KB)"
+                  ],
+        "input_artifacts":  [
+                                "output_requirements.md (5.4 KB)",
+                                "source_manifest.json (7.7 KB)"
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "pipeline",
+        "instruction_lines":  15,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.006079",
+                                                      "tokens_in":  118568,
+                                                      "tokens_out":  18068,
+                                                      "n_errored":  0,
+                                                      "n_retries":  0,
+                                                      "run_id":  "1585f6366bcf45b7a88553f2417cdace__fE7pzYp",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "opencode.txt",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "reward.txt",
+                                                                             "test-output.log",
+                                                                             "test-stdout.txt",
+                                                                             "verifier_details.json"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "0.725763",
+                                                     "tokens_in":  1263021,
+                                                     "tokens_out":  19353,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "1585f6366bcf45b7a88553f2417cdace__5ZUBbRF",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "curatorial_quality_review.json",
+                                                                         "evidence_register.csv",
+                                                                         "external_source_plan.json",
+                                                                         "final_consistency_audit.json",
+                                                                         "opencode.txt",
+                                                                         "output.json",
+                                                                         "retrieval_audit.json",
+                                                                         "selection_rationale.json",
+                                                                         "storyboard_package.json",
+                                                                         "theme_cluster_map.json",
+                                                                         "trajectory.json",
+                                                                         "url_validation_results.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "reward.txt",
+                                                                            "test-output.log",
+                                                                            "test-stdout.txt",
+                                                                            "verifier_details.json"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "1ba2ad24143646a08efde195b04331f2-SWARMBENCH-HIERARCHICAL-CREATIVEVIZ-FINANCE-PRINCIPLES-SLIDES",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "judge.py (16.5 KB)",
+                      "test.sh (0.7 KB)"
+                  ],
+        "input_artifacts":  [
+                                "Principles_Finance.pdf (31168.6 KB)"
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "hierarchical",
+        "instruction_lines":  32,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_json":  0.5309999999999999,
+                                                      "tokens_in":  965431,
+                                                      "tokens_out":  10668,
+                                                      "n_errored":  0,
+                                                      "n_retries":  0,
+                                                      "run_id":  "1ba2ad24143646a08efde195b04331f2__uYCUC2m",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "chapter_01_slides.json",
+                                                                          "chapter_02_slides.json",
+                                                                          "chapter_03_slides.json",
+                                                                          "chapter_04_slides.json",
+                                                                          "chapter_05_slides.json",
+                                                                          "chapter_06_slides.json",
+                                                                          "chapter_07_slides.json",
+                                                                          "chapter_08_slides.json",
+                                                                          "chapter_09_slides.json",
+                                                                          "chapter_10_slides.json",
+                                                                          "chapter_11_slides.json",
+                                                                          "chapter_12_slides.json",
+                                                                          "chapter_13_slides.json",
+                                                                          "chapter_14_slides.json",
+                                                                          "chapter_15_slides.json",
+                                                                          "chapter_16_slides.json",
+                                                                          "chapter_17_slides.json",
+                                                                          "chapter_18_slides.json",
+                                                                          "chapter_19_slides.json",
+                                                                          "chapter_20_slides.json",
+                                                                          "judge_justification.txt",
+                                                                          "opencode.txt",
+                                                                          "output.pptx",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "judge_justification.txt",
+                                                                             "pip-install.log",
+                                                                             "reward.json",
+                                                                             "test-stdout.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_json":  0.8484999999999999,
+                                                     "tokens_in":  143622,
+                                                     "tokens_out":  10820,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "1ba2ad24143646a08efde195b04331f2__WNCok5r",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         ".~lock.output.pptx#",
+                                                                         "chapter_01_slides.json",
+                                                                         "chapter_02_slides.json",
+                                                                         "chapter_03_slides.json",
+                                                                         "chapter_04_slides.json",
+                                                                         "chapter_05_slides.json",
+                                                                         "chapter_06_slides.json",
+                                                                         "chapter_07_slides.json",
+                                                                         "chapter_08_slides.json",
+                                                                         "chapter_09_slides.json",
+                                                                         "chapter_10_slides.json",
+                                                                         "chapter_11_slides.json",
+                                                                         "chapter_12_slides.json",
+                                                                         "chapter_13_slides.json",
+                                                                         "chapter_14_slides.json",
+                                                                         "chapter_15_slides.json",
+                                                                         "chapter_16_slides.json",
+                                                                         "chapter_17_slides.json",
+                                                                         "chapter_18_slides.json",
+                                                                         "chapter_19_slides.json",
+                                                                         "chapter_20_slides.json",
+                                                                         "judge_justification.txt",
+                                                                         "opencode.txt",
+                                                                         "output.pptx",
+                                                                         "trajectory.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "judge_justification.txt",
+                                                                            "pip-install.log",
+                                                                            "reward.json",
+                                                                            "test-stdout.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "25cc0388667e4a948b99360b7ef33266-SWARMBENCH-SPECIALIST-PLANNING-OPERATIONS-IT-VENDOR-COMPLIANCE-AUDIT",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "judge.py (10.6 KB)",
+                      "test.sh (0.3 KB)"
+                  ],
+        "input_artifacts":  [
+
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "specialist-routing",
+        "instruction_lines":  13,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_json":  0.6,
+                                                      "tokens_in":  2768023,
+                                                      "tokens_out":  27688,
+                                                      "n_errored":  0,
+                                                      "n_retries":  0,
+                                                      "run_id":  "25cc0388667e4a948b99360b7ef33266__GFkEVV8",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "evidence_log.json",
+                                                                          "judge_justification.txt",
+                                                                          "opencode.txt",
+                                                                          "output.xlsx",
+                                                                          "risk_ranking.csv",
+                                                                          "risk_report.md",
+                                                                          "trajectory.json",
+                                                                          "vendor_audit.csv"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "reward.json",
+                                                                             "test-output.log",
+                                                                             "test-stdout.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_json":  0.88,
+                                                     "tokens_in":  538589,
+                                                     "tokens_out":  6701,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "25cc0388667e4a948b99360b7ef33266__hDXFq6Y",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "evidence_log.json",
+                                                                         "judge_justification.txt",
+                                                                         "opencode.txt",
+                                                                         "output.xlsx",
+                                                                         "risk_report.md",
+                                                                         "trajectory.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "reward.json",
+                                                                            "test-output.log",
+                                                                            "test-stdout.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "3f1c9e8a7b624d19a5c83f0d2e4916ab-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-CHANGE-HEALTHCARE-TABLETOP",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "judge.py (6.2 KB)",
+                      "test.sh (0.1 KB)",
+                      "verify.py (19.8 KB)"
+                  ],
+        "input_artifacts":  [
+                                "sources.json (23.8 KB)",
+                                "source_fetch_report.json (13.1 KB)",
+                                "visual_exhibits.json (3.8 KB)",
+                                "source_pdfs\\SRC007.pdf (226 KB)",
+                                "source_pdfs\\SRC008.pdf (375.5 KB)",
+                                "source_pdfs\\SRC009.pdf (235.5 KB)",
+                                "source_pdfs\\SRC010.pdf (283.6 KB)",
+                                "source_pdfs\\SRC015.pdf (114.6 KB)",
+                                "source_pdfs\\SRC022.pdf (6389.4 KB)",
+                                "source_pdfs\\SRC023.pdf (234.5 KB)",
+                                "source_pdfs\\SRC024.pdf (236.4 KB)",
+                                "source_pdfs\\SRC025.pdf (444.9 KB)",
+                                "source_pdfs\\SRC027.pdf (233.3 KB)",
+                                "source_pdfs\\SRC029.pdf (335.4 KB)",
+                                "source_pdfs\\SRC031.pdf (265.6 KB)",
+                                "source_pdfs\\SRC032.pdf (223.9 KB)",
+                                "source_pdfs\\SRC033.pdf (139.5 KB)",
+                                "source_pdfs\\SRC035.pdf (551.3 KB)",
+                                "source_pdfs\\SRC039.pdf (578.2 KB)",
+                                "source_pdfs\\SRC041.pdf (3737.3 KB)",
+                                "source_pdfs\\SRC043.pdf (1934.5 KB)",
+                                "source_pdfs\\SRC045.pdf (1383.4 KB)",
+                                "source_pdfs\\SRC047.pdf (188.4 KB)",
+                                "source_raw\\SRC001.html (28.4 KB)",
+                                "source_raw\\SRC002.html (32.4 KB)",
+                                "source_raw\\SRC003.html (31.3 KB)",
+                                "source_raw\\SRC004.html (259.7 KB)",
+                                "source_raw\\SRC005.html (370.7 KB)",
+                                "source_raw\\SRC006.html (11.2 KB)",
+                                "source_raw\\SRC011.html (2.1 KB)",
+                                "source_raw\\SRC012.html (2.1 KB)",
+                                "source_raw\\SRC013.html (2.1 KB)",
+                                "source_raw\\SRC014.html (214.6 KB)",
+                                "source_raw\\SRC016.html (195.6 KB)",
+                                "source_raw\\SRC017.html (53.6 KB)",
+                                "source_raw\\SRC018.html (60.7 KB)",
+                                "source_raw\\SRC019.html (70.2 KB)",
+                                "source_raw\\SRC020.html (54 KB)",
+                                "source_raw\\SRC021.html (54.9 KB)",
+                                "source_raw\\SRC026.html (181.5 KB)",
+                                "source_raw\\SRC028.html (167.5 KB)",
+                                "source_raw\\SRC030.html (97.3 KB)",
+                                "source_raw\\SRC034.html (77.8 KB)",
+                                "source_raw\\SRC036.html (35.5 KB)",
+                                "source_raw\\SRC037.html (85.2 KB)",
+                                "source_raw\\SRC038.html (51.8 KB)",
+                                "source_raw\\SRC040.html (38.3 KB)",
+                                "source_raw\\SRC042.html (113.5 KB)",
+                                "source_raw\\SRC044.html (108.1 KB)",
+                                "source_raw\\SRC046.html (28.4 KB)",
+                                "source_raw\\SRC048.html (141.6 KB)",
+                                "source_raw\\SRC049.html (378.9 KB)",
+                                "source_raw\\SRC050.html (358.5 KB)",
+                                "source_text\\SRC001.txt (5.1 KB)",
+                                "source_text\\SRC002.txt (5.7 KB)",
+                                "source_text\\SRC003.txt (4.9 KB)",
+                                "source_text\\SRC004.txt (29.7 KB)",
+                                "source_text\\SRC005.txt (30.5 KB)",
+                                "source_text\\SRC006.txt (2.7 KB)",
+                                "source_text\\SRC007.txt (103 KB)",
+                                "source_text\\SRC008.txt (44.5 KB)",
+                                "source_text\\SRC009.txt (112.9 KB)",
+                                "source_text\\SRC010.txt (46 KB)",
+                                "source_text\\SRC011.txt (2.2 KB)",
+                                "source_text\\SRC012.txt (2.2 KB)",
+                                "source_text\\SRC013.txt (2.2 KB)",
+                                "source_text\\SRC014.txt (26.3 KB)",
+                                "source_text\\SRC015.txt (4.5 KB)",
+                                "source_text\\SRC016.txt (11.4 KB)",
+                                "source_text\\SRC017.txt (4.3 KB)",
+                                "source_text\\SRC018.txt (10.7 KB)",
+                                "source_text\\SRC019.txt (18.2 KB)",
+                                "source_text\\SRC020.txt (4.8 KB)",
+                                "source_text\\SRC021.txt (5.1 KB)",
+                                "source_text\\SRC022.txt (425 KB)",
+                                "source_text\\SRC023.txt (15.6 KB)",
+                                "source_text\\SRC024.txt (15.6 KB)",
+                                "source_text\\SRC025.txt (21.3 KB)",
+                                "source_text\\SRC026.txt (18.7 KB)",
+                                "source_text\\SRC027.txt (5 KB)",
+                                "source_text\\SRC028.txt (7.2 KB)",
+                                "source_text\\SRC029.txt (2.3 KB)",
+                                "source_text\\SRC030.txt (8.6 KB)",
+                                "source_text\\SRC031.txt (16.2 KB)",
+                                "source_text\\SRC032.txt (22.4 KB)",
+                                "source_text\\SRC033.txt (6 KB)",
+                                "source_text\\SRC034.txt (7.5 KB)",
+                                "source_text\\SRC035.txt (31.6 KB)",
+                                "source_text\\SRC036.txt (3.1 KB)",
+                                "source_text\\SRC037.txt (20.8 KB)",
+                                "source_text\\SRC038.txt (3.6 KB)",
+                                "source_text\\SRC039.txt (20 KB)",
+                                "source_text\\SRC040.txt (9.7 KB)",
+                                "source_text\\SRC041.txt (32 KB)",
+                                "source_text\\SRC042.txt (12.5 KB)",
+                                "source_text\\SRC043.txt (67.3 KB)",
+                                "source_text\\SRC044.txt (43 KB)",
+                                "source_text\\SRC045.txt (29.2 KB)",
+                                "source_text\\SRC046.txt (5.5 KB)",
+                                "source_text\\SRC047.txt (4.9 KB)",
+                                "source_text\\SRC048.txt (28.9 KB)",
+                                "source_text\\SRC049.txt (14.6 KB)",
+                                "source_text\\SRC050.txt (11.3 KB)"
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "hierarchical",
+        "instruction_lines":  170,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_json":  0.6923,
+                                                      "tokens_in":  null,
+                                                      "tokens_out":  null,
+                                                      "n_errored":  null,
+                                                      "n_retries":  null,
+                                                      "run_id":  "3f1c9e8a7b624d19a5c83f0d2e4916ab__5b78ANo",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "opencode.txt",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "judge_justification.txt",
+                                                                             "reward.json",
+                                                                             "test-stdout.txt",
+                                                                             "verify_output.json"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_json":  0.9385,
+                                                     "tokens_in":  null,
+                                                     "tokens_out":  null,
+                                                     "n_errored":  null,
+                                                     "n_retries":  null,
+                                                     "run_id":  "3f1c9e8a7b624d19a5c83f0d2e4916ab__ygRwHR6",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "opencode.txt",
+                                                                         "trajectory.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "judge_justification.txt",
+                                                                            "reward.json",
+                                                                            "test-stdout.txt",
+                                                                            "verify_output.json"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "487be4c3bc0d4bc9820029fd4cef2f2e-SWARMBENCH-HIERARCHICAL-CREATIVEVIZ-ANIMATEDEXPLAINERREELS",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "judge.py (17.9 KB)",
+                      "oracle.json (8.3 KB)",
+                      "test.sh (0.4 KB)"
+                  ],
+        "input_artifacts":  [
+                                "sections.json (4.2 KB)"
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "hierarchical",
+        "instruction_lines":  83,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.300813",
+                                                      "reward_json":  0.300813,
+                                                      "tokens_in":  516967,
+                                                      "tokens_out":  9058,
+                                                      "n_errored":  0,
+                                                      "n_retries":  0,
+                                                      "run_id":  "487be4c3bc0d4bc9820029fd4cef2f2e__5DkhudF",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "all_data.json",
+                                                                          "manifest.json",
+                                                                          "opencode.txt",
+                                                                          "output.json",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "judge-output.log",
+                                                                             "justification.txt",
+                                                                             "reward.json",
+                                                                             "reward.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "0.875",
+                                                     "reward_json":  0.875,
+                                                     "tokens_in":  190014,
+                                                     "tokens_out":  12008,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "487be4c3bc0d4bc9820029fd4cef2f2e__FzewmqK",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "manifest.json",
+                                                                         "opencode.txt",
+                                                                         "output.json",
+                                                                         "trajectory.json",
+                                                                         "worker_co2pc_us.json",
+                                                                         "worker_elec_ng.json",
+                                                                         "worker_fert_eg.json",
+                                                                         "worker_gdpgr_in.json",
+                                                                         "worker_gdppc_jp.json",
+                                                                         "worker_infl_tr.json",
+                                                                         "worker_internet_id.json",
+                                                                         "worker_life_br.json",
+                                                                         "worker_milit_us.json",
+                                                                         "worker_mort_in.json",
+                                                                         "worker_pop_de.json",
+                                                                         "worker_prim_et.json",
+                                                                         "worker_renew_de.json",
+                                                                         "worker_rural_cn.json",
+                                                                         "worker_unemp_es.json",
+                                                                         "worker_urban_mx.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "judge-output.log",
+                                                                            "justification.txt",
+                                                                            "reward.json",
+                                                                            "reward.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "8654dfe186a74318b13b8d003486b62f-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-CA-NORTHCOAST-WATER-DISCHARGE-ENFORCEMENT-CHRONOLOGY",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "judge.py (35.5 KB)",
+                      "test.sh (1.1 KB)"
+                  ],
+        "input_artifacts":  [
+
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "hierarchical",
+        "instruction_lines":  36,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.5333",
+                                                      "reward_json":  0.5333,
+                                                      "tokens_in":  1663814,
+                                                      "tokens_out":  21403,
+                                                      "n_errored":  0,
+                                                      "n_retries":  0,
+                                                      "run_id":  "8654dfe186a74318b13b8d003486b62f__mMhmo6s",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "chart_findings_by_county.png",
+                                                                          "chart_findings_by_topic.png",
+                                                                          "chart_findings_by_waterway.png",
+                                                                          "contradiction_log.csv",
+                                                                          "crosslink_matrix.csv",
+                                                                          "enforcement_chronology.csv",
+                                                                          "judge_justification.txt",
+                                                                          "opencode.txt",
+                                                                          "site_dossier.docx",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "reward.json",
+                                                                             "reward.txt",
+                                                                             "test-output.log",
+                                                                             "test-stdout.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "0.9667",
+                                                     "reward_json":  0.9667,
+                                                     "tokens_in":  324922,
+                                                     "tokens_out":  13019,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "8654dfe186a74318b13b8d003486b62f__kxDH586",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "chart_findings_by_county.png",
+                                                                         "chart_findings_by_topic.png",
+                                                                         "chart_findings_by_waterway.png",
+                                                                         "contradiction_log.csv",
+                                                                         "crosslink_matrix.csv",
+                                                                         "enforcement_chronology.csv",
+                                                                         "findings_brite.csv",
+                                                                         "findings_cityventures.csv",
+                                                                         "findings_deadlines.csv",
+                                                                         "findings_escalation.csv",
+                                                                         "findings_ghosttrain.csv",
+                                                                         "findings_harding.csv",
+                                                                         "findings_hearst.csv",
+                                                                         "findings_herrera.csv",
+                                                                         "findings_identifiers.csv",
+                                                                         "findings_istas.csv",
+                                                                         "findings_krasilsa.csv",
+                                                                         "findings_larabee.csv",
+                                                                         "findings_lieberman.csv",
+                                                                         "findings_lieberman_acl.csv",
+                                                                         "findings_mcgaughey.csv",
+                                                                         "findings_ogkush.csv",
+                                                                         "findings_reservation.csv",
+                                                                         "findings_sabankaya.csv",
+                                                                         "findings_supersession.csv",
+                                                                         "findings_vizcaino.csv",
+                                                                         "judge_justification.txt",
+                                                                         "opencode.txt",
+                                                                         "region_a_consolidated.csv",
+                                                                         "region_a_notes.md",
+                                                                         "region_b_consolidated.csv",
+                                                                         "region_b_notes.md",
+                                                                         "region_c_consolidated.csv",
+                                                                         "region_c_notes.md",
+                                                                         "site_dossier.docx",
+                                                                         "trajectory.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "reward.json",
+                                                                            "reward.txt",
+                                                                            "test-output.log",
+                                                                            "test-stdout.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "9b7f3f3c51d149d1889cf07b14a41a67-SWARMBENCH-HIERARCHICAL-CREATIVEVIZ-ANIMEFIGHTCONTINUITY",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "gold_clusters.json (36.6 KB)",
+                      "gold_fight.json (16.7 KB)",
+                      "judge.py (12.3 KB)",
+                      "test.sh (0.8 KB)"
+                  ],
+        "input_artifacts":  [
+                                "fightkit.py (7.5 KB)",
+                                "recaps.jsonl (491.1 KB)",
+                                "sprites\\background.png (57.9 KB)",
+                                "sprites\\CREDITS.txt (0.1 KB)",
+                                "sprites\\akira\\Attack1.png (5.4 KB)",
+                                "sprites\\akira\\Attack2.png (4.4 KB)",
+                                "sprites\\akira\\Death.png (5.1 KB)",
+                                "sprites\\akira\\Fall.png (2.2 KB)",
+                                "sprites\\akira\\Idle.png (5 KB)",
+                                "sprites\\akira\\Jump.png (2.1 KB)",
+                                "sprites\\akira\\Run.png (4.4 KB)",
+                                "sprites\\akira\\Take_Hit.png (3.9 KB)",
+                                "sprites\\ryux\\Attack1.png (7 KB)",
+                                "sprites\\ryux\\Attack2.png (7.3 KB)",
+                                "sprites\\ryux\\Death.png (10.7 KB)",
+                                "sprites\\ryux\\Fall.png (3.9 KB)",
+                                "sprites\\ryux\\Idle.png (6.1 KB)",
+                                "sprites\\ryux\\Jump.png (3.9 KB)",
+                                "sprites\\ryux\\Run.png (10.3 KB)",
+                                "sprites\\ryux\\Take_hit.png (5.4 KB)"
+                            ],
+        "verifier_type":  "executable",
+        "coordination":  "hierarchical",
+        "instruction_lines":  56,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.638095",
+                                                      "reward_json":  0.638095,
+                                                      "tokens_in":  2505309,
+                                                      "tokens_out":  14276,
+                                                      "n_errored":  0,
+                                                      "n_retries":  0,
+                                                      "run_id":  "9b7f3f3c51d149d1889cf07b14a41a67__ktAMWZ3",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "final.mp4",
+                                                                          "manifest.json",
+                                                                          "opencode.txt",
+                                                                          "output.json",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "judge-output.log",
+                                                                             "justification.txt",
+                                                                             "reward.json",
+                                                                             "reward.txt",
+                                                                             "test-stdout.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "0.869305",
+                                                     "reward_json":  0.869305,
+                                                     "tokens_in":  193180,
+                                                     "tokens_out":  11349,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "9b7f3f3c51d149d1889cf07b14a41a67__2RrC5Gd",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "final.mp4",
+                                                                         "manifest.json",
+                                                                         "opencode.txt",
+                                                                         "output.json",
+                                                                         "trajectory.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "judge-output.log",
+                                                                            "justification.txt",
+                                                                            "reward.json",
+                                                                            "reward.txt",
+                                                                            "test-stdout.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "a3f9c20e7b1d44856ce0d9f3a812b7c4-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-TRIAL-MONITORING-VISIT-SCHEDULE",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "judge.py (12.2 KB)",
+                      "oracle.json (26.2 KB)",
+                      "test.sh (0.8 KB)"
+                  ],
+        "input_artifacts":  [
+                                "site_roster.csv (2.8 KB)"
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "hierarchical",
+        "instruction_lines":  20,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.012",
+                                                      "reward_json":  0.012,
+                                                      "tokens_in":  6006837,
+                                                      "tokens_out":  16389,
+                                                      "n_errored":  1,
+                                                      "n_retries":  0,
+                                                      "run_id":  "a3f9c20e7b1d44856ce0d9f3a812b7c4__ZgAequp",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "exception.txt",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "judge_justification.txt",
+                                                                          "opencode.txt",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "judge-output.log",
+                                                                             "pip-install.log",
+                                                                             "reward.json",
+                                                                             "reward.txt",
+                                                                             "test-stdout.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "0.9492",
+                                                     "reward_json":  0.9492,
+                                                     "tokens_in":  305846,
+                                                     "tokens_out":  7499,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "a3f9c20e7b1d44856ce0d9f3a812b7c4__ftjjpzb",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "audit_trace.csv",
+                                                                         "constraint_checks.csv",
+                                                                         "judge_justification.txt",
+                                                                         "monitoring_schedule.csv",
+                                                                         "opencode.txt",
+                                                                         "scheduling_rationale.docx",
+                                                                         "trajectory.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "judge-output.log",
+                                                                            "pip-install.log",
+                                                                            "reward.json",
+                                                                            "reward.txt",
+                                                                            "test-stdout.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "c6a9e742d3154f0a8b2c9e1d7f604abc-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-IRAN-US-CRISIS-BRIEFING",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "judge.py (18.8 KB)",
+                      "test.sh (0.5 KB)"
+                  ],
+        "input_artifacts":  [
+                                "briefing_style_guide.md (3.8 KB)",
+                                "source_manifest.csv (18.1 KB)"
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "hierarchical",
+        "instruction_lines":  108,
+        "instruction_headings":  [
+                                     "## Inputs",
+                                     "## Source Expectations",
+                                     "## Deliverables",
+                                     "## Quality Bar",
+                                     "## Required CSV Schemas By File"
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_json":  0.0,
+                                                      "tokens_in":  null,
+                                                      "tokens_out":  null,
+                                                      "n_errored":  null,
+                                                      "n_retries":  null,
+                                                      "run_id":  "c6a9e742d3154f0a8b2c9e1d7f604abc__De3G4TK",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "opencode.txt",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "judge_output.json",
+                                                                             "reward.json",
+                                                                             "test-stdout.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_json":  0.9348,
+                                                     "tokens_in":  null,
+                                                     "tokens_out":  null,
+                                                     "n_errored":  null,
+                                                     "n_retries":  null,
+                                                     "run_id":  "c6a9e742d3154f0a8b2c9e1d7f604abc__YH4jisb",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "actor_positions.csv",
+                                                                         "appendix_citation_index.csv",
+                                                                         "claim_matrix.csv",
+                                                                         "consistency_review_findings.md",
+                                                                         "contradiction_ledger.csv",
+                                                                         "event_timeline.csv",
+                                                                         "executive_briefing.md",
+                                                                         "full_analytical_report.md",
+                                                                         "impact_register.csv",
+                                                                         "monitoring_plan.md",
+                                                                         "one_page_talking_points.md",
+                                                                         "opencode.txt",
+                                                                         "source_audit.csv",
+                                                                         "source_evidence_ledger.csv",
+                                                                         "stakeholder_briefing_slides.md",
+                                                                         "trajectory.json",
+                                                                         "uncertainty_register.csv"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "judge_output.json",
+                                                                            "reward.json",
+                                                                            "test-stdout.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "cb855129335c4ae5969466bb009de059-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-TRANSIT-TITLE-VI-SERVICE-EQUITY",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "justification.md (7 KB)",
+                      "test.sh (0.5 KB)",
+                      "verify.py (23.1 KB)",
+                      "gtfs_schedule_export.csv (1.6 KB)",
+                      "policy_constants.json (0.4 KB)",
+                      "public_comment_log.txt (4.2 KB)",
+                      "service_calendar_fy2026.csv (0.1 KB)",
+                      "service_change_package_fy2026.csv (2.2 KB)",
+                      "sources_reference.json (5 KB)",
+                      "walkshed_demographics_acs.csv (2.1 KB)"
+                  ],
+        "input_artifacts":  [
+                                "data_provenance_note.md (2.1 KB)",
+                                "gtfs_schedule_export.csv (1.6 KB)",
+                                "public_comment_log.txt (4.2 KB)",
+                                "service_calendar_fy2026.csv (0.1 KB)",
+                                "service_change_package_fy2026.csv (2.2 KB)",
+                                "sources_to_confirm.md (2.6 KB)",
+                                "title_vi_equity_policy.md (5.7 KB)",
+                                "walkshed_demographics_acs.csv (2.1 KB)"
+                            ],
+        "verifier_type":  "executable",
+        "coordination":  "hierarchical",
+        "instruction_lines":  21,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.712",
+                                                      "tokens_in":  null,
+                                                      "tokens_out":  null,
+                                                      "n_errored":  null,
+                                                      "n_retries":  null,
+                                                      "run_id":  "cb855129335c4ae5969466bb009de059__i2JVCVT",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "board_report.md",
+                                                                          "group_share_comparison.png",
+                                                                          "judge_justification.txt",
+                                                                          "opencode.txt",
+                                                                          "output.xlsx",
+                                                                          "people_trip_change_by_route.png",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "reward.txt",
+                                                                             "test-output.log",
+                                                                             "test-stdout.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "0.9542",
+                                                     "tokens_in":  null,
+                                                     "tokens_out":  null,
+                                                     "n_errored":  null,
+                                                     "n_retries":  null,
+                                                     "run_id":  "cb855129335c4ae5969466bb009de059__MP3pcDf",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "board_report.md",
+                                                                         "equity_share_comparison.png",
+                                                                         "judge_justification.txt",
+                                                                         "minority_burden_breakdown.png",
+                                                                         "opencode.txt",
+                                                                         "output.xlsx",
+                                                                         "people_trip_change_by_route.png",
+                                                                         "trajectory.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "reward.txt",
+                                                                            "test-output.log",
+                                                                            "test-stdout.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "ce39bbbcf26c43609ed3a7f5ec29a061-SWARMBENCH-HIERARCHICAL-BROWSING-AIME-SOLUTIONS-CHECK",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "cohort.json (5.2 KB)",
+                      "judge.py (12.4 KB)",
+                      "test.sh (0.3 KB)",
+                      "2024_aime_ii_p01.txt (0.4 KB)",
+                      "2024_aime_ii_p02.txt (1.5 KB)",
+                      "2024_aime_ii_p03.txt (0.4 KB)",
+                      "2024_aime_ii_p04.txt (0.4 KB)",
+                      "2024_aime_ii_p05.txt (0.3 KB)",
+                      "2024_aime_ii_p06.txt (0.3 KB)",
+                      "2024_aime_ii_p07.txt (0.3 KB)",
+                      "2024_aime_ii_p08.txt (1 KB)",
+                      "2024_aime_ii_p09.txt (0.4 KB)",
+                      "2024_aime_ii_p10.txt (0.2 KB)",
+                      "2024_aime_ii_p11.txt (0.2 KB)",
+                      "2024_aime_ii_p12.txt (0.5 KB)",
+                      "2024_aime_ii_p13.txt (0.2 KB)",
+                      "2024_aime_ii_p14.txt (0.4 KB)",
+                      "2024_aime_ii_p15.txt (0.5 KB)",
+                      "2024_aime_i_p01.txt (0.5 KB)",
+                      "2024_aime_i_p02.txt (0.2 KB)",
+                      "2024_aime_i_p03.txt (0.4 KB)",
+                      "2024_aime_i_p04.txt (0.5 KB)",
+                      "2024_aime_i_p05.txt (0.6 KB)",
+                      "2024_aime_i_p06.txt (0.6 KB)",
+                      "2024_aime_i_p07.txt (0.2 KB)",
+                      "2024_aime_i_p08.txt (0.6 KB)",
+                      "2024_aime_i_p09.txt (0.3 KB)",
+                      "2024_aime_i_p10.txt (0.9 KB)",
+                      "2024_aime_i_p11.txt (0.3 KB)",
+                      "2024_aime_i_p12.txt (0.3 KB)",
+                      "2024_aime_i_p13.txt (0.2 KB)",
+                      "2024_aime_i_p14.txt (0.5 KB)",
+                      "2024_aime_i_p15.txt (0.4 KB)",
+                      "2025_aime_ii_p01.txt (0.2 KB)",
+                      "2025_aime_ii_p02.txt (0.1 KB)",
+                      "2025_aime_ii_p03.txt (0.3 KB)",
+                      "2025_aime_ii_p04.txt (0.4 KB)",
+                      "2025_aime_ii_p05.txt (1.4 KB)",
+                      "2025_aime_ii_p06.txt (1.4 KB)",
+                      "2025_aime_ii_p07.txt (0.3 KB)",
+                      "2025_aime_ii_p08.txt (1 KB)",
+                      "2025_aime_ii_p09.txt (0.2 KB)",
+                      "2025_aime_ii_p10.txt (0.3 KB)",
+                      "2025_aime_ii_p11.txt (0.2 KB)",
+                      "2025_aime_ii_p12.txt (0.4 KB)",
+                      "2025_aime_ii_p13.txt (0.3 KB)",
+                      "2025_aime_ii_p14.txt (0.3 KB)",
+                      "2025_aime_ii_p15.txt (0.3 KB)",
+                      "2025_aime_i_p01.txt (0.1 KB)",
+                      "2025_aime_i_p02.txt (1 KB)",
+                      "2025_aime_i_p03.txt (0.5 KB)",
+                      "2025_aime_i_p04.txt (0.2 KB)",
+                      "2025_aime_i_p05.txt (0.2 KB)",
+                      "2025_aime_i_p06.txt (0.7 KB)",
+                      "2025_aime_i_p07.txt (0.5 KB)",
+                      "2025_aime_i_p08.txt (0.3 KB)",
+                      "2025_aime_i_p09.txt (0.5 KB)",
+                      "2025_aime_i_p10.txt (1.3 KB)",
+                      "2025_aime_i_p11.txt (1.8 KB)",
+                      "2025_aime_i_p12.txt (0.4 KB)",
+                      "2025_aime_i_p13.txt (0.4 KB)",
+                      "2025_aime_i_p14.txt (0.4 KB)",
+                      "2025_aime_i_p15.txt (0.2 KB)"
+                  ],
+        "input_artifacts":  [
+
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "hierarchical",
+        "instruction_lines":  13,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.425",
+                                                      "tokens_in":  22873958,
+                                                      "tokens_out":  155599,
+                                                      "n_errored":  0,
+                                                      "n_retries":  0,
+                                                      "run_id":  "ce39bbbcf26c43609ed3a7f5ec29a061__NaraqYF",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "opencode.txt",
+                                                                          "problems.csv",
+                                                                          "trajectory.json",
+                                                                          "verify_justification.txt"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "reward.txt",
+                                                                             "test-output.log",
+                                                                             "test-stdout.txt",
+                                                                             "verify_justification.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "0.919",
+                                                     "tokens_in":  1881221,
+                                                     "tokens_out":  33046,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "ce39bbbcf26c43609ed3a7f5ec29a061__yzx3Djt",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "brief.md",
+                                                                         "opencode.txt",
+                                                                         "problems.csv",
+                                                                         "problems.xlsx",
+                                                                         "trajectory.json",
+                                                                         "verify_justification.txt"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "reward.txt",
+                                                                            "test-output.log",
+                                                                            "test-stdout.txt",
+                                                                            "verify_justification.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "d977bddfb3d94934b3c906b1fe61bae8-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-US-POWERGRID-WMP-DECISION-SYNTHESIS",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "judge.py (35.5 KB)",
+                      "test.sh (1.1 KB)"
+                  ],
+        "input_artifacts":  [
+
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "hierarchical",
+        "instruction_lines":  17,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.1",
+                                                      "reward_json":  0.1,
+                                                      "tokens_in":  1529492,
+                                                      "tokens_out":  13597,
+                                                      "n_errored":  0,
+                                                      "n_retries":  0,
+                                                      "run_id":  "d977bddfb3d94934b3c906b1fe61bae8__hFSihdp",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "analyze_findings.py",
+                                                                          "cross_utility_findings.csv",
+                                                                          "download_decisions.py",
+                                                                          "extract_clean.py",
+                                                                          "extract_findings_v2.py",
+                                                                          "extract_text.py",
+                                                                          "judge_justification.txt",
+                                                                          "opencode.txt",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "reward.json",
+                                                                             "reward.txt",
+                                                                             "test-output.log",
+                                                                             "test-stdout.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "1.0",
+                                                     "reward_json":  1.0,
+                                                     "tokens_in":  469926,
+                                                     "tokens_out":  19487,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "d977bddfb3d94934b3c906b1fe61bae8__cMEETcH",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "briefing_deck.pptx",
+                                                                         "chart_directive_themes.png",
+                                                                         "chart_findings_by_topic.png",
+                                                                         "chart_findings_by_utility.png",
+                                                                         "cross_utility_findings.csv",
+                                                                         "findings_bves_draft.csv",
+                                                                         "findings_bves_final.csv",
+                                                                         "findings_hwt_draft.csv",
+                                                                         "findings_hwt_final.csv",
+                                                                         "findings_liberty_draft.csv",
+                                                                         "findings_liberty_final.csv",
+                                                                         "findings_lspower_draft.csv",
+                                                                         "findings_lspower_final.csv",
+                                                                         "findings_pacificorp_draft.csv",
+                                                                         "findings_pacificorp_final.csv",
+                                                                         "findings_pge_draft.csv",
+                                                                         "findings_pge_final.csv",
+                                                                         "findings_sce_draft.csv",
+                                                                         "findings_sce_final.csv",
+                                                                         "findings_sdge_draft.csv",
+                                                                         "findings_sdge_final.csv",
+                                                                         "findings_tbc_draft.csv",
+                                                                         "findings_tbc_final.csv",
+                                                                         "judge_justification.txt",
+                                                                         "opencode.txt",
+                                                                         "region_a_consolidated.csv",
+                                                                         "region_a_themes.md",
+                                                                         "region_b_consolidated.csv",
+                                                                         "region_b_themes.md",
+                                                                         "region_c_consolidated.csv",
+                                                                         "region_c_themes.md",
+                                                                         "reliability_briefing.docx",
+                                                                         "trajectory.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "reward.json",
+                                                                            "reward.txt",
+                                                                            "test-output.log",
+                                                                            "test-stdout.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "dcad144c9bc64475bbadfd61cc9b53b0-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-CLINICAL-TRIAL-RISK-BASED-MONITORING",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "justification.md (9.4 KB)",
+                      "test.sh (0.5 KB)",
+                      "verify.py (29.4 KB)",
+                      "rulebook_constants.json (1.7 KB)",
+                      "sources_reference.json (5.2 KB)",
+                      "trials_reference.json (45.3 KB)"
+                  ],
+        "input_artifacts":  [
+                                "data_provenance_note.md (1.5 KB)",
+                                "monitoring_rulebook.md (4.6 KB)",
+                                "sources_to_confirm.md (2.7 KB)",
+                                "trials\\NCT03281083.txt (16.1 KB)",
+                                "trials\\NCT03315143.txt (5.9 KB)",
+                                "trials\\NCT03521934.txt (7.6 KB)",
+                                "trials\\NCT06083675.txt (7.3 KB)",
+                                "trials\\NCT06383390.txt (7 KB)",
+                                "trials\\NCT06858839.txt (5.9 KB)",
+                                "trials\\NCT06858878.txt (5.5 KB)",
+                                "trials\\NCT06897618.txt (3.2 KB)",
+                                "trials\\NCT06901349.txt (6.7 KB)",
+                                "trials\\NCT06988553.txt (3.1 KB)",
+                                "trials\\NCT07049679.txt (2.8 KB)",
+                                "trials\\NCT07055516.txt (5.2 KB)",
+                                "trials\\NCT07089784.txt (4.3 KB)",
+                                "trials\\NCT07242469.txt (3.2 KB)",
+                                "trials\\NCT07252765.txt (6.8 KB)",
+                                "trials\\NCT07271186.txt (6.6 KB)",
+                                "trials\\NCT07282600.txt (6.9 KB)",
+                                "trials\\NCT07296484.txt (13.8 KB)",
+                                "trials\\NCT07321886.txt (7.1 KB)",
+                                "trials\\NCT07340320.txt (10.4 KB)",
+                                "trials\\NCT07351045.txt (8.4 KB)",
+                                "trials\\NCT07385547.txt (8.7 KB)",
+                                "trials\\NCT07392190.txt (7.1 KB)",
+                                "trials\\NCT07396155.txt (5.6 KB)",
+                                "trials\\NCT07399678.txt (6.9 KB)",
+                                "trials\\NCT07400653.txt (7.9 KB)",
+                                "trials\\NCT07415954.txt (6.7 KB)",
+                                "trials\\NCT07465224.txt (2 KB)",
+                                "trials\\NCT07495956.txt (5.2 KB)",
+                                "trials\\NCT07513168.txt (10.5 KB)",
+                                "trials\\NCT07552389.txt (2.6 KB)",
+                                "trials\\NCT07558863.txt (4 KB)",
+                                "trials\\NCT07564414.txt (6.9 KB)",
+                                "trials\\NCT07581145.txt (5.9 KB)",
+                                "trials\\NCT07588438.txt (9.9 KB)",
+                                "trials\\NCT07603284.txt (6.2 KB)",
+                                "trials\\NCT07606066.txt (5.8 KB)",
+                                "trials\\NCT07613489.txt (7.3 KB)",
+                                "trials\\NCT07619157.txt (3.3 KB)",
+                                "trials\\NCT07632677.txt (9.3 KB)",
+                                "trials\\NCT07649967.txt (5.9 KB)",
+                                "trials\\NCT07650682.txt (5.8 KB)",
+                                "trials\\NCT07655076.txt (8.9 KB)",
+                                "trials\\NCT07658755.txt (6.2 KB)",
+                                "trials\\NCT07660081.txt (5.3 KB)",
+                                "trials\\NCT07662109.txt (5.6 KB)",
+                                "trials\\NCT07662135.txt (5.4 KB)",
+                                "trials\\NCT07662213.txt (5.2 KB)",
+                                "trials\\NCT07666529.txt (9.8 KB)",
+                                "trials\\NCT07672652.txt (3.8 KB)",
+                                "trials\\NCT07674628.txt (7.7 KB)",
+                                "trials\\NCT07674875.txt (6.7 KB)"
+                            ],
+        "verifier_type":  "executable",
+        "coordination":  "hierarchical",
+        "instruction_lines":  21,
+        "instruction_headings":  [
+
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.7511",
+                                                      "tokens_in":  null,
+                                                      "tokens_out":  null,
+                                                      "n_errored":  null,
+                                                      "n_retries":  null,
+                                                      "run_id":  "dcad144c9bc64475bbadfd61cc9b53b0__7yscaP3",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "judge_justification.txt",
+                                                                          "monitoring_plan.md",
+                                                                          "opencode.txt",
+                                                                          "output.xlsx",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "reward.txt",
+                                                                             "test-output.log",
+                                                                             "test-stdout.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "0.991",
+                                                     "tokens_in":  null,
+                                                     "tokens_out":  null,
+                                                     "n_errored":  null,
+                                                     "n_retries":  null,
+                                                     "run_id":  "dcad144c9bc64475bbadfd61cc9b53b0__XgGaYCE",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "judge_justification.txt",
+                                                                         "monitoring_plan.md",
+                                                                         "opencode.txt",
+                                                                         "output.xlsx",
+                                                                         "trajectory.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "reward.txt",
+                                                                            "test-output.log",
+                                                                            "test-stdout.txt"
+                                                                        ]
+                                                 }
+                    }
+    },
+    {
+        "source":  "approved_sample_tasks",
+        "folder":  "e4f1a8c2d75b3096ab12ef345678cd90-SWARMBENCH-HIERARCHICAL-BROWSING-GLOBAL-MMR-DASHBOARD",
+        "root":  [
+                     "environment/",
+                     "execution_logs/",
+                     "tests/",
+                     "decomposition.yaml",
+                     "instruction.md",
+                     "task.toml"
+                 ],
+        "tests":  [
+                      "judge.py (20.3 KB)",
+                      "test.sh (0.6 KB)"
+                  ],
+        "input_artifacts":  [
+
+                            ],
+        "verifier_type":  "llm-judge",
+        "coordination":  "hierarchical",
+        "instruction_lines":  47,
+        "instruction_headings":  [
+                                     "# Maternal \u0026 newborn health data pack â€” board meeting"
+                                 ],
+        "rewards":  {
+                        "single-opencode-agent":  {
+                                                      "reward_txt":  "0.1778",
+                                                      "reward_json":  0.1778,
+                                                      "tokens_in":  1264077,
+                                                      "tokens_out":  25649,
+                                                      "n_errored":  1,
+                                                      "n_retries":  0,
+                                                      "run_id":  "e4f1a8c2d75b3096ab12ef345678cd90__fLNAdRH",
+                                                      "run_top":  [
+                                                                      "agent/",
+                                                                      "artifacts/",
+                                                                      "verifier/",
+                                                                      "config.json",
+                                                                      "exception.txt",
+                                                                      "result.json",
+                                                                      "trial.log"
+                                                                  ],
+                                                      "agent_files":  [
+                                                                          "opencode.txt",
+                                                                          "trajectory.json"
+                                                                      ],
+                                                      "verifier_files":  [
+                                                                             "judge-output.log",
+                                                                             "pip-install.log",
+                                                                             "reward.json",
+                                                                             "reward.txt",
+                                                                             "test-stdout.txt"
+                                                                         ]
+                                                  },
+                        "multi-opencode-agent":  {
+                                                     "reward_txt":  "1.0",
+                                                     "reward_json":  1.0,
+                                                     "tokens_in":  229194,
+                                                     "tokens_out":  12825,
+                                                     "n_errored":  0,
+                                                     "n_retries":  0,
+                                                     "run_id":  "e4f1a8c2d75b3096ab12ef345678cd90__jZCH4K9",
+                                                     "run_top":  [
+                                                                     "agent/",
+                                                                     "artifacts/",
+                                                                     "verifier/",
+                                                                     "config.json",
+                                                                     "result.json",
+                                                                     "trial.log"
+                                                                 ],
+                                                     "agent_files":  [
+                                                                         "opencode.txt",
+                                                                         "trajectory.json"
+                                                                     ],
+                                                     "verifier_files":  [
+                                                                            "judge-output.log",
+                                                                            "pip-install.log",
+                                                                            "reward.json",
+                                                                            "reward.txt",
+                                                                            "test-stdout.txt"
+                                                                        ]
+                                                 }
+                    }
+    }
+]

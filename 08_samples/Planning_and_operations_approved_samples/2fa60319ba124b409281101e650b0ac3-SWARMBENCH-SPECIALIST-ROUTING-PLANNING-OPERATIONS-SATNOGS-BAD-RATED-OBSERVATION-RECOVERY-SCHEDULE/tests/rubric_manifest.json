@@ -1,0 +1,259 @@
+{
+  "task": "swarmbench/2fa60319ba124b409281101e650b0ac3-SWARMBENCH-SPECIALIST-ROUTING-PLANNING-OPERATIONS-SATNOGS-BAD-RATED-OBSERVATION-RECOVERY-SCHEDULE",
+  "verifier_type": "executable",
+  "grader": "tests/verify.py",
+  "reward_file": "/logs/verifier/reward.json",
+  "total_checks": 31,
+  "scoring": {
+    "per_check_weight": 1,
+    "bucket_aggregation": "arithmetic mean of the checks inside each bucket",
+    "final_formula": "reward = (total_static_check_score + 2 * total_reward_hacking_check_score + 3 * total_partial_oracle_check_score) / 6",
+    "determinism": "No LLM call, no randomness, no wall-clock read and no network access participates in scoring. The station declaration set is the one value the grader cannot recompute from the shipped snapshot -- the notes state their restrictions in ordinary operator prose with no fixed vocabulary -- so it is held frozen in tests/station_declarations.json alongside the sentence evidencing each declaration. That file sits under tests/ and is never copied into the agent image; environment/Dockerfile ships environment/input_artifacts/ only. Everything else is recomputed at grading time from the shipped JSON: baseline eligibility, the effect of each declaration on each candidate, the capacitated maximum-cardinality minimum-delay optimum, dispositions, the impact ledger and every control total. Page citations are resolved against the real PDF. The min-cost-flow oracle is implemented in tests/verify.py on the standard library, so the grader introduces no dependency the agent image would not otherwise carry.",
+    "notes": "No caps, floors, multipliers, mode branches or early scoring gates. Structural checks sit in the smallest bucket and account for one sixth of the reward.",
+    "column_resolution": "Content checks read their fields by canonical column name, resolved through a small per-artifact alias table (for example ground_station also accepts station_id, and failure_id also accepts backlog_case_id). An alias is applied only when the canonical column is absent, so a correctly named column is never overridden and a column cannot be silently reinterpreted. No values are converted: a field carrying different semantics, such as a delay expressed in seconds where minutes are specified, is not aliased and still fails. Schema conformance itself is scored in full and unchanged by check_csv_schema_and_vocabularies against the raw submitted header line, so renaming a header still costs that check. The purpose is to stop one renamed header fail-closing roughly twenty downstream checks against a file whose rows are correct, which would make the reward depend on a header string rather than on the work."
+  },
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "deliverables_present: Scores the fraction of the five declared deliverables that exist at their exact declared path and exceed 200 bytes. The verifier opens each declared path directly and never searches for, guesses at, or relocates an output.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/station_constraints.csv",
+        "/logs/agent/recovery_schedule.csv",
+        "/logs/agent/backlog_disposition.csv",
+        "/logs/agent/constraint_impact.csv",
+        "/logs/agent/operations_handover.md"
+      ],
+      "check_function": "check_deliverables_present",
+      "how_it_prevents_task_authenticity_violation": "Claiming completion while one of the five artifacts was never written, or writing a zero-byte or single-header stub that would let downstream content checks be skipped rather than failed."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "csv_schema_and_vocabularies: Checks that each of the four CSVs carries exactly the declared column list in the declared order, read from the raw submitted header line before any alias resolution, and that every value in the four controlled-vocabulary columns is drawn from its permitted set: constraint_type, reason_code, disposition and block_reason. This is the check that scores schema conformance; the content checks elsewhere resolve a small set of per-artifact column aliases so that a renamed header costs this check rather than erasing the whole submission.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/station_constraints.csv",
+        "/logs/agent/recovery_schedule.csv",
+        "/logs/agent/backlog_disposition.csv",
+        "/logs/agent/constraint_impact.csv"
+      ],
+      "check_function": "check_csv_schema_and_vocabularies",
+      "how_it_prevents_task_authenticity_violation": "Renamed, reordered or invented columns that would make a ledger unreadable to the receiving team, and free-text values in coded fields that would let an ambiguous label pass as a decision. Because this check reads the unresolved header, alias tolerance downstream cannot buy back the schema score."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "typed_fields_parse: Parses every field that carries a type: schedule identifiers as integers, schedule start and end as timezone-aware timestamps, altitude and delay as finite numbers, and each station row's detail field according to its declared constraint type (timestamps for a maintenance window, a number for a minimum elevation, an integer for a booking cap).",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/recovery_schedule.csv",
+        "/logs/agent/station_constraints.csv"
+      ],
+      "check_function": "check_typed_fields_parse",
+      "how_it_prevents_task_authenticity_violation": "Timestamps written without a timezone, numbers written as prose, or detail fields left in a form that looks populated but cannot be acted on by a scheduler."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "station_roster_coverage: Averages two conditions: every ground station in stations.json appears at least once in the register, and no station repeats the same constraint_type twice. A station may hold several rows because it may make several declarations, so exact-row-count matching would be wrong; duplicate (station, declaration) pairs are still rejected.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/station_constraints.csv",
+      "check_function": "check_station_roster_coverage",
+      "how_it_prevents_task_authenticity_violation": "Silently dropping stations whose notes were never opened, and padding the register with repeated declaration rows to make the row count look complete."
+    },
+    "static_checks_5": {
+      "detailed_explanation_of_checks": "declaration_detail_columns: Enforces instruction.md's rule that a register row fills only the detail column its declaration type carries and leaves the rest empty. Per row: the columns required by that type (both window bounds for a maintenance window, the elevation figure, the embargoed mode, the cap integer, none for a freeze or for an unrestricted row) must be populated, and every other detail column must be blank.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/station_constraints.csv",
+      "check_function": "check_declaration_detail_columns",
+      "how_it_prevents_task_authenticity_violation": "Hedging by filling several detail columns at once so that whichever one the grader reads happens to be right, and leaving stale values behind from a previous row's declaration."
+    },
+    "static_checks_6": {
+      "detailed_explanation_of_checks": "backlog_roster_coverage: Scores the fraction of the bad-rated recovery cases in bad_rated_observations.json that appear in the disposition ledger exactly once.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/backlog_disposition.csv",
+      "check_function": "check_backlog_roster_coverage",
+      "how_it_prevents_task_authenticity_violation": "Reporting only the cases that were easy to resolve, and inflating coverage by repeating a case row."
+    },
+    "static_checks_7": {
+      "detailed_explanation_of_checks": "handover_shape: Averages four structural properties of the operator brief: all seven required headings present and appearing in the declared order, total length inside the 1,200 to 2,800 word band, all seven control-total keys present as rows of a Markdown table, and a station-load table headed station_id and scheduled_contacts. A missing heading costs the presence term only; the order term is scored over the headings that are actually present, so one omission is never charged twice.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/operations_handover.md",
+      "check_function": "check_handover_shape",
+      "how_it_prevents_task_authenticity_violation": "A brief that omits a required section, or that is padded or truncated to a length no operator could use, being accepted as a delivered handover."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "no_duplicate_or_invented_rows: Every submitted key across the three keyed ledgers is checked against the shipped snapshot and against keys already seen in the same file. A schedule row must name a real failure and a real candidate, a station row must name a real ground station and reproduce that station's own recorded station_name from the snapshot, and an impact row must name a real failure-candidate pair; in each file the key must be the first occurrence. Matching the station name is case-insensitive but otherwise exact, so a plausible substitute sourced from outside the snapshot fails.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/recovery_schedule.csv",
+        "/logs/agent/station_constraints.csv",
+        "/logs/agent/constraint_impact.csv"
+      ],
+      "check_function": "check_no_duplicate_or_invented_rows",
+      "how_it_prevents_task_authenticity_violation": "Manufacturing identifiers that do not exist in the source data, and repeating a correct row so that a per-row check accumulates credit more than once for the same piece of work."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "no_candidate_reuse: Scores the fraction of scheduled candidate observations that are known to the snapshot and booked exactly once across the whole released schedule.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/recovery_schedule.csv",
+      "check_function": "check_no_candidate_reuse",
+      "how_it_prevents_task_authenticity_violation": "Raising the apparent recovery count by assigning one physical pass to several cases, which would be impossible to fly."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "station_booking_caps_respected: For every station whose note declares a booking cap, counts how many rows of the released schedule book that station and scores the fraction of capped stations kept within their declared allowance. The allowance is read from the note by the verifier, not from the submission.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/recovery_schedule.csv",
+      "check_function": "check_station_booking_caps_respected",
+      "how_it_prevents_task_authenticity_violation": "Recovering more cases by overbooking sites that told us how much they could take, which is the specific failure that shows up when a schedule is optimised without reading the notes."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "evidence_quotes_are_verbatim: Each station row's evidence_quote must be at least 40 characters and appear as an exact whitespace-normalised substring of that same station's own availability statement.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/station_constraints.csv",
+      "check_function": "check_evidence_quotes_are_verbatim",
+      "how_it_prevents_task_authenticity_violation": "Paraphrasing or inventing operator wording, and pasting one station's sentence across many rows to make unread notes look sourced."
+    },
+    "reward_hacking_checks_5": {
+      "detailed_explanation_of_checks": "evidence_quotes_carry_the_detail: Each reported declaration is checked against the sentence the key records as stating it: the quote must be a substring of that sentence. A row recording a station as unrestricted is held to the mirror condition, its quote must come from that station's own no-restriction statement. Because the notes carry no fixed phrasing, this is what ties a claimed declaration to the words that actually support it.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/station_constraints.csv",
+      "check_function": "check_evidence_quotes_carry_the_detail",
+      "how_it_prevents_task_authenticity_violation": "Quoting a neighbouring or superseded sentence that happens to sit in the same section, reusing one sentence as evidence for several declarations, and -- for stations that declare nothing -- pasting any long passage from the note in place of the statement that says so."
+    },
+    "reward_hacking_checks_6": {
+      "detailed_explanation_of_checks": "impact_rows_are_real: Every impact row is re-derived: the named candidate must genuinely have passed the baseline matching rule for the named case, must genuinely have been removed by the owning station's declaration, and the recorded block_reason must be the reason that actually removed it.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/constraint_impact.csv",
+      "check_function": "check_impact_rows_are_real",
+      "how_it_prevents_task_authenticity_violation": "Bulking out the impact ledger with plausible-looking pairings, or attributing a real removal to the wrong constraint so the row survives a shallower check."
+    },
+    "reward_hacking_checks_7": {
+      "detailed_explanation_of_checks": "no_hollow_schedule: Every column of every schedule row must be non-empty and must not be a whole-cell placeholder such as n/a, none, unknown or not available.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/recovery_schedule.csv",
+      "check_function": "check_no_hollow_schedule",
+      "how_it_prevents_task_authenticity_violation": "Emitting the right number of rows with the substantive columns left blank or defaulted, so that a schedule appears delivered without a decision behind it."
+    },
+    "reward_hacking_checks_8": {
+      "detailed_explanation_of_checks": "decision_notes_are_row_specific: A decision note must contain at least two values that are true for that exact row -- candidate ID, failure ID, NORAD catalog ID, station ID, peak altitude -- matched on word boundaries, AND its wording skeleton (the note with every number masked) must not be shared by more than half the schedule rows.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/recovery_schedule.csv",
+      "check_function": "check_decision_notes_are_row_specific",
+      "how_it_prevents_task_authenticity_violation": "One reusable fill-in-the-blank sentence repeated down the column with only the digits swapped, which satisfies token presence while carrying no per-row reasoning."
+    },
+    "reward_hacking_checks_9": {
+      "detailed_explanation_of_checks": "backlog_rationales_are_case_specific: A disposition rationale must contain at least two values true for that case -- failure ID, NORAD catalog ID, originating station and name, transmitter UUID, cleared-set size -- AND its number-masked wording skeleton must not be shared by more than half the ledger rows.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/backlog_disposition.csv",
+      "check_function": "check_backlog_rationales_are_case_specific",
+      "how_it_prevents_task_authenticity_violation": "Boilerplate rationales that let an unexamined case pass as triaged, including a single template reused across cases with different underlying facts."
+    },
+    "reward_hacking_checks_10": {
+      "detailed_explanation_of_checks": "notes_are_not_source_pasted: Every authored decision note and rationale is checked against the availability statements of all 160 station notes; an authored string that appears verbatim inside any of them scores nothing.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/recovery_schedule.csv",
+        "/logs/agent/backlog_disposition.csv"
+      ],
+      "check_function": "check_notes_are_not_source_pasted",
+      "how_it_prevents_task_authenticity_violation": "Filling the analysis columns by copying supplied source prose, which would satisfy length and specificity heuristics without the agent having written any analysis."
+    },
+    "reward_hacking_checks_11": {
+      "detailed_explanation_of_checks": "handover_uses_specific_cases: Counts distinct failure IDs that appear inside a running-prose paragraph of at least 40 words which also contains a fact genuinely true of that same case: its NORAD catalog ID, originating ground station, station name or transmitter UUID. Before a block is measured, its bullet lines, numbered list items, table rows and headings are stripped out, so only continuous prose counts. This matches instruction.md's requirement that each case be discussed within a paragraph. Scored against the required minimum of twelve.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/operations_handover.md",
+      "check_function": "check_handover_uses_specific_cases",
+      "how_it_prevents_task_authenticity_violation": "Sprinkling case numbers through the brief to satisfy a mention count, and meeting the discussion requirement with a long run of one-line bullets or a table that pairs each ID with a fact while demonstrating no reasoning about the case."
+    },
+    "reward_hacking_checks_12": {
+      "detailed_explanation_of_checks": "cross_artifact_reconciliation: For each case, six consistency conditions are averaged: an ASSIGNED reason code appears if and only if the case has a released schedule row; the RECOVERED disposition tracks the ASSIGNED code; a recovered row names the candidate the schedule actually books while an unrecovered row leaves candidate_id blank; a STATION_CONSTRAINED case has supporting rows in the impact ledger; a NO_ELIGIBLE_CONTACT claim is only consistent when the derived baseline pool for that case really was empty; and the presence of a cleared candidate set agrees with the derived one.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/recovery_schedule.csv",
+        "/logs/agent/backlog_disposition.csv",
+        "/logs/agent/constraint_impact.csv"
+      ],
+      "check_function": "check_cross_artifact_reconciliation",
+      "how_it_prevents_task_authenticity_violation": "Producing five artifacts that each look plausible alone but contradict one another. The last two conditions tie the check to derived truth, so a submission that declares every case unrecovered with an empty schedule cannot score here on self-consistency alone, and a fabricated candidate_id on an unrecovered row is caught rather than ignored."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "declaration_recall: Fraction of the true (station, declaration) set that the register reports. A station may declare several things at once -- for example a maintenance window, an elevation floor and a booking cap together -- so this measures reconstruction of the whole declaration set rather than agreement on a single label per station. The true set is recovered by the verifier's own sentence-scoped parse of each availability statement.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/station_constraints.csv",
+      "check_function": "check_declaration_recall",
+      "how_it_prevents_task_authenticity_violation": "Reading a note until the first restriction is found and moving on, which silently drops every further declaration that station makes and corrupts the eligibility calculation downstream. It also earns nothing for a register that marks every station unrestricted."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "declaration_precision: Fraction of the declarations the register claims that a station genuinely makes. Rows recording a station as declaring nothing are excluded from both sides, so the measure is over asserted restrictions only.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/station_constraints.csv",
+      "check_function": "check_declaration_precision",
+      "how_it_prevents_task_authenticity_violation": "Improving recall by asserting extra declarations. Paired with the recall check, neither under-reporting nor over-reporting scores well, and inventing a restriction that removes real candidates is penalised here as well as in the impact ledger."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "station_constraint_detail_accuracy: For every true declaration, the register row carrying that station and that declaration type must hold the correct operative value: both maintenance window boundaries as instants, the minimum elevation figure, the embargoed mode string, or the booking cap integer. Each declaration is checked against its own row, so a station with several declarations must get all of them right.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/station_constraints.csv",
+      "check_function": "check_station_constraint_detail_accuracy",
+      "how_it_prevents_task_authenticity_violation": "Detecting that a station is restricted while getting the operative number or window wrong, and carrying one declaration's value into another declaration's row."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "schedule_rows_faithful: Averages, per released row: the six identity fields against the snapshot (NORAD catalog ID, transmitter UUID, station, start, end, frequency); the full baseline matching rule (candidate status good, matching satellite and transmitter, identical frequency, active transmitter, peak altitude at least 10 degrees, and the 72 hour horizon); the recorded delay against the true elapsed time to within 0.02 minutes; and a TLE evidence record resolving to the same satellite. Held as one check rather than four so that an easy, uniformly-passed property does not occupy four equal-weight slots and dilute the substance the bucket exists to measure.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/recovery_schedule.csv",
+      "check_function": "check_schedule_rows_faithful",
+      "how_it_prevents_task_authenticity_violation": "Transcribing a real candidate ID beside invented or mismatched operational values, booking a pass outside the make-good horizon, reporting a flattering delay figure, and citing an evidence record for the wrong satellite."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "station_constraint_compliance: Every released row is re-tested against the owning station's true declaration as parsed from its note: not under a booking freeze, not overlapping a declared maintenance window, at or above any declared minimum elevation, and not on an embargoed transmitter mode.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/recovery_schedule.csv",
+      "check_function": "check_station_constraint_compliance",
+      "how_it_prevents_task_authenticity_violation": "Releasing a schedule that books passes the stations have said they cannot fly, which is exactly what an optimisation over the structured snapshot alone produces."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "eligible_candidate_lists: For every case, the pipe-separated eligible_candidate_ids set must equal exactly the set the verifier derives by applying the baseline rule and then the station declarations. Supersets and subsets both score nothing for that case.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/backlog_disposition.csv",
+      "check_function": "check_eligible_candidate_lists",
+      "how_it_prevents_task_authenticity_violation": "Reporting a plausible subset of the option space, and inflating the set with candidates the stations had already ruled out, either of which would mislead the next shift about what is still available."
+    },
+    "partial_oracle_checks_7": {
+      "detailed_explanation_of_checks": "constraint_impact_completeness: Averages recall and precision of the impact ledger against the full set of case-candidate removals the verifier derives. Precision is measured over the rows actually submitted, so an empty ledger scores zero on both terms rather than earning credit for containing no false rows.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/constraint_impact.csv",
+      "check_function": "check_constraint_impact_completeness",
+      "how_it_prevents_task_authenticity_violation": "Omitting the ledger entirely, reporting only the removals that were easy to spot, or padding it with pairings that were never eligible in the first place."
+    },
+    "partial_oracle_checks_8": {
+      "detailed_explanation_of_checks": "maximum_recovery_cardinality: Counts released rows that survive full validation -- cleared candidate, not already used, and within the owning station's booking allowance -- and scores that count against the true optimum computed by a capacitated minimum-cost maximum-flow solve over the derived eligibility. The solver is implemented in tests/verify.py against the standard library.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/recovery_schedule.csv",
+      "check_function": "check_maximum_recovery_cardinality",
+      "how_it_prevents_task_authenticity_violation": "Presenting a schedule that recovers fewer cases than the evidence allows, and stops an inflated row count from helping because only genuinely legal rows are counted."
+    },
+    "partial_oracle_checks_9": {
+      "detailed_explanation_of_checks": "minimum_delay_quality: Sums the true delay of the valid released rows and compares it against the minimum achievable total delay at that same cardinality, recomputed by a capped minimum-cost flow. Any assignment achieving the optimum scores full marks, so no single preferred schedule is privileged.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/recovery_schedule.csv",
+      "check_function": "check_minimum_delay_quality",
+      "how_it_prevents_task_authenticity_violation": "Meeting the recovery count with needlessly late passes, which would satisfy a cardinality-only check while leaving the constellation off the air longer than necessary."
+    },
+    "partial_oracle_checks_10": {
+      "detailed_explanation_of_checks": "disposition_reason_accuracy: Each case's reason code is compared against the disposition the verifier derives. A case with no baseline candidate must be NO_ELIGIBLE_CONTACT; a case whose baseline candidates were all removed by station declarations must be STATION_CONSTRAINED; a recoverable case must be ASSIGNED, or CONTACT_TAKEN only when the contention claim is independently supported -- every one of its station-cleared candidates is either booked by another case in the released schedule or sits at a station whose declared booking allowance the schedule has already spent.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/backlog_disposition.csv",
+      "check_function": "check_disposition_reason_accuracy",
+      "how_it_prevents_task_authenticity_violation": "Collapsing distinct failure modes into one label. It catches recording a station-blocked case as having had no later pass at all, which is the classification an agent produces when it has not read the notes, and it stops CONTACT_TAKEN being used as a catch-all for cases the submission simply chose not to recover."
+    },
+    "partial_oracle_checks_11": {
+      "detailed_explanation_of_checks": "handover_control_totals: Reads the seven control-total values and every station-load row out of the Markdown tables. Three totals are checked against externally derived truth -- the case count, the number of genuinely restricted stations and the true number of blocked case-candidate pairings -- and the remainder against the released schedule, with per-station contact counts checked row by row.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/operations_handover.md",
+      "check_function": "check_handover_control_totals",
+      "how_it_prevents_task_authenticity_violation": "A brief whose headline numbers are invented or carried over from a draft, and totals that describe a different schedule from the one actually released."
+    },
+    "partial_oracle_checks_12": {
+      "detailed_explanation_of_checks": "provenance_citations: Averages four provenance requirements: the Observation ratings section of satnogs_operation_guide.html is cited for the rating semantics; every page-numbered citation to satnogs_network_docs.pdf resolves against the real document, meaning the page exists within the PDF's actual page count and that page's own extracted text carries at least two distinctive terms from the sentence making the citation; the station availability statements are identified as exercise declarations rather than public SatNOGS record; and the exercise-policy nature of the horizon and objective is stated. The cited page number itself and any single digit are excluded from the matched terms, so a citation cannot corroborate itself; a real page attached to a claim it does not support scores zero. The page count and per-page text are read from the shipped PDF at grading time, not assumed.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/operations_handover.md",
+      "check_function": "check_provenance_citations",
+      "how_it_prevents_task_authenticity_violation": "Citing a page number that does not exist in the document or that has nothing to do with the claim, which would let a fabricated citation stand in for having read the documentation. Overclaiming what the packaged evidence establishes and presenting the operator declarations as part of the public dataset are caught by the other two terms."
+    }
+  }
+}

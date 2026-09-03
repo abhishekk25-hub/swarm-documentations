@@ -1,0 +1,216 @@
+{
+  "task_id": "swarmbench/bf376a79798a4521b8e1626a83ba8af0-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-USGS-EARTH-SCIENCE-FIELD-STUDY-GUIDE",
+  "task": "swarmbench/bf376a79798a4521b8e1626a83ba8af0-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-USGS-EARTH-SCIENCE-FIELD-STUDY-GUIDE",
+  "verifier_type": "llm-judge",
+  "verifier": "tests/verify.py",
+  "scoring": "reward = mean of all 29 checks; each check weight 1, additive; no caps, multipliers, tiers, floors or cliffs. Content is the majority of the reward and structural checks a deliberate minority. Per-record deterministic credit requires three deterministic authorship conditions, a semantic transformed-copy judgment, and content vouched by both the specificity and depth calls where both returned. Method correctness is not compared with a private answer key: listed methods must occur in the report's agent-visible candidate list and actually appear in the report body, and their application is judged by the methods call. Judge outages set verify_status.json to invalid_evaluation and write reward.txt 0.0000 rather than the structural arithmetic (reported as reward_if_scored); a submission with no records at all is still graded, its zero coming from producing nothing.",
+  "authorship_precondition": "Per-record deterministic credit (via _eligible) requires a present record and: own words (each measured section places at most 20% of tokens in >=10-token verbatim source runs and at most 85% of adjacent token pairs preserve near-adjacent source order; Setting and Findings must each be >=25 tokens), source grounding (the copy-stripped Setting and Findings carry the report's rare vocabulary, adaptive floor via _body_need), prose form (>=20% function words), a semantic composed_not_transformed_copy verdict from the depth call, and both specific_not_generic and sufficient_depth where those calls returned. The two graph checks (check_graph_valid, check_graph_connectivity) score graph structure but are scaled by the fraction of records that are _eligible, so a well-formed graph with no genuinely authored records behind it earns nothing. If records were dispatched and no judge call succeeded, the semantic gates fail closed and the run is invalid_evaluation.",
+  "judge_model": "accounts/fireworks/models/gpt-oss-120b",
+  "judge_model_note": "Five modular calls per record: identification, specificity, depth, holding, methods. DIRECT scoring influence (no single call decides a majority): specificity directly decides 6/29, depth 6/29, holding 1/29, identification 1/29, methods 1/29. Separately, and by design, the depth call's composed_not_transformed_copy verdict plus the specificity+depth content verdicts act as a per-record ELIGIBILITY PRECONDITION (via _authorship_judged and _content_ok): a record that a judge finds to be transformed/mangled copy, generic, or shallow earns no per-record credit. The two graph checks (check_graph_valid, check_graph_connectivity) score graph structure but are scaled by the eligible-record fraction, so a submission with zero eligible records scores 0 on every check, graph checks included. This gating is intentional anti-copy/anti-generic protection, not a scoring weight, and it fails closed: any missing or failed gate judge call makes the record ineligible. All calls temperature 0; copied spans are stripped before content calls; source excerpts up to 14000 chars; records up to 32000 chars with section-balanced sampling. Unparseable replies retried once at double budget; a family failing on every dispatched record sets invalid_evaluation.",
+  "total_checks": 29,
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "The graph parses as JSON-LD and holds exactly 72 nodes: six discipline roots (typed Discipline with the root_id from discipline_roots.csv and a non-empty label) and 66 report nodes with unique index_id @ids, the per-discipline report counts matching the roster (gwmodel=15, geophys=6, wqgeochem=21, surfwater=9, aquifer=10, synthesis=5), no duplicates. When well-formed, the score is scaled by the fraction of records that are genuinely authored (_eligible), so a graph built from roster/roots metadata with no real records behind it earns nothing.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/method_map.jsonld",
+      "check_function": "check_graph_valid",
+      "how_it_prevents_task_authenticity_violation": "Rejects malformed/truncated output and enforces the roster's per-discipline counts and real roots so a flat or padded graph cannot pass; scaling by the eligible-record fraction stops a well-formed graph from banking reward when no records are actually authored."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Fraction of the 66 records that exist, are authored and judge-vouched (see authorship_precondition), open with a level-1 heading naming the report title, contain the four required sections (Study identity, Setting and objective, Findings and interpretation, Applied methods) in order, and whose Setting and Findings sections are not cut off mid-write.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_record_structure",
+      "how_it_prevents_task_authenticity_violation": "Coverage + shape signal, kept a small minority of reward so structural presence cannot substitute for content; the mid-write test rejects truncated large-file writes."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "Fraction of eligible records whose Applied methods section lists at least three methods, all drawn from that report's agent-visible candidate list, with at least one method beyond the near-universal reconnaissance methods (routine water-level measurement, generic geologic mapping, basic streamgaging), and confirmed by the applied-methods judge; padding with routine methods alone does not satisfy it.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_authorities_wellformed",
+      "how_it_prevents_task_authenticity_violation": "Blocks free-text or off-list method citations; the methods must come from the staged candidate menu."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Fraction of eligible records citing at least three methods that actually appear in that report's own text (not decoys), with at least one beyond the near-universal reconnaissance methods and confirmed by the applied-methods judge. Membership is derived from the report body itself, never from a private key.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_authorities_real",
+      "how_it_prevents_task_authenticity_violation": "Prevents pasting the whole candidate menu or picking decoys; only methods genuinely present in the report count, so reading is required."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Fraction of eligible records whose Setting and Findings sections each carry at least 8 distinctive own-prose terms and, versus any other record's same section, share under 70% of that distinctive-term set AND under 55% of their function-word skeleton 5-gram shingles; both sides of a near-duplicate are rejected, including a reused write-up skeleton disguised by per-study noun substitution.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_records_distinct",
+      "how_it_prevents_task_authenticity_violation": "Defeats one templated record cloned across reports; each record must be independently authored."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Fraction of eligible records with a truthful validation_log entry: worker_id present, discipline matching the report's discipline, index_id matching, a stated series matching the report's actual publication series (accepting either the label such as SIR or its full name; any stated series accepted when the index id prefix maps to no known series), and a methods_verified boolean equal to reality.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/validation_log.json",
+      "check_function": "check_validation_log_complete",
+      "how_it_prevents_task_authenticity_violation": "Blocks a hardcoded log; each boolean and field is checked against agent-visible reality derived from the report."
+    },
+    "reward_hacking_checks_5": {
+      "detailed_explanation_of_checks": "Fraction of records that keep verbatim source copying under 20% and gapped source word-order under 85% of tokens in every prose section, still carry the report's own rare vocabulary, and pass the semantic transformed-copy judge. Setting and Findings must each be at least 25 tokens.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_no_verbatim_copy",
+      "how_it_prevents_task_authenticity_violation": "The primary anti-shortcut gate: copied, resequenced, harvested, or mechanically mangled prose earns nothing, so an agent that copies reports to cover all 66 scores zero here and on every _eligible check."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "Fraction of report nodes carrying exactly one classified_under edge to their own discipline root, scaled by the fraction of records that are genuinely authored (_eligible).",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/method_map.jsonld",
+      "check_function": "check_graph_connectivity",
+      "how_it_prevents_task_authenticity_violation": "Enforces a real hierarchy edge per report, not a flat node list; scaling by the eligible-record fraction stops a metadata-only graph from banking reward when no records are authored."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "Fraction of eligible records that cite their report's index id.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_docket_present",
+      "how_it_prevents_task_authenticity_violation": "Ties each record to a specific report identity."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "Fraction of eligible records whose Study identity names the report's discipline and a valid publication series.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_identity_states_area",
+      "how_it_prevents_task_authenticity_violation": "Requires the structured identity fields to be populated, not blank."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "Fraction of eligible records whose stated publication series matches the series the report belongs to (derived from the agent-visible index_id prefix, not a private key). When the index id prefix maps to no known USGS series, the record need only state a series, so a correct submission is never capped for a value the source does not express.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_disposition_matches_source",
+      "how_it_prevents_task_authenticity_violation": "Requires reading the identity; a guessed or wrong series earns nothing."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "Fraction of eligible records restating real distinctive source substance from the report in their own prose.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_facts_cite_specifics",
+      "how_it_prevents_task_authenticity_violation": "Requires report-specific detail, not generic recitation."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "Fraction of eligible records whose graph node's discipline agrees with the record's discipline.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_graph_record_agreement",
+      "how_it_prevents_task_authenticity_violation": "Keeps the graph and the records mutually consistent."
+    },
+    "partial_oracle_checks_7": {
+      "detailed_explanation_of_checks": "Mean over 66 required records of the identification call: the record correctly identifies the scientific question/objective, the study area/setting and the resource investigated, with no contradiction of the source.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_identification",
+      "how_it_prevents_task_authenticity_violation": "Semantic correctness of what the study was about."
+    },
+    "partial_oracle_checks_8": {
+      "detailed_explanation_of_checks": "Mean over the 15 Groundwater Flow Modeling records of specific_not_generic.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_spec_gwmodel",
+      "how_it_prevents_task_authenticity_violation": "Rejects generic prose that could fit any water-science report."
+    },
+    "partial_oracle_checks_9": {
+      "detailed_explanation_of_checks": "Mean over the 6 Geophysics and Subsurface Imaging records of specific_not_generic.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_spec_geophys",
+      "how_it_prevents_task_authenticity_violation": "Rejects generic prose that could fit any water-science report."
+    },
+    "partial_oracle_checks_10": {
+      "detailed_explanation_of_checks": "Mean over the 21 Water Quality and Geochemistry records of specific_not_generic.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_spec_wqgeochem",
+      "how_it_prevents_task_authenticity_violation": "Rejects generic prose that could fit any water-science report."
+    },
+    "partial_oracle_checks_11": {
+      "detailed_explanation_of_checks": "Mean over the 9 Surface Water and Watersheds records of specific_not_generic.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_spec_surfwater",
+      "how_it_prevents_task_authenticity_violation": "Rejects generic prose that could fit any water-science report."
+    },
+    "partial_oracle_checks_12": {
+      "detailed_explanation_of_checks": "Mean over the 10 Aquifer Characterization and Hydrogeology records of specific_not_generic.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_spec_aquifer",
+      "how_it_prevents_task_authenticity_violation": "Rejects generic prose that could fit any water-science report."
+    },
+    "partial_oracle_checks_13": {
+      "detailed_explanation_of_checks": "Mean over the 5 Data Synthesis and Mapping records of specific_not_generic.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_spec_synthesis",
+      "how_it_prevents_task_authenticity_violation": "Rejects generic prose that could fit any water-science report."
+    },
+    "partial_oracle_checks_14": {
+      "detailed_explanation_of_checks": "Mean over the 15 Groundwater Flow Modeling records of conveys_specifics and sufficient_depth.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_depth_gwmodel",
+      "how_it_prevents_task_authenticity_violation": "Rewards depth of reading, not name-dropping."
+    },
+    "partial_oracle_checks_15": {
+      "detailed_explanation_of_checks": "Mean over the 6 Geophysics and Subsurface Imaging records of conveys_specifics and sufficient_depth.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_depth_geophys",
+      "how_it_prevents_task_authenticity_violation": "Rewards depth of reading, not name-dropping."
+    },
+    "partial_oracle_checks_16": {
+      "detailed_explanation_of_checks": "Mean over the 21 Water Quality and Geochemistry records of conveys_specifics and sufficient_depth.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_depth_wqgeochem",
+      "how_it_prevents_task_authenticity_violation": "Rewards depth of reading, not name-dropping."
+    },
+    "partial_oracle_checks_17": {
+      "detailed_explanation_of_checks": "Mean over the 9 Surface Water and Watersheds records of conveys_specifics and sufficient_depth.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_depth_surfwater",
+      "how_it_prevents_task_authenticity_violation": "Rewards depth of reading, not name-dropping."
+    },
+    "partial_oracle_checks_18": {
+      "detailed_explanation_of_checks": "Mean over the 10 Aquifer Characterization and Hydrogeology records of conveys_specifics and sufficient_depth.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_depth_aquifer",
+      "how_it_prevents_task_authenticity_violation": "Rewards depth of reading, not name-dropping."
+    },
+    "partial_oracle_checks_19": {
+      "detailed_explanation_of_checks": "Mean over the 5 Data Synthesis and Mapping records of conveys_specifics and sufficient_depth.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_depth_synthesis",
+      "how_it_prevents_task_authenticity_violation": "Rewards depth of reading, not name-dropping."
+    },
+    "partial_oracle_checks_20": {
+      "detailed_explanation_of_checks": "Mean over 66 records of holding_grounded: the stated key findings, results and interpretation are supported by the source excerpt.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_holding_grounded",
+      "how_it_prevents_task_authenticity_violation": "Rejects invented or contradicted findings."
+    },
+    "partial_oracle_checks_21": {
+      "detailed_explanation_of_checks": "Mean over 66 records of posture_grounded: the study area, setting and objective are supported by the source excerpt.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_posture_grounded",
+      "how_it_prevents_task_authenticity_violation": "Rejects invented setting."
+    },
+    "partial_oracle_checks_22": {
+      "detailed_explanation_of_checks": "Mean over 66 records of authorities_applied_correct: the section selects the methods the study actually used (excluding decoys) and explains what at least some contributed.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_llm_authorities_applied",
+      "how_it_prevents_task_authenticity_violation": "The disambiguation gate: rejects listing decoys or pasting the menu with no explanation."
+    }
+  }
+}

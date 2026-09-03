@@ -1,0 +1,150 @@
+{
+  "date_range": "2000:2022",
+  "endpoint_pattern": "https://api.worldbank.org/v2/country/{country_code}/indicator/{indicator_code}?format=json&date=2000:2022&per_page=100",
+  "sections": [
+    {
+      "section_id": "pop_de",
+      "country_code": "DE",
+      "indicator_code": "SP.POP.TOTL",
+      "label_country": "Germany",
+      "label_indicator": "Total population",
+      "peer_code": "FR",
+      "peer_country": "France"
+    },
+    {
+      "section_id": "gdppc_jp",
+      "country_code": "JP",
+      "indicator_code": "NY.GDP.PCAP.CD",
+      "label_country": "Japan",
+      "label_indicator": "GDP per capita (USD)",
+      "peer_code": "KR",
+      "peer_country": "South Korea"
+    },
+    {
+      "section_id": "life_br",
+      "country_code": "BR",
+      "indicator_code": "SP.DYN.LE00.IN",
+      "label_country": "Brazil",
+      "label_indicator": "Life expectancy at birth",
+      "peer_code": "AR",
+      "peer_country": "Argentina"
+    },
+    {
+      "section_id": "elec_ng",
+      "country_code": "NG",
+      "indicator_code": "EG.ELC.ACCS.ZS",
+      "label_country": "Nigeria",
+      "label_indicator": "Access to electricity (%)",
+      "peer_code": "KE",
+      "peer_country": "Kenya"
+    },
+    {
+      "section_id": "internet_id",
+      "country_code": "ID",
+      "indicator_code": "IT.NET.USER.ZS",
+      "label_country": "Indonesia",
+      "label_indicator": "Internet users (%)",
+      "peer_code": "PH",
+      "peer_country": "Philippines"
+    },
+    {
+      "section_id": "urban_mx",
+      "country_code": "MX",
+      "indicator_code": "SP.URB.TOTL.IN.ZS",
+      "label_country": "Mexico",
+      "label_indicator": "Urban population (%)",
+      "peer_code": "CO",
+      "peer_country": "Colombia"
+    },
+    {
+      "section_id": "co2pc_us",
+      "country_code": "US",
+      "indicator_code": "EN.GHG.CO2.PC.CE.AR5",
+      "label_country": "United States",
+      "label_indicator": "CO2 emissions per capita",
+      "peer_code": "CN",
+      "peer_country": "China"
+    },
+    {
+      "section_id": "gdpgr_in",
+      "country_code": "IN",
+      "indicator_code": "NY.GDP.MKTP.KD.ZG",
+      "label_country": "India",
+      "label_indicator": "GDP growth (%)",
+      "peer_code": "CN",
+      "peer_country": "China"
+    },
+    {
+      "section_id": "infl_tr",
+      "country_code": "TR",
+      "indicator_code": "FP.CPI.TOTL.ZG",
+      "label_country": "Turkey",
+      "label_indicator": "Inflation (%)",
+      "peer_code": "BR",
+      "peer_country": "Brazil"
+    },
+    {
+      "section_id": "unemp_es",
+      "country_code": "ES",
+      "indicator_code": "SL.UEM.TOTL.ZS",
+      "label_country": "Spain",
+      "label_indicator": "Unemployment (%)",
+      "peer_code": "DE",
+      "peer_country": "Germany"
+    },
+    {
+      "section_id": "fert_eg",
+      "country_code": "EG",
+      "indicator_code": "SP.DYN.TFRT.IN",
+      "label_country": "Egypt",
+      "label_indicator": "Fertility rate",
+      "peer_code": "IN",
+      "peer_country": "India"
+    },
+    {
+      "section_id": "prim_et",
+      "country_code": "ET",
+      "indicator_code": "SE.PRM.ENRR",
+      "label_country": "Ethiopia",
+      "label_indicator": "Primary school enrollment (%)",
+      "peer_code": "KE",
+      "peer_country": "Kenya"
+    },
+    {
+      "section_id": "mort_in",
+      "country_code": "IN",
+      "indicator_code": "SH.DYN.MORT",
+      "label_country": "India",
+      "label_indicator": "Under-5 mortality rate",
+      "peer_code": "BD",
+      "peer_country": "Bangladesh"
+    },
+    {
+      "section_id": "rural_cn",
+      "country_code": "CN",
+      "indicator_code": "SP.RUR.TOTL.ZS",
+      "label_country": "China",
+      "label_indicator": "Rural population (%)",
+      "peer_code": "IN",
+      "peer_country": "India"
+    },
+    {
+      "section_id": "renew_de",
+      "country_code": "DE",
+      "indicator_code": "EG.FEC.RNEW.ZS",
+      "label_country": "Germany",
+      "label_indicator": "Renewable energy (%)",
+      "peer_code": "FR",
+      "peer_country": "France"
+    },
+    {
+      "section_id": "milit_us",
+      "country_code": "US",
+      "indicator_code": "MS.MIL.XPND.GD.ZS",
+      "label_country": "United States",
+      "label_indicator": "Military expenditure (% GDP)",
+      "peer_code": "RU",
+      "peer_country": "Russia"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "task_id": "2b6cc0d8ca7381a49ab123d19e91c550-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-INDUSTRIAL-DISASTER-CAUSAL-PATTERN-ATLAS",
+  "verifier_type": "hybrid",
+  "weighting_note": "Inside each bucket (static / reward_hacking / partial_oracle), each check has a weight (1, 2, or 3, capped by which bucket it's in). The bucket's score is a weighted average of its checks: sum(weight * score) / sum(weight). The final reward blends the three bucket scores 1:2:3 (static:reward_hacking:partial_oracle) and divides by 6. Within a check, a precision-style pass rate is never blended with corpus-wide coverage recall unless that coverage is the check's own explicit purpose -- coverage across all 138 disasters is scored once, on its own, by the dedicated domain-coverage check, so it is never allowed to cushion a low precision score elsewhere. Where a check combines more than one sub-signal into a single score, most checks take the WORSE (minimum) of the sub-signals rather than their average (so a bad sub-signal cannot be laundered into a passing score by a good one), except check_reward_hacking_7 (which averages precision and record-file coverage) and check_partial_oracle_4 (which averages precision and link-recall).",
+  "total_checks": 14,
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "One deterministic structural-completeness signal averaged across 4 equally-weighted sub-conditions: (1) all three top-level deliverable files exist AND the records directory has at least 118 files (85% of the 138 real disasters); (2) the register has all 9 required columns; (3) the register has at least 220 rows; (4) every non-empty entry_id value is unique across the register.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/causal_pattern_register.csv",
+        "/logs/agent/cross_industry_synthesis.md",
+        "/logs/agent/pattern_taxonomy.json",
+        "/logs/agent/records/"
+      ],
+      "check_function": "check_static_1_structural_completeness",
+      "how_it_prevents_task_authenticity_violation": "Blocks a submission that never produced the required deliverables, produced only a token fraction of the required record files, or produced a malformed or trivially-thin register, from reaching any content-scored check at all. The entry_id uniqueness sub-check additionally prevents a structural-integrity failure content checks cannot see on their own: cross-industry-link resolution looks up its target row by entry_id, so a duplicate ID would silently make every link referencing it resolve to whichever row happened to appear last in the file."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Scores three equally-weighted thirds: (1) the cross-industry synthesis document has at least 900 words; (2) the pattern taxonomy file is valid JSON with exactly the eight required causal-pattern keys, each mapped to a list; (3) every entry_id appearing in any taxonomy array is a real register row filed under the SAME causal_pattern, and every register row's entry_id appears under its own pattern's array in the taxonomy file -- the two deliverables must agree with each other, not merely each look correct in isolation.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/cross_industry_synthesis.md",
+        "/logs/agent/pattern_taxonomy.json"
+      ],
+      "check_function": "check_static_2_narrative_and_taxonomy_wellformed",
+      "how_it_prevents_task_authenticity_violation": "Stops credit for a stub or placeholder narrative deliverable, and separately stops a pattern taxonomy file with the right shape but disconnected or empty arrays from banking credit without genuinely reflecting the register it is supposed to summarize."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "One combined content-integrity signal over the register: verbatim precision = quote-verified rows divided by rows with a recognized disaster_slug; uniqueness precision = rows that are BOTH quote-verified AND not an exact (disaster_slug, quote) repeat of an earlier row, divided by all rows. Final score = the WORSE of the two precisions, not their average. Domain coverage is measured and reported for context but is not blended into this score -- it is scored on its own by the domain-coverage check.",
+      "weight": 2,
+      "agent_output_path": "/logs/agent/causal_pattern_register.csv",
+      "check_function": "check_reward_hacking_1_quotes_verbatim_and_unique",
+      "how_it_prevents_task_authenticity_violation": "Blocks two related but distinct shortcuts in one signal: fabricating or paraphrasing a quote instead of copying it verbatim from the real source, and padding row volume with repeated (disaster_slug, quote) pairs to inflate apparent register size without adding genuinely new content."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Counts, per real industry domain, how many register rows pass the shared eligibility gate (verbatim quote, valid category, valid date, matching declared domain, no duplicate), and separately how many DISTINCT disasters those eligible rows touch; a domain only counts as covered if BOTH the row count and the distinct-disaster count independently clear that domain's own disaster-count-scaled floor (85% of that domain's real disaster count, minimum 3 -- 20 for a 23-disaster domain). Grouping is always by the real, verified domain the disaster actually belongs to, never by the submission's own self-reported domain label for a row.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/causal_pattern_register.csv",
+      "check_function": "check_reward_hacking_2_even_domain_coverage",
+      "how_it_prevents_task_authenticity_violation": "Stops credit for processing some industries thoroughly while skimming or skipping others entirely. The distinct-disaster floor additionally stops concentrating many rows on only a handful of disasters within a domain while never genuinely engaging with the rest of that domain's real disasters."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "LLM-judged, sampled and batched per disaster: for the rows claimed for a sampled disaster, the judge reports how many are genuinely distinct causal-pattern findings from each other (not the same underlying claim restated under a different label or a different quote span), and separately how many additional genuine findings the real source supports that no listed row captures at all. Each disaster's credited-row count is the distinct count minus the missed-fact count, floored at zero; the final score is total credited rows divided by total rows listed across the sampled disasters -- a pure precision signal, with domain coverage measured and reported separately rather than blended in.",
+      "weight": 2,
+      "agent_output_path": "/logs/agent/causal_pattern_register.csv",
+      "check_function": "check_reward_hacking_3_no_near_duplicate_patterns",
+      "how_it_prevents_task_authenticity_violation": "Catches register padding that a naive exact-duplicate check misses: rows that are not literal duplicates but restate the same real finding under a different pattern label or a different quote span, and under-extraction where genuine additional patterns clearly present in a disaster's real source were never captured at all."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "LLM-judged, sampled and batched per disaster: for each claimed row, the judge checks four conditions that must ALL hold for the row to pass -- the stated key finding is genuinely supported by its quote (not invented or exaggerated beyond what the quote shows); the assigned causal pattern is a defensible fit for what the row actually documents; the quote itself is substantive rather than a caption or bare statistic; and the declared date is plausible for what the row describes. The score is the fraction of sampled rows passing all four conditions -- a pure precision signal, with domain coverage measured and reported separately rather than blended in.",
+      "weight": 2,
+      "agent_output_path": "/logs/agent/causal_pattern_register.csv",
+      "check_function": "check_reward_hacking_4_row_content_quality",
+      "how_it_prevents_task_authenticity_violation": "Catches rows that pass a mechanical verbatim-quote check but are otherwise low quality: an unsupported key finding, an implausible pattern assignment, a non-substantive quote, or an implausible date -- exactly the shape of output produced when a real quote is matched to a claim it does not actually support."
+    },
+    "reward_hacking_checks_5": {
+      "detailed_explanation_of_checks": "Two deterministic well-formedness signals over quote-verified rows only. The first: across ALL quote-verified rows, each row's cross-industry-link value must be either empty/none, or a real entry_id belonging to a row in a DIFFERENT industry domain WITH A MATCHING causal pattern label -- a necessary but not sufficient precondition for a genuine link (genuineness itself is judged by a separate check). The second: restricted to quote-verified rows that actually claim a non-empty link, the same well-formedness condition is re-checked, scoring zero rather than one if no row claims a link at all. Final score = the WORSE of the two signals, not their average; domain coverage is measured and reported separately rather than blended in.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/causal_pattern_register.csv",
+      "check_function": "check_reward_hacking_5_cross_industry_link_wellformed_and_resolves",
+      "how_it_prevents_task_authenticity_violation": "A cheap, deterministic floor that catches a cross-industry-link column full of same-domain self-references, dangling entry_ids, or pattern-mismatched pairs before the far more expensive judge-based check evaluates whether any linked pair is genuinely the same mechanism. Weighted lower than the judge-based checks in this bucket since it is purely mechanical, not a content-quality signal on its own."
+    },
+    "reward_hacking_checks_6": {
+      "detailed_explanation_of_checks": "Deterministic anti-fabrication and anti-copy-paste scan across three categories, each scanning for the same three signatures: an explicit bracketed placeholder marker (such as a bracketed stand-in for missing content or a bracketed fallback phrase substituted for genuinely missing data instead of the entry simply being omitted); a leaked source-file metadata header line copied verbatim rather than the disaster's real prose content; and a raw, un-prosed section-header fragment bled in from unprocessed source markup. record_clean = the fraction of existing record files containing none of these; row_clean = the same scan applied to every quote-verified register row's finding and quote text; synthesis_clean = the same scan applied to the synthesis document (0 or 1). The metadata-header leak signal for a real-world-identifier field is anchored to the source file's own raw, unbolded, line-initial header format only, never a plain substring match -- so a genuinely well-formed record that correctly states that same identifier in its own properly formatted field is never penalized for doing what is required of it. Final score = the WORST of the three category scores, not their average.",
+      "weight": 2,
+      "agent_output_path": [
+        "/logs/agent/records/",
+        "/logs/agent/causal_pattern_register.csv",
+        "/logs/agent/cross_industry_synthesis.md"
+      ],
+      "check_function": "check_reward_hacking_6_no_placeholder_or_artifact_leakage",
+      "how_it_prevents_task_authenticity_violation": "Targets exactly the signature of a submission built by scripted or mechanical extraction rather than genuine reading and synthesis: a placeholder inserted wherever an extraction heuristic found nothing usable, or a source file's own header text accidentally captured as if it were real content. Both are genuine substrings of files that exist on disk, so they would otherwise pass a naive verbatim-quote check while being obvious mechanical-extraction artifacts. Weighted at the bucket maximum because this failure mode produces output that looks structurally complete while containing no genuine analysis at all."
+    },
+    "reward_hacking_checks_7": {
+      "detailed_explanation_of_checks": "For every record file matching a real disaster, checks that the file contains an Identity section heading, and that the real disaster's own year appears somewhere in the file text (format-agnostic on how the date is written). Precision = the fraction of existing record files passing both conditions; coverage = record files present divided by the total number of real disasters. Final score = the average of precision and coverage.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_reward_hacking_7_identity_section_grounded",
+      "how_it_prevents_task_authenticity_violation": "Every record's Identity section is required to state the real date, location, industry domain, and (where documented) toll and a real-world identifier; this closes that requirement with a cheap, deterministic, date-grounding check that a missing or boilerplate Identity section cannot pass."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "For each of 48 held-out reference facts never shipped anywhere the submission can read them, an LLM judge reads that disaster's real source material plus the submission's own quote-verified rows for that disaster, and sets a score of 1.0, 0.5, or 0.0 for whether the register genuinely captures the held-out finding's real substance (not necessarily word-for-word). The check is graded directly on this numeric score, thresholded at 0.5 or higher counting as covered, rather than on any separate free-form field the judge might also return -- a numeric score the judge must justify in its own reasoning is a more reliable signal than an auxiliary label that can drift from that same reasoning. The rate is covered facts divided by facts the judge was able to evaluate.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/causal_pattern_register.csv",
+      "check_function": "check_partial_oracle_1_held_out_fact_coverage",
+      "how_it_prevents_task_authenticity_violation": "The only check grounded in facts never disclosed anywhere the submission has access to. A submission built purely from surface pattern-matching against known keyword vocabulary, without genuinely reading each source in full, cannot reliably capture facts it was never given any hint to look for."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "Samples up to 200 quote-verified rows, batches them by referenced disaster, and asks an LLM judge -- given the real source material and the causal-pattern category definitions -- whether each row's claimed pattern is a genuinely defensible classification of what its quote and surrounding real context actually document. Score = judged-correct divided by judged-total, a pure precision signal; domain coverage is measured and reported separately rather than blended in.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/causal_pattern_register.csv",
+      "check_function": "check_partial_oracle_2_pattern_classification_accuracy",
+      "how_it_prevents_task_authenticity_violation": "Catches keyword-triggered pattern mislabeling -- a row whose quote merely contains a trigger word associated with a pattern, without the surrounding passage actually documenting that mechanism, which mechanical keyword matching systematically produces."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "An LLM judge reads the synthesis document against the submission's own quote-verified register rows -- with every row the synthesis cites by entry_id guaranteed to be included in what the judge sees, so a genuine citation can never be falsely flagged as fabricated purely by unlucky sampling -- and scores whether claims trace to specific entry_ids, the synthesis is organized around genuinely cross-industry mechanisms rather than walking through one domain at a time, real shared mechanisms are distinguished from same-label-only false cognates, and claims do not overreach what the register's real coverage can actually support. A separate, deterministic check independently extracts every explicit numbered citation from the synthesis text and confirms each one resolves to a real entry_id in the register; a citation to an entry_id that does not exist counts against this separate signal even if the judge does not flag it. Final score = the WORSE of the judge score and the citation-existence signal, never their average -- the deterministic signal can only pull the score down, since it proves an ID exists but not that its content was cited correctly, so it must never be allowed to launder a bad judge verdict upward.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/cross_industry_synthesis.md",
+      "check_function": "check_partial_oracle_3_synthesis_grounding",
+      "how_it_prevents_task_authenticity_violation": "The single most damaging defect a synthesis document can have is fabricating citations to entries that do not exist or do not say what is claimed about them. Combining an independent LLM judgment with a deterministic citation-existence cross-check means this failure mode is never scored by a single model call alone, and is penalized reliably rather than depending entirely on one judge's attention to detail."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "Samples up to 200 quote-verified rows that claim a real cross-industry link; for each, an LLM judge reads both real disasters' source material and sets a score of 1.0, 0.5, or 0.0 for whether the two rows genuinely document the same underlying causal mechanism (not merely the same category label or a superficially similar outcome). The check is graded directly on this numeric score, thresholded at 0.5 or higher counting as genuine, rather than on any separate free-form field the judge might also return. Scores zero, not excluded, if no row claims a link at all. Recall is the number of genuine links found divided by a corpus-scaled floor, capped at 1.0. Final score is the average of precision and recall.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/causal_pattern_register.csv",
+      "check_function": "check_partial_oracle_4_cross_industry_link_genuineness",
+      "how_it_prevents_task_authenticity_violation": "The genuineness and volume backstop for the task's hardest sub-problem -- a real cross-industry link cannot be discovered by reading any single disaster's source material alone, and this check is the only place a link's actual mechanism-level correctness, as opposed to mere structural well-formedness, is judged."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "Samples up to 40 record files (or all of them, if fewer exist); an LLM judge reads each real source alongside the submission's record for that disaster and sets a score of 1.0, 0.5, or 0.0 for whether the causal-chain section is genuinely specific to that disaster's real history for at least three of its five parts, and the pattern classification's quotes hold up. The check is graded directly on this numeric score, thresholded at 0.5 or higher counting as a pass, rather than on any separate free-form field the judge might also return. Precision is the pass rate among judged records; record-existence coverage is measured and reported for context but is not blended into this score, since it is already required as a floor elsewhere and independently scored on its own.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/records/",
+      "check_function": "check_partial_oracle_5_causal_chain_specificity",
+      "how_it_prevents_task_authenticity_violation": "Directly targets boilerplate drift: a causal chain written generically enough to describe many different disasters in the corpus equally well, rather than one grounded in what actually happened. Sampling across many disasters rather than judging in isolation prevents a handful of carefully written records from masking a majority of generic ones."
+    }
+  }
+}

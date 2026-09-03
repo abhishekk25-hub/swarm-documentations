@@ -1,0 +1,34 @@
+[task]
+name = "swarmbench/2fa60319ba124b409281101e650b0ac3-SWARMBENCH-SPECIALIST-ROUTING-PLANNING-OPERATIONS-SATNOGS-BAD-RATED-OBSERVATION-RECOVERY-SCHEDULE"
+description = "Rebuild a defensible make-good schedule for the SatNOGS observations rated bad on the 22 July shift. Eligibility depends on 160 per-station operations notes written in prose, and a station may declare several restrictions at once, so the candidate pool cannot be filtered from the structured snapshot alone. Produce the station declaration register, the optimal constrained schedule, the disposition and constraint-impact ledgers, and an operator handover."
+
+[metadata]
+verifier_type = "executable"
+domain = "planning-operations"
+coordination_pattern = "specialist-routing"
+secondary_classification = ["long_horizon", "long_writing"]
+dag_depth = 6
+dag_width = 25
+human_solving_hours_estimate = 97.0
+human_solving_hours_justification = "Opening each of the 160 station operations notes and extracting every binding declaration it makes, while separating them from the superseded statements carried in the same note, takes about 9 minutes per note for 24h. Auditing the 96 bad-rated recovery cases against the observation snapshot and its normalized station, transmitter and TLE views at 20 minutes each requires 32h. Building and validating candidate relationships, timestamps, frequencies and the station gating rules across the 808-record pool requires 18h. Solving and reconciling the capacitated maximum-cardinality, minimum-delay assignment requires 8h. Producing the four ledgers and the operator handover requires 10h. Cross-artifact and provenance verification requires 5h. Total: 24 + 32 + 18 + 8 + 10 + 5 = 97h."
+estimated_sub_agents = 25
+input_token_estimate = 700000
+why_multi_agent = "Whether a later contact can actually be flown is stated in prose, one note per ground station, across 160 separately-opened notes totalling roughly 84,000 words. There is no fixed wording: each of the 253 declarations is phrased differently, so the set cannot be lifted out with a pattern and every note has to be read to the end -- a station commonly declares two or three restrictions at once, and each note also carries superseded statements (outages that already ended, maintenance that was cancelled, limits that were lifted) that must be told apart from the live ones. That corpus alone is around 113,000 tokens before the 808-record candidate pool, the 96 recovery cases and five interlocking artifacts are considered. Coverage is what degrades first under that load, and a single missed declaration silently changes the eligible set, the released schedule and the ledgers. Splitting the corpus across readers, reconciling their extractions into one register, and only then scheduling is what keeps coverage intact. The decomposition is weighted accordingly: ten of its twenty-five subtasks are note readers covering sixteen stations each, jointly exhaustive over the index, because coverage of that corpus is what decides the answer and is the first thing to degrade when the work is not divided."
+reference_link = [
+  "https://network.satnogs.org/api/observations/",
+  "https://docs.satnogs.org/projects/satnogs-network/en/latest/api.html",
+  "https://db.satnogs.org/api/schema/docs/"
+]
+scoring_design = "Fully deterministic grading in tests/verify.py: no LLM call, no randomness, no wall-clock read and no network access participates in scoring. The station declaration set is the one value that cannot be recomputed from the shipped snapshot, because the notes carry no fixed vocabulary; it is held frozen in tests/station_declarations.json together with the sentence evidencing each declaration, and that file never enters the agent image. The frozen set scores only what it can settle: four checks measure extraction quality against it (declaration recall, precision, detail and quote fidelity). Every derivational check is re-based on the constraints the agent itself declared, so baseline eligibility, per-candidate blocking, the capacitated maximum-cardinality minimum-delay optimum, dispositions, the impact ledger and all control totals are recomputed at grading time from the agent's own stated basis. An agent that reads an ambiguous note differently is therefore marked on whether its schedule follows from its own reading, and roughly one sixth of total reward rests on the frozen key. Page citations resolve against the real PDF, and the cited page number is excluded from the terms that can corroborate the citation. The min-cost-flow solver is standard library, so the grader adds no dependency to the agent image. Checks carry equal weight inside three buckets, bucket scores are plain means, and the reward is the house blend (static + 2*reward_hacking + 3*partial_oracle)/6. Structural checks sit in the smallest bucket at one sixth of the reward. Easy uniformly-passed properties are held as single checks rather than split into several, so the substance the buckets exist to measure is not diluted. No caps, floors, multipliers, mode branches or early scoring gates."
+
+[agent]
+timeout_sec = 9000
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 900
+network_enabled = false

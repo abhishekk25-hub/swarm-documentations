@@ -1,0 +1,474 @@
+﻿AgentSwarmBench - Common Issues Report
+Review Period: 11th May - 15th May 2025
+All Hands Call - Team Review
+________________
+
+
+Table of Contents
+1. Overview
+2. Issue Categories at a Glance
+3. Detailed Issues
+   3.1  Schema Mismatch in Oracle/Judge Output
+   3.2  LLM Judge Fallback to Weak Deterministic Checks
+   3.3  Verifier Accepts Unparsed LLM Judge Response
+   3.4  Answer Leakage in Agent-Facing Files
+   3.5  Verifier Version Mismatch Between Runs
+   3.6  Process Caps Used for Reward Hacking
+   3.7  Solution/Diff Leakage via Dockerfile
+   3.8  Task File and Instruction Sync Issues
+   3.9  Test Case Count Mismatch Between Agent and Oracle Runs
+   3.10 Altering Execution Logs
+   3.11 Copying Task Files Inside Dockerfile
+   3.12 Instruction Giving Extra Points for Multi Agent
+   3.13 Verifier Scoring Bug: Reward Exceeds 1.0
+   3.14 Single Agent Timed Out But Received Reward 1.0
+   3.15 Task Does Not Exist in the Drive
+   3.16 Stale Quality Gate Report
+4. Quick Reference: Do's and Don'ts
+5. Action Items
+________________
+
+
+1. Overview
+This document summarizes the common issues identified during the Multi-Agent Swarm review cycle from 11th May to 15th May 2025. These issues were found by reviewers across multiple task submissions and represent recurring patterns that need to be addressed by all trainers and contributors.
+The purpose of this document is to ensure every team member understands these issues, knows why they are problematic, and knows exactly how to avoid them going forward. Each issue includes the root cause, the fix, and where applicable, a visual reference.
+2. Issue Categories at a Glance
+The issues fall into four broad categories:
+Category
+	Issues
+	Severity
+	Judge & Verifier Integrity
+	3.1, 3.2, 3.3, 3.5, 3.13
+	High
+	Data Leakage & Reward Hacking
+	3.4, 3.6, 3.7, 3.11, 3.12, 3.14
+	Critical
+	Process & Sync Errors
+	3.8, 3.9, 3.10
+	Medium - High
+	Submission & Packaging
+	3.15, 3.16
+	Medium
+	
+
+________________
+
+
+3. Detailed Issues
+Below is a detailed breakdown of each issue found during the review period. For each issue, we describe what was found, why it happened, and how to fix it.
+
+
+Issue 3.1: Schema Mismatch in Oracle/Judge Output
+Identified by: Aditya Somani   |   Task ID: c781ef60...SWARMBENCH-FANOUT-DATAANALYSIS-FINANCIALDATASET
+What Was Found
+The committed instruction/oracle/judge expects nested JSON with fields like "coverage" and "utility_assessment", but the recorded oracle and multi logs use old flat keys such as "bureau_coverage". The logged 1.0 scores are not reproducible with the current judge.
+Root Cause
+Oracle, single, and multi logs were generated with an earlier schema version and were not regenerated after the judge was updated to expect nested keys.
+How to Fix
+Regenerate oracle, single, and multi logs from the final package. Ensure output.json uses the nested schema and judge_justification reflects the current judge logic.
+
+
+  
+
+Figure: instruction.md expects nested "coverage" + "utility_assessment" keys, but logged multi output uses old flat keys like "bureau_coverage". The judge_justification scored 1.0 against the old schema, which is not reproducible with the current judge.
+
+
+
+
+
+
+Issue 3.2: LLM Judge Fallback to Weak Deterministic Checks
+Identified by: Aditya Somani   |   Task ID: 5d827aae...SWARMBENCH-FANOUT-KNOWLEDGE-RESEARCH-QUANTUM-ERROR-AUDIT
+What Was Found
+The LLM judge failed and fell back to weak deterministic checks. The reported multi score was therefore not reliable.
+Root Cause
+Fireworks returned a model 404 for the configured judge model, and judge.py fell back to structural checks that did not fully validate scientific claim correctness.
+How to Fix
+Fix the judge model identifier/API availability. Remove or strengthen weak fallback behavior. Then rerun oracle/single/multi evaluations.
+
+
+  
+
+Figure: judge.py calls Fireworks model which returns 404 three times, then falls back to deterministic synthesis checks. The verifier stdout shows "Model not found" errors, yet the final justification still awards Scaling Wall: PASS and Highest Performer: PASS, producing a score of 0.9313 not backed by a successful LLM judge call.
+
+
+
+
+
+
+Issue 3.3: Verifier Accepts Unparsed LLM Judge Response
+Identified by: Aditya Somani   |   Task ID: c8e3a1d2...SWARMBENCH-FANOUT-KNOWLEDGE-RESEARCH-ESTIMATOR-RL-LLM-DEEP-AUDIT
+What Was Found
+The structural LLM judge produced an unparsed response, but the verifier logic default-accepted it. This is risky because malformed judge output can silently become a passing check.
+Root Cause
+The verifier did not enforce strict parsing of the judge response. When the LLM judge returned a non-standard format, the verifier treated it as a pass by default.
+How to Fix
+Require strict parseable YES/NO or JSON from the LLM judge. If parsing fails, fail that check or rerun the judge instead of default-accepting.
+
+
+  
+
+Figure: The verifier docstring says unparsed verdicts default to pass. Line 187 shows "return 1" for unparsed responses. The logged multi run shows "llm_judge:unparsed_verdict_default_accept:'THE USER WANTS ME TO ACT AS A'" - a malformed judge output that was counted as a passing check instead of a failure.
+
+
+
+
+
+
+Issue 3.4: Answer Leakage in Agent-Facing Files
+Identified by: Aditya Somani, Erdenesuren Bayaraa   |   Task ID: 9c29d224...SWARMBENCH-FANOUT-REASONING-MATH-OMO-WINTER-FALL-2013
+What Was Found
+This issue manifests in two ways:
+
+A) Oracle answers leaked in instruction.md: The agent-facing instruction.md file exposed real answer values. Since both single and multi agents can read the instruction, the benchmark could be solved by simply copying answers rather than reasoning.
+
+B) Decomposition giving answers to multi-agent sub-tasks: The decomposition.yaml file gives away oracle answer labels to sub-agents. For example, a sub-agent for "Response E" is told to find "wrong_base_case" and "truncated_or_short_string", which are exactly the labels in oracle.json. Sub-agents just copy their hints while the single agent works from scratch, so the gap measures who got the answers in advance, not who is better at the task.
+Root Cause
+A) Real answer values were included in instruction examples or prompts visible to the agent.
+
+B) Decomposition sub-task descriptions contained answer-specific labels instead of generic task descriptions, giving multi-agent an unfair advantage.
+How to Fix
+1. Remove all real answer values from instruction.md examples and prompts. Use placeholders only (e.g., "<YOUR_ANSWER_HERE>"). Then rerun all logs.
+
+2. decomposition.yaml must not mention answer-specific labels for any response. Each sub-task description should be generic and identical in structure - for example "audit Response E for calculation errors, unjustified steps, and format issues".
+
+
+  
+
+Figure A: instruction.md contains real answer values (e.g., OMO-W13-P01: 0, OMO-W13-P02: 2, OMO-F13-P30: 847) which match tests/oracle.json exactly. Agent-visible prompts should use placeholders, not real oracle values.
+
+
+  
+
+Figure B: decomposition.yaml tells each sub-agent which specific failure-code labels to find (e.g., "wrong_base_case", "truncated_or_short_string"), which are exactly the oracle answer labels. This gives multi-agent privileged guidance that single-agent does not have.
+
+
+
+
+
+
+Issue 3.5: Verifier Version Mismatch Between Runs
+Identified by: Aditya Somani, Erdenesuren Bayaraa
+What Was Found
+This issue manifests in two ways:
+
+A) Verifier check-count mismatch: The verifier reported 15 checks in one run and 13 in another, meaning the two agent evaluations used different verifier versions.
+
+B) Agents run against old verifiers: The agents were run against an old version of the verifier with 28 checks, but the packaged verifier has 36 checks. The scores in the execution logs were produced by a different verifier than the one being submitted, so the recorded gap cannot be trusted.
+Root Cause
+The test script / verifier was modified between runs, so oracle, single, and multi evaluations were not comparable. In some cases, agents were evaluated with an old verifier version while a newer one was packaged for submission.
+How to Fix
+Freeze the verifier before running oracle/single/multi. All three runs must use the exact same test.sh / verify.py - no modifications between runs. Rerun all three agents against the final packaged verifier so scores and the verifier are from the same version.
+
+
+  
+
+Figure: Oracle used the current 15-check verifier (15/15 passed, Reward: 1.0), while single/multi were recorded with an older 13-check verifier (10/13 and 13/13 passed). The root cause is that verify.py was updated between runs - the current version has 15 checks including stream_with_context and blueprint checks, while the old version had only 13. The single agent's reward.txt shows 0 despite 10/13 visible passes because the old logs had no Reward: line.
+
+
+
+
+
+
+Issue 3.6: Process Caps Used for Reward Hacking
+Identified by: Shaik Mohammad Feroz
+What Was Found
+Process caps and process fail caps were used in judge.py to manufacture an artificial gap between single and multi agent scores. The actual run that would produce a genuine gap never happened.
+Root Cause
+Trainers exploited process cap and process fail cap parameters in judge.py to manipulate scores and create artificial performance differences.
+How to Fix
+No process caps should be used. Single and multi runs must be executed genuinely to produce an authentic gap. Any artificial score manipulation is unacceptable.
+
+
+  
+
+Figure A: judge.py code showing final_reward = min(quality_score, process_cap) - the process cap artificially limits the reward regardless of actual quality.
+
+
+  
+
+Figure B: PROCESS_FAIL_CAP = 0.2 is applied as a ceiling on single-agent / non-delegating runs, while PROCESS_PARTIAL_CAP penalizes runs with coordination violations. These caps manufacture artificial gaps between single and multi agent scores.
+
+
+
+
+
+
+Issue 3.7: Solution/Diff Leakage via Dockerfile
+Identified by: Shaik Mohammad Feroz, Estifanos Gashawtena   |   Task ID: f34ddb32...SWARMBENCH-MAPREDUCE-CODESWE-POETRY-DECABUG
+What Was Found
+This issue manifests in two ways:
+
+A) Copying solution diffs into the environment: The environment/Dockerfile copies diffs into /tmp/diffs during build, and environment/diffs contains the same upstream fix diffs as solution/diffs. SHA-256 hash comparison confirmed each corresponding pair is byte-identical. This means the solution patches are accessible to the agent inside the Docker image.
+
+B) Applying the diff patch inside the Dockerfile: For CODE/SWE tasks, some trainers apply the diff patch directly inside the Dockerfile. This means agents can pass all test cases without modifying anything, as the solution is already applied in the environment.
+Root Cause
+A) The image build process reused solution patch files as build context material. Iterations carried artifacts forward into the Docker image.
+
+B) The diff patch (which is the solution) was applied during the Docker image build stage rather than in the solve script.
+How to Fix
+1. Never copy solution diffs, patches, or temp files into the environment Dockerfile. Keep iterations fresh with every Docker image build and clean up all artifacts before building.
+
+2. Apply diff patches only inside solve.sh, never inside the Dockerfile. The Dockerfile should only set up the environment, not apply any solution.
+
+
+  
+
+Figure: Dockerfile applies the solution diff inline via a heredoc (RUN cat > /tmp/make-broken.diff). The diff patch is embedded directly in the Dockerfile build, meaning the fix is already applied in the environment before any agent runs.
+
+
+
+
+
+
+Issue 3.8: Task File and Instruction Sync Issues
+Identified by: Shaik Mohammad Feroz, Aladdin Mostafa   |   Task ID: 6c95be44...SWARMBENCH
+What Was Found
+This issue manifests in two ways:
+
+A) Instruction.md and decomposition files out of sync: The decomposition instructions deviate significantly from instruction.md, causing errors and inconsistencies.
+
+B) instruction.md conflicts with execution logs: The task was edited after logs were generated, or oracle/single/multi were run from different task snapshots, meaning the instruction.md in the package does not match what the agents actually saw during execution.
+Root Cause
+A) Trainers modified decomposition files to achieve the gap without keeping them aligned with instruction.md.
+
+B) Task files were edited after execution logs were generated, creating a mismatch between the submitted package and the actual agent runs.
+How to Fix
+1. Ensure synchronization between all files. The decomposition.yaml must align with instruction.md and the overall problem statement at all times.
+
+2. Freeze the final task files and rerun oracle, single, multi after any edits. Never submit a package where instruction.md differs from what agents actually used.
+
+
+[ Screenshot for Issue 3.8: Task File and Instruction Sync Issues — Insert Image Here ]
+	
+
+
+
+
+
+Issue 3.9: Test Case Count Mismatch Between Agent and Oracle Runs
+Identified by: Estifanos Gashawtena   |   Task ID: 6cecf00a...SWARMBENCH-FANOUT-CODESWE-FLASK-JEROBOAM-PYDANTIC-MIGRATION
+What Was Found
+The number of test cases executed during the agent run did not match the number executed during the oracle run, making scores incomparable. For example, oracle ran 290 tests while single agent ran 254 and multi agent ran 255.
+Root Cause
+Trainers forgot to rerun the oracle solution (or the agents) after making changes to the test cases.
+How to Fix
+After any test case change, rerun both the oracle solution and the agent evaluations with the latest test cases. Always verify test counts match.
+
+
+  
+
+Figure A: Single agent run - 254 total tests (252 passed, 2 failed), Reward: 0.4961
+
+
+  
+
+Figure B: Oracle run - 290 total tests (290 passed, 0 failed), Reward: 1.0. Note: 290 tests vs 254 for single agent - the test counts do not match.
+
+
+  
+
+Figure C: Multi agent run - 255 total tests (255 passed, 0 errors), Reward: 1.0. Again a different test count from the oracle's 290 tests.
+
+
+
+
+
+
+Issue 3.10: Altering Execution Logs
+Identified by: Estifanos Gashawtena   |   Task ID: a3f9c7e2...SWARMBENCH-MAPREDUCE-RESEARCH-WATER-SECURITY-RIVER-BASIN-CRISIS
+What Was Found
+Some trainers modified execution log files (kimi.txt, trajectory.json, and result.json), which is unacceptable. Execution logs must reflect actual agent behavior.
+Root Cause
+Trainers manually edited log files to make results appear different from the actual agent execution.
+How to Fix
+Never modify anything inside the execution logs folder. Copy execution logs exactly as they are produced by the system. Any tampering with logs is strictly prohibited.
+
+
+  
+
+Figure: Execution logs folder showing kimi-cli.txt, trajectory.json, and result.json files under multi-kimi-agent. These files must be copied as-is from the actual agent run and never manually edited.
+
+
+
+
+
+
+Issue 3.11: Copying Task Files Inside Dockerfile
+Identified by: Estifanos Gashawtena   |   Task ID: a3f9c7e2...SWARMBENCH-MAPREDUCE-RESEARCH-WATER-SECURITY-RIVER-BASIN-CRISIS
+What Was Found
+Some trainers copy instruction.md, task.toml, solve.sh, and decomposition.yaml files inside the Dockerfile. This is unacceptable because copying these files is handled by the harbor harness and doing it manually may give an unfair advantage to agents.
+Root Cause
+Trainers added COPY commands for task configuration files in the Dockerfile, bypassing the standard harbor harness process.
+How to Fix
+Do not copy instruction.md, task.toml, solve.sh, or decomposition.yaml inside the Dockerfile. Let the harbor harness handle these files as designed.
+
+
+  
+
+Figure: Dockerfile with COPY commands for instruction.md, task.toml, and decomposition.yaml (lines 9-11). These files are handled by the harbor harness and must not be copied manually inside the Dockerfile.
+
+
+
+
+
+
+Issue 3.12: Instruction Giving Extra Points for Multi Agent
+Identified by: Erdenesuren Bayaraa
+What Was Found
+The verifier is rewarding how the task was run rather than how well it was solved. It gives bonus points when it detects multi-agent trajectory markers and deducts points when those markers are absent. This means a single agent that produces a perfect answer still gets penalized simply because it ran alone.
+Root Cause
+The instruction and verifier included mode-dependent scoring adjustments (e.g., +40 points for multi-agent coordination evidence, -45 if absent), which biases the evaluation in favor of multi-agent runs regardless of output quality.
+How to Fix
+The instruction must describe only the task - what to compute, what inputs to use, what schema to produce - with no mention of sub-agents, trajectory files, or score adjustments. The verifier must score only the quality of the output file against the oracle, never reading trajectory data or applying mode-dependent bonuses or penalties.
+
+
+  
+
+Figure: The verifier adds +40 points (out of 100) under "coordination_evidence_adjustment" when multi-agent trajectory markers are detected, and subtracts -45 points when they are absent. This mode-dependent scoring biases results regardless of output quality.
+
+
+
+
+
+
+Issue 3.13: Verifier Scoring Bug: Reward Exceeds 1.0
+Identified by: Erdenesuren Bayaraa
+What Was Found
+The verifier can be gamed by repetition. An agent that submits the same correct answer multiple times gets credit for each duplicate instead of just once, and because there is no cap, the total score can go above 1.0. This means an agent does not need to actually solve the task - it just needs to figure out one correct entry and repeat it.
+Root Cause
+The verifier loops over every entry the agent submits and awards a point for each correct one, with no check for duplicate ranks. There is no min(..., 1.0) clamp, so if total_pts exceeds total_max due to duplicates, the score goes above 1.0.
+How to Fix
+The verifier should only count each unique entry once and the final reward must never exceed 1.0 regardless of how many points were accumulated.
+
+
+  
+
+Figure: The verifier loops over every entry and awards pts += 1 for each correct one with no duplicate check. The final score = round(total_pts / total_max, 4) has no min(..., 1.0) clamp, so submitting the same correct rank 20 times scores 20 points for a single rank, pushing the score above 1.0.
+
+
+
+
+
+
+Issue 3.14: Single Agent Timed Out But Received Reward 1.0
+Identified by: Aladdin Mostafa   |   Task ID: 8d15acd3...SWARMBENCH
+What Was Found
+The single agent timed out but still received a reward of 1.0, making the swarm gap invalid. The single agent had already reached a verifier-passing state before the timeout occurred.
+Root Cause
+The task/verifier was not sufficiently challenging for the single agent. Even though it timed out, the work done before timeout was enough to pass all checks.
+How to Fix
+Redesign or strengthen the task/verifier so that single-agent scores remain below multi-agent scores. The task difficulty should genuinely require multi-agent coordination to achieve a high score.
+
+
+[ Screenshot for Issue 3.14: Single Agent Timed Out But Received Reward 1.0 — Insert Image Here ]
+	
+
+
+
+
+
+Issue 3.15: Task Does Not Exist in the Drive
+Identified by: Aladdin Mostafa
+What Was Found
+The provided link or manifest points to a missing or inaccessible task package.
+Root Cause
+The task package was either not uploaded, was removed, or the link/reference was incorrect.
+How to Fix
+Reupload or relink the correct task package. Verify the link is accessible before submission.
+
+
+[ Screenshot for Issue 3.15: Task Does Not Exist in the Drive — Insert Image Here ]
+	
+
+
+
+
+
+Issue 3.16: Stale Quality Gate Report
+Identified by: Aladdin Mostafa   |   Task ID: ac84d9f0...SWARMBENCH
+What Was Found
+The attached Quality Gate (QG) approval is dated from an older task revision and describes a previous version of the task, not the current one.
+Root Cause
+The task was revised after the QG approval was obtained, but the old QG report was submitted with the new task version.
+How to Fix
+Attach the current non-approved QG report or rerun the Quality Gate after fixing verifier alignment and other issues. Never reuse an old QG approval for a revised task.
+
+
+[ Screenshot for Issue 3.16: Stale Quality Gate Report — Insert Image Here ]
+	
+
+________________
+
+
+4. Quick Reference: Do's and Don'ts
+Don'ts
+* Do NOT include real answer values in instruction.md - use placeholders only.
+* Do NOT include answer-specific labels in decomposition.yaml - keep sub-task descriptions generic.
+* Do NOT apply diff patches inside the Dockerfile - apply them only in solve.sh.
+* Do NOT copy instruction.md, task.toml, solve.sh, or decomposition.yaml inside the Dockerfile.
+* Do NOT modify execution logs (kimi.txt, trajectory.json, result.json) - copy them as-is.
+* Do NOT use process caps or process fail caps to manufacture artificial score gaps.
+* Do NOT modify test.sh or verify.py between oracle, single, and multi runs.
+* Do NOT carry solution artifacts (diffs, patches, temp files) into the environment Docker image.
+* Do NOT allow the LLM judge to default-accept unparsed or malformed responses.
+* Do NOT add mode-dependent scoring (multi-agent bonuses / single-agent penalties) in the verifier.
+* Do NOT allow the verifier to produce scores above 1.0 via duplicate entries.
+* Do NOT submit stale Quality Gate reports from older task revisions.
+* Do NOT edit task files after generating execution logs without rerunning everything.
+Do's
+* DO regenerate all logs (oracle, single, multi) from the final package after any schema change.
+* DO freeze the verifier (test.sh / verify.py) before running all three evaluation runs.
+* DO verify that test case counts match between oracle and agent runs.
+* DO keep decomposition.yaml synchronized with instruction.md and the problem statement.
+* DO ensure the judge model identifier and API are working before running evaluations.
+* DO require strict YES/NO or valid JSON from the LLM judge - fail on parse errors.
+* DO run single and multi agents genuinely to get authentic performance gaps.
+* DO clean up all temporary and solution files from Docker build context before building.
+* DO ensure the verifier scores only output quality, not agent mode or trajectory markers.
+* DO clamp verifier scores to a maximum of 1.0 and deduplicate entries before scoring.
+* DO verify your task package link is accessible before submission.
+* DO rerun Quality Gate after any task revision.
+________________
+
+
+5. Action Items
+The following action items should be completed to prevent these issues from recurring:
+#
+	Owner
+	Action Item
+	1
+	All Trainers
+	Review this document thoroughly and ensure your current and future submissions are free of all listed issues.
+	2
+	All Trainers
+	Rerun oracle/single/multi logs if any of the above issues apply to your existing tasks.
+	3
+	All Trainers
+	Verify Dockerfiles do not contain solution diffs, task files, or applied patches.
+	4
+	All Trainers
+	Ensure decomposition.yaml uses generic sub-task descriptions with no answer-specific labels.
+	5
+	All Trainers
+	Verify task package links are accessible and QG reports match the current task revision.
+	6
+	Reviewers
+	Add explicit checks for each of these issues to the review checklist.
+	7
+	Team Leads
+	Conduct spot-checks on recent submissions for process cap usage and log tampering.
+	8
+	Infrastructure
+	Strengthen judge.py to reject unparsed responses and remove weak fallback behavior.
+	9
+	Infrastructure
+	Add automated validation to detect answer leakage in instruction.md and decomposition.yaml files.
+	10
+	Infrastructure
+	Enforce score clamping (max 1.0) and duplicate-entry deduplication in all verifiers.
+	
+
+
+
+Please reach out to the review team if you have questions about any of the above issues.

@@ -1,0 +1,635 @@
+﻿✍️ Quick notes
+Onboarding for MAS 2.0
+
+
+Jul 20, 2026
+
+
+Muhammad Mamdouh Nikhil Meda Tumbo Lobi John Sridaran Sridaran Mohammad Feroz Saksham Jain Srisabari S Anjali Laishram Karthick E Palani Selvam Logesh Logesh S G Mathavan Ramesh Kumar K Aladdin Mostafa Naveen Naveen Ruturaj Solanki Estifanos Gashawtena vaibhav.a1@turing.com Atif Shoaib Abhishek Kathirasan Vinodkumar Baste Yousef el Khawaga Satish Bogala jitendra.m2@turing.com Hansen Osei-korasare Job Owonubi Mohammad Feroz Shaik Olusegun Olayinka Bright Amidiagbe Aditya Somani Kiran Vignesh K Benaiah Yusuf Segun Oni Asma Abhishek Garg Alex Alex Brian Kiboi Henok Kebede Magra Logeshwaran Logeshwaran Lokesh Kanagaraj Prasanth K Tejas Girase Vivek Verma Zite Onwuekweikpe Kuldeep Singh Tanwar
+
+
+Meeting content covered scaled production batch requirements and improved verification logic via enhanced rubric implementation.
+
+
+Verifier Design and Strategy
+* Transition to multi-dimensional verifiers combining structural checks, partial oracle validation, and anti-reward-hacking mechanisms.
+* Target 20-50% multi-agent success rate and significantly lower single-agent success rate to improve evaluation utility.
+* Utilize partial oracle solutions by verifying random data subsets to ground LLM outputs without requiring comprehensive golden oracles for all tasks.
+* Prevent false failures by ensuring agents consistently generate output files within designated directory structures.
+
+
+Technical Implementation Standards
+* Mandate folder architecture placing inputs in environment/input_artifacts and outputs in logs/agent.
+* Standardize all verifier scripts to the filename verify.py.
+* Require rubric_manifest.json in the root folder, detailing test logic in natural language.
+* Modularize LLM judge logic into multiple parallel API calls to reduce hallucinations and improve objectivity.
+
+
+Task Quality and Metadata
+* Select newer or obscure data sources to prevent contamination from LLM training sets.
+* Prohibit rubric weightages; assign equal weights to each component to align with client pipeline requirements.
+* Update task TOML metadata only after gathering execution logs to ensure alignment with trajectory data.
+* Generate 100 new tasks, initiating with a 50-task batch in the labeling tool.
+
+
+Operational Updates
+* Shift operational environment to cloud service log access and centralized labeling tool submissions to prevent file editing conflicts.
+
+
+Documentation and workflow updates
+* Agent locks documentation update finalized and PDF pushed.
+* Labeling tool task completion targeted by end of day.
+* Meeting recording distribution pending file processing.
+
+
+Rework submission strategy
+* Previous rework submissions retained if aligned with client requirements.
+* Minor updates and robust verification proposed for rework implementation.
+* Q&A channel available for questions post-document review.
+
+
+Next steps
+* [The group] Update Input Structure: Update the task file and verifier to follow the new normalized structure where all input files are placed in the environment input artifacts folder.
+* [The group] Standardize Output Path: Configure the verifier to check the output files within the logs agent path to ensure agent output locations are consistent.
+* [The group] Create Rubrics File: Create a rubrics file in the root folder using a natural language format that describes the checks implemented in the verify py file.
+* [The group] Standardize Verifier: Use the verify py filename and consolidate both deterministic and LLM judge checks within this single file.
+* [The group] Implement Partial Oracles: Compute partial oracle solutions for tasks by manually verifying a subset of data and using it as a reference for remaining sources to prevent reward hacking.
+* [The group] Remove Rubric Weightages: Ensure task rubrics do not include weightages and instead assign equal weight to each component check to align with client pipeline requirements.
+* [The group] Modularize LLM Judges: Split LLM judge logic into multiple modular API calls instead of a single massive call to avoid hallucinations and improve objectivity.
+* [The group] Update Metadata: Update the task toml metadata only after collecting execution logs and ensure depth and width values match the multi-agent trajectory data.
+* [Ruturaj Solanki] Share Reference Examples: Share an example of a partial oracle and the accepted verifier format with the team.
+* [S G Mathavan] Share Operational Instructions: Post instructions for setting up the new environment for accessing execution logs via cloud service and the process for uploading tasks via the labeling tool.
+* [S G Mathavan] Add static checker: Add static checker option to the quality gate to combine executable and LLM judge verifiers.
+* [S G Mathavan] Clarify requirements: Post a message clarifying the new requirements for any team members who are unclear.
+* [Ruturaj Solanki] Share meeting assets: Post the meeting recording and presentation for team access.
+* [Ruturaj Solanki] Create labeling batch: Create a new batch in the labeling tool with pre-filled prompts for 50 tasks.
+* [Ruturaj Solanki] Generate tasks: Generate 100 new tasks based on the updated requirements.
+
+
+
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📝 Full notes
+Jul 20, 2026
+Onboarding for MAS 2.0
+Invited Muhammad Mamdouh Nikhil Meda Tumbo Lobi John Sridaran Sridaran Mohammad Feroz Saksham Jain Srisabari S Anjali Laishram Karthick E Palani Selvam Logesh Logesh S G Mathavan Ramesh Kumar K Aladdin Mostafa Naveen Naveen Ruturaj Solanki Estifanos Gashawtena vaibhav.a1@turing.com Atif Shoaib Abhishek Kathirasan Vinodkumar Baste Yousef el Khawaga Satish Bogala jitendra.m2@turing.com Hansen Osei-korasare Job Owonubi Mohammad Feroz Shaik Olusegun Olayinka Bright Amidiagbe Aditya Somani Kiran Vignesh K Benaiah Yusuf Segun Oni Asma Abhishek Garg Alex Alex Brian Kiboi Henok Kebede Magra Logeshwaran Logeshwaran Lokesh Kanagaraj Prasanth K Tejas Girase Vivek Verma Zite Onwuekweikpe Kuldeep Singh Tanwar
+Attachments Onboarding for MAS 2.0
+Meeting records Transcript (Some recordings unavailable)
+
+
+
+
+Summary
+Meeting content covered scaled production batch requirements and improved verification logic via enhanced rubric implementation.
+
+Scaling Production And Verification
+Production batches require moving beyond structural checks to verify semantic accuracy. Integrating Large Language Model judges helps prevent reward hacking and ensures output quality.
+
+Implementing Robust Rubric Logic
+Requirements mandate detailed rubric manifest files and standardized verification scripts. Trainers must use partial oracle checks to maintain data integrity and prioritize correctness over surface-level structures.
+
+Optimizing Task Difficulty Standards
+Successful task generation targets a 20 to 50 percent success rate for multi-agent systems. Recent data sources prevent bias while optimizing verifier efficiency through random sampling.
+
+
+
+
+Next steps
+* [The group] Update Input Structure: Update the task file and verifier to follow the new normalized structure where all input files are placed in the environment input artifacts folder.
+* [The group] Standardize Output Path: Configure the verifier to check the output files within the logs agent path to ensure agent output locations are consistent.
+* [The group] Create Rubrics File: Create a rubrics file in the root folder using a natural language format that describes the checks implemented in the verify py file.
+* [The group] Standardize Verifier: Use the verify py filename and consolidate both deterministic and LLM judge checks within this single file.
+* [The group] Implement Partial Oracles: Compute partial oracle solutions for tasks by manually verifying a subset of data and using it as a reference for remaining sources to prevent reward hacking.
+* [The group] Remove Rubric Weightages: Ensure task rubrics do not include weightages and instead assign equal weight to each component check to align with client pipeline requirements.
+* [The group] Modularize LLM Judges: Split LLM judge logic into multiple modular API calls instead of a single massive call to avoid hallucinations and improve objectivity.
+* [The group] Update Metadata: Update the task toml metadata only after collecting execution logs and ensure depth and width values match the multi-agent trajectory data.
+* [Ruturaj Solanki] Share Reference Examples: Share an example of a partial oracle and the accepted verifier format with the team.
+* [S G Mathavan] Share Operational Instructions: Post instructions for setting up the new environment for accessing execution logs via cloud service and the process for uploading tasks via the labeling tool.
+* [S G Mathavan] Add static checker: Add static checker option to the quality gate to combine executable and LLM judge verifiers.
+* [S G Mathavan] Clarify requirements: Post a message clarifying the new requirements for any team members who are unclear.
+* [Ruturaj Solanki] Share meeting assets: Post the meeting recording and presentation for team access.
+* [Ruturaj Solanki] Create labeling batch: Create a new batch in the labeling tool with pre-filled prompts for 50 tasks.
+* [Ruturaj Solanki] Generate tasks: Generate 100 new tasks based on the updated requirements.
+
+
+
+
+Details
+Did the screenshots in this section make your notes better or worse?
+* Project Scaling and Result Accuracy: Ruturaj Solanki noted that the client appreciated the creativity shown in Phase 2 tasks and requested to move forward with a production batch (00:08:53). The team is shifting from creating short, simple tasks to scaling them up significantly, which has highlighted deficiencies in current result verification methods (00:11:43).
+  
+
+* Moving Beyond Structural Checks: There is a requirement to move beyond simple structural checks—which only confirm file existence—to verifying the actual correctness of the solution produced by agents (00:12:45) (00:14:59). This transition aims to mitigate reward hacking, where agents generate structurally valid files that lack substantive accuracy (00:13:49).
+  
+
+* Output Path Normalization: The team must now normalize output paths within the docker container, as incorrect file placement has previously led to false failures. Agents must generate deliverables in designated directories, and verifiers must be aligned to check these specific locations (00:16:15).
+  
+
+* Rubric Implementation: A new requirement includes creating a `rubric_manifest.json` file, which translates verification logic into human-readable, natural language checks (00:17:16). Rubrics should be detailed and explanatory rather than simple checklists, clearly describing what needs to be verified (00:19:34).
+  
+
+* Combining Deterministic and LLM Checks: Verifiers must combine deterministic static checks with LLM-as-a-judge assessments to ensure both structural integrity and semantic correctness (00:20:56). To ensure consistency, all verifiers must be standardized using the filename `verify.py` (00:22:10).
+  
+
+* Mitigating Reward Hacking with Partial Oracles: To prevent agents from fabricating plausible but incorrect data, trainers must implement partial oracle solutions (00:23:21). By manually verifying a small subset of the data (e.g., 20 out of 100 sources), trainers can establish a reliable reference point to evaluate the remaining data (00:24:17).
+* Holistic Solution Quality: Designers must ensure that checks verify every step of the task, ensuring that decisions are valuable and that evidence cited in the output is supported by actual content analysis rather than just surface-level structures (00:26:36).
+  
+
+* Targeting Task Difficulty and Scoring: The client requires tasks where the multi-agent system struggles, targeting a success rate between 20% and 50% (00:29:02). Simultaneously, the single agent should struggle significantly, with success rates near 10%, ensuring the data is suitable for evaluation purposes (00:30:11).
+  
+
+* Rich Verifiers for Complex Data: S G Mathavan emphasized the need for EVAL-type data that maintains a 50-point performance gap between multi-agent and single-agent systems (00:31:18). Trainers should utilize random partial oracle checks to maintain robustness, as creating golden oracles for large-scale tasks is not feasible (00:32:23).
+* Designing Robust Verifiers: Trainers must avoid relying solely on structural checks to prevent rejection (00:35:03). Verifiers must incorporate structural, partial oracle, and reward hacking checks to ensure the agent is not manipulating the system to gain rewards without performing actual analysis (00:36:16).
+* Distinguishing Valid Failures: When assessing performance, trainers must distinguish between invalid failures—such as timeouts or cognitive load issues—and genuine failures in agent logic, ensuring scoring remains fair (00:38:19).
+* Optimizing Verifier Efficiency: To maintain efficiency, trainers should avoid sending entire datasets to the LLM judge. Instead, they should send random samples or specific artifacts, combining these LLM checks with deterministic static checks for a comprehensive approach (00:40:59).
+  
+
+* Utilizing Novel Sources: To avoid bias from pre-trained model knowledge, tasks should utilize newer, less commonly referenced data, such as recent book editions or content published within the last few months (00:42:04). Trainers must also explicitly provide the agent with the path to input artifacts to prevent unnecessary internet browsing (00:44:14).
+  
+
+* Decomposition File Standards: The `decomposition.py` file must contain only setup instructions for spawning agents and should not include hints, leaks, or summaries that might guide the agent to the answer (00:45:31). Trainers can use agents to audit their own verifiers for reward hacking vulnerabilities (00:46:38).
+* Task Submission Requirements: Successful task submission requires three primary components: a robust `verify.py`, a `rubric_manifest.json`, and proper configuration of output paths to `logs/agent` (00:48:59).
+  
+
+* Avoiding Subjective Rejections: S G Mathavan advised against using rubric weightages, as they lead to subjective rejections; instead, components should be weighted equally (00:51:26). Furthermore, trainers should avoid dumping all rubrics into a single API call for the LLM judge, as this leads to hallucinations; instead, multiple or parallel API calls should be used (00:52:44).
+* Metadata and Logging Standards: The `task.toml` metadata file should be generated only after execution logs are collected. This metadata must reflect the specific performance observed during the multi-agent trajectory (00:53:48).
+* Operational Changes and Tooling: To prevent accidental file overwriting on shared drives, the team will transition to using a central labeling tool for task uploads. Access to API keys will be restricted in favor of cloud service communication (00:56:28).
+* Verification Examples and Manifest Formatting: Ruturaj Solanki provided a walkthrough of partial oracle implementation, where specific samples are manually verified to provide a basis for scoring larger datasets (00:57:56). The `rubric_manifest.json` must include the total number of checks, the function name, a detailed explanation of the logic, and the check's specific purpose (01:01:23).
+* Defining Manifest Logic: The `rubric_manifest.json` must clearly define the weight of each test—which should be set to one—and the agent output path. Trainers must explicitly detail how each function prevents authenticity violations, such as stopping the agent from fabricating fields without actually analyzing the source material (01:02:38).
+* Linear Weighting Approach: Regarding concerns that structural checks might outnumber factual checks, S G Mathavan suggested a linear weighting approach, where structural checks receive lower weight (e.g., 1 point) and more critical reward hacking or oracle checks receive higher weight (e.g., 3 points) to prioritize correctness (01:04:49).
+* Next Steps and Batch Generation: The team will proceed by generating 100 new tasks, beginning with a 50-task pilot batch. Trainers should review the updated guidelines, recordings, and presentations to align with the new requirements (01:07:24).
+* Agent Locks File and Task Status: Ruturaj Solanki updated the team regarding the agent locks file, noting that they have updated the relevant document and pushed the associated PDF. They confirmed that they will share the meeting recording once it is available and committed to completing the task by the end of the day to ensure its availability in the labeling tool (01:08:29).
+  
+
+* Disposition of Previous Work Submissions: S G Mathavan addressed a question raised by Job regarding whether to discard reworks from previous submissions. They advised that if the reworks align with client requirements and only require minor changes, they should not be discarded. They recommended continuing to work on these reworks and submitting them based on the new requirements while utilizing a more robust verifier (01:08:29).
+* Meeting Conclusion and Follow-up Procedures: Acknowledging that the meeting was over the scheduled time, S G Mathavan instructed the team to take another hour to process the new requirements and review the presentation. They encouraged the team to post any remaining questions on the Q&A channel for further support before concluding the meeting (01:08:29).
+
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Jul 20, 2026
+Onboarding for MAS 2.0 - Transcript
+00:08:53
+
+
+Ruturaj Solanki: Hello. Hello guys. Hope you had a good weekend. Uh let's wait for like few minutes as I want to do this joint.
+Segun Oni: Hello.
+S G Mathavan: Hey. Hi everyone. Thanks for joining. Let's wait for the threats to join.
+Ruturaj Solanki: Oh, I'm here.
+S G Mathavan: Oh yeah, please go.
+Ruturaj Solanki: Yeah. Uh, okay. Let me just share my screen. Uh, I hope it's visible, guys.
+S G Mathavan: Yes.
+Ruturaj Solanki: Yeah.
+S G Mathavan: Yes.
+Ruturaj Solanki: Okay. So, uh, welcome, guys. So first of all let me uh tell you that client actually appreciated the creativity part of the task that we delivered uh for the samples that we have delivered till now and they trying us to make minor changes and want to move ahead with the production uh for a small batch with the changes that they have requested. So uh what changed actually from the phase one just a small rec uh so that you can uh remember I mean just get into flow.
+
+
+
+
+00:11:43
+
+
+Ruturaj Solanki: So uh basically at the phase one what we were doing is like we were creating some task that were like not that uh long horizon structured task. So in the phase two what we have done is we have uh basically scaled up the task uh to a huge uh margin. Just a small example like earlier we were using like 10 URLs to scaffolder. Now we are using URLs just like KSK scaling up the task for like 10 times. Now what happened here uh during this phase like the second phase we were missing the oracle runs uh because like uh there was no uh uh concrete way to like uh judge the oracle without like going through the whole uh task. So what was the result? Like the result was uh basically the client wanted like more uh task with a more accurate results like let's say uh what they were like expecting us for like uh what uh to be scored what the model uh basically like outputed to be scored exactly what uh um in a manner that uh we can say
+
+
+
+
+00:12:45
+
+
+Segun Oni: Oops.
+Ruturaj Solanki: how the task was actually done. Well, going forward like there is a small example let's say a task you have submitted a task like task is like complete uh you are getting the gap but on the uh very um eye like let's say on the very base structure you are seeing the task and it feels like the task is good but when you like open the package and you see the task there are like shallow checks basically the structures were like uh let's say um the checks that were rubrics that we were using were Like the file
+Segun Oni: This Just go.
+Ruturaj Solanki: exist, the workbook has expected sheets, the JSON contains the required keys, a chart or a video was produced. So simple this I yes sir uh this example that are like yes and no. What the client actually wanted was to see the correctness of the solution of the what the agent multi- aent produced or the single agent produced. So that's how we were going to like uh we have like score it then again we are risking of the reward hacking.
+
+
+
+
+00:13:49
+
+
+Ruturaj Solanki: So if you following the first case or very first case where you just simply checking the existence of the file or you can say the structure of the file uh you will be like simply hit with the reward hack scenario is uh agent basically created a file and you have a check that this check the file exist or not and you will be able to like um uh agent will be able to like score. So what the client structure wants is to only let the single agent or the multi- aent score if the point is valid. So basically like until and unless the score is like correct I mean uh the uh the answer is correct the output is absolutely um I mean uh done in a correct way or the output is correct then only they will gain a point else they will not gain so uh let's say coming to the um uh checks what are the reward basically like you want to go earlier so uh let's say there is a box and we want to uh basically the deliverable is nothing but the about uh the what the agent has created the out confirm was a requested report codes charts or everything that existed or not that is the very first check that you need to apply.
+
+
+
+
+00:14:59
+
+
+Ruturaj Solanki: So what we did in the uh phase one and two we had only uh we were only having this particular check which are only checking uh for the very base checks. What we what the client actually wanted was to go ahead and check the correctness of the solution instead of just instead of just uh instead of just having the uh what is here the the state checks. So coming to the next the substance basically the substance is nothing but the uh what the file actually contains. Uh we need uh the agent also creates some data into the file uh that it has created. you need to also have a check basically to see if the file the data that we created or generated is accurate or not. Then uh this is uh basically um what the client actually wants. Moving to the uh phase 2.1 uh we have also noticed that let's say you want to give a file let's say an input file to the agent uh people were like using let's um they were like creating some folders in the environment folder and giving the part to the folder uh agent to like go through it I mean the docker and go through this particular part and you will find the input files what the client actually wanted was to uh basically like normalize that structure so now we are going to have
+
+
+
+
+00:16:15
+
+
+Ruturaj Solanki: it as environment and input artifacts. Whatever that you need to uh whatever that you need to basically like go uh basically need to like give to the agent you will be putting it into the input artifact folder. Uh this is the very important point. Now coming to the second most important point what the client actually want for the output uh location. So let's say your agent has created some toys in the docker container wherever it is created. Now we will have to also pass through the structure. Let's say there is a case. I'll start with a simple example. I I I told the agent to create something for me. It did create it but the at the end what happened it it created into another folder where our verifier is not even checking. So basically this is a false failure. We can say all the correctness was correct. I mean the checks was there everything was there but the agent didn't create it where it should have created. So what the client wanted was to pass through a path basically where the file needs to be present and where it needs to be checked.
+
+
+
+
+00:17:16
+
+
+Ruturaj Solanki: So basically this will be the absolute path where the um the where the agent should be creating the files I mean the output files the deliverables. Now coming to the third most important part that is uh new requirement from the client which is basically a rubrics file. Rubrics is nothing but a you can say an uh say the test that you have like implemented in the uh implementing the test the verify that file into a human readable basically natural language uh parts. So I'll give you an example. Uh let me pull up the example. Um these are the these are the package resources. I will come back to this slide again. Let me pull the rubric here. So a rubric is nothing but as I mentioned it is some uh it is kind of a natural language check where the uh where it is uh it is written in a human format what needs to be checked as of how it is called that is what uh the rubric here is so as you can see there are like total 10 checks basically it is nothing but the manifest of the verified py but in a national language so what is the check types the static check one uh what was it basically the the basic here it will be containing the uh let's say uh
+
+
+
+
+00:18:33
+
+
+Ruturaj Solanki: confirm the required package shape coverage, schema presence. Now it will also basically this particular sentence will be returned in the format of a human readable form. Basically uh the agent has to create this particular package. Now it has also has to check for the coverage schemas and artifact presence. If the checks are present, if the files are present, it will get the reward. That is basically how the rubric should be written. We will uh we will be providing an example rubric file as well. the uh as as we move forward coming to this particular uh required uh requirements but as I mentioned the package source should be environment uh input artifacts. The second should be where the agent output should come in the docker container should be in the locks agent wherever whatever file is generated should be in this particular path and your verifiers also should be aligned with this particular path. If not uh the task is going to get presented. Coming to the third part uh third rubric where the rubric will stand.
+
+
+
+
+00:19:34
+
+
+Ruturaj Solanki: Rubrics will be uh basically will be in a folder uh right besides tests or you can say sorry the root folder. Now moving forward to the yes moving forward to the example of the uh rubric. Let's say I just vaguely describe what the rubric and how it should check. Here is a detailed example. let's say check whether this spreadsheet is correct or not. This is the uh uh basically what you wanted to check but the the actual statement or you can see the the natural language that you wanted to write there in the rubric itself would be count the unique record values and compare that count with the total basically it will be an explanatory sentence how a rubric should be like written and don't go with the very uh very small uh like checks or you can say checkbox type of structure what they want is very det detailed or you can see a good amount of lengths that there and how the particular P should be picked and this is how uh it should be treated. Now coming with the uh checker like let's say um basically what they pointed out as well like let's say there is a check uh there are two kind of checks first is a deterministic check and the second one is the analyt what they wanted was to basically have
+
+
+
+
+00:20:56
+
+
+Ruturaj Solanki: a a very good checker that would check the structure that would check the um whole whole the task output files I'm And for the correctness they wanted us to have the LM as a judge as well. Now let's say there is this um basically um example. Let's say all the all 162 ids appear exactly once. This is what I wanted to check. We can simply use a code to check this particular uh particular file of occurrence if the data is occurred for like 160 time. Now what the judge will be doing? The judge will have a different rule. the executive member explain the highest risk uh brackets using evidence from the workbook. Basically what it has to check is that the data that is in this particular ids that are present is it correct or not? Is it is it like a synthetic data as it like returns from numbers or values random values or you can say garbage values into that particular check. Now and finally uh once these two checks are combined together that is this particular combined checked together let's say each recommended action is allowed table and it's justified by the cited hazards and condition evidence.
+
+
+
+
+00:22:10
+
+
+Ruturaj Solanki: So basically what uh this particular thing means combining those two deterministic as well as the judge to have a complete or you can say uh fully uh corrected solution what the agent has produced. One more thing to check uh one more thing to note is we are now going to have a have our uh verifier name as verify. py instead of some llm judge py or or something like that we will be like normalizing it standardizing it with the verify py file link and that is what we now come to the four pilot task that we did for our um explanation here. So actually what happened and what was actually flagged by the client. Now how we are going to like uh mitigate let's say the very first task what what happened was the verifier recognized the valid looking formats and populated fields fabricated identifiers and cultics put therefore un threats. So what happened was our verifier was not strong enough to basically check if if the items were like um real or not if they were computed or not. uh so that is what we uh basically need to uh uh have.
+
+
+
+
+00:23:21
+
+
+Ruturaj Solanki: So why what happen if we are going with this particular pattern? So this is very harmful. This is this comes as a reward hacking scenario where the agent is like creating let's say a part of the solution as a correct solution and the other part is like a garbage solution. So we need to basically um verify it if it is correct or not. So better pattern would be to verify it against your statist score. Now if we are going for a trusted score uh trusted source again accounts for the uh oracle solution. Now since we are not moving forward with the oracle solution what we need to do here is uh we we are going to compute a partial oracle solution for an applicable task. Let's say your task is to uh go through a particular book a workbook or something like that or let's say Excel sheet or something very similar to this. What we are going to do is we are going to manually or we can use our agents to uh verify the information first compute a partial solution.
+
+
+
+
+00:24:17
+
+
+Ruturaj Solanki: Let's say um out of 100 uh 100 checks we are 100 uh 100 uh 100 things we have manually uh 100 data source we have manually verified around 20 data source we are going to use that as a reference for the remaining sources. So that is called uh that is basically the parcel oracle you can use. So that is how we are going to use it to basically reward the remaining sources that is what now the second uh second uh task what happened. So row counts had a same sales situation row counts had a JSON shape and J present show that the package was complete but they did not prove that the 74 repository audit values were correct. So this is basically what happened. So uh let's say they didn't have any verifiable source if the data that generated was actually correct or not. So again coming to the point of the Oracle solution again so let's say uh if you are having this particular task filled with a garbage information then again there's going to be like by the clients.
+
+
+
+
+00:25:19
+
+
+Ruturaj Solanki: So applying the same logic we applied for the previous task uh partial partial oracle task where uh you can like simple state for some of the artifacts by yourself create a partial solution and then go for the remaining of the solutions. We also have to keep the partial solution uh partial article uh and the files inside the test uh folder and basically wire it through the test.sh uh so that it doesn't go with the um the agent we need to keep it as um secure as possible. Coming to the third example, the raise uh yeah this this example where the videos were like generated but what happened was uh the videos the checks that were there they were not checking for the uh content in the video they were simply checking uh for the the clusters and everything that were like present in the output also. So the uh what they wanted was to basically uh minimize the score for this particular um particular artifact. Let's say if the uh if the if the videos are present on uh this is getting like out of um let's say it is getting 0.20 basically this is a high reward you cannot allow the high reward it can like basically switch the whole uh whole game for the multi agent as well as the single agent.
+
+
+
+
+00:26:36
+
+
+Ruturaj Solanki: So the reward should be dynamic like let's say if you think that the this particular check is not able to like we cannot implement this particular check keep it as minimum as possible so that the uh so that we can try uh the overall reward doesn't get affected by that particular check even if it's a false coming to the last and final uh final example what happened here was same the structural sections and fields were there and why what it made uh made made it harm good. Basically in this task what happened was uh the the score was actually the score was actually um the the gap was actually less. If we remove the structure of CHS and if you recmp compute the text uh recmputee the files uh the basically the gap reached for like 30 points that is so even if you have implemented some checks please make sure you are checking each and everything correctly and checks as well as the static checks as well as the files that have been um computed if they are structurally or they are content wise they're coron moving forward to the um let's Okay.
+
+
+
+
+00:27:49
+
+
+Ruturaj Solanki: Yes, we can. Yeah. Okay. So, coming forward to the next particular point now where the um where the client wanted us to have a a check here is basically what they wanted us to make uh wanted us to check is basically the correctness of the solution. Again I'm repeating this point again like um when when you are designing a designing a basically a reward system let's say if the task is like uh a good quality task and you wanted to give it a score uh you have to basically uh go for go for each step let's say name the decision that makes the task valuable let's say um what particular reward that you want to get then identify the evidence if the evidence is like source I mean the truth if you can compute the oracle solution for that particular you can divide it high in number and then you can also combine the uh semantic checks as well as the you can say deterministic check as well as the as check to basically give the scope and then you can complete the single agent and multage.
+
+
+
+
+00:29:02
+
+
+Ruturaj Solanki: So this is uh uh basically this is like design checks. Moving forward to the um uh moving forward to the next where uh in phase two what we noticed was let's say there is a task where a multi- aent is scoring about about 90%. Which means the agent was able to like almost solve it. What the client actually wants is uh basically to go with the task where even the multi- aent is struggling to achieve that particular score. Now uh now the thing is uh where the why they want this particular so let's say if the multi- aent is like supposed to solve it by within let's say um um even uh 90 90% of the times or 90% score uh if we run it for let's say 200 or 2,000 iteration what will happen there would be a chance or probability where it would hit or hit basically hit the success in one of those chances or many of those chances same applies for the single agent where the single agent struggles is with the cognitive ability. Now the single agent has everything.
+
+
+
+
+00:30:11
+
+
+Ruturaj Solanki: It will basically try to come up with a solution each and every time. It may also depict where it can easily like come up with a a solution where it can easily like get a good exponent. So we have to design a we have to design task and keep in mind where uh the difficulty of the task is actually pretty high. Now moving forward uh with the requirement. Now there is a new requirement that the client actually uh gave us. Uh so if the task is is scoring by more than let's say multi is scoring more than 90% or you can say 95%. Uh it would be um practically not usable. So what they wanted us to do is they wanted us to keep the multi score between let's say 30% 20% to 50% or you can say very high 20 to 30%. like a 50% chance of it being solvable and the single agent in a single let's say 10% 9% very low where the gap is actually considered between the two not in this particular set in this long task.
+
+
+
+
+00:31:18
+
+
+Ruturaj Solanki: So what we need is basically single agent should be really struggling to solve that particular task as well as the multi- aent should be struggling to solve that task with a very marginal uh gap. moving forward to the
+S G Mathavan: Hey hi uh I would to add few points as well in the previous slide.
+Ruturaj Solanki: Yeah.
+S G Mathavan: So hi guys uh the I I just want to add few context from the client right.
+Ruturaj Solanki: Yeah.
+S G Mathavan: So initially they were using our 1K sample whatever we have delivered on phase one they have improved their model on the multi- aent orchestration they have also released the new model everyone should have been aware of the new part. So uh as a next step here they are also looking for some sort of like an evalu type of data. EVAL type of data is something like where the multi- aent is actually struggling and uh single agent is also very much struggling and scoring like either zero or it's in a onedigit percentage where the multi- aent is uh really struggling uh with a range of like 20 to 30%.
+
+
+
+
+00:32:23
+
+
+S G Mathavan: uh but so far with our data set we were able to come up with a very good uh single agent failure which is like around 0 to 0% to around like 20% but the multi- aent is also scoring around 70 to 80%. So that's when they have mentioned that uh can you create much more complex data and which where the multi- aent is also failing but still the gap has been maintained at least a 50 point gap right so this is the first ask so I just want to emphasize one thing here is uh it's not specifically like we are going to make a multi- aent fail with a bad decomposition file or something like that it is specifically on how we are going to make it more uh difficult here is by having a much more richer verifier. That comes back to the point which the client was emphasizing that all our verifiers are more of like a structural and uh some sort of partial oral checks but still uh a lot of task which we done on P are still followed some of the task which we done on the P samples were only following the structural checks which they are say mentioning that if they're going to train their model on on these specific data definitely around like the uh like thousand or iterations of training the model will be able to learn this patterns stating that it will get a
+
+
+
+
+00:33:47
+
+
+S G Mathavan: reward if it is going to just follow the static checks right and it will never be able to like uh come up with the fully full output which is resonating to users ask uh which means that our reward functions are uh a very huge stretch here we need to also come up with more robust reward uh uh functions which is like starting from static checks having reward hacking checks through and also partial oracle checks so that we make sure that I I know uh definitely there would be a question arising which is like how we will be able to control the 100% possibility of reward hacking if we don't have an golden oracle and in this scale we will not be able to create golden oracle also right so to answer that question we have also mentioned that to the client also and they they are agreeing with the trade-off here which is like we will never be able to create oracle for all the 100 URLs or 100 uh textbooks which we are giving in the task at at the scale right but at least we can do a random check which is like uh it's not specifically like we are going to create oracle for all all the 100 URLs but let's do a random selection of from the 100 URL it's not specifically like a structured one too it should be a
+
+
+
+
+00:35:03
+
+
+S G Mathavan: random one for example you're going to create a partial oracle by yourself on the first two URLs and then uh a mid of two URLs and the has two URLs and you're going to check only these values to make sure if the LLM has done the work correctly or not in the partial oracle checks and also in the reward hacking checks you should be asking a lot of questions on how the agent will be able to uh score a good reward without doing the actual work right so in my PC task they have also uh like rejected it saying that it is only covering the structural sex so how I was able to improve it. I was able to come up with the partial oracle and also a lot of reward hacking uh scenarios where in my task I was able to see that the single agent were easily manipulating the sheet with a fabricated reset. It was actually not doing an analysis. It's just writing as undefined and things like that. So I I was able to ask a lot of questions on how a single agent without doing an actual work how it will be able to get a reward with my current verifier and I with all those questions I was able to formulate it as an LLM judge and added it to my verifier.
+
+
+
+
+00:36:16
+
+
+S G Mathavan: So these are the three sector tasks which we will be focusing on moving forward at the verifier which is like structural which is nothing but covering all the client uh the task requirements which we have written in the prompt and the partial oracle will make sure that the uh the uh agent is actually doing the work correctly and doing a random partial oracle checks and the reward hacking checks make sure that uh that the agent is actually not getting a lot of reward just for following the structures and uh doing random oracle checks and putting it in the sheet. Right? So reward hacking scenario checks will also make sure that the agent is not partially doing the work and getting a full reward here and that's what the reward hacking scenario also makes sense. So coming back to the original point which is I'm emphasizing here is we need to make sure our verifier is very much robust and having a lot of checks in place and which pushes the model uh uh score to around like 20 to 30%.
+
+
+
+
+00:37:19
+
+
+S G Mathavan: Uh but it's not specifically the other way around. my verify is still more likely a structured one and I'm going to like have a very bad decomposition and it's going to score the multi- aent very low. So these types of task will also be rejected. Right? So make sure to avoid these cases and try to come up with more robust uh verifier which pushes the multi- aent value also low. So the main uh intention of the client is to use these data for eval. So now their model is trained with a very good decomposition but they wanted some more data which is like the current uh still we are in a pilot phase. So our pilots were good but still there there are still an improvement which needs to be done on the verifier part. So they have given another chance of pilot and in this pilot we going to prove it like we will be able to create more robust verifiers and which will also be used as a data for eval for their models.
+
+
+
+
+00:38:19
+
+
+S G Mathavan: Yeah, over to you both. Thank you.
+Ruturaj Solanki: Yeah, thank you. Thank you. M uh moving forward to the next slide guys. Uh in this particular section, I'll tell you like if even if single agent is like scoring very low, there might be cases where you are missing actually what what happened. Let's say uh there is a case where it was basically like uh some uh requirements were like missing for this agent like it was not it didn't manage to uh install the browser tool or it basically uh didn't install um did uh didn't output the file in a particular part then there is a timeout unfairness. Well, this is allow actually this is allowed. So, but yeah, uh we cannot basically give a different context difference. Let's say the context difference is let's say we are asking the multi- aent to compute 100 files. Uh we are asking the single agent to completely compute only like 10 files and 20 files. It should be like fair. uh then what are the valid fragments like let's say the single agent actually missed the evidence because of the large cors it could be like uh the the the file that it computed are like wrong all across the sources then the what happened is this particular is the u cognitive load value that the agent starts forgetting what the actual goal was for the particular task and it loops around in the loop and then the basically the final file final file was like skipped actually these are like
+
+
+
+
+00:39:54
+
+
+Ruturaj Solanki: not genuine failures for the simulation and and we cannot like simply uh uh like give a lower score because of this particular reasons. So these are very invalid ones and we need to make sure that uh the single agent is also having a bad competition competition against the multi- aent. Now coming to the checks part as uh as m mentioned like if we are only having deterministic checks if we are only having LM checks what will happen let's say if you're only determining uh determining the score with the deterministic check uh the task would be like looking at well shaped task but the correctness of the task would be like zero we are not 100% sure if the output that created by the agent was correct or not so to check that particular thing we are using anonymous as such but now If you're only moving forward with a judge, what will happen is are like the truths. They're nonjistic in nature. Sometimes it may say that it is correct. Sometimes it may say it is incorrect. So what will happen if you are just sing uh simply using different different um I mean single single checks.
+
+
+
+
+00:40:59
+
+
+Ruturaj Solanki: So better if we combine them both and have a let's say there is a task where where some checks are already like structured. We have already checked it particular that structured check goes to the LLM to be verified. Let's say uh there is a excel file that needs to be there is a t thousands and thousands of uh lines uh to be checked. Uh the question would be arise like um how are we going to send this large file or we can say this many art output artifacts to the ll and it will like take very long. No need to send the whole file or the whole data to the lm. What you can do is basically you can uh optimize your uh sending uh optimize your um judge in a way or you can say aesthetic codes in a way where it only sends the partial output of the file. Let's say there is a 10,000 lines of actual sheet. you are only sending uh let's say few random samplings for this particular uh uh sheet or you can say you're only sending uh only sending some valid artifacts that you wanted to create.
+
+
+
+
+00:42:04
+
+
+Ruturaj Solanki: Let's say you asked the agent to create the button for you or something like that. You are only sending the button instead of the whole page your whole page code. So that is how you can basically optimize your judge as well as you combine uh the static checks as well as the elements judge to get a better verifier. Uh also coming back to the creativity part the client was really happy with the creativity that we have showed on the page too. Uh they have really appreciated how we were able to uh like uh basically have a very good uh quality of the task with the creative part. Now coming to the very important part. Let's say you are creating a new task. This is also a requirement from the client itself. Like if you're creating a new task and you are uh so lens are like a pre-trained models, right? So they basically have a data have they have been like trained upon. So what the client actually wanted was to have sources that are very rarely used.
+
+
+
+
+00:43:03
+
+
+Ruturaj Solanki: Let's say uh you wanted to have a uh book summarized but the book is well known and the agent can find the summary online. Let's say I wanted to have the algorithms book I mean by by someone which is like uh very famous or cordon or something like that. They have a full summary of a book or you can say important topics of the book already in a Reddit page or maybe in a um uh medium page or something like that. So we cannot actually uh check uh to check those particular things. What the client wanted was to have it on a very newer data. Let's say a latest edition of the book or a latest uh latest artifact that we have created or we can also check let's say there is this HTML 3 that we have HTML 3 that has been uh in the in the line updated line. So we can also ask the agent to check. So a technology or you can say um a file or you can say a data or a sample which is pretty new which was released in like let's say two three months back or even like um very new to the client uh new to the internet we can use that particular data to summarize it.
+
+
+
+
+00:44:14
+
+
+Ruturaj Solanki: So that is how we are going to like design that particular uh scenario and the task. So moving to the sources as I mentioned pick the sources let's say you are having a book which is well like not available on the internet and you found it on some some open source library or something like that and you want it to be summarized you can use the input artifact folder as I mentioned in the starting of the call the inputs that you want to give to the model should always be in the artifact folders into artifact folders and the path should be uh basically devel given to the agent to check. If you're not mentioning that is also not good. If you are having like let's say uh some files in the input artifact folder and you are not telling the agent to basically look into that is also not a fair accommodation. have to tell the agent that there is a file which you can go through this and so let's say I want to just summarize something and I told this is the book and what it does is uh without giving it the path what it will do is it will start browsing the internet let's say and finds some version of this book and summarize it so your task itself become uh wrong in start of this uh particular uh uh section so you wanted the particular book that you have shared in the
+
+
+
+
+00:45:31
+
+
+Ruturaj Solanki: back to be checked and to be summarized but the agent is finding something uh something else from the internet. So yeah that is not a good practice and we need to keep them. Coming to the artifacts part again uh the rubrics part sorry uh now the rubrics also stays into the um into the root folder with the instructions and the other files where the rubric is nothing rubric_ manifestation it's nothing but the national language rules for the particular checks that you have written into the uh test file in the verify file. Now the uh this is basically the our decomposition file where you are like yeah you have to write a very good decomposition file where the agent is not actually like uh guided to solve the task. It is just simply given the instruction how to spawn an agent and what the agent needs to be needs to I mean do that is only the work of the decomposition file. Please keep in mind there should be no leaks to the answers, no summaries or no hints or anything that should be present in the decomposition y otherwise it will be like flagged.
+
+
+
+
+00:46:38
+
+
+Ruturaj Solanki: Now coming to the very important part where like let's say building the rubrics uh this third and the fourth point are third and the fifth point are interconnected where let's say you are uh creating a task. Uh I I I think S G Mathavan also suggested a very good idea. Uh let's say uh you have created a new uh verified py and you are not sure if there are robot hacking possibilities or not. You can ask an agent basically uh your cursor your cloud your codeex or whatever the agent may be. You can ask it to go through the verifier go to the instruction.m ask it to basically find ways to solve that particular task and still having the uh good score. You can ask it in such a way where it it will point out the particular mistakes in your verifier and you can basically use those mistakes to rebuild your verifier to make it even more robust. Also, if you are still struggling with this particular case, don't go into the loop. If you are thinking that it cannot be improved, read the content of the file.
+
+
+
+
+00:47:39
+
+
+Ruturaj Solanki: Read the whatever the checks are implemented. Then decide for yourself like if this particular test or something is needed or not. So this is how you can use agent itself to basically make your uh rubrics even Sorry, your verify even more robust. I mean to the verify same thing. You can also uh have your own um the static checks as well as the LM judge calls into the same file. No separate files needed and strictly the name should be verified. py and the result should be in the particular.txt file only. Then we you will be running the single agent and the multi- agent and you will have your scores basically if there are scores uh if the agent is like solving it more than 80 90% 35% multi- aent the task is really invalid and we have 31 and the single agent should also be like not scoring really well. Let's say uh the single agent is scoring 90% and the multi- aent is scoring like 72 uh 70%. So although you achieve the cap of 20 but still it's uh really solvable and the client as you as S G Mathavan mentioned also like they are going to use it for a balance structure where the task will be like running on a loop for a few,000 iterations or more than that and then you there will be chances of let's say 20% or maybe more that the task will be like solved.
+
+
+
+
+00:48:59
+
+
+Ruturaj Solanki: Now once all the things are done, you have achieved the gap, you will simply practice the task and you will be sending it to the that is the whole uh structure of this particular uh uh the last I mean the last slide. Now uh this is uh you can also have this checks let's say if you have all the artifacts in the tag all the things are like named in the instruction. So these are some checks that that you can also like manually check if the things are like present or not and then you can submit the task for the for the review. Again mentioning it again let's say if you are having any doubts with the packaging and everything uh anything that is like here uh you can ask your uh the lead to help help you out in the structure. We will also be updating the structure check so that you can uh if it's invalid it can be like FL uh and the final check we have only three things that we need to keep in mind a very robust verifier py where you are having each and every you know each and every structure check as well as check with a very good uh very good coverage of the remote hacking.
+
+
+
+
+00:50:09
+
+
+Ruturaj Solanki: Second maybe the rubric JSON file where it will be nothing but the uh natural language of the uh test that you are performing and all the logs I mean the output artifacts that the agent is producing will be stored in the logs/ agent file. So you will be configuring your verify that with this output output path so that the uh verifi I mean the agent has a chance to do it. Now yeah that was all proving this. If you have any questions feel free to ask.
+S G Mathavan: Uh so before we get into the questions I also wanted to iterate on the previous rejections right so I'm posting a message in the chat so the previous rejections are majorly because the structural I I I hope we have already covered this uh in this session which is like our verifier should be robust enough and uh to make it more robust we need to cover three dimensions which is structural reward hacking and also partial oracle to make sure that we are having a robust verifier and then uh the next thing here is even though we have let the all the team know about it that the rubric weightage should not be used here some of the trainers are still using rubric weightage I know if the rubric weightages also makes sense and the QA members are also
+
+
+
+
+00:51:26
+
+
+S G Mathavan: accepting it if the rubric weightages makes sense right but still these are some sort of like subjective rejections where it pushes us to a lot of debate with the client stating that this is why we have the rubrics in place but uh consider the client's PQA pipeline right so in order to avoid these rejections make sure to avoid using weightage and give a very much need weightage which is like point for each and every component checks which we have in the task. So try to avoid rubric weightages. So we can also avoid the rejections from the client side much largely and uh very uh I I would say this is not being followed by everyone but still uh this is an uh a important uh issue which we are able to see is which is a task which was in involving a single API call as an LM judge where it has a lot of large rubrics and uh also uh it it was passing a lot of task in one single API call. But this is something like the client uh suggested that this is actually not acceptable because sometimes the single API call could also hallucinate a lot and it is not very much objective to one specific rubric.
+
+
+
+
+00:52:44
+
+
+S G Mathavan: It was objective to the lot of rubrics and a lot of output needs to be uh the output lot of outputs were also passed and given uh to the single uh LLM as an API call. We we as an uh in in the project we are working on to make a single agent fail and the multi- aent uh pass right we are now more proficient in uh in this project and we are aware that the single agent will struggle if a lot of context is overloaded with this expertise I feel that we should al also not uh have these type of verifiers in place because definitely if the single uh agent is failing for a large task then your single API call as an LLM judge will also fail. So you also have to create a lot of modeler uh different components of LLM judge and which are very specific to that objective. It is totally fine. If you're doing a multiple API calls, you can make it a parallel API call. But don't dump a lot of rubrics into one single API call which is also like a lot.
+
+
+
+
+00:53:48
+
+
+S G Mathavan: There could be a case where uh the score is fully determined by the one single API call where it could be like the LLM judge is hallucinating and uh writing a wrong uh score right it pushes you to run it again and increases a lot of wastage of ag and another minor one which uh the client also flagged is the metadata and taza to ml like why multi- aent uh like was able to pass they are trying to resonate solely on the execution logs which we have created. So moving forward try to make sure you writing the task toml metadata at the last which means that you have collected the execution logs and things are good in hand. Now if you just wanted to uh write the taza 2l go read the single agent trajectory see where it is failing and see multi- aent how it is able to pass. With this experience you will be able to know how single agent is actually failing and how multi- aent is actually passing. With this all context you have to write the y multi- aent and also dh depth and d width should also be mentioning the exact uh number of trajectories which we got from the multi- aent trajectory.
+
+
+
+
+00:55:03
+
+
+S G Mathavan: So this is also the client wanted the metadata to be updated based on the execution logs being provided for in the task itself and some case uh and another important point which the client have also mentioned in uh this presentation right which is like uh some task we have the valid gap but still the single agent was also performing well uh enough and the gap is like uh even though we have a 30% or 40% gap the single agent is actually performing 60%age of It's something like uh the single agent is actually able to do it and we are just trying to push more uh quality of work from the multi- aent side right which the client want moving forward they wanted more of like an eval data even though this uh like the single agent is passing this sort of data is uh making a question mark to our rubrics actually right uh so either our rubrics is not very much robust and uh in depth and also in coverage it is not covering much and it is also not in depth then that is when our rubrics are also giving 60%age of reward to the single agent and the multi- agent is able to pass with a good valid gap because it was clear to the perfect score so I feel in order to have it much more complexity we need to also have much more deeper uh uh rubrics and add verifiers which is resonated to
+
+
+
+
+00:56:28
+
+
+S G Mathavan: the standard uh structure checks reward hacking checks and also passion checks Okay. Uh yeah, we can go over questions if anyone have any questions or doubts. Yes, you sir.
+Yousef el Khawaga: Uh can we see like an example for partial oracle and the verifier that is currently uh accepted so we can uh take it as a
+S G Mathavan: Yeah,
+Yousef el Khawaga: reference.
+S G Mathavan: sure thing. Uh maybe Ruturaj Solanki can you share the example which has shared. Uh so the you can also go over the rubric uh manifest.json file format.
+Ruturaj Solanki: Start sharing.
+S G Mathavan: So it explains what we need.
+Ruturaj Solanki: Just a second. Let me open up the
+S G Mathavan: Yeah.
+Ruturaj Solanki: task.
+S G Mathavan: And just a quick update, we are also doing some operational changes here. Moving forward, we will be uh having an environment where we will not be sharing about the API key, but uh you will be communicating with our uh our cloud service to get the execution logs. So I will also be posting uh specific instruction to set up this environment and uh then start with the task right and also we will also be restricting the share drive access that you will be able to moving forward you will be able to upload your task directly in the
+
+
+
+
+00:57:56
+
+
+S G Mathavan: labeling tool and which will be uploaded to the share drive because uh the major concern which we were able to have is some trainers were also uh like uh by mistake they are editing other trainers uh files right and task. So that in order to be more restrictive here we are making sure everything is maintained in the labeling tool. So when you are going to submit a task you will be able to upload the task in the form and it will be uploaded directly to our share drive. I will post message and you can definitely raise any questions uh about the operation things in
+Ruturaj Solanki: Yeah.
+S G Mathavan: that. Yeah.
+Ruturaj Solanki: Okay. So guys, this is the files. So first covering up the partial oracle as you can see what it does is basically it has a semiculated structure for this particular uh instruction MD file that we have given. So um as this is metas I mean it has to go through uh like repos particular data and then um basically it has to uh summarize it and do the changes.
+
+
+
+
+00:59:03
+
+
+Ruturaj Solanki: Now the partial is nothing but it goes to the repo one by one it is what it is checking whatever it needs to be done and it if the there is answer uh if uh I mean the what is the answer is the requirements are so as you can see it doesn't have all 74 rings but yeah it does have like three rings of this partial oracle is used to basically like uh in the verify file or to basically like uh to have the remaining uh valid uh rebing checks if this is valid or not. So that is how it is basically like calculated. Coming to the next file which is a rubrics manifest json file. I've uh as you can see as I mentioned with This is the task ID whatever what type of verifier it is. This is it uh executable I mean yeah executable and this is what the particip uh real uh natural language uh shift was. So counts arose in the compliance matter subject and sorry. Yeah. Yeah. No,
+S G Mathavan: Uh I uh one more point which I need to add here is uh everyone is uh you know there
+
+
+
+
+01:00:12
+
+
+Ruturaj Solanki: sir.
+S G Mathavan: is an ampy here which is executable and MLM judge where if it is an LLM judge it should be only having LLM judge in place or as a verifier and if it is an executable it is going to be having only static checks uh as a verifier but the client really disliked this option. So I will also be adding another option uh in that quality gate right and as static checker as another option which combines executable and LLM judge so your verify can be more robust in
+Ruturaj Solanki: Thank you.
+S G Mathavan: having structural checks in place LLM judge in place and also partial oracle in place I'll uh update it once it is done yeah uh just to explanation uh
+Ruturaj Solanki: Stop
+S G Mathavan: about this task is something like as mentioned earlier it is a list of 74
+Ruturaj Solanki: it.
+S G Mathavan: repositories and uh It's like a government employee needs to give a presentation by going through these repositories and collecting a list of information for all the 74 repositories. So that's where the partial or article has been written where I have manually did the work for six to seven repositories and kept it as a partial oracle and rubric manifest.
+
+
+
+
+01:01:23
+
+
+S G Mathavan: JSON is nothing but the context here is the client are also interested in uh seeing a file which is explaining your verifiers in a natural language so that it helps them helps them to quickly learn about your verifier. Right? So that's why we are going to add another important file which is uh should be present in the test. So moving forward if it is not present the static gate will be rejecting your task. So rubric manifest.json it should be in this specific format. What it needs to explain is it needs uh the number of total number of checks in place and also there is a specific format which needs to be followed in the verifier right as I mentioned earlier how how uh what are all the types of verifiers we can have static checks and then the reward hacking checks in place and partial oracle checks in place right that is what I have written in my task what are all the static checks which I have in my task and what it is exactly checking What specific the check function is nothing but what is this exact function name which has this logic that's the specific uh function name you have to verify uh mention it here that's uh that and detailed explanation is nothing but what what what is actually
+
+
+
+
+01:02:38
+
+
+S G Mathavan: the logic of the function is which is explained in the natural language right and weight is as you can see in In all my t in my task the weightage is all one. So even though we are having moving forward we will be having a weightage of one. Let's make sure to have it as a very structured one. Right? We have to mention it here. What is the weightage of the task? And it should be exactly one for all your test here. And the next thing here is agent output path. What is the exact uh the what is the logic which is dependent on what is it this is exactly uh checking of the agent output file right that I have mentioned here check function I have mentioned it earlier the exact function name of my from my verify py of it prevents the task authenticity violation right so you you should also be writing well detailed that of this specific logic will be able to help the agent to fabricate any of the results and just get a reward.
+
+
+
+
+01:03:39
+
+
+S G Mathavan: As you can see here, I have written in one specific file. One specific check is like stop the agent from fabricating plausible looking fields instead of field values instead of actually opening each repositories readme security.md and license and write the answer. So I have also added the llm judge in place and the let's say in my task it is fully dependent on the URLs which is retrived by the LLM. So whatever the URLs which is retrieved by the LLM in the sheet I have also passed it and did a URL whether this URL is a valid or not because uh in one of the single run agent was able to easily write a malformed URL and got a was able to get a good reward because I was having only the structural checks but with this I was able to have more robust checks in place and the single agent was able to fail completely and the multi- agent was able to get a good reward here but still I need to iterate more here to make sure that the multi- aent is also having much lesser reward if really the multi- aent output is really good but yes
+
+
+
+
+01:04:49
+
+
+Yousef el Khawaga: Uh just a question about the weight.
+S G Mathavan: yes
+Yousef el Khawaga: Uh because we now want to make sure the output is more factual than structural. Uh uh but the weight is still one. uh but if I check every structure output and every factual output uh the number of uh structure uh checks well I would weigh the number of factual checks by definition because like now like I check if it's one row uh if it's certain number of rows it's central number of column certain number of uh uh files for example but only I check for each file if the fi if the output is correct or not. So by this definition I have like seven checks for structure and three checks for fction. Uh isn't that outing the faction?
+S G Mathavan: Yeah, that's a very good question And uh that's when uh we it pushes us to introduce the weightage right and if you're going to introduce the weightage the client will be flagging it as a failure here. So we have also specifically mentioned that to the client that if moving forward in your task maybe if you're going to have the oracle checks in place and the structure checks have a lot of uh numbers in it we can definitely have a small amount of weightage not a huge number here we
+
+
+
+
+01:06:12
+
+
+S G Mathavan: were able to see a pattern that the trainers were able to give a lot of weightage to only the oracle checks. So let's move it in a linear manner. Maybe in a structural checks we can give it a one point and maybe the oracle checks we can give it a two point and the reward hacking scenarios right we can it is more uh flagging situation so we can give it uh much more three points if it is going to fail in there so that we can justify it with this value any other questions okay I take it as a no. Uh if there are no questions uh and uh if anyone is still uh not clear on the new requirements right we will also be posting a message.
+Ruturaj Solanki: Sure.
+S G Mathavan: I hope the trainer guidelines is also updated. Maybe Rut can you show show them the updated section of the trainer guid links so they can go
+Ruturaj Solanki: So,
+S G Mathavan: to
+Ruturaj Solanki: yes.
+S G Mathavan: and also Rut will be posting this recording and presentation after this call and you can also go through it.
+
+
+
+
+01:07:24
+
+
+S G Mathavan: So our next goal here is again another task 100 task should be generated as a next step here. Please go through this uh recordings and get familiarized with the new updates. Uh meanwhile, Ruturaj will also be creating a new batch in the labeling tool with pre-filled uh prompt uh uh generation like we have the prompt generation pipeline, right? We will be creating prompts for the 50 task with wide range of commands and let's focus on the first 50 task with a very good quality and then we will be scaling on another 50 based on freedom.
+Ruturaj Solanki: Yes. So as you can see this I have kept the uh I have combined the page two with the additions of whatever the client renewal required. So the are the changes you can uh go through the document the whole document uh with the changes that are implemented. So the very first change is here. They need a new rubric as a JSON. They wanted to as uh name it same name convention for all the files so that we don't miss it.
+
+
+
+
+01:08:29
+
+
+Ruturaj Solanki: Uh within the agent locks file and yeah so that is how they want uh I have like updated the whole document. You can go through it. Sorry. I'm sharing my screen. Yes. And I as mentioned uh I've already like pushed the PDF. Yes. Uh once the recording is ready, I'll be sharing it and for the um the task I will be like uh uh completing it and like generating it by the end of the day and we'll be having it in the labeling too.
+S G Mathavan: One last question from Job is should we discard the reworks from the last submissions? Uh if you're if you are confident that the reworks are very much resonating to the client requirements and it only needs a minor changes and few more changes. Uh then you don't have to discard a Job. You can continue working on the revokes and submit it based on this new requirements and with more robust uh verifier. Right? So we can continue growing with that. Okay. Uh already we are uh over time. So if no other questions or if you still have any questions, you need some time to process uh the new requirements and go through the PPT, feel free to do it uh in another one hour and uh also feel free to post your questions on Q&A. So uh we are here to help you guys out to resolve the questions. Thank you everyone. Have a very good day.
+Ruturaj Solanki: Thank you guys. Have a good day.
+S G Mathavan: Thanks for good presentation.
+Ruturaj Solanki: Thank you. Thank you. Bye. Bye guys.
+
+
+
+
+Transcription ended after 01:10:21
+
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

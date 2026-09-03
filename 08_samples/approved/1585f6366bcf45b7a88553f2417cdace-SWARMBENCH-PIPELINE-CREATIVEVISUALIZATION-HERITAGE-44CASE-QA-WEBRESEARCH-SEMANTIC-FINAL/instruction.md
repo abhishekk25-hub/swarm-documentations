@@ -1,0 +1,15 @@
+I need a source-grounded museum education package about World Heritage properties on the danger list.
+
+The case list is in /input_artifacts/source_manifest.json. It gives the case IDs, property names, and official UNESCO starting pages. For each case, use the UNESCO page and one independent public source outside UNESCO and Wikimedia to explain the conservation, public interpretation, access or restriction context, or teaching context that a museum educator should understand.
+
+Please use /input_artifacts/output_requirements.md for the exact handoff format, saved-source paths, memo fields, review files, and final package structure. Save the completed handoff under /logs/agent as described there.
+
+The work should be careful source interpretation, not template filling. Read closely enough to explain what each source supports, what it leaves out, where another source adds different context, and where a museum slide would risk overclaiming. When you use a quote, copy the exact text from the saved source snapshot.
+
+For every case, answer the curator questions in the case memo. What might a visitor or educator incorrectly infer from the basic danger-list label? Which source would create the most misleading interpretation if used by itself, and what does the other source add that changes the interpretation? What important detail appears in one source but not the other, and why does that matter for the museum interpretation? What can a responsible slide visual or media treatment show? What claim would be unsafe to infer from a visual treatment alone? How is the place presented, visited, conserved, restricted, or taught to the public now, and how should that change the museum slide wording without becoming trip-planning advice? Support that public-context answer with an exact quote copied from a saved external public source. Finally, explain how the case should be phrased so the slide remains accurate and cautious.
+
+Do not let one unavailable web source consume the job. For any one URL or resource, try at most three fetch attempts. If it is still blocked, missing, timing out, or clearly unusable, stop retrying that resource and choose another credible public source. For each heritage case, try no more than five alternative external websites. If none of those external websites gives a usable result, abandon the external fetch for that case, save a clear retrieval note or error note, explain the limitation in the memo, and continue with the rest of the package. Do not keep retrying tiny URL variants.
+
+The final package should be useful to a museum board reviewing a 30-slide visual learning arc. It should collect evidence, check the evidence, interpret the cases, reconcile source conflicts, classify visual risk themes, justify what belongs in the main deck versus holdback, and summarize the remaining risks or limits.
+
+Do not make unsupported current travel, route, access, emergency, or on-site safety claims. The package should be visually useful, but only where the evidence supports it.

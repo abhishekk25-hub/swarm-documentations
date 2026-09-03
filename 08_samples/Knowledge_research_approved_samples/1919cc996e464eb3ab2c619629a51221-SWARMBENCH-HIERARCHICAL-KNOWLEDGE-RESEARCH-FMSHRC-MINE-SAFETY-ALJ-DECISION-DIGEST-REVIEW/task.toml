@@ -1,0 +1,29 @@
+[task]
+name = "swarmbench/1919cc996e464eb3ab2c619629a51221-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-FMSHRC-MINE-SAFETY-ALJ-DECISION-DIGEST-REVIEW"
+description = "Build a mine-safety litigation casebook from 72 FMSHRC administrative-law decisions: one evidence-grounded digest per matter, a coded case register, and a comparative survey of standards, proof, Mine Act tests, findings, penalties, and remedies."
+
+[metadata]
+verifier_type = "hybrid"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_writing", "long_horizon"]
+dag_depth = 3
+dag_width = 36
+human_solving_hours_estimate = 127.0
+human_solving_hours_justification = "Reading 687,885 words of technical ALJ decisions at 8,000 words/hour takes 86.0 hours. Drafting and checking 72 digests at 24 minutes each takes 28.8 hours. Register reconciliation takes 4 hours; survey synthesis and grounding QC take 8.2 hours. Total: 86.0 + 28.8 + 4 + 8.2 = 127.0 hours."
+estimated_sub_agents = 46
+input_token_estimate = 980000
+why_multi_agent = "The corpus combines inspection testimony, technical mine conditions, mandatory standards, credibility disputes, Mine Act tests, and penalty findings across 72 matters. Thirty-six specialists can closely read two decisions each, nine leads compare eight cases apiece, and one merger reconciles the resulting register and survey within the shared budget."
+reference_link = "https://www.fmshrc.gov/sites/default/files/decisions/alj/ALJd_10022018-PENN%202015-178%2C%20et%20al.htm"
+network_enabled = false
+
+[agent]
+timeout_sec = 960
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600

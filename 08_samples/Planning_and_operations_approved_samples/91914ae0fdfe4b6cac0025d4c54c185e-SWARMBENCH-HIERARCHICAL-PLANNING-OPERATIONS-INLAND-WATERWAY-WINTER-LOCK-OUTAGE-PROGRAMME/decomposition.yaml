@@ -1,0 +1,335 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+
+# Structure: the directorate charters one read per fixed evidence block, adjudicates the six reads
+# into one determination set, resolves the cross-cutting controllers over that set, seats the
+# season once, then drafts the remaining six artifacts in parallel off the seated programme and
+# reconciles the package before the secretary publishes.
+#
+# depends_on states a data dependency - what a node may not start without - and not who spawns it.
+# Dispatch follows it where a node has one upstream: the directorate dispatches its six block
+# reads, and the programme desk dispatches its six drafting desks. A node whose depends_on names
+# several upstream nodes is a join, and no one of those upstream nodes owns it; the orchestrator
+# holds the joins - the band adjudicator, the four controllers over the adjudicated set, the two
+# challenge nodes and the secretary - and charters each once the nodes its depends_on names have
+# returned. No charter claims a layer it does not dispatch.
+#
+# Each charter is written in four lines: Charter, Receives, Produces, Escalates. A node acts only
+# on what Receives names, hands back only what Produces names, and never resolves what Escalates
+# names on its own.
+
+# Dispatch discipline - this governs how the structure above is executed, not what it decides.
+#
+# Every node below is a separate sub-agent invocation. The orchestrator's own context holds the
+# charters, the conventions and the returns - nothing else. In particular the orchestrator must
+# not, in its own context:
+#   - open /input_artifacts/condition_findings.jsonl, /input_artifacts/ntad_waterway_locks.json,
+#     /input_artifacts/candidate_work_items.csv or /input_artifacts/tow_commitments.csv;
+#   - determine a condition class, an eligibility, a duration, a double-locking count or a
+#     severance figure;
+#   - draft, or rewrite end to end, any of the seven artifacts.
+# Each of those belongs to a node below and is dispatched to it. If a return is thin or wrong,
+# re-dispatch that node with a sharper charter rather than doing its work at the top.
+#
+# Pass by reference, not by value. A dispatch carries the file paths, the record-id ranges and
+# the conventions the node needs; it does not paste corpus records into the prompt, and a return
+# carries the node's findings as a written file under /workspace plus a short summary - not the
+# corpus it read. The same corpus must never be read twice in the orchestrator's context: once the
+# band is adjudicated, downstream nodes work from the adjudicated determination file.
+#
+# Expect the reading and drafting nodes to account for the bulk of the work performed on this
+# task. An execution in which the orchestrator consumed most of the effort and the sub-agents only
+# checked its output has not run this structure, whatever the returns say.
+
+# Budget discipline - the season has to be lodged, not merely started.
+#
+# This structure is sized to be run once through, not explored. Charter each node below exactly
+# once. Do not invent additional layers, do not split a charter across several sub-agents because
+# it looks large, and do not re-dispatch a node that returned usable work in order to polish it.
+# A second dispatch of a node is for a return that is wrong or missing, not for one that is merely
+# improvable.
+#
+# Reach a complete draft of all seven artifacts early and spend what is left reconciling them.
+# The reading layer plus adjudication should consume roughly the first third of the effort; the
+# seated programme and the six derived artifacts the second third; the challenge layer and the
+# secretary the last. A package whose seven files all exist and mostly agree scores far above one
+# whose evidence layer is immaculate and whose chart and notice were never reconciled - those two
+# artifacts are drafted last and are the first thing lost when the reading layer overruns. If
+# effort is running long, cut scope inside the challenge layer, never the drafting layer: publish
+# the seven files and reconcile what you can.
+
+sub_tasks:
+  - id: programme-directorate
+    description: |
+      Charter: hold the season, fix the record conventions and identifier forms for the whole
+      package, dispatch the six block reads directly, and own anything that crosses a river
+      boundary. Do not read the evidence corpus here; the reading belongs to the block reads, and
+      this node works from what they return.
+      Receives: the rules file, the season dates and the fixed block boundaries.
+      Produces: the shared conventions and the standing instruction that the rules file is the
+      only rulebook in force.
+      Escalates: nothing - this is the top of the structure.
+    depends_on: []
+    parallel_group: directorate
+
+  - id: ms-block-1-read
+    description: |
+      Charter: read every chamber record, work item and inspection finding in Mississippi block 1
+      and state, item by item, what the evidence supports.
+      Receives: a fixed slice, needing no prior pass over the corpus to identify it: work items
+      WI-002, WI-003, WI-005, WI-006, WI-007, WI-010, WI-013, WI-019, WI-020, WI-021, WI-022,
+      WI-030, every inspection note filed against them, and the chamber records those items name.
+      Produces: a per-item determination with the finding IDs it rests on, a per-chamber
+      characteristic sheet taken from the pinned extract, and a flag on every item whose class
+      turned on a contested or ambiguous reading.
+      Escalates: findings that name a work item or chamber outside this block.
+    depends_on: [programme-directorate]
+    parallel_group: reads
+
+  - id: ms-block-2-read
+    description: |
+      Charter: read every chamber record, work item and inspection finding in Mississippi block 2
+      and state, item by item, what the evidence supports.
+      Receives: a fixed slice, needing no prior pass over the corpus to identify it: work items
+      WI-032, WI-033, WI-035, WI-037, WI-038, WI-039, WI-043, WI-045, WI-046, WI-049, WI-052,
+      WI-054, every inspection note filed against them, and the chamber records those items name.
+      Produces: a per-item determination with the finding IDs it rests on, a per-chamber
+      characteristic sheet taken from the pinned extract, and a flag on every item whose class
+      turned on a contested or ambiguous reading.
+      Escalates: findings that name a work item or chamber outside this block.
+    depends_on: [programme-directorate]
+    parallel_group: reads
+
+  - id: ms-block-3-read
+    description: |
+      Charter: read every chamber record, work item and inspection finding in Mississippi block 3
+      and state, item by item, what the evidence supports.
+      Receives: a fixed slice, needing no prior pass over the corpus to identify it: work items
+      WI-056, WI-057, WI-058, WI-059, WI-061, WI-065, WI-066, WI-069, WI-070, WI-071, every
+      inspection note filed against them, and the chamber records those items name.
+      Produces: a per-item determination with the finding IDs it rests on, a per-chamber
+      characteristic sheet taken from the pinned extract, and a flag on every item whose class
+      turned on a contested or ambiguous reading.
+      Escalates: findings that name a work item or chamber outside this block.
+    depends_on: [programme-directorate]
+    parallel_group: reads
+
+  - id: il-block-1-read
+    description: |
+      Charter: read every chamber record, work item and inspection finding on the Illinois
+      Waterway and state, item by item, what the evidence supports.
+      Receives: a fixed slice, needing no prior pass over the corpus to identify it: work items
+      WI-004, WI-009, WI-011, WI-028, WI-034, WI-050, WI-063, WI-064, WI-072, every inspection
+      note filed against them, and the chamber records those items name.
+      Produces: a per-item determination with the finding IDs it rests on, a per-chamber
+      characteristic sheet taken from the pinned extract, and a flag on every item whose class
+      turned on a contested or ambiguous reading.
+      Escalates: findings that name a work item or chamber outside this block.
+    depends_on: [programme-directorate]
+    parallel_group: reads
+
+  - id: oh-block-1-read
+    description: |
+      Charter: read every chamber record, work item and inspection finding in Ohio block 1 and
+      state, item by item, what the evidence supports.
+      Receives: a fixed slice, needing no prior pass over the corpus to identify it: work items
+      WI-001, WI-008, WI-012, WI-014, WI-015, WI-016, WI-017, WI-018, WI-023, WI-024, WI-025,
+      WI-026, WI-027, WI-029, WI-031, every inspection note filed against them, and the chamber
+      records those items name.
+      Produces: a per-item determination with the finding IDs it rests on, a per-chamber
+      characteristic sheet taken from the pinned extract, and a flag on every item whose class
+      turned on a contested or ambiguous reading.
+      Escalates: findings that name a work item or chamber outside this block.
+    depends_on: [programme-directorate]
+    parallel_group: reads
+
+  - id: oh-block-2-read
+    description: |
+      Charter: read every chamber record, work item and inspection finding in Ohio block 2 and
+      state, item by item, what the evidence supports.
+      Receives: a fixed slice, needing no prior pass over the corpus to identify it: work items
+      WI-036, WI-040, WI-041, WI-042, WI-044, WI-047, WI-048, WI-051, WI-053, WI-055, WI-060,
+      WI-062, WI-067, WI-068, every inspection note filed against them, and the chamber records
+      those items name.
+      Produces: a per-item determination with the finding IDs it rests on, a per-chamber
+      characteristic sheet taken from the pinned extract, and a flag on every item whose class
+      turned on a contested or ambiguous reading.
+      Escalates: findings that name a work item or chamber outside this block.
+    depends_on: [programme-directorate]
+    parallel_group: reads
+
+  - id: band-adjudicator
+    description: |
+      Charter: consolidate the six block reads into one determination set covering all 72 work
+      items. Settle on the evidence every item the reads flagged as contested, every item two
+      blocks describe differently, and every escalation raised across a band boundary. Close the
+      set so that nothing downstream reopens it.
+      Receives: the six block reads and the escalations raised inside them.
+      Produces: one adjudicated determination set at a named file under /workspace, carrying each
+      item's condition class, whether it is mandatory this season, and the surviving governing
+      finding IDs - plus the list of items it had to settle and what it settled them on.
+      Escalates: nothing - it closes the evidence layer.
+    depends_on: [ms-block-1-read, ms-block-2-read, ms-block-3-read, il-block-1-read,
+                 oh-block-1-read, oh-block-2-read]
+    parallel_group: adjudication
+
+  - id: determination-audit
+    description: |
+      Charter: act as the independent second reader. Re-derive from the raw notes, without
+      consulting the block read that produced them, every determination the adjudicator recorded
+      as contested or settled, plus a spread of uncontested items across all three rivers. Confirm
+      or overturn each one on the evidence.
+      Receives: the adjudicated determination set and the raw corpus paths - not the block reads.
+      Produces: a confirmation or an overturn per item examined, each with the finding IDs it
+      rests on, and the corrected determination for anything overturned.
+      Escalates: nothing - its corrections bind the determination set before any drafting uses it.
+    depends_on: [band-adjudicator]
+    parallel_group: controllers
+
+  - id: tow-geometry-controller
+    description: |
+      Charter: resolve the committed tow fleet against the pinned chamber dimensions across all
+      three bands, including the tows whose routes cross a confluence.
+      Receives: the adjudicated determination set and the tow commitments.
+      Produces: for every tow and every chamber it passes, how that tow locks through, and for
+      every chamber the resulting exposure.
+      Escalates: routes the determination set does not account for.
+    depends_on: [band-adjudicator]
+    parallel_group: controllers
+
+  - id: severance-window-controller
+    description: |
+      Charter: hold the season calendar. Reconcile district windows, closure effect classes and
+      the per-river severance limits into the set of placements the season can actually carry.
+      Receives: the adjudicated determination set and the district windows.
+      Produces: the admissible placement space per work item and the per-river severance budget.
+      Escalates: any item for which no placement survives.
+    depends_on: [band-adjudicator]
+    parallel_group: controllers
+
+  - id: resource-logistics-controller
+    description: |
+      Charter: hold the crews and the bulkhead sets. Track where each set physically is, what it
+      costs to move it, and which crew classes and districts are actually reachable when.
+      Receives: the adjudicated determination set, the crew roster and the bulkhead set roster.
+      Produces: the resource occupancy picture and the movement cost between any two sites.
+      Escalates: contention that cannot be resolved without changing a placement.
+    depends_on: [band-adjudicator]
+    parallel_group: controllers
+
+  - id: programme-desk
+    description: |
+      Charter: seat the season. Choose which mandatory work goes in, place it inside the per-river
+      severed-day budget, the district windows, the crew classes and the physical bulkhead sets,
+      and write outage_programme.json with a summary block computed from the rows actually
+      written. This is the one underdetermined choice in the structure: make it defensible, not
+      optimal.
+      Receives: the audited determination set, the admissible placement space, the resource
+      picture and the tow geometry.
+      Produces: the programme and its summary at the required path, plus the seated schedule as a
+      file the six drafting desks can all work from.
+      Escalates: a placement it cannot seat without breaking a controller's finding.
+    depends_on: [determination-audit, tow-geometry-controller, severance-window-controller,
+                 resource-logistics-controller]
+    parallel_group: seating
+
+  - id: assessment-desk
+    description: |
+      Charter: draft chamber_assessment.csv.
+      Receives: the audited determination set, the tow geometry and the seated schedule.
+      Produces: one row per candidate chamber at the required path, in the required order.
+      Escalates: any chamber the determination set does not cover.
+    depends_on: [programme-desk]
+    parallel_group: package-drafting
+
+  - id: ledger-desk
+    description: |
+      Charter: draft severance_ledger.csv from the seated programme, week by week and river by
+      river.
+      Receives: the seated schedule.
+      Produces: the ledger at the required path.
+      Escalates: a week the programme rows cannot account for.
+    depends_on: [programme-desk]
+    parallel_group: package-drafting
+
+  - id: itinerary-desk
+    description: |
+      Charter: draft bulkhead_itinerary.tsv - sequence each set's legs and cost the movement.
+      Receives: the seated schedule and the resource picture.
+      Produces: the itinerary at the required path.
+      Escalates: a leg the set cannot physically make.
+    depends_on: [programme-desk]
+    parallel_group: package-drafting
+
+  - id: deferral-desk
+    description: |
+      Charter: draft deferral_register.csv - one row for every work item the programme does not
+      carry, each with the reason that actually applies to it. An item that would still have
+      fitted is missed, not deferred; say so.
+      Receives: the audited determination set, the seated schedule and the controllers' findings.
+      Produces: the register at the required path.
+      Escalates: an item whose stated reason the controllers do not support.
+    depends_on: [programme-desk]
+    parallel_group: package-drafting
+
+  - id: chart-desk
+    description: |
+      Charter: draft programme_chart.svg so the drawn geometry follows the seated dates. Compute
+      every bar's x, width and y from the schedule arithmetic rather than placing bars by eye -
+      the geometry is the artifact.
+      Receives: the seated schedule, and the per-river severed-day totals it implies.
+      Produces: the chart at the required path.
+      Escalates: a bar it cannot place from the programme rows.
+    depends_on: [programme-desk]
+    parallel_group: package-drafting
+
+  - id: notice-desk
+    description: |
+      Charter: draft navigation_notice.md - the season summary and one section per outage, each
+      written from that outage's own facts. Every section states its own chamber, dates, effect
+      class, held tows, longest held tow against the chamber's usable length, and governing
+      findings. Sections that restate one paragraph with the identifiers swapped are not a notice.
+      Receives: the seated schedule, the tow geometry and the audited findings.
+      Produces: the notice at the required path.
+      Escalates: a claim it cannot source to a packaged record.
+    depends_on: [programme-desk]
+    parallel_group: package-drafting
+
+  - id: package-reconciliation-auditor
+    description: |
+      Charter: recompute the package against itself. Every count, total, duration, distance, date
+      offset and running sum recomputed from the underlying rows rather than read back; every bar
+      in the chart measured against the programme dates; every identifier, figure and stated
+      criterion traced to a packaged record, with anything the rules file does not state returned
+      for removal.
+      Receives: the seven drafted artifacts and every packaged input.
+      Produces: one discrepancy list naming the artifact, the field and both values, ordered so
+      the cheapest corrections come first.
+      Escalates: nothing - it returns discrepancies to the desks.
+    depends_on: [assessment-desk, ledger-desk, itinerary-desk, deferral-desk, chart-desk,
+                 notice-desk]
+    parallel_group: challenge
+
+  - id: industry-objection-panel
+    description: |
+      Charter: read the package the way an affected operator would and press it - who is held, for
+      how long, whether the notice names them, whether the notice traffic statements match the
+      programme, and whether the deferrals would survive being challenged.
+      Receives: the seven drafted artifacts and the tow commitments.
+      Produces: a list of objections with the artifact and row each one lands on.
+      Escalates: nothing - it returns objections to the desks.
+    depends_on: [assessment-desk, ledger-desk, itinerary-desk, deferral-desk, chart-desk,
+                 notice-desk]
+    parallel_group: challenge
+
+  - id: programme-secretary
+    description: |
+      Charter: apply the two returns, confirm the seven artifacts state one programme, and publish
+      the corrected package at the required paths. Correct in place; do not redraft an artifact
+      that only needs a field changed.
+      Receives: the drafted artifacts and the two panel returns.
+      Produces: the final package at the seven required paths.
+      Escalates: nothing - it adds no criterion of its own and drops whatever the reconciliation
+      return marked unsupported.
+    depends_on: [package-reconciliation-auditor, industry-objection-panel]
+    parallel_group: publication

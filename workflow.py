@@ -1,0 +1,1 @@
+Create Task -> Run local QG and Fix them -> Run Draft review two iterations -> Run SA -> If score below .03 -> Run Multi_noplan -> If gap acheived -> run MA -> if gap achieved -> Run static check -> Run submit review -> Create RCA doc -> Submit.

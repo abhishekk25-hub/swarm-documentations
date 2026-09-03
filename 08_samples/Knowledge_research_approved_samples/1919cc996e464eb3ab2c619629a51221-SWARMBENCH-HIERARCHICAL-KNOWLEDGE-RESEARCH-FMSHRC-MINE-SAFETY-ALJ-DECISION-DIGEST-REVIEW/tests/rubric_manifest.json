@@ -1,0 +1,132 @@
+{
+  "task": "swarmbench/1919cc996e464eb3ab2c619629a51221-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-FMSHRC-MINE-SAFETY-ALJ-DECISION-DIGEST-REVIEW",
+  "grader": "tests/verify.py",
+  "reward_contract": "/logs/verifier/reward.txt",
+  "scoring": "Reward is the simple mean of the static, reward-hacking, and partial-oracle group means: (static + reward_hacking + partial_oracle) / 3. Content/structural classification does not weight the reward. Eleven of 17 checks (64.7%) require source-specific content; six are structural. Authorship gating and fixed 72-record denominators prevent hollow or partial work from banking credit.",
+  "total_checks": 17,
+  "check_classification": {
+    "structural": ["static_checks_1", "static_checks_2", "reward_hacking_checks_1", "reward_hacking_checks_2", "reward_hacking_checks_3", "partial_oracle_checks_1"],
+    "content": ["static_checks_3", "static_checks_4", "static_checks_5", "static_checks_6", "reward_hacking_checks_4", "partial_oracle_checks_2", "partial_oracle_checks_3", "partial_oracle_checks_4", "partial_oracle_checks_5", "partial_oracle_checks_6", "partial_oracle_checks_7"]
+  },
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Counts the required f01-f72 digests that exist and contain at least 40 words, then scales by the fraction that clear the source-grounded authorship gate.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/fNN.md",
+      "check_function": "check_all_notes_present",
+      "how_it_prevents_task_authenticity_violation": "Missing decisions and hollow placeholder files cannot earn full delivery credit."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Checks that case_register.csv has the seven required columns, 72 canonical ids, party matches, populated varied issue and disposition coding, and the stipulated disposition vocabulary, scaled by authored-record coverage.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_register.csv",
+      "check_function": "check_tracker_wellformed",
+      "how_it_prevents_task_authenticity_violation": "Repeated rows, missing ids, wrong parties, blank coding, and arbitrary disposition labels do not pass."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "Requires a substantive whole-corpus mine_safety_survey.md with at least three cross-decision comparisons whose named mine-safety theme is verified in the independent source text of at least two cited decisions, broad citation coverage including late ids, and a passing synthesis judgment.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/mine_safety_survey.md",
+      "check_function": "check_review_present",
+      "how_it_prevents_task_authenticity_violation": "A roll call, fabricated comparison, or survey based only on early files cannot earn synthesis credit."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "Measures the fraction of 72 digests reaching 220 words, adequate vocabulary diversity, low direct and gapped-copy density, and multiple grounded source-body anchors including a Mine Act/CFR provision, citation number, percentage, or dollar figure.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/fNN.md",
+      "check_function": "check_note_depth",
+      "how_it_prevents_task_authenticity_violation": "Generic padding, copied decisions, and roster-only summaries fail the authorship and depth gate."
+    },
+    "static_checks_5": {
+      "detailed_explanation_of_checks": "Scores coverage of the six required digest sections only when the section contains substantive, case-specific prose tied to the correct decision and a non-header source anchor.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/fNN.md",
+      "check_function": "check_format_sections",
+      "how_it_prevents_task_authenticity_violation": "Empty headings and reusable boilerplate cannot earn section credit."
+    },
+    "static_checks_6": {
+      "detailed_explanation_of_checks": "Uses the structured LLM judge to grade recurring enforcement threads, record attribution, convergence, divergence, limitations, and genuine cross-reading in the survey.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/mine_safety_survey.md",
+      "check_function": "check_llm_review",
+      "how_it_prevents_task_authenticity_violation": "Unsupported theme assertions and decision-by-decision lists do not count as synthesis."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "Flags raw or number-masked near-duplicate digest pairs and scales the clean fraction by eligible-record coverage.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/fNN.md",
+      "check_function": "check_no_duplicate_notes",
+      "how_it_prevents_task_authenticity_violation": "One template copied across the docket slate cannot simulate 72 readings."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Rejects stub, deferral, placeholder, self-admitted thinness, and external-model scripting fingerprints, scaled by eligible-record coverage.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/fNN.md",
+      "check_function": "check_no_stub_or_offload_artifacts",
+      "how_it_prevents_task_authenticity_violation": "Unfinished or technically offloaded artifacts cannot be presented as completed analysis."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Compares every note_status value to whether its digest actually clears the authorship and depth gate, using one canonical row per id and a fixed denominator of 72.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_register.csv",
+      "check_function": "check_status_matches_reality",
+      "how_it_prevents_task_authenticity_violation": "A missing or hollow digest cannot gain credit by being labeled complete."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Requires each own-prose digest body to identify its correct matter and use a source-shared non-header Mine Act/CFR, citation/order, percentage, or dollar anchor without copying the decision.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/fNN.md",
+      "check_function": "check_notes_grounded_in_own_source",
+      "how_it_prevents_task_authenticity_violation": "Roster echoes, generic cards, cross-case leakage, and wholesale source copying do not earn grounding credit."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "Checks the correct FMSHRC docket in each digest, but only after that record clears the full authorship gate.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/fNN.md",
+      "check_function": "check_docket_numbers",
+      "how_it_prevents_task_authenticity_violation": "Wrong-case work and bare metadata splices cannot earn identity credit."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "Checks for a decision-specific Mine Act/CFR provision, MSHA citation or order number, dollar, or percentage that also occurs in that source and is used inside analytical reasoning.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/fNN.md",
+      "check_function": "check_grounded_figures",
+      "how_it_prevents_task_authenticity_violation": "Invented numbers and header-copy facts cannot earn source-content credit."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "Macro-grades whether penalty_or_remedy distinguishes decisions assessing monetary penalties from decisions granting or denying nonmonetary relief, using the final order text rather than input metadata, then scales by the authored fraction of the 72-record roster.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_register.csv",
+      "check_function": "check_penalty_or_remedy_matches_source",
+      "how_it_prevents_task_authenticity_violation": "A constant penalty or remedy label cannot ride the corpus base rate."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "Structured LLM judgment of six substantive aspects for every authorship-eligible digest, with missing and ineligible records fixed at zero in the 72-record denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/fNN.md",
+      "check_function": "check_llm_coverage",
+      "how_it_prevents_task_authenticity_violation": "Well-shaped but substantively incomplete digests cannot earn coverage credit."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "Structured LLM judgment of faithfulness and case specificity against each decision's own text, restricted to authorship-eligible records and divided by 72.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/fNN.md",
+      "check_function": "check_llm_faithful",
+      "how_it_prevents_task_authenticity_violation": "Fabrication, cross-case contamination, and interchangeable prose lose content credit."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "Derives sustained, sustained-in-part, dismissed, or other disposition from the decision's final order, macro-averages accuracy across true classes, and scales by the authored fraction of 72.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_register.csv",
+      "check_function": "check_disposition_matches_source",
+      "how_it_prevents_task_authenticity_violation": "Constant or fabricated outcome coding cannot pass by matching the modal class."
+    },
+    "partial_oracle_checks_7": {
+      "detailed_explanation_of_checks": "Checks whether each issue_family tag names a proceeding actually evidenced in the decision: civil penalty, discrimination, contest, individual liability, temporary reinstatement, or settlement/other, with the denominator fixed at 72.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_register.csv",
+      "check_function": "check_issue_family_matches_source",
+      "how_it_prevents_task_authenticity_violation": "Generic or round-robin issue labels unsupported by the decision earn no credit."
+    }
+  }
+}

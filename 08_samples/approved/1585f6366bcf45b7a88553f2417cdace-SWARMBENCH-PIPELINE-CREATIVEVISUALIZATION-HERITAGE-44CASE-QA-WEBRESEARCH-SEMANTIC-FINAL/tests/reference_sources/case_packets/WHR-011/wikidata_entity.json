@@ -1,0 +1,2416 @@
+{
+  "entities": {
+    "Q752181": {
+      "aliases": {
+        "en": [
+          {
+            "language": "en",
+            "value": "Rio Platano Biosphere"
+          },
+          {
+            "language": "en",
+            "value": "Rio Platano Biosphere Reserve"
+          }
+        ],
+        "es": [
+          {
+            "language": "es",
+            "value": "Parque nacional del Río Platano"
+          },
+          {
+            "language": "es",
+            "value": "Parque nacional del Río Plátano"
+          },
+          {
+            "language": "es",
+            "value": "Rio Platano"
+          },
+          {
+            "language": "es",
+            "value": "Reserva de la Biosfera de Río Platano"
+          },
+          {
+            "language": "es",
+            "value": "Reserva de la Biosfera de Rio Platano"
+          },
+          {
+            "language": "es",
+            "value": "Parque nacional del Rio Platano"
+          },
+          {
+            "language": "es",
+            "value": "Parque nacional del Rio Plátano"
+          },
+          {
+            "language": "es",
+            "value": "Reserva de la Biosfera de Rio Plátano"
+          },
+          {
+            "language": "es",
+            "value": "Reserva de la Biósfera del Río Plátano"
+          }
+        ],
+        "fr": [
+          {
+            "language": "fr",
+            "value": "Réserve de la biosphère Río Platano"
+          },
+          {
+            "language": "fr",
+            "value": "Reserve de la biosphere Rio Platano"
+          },
+          {
+            "language": "fr",
+            "value": "Réserve de la biosphère Rio Platano"
+          }
+        ],
+        "it": [
+          {
+            "language": "it",
+            "value": "Riserva della biosfera del Rio Platano"
+          }
+        ],
+        "ka": [
+          {
+            "language": "ka",
+            "value": "რიო–პლატანოს ბიოსფერული ნაკრძალი"
+          },
+          {
+            "language": "ka",
+            "value": "რიო პლატანოს ბიოსფერული ნაკრძალი"
+          }
+        ],
+        "nl": [
+          {
+            "language": "nl",
+            "value": "Rio Platano"
+          }
+        ],
+        "ru": [
+          {
+            "language": "ru",
+            "value": "Биосферный резерват Рио-Платано"
+          }
+        ],
+        "sv": [
+          {
+            "language": "sv",
+            "value": "Biosfärreservatet i Rio Plátano"
+          }
+        ],
+        "uk": [
+          {
+            "language": "uk",
+            "value": "Платано"
+          }
+        ],
+        "zh": [
+          {
+            "language": "zh",
+            "value": "普拉塔诺河生物圈保护区"
+          }
+        ]
+      },
+      "claims": {
+        "P10565": [
+          {
+            "id": "Q752181$D4F03B41-E526-431C-B4E4-3B7DB6501E57",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "548655"
+              },
+              "hash": "21744dbbb2bdd03c67b8b9c766eccc0b31ce2431",
+              "property": "P10565",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P131": [
+          {
+            "id": "Q752181$c71004c4-402b-71ed-7cdd-066032ec52bb",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q1967159",
+                  "numeric-id": 1967159
+                }
+              },
+              "hash": "1117c14bf2ec77eeca2300cb86fcf25ad59416d7",
+              "property": "P131",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q752181$B9E0B655-9DB5-4CE0-9A60-1E2695EE5066",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q867112",
+                  "numeric-id": 867112
+                }
+              },
+              "hash": "33f46fa5ed018c18239f5c59bf7921695ae9cabd",
+              "property": "P131",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "bf44d0069d7f7c32df1204d26d9967222cf3b051",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q837615",
+                          "numeric-id": 837615
+                        }
+                      },
+                      "hash": "d8fbf8671e3c630db61bfac691068cfb6857f243",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P4656": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://ceb.wikipedia.org/w/index.php?title=Rio_Platano_Biosphere_Reserve&oldid=21600090"
+                      },
+                      "hash": "5e5ebc018ee2bd69b4a66f7f438064be11beab96",
+                      "property": "P4656",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143",
+                  "P4656"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P13591": [
+          {
+            "id": "Q752181$04A0F8E3-164E-4C76-9236-37BEE3975467",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "place/e129128a-9608-42fd-a980-80eedc9be8be"
+              },
+              "hash": "f0b5df828e24d7f765aa32ea240037bc16cc2e1b",
+              "property": "P13591",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1435": [
+          {
+            "id": "Q752181$654A9670-EA4C-42CF-AD35-485DC2F7FBDC",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q9259",
+                  "numeric-id": 9259
+                }
+              },
+              "hash": "d22546e8bf86b97293821ea8757787befdf35ca8",
+              "property": "P1435",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P1448": [
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "en",
+                      "text": "Río Plátano Biosphere Reserve"
+                    }
+                  },
+                  "hash": "6102c9684a25af62d46dc092ac0f9899c20224ef",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "fr",
+                      "text": "Réserve de la biosphère Río Plátano"
+                    }
+                  },
+                  "hash": "d03442adfa027a082a32678843a6a9f1c538d3b9",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "ar",
+                      "text": "محمية المحيط الحيوي لريو بلاتانو"
+                    }
+                  },
+                  "hash": "da11a8d83712293d5d5ec6e5ab74fe5ef81e6432",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "zh",
+                      "text": "雷奥普拉塔诺生物圈保留地"
+                    }
+                  },
+                  "hash": "851287441e9038ddce9970efb50323a92ceb6553",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "ru",
+                      "text": "Биосферный резерват Рио-Платано"
+                    }
+                  },
+                  "hash": "2447374db3cb9ee7b2d8190a9ad1381b93d46bb5",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "es",
+                      "text": "Reserva de biosfera de Río Plátano"
+                    }
+                  },
+                  "hash": "56ca8850ab3883d13361576078e43d4df84d7619",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "ja",
+                      "text": "リオ・プラタノ生物圏保護区"
+                    }
+                  },
+                  "hash": "07efb8c29cd01d2154b4f2b913eba3652019a709",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "nl",
+                      "text": "Biosfeerreservaat Río Plátano"
+                    }
+                  },
+                  "hash": "a5956f6ef87c5eb354e17309774ff05442a7b267",
+                  "property": "P1448",
+                  "snaktype": "value"
+                }
+              ],
+              "P2614": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038981",
+                      "numeric-id": 23038981
+                    }
+                  },
+                  "hash": "f1fe691d19a57c1eed51c08c4dcd426121138b0d",
+                  "property": "P2614",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038983",
+                      "numeric-id": 23038983
+                    }
+                  },
+                  "hash": "0172573102926665d6181cf366a2b6b421794300",
+                  "property": "P2614",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038985",
+                      "numeric-id": 23038985
+                    }
+                  },
+                  "hash": "523c09e94984c03aa991bf6fe8ba19efd62f312d",
+                  "property": "P2614",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038986",
+                      "numeric-id": 23038986
+                    }
+                  },
+                  "hash": "4f9bce7c486875ed74cdf08dd152eb24e026cb5e",
+                  "property": "P2614",
+                  "snaktype": "value"
+                }
+              ],
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+1982-01-01T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "d717fe85294001d4455f5f040b6a7d2c0ed64568",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580",
+              "P1448",
+              "P2614"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q752181$1B2C420D-DA59-4F66-A90C-FDABB348B903",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q1459900",
+                  "numeric-id": 1459900
+                }
+              },
+              "hash": "d1ae2f914bade38c64113e480fc4c470951be15f",
+              "property": "P1435",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P1448": [
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "fr",
+                      "text": "Rio Platano Biosphere Reserve"
+                    }
+                  },
+                  "hash": "e80c9b4c6b90271f3d61f87e9171a486a2159c33",
+                  "property": "P1448",
+                  "snaktype": "value"
+                }
+              ],
+              "P2614": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038981",
+                      "numeric-id": 23038981
+                    }
+                  },
+                  "hash": "f1fe691d19a57c1eed51c08c4dcd426121138b0d",
+                  "property": "P2614",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038985",
+                      "numeric-id": 23038985
+                    }
+                  },
+                  "hash": "523c09e94984c03aa991bf6fe8ba19efd62f312d",
+                  "property": "P2614",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038986",
+                      "numeric-id": 23038986
+                    }
+                  },
+                  "hash": "4f9bce7c486875ed74cdf08dd152eb24e026cb5e",
+                  "property": "P2614",
+                  "snaktype": "value"
+                }
+              ],
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 11,
+                      "time": "+2019-02-01T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "29385b572c1def5c4ecccd9295707b5e12fe9b48",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580",
+              "P1448",
+              "P2614"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1566": [
+          {
+            "id": "Q752181$C51F0DD9-E3D2-4010-A0F5-D7DB8568A5D6",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "6942112"
+              },
+              "hash": "258ee491afcecfd46ca21a19c1c1d34847dbfd86",
+              "property": "P1566",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "88694a0f4d1486770c269f7db16a1982f74da69d",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q830106",
+                          "numeric-id": 830106
+                        }
+                      },
+                      "hash": "1b3ef912a2bd61e18dd43abd184337eb010b2e96",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q752181$5C18A8C4-EDF1-46BD-AE40-7F59FCE8AF76",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "9072663"
+              },
+              "hash": "dc0dd3338df0b58025795826b1b1ea465ced6840",
+              "property": "P1566",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "bd49d3e4f67bc460ce7a06b6ac3027347cf5ee55",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q169514",
+                          "numeric-id": 169514
+                        }
+                      },
+                      "hash": "e84b0343e79e2a9aa8abadd7301051e15fba52d6",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P17": [
+          {
+            "id": "Q752181$EC84DA30-9C19-4EAA-A9D1-AB35397AFC31",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q783",
+                  "numeric-id": 783
+                }
+              },
+              "hash": "c76c61a04389416d22d2cf7bad43111f87c4fa5c",
+              "property": "P17",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "a84c74ba70a7160fe074e051b685f02e878ce5dd",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "http://www.unesco.org/mabdb/br/brdir/directory/biores.asp?code=HON+01&mode=all"
+                      },
+                      "hash": "0e677c7ecc1c579770a85be27055ebb6cf46eca5",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P1705": [
+          {
+            "id": "Q752181$22389662-4f55-bd3c-edeb-42ef3c803367",
+            "mainsnak": {
+              "datatype": "monolingualtext",
+              "datavalue": {
+                "type": "monolingualtext",
+                "value": {
+                  "language": "es",
+                  "text": "Reserva de la biosfera de Río Plátano"
+                }
+              },
+              "hash": "58c45ca12ff1adf0304312ba81766d4192f35e8d",
+              "property": "P1705",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P18": [
+          {
+            "id": "q752181$DA75D05B-3F79-45CB-A426-2D2D9690C330",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "Rio platano.jpg"
+              },
+              "hash": "5f6f9e9cab3dd0ab3ed76629355873ae90502dd8",
+              "property": "P18",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2046": [
+          {
+            "id": "Q752181$36f0beaf-4274-2f71-61aa-e39fb24e8def",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+5250",
+                  "unit": "http://www.wikidata.org/entity/Q712226"
+                }
+              },
+              "hash": "ba482c18624ac2503f48b3a72da8d72530b2e1bc",
+              "property": "P2046",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q752181$ADFEC794-C91E-4212-A29D-6EC0788096C8",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+350000",
+                  "unit": "http://www.wikidata.org/entity/Q35852"
+                }
+              },
+              "hash": "35048f3582a624c8d048e363caf2ed7f9f418fa6",
+              "property": "P2046",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P518": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q9259",
+                      "numeric-id": 9259
+                    }
+                  },
+                  "hash": "a36e619e9e9474ed2f06d6b204a36f8a919a58a9",
+                  "property": "P518",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P518"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q752181$97F62DBC-D134-40CC-9B86-4BDDC1832BCC",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+150000",
+                  "unit": "http://www.wikidata.org/entity/Q35852"
+                }
+              },
+              "hash": "691b2b553cc0ac43fbde1e46465a285f23b078aa",
+              "property": "P2046",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P518": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q64364418",
+                      "numeric-id": 64364418
+                    }
+                  },
+                  "hash": "5fcb1f5c115fa5c6b5f2942b01877eb305f49399",
+                  "property": "P518",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P518"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P214": [
+          {
+            "id": "Q752181$A52CA60D-7BA4-4B0B-B3C3-0727271C1A56",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "315138771"
+              },
+              "hash": "8d7700b6aa050fe5af4878df6226163f9fc3ec4a",
+              "property": "P214",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "ad3713df772ae88af6a7458d084a40ad20b226d6",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q54919",
+                          "numeric-id": 54919
+                        }
+                      },
+                      "hash": "6b7d4330c4aac4caec4ede9de0311ce273f88ecd",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P813": [
+                    {
+                      "datatype": "time",
+                      "datavalue": {
+                        "type": "time",
+                        "value": {
+                          "after": 0,
+                          "before": 0,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                          "precision": 11,
+                          "time": "+2015-08-06T00:00:00Z",
+                          "timezone": 0
+                        }
+                      },
+                      "hash": "a00cc299e508357647636e29593b8ca3e534077d",
+                      "property": "P813",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248",
+                  "P813"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q752181$CF09DE8E-B190-4AD3-B649-140E4F499DE9",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "1485148632966430630006"
+              },
+              "hash": "6a1bf26b4ffe6af05c1b36236f8f80ebe1eae31d",
+              "property": "P214",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2163": [
+          {
+            "id": "Q752181$08601fd9-48d5-1cb3-81cc-ac023de232bf",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "1286979"
+              },
+              "hash": "024472f08e7b2c2b88ba18d6af23b91a0bbb5847",
+              "property": "P2163",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P244": [
+          {
+            "id": "Q752181$7C279553-1257-4A92-A892-01AE5A7DD911",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "sh99000357"
+              },
+              "hash": "9a4fdc59ff4ee686df7a4964f98fa122def5e18c",
+              "property": "P244",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2520": [
+          {
+            "id": "Q752181$A9B6C090-C10F-43AF-A66F-A963EC2D9541",
+            "mainsnak": {
+              "datatype": "url",
+              "datavalue": {
+                "type": "string",
+                "value": "http://www.unesco.org/mabdb/br/brdir/directory/biores.asp?code=HON+01&mode=all"
+              },
+              "hash": "17461ae4312156b13e56f8d39a899890044af491",
+              "property": "P2520",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2614": [
+          {
+            "id": "Q752181$7E73C6F9-71E6-4A06-A3EB-EBF51BD0C370",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038981",
+                  "numeric-id": 23038981
+                }
+              },
+              "hash": "f1fe691d19a57c1eed51c08c4dcd426121138b0d",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "b5dede7fe2f913eb6a0da7ace0f4e85562bcf6e9",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "http://whc.unesco.org/en/list/196"
+                      },
+                      "hash": "cb7651ddba502092b0cfc9e62b2fa66cf8358c79",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q752181$E0A49EDF-CB34-4ACA-9C44-45BAF3FF117D",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038983",
+                  "numeric-id": 23038983
+                }
+              },
+              "hash": "0172573102926665d6181cf366a2b6b421794300",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "b5dede7fe2f913eb6a0da7ace0f4e85562bcf6e9",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "http://whc.unesco.org/en/list/196"
+                      },
+                      "hash": "cb7651ddba502092b0cfc9e62b2fa66cf8358c79",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q752181$4777A5E7-F163-4BBB-9CD8-B18FA3118B0F",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038985",
+                  "numeric-id": 23038985
+                }
+              },
+              "hash": "523c09e94984c03aa991bf6fe8ba19efd62f312d",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "b5dede7fe2f913eb6a0da7ace0f4e85562bcf6e9",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "http://whc.unesco.org/en/list/196"
+                      },
+                      "hash": "cb7651ddba502092b0cfc9e62b2fa66cf8358c79",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q752181$C5CD4CF3-D295-4584-BE39-51682400779F",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038986",
+                  "numeric-id": 23038986
+                }
+              },
+              "hash": "4f9bce7c486875ed74cdf08dd152eb24e026cb5e",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "b5dede7fe2f913eb6a0da7ace0f4e85562bcf6e9",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "http://whc.unesco.org/en/list/196"
+                      },
+                      "hash": "cb7651ddba502092b0cfc9e62b2fa66cf8358c79",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P31": [
+          {
+            "id": "Q752181$74412DDA-6A3F-45AF-8F2A-0FB5A17004B3",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q158454",
+                  "numeric-id": 158454
+                }
+              },
+              "hash": "289cb080bb1232c8ddba9504806e267dc87a4531",
+              "property": "P31",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q752181$BD8671D8-58A6-4045-938C-BFF71B057C0B",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q179049",
+                  "numeric-id": 179049
+                }
+              },
+              "hash": "aba3d89992230ef17d3b7db6500e076564158ab2",
+              "property": "P31",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "bd49d3e4f67bc460ce7a06b6ac3027347cf5ee55",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q169514",
+                          "numeric-id": 169514
+                        }
+                      },
+                      "hash": "e84b0343e79e2a9aa8abadd7301051e15fba52d6",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P361": [
+          {
+            "id": "Q752181$fe05d340-48c4-55d2-1e95-ee9e18ba091f",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q2997952",
+                  "numeric-id": 2997952
+                }
+              },
+              "hash": "a4f72faa9021c500d16bb15c69102afd9e4c52dc",
+              "property": "P361",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P373": [
+          {
+            "id": "Q752181$fc813542-456b-6f1a-2b74-64a74e5da84d",
+            "mainsnak": {
+              "datatype": "string",
+              "datavalue": {
+                "type": "string",
+                "value": "Río Plátano Biosphere Reserve"
+              },
+              "hash": "430b63b8da0e2e1aef4aa5214c90a93309539a00",
+              "property": "P373",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P402": [
+          {
+            "id": "Q752181$2adc02b5-4111-4eb7-6d7a-5cbdd7c5c528",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "556290"
+              },
+              "hash": "d1b7b8c7b07f6c5c2ced5bdad91efa934e83463d",
+              "property": "P402",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P4171": [
+          {
+            "id": "Q752181$440498F3-23AB-44CF-A91B-0A2CB1761C7C",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "6383"
+              },
+              "hash": "c757239c0ccd4965813a47794a4370c2ca27a75d",
+              "property": "P4171",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P463": [
+          {
+            "id": "Q752181$E2810CD3-F063-471A-9BCE-A50813EB2782",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q14018439",
+                  "numeric-id": 14018439
+                }
+              },
+              "hash": "89bc75406e4a6466ba4a624c7175cd380db722d5",
+              "property": "P463",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P5008": [
+          {
+            "id": "Q752181$DD0733EC-8140-4BA6-A868-1D51CD584070",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q107414369",
+                  "numeric-id": 107414369
+                }
+              },
+              "hash": "8a88e1c4c25ebd5c6c809062d163bff87e3cac68",
+              "property": "P5008",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P571": [
+          {
+            "id": "Q752181$7591bcfc-4625-abce-d1b8-11302b82f583",
+            "mainsnak": {
+              "datatype": "time",
+              "datavalue": {
+                "type": "time",
+                "value": {
+                  "after": 0,
+                  "before": 0,
+                  "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                  "precision": 9,
+                  "time": "+1982-00-00T00:00:00Z",
+                  "timezone": 0
+                }
+              },
+              "hash": "8f324e7204efa2c9d0e47602de2a87e53cec6773",
+              "property": "P571",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P625": [
+          {
+            "id": "Q752181$FEF25E27-16D2-4125-91F6-F6FBA6B22E39",
+            "mainsnak": {
+              "datatype": "globe-coordinate",
+              "datavalue": {
+                "type": "globecoordinate",
+                "value": {
+                  "altitude": null,
+                  "globe": "http://www.wikidata.org/entity/Q2",
+                  "latitude": 15.25,
+                  "longitude": -84.73,
+                  "precision": 1e-06
+                }
+              },
+              "hash": "6638baa1b228be5be69c8c41e587ab2f87ba01bb",
+              "property": "P625",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "a84c74ba70a7160fe074e051b685f02e878ce5dd",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "http://www.unesco.org/mabdb/br/brdir/directory/biores.asp?code=HON+01&mode=all"
+                      },
+                      "hash": "0e677c7ecc1c579770a85be27055ebb6cf46eca5",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q752181$6BE3AB1A-1211-4D64-A4EF-5E0C5C1CF30E",
+            "mainsnak": {
+              "datatype": "globe-coordinate",
+              "datavalue": {
+                "type": "globecoordinate",
+                "value": {
+                  "altitude": null,
+                  "globe": "http://www.wikidata.org/entity/Q2",
+                  "latitude": 15.6,
+                  "longitude": -84.8,
+                  "precision": 0.0166667
+                }
+              },
+              "hash": "bb272b6977d5a116ca9397388911ec567a7f5b74",
+              "property": "P625",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "bd49d3e4f67bc460ce7a06b6ac3027347cf5ee55",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q169514",
+                          "numeric-id": 169514
+                        }
+                      },
+                      "hash": "e84b0343e79e2a9aa8abadd7301051e15fba52d6",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P646": [
+          {
+            "id": "Q752181$2D843809-F232-49C1-AB80-14B921DDD3E6",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "/m/04y7zg"
+              },
+              "hash": "c0bac22aebc85cee63921eb3673d9fa3da722627",
+              "property": "P646",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "2b00cb481cddcac7623114367489b5c194901c4a",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q15241312",
+                          "numeric-id": 15241312
+                        }
+                      },
+                      "hash": "a94b740202b097dd33355e0e6c00e54b9395e5e0",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P577": [
+                    {
+                      "datatype": "time",
+                      "datavalue": {
+                        "type": "time",
+                        "value": {
+                          "after": 0,
+                          "before": 0,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                          "precision": 11,
+                          "time": "+2013-10-28T00:00:00Z",
+                          "timezone": 0
+                        }
+                      },
+                      "hash": "fde79ecb015112d2f29229ccc1ec514ed3e71fa2",
+                      "property": "P577",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248",
+                  "P577"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P757": [
+          {
+            "id": "q752181$dedb7229-40d2-5b92-f794-27f56f69b6a5",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "196"
+              },
+              "hash": "05beecc576fd5ca16a43b4acb401deda5dd64096",
+              "property": "P757",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P793": [
+          {
+            "id": "Q752181$6ad68f27-4af7-378d-5daa-92c79868a3b8",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q222384",
+                  "numeric-id": 222384
+                }
+              },
+              "hash": "ec342702ae5c6287265ee8af23935efe390aa50c",
+              "property": "P793",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+1996-00-00T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "68c4b4d459d1b131347d9ffde2e282a8b9a167c8",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ],
+              "P582": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+2007-00-00T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "9fc80f116cd7029ee0893c410d1b454ec3d06872",
+                  "property": "P582",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580",
+              "P582"
+            ],
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q752181$d0be5beb-4a78-0c6a-adfc-bb894493431d",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q222384",
+                  "numeric-id": 222384
+                }
+              },
+              "hash": "ec342702ae5c6287265ee8af23935efe390aa50c",
+              "property": "P793",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+2011-00-00T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "ebe6660246eb6c9693ae6aeb0ed95430416ee134",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580"
+            ],
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P809": [
+          {
+            "id": "q752181$DFEF43C7-E199-47CF-85F5-8037D88EEE9C",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "41014"
+              },
+              "hash": "235dd2e7c4819e462caba8373f71f534d5fb693a",
+              "property": "P809",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "d4bd87b862b12d99d26e86472d44f26858dee639",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q8447",
+                          "numeric-id": 8447
+                        }
+                      },
+                      "hash": "f30cbd35620c4ea6d0633aaf0210a8916130469b",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P814": [
+          {
+            "id": "q752181$E731E28D-2578-4324-80A3-E19E5097E4FA",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q14545652",
+                  "numeric-id": 14545652
+                }
+              },
+              "hash": "f0fd9e74df13d6e86a12abd53c1cd241108aa8a8",
+              "property": "P814",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P8189": [
+          {
+            "id": "Q752181$A58F7CE4-B957-42FA-B061-1BEF5DD243F1",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "987007556527805171"
+              },
+              "hash": "8ca5ff7d66f4dd0cad3ea0bc61dacff4c03452ca",
+              "property": "P8189",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P948": [
+          {
+            "id": "Q752181$580e4cfd-d209-46b6-806f-bba5dd1dfef8",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "Patuca medio e indígena Miskito (cropped).jpg"
+              },
+              "hash": "5e24c798b35b0b9b2f00989c96feae4f67050bb2",
+              "property": "P948",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "f466fb3b942da10ff4037458162613ed56aeecd9",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q19826574",
+                          "numeric-id": 19826574
+                        }
+                      },
+                      "hash": "342852c6ea3be834528dad2b0808c542dc83626d",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P4656": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://en.wikivoyage.org/wiki/R%C3%ADo_Pl%C3%A1tano_Biosphere_Reserve"
+                      },
+                      "hash": "57b325cc5d098d47ece79dfaead44d187bc576d5",
+                      "property": "P4656",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143",
+                  "P4656"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P949": [
+          {
+            "id": "Q752181$45211d54-4919-39bd-1a74-bf620bfe5ecd",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "000859422"
+              },
+              "hash": "b8478b9bfbf7050325b8027b8c87a8cfb5b10306",
+              "property": "P949",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ]
+      },
+      "descriptions": {
+        "ar": {
+          "language": "ar",
+          "value": "محمية طبيعية في هندوراس"
+        },
+        "ba": {
+          "language": "ba",
+          "value": "Гондураста биосфера ҡурсаулығы"
+        },
+        "cs": {
+          "language": "cs",
+          "value": "rezervace v Hondurasu"
+        },
+        "de": {
+          "language": "de",
+          "value": "Nationalpark in Honduras"
+        },
+        "en": {
+          "language": "en",
+          "value": "biosphere reserve in Honduras"
+        },
+        "en-ca": {
+          "language": "en-ca",
+          "value": "nature reserve in Honduras"
+        },
+        "en-gb": {
+          "language": "en-gb",
+          "value": "nature reserve in Honduras"
+        },
+        "es": {
+          "language": "es",
+          "value": "reserva de biosfera en Honduras"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "réserve de la biosphère du Honduras"
+        },
+        "he": {
+          "language": "he",
+          "value": "שמורה ביוספרית בהונדורס"
+        },
+        "hu": {
+          "language": "hu",
+          "value": "Honduras, a Karib-tenger partja"
+        },
+        "id": {
+          "language": "id",
+          "value": "taman reservasi di Honduras"
+        },
+        "mt": {
+          "language": "mt",
+          "value": "riżerva ta' bijosfera fil-Honduras"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "natuurgebied in Honduras"
+        },
+        "pl": {
+          "language": "pl",
+          "value": "rezerwat biosfery oraz obiekt z listy światowego dziedzictwa UNESCO w Hondurasie"
+        }
+      },
+      "id": "Q752181",
+      "labels": {
+        "ar": {
+          "language": "ar",
+          "value": "محمية المحيط الحيوي لريو بلاتانو"
+        },
+        "ba": {
+          "language": "ba",
+          "value": "Рио-Платано"
+        },
+        "be": {
+          "language": "be",
+          "value": "Рыа-Платана"
+        },
+        "ca": {
+          "language": "ca",
+          "value": "Reserva de la Biosfera de Río Plátano"
+        },
+        "cs": {
+          "language": "cs",
+          "value": "Río Plátano"
+        },
+        "dag": {
+          "language": "dag",
+          "value": "Río Plátano Bisophere Korabea"
+        },
+        "de": {
+          "language": "de",
+          "value": "Biosphärenreservat Río Plátano"
+        },
+        "en": {
+          "language": "en",
+          "value": "Río Plátano Biosphere Reserve"
+        },
+        "eo": {
+          "language": "eo",
+          "value": "Biosfera rezervejo Río Plátano"
+        },
+        "es": {
+          "language": "es",
+          "value": "Reserva de la biosfera de Río Plátano"
+        },
+        "eu": {
+          "language": "eu",
+          "value": "Río Plátano Biosfera Erreserba"
+        },
+        "fa": {
+          "language": "fa",
+          "value": "ذخیره‌گاه زیست‌کره ریو پالاتانو"
+        },
+        "fat": {
+          "language": "fat",
+          "value": "Río Plátano Bisophere Korabea"
+        },
+        "fi": {
+          "language": "fi",
+          "value": "Río Plátanon biosfäärialue"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "réserve de la biosphère Río Plátano"
+        },
+        "gl": {
+          "language": "gl",
+          "value": "Reserva da biosfera de Río Plátano"
+        },
+        "gur": {
+          "language": "gur",
+          "value": "Río Plátano Bisophere Korabea"
+        },
+        "he": {
+          "language": "he",
+          "value": "ריו פלאטנו"
+        },
+        "hr": {
+          "language": "hr",
+          "value": "Rio Plátano"
+        },
+        "hu": {
+          "language": "hu",
+          "value": "Río Plátano Bioszféra-rezervátum"
+        },
+        "hy": {
+          "language": "hy",
+          "value": "Ռիո Պլատանո"
+        },
+        "id": {
+          "language": "id",
+          "value": "Cagar Alam Río Plátano"
+        },
+        "it": {
+          "language": "it",
+          "value": "Riserva della biosfera del Río Plátano"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "リオ・プラタノ生物圏保護区"
+        },
+        "ka": {
+          "language": "ka",
+          "value": "რიო-პლატანოს ბიოსფერული ნაკრძალი"
+        },
+        "ko": {
+          "language": "ko",
+          "value": "리오플라타노강 생물권보전지역"
+        },
+        "lt": {
+          "language": "lt",
+          "value": "Platano upės biosferos rezervatas"
+        },
+        "lv": {
+          "language": "lv",
+          "value": "Platano upes biosfēras rezervāts"
+        },
+        "mk": {
+          "language": "mk",
+          "value": "Биосферен резерват Рио Платано"
+        },
+        "mos": {
+          "language": "mos",
+          "value": "Río Plátano Bisophere Korabea"
+        },
+        "mt": {
+          "language": "mt",
+          "value": "Riżerva ta' Bijosfera ta' Río Plátano"
+        },
+        "my": {
+          "language": "my",
+          "value": "ရီယို ပလက်တာနို ဇီဝရပ်ဝန်း ထိန်းသိမ်းရေးဒေသ"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "Río Plátano"
+        },
+        "pl": {
+          "language": "pl",
+          "value": "Rezerwat Biosfery Río Plátano"
+        },
+        "pt": {
+          "language": "pt",
+          "value": "Reserva da Biosfera de Río Plátano"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "Рио-Платано"
+        },
+        "sh": {
+          "language": "sh",
+          "value": "Rio Plátano"
+        },
+        "sk": {
+          "language": "sk",
+          "value": "Río Plátano"
+        },
+        "sv": {
+          "language": "sv",
+          "value": "Río Plátano biosfärområde"
+        },
+        "tr": {
+          "language": "tr",
+          "value": "Río Plátano Biyosfer Rezervi"
+        },
+        "tw": {
+          "language": "tw",
+          "value": "Río Plátano Nkwammoaa a Wɔkora So"
+        },
+        "uk": {
+          "language": "uk",
+          "value": "Біосферний резерв Ріо-Платано"
+        },
+        "vi": {
+          "language": "vi",
+          "value": "Khu dự trữ sinh quyển Río Platano"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "雷奥普拉塔诺生物圈保留地"
+        },
+        "zh-hans": {
+          "language": "zh-hans",
+          "value": "雷奥普拉塔诺生物圈保留地"
+        },
+        "zh-hant": {
+          "language": "zh-hant",
+          "value": "雷奧普拉塔諾生物圈保留地"
+        },
+        "zh-hk": {
+          "language": "zh-hk",
+          "value": "雷奧普拉塔諾生物圈保留地"
+        }
+      },
+      "lastrevid": 2500478677,
+      "modified": "2026-06-01T04:29:47Z",
+      "ns": 0,
+      "pageid": 707752,
+      "sitelinks": {
+        "arwiki": {
+          "badges": [],
+          "site": "arwiki",
+          "title": "محمية ريو بلاتانو الحيوية"
+        },
+        "bawiki": {
+          "badges": [],
+          "site": "bawiki",
+          "title": "Рио-Платано"
+        },
+        "bewiki": {
+          "badges": [],
+          "site": "bewiki",
+          "title": "Рыа-Платана"
+        },
+        "cawiki": {
+          "badges": [],
+          "site": "cawiki",
+          "title": "Reserva de la Biosfera de Río Plátano"
+        },
+        "commonswiki": {
+          "badges": [],
+          "site": "commonswiki",
+          "title": "Category:Río Plátano Biosphere Reserve"
+        },
+        "cswiki": {
+          "badges": [],
+          "site": "cswiki",
+          "title": "Río Plátano"
+        },
+        "dagwiki": {
+          "badges": [],
+          "site": "dagwiki",
+          "title": "Río Plátano Bisophere Korabea"
+        },
+        "dewiki": {
+          "badges": [],
+          "site": "dewiki",
+          "title": "Biosphärenreservat Río Plátano"
+        },
+        "enwiki": {
+          "badges": [],
+          "site": "enwiki",
+          "title": "Río Plátano Biosphere Reserve"
+        },
+        "enwikivoyage": {
+          "badges": [
+            "Q17559452"
+          ],
+          "site": "enwikivoyage",
+          "title": "Río Plátano Biosphere Reserve"
+        },
+        "eowiki": {
+          "badges": [],
+          "site": "eowiki",
+          "title": "Biosfera rezervejo Río Plátano"
+        },
+        "eswiki": {
+          "badges": [],
+          "site": "eswiki",
+          "title": "Reserva de la biosfera de Río Plátano"
+        },
+        "euwiki": {
+          "badges": [],
+          "site": "euwiki",
+          "title": "Río Plátano Biosfera Erreserba"
+        },
+        "fatwiki": {
+          "badges": [],
+          "site": "fatwiki",
+          "title": "Río Plátano Bisophere Korabea"
+        },
+        "fawiki": {
+          "badges": [],
+          "site": "fawiki",
+          "title": "ذخیره‌گاه زیست‌کره ریو پالاتانو"
+        },
+        "fiwiki": {
+          "badges": [],
+          "site": "fiwiki",
+          "title": "Río Plátanon biosfäärialue"
+        },
+        "frwiki": {
+          "badges": [],
+          "site": "frwiki",
+          "title": "Réserve de la biosphère Río Plátano"
+        },
+        "glwiki": {
+          "badges": [],
+          "site": "glwiki",
+          "title": "Reserva da biosfera de Río Plátano"
+        },
+        "gurwiki": {
+          "badges": [],
+          "site": "gurwiki",
+          "title": "Río Plátano Bisophere Korabea"
+        },
+        "hewiki": {
+          "badges": [],
+          "site": "hewiki",
+          "title": "ריו פלאטנו"
+        },
+        "hrwiki": {
+          "badges": [],
+          "site": "hrwiki",
+          "title": "Rezervat biosfere Río Plátano"
+        },
+        "huwiki": {
+          "badges": [],
+          "site": "huwiki",
+          "title": "Río Plátano Bioszféra-rezervátum"
+        },
+        "hywiki": {
+          "badges": [],
+          "site": "hywiki",
+          "title": "Ռիո Պլատանո"
+        },
+        "idwiki": {
+          "badges": [],
+          "site": "idwiki",
+          "title": "Cagar Alam Río Plátano"
+        },
+        "itwiki": {
+          "badges": [],
+          "site": "itwiki",
+          "title": "Riserva della biosfera del Río Plátano"
+        },
+        "jawiki": {
+          "badges": [],
+          "site": "jawiki",
+          "title": "リオ・プラタノ生物圏保護区"
+        },
+        "kawiki": {
+          "badges": [],
+          "site": "kawiki",
+          "title": "რიო-პლატანოს ბიოსფერული ნაკრძალი"
+        },
+        "kowiki": {
+          "badges": [],
+          "site": "kowiki",
+          "title": "리오플라타노강 생물권보전지역"
+        },
+        "ltwiki": {
+          "badges": [],
+          "site": "ltwiki",
+          "title": "Platano upės biosferos rezervatas"
+        },
+        "lvwiki": {
+          "badges": [],
+          "site": "lvwiki",
+          "title": "Platano upes biosfēras rezervāts"
+        },
+        "mkwiki": {
+          "badges": [],
+          "site": "mkwiki",
+          "title": "Биосферен резерват Рио Платано"
+        },
+        "moswiki": {
+          "badges": [],
+          "site": "moswiki",
+          "title": "Río Plátano Bisophere Korabea"
+        },
+        "mtwiki": {
+          "badges": [],
+          "site": "mtwiki",
+          "title": "Riżerva ta' Bijosfera ta' Río Plátano"
+        },
+        "mywiki": {
+          "badges": [],
+          "site": "mywiki",
+          "title": "ရီယို ပလက်တာနို ဇီဝရပ်ဝန်း ထိန်းသိမ်းရေးဒေသ"
+        },
+        "nlwiki": {
+          "badges": [],
+          "site": "nlwiki",
+          "title": "Río Plátano"
+        },
+        "plwiki": {
+          "badges": [],
+          "site": "plwiki",
+          "title": "Rezerwat Biosfery Río Plátano"
+        },
+        "ptwiki": {
+          "badges": [],
+          "site": "ptwiki",
+          "title": "Reserva da Biosfera de Río Plátano"
+        },
+        "ruwiki": {
+          "badges": [],
+          "site": "ruwiki",
+          "title": "Рио-Платано"
+        },
+        "shwiki": {
+          "badges": [],
+          "site": "shwiki",
+          "title": "Río Plátano"
+        },
+        "skwiki": {
+          "badges": [],
+          "site": "skwiki",
+          "title": "Río Plátano"
+        },
+        "svwiki": {
+          "badges": [],
+          "site": "svwiki",
+          "title": "Río Plátano biosfärområde"
+        },
+        "trwiki": {
+          "badges": [],
+          "site": "trwiki",
+          "title": "Río Plátano Biyosfer Rezervi"
+        },
+        "twwiki": {
+          "badges": [],
+          "site": "twwiki",
+          "title": "Río Plátano Nkwammoaa a Wɔkora So"
+        },
+        "ukwiki": {
+          "badges": [],
+          "site": "ukwiki",
+          "title": "Біосферний резерв Ріо-Платано"
+        },
+        "viwiki": {
+          "badges": [],
+          "site": "viwiki",
+          "title": "Khu dự trữ sinh quyển Río Platano"
+        },
+        "zhwiki": {
+          "badges": [],
+          "site": "zhwiki",
+          "title": "雷奥普拉塔诺生物圈保留地"
+        }
+      },
+      "title": "Q752181",
+      "type": "item"
+    }
+  }
+}

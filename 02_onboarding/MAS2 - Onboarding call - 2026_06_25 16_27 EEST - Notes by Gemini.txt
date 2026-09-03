@@ -1,0 +1,1168 @@
+﻿📝 Notes
+Jun 25, 2026
+MAS2 - Onboarding call
+Invited Atif Shoaib Muhammad Mamdouh Abhishek Kathirasan Vinodkumar Baste Duc Viet Sridaran Sridaran Job Owonubi Sara Poursorkh Olusegun Olayinka Bright Amidiagbe Karthick E Aditya Somani Logesh Logesh S G Mathavan Ramesh Kumar K Bhanu Prakash Reddy Nalamadgu Aladdin Mostafa Kuldeep Singh Tanwar Naveen Naveen Estifanos Gashawtena Ruturaj Solanki
+Attachments MAS2 - Onboarding call
+Meeting records Transcript Recording 
+
+
+
+
+Summary
+The meeting established Phase 2 standards for long-horizon multi-agent tasks and reinforced strict quality control and verification procedures.
+
+Phase 2 Design Standards
+Tasks must utilize long-horizon, multi-stage workflows involving external browsing and hierarchical agent coordination. This approach replaces simple, synthetic structures with realistic, complex problem solving.
+
+Evaluation and Quality Assurance
+Evaluation now relies on meaningful rubrics linked to task instructions rather than oracle solutions. Trainers must prioritize rigorous debugging to eliminate synthetic data and prevent hallucinated judge results.
+
+Workflow and Accountability
+Trainers must use structured spreadsheets for submissions and obtain quality assurance approval before execution. Peer brainstorming is required to enhance creativity and ensure outputs meet real-world standards.
+
+
+
+
+Next steps
+* [The group] Complete Weekly Tasks: Finish 50 high quality tasks this week while adhering to the new client requirements.
+* [Aladdin Mostafa] Share Token Requirements: Provide the required token counts for long writing tasks to the team after the meeting.
+* [Estifanos Gashawtena] Share Sample Tasks: Distribute the browsing and creative visualization sample tasks to the trainers.
+* [S G Mathavan] Share Access Document: Provide the team with access to the project document discussed during the meeting.
+* [The group] Submit Task Plan: Populate the spreadsheet row with a unique idea, markdown instructions, and a markdown decomposition file. Ensure the submission meets all defined phase 2 requirements.
+* [The group] Update Harness: Apply the provided patch to the environment to enable compatibility with open code. Complete this step before initiating work on phase 2.
+* [The group] Provide Tool Link: Add the specific address to the project spreadsheet for the proposed work. This allows the quality assurance team to review and validate the submission.
+* [The group] Review Rejection Reasons: Examine the client feedback from phase 1 to avoid similar issues in new work. Apply these learnings to ensure high quality data generation.
+* [S G Mathavan] Grant Project Access: Add the trainers to the system after the meeting finishes.
+* [S G Mathavan] Contest Rejected Tasks: Engage with the client to reconsider tasks that were improperly rejected due to minor scoring issues.
+* [S G Mathavan] Share Analysis Findings: Post the analysis of patterns and client feedback in the team channel.
+* [Aladdin] Provide Tool Access: Grant the team members access to the labeling tool.
+* [Aladdin] Distribute Requirements Document: Share the document containing client requirements and mistakes to avoid.
+* [Aladdin, Estifanos] Review Creativity Proposals: Evaluate and verify the creativity parts of upcoming tasks.
+* [S G Mathavan] Send Demo Artifacts: Provide the team with all artifacts utilized in the demonstrations.
+* [The group] Refine Task Creation: Brainstorm ideas with peers and agents before creating tasks and ensure all content is humanly readable.
+
+
+
+
+Details
+Did the screenshots in this section make your notes better or worse?
+* Phase 2 Project Goals: Aladdin Mostafa noted that participants were selected based on high performance in Phase 1, and the immediate objective is to complete 50 high-quality tasks to facilitate a project extension to 1,000 tasks (00:03:57). They cautioned that quality is critical, as submitting poor results or tasks similar to Phase 1 could lead to project cancellation (00:06:18).
+  
+
+* Long Horizon and Multi-Stage Requirements: S G Mathavan and Aladdin Mostafa explained that Phase 2 tasks must be "long horizon" with multi-stage workflows, rejecting the "flat" or fabricated tasks prevalent in Phase 1. The client requires complex, real-world problem statements that utilize deep multi-agent orchestration, such as complex DAG graphs, rather than simple orchestrators spawning sub-agents for basic tasks (00:06:18) (00:13:22).
+* Task Design and Realism: The speakers emphasized that instructions must avoid AI-generated styles, over-explanation, or explicitly listing steps, which can leak the solving strategy. Prompts should be human-readable, focusing on the goal and the desired final output, while utilizing real-world sources like GitHub repositories or web browsing rather than synthetic or sensitive data (00:11:44) (00:17:44).
+* Replacement of Oracle Evaluation: Oracle solutions are no longer required for Phase 2 tasks because the focus has shifted to long-horizon, real-world problems where a definitive Oracle answer may not exist. Instead, trainers are instructed to implement "rubric-based evaluation" linked directly to the task instructions (00:19:27). These rubrics must be meaningful, defining specific requirements for outputs like spreadsheets or presentations, rather than focusing on trivial, engineered constraints like capitalization or punctuation (00:22:14).
+* Single Agent Failure Criteria: S G Mathavan and Aladdin Mostafa clarified that a "real" gap must exist, meaning a single agent must naturally struggle due to the broad, multi-source, and coordination-heavy nature of the task. Trainers are responsible for debugging their own tasks to ensure that LLM judges provide accurate scores based on true task difficulty, rather than penalizing single agents for formatting differences that the client does not consider a valid failure (00:24:48).
+  
+
+* Browsing and External Retrieval: The team must select at least one optional task type, with "browsing and external retrieval" highlighted as a necessary improvement over the local-file-only tasks of Phase 1 (00:28:11). S G Mathavan noted that previous reliance on local input artifacts resulted in client rejections, and that future tasks must require agents to actively browse and synthesize information from online sources to mirror real-world scenarios (00:29:55).
+  
+
+* Long Writing Tasks: To move away from the JSON-only outputs of Phase 1, the team is required to incorporate long-writing tasks (00:33:33). The client specifically requested tasks that push agents to generate substantive, long-form content, such as detailed reports that may reach 100k to 200k tokens, rather than tasks that merely analyze small datasets to produce a JSON file (00:36:28).
+  
+
+* Estifanos Gashawtena’s Browsing Task Demo: Estifanos Gashawtena demonstrated a browsing task requiring the agent to navigate the web to extract emergency purchase data for 120 counties across 10 U.S. states without specific URL guidance. This example illustrated how to structure tasks that demand genuine web research to produce a spreadsheet, rather than relying on pre-provided local data (00:39:04).
+  
+
+* Organizing Environment Rules: S G Mathavan advised against hard-coding rules directly into the main instruction file. Instead, they recommended creating a dedicated directory or document within the environment folder for rules, which keeps the instructions "human-readable" and modularizes the requirements (00:45:36).
+* Creative Visualization and Summarization Task: Estifanos Gashawtena presented a second example involving an academic book of approximately 1,000 pages and 34 chapters (00:47:43). The agent was tasked with summarizing each chapter to create a final study guide, demonstrating a creative visualization approach that emphasizes content synthesis rather than just structured data extraction (00:48:44).
+* Task Decomposition Strategy: To manage large-scale tasks like the 34-chapter book summary, Estifanos Gashawtena proposed a hierarchical decomposition strategy. This involves assigning individual sub-agents to specific chapters, with a final "reducer" agent responsible for collecting the summaries and compiling the full document, which satisfies the client's requirement for complex, depth-heavy coordination (00:51:23).
+* Technical Validation and Judging: Regarding the validation of large tasks, Estifanos Gashawtena explained using an LLM judge to score chapters individually by extracting chunks of the book, which requires approximately 34 API calls (00:54:40). The participants discussed methods to ensure quality, such as parsing outputs for structure and specific factual values rather than checking every element, and considered using multi-agent setups as "detectives" to verify that the single agent is not simply filling the sheet with placeholder content to achieve a high score (00:56:25) (01:00:41).
+  
+
+* Creative Visualization and Output Requirements: Aladdin Mostafa discussed the Phase 2 requirement for creative visualization, which includes asking agents to produce slides, presentations, charts, and dashboards, as well as images or videos where applicable (01:06:26). The team must incorporate structured outputs, such as CSV files, evidence matrices, or spreadsheets, ensuring these outputs involve long-form writing rather than simple JSON structures, as requested by the client (01:07:49).
+* Phase 2 Task Guidelines: Aladdin Mostafa explained that Phase 2 tasks must be realistic and should incorporate external tool usage, such as browsing or web fetching, and hierarchical agent coordination. Trainers are required to create tasks that allow for evidence collection and verification, ensuring there is a clear, justifiable reason why a single agent would struggle with the task compared to a multi-agent approach (01:07:49).
+* Avoiding Prohibited Practices: S G Mathavan and Aladdin Mostafa outlined strict constraints for Phase 2, including the prohibition of local file reading, synthetic data, and "single agent only" restrictions which artificially force performance gaps. Furthermore, information asymmetry and "reward hacking"—such as preventing a single agent from using Python to create an artificial gap—are not permitted, and decomposition leakage must be avoided to ensure that Oracle values are not included in the YAML files (01:09:38) (01:12:52).
+* Scoring and Reward Verification: S G Mathavan warned against the use of complex mathematical formulas, score caps, floors, or ceilings in reward files, noting that these are often flagged by the client. Reward logic should be straightforward and meaningful, focusing on whether the instructions provided are maintained by the agent, rather than using weightage or cryptic mechanisms to influence the scoring (01:16:26) (01:18:50).
+* Task Integrity and Execution Discipline: S G Mathavan emphasized that trainers must rerun execution logs whenever changes are made to the `instruction.md` file, as failing to do so results in inaccurate task submissions (01:20:56). Additionally, attempting to throttle output tokens to artificially create a timeout or "single agent failure" is prohibited and will be treated as a work ethics issue (01:21:54) (01:25:24).
+* Artifact Management and Formatting: S G Mathavan instructed trainers to maintain a clean folder structure using the specific UUID format `domain/task` to prevent mislabeled artifacts and ensure that execution logs are correctly associated with the task (01:25:24). Trainers must also avoid parser-related failures where a single agent is penalized for format errors despite providing a correct answer, as such penalization does not offer meaningful training for the client (01:23:08).
+* Understanding Agent Failures and Scoring: Bright Amidiagbe questioned whether zero-scoring scenarios for single agents are permitted when the agent performs the work but fails to produce an output file (01:27:37). S G Mathavan clarified that while this may be a valid failure, trainers should focus on debugging why these failures occur, and noted that in Phase 2, partial rewards are possible for long-horizon, multi-stage tasks where an agent may succeed in one area but fail in another (01:28:32).
+* Task Time Limits: S G Mathavan and Aladdin Mostafa addressed the current time allowance for tasks, which is set at 7 hours per task, with the possibility that this requirement may be reduced in Phase 2 as the workflow becomes more efficient (01:30:41).
+* Workflow and Submission Process: Aladdin Mostafa introduced a spreadsheet that trainers must use to submit their task ideas, including instructions, decomposition files, and data source links for QA review (01:31:45) (01:34:28). Trainers must receive a "pass" from the QA team before beginning work, and everyone is required to adhere to their assigned task domains (01:33:12) (01:35:49).
+* Trainer Accountability and AI Usage: S G Mathavan stressed that trainers are fully responsible for the quality of their work and should not blindly submit AI-generated instructions or rubrics without rigorous human verification (01:37:50) (01:40:17). Trainers must review and edit all AI-produced content to ensure it is human-readable and logically sound; failing to do so or submitting work that is obviously generated and unverified is unacceptable (01:42:49) (01:47:59).
+* In-depth Trajectory Analysis: S G Mathavan advised trainers to perform deep analysis on agent trajectories to understand the root cause of failures, rather than just accepting that a performance gap was achieved. By debugging how a single agent fails and how a multi-agent succeeds, trainers will improve their own understanding of the system, which will eventually lead to lower rejection rates and more creative task design (01:50:46).
+* Client Rejections and Data Quality: S G Mathavan reviewed examples of client rejections, including tasks with poorly constructed LLM judge rubrics that hallucinated or referenced "single agent vs. multi-agent" keywords, as well as tasks where data was fabricated when browsing failed (01:53:02) (01:55:07). These instances highlight the necessity for trainers to create strict, meaningful LLM judges and ensure that all data is derived from real-world scenarios rather than fabricated outputs (01:53:02) (01:58:06).
+* Project Conclusion and Next Steps: S G Mathavan and Aladdin Mostafa concluded the session by emphasizing the importance of creativity in the upcoming 50 tasks, which are critical to the project's success (01:59:19). Access to the labeling tool will be provided, and trainers are expected to begin the creative phase of the project immediately following the call (01:36:44) (02:00:31).
+* Process Improvement Strategy: Estifanos Gashawtena suggested implementing a study-based approach to increase the speed of the team's processes . S G Mathavan agreed with this strategy, instructing the team to engage in brainstorming sessions with peers and agents before commencing tasks, rather than jumping directly into execution . They emphasized that this phase is intended to foster creativity and allow the team to incorporate specific client requirements provided by Aladdin Mostafa, which will help avoid repeating past mistakes .
+* Project Verification and Quality Standards: Regarding the review process, S G Mathavan stated that Aladdin Mostafa will be responsible for reviewing and verifying the team's creative outputs . S G Mathavan emphasized that any inspection.mmd files must be developed to accurately reflect real-world conditions, warning that files failing to meet this standard will be rejected .
+* Artifact Distribution and Meeting Conclusion: S G Mathavan confirmed that all artifacts used during the demos would be shared with the team immediately following the call . The participants concluded the meeting with mutual thanks and well-wishes (02:01:30).
+
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Jun 25, 2026
+MAS2 - Onboarding call - Transcript
+00:03:57
+
+
+Estifanos Gashawtena: Yeah. Yeah. Hello guys. Let's wait for a few moment and we can start.
+S G Mathavan: It has one higher Empire.
+Aladdin Mostafa: Hello. Hello. O media everyone. So I guess we are missing just two trainers Bright and Soros. So I guess we are good to start. So first of all guys uh
+S G Mathavan: Just a second before start right make sure to record the session so we can uh share it to the ones who
+Aladdin Mostafa: yeah.
+S G Mathavan: uh who face some network issues or not able to join the call.
+Aladdin Mostafa: Okay. So, yeah, I'll just uh go a quick intro, then I'll start recording. So, we have chosen you guys because you were best performing in phase one and you had less client rejections and less uh tasks that uh your tasks I mean were good quality. That's why you are you have been chosen to uh start this phase. uh currently. Let me just start recording. Okay. So, what we should have uh in this week is to complete 50 tasks with high quality.
+
+
+
+
+00:06:18
+
+
+Aladdin Mostafa: This is the first patch that should be sent to the client. uh and once this patch is approved uh the project will be extended to have 1k tasks. If those tasks are poor quality or same tasks as phase one or has issues uh this may risk the the project to be canceled. So yeah please uh do your best creating those tasks and make sure to follow uh face requirements that I'll be discussing uh right now. So yeah, let me just share my screen and start.
+S G Mathavan: An uh you are in mute by the way if you're speaking from starting.
+Aladdin Mostafa: Okay, my bad. So, yeah, let me just quickly wrap. So, uh for phase two tasks, there are new client requirements. I'll be starting with them. So first of all all uh FO task should be long range and
+S G Mathavan: Before we go uh requirements, right? I saw a very good point in your uh first session which is like phase 2 is not uh
+Aladdin Mostafa: consistent.
+S G Mathavan: about like extending the same creativity and same quality of task which we done in phase one and what needs to be removed.
+
+
+
+
+00:08:53
+
+
+S G Mathavan: Uh can you go to the second section and explain them more?
+Aladdin Mostafa: This one.
+S G Mathavan: Yeah.
+Aladdin Mostafa: Okay. So F is not just more F one tasks. Uh the client is expecting more realistic tasks. Uh and more multi-stage um more externally grounded and uh tool diverse tasks should yield uh more tools. Uh one major concern is the gap. The gap should be real not engineered gap. So single agent must fail to reach uh the same quality or to solve the task uh as the multi- aent. So the gap should be real. This is a major concern by the client. So no artificial traps, no hidden restrictions. Uh no if LLM hallucinates to judge, you need to review this guys. It's your responsibility. So for example, if an if you use an LM judge and give a high score for low quality results, you need to review this by yourself and make sure uh to uh rerun the uh the verifier or change uh the prompt so to reduce the assassination.
+
+
+
+
+00:10:17
+
+
+Aladdin Mostafa: Verifier should not be weak and you should not use reward hacking. Uh yeah that's the the mistake the common mistakes see I'll be going more briefly in the upcoming points but yeah this is a short summary. So first of all for the nucleide requirement we need all tasks to be long horizon and consists of multi-stage workflow. So uh first for example we need to collect evidence yeah uh for for resource tasks the client asked as well to use web search. So for example we can ask the model to search online for some specific URLs to collect the data for the first stage. Second stage should maybe uh verify uh the data and collect evidence analyze or classify this information is is another stage. This is just an example for multi-stage um decomposition. The stages should not be explicitly listed in the instruction. Stages should be may be included in the composition as sub agent stages but not mentioned in instructions. The instruction should describe what the task needs to solve and uh the final goals.
+
+
+
+
+00:11:44
+
+
+Aladdin Mostafa: It should not be look like an Asia AI gener generated or very long like more than 100 line. uh it should be more realistic and more human written prompt. Ask for the goal, describe the problem, ask for uh the final output and what the output should just and we should absolutely uh leak uh should not leak any uh hence or solving process in the instruction. This should be being discovered by the agent itself. Here's an example of good framing. Yeah, you need to avoid writing the internal stage step by step instructions. you don't tell the model how to solve the problem and you don't need for sure to over explain um the solving strategy. So this is the first requirement is long horizontal uh stage and second is specialist or hierarchical coordination. So for phase two tasks should benefit from different roles and layers of agents of yes
+S G Mathavan: Yeah. uh other than I feel that we missed a very important point of describing what a long
+Aladdin Mostafa: m
+
+
+
+
+00:13:22
+
+
+S G Mathavan: horizon task is which is on phase one we were able to see a lot of task which is like giving a 100 50 dB uh papers and asking few questions to be answered or maybe giving a 50 data set asking a few data uh like analysis to be made and getting an JSON output. These are all fabricated like an AI generated prompts and all all these are not resonating with the real world user prompt. the client really disliked it and what they wanted as a long horizon multi- uh stages workflow is it's not specifically like how a real world scenario would be like uh uh would be like right so for example uh yeah I have given 50 uh websites I have given uh I'm asking an agent to go through all the 50 websites and understand it and get an answer for all my questions that is a acceptable limit but We have covered a lot in our 1K samples which the clients are very uh much disliking it. uh so to be honest so they don't want it to be more of like an uh those task similarly they want more of like a multi-stage workflows multi-stage workflows in the sense it it needs a uh a very complex uh the DAG graph which means that the decomposition right for example the f the task which we were doing in the first phase it is just like an orchestrator spawning like 20 sub aents asking it to do solve uh task and then uh done it it results in an output.
+
+
+
+
+00:15:00
+
+
+S G Mathavan: But in a real world long horizon task it the teams will not work like that. Right? For example, even if we are getting a phase two project from the client, we first understand the client requirements. There is a team who understands the client requirement and there is a team understanding what we have made mistakes on phase one and there is another team who who will be understanding whole uh like a whole points which is understood by two teams which is like phase one defects and client requirements what is the expected output and then those that specific team will be working on the samples to uh get an acceptance for the P right I just gave you an example of our real workflow works on the team right so they wanted similar to these scenarios like a multi-stage workflows and initially the Kim CLA was not supporting it we have moved it to an another agent where you will be able to create a lot of subway agents and a depth of sub agents what the client is asking is the depth of subday agents so nothing but you have to focus on coming up with a real world problem statement which forces you to Write a a a wide variety of sub aents and also a depth of sub aents to solve the problem.
+
+
+
+
+00:16:17
+
+
+S G Mathavan: That's the first task. Any questions here? Yes.
+Atif Shoaib: Yeah. Uh will the prompts be provided like before from the client
+S G Mathavan: No. Uh they they are not providing any prompts uh enough.
+Atif Shoaib: itself?
+S G Mathavan: We need to be creative uh here. uh but we we are parallelly also taking initiative to uh come up with a prompt generation pipeline that is in plan any other
+Atif Shoaib: Okay.
+S G Mathavan: yeah any other questions okay I take it as a note over to you all yes Muhammad
+Muhammad Mamdouh: So this document are we getting access to it after the meeting?
+S G Mathavan: yes you will
+Muhammad Mamdouh: Okay. Thank you.
+Aladdin Mostafa: Okay. So let's move to the second point here. Specialist and hierarchical coordination. So yeah uh weak pattern just like Maddie said split 50 files across 50 workers just like flat like this is not uh we had already enough tasks of these types and client asks for other types. So uh for for stronger pattern uh for phase two we need to use an example like this research wave verifier wave synthesize wave.
+
+
+
+
+00:17:44
+
+
+Aladdin Mostafa: So you need to have multi-stage uh orchestration and you need to have specialist uh agents. So one sub agent for is legally specialist, one is data specialist and yeah it depends on the task type itself but yeah you need to have more specialist routing agents in the decomposition. You may ask for shared evidence collection as well. uh as a f out file. So um uh the agent should write uh evidence on its results. This might help you uh verify uh and judge the output. So here here are useful patterns you may uh benefit from. Next step is real world or realistic task design. So for sure tasks should be uh real world. For example, if it's a good sweet task, should use real BR on GitHub or real source data on GitHub or other websites. Uh please avoid uh using synthetic data or sensitive problems uh in this phase at all and avoid AI generating prompts as well. And yeah uh you are in this phase you are you should ask uh in the instruction to browse for resources.
+
+
+
+
+00:19:27
+
+
+Aladdin Mostafa: But if uh if the resources are hosted or b sources uh if resources are uh fetching them is is unrealable. You can bend a frozen image sources in the files. Yeah. And then here are the examples. But yeah, we need to use browsing more in this phase. Next is ro based evaluation. Uh one important announcements in this phase that Oracle solution is not required anymore. uh Maddie has discussed this with client uh to make tasks simpler as we are uh going to create more hard tasks. So you don't have to write Oracle solution just you need to have the single and multi- aent runs. Uh for this you need we we have we can have ro based evaluation not oracle matching. So you can uh you can write your evaluation based on visible requirements you ask it in the instruction MD.
+S G Mathavan: Yeah. Uh I just want to add a thoughtprovoking question here.
+Aladdin Mostafa: Yes.
+S G Mathavan: Uh I was expecting a question on long horizon task which is like okay enough now Maddie is asking us to create a long horizon task which is nothing but going through 70 web pages or 100 web pages getting the data creating a spreadsheet or creating an presentation creating a long writing task.
+
+
+
+
+00:21:10
+
+
+S G Mathavan: How am I going to write uh Oracle here and how is is it going to affect the HD? I didn't get any question like this uh in the last uh uh session we covered. So this is where uh we have uh communicated this to the client and the clients have now confirmed that we don't need an oracle here but they need a very good rubric based evaluation. Rubric based evaluation is nothing but whatever you are asking in the instruction. Now if it's more of like an long horizon task, you could either ch give a specific rules for your spreadsheet to be created, your specific rules to be uh specific rules to create the slides, specific rules to create the images and uh also you can set uh a specific rules of the data is being uh extracted, right? Something like that. We will never be able to create an oracle in these type of long horizon task. But we need to also think about how a single agent will be failing in this long horizon task.
+
+
+
+
+00:22:14
+
+
+S G Mathavan: We we can go through some of the examples which is created. Estanos will be going through the P samples which we have worked on but yeah you have to come up with more realistic rubrics not an engineered rubrics saying that okay you have not kept a T here or alphabet T or alphabet A here as a capital. It's not uh give a a low reward for this. This is is it's in irrelevant and uh in phase one we were able to see task like this to specifically bring up the gap. This is actually no useful for the client. The client will be flagging it back to us and it will be rejected. So make sure to avoid these things. Make sure your rubric will be very impactful on the long horizon task which you are selecting. So for example, let's say I'm preparing an research and uh let's say I'm going to give a presentation to my uh uh students right then or whether the presentation is covering all my research points and whether the presentation in a specific it format or not these are something like how a real world user will be giving a rules right because this is totally resonating to the environment which we are going to give the presentation and also the single agent will be able to
+
+
+
+
+00:23:31
+
+
+S G Mathavan: fail because I'm do asking it to do research or like get an information from multiple websites and a real world rules and specifications for my specific scenario. I'm not giving some uh simple or uh some sort of like engineered uh gaps uh request like okay the word should be in capital the word should be having as full stop something like that I hope it is clear right any questions
+Aladdin Mostafa: Yes, M. Thank you so much for separating this.
+S G Mathavan: yeah
+Aladdin Mostafa: Yeah, if no more questions, we can uh Yes,
+S G Mathavan: audio.
+Aladdin Mostafa: go ahead.
+Aditya Somani: So Maddie like the rubrics we would be creating so that would be like evaluating through the way we were doing previously with church
+S G Mathavan: Yes,
+Aditya Somani: right.
+S G Mathavan: I would say uh there is also a cav uh there is a caveat here in the recent feedbacks. I would explain that. But yeah, uh the rubrics can also be verified.
+Aditya Somani: Okay.
+S G Mathavan: uh it should be a very well uh framed rubrics which is resonating the scenario then yes it can be evaluated in the LLM.
+
+
+
+
+00:24:48
+
+
+S G Mathavan: How do you
+Aladdin Mostafa: Okay, let's move to the next section here for the uh the client ask for the single agent failure. It should be a clear failure and real failure uh not just an engineered gap or uh yeah uh let's get it one by one here. So the single agent failure mode um must be natural and it should be struggle because the task is broad multi source multi-stage uh coordination heavy and the the the work that was required by the single agent is too much to to be handled by one agent. This should be the reason uh for the single agent failure. The gap shouldn't be should not be created by uh artifact strict match traps hidden information uh mode specific instructions uh single agent only restrictions formatting only failures. So for some cases the the single agent was managed to provide correct result correct result but uh in different format and the task judge was penalizing the single agent on this a client had rejected tasks like this before. So yeah please avoid this in the upcoming phase.
+
+
+
+
+00:26:23
+
+
+Aladdin Mostafa: Yeah, you should avoid this uh artificial gap and make sure that the gap is filled in uh the task. And here is the point I just was mentioning trainer uh not just QA must validate the gap. It's the trainer responsibility as well. You need to debug your own tasks. You need to uh double check uh for the the gap realism and uh for for all for any issues in your task before submitting it. Okay, this case is real rejection by the client where LLM gave lower score but the client found the single agent output and Oracle score were actually much higher. So make sure if you are using aluminum judge it's uh giving real score or real judge to to the output. Here are a few things to be checked by the trainer and the QA. So we need to check single agent output oracle this is should be removed in phase two. single agent output rubric behavior whether the gap is real and whether the web is caused by valid cause difficulty.
+
+
+
+
+00:28:11
+
+
+Aladdin Mostafa: Okay, these are things you need to check and yeah, let's uh moving forward, we have some optional classes that you need to pick at least one of them in your upcoming tasks.
+S G Mathavan: Other than I think it's not optional but the trainer should be selecting at least one of them
+Aladdin Mostafa: Yeah,
+S G Mathavan: below.
+Aladdin Mostafa: these are uh options but at least you should select one of them. So optional here is not accurate. Okay. Uh first option is browsing and external retrieval. So you can ask in the instructions uh MD the model to uh do external retrieval for resources or browsing for data. the the agent can use web sources, APIs, hosted files, public documents and browsing uh is strong option for first. You can by the way for those options you can select multiple options uh not not restricted to one but at least you need to have one
+S G Mathavan: uh I just want to raise one concern uh just to give a background context to right to
+Aladdin Mostafa: option
+
+
+
+
+00:29:55
+
+
+S G Mathavan: everyone. The clients are uh like they were actually surprised on all the one case uh task right they were able to see all the input artifacts all the artifacts which are in the local system it is either baked into the docker environment in the environment folder and it's just asking the LLM to go through the files and uh initially we also didn't have a variety of files which has been sent to the environment for example PDF images and some multimodel uh inputs right and uh the client raised it and we changed it. Uh uh then the next thing here is like all the tasks which we submitted to the 1k uh phase one all were uh regarding the uh local input artifacts and we didn't you uh some of the task covered browsing but it was unreliable the some of uh the client rejected task today morning. So I we will also be going through it and we will make sure that uh th those mistakes are avoided. So yeah I have empas this is the uh point why we are emphasizing moving forward we need a browsing task.
+
+
+
+
+00:31:03
+
+
+S G Mathavan: So uh most likely if you consider uh cases of real world scenario right I I will not be like browsing on my own and getting all the 70 input artifacts keeping keeping it in my local machine and asking the agent enough to do the analysis I I will definitely give all all the works to the agent right and that's how a real world problem would also be coming arises right and I I feel there is also a distin point here you you should consider creating a task more of like an user friendly how of a user would be asking a real world agent to do it but there is also another perspective how you are going to verify it how single agent is going to fail and multi- aent is going to pass you shouldn't be complaining saying that m you asked me to create a real world uh problem and I'm uh like uh I haven't went in depth to see how single agent should be failing and a multi- agent should be passing. You should frame it in in a real world scenario and but you should also be debugging uh like going in depth seeing how a single agent will be failing in that specific scenario formulating your rewards some specifically to like that and uh that there needs to be no engineering gaps or no complex formulas things like that.
+
+
+
+
+00:32:24
+
+
+S G Mathavan: I will also be covering that uh in the client feedback which is raised from from the client side. But yeah uh initially on the phase one I was able to see uh no creativity in the task which has been created but I was able to see a lot of creativity in the verifier which means that you guys were really creative on pushing the model to come up with the gap which some engineered formulas and from uh specific like uh irrelevant uh constraints in the S cases but I don't see any creativity on the uh scenarios which is being generated right. So that is the main concern of the client two is and uh uh that's what we need to break in phase two and uh let's make sure we show the creativity in how a real world scenario task is but the reward generation or the test cases should be simple enough on how a beginner native Python developer who sees your test cases he will be able to understand it correctly or correctly and I don't want any complex formulas to bring up the gap Yeah.
+
+
+
+
+00:33:33
+
+
+S G Mathavan: Uh over to you.
+Aladdin Mostafa: Yeah, thank you so much. So yeah, moving forward to another class is long writing. So uh again for phase one uh the result was not uh the output I mean uh requested from the agent was not long enough uh on the most of the cases for the 1k samples. So for phase two we need the output to be uh long writing. So you need to ask uh Yeah, I recall the the in the planting pack uh the client shared how many tokens required here but I don't remember the number. I'll be sharing it with you after the meeting but yeah it's required to uh ask for long output writing task uh from the agents. So may ask for detailed report uh or anyone any of this examples.
+S G Mathavan: Uh so before we go uh to the next section I also wanted to cover a few points alladin uh yeah this roots back to the first concern which I raised on the previous section right guys like uh the creativity is a bottleneck here on how a real world uh problems should be created like of uh I would be asking a multi- aent to uh get some scenarios right and I was able to see a weird patterns which was followed uh so same on the phase one P samples
+
+
+
+
+00:35:11
+
+
+S G Mathavan: uh we were creating a sample for PC1 and we shared it as an example format but I was able to see the same format is being repeated which is nothing but all the 1K samples are like ask do some analysis create a JSON and the LLM judge or your static checker will be checking the JSON format something like that right I feel this is something not a strict restriction which we are keeping here the output format is not specifically we are not asking you to okay your output format should be only JSON so you have to pass it or send it to LLM judge this is not a very strict restriction and we were not able to see no one was actually deviating in here but they were deviating in the gaps right calculating gaps. So please make sure this is not whatever the example which you're seeing understand the intent of it but you should be more creative on the problem statement on the output format here that is the specific reason why the client have raised this point long writing which means that they mentioned that all the 1k samples which we have generated it is all of JSONs and uh it's it's specifically asking like it is pushing uh the model saying that okay all your real world users will be asking only JSONs.
+
+
+
+
+00:36:28
+
+
+S G Mathavan: They will not be asking any other output format. So train good in this area. Right? I feel this data is like uh to be honest it is useless and we are not covering a real world scenario or real world uh creativity part here wherever the uh the trainer like the uh the real world user would be asking pro questions right. So they also wanted us to cover long writing. Then the next uh one more uh like uh the the observation which they were able to see is all our 1K samples were able to get a lot of inputs which means that the Kimmy agent was able to get a lot of inputs but it all the output tokens were pretty less. it was around like 4,000 to uh like uh 10,000 some sort of range but all the input tokens we were able to see uh around like 100k and 120k which means that we are giving a lot of pdfs in the environment we are just asking it to write a JSON this is not not how a real world data work will be done right so they wanted like just reverse the pattern here like come up with a more creative problem statement and scenarios and focus on problems which pushes the agents to write more 100k token outputs, 200k token outputs which will be validated with the set of instructions and the rubrics which you will be giving right in the model like asking the agent to uh read 100 web pages and maybe write its own story along with covering all the important events
+
+
+
+
+00:38:03
+
+
+S G Mathavan: on the 100 web pages and that's how a long writing is. Then the writing should be covering a thousand pages or something. This is what the clients are very interested and they specifically uh mentioned your task needs to be involving a long writening in uh phase two. Uh is it clear the impact of whatever the client mentioned and any questions here? Yes.
+Estifanos Gashawtena: Yeah. Yes. Before moving forward, I want to show you some example. Can I share my screen?
+S G Mathavan: Uh can we cover it in your session? uh as like let's first cover all the
+Estifanos Gashawtena: Yeah.
+S G Mathavan: requirements
+Estifanos Gashawtena: I want because most of my points are related to your point, Mari. That's why I want to cover it now.
+S G Mathavan: then yeah let's go
+Estifanos Gashawtena: Yeah. Okay. Yeah. Let me share my
+S G Mathavan: yeah
+Estifanos Gashawtena: screen. Yeah. Can I see my screen?
+S G Mathavan: not it uh yes we can
+
+
+
+
+00:39:04
+
+
+Estifanos Gashawtena: Okay. Yeah. Thanks Mari. Hello guys. How are you? I think you are doing well. Uh for this second phase, the clients want us to focus more on the creativity aspect of our task. Therefore, I want to show you some example especially regarding the browsing aspect and the creative visualization aspect. Yeah, I have two examples, two tasks. one of one of example for browsing and one of is for creative visualization as you see this example what I'm currently doing is I want the agent to go through 120 county across like 10 United States states then I want to fetch like u payment information like purchase information about the storm response public health surge public safety continuity the wildfire response something like that these are real world data I want the agent to go through to go through the web and uh to fetch this information and prepare me like Excel sheet like spreadsheet format file following this format something like that therefore if you see the this example I don't provide specific link to the agent to fetch to go through some point but I I specifically asking like go through the internet or go to the web and fetch for this information and prepare me some spreadsheet values like excel values as final output based on this format and if you see the execution log of the model log from for single agent you can see
+
+
+
+
+00:40:34
+
+
+Estifanos Gashawtena: like the the prepared like the final output is like excel format that the information that pull from the internet I don't exactly give yeah okay
+Bright Amidiagbe: Yeah,
+Estifanos Gashawtena: here.
+Bright Amidiagbe: if you're not taking a specific URL or you're not directing the agent where to get your source
+Estifanos Gashawtena: Yeah.
+Bright Amidiagbe: of
+Estifanos Gashawtena: Can you make your voice a little bit higher?
+S G Mathavan: We are not able to hear you clearly.
+Estifanos Gashawtena: I
+S G Mathavan: Brian, can you raise your
+Estifanos Gashawtena: Yeah.
+Bright Amidiagbe: let me type I think let me type is draining to
+S G Mathavan: voice?
+Estifanos Gashawtena: Okay.
+Aladdin Mostafa: Okay.
+S G Mathavan: Sure.
+Aladdin Mostafa: Price.
+S G Mathavan: Let's also make sure uh let's uh wait for uh Estifonus to finish his session and let's ask all the questions related to the session. Right. Uh after once Estifonos is finishing. Yeah.
+Estifanos Gashawtena: Yeah, exactly. Yeah. Yeah. As you see right here, I'm I'm asking like go to the internet and go to 220 county emergency purchase data across the United States and I want like a final output like a spreadsheet something like that.
+
+
+
+
+00:41:39
+
+
+Estifanos Gashawtena: So I want it is like real world real world instruction because I am not preparing like some JSON format as a final output. I the agent is need to go through some internet like real world data to go through search for the web uh search for the exact information or the exact data and I have to prepare like as a final output excel sheet or something like presentation slide something like that. If you see the final output from the single agent, you can clearly see sorry you can clearly see like the datas are generated from the internet and they look like real world data. You can see like it it prepare an excel sheet if you see the final output it's like real world data. We have so many information about like exception sufficiency payment history like frozen citation packet. These are these data look like real world data and I didn't I didn't specifically give an source link or source for the agent. I want the agent to go through the internet and to find some real datas about specific instructions.
+
+
+
+
+00:42:41
+
+
+Estifanos Gashawtena: Then I want to prepare like I I found a lot but this I think this this kind of tasks are look like real world data. I think the client also looking for this kind of task like you don't have to provide you don't have to the agent you don't have to provide like prepare JSON file but if they want to prepare like real world data like presentation and slide something like that indox file something like that so for browsing taskes you can't take this examp this task as example or as a template your instruction must be short and like human readable and you don't have to provide specific source to the agent but you have to provide enough instruction for agent in order to go through each and every the task list.
+S G Mathavan: Yeah, sorry to interrupt.
+Estifanos Gashawtena: Yeah.
+S G Mathavan: Uh I really want to address a very important question. If you're not using any specific links and rules,
+Estifanos Gashawtena: Okay.
+S G Mathavan: how will you build the oracle because there are different data for specific problem statement?
+
+
+
+
+00:43:32
+
+
+Estifanos Gashawtena: Yeah. Yeah. Good point.
+S G Mathavan: I have mentioned already.
+Estifanos Gashawtena: I I for Yeah, I forgot about the rules. Yeah,
+S G Mathavan: No one let me finish it.
+Estifanos Gashawtena: I I provided Okay. Okay.
+S G Mathavan: So I have already mentioned in the previous session right the long horizon and also long writing that Oracle will not be a solution here because as we are focusing on very real world scenario we can't spend that bandwidth in searching all the 120 websites things like that we need to come up with rubrics here I think you are facing some raining uh uh issue uh is it clear enough bright or do you have any other questions I feel this is already covered in the previous section is it if it is not clear to anyone please let us know yeah that now that's a good question if no Oracle how do you determine the results I feel then yeah as you can go take over the session and let the team know how you have created the rubrics and
+
+
+
+
+00:44:36
+
+
+Estifanos Gashawtena: Yeah. Okay. for for those question I will ask for my second task but for the one point I have raised I forgot about it and one is I have I have defined some rule books like you have to follow this kind of rules like the size and something like that for for a specific rules for before going to internet before searching for the web you have to follow this kind of rule you have to provide some rule for the agent in order to follow because if you don't provide any rules for agent it might be struggle to get specific speific specific data or the actual data or the factual data. Therefore, you have to provide or you have to guide a little bit uh you have to guide the agent a little bit. You have to provide some rules as you see right here that is you have to provide but you don't have to exactly provide but if you are giving the if the data is very huge like this one it's better to give some rules in order to follow for the agent that's what I'm I want this about the first about the browsing when you come to the second one the creative visualization part
+
+
+
+
+00:45:36
+
+
+S G Mathavan: So just few feedbacks on your first task right I feel now we should also
+Estifanos Gashawtena: Okay.
+S G Mathavan: break the pattern which is like input artifacts it's not an input artifact let's rename it as rules in the environment folder and the second thing here is instruction.mmd is clean I
+Estifanos Gashawtena: Okay.
+S G Mathavan: was I don't see any markdown hashtags or any AI framing uh questions right but I also see still a lot of field rules and sheet rules here Let's can we put these rules also some sort of like in how a sheet needs to be created that the rules will be in that specific uh environment rules file and you will be mentioning that if you're going to create a sheet uh refer the rules sheet uh rules document in the which is me kept in the environment and see if it is able to get the rules or not like like that something some sort of things like
+Estifanos Gashawtena: Yeah, we can we can break down the structure to specific files. Yeah,
+S G Mathavan: Yeah.
+Estifanos Gashawtena: you can realize that you can create like rule directory and you can put you can break these structures to specific
+
+
+
+
+00:46:38
+
+
+S G Mathavan: And yeah to
+Estifanos Gashawtena: files. You can do that,
+S G Mathavan: close to close the uh question of uh bride right.
+Estifanos Gashawtena: right?
+S G Mathavan: So as I mentioned earlier phase two we are going to focus on long horizon task long writing
+Estifanos Gashawtena: Yeah.
+S G Mathavan: task and definitely you will be having a question how we are going to verify it and that's of the creativity part which we need to show in long horizon task there will be a specific rules on how things needs to be done for example which I have mentioned the presentation a set of rules how a organization presentation to be looking like right and how a research needs to be taken place and if the research is covering specific ask or not. So the creativity part is what needed here where your rules will be emboded in your scenarios and that is what we will you will be checking moving forward. You will not be checking whether whatever the LLM produced is correct with the oracle or not. You will be produc uh checking if whatever you have asked in the instruction is being done by the agent or not.
+
+
+
+
+00:47:43
+
+
+S G Mathavan: Is it here right?
+Estifanos Gashawtena: Yeah, for that point I can also cover on this task as well.
+S G Mathavan: Yes. Yeah. Over to you festival events.
+Estifanos Gashawtena: Yeah. For second for the second aspect I
+Aladdin Mostafa: Yeah, sorry for interrupting but yeah,
+Estifanos Gashawtena: want.
+Aladdin Mostafa: can you move this part to your the end of the session?
+Estifanos Gashawtena: Yeah. But but these points are related to directly to the bright question.
+Aladdin Mostafa: U
+Estifanos Gashawtena: Therefore I have to answer this question as well.
+Aladdin Mostafa: Yes, sure. Go ahead.
+Estifanos Gashawtena: Okay. Or the second part the client want us to emphasize more creative visualization task. Creative visualizations are nothing but you have to prepare like slides, animation, videos or G format something like that. Yeah, for this one what I am currently doing I have given the input artifact like academic book for example this one like a huge book about economics. It's like around 1,000 page. Yeah, this way it's it's around 1,000 page and it have like 34 chapters.
+
+
+
+
+00:48:44
+
+
+Estifanos Gashawtena: You can see it's Yeah, it have like 34 chapters. Yeah, you can see it. So what I want from the agent to go through the entire p the entire chapters. Yeah, chapter by chapter and I want like a final deliverable that is called output documentation. I want to summarize each and every chapter. So the agent would like go through the pass the entire PDF go through each chapter by chapter and they have to provide summary for each chapter. So how can we don't have you don't have to provide in Oracle solution because the summary is not determinant you cannot determine the summary the client the agent can can provide summary therefore to test this kind this task I specifically use LLM judge so I can provide enough context for the LLM yeah something like that you are a demanding grader for for student written study guide then I have provided like a method in order to or the scoring scale in order to score the agent and the outputs. So from from 0.9 up to one if if uh if the agent explains well and it is with gunner sport and nothing important missing if the summary is good and good enough and if the agent didn't miss any important concept I have to grade like 0.9 up to one if agent miss something like a major point it misses at least one important major concept I gradeed like from 0.7 up to 0.89 A line this kind of thing you can use this kind of scaling in order
+
+
+
+
+00:50:14
+
+
+Estifanos Gashawtena: to get the final output of the agent. So you know you don't have to provide any oracle solution because we don't have any specific answer for this kind of things because the agent should go through the entire 100,000 sorry 1,000 page and you have to provide summary for each chapter. So you can use you can utilize alm review by giving enough rubrics to the alm review and enough scoring scoring scale for each and every summary that's generated by the yeah this is my point do you have anything to add
+S G Mathavan: Yeah, I'll end on that. Uh and also uh we can also come up with rubrics which is are being asked in the instruction. For example, in the previous examples, right, which Estifana showed rules of of to write a document, rules of to create a sheet and that's is that is of a real world user would be asking uh because he need his his own uh out the outputs to be his own preferenced one, right? and touch of a single agent will be failing because it is context overloaded and the multi- aent will be shining because it has separate sub agent to solve the particular task.
+
+
+
+
+00:51:23
+
+
+S G Mathavan: Any questions uh here guys? If not, yeah, we can uh
+Estifanos Gashawtena: Yeah, before that I want to explain also one thing about how can we decompose this kind of things. As you see right here,
+S G Mathavan: Yeah.
+Estifanos Gashawtena: we have 34 chapters for this academic book and we have around 1,000 page. Therefore, we can we can decompose like this. We can assign one chapter to specific sub agent. You can assign a chapter one for one segent. Chapter two for one serent up to chapter 34. We can assign one serent per chapter. And we have like one final final reducer that collect each and every summary from each surent and it can produce like one full dogs like summary. Therefore we can we can break down this kind of task like this. Yeah, that's my point. Yeah, thanks. become good.
+S G Mathavan: And uh one feedback here as which is the rubrics right I feel the rubrics are more of like uh not very in detail and uh I haven't read it but uh based on what we are seeing right we are just able to see a list of g uh uh numbers here and if it explains a specific essentials and things how will the LLM judge knows if that is a specific essential of the chapter.
+
+
+
+
+00:52:44
+
+
+S G Mathavan: You need to answer that question in the rubric act as well. You need to make your rubric more elaborate so that the scoring is very justifiable with the justification
+Estifanos Gashawtena: Yeah, I have I have given the the PDF to the rubric judge as well.
+S G Mathavan: text.
+Estifanos Gashawtena: That's why if I provided the entire PDF for L judge, I think do I have to provide other context?
+S G Mathavan: No like uh can you explain me how you have uh created this judge. py because you have mentioned you now like answering my question if you are giving some chapters summary uh in the judge. py itself and or maybe some sentences from each chapters and asking the LLM to grade
+Estifanos Gashawtena: Yes.
+S G Mathavan: it the G judge LLM to grade the agent right then it's good.
+Estifanos Gashawtena: Yeah.
+S G Mathavan: Uh so I
+Estifanos Gashawtena: What I'm currently doing MI, I have extracted the text from this book as you see right here. Then I divided into chunks.
+S G Mathavan: Yeah.
+Estifanos Gashawtena: You can see from this function.
+
+
+
+
+00:53:44
+
+
+Estifanos Gashawtena: Yeah. I divided into chunks. Not this one I think. Yeah. Yeah. This one I divided into chunks based on the chapter.
+S G Mathavan: Mhm.
+Estifanos Gashawtena: Then I provided a second this text to the you can see I think uh I think this Yeah.
+S G Mathavan: Mhm.
+Estifanos Gashawtena: Right here. You can see it right here. I divided this I give it this text. Then based on this chapter I want to provide I want I given these rubrics and the the J will score based on the T provided from the
+S G Mathavan: got it. I think now it clears right.
+Estifanos Gashawtena: chapters.
+S G Mathavan: Uh so you have to give a very detailed uh explanation to the team member so that they don't come up with a very baseline rubrics. they have a very good rubric which is uh backed up by a very detailed rubric one or maybe a uh backed up by the input artifact itself.
+Estifanos Gashawtena: Yes m I also provide this task to the trainers in order to use asset in
+
+
+
+
+00:54:40
+
+
+S G Mathavan: Yeah.
+Estifanos Gashawtena: place.
+Aladdin Mostafa: Yeah, I have a question here Stephen.
+S G Mathavan: Mhm.
+Estifanos Gashawtena: Okay.
+Aladdin Mostafa: So, uh we are sending all the chunks to the LLM judge uh for
+Estifanos Gashawtena: Yeah.
+Aladdin Mostafa: grounding.
+Estifanos Gashawtena: What I'm what I'm currently doing I have I have a scoring per chapter as you as I told you before we have like 34 chapters therefore I have providing a chunk based on the chapters like from this page to this page I I divided into chapter chunk then I provided a second context you can see like for chapter finally as you see the score I have around like 34
+Aladdin Mostafa: I hate it.
+Estifanos Gashawtena: chapters right so I am I am taking the average between like the score for the 34 chapters and I divided by the number of chapters Therefore, I finally I got the average of the score for the entire 34
+S G Mathavan: Basically,
+Estifanos Gashawtena: chapters.
+S G Mathavan: you're calling the LLM for 34 times with a specific rubric and backed up by
+Estifanos Gashawtena: Yes, M.
+S G Mathavan: the chapters summary.
+
+
+
+
+00:55:37
+
+
+S G Mathavan: Correct?
+Estifanos Gashawtena: Yes. Yes, M. You can't
+S G Mathavan: model we need to go in in depth in detail estos while giving an
+Estifanos Gashawtena: see.
+S G Mathavan: explanation so that gives a much more wider idea to the team
+Estifanos Gashawtena: Yeah,
+S G Mathavan: members.
+Estifanos Gashawtena: I can't go to the primary.
+S G Mathavan: Yeah.
+Estifanos Gashawtena: I think now now is I think it's clear
+S G Mathavan: Uh so yes yeah any other
+Aladdin Mostafa: But yeah,
+S G Mathavan: questions?
+Estifanos Gashawtena: now
+Aladdin Mostafa: isn't this overloading the the judge uh providing the entire
+S G Mathavan: That's what that's what he have mentioned.
+Aladdin Mostafa: shooter?
+S G Mathavan: He's making 34 35 API calls. It's not just one single API
+Estifanos Gashawtena: yeah if I do it like the single API call I think it's like
+S G Mathavan: call.
+Estifanos Gashawtena: 42 megaby of PDF file I think this is a lot right that's why I'm dividing to check and I quoting 35 34 times
+S G Mathavan: Yes.
+Estifanos Gashawtena: images.
+Aladdin Mostafa: Okay. Okay.
+
+
+
+
+00:56:25
+
+
+Aladdin Mostafa: Got it.
+Estifanos Gashawtena: Yeah.
+Aladdin Mostafa: Okay. One other question uh regarding the browsing internet uh without providing the links. Uh in this case uh do we have to ask uh the agent to provide evidence and the links he visited or
+Estifanos Gashawtena: Yeah, we can't provide evidence but as you right here the the final output or deliverable is too too large. Therefore, I'm not testing the entire each and every value of uh the LM the agent. So I am just checking the structure and some factual values as well. So we can't yeah we can't check like if the sources are correct or not but I don't think uh it is not it's feasible. Do you have any point m?
+S G Mathavan: Sorry. Uh, come again. I was like
+Estifanos Gashawtena: Yeah I didn't say like for this task I am I am not given a specific source
+S G Mathavan: multitasking.
+Estifanos Gashawtena: link for the agent. Therefore, do you have to do you have to check like specific source link are correct or not?
+
+
+
+
+00:57:29
+
+
+Estifanos Gashawtena: Currently, I'm checking the structure of the final output and I am
+S G Mathavan: If you to answer Aladdin's question right you can answer how you have created the
+Estifanos Gashawtena: checking.
+S G Mathavan: test cases here. So how have created test cases to make sure the single agent is is a not able to sol solve the task but the multi- agent is able to solve the task.
+Estifanos Gashawtena: Yeah. What I'm currently doing, I'm not specific. I'm not uh checking each and every value of the the final output or the final variable. I am parsing the Excel sheet or the spreadsheet and I'm checking for certain values and I'm checking also structure. Therefore, I'm checking two things. Structure is structure and is some factual values as well. That's why I'm breaking the single agent. I'm not checking for each and every every things. I'm checking for some factors and I'm checking also the structure. You can see size
+Aladdin Mostafa: My question here is uh we need to avoid uh uh I mean agent can
+
+
+
+
+00:58:21
+
+
+Estifanos Gashawtena: here.
+Aladdin Mostafa: uh create those facts by its own without really searching on the internet. So I was asking if we need to ask the agent to provide evidence the link is he visited and what actually codes he extracted from those
+Estifanos Gashawtena: Yeah, we can't do that. Yeah, we can do that. But I think if I check some factual values,
+Aladdin Mostafa: links.
+Estifanos Gashawtena: if those factual values are not correct, that means the agent is not looking for the correct thing. Right? Therefore, if you check some values like u some actual values, I think that is enough for me. Did you get my point?
+Aladdin Mostafa: I guess it's you.
+S G Mathavan: for a to reframe the question right as so for a
+Estifanos Gashawtena: Okay.
+S G Mathavan: result based task what What you are asking here is do a research create a sheet. What is Aladin's concern is what if the agent single agent is able to create the sheet with the format with some placeholder text things like that. How we going to give a bad reward for the single agent behavior here and to give a
+
+
+
+
+00:59:26
+
+
+Estifanos Gashawtena: Yes m I have also I have also asked this question before we cannot
+S G Mathavan: good reward for multi- aent. Mhm.
+Estifanos Gashawtena: test each and everything right because as you see right here the final deliverable is too large you can see it we have around uh 11 we have around 11 worksheet and we have so many so much values for we cannot test each and everything. So I am just taking some factual values and I'm checking some essential things essential things and I'm also checking a structure as well.
+S G Mathavan: Got
+Estifanos Gashawtena: I I also I
+Aladdin Mostafa: But model motor model can still invent those uh those fields.
+S G Mathavan: it.
+Estifanos Gashawtena: also
+Aladdin Mostafa: I mean uh unless we ask for uh evidence and the URLs he actually visited.
+S G Mathavan: So uh to come up with to the Estifano's point right estifers has he is using a strategy where if he's requesting an 100 analysis he is doing a 40 to 30 analysis like for example a random analysis he manually went through it found out the correct answer and he's saying if the correct answer is in the sheet or not and to make the if the LLM needs to craft that uh correct answer right it needs to do that uh detailed uh analysis by go browsing the specific link
+
+
+
+
+01:00:41
+
+
+Estifanos Gashawtena: Yeah, correct.
+S G Mathavan: and another suggestion I would say is to avoid the placeholder issues we should be having a check as an LLM judge for example passing all the 11 sheets we can also do a 11 API call here which is nothing but you pass a sheet send that to the uh judge and have some rubrics that I as an agent to do research on these specific rules and restrictions. That's that's your rubric now and see if there are any placeholders or just the LLM is like filling the sheet and with not any meaningful content and the judge LLM can also act as a agent here, right? Like some sort of like a detective to see if the single agent is just filling the sheet and getting the reward and it can prevent that too.
+Estifanos Gashawtena: Yeah. Yes. That's a good point. We can use a judge here like the first one.
+S G Mathavan: Yeah.
+Estifanos Gashawtena: Yeah.
+S G Mathavan: Any other from
+Estifanos Gashawtena: But I think it is clear.
+S G Mathavan: the
+
+
+
+
+01:01:41
+
+
+Estifanos Gashawtena: Yeah. Any question?
+S G Mathavan: if not Yeah. Uh we can quickly go
+Estifanos Gashawtena: Bright, did you answer? Did you answer my your question,
+S G Mathavan: through.
+Estifanos Gashawtena: Bright?
+Bright Amidiagbe: Yeah, can you hear me? I think Yeah, you answer the question.
+Estifanos Gashawtena: Okay, thanks.
+Bright Amidiagbe: I think M th more lights
+S G Mathavan: Yeah. Uh the last question,
+Estifanos Gashawtena: Okay.
+S G Mathavan: why not use multi- aent for the judge? Definitely we can give it a try.
+Bright Amidiagbe: on.
+S G Mathavan: We can use multi- aent see how it is performing. Maybe like an uh uh some sort of like open code uh uh harness itself installing it in the environment seeing how it is able to perform. We can do that
+Bright Amidiagbe: Yeah, I said your last response answer the question related to what is asking
+Estifanos Gashawtena: Duck.
+Bright Amidiagbe: because sometimes the Yeah,
+S G Mathavan: specific. Yes, we need to build
+Bright Amidiagbe: because sometimes the data Yeah, because sometimes the agent might have been trained already on that data from that source you are requesting
+
+
+
+
+01:02:31
+
+
+S G Mathavan: the
+Bright Amidiagbe: for. So you might not decide to just go to the page anymore. Might just decide, oh, I've been to this, I've been trained with this data. I've been to this page before. They just start producing results without actually doing the work that was on.
+Estifanos Gashawtena: Yes,
+S G Mathavan: Yeah.
+Estifanos Gashawtena: for that for that one we can use we can build like a judge like this one we can build a rubric and we can do like for 11 sheet we can do like 11 judge call and we we have to give those information to theium judge based on this rubrics theium judge will scores those answers and we can also take the
+S G Mathavan: No est let's answer it in this way. So if you feel that your specific scenario can be answered by the
+Estifanos Gashawtena: Yeah.
+S G Mathavan: base LLM knowledge itself right because we are all using LLMs here to grade it to ask the agent to do the scenario and if I'm going to ask an agent to write a long book definitely it will be writing uh any sort of uh some sort of rubbish sentences or just filling the pages just filling the thousand pages it it will be able to get the reward done but it is not a meaningful output here and I feel this is what the verifier is also weak here.
+
+
+
+
+01:03:51
+
+
+S G Mathavan: What I would say here to make your scenario strong and make your scenario which is like the B pushes the base LLM to do the task and then get an analysis output. If it is not able to do the task then it will not be able to answer it from its own knowledge. For example, we were also going through uh an example which was created by Aladin like a 46 heritage site and uh the these heritage sites are already trained these LLMs are already trained on the wide uh web uh data right and they know it from scratch like okay this heritage site is from this city on uh this specific uh uh year it was like uh found something like that right this is like a basic information the LLM would have learned it in the pre-training sta stage itself but if I'm going to come up with a heritage side scenario and which pushes the agent to do a specific action and then get a result definitely then I will be able to break the agent here which is nothing but if I'm not going to come up with just name founding year something like that if I'm going to say that what are the news which is related to this heritage site how it is actually uh degrading the quality of the heritage site is degrading what is the environmental factor which is affecting it what is the cost which is uh
+
+
+
+
+01:05:13
+
+
+S G Mathavan: relevant to the environmental factor any research uh universities have researched on that specific environmental factor this is what the uh uh a reasoning change I want in the trainers to have in the creativity part like do a detailed reasoning like how we can do a very level of depth right if you're doing this in the creativity part that answers all your decomposition also we don't want to like come up with a width or depth because you have already created a scenario which pushes pushes you for a width depth and now you can easily write the multi-agent orchestration in your decomposition file And also you have a very good scenario where the single agent will not be able to pass just with this base knowledge or just filling the contents uh with the rubbish sentences something like that it will be able to only pass and the multi- aent will be only able to pass by doing a detailed research and analysis some sort of this scenario and I feel this is what the creativity part which we need to come up with great uh If no other questions, I think we are already over time, but it's a very insightful uh call.
+
+
+
+
+01:06:26
+
+
+S G Mathavan: I feel it is totally fine to be extended because this level of depth in-depth uh KT sessions will help us reduce the rejections and uh give a best quality of data to the client. So we can spend more bandwidth here and yeah over to you
+Aladdin Mostafa: Yeah,
+S G Mathavan: Aadin.
+Aladdin Mostafa: I'm still didn't fit didn't finish my presentation yet. So,
+S G Mathavan: Yep.
+Aladdin Mostafa: yeah. Uh, sorry for making it long, guys. Yeah, back to our documents here. uh as uh we already discussed the link writing and the browsing creative visualization is partially covered by examples from stations as well. So for creative visualization plus here uh you can ask the model to uh to create slides, presentation, charts, dashboards uh any visual uh output and you can ask it to provide as well images or videos. But yeah, we need to think more about how to verify the images and videos part. But yeah, that was the client request to uh use creative visualization as output from the agents.
+
+
+
+
+01:07:49
+
+
+Aladdin Mostafa: This was the third class and the final option here is spreadsheet and structured output. So this may be related to the long writing uh clause here. But yeah this for structured we can ask for some evident m evidence matrix uh CSV file or so um yeah some sort of some spreadsheets or any structural output but it must be long uh writing not just a JSON from phase one as mentioned by Maddie. So yeah those are the opt the options for classes you need to implement at least one of them moving forward um for phase two tasks uh those points are making phase two task uh strong tasks you should uh promise should be realistic and data or should be realistic as well. So sorry first point uh one or more external tool lever component as suggested you can use browsing or web fetching by any other uh technique specialist or hierarchal agent coordination multiple stages this already covered evidence collection and verification this is for the multiple stages as For scoring you need to have proper based a clear reason why single agent should struggle or fail and a clear reason why multi agent has an advantage here.
+
+
+
+
+01:09:38
+
+
+Aladdin Mostafa: What you or guys need to avoid in F2, you need to avoid uh local file reading only like phase one tasks symbol fan out uh extraction with no new pattern. Uh synthetic synthetic data are not allowed. Uh you don't uh you should not have strict exact matching traps. So for example uh single agent can uh output a correct but uh with other a correct answer but with another format. So you should not penalize the single agent for this. This should be considered as correct answer as well. Benchmark uh contaminated wording hidden implementation. And you should not ever like hints uh for implementation either in instructions or decomposition. No no specific mode instructions. Uh you you make sure that instructions are the same for single and multi- aent. Don't have any restrictions for single agent only. Avoid reward hacking. format only scoring uh parser failure scoring those all are are all issues that flagged by the client previously. Yeah. Uh one important thing is all or nothing scoring without partial credits.
+
+
+
+
+01:11:14
+
+
+Aladdin Mostafa: So for some tasks uh for example uh if we are checking for 10 uh things if a single agent was managed to get six out of 10 correct. Some of the tasks guys were penalizing uh and gapping this result to zero because it was not managed to get all elements successfully. So please avoid this in your verify script. Make sure the gap is real uh between single and multi- aent run. Avoid weight verifier checks and avoid too easy tasks. Here are some few hints for the instruction MD and the composition file guide guidance. I guess it's already covered by uh Stephanos examples but yeah you may have I will be sharing this documents you may have a look into them as well. Yeah this is already covered by Stephen and finally I included some uh client rejection reasons for phase one. Um yeah, make sure to review those reasons as well for rejections.
+S G Mathavan: So Alad let's can we actually go through the rejection this is a very important uh one we need to go through each and every
+
+
+
+
+01:12:52
+
+
+Aladdin Mostafa: Okay, most of the things I already covered but yeah,
+S G Mathavan: point
+Aladdin Mostafa: let's just reiterate quickly on them. So important rule here don't mark something as a problem just because uh risky pattern exist.
+S G Mathavan: no let me let me take care of this points first thing is explicit gap wideness
+Aladdin Mostafa: Okay.
+S G Mathavan: and single agent only restrictions, right? We were able to find some reward hacking scenarios from specific trainers where they were using instructions only for single agent to restrict like don't use Python, don't use scripts, don't use any other uh languages to bring up the gap, right? And they were not giving that specific instructions to the multi- aent. This is something like out of work ethics I would say and we are not going to move forward with those specific trainers. So I I I'm pretty sure that this is not an recurring pattern which is who whoever is in this call but make sure to avoid these cases and uh uh this is something like not specific to the project it's specific to Turing and it affects the Turing overall.
+
+
+
+
+01:13:58
+
+
+S G Mathavan: So you will also be not assigned even if you're removing you from this project right you will also be not assigned to any other projects because this is totally affecting Turing and the quality of work work ethics which we are having here and the prompts information asymmetry between single and multi- aent roots back to the same first point which is nothing but you need to be coming up with a real world scenario prompt it's not specifically you are giving instructions something like that I was also able to see some patterns initially that trainers were creating tasks like don't use Python for a data analysis task don't use this for data analysis some some sort of data sets right if you are giving if you if it pushes you to uh write an instruction that don't use uh Python or any specific tool which the agent will be able to do it I feel that's not the right quality of data set which you have picken up and if you're restricting restricting it that quality of data will not will be no useful to the client and that that's the main agenda and that's the main idea I wanted to keep in place right because even in future if you are getting a data set which is a clean data set you can you can itself write a python script to do the analysis part and write and output JSON then that's not a real world data set you have picked up
+
+
+
+
+01:15:18
+
+
+S G Mathavan: a data set which is very clean which is not a real world data or which is more of like in Kaggle environment data this is not specific scenarios of a real world user would be giving right. So have that uh in mind and benchmark multi-agent birding is still a redundant one. Decomposition leakage uh this is a very rare uh scenario I would say sometimes we were able to see that the decomposition leakage is nothing very severe one I would say the severe one in the sense uh they were able to release the Oracle solution Oracle values in the decomposition.yamel YAML file moving forward in phase two I feel this can be reduced and this should not be uh to be honest it should not be present moving forward as we don't have oracle here our level of approach and the creativity part is more of like a long horizon methodology task we in our verifiers we take check the methodology and the level uh level of rules which we have inputed in the uh environment right some sort of those things uh is mentioned hidden answers and hidden formulas.
+
+
+
+
+01:16:26
+
+
+S G Mathavan: Uh can you explain this or can we skip this
+Aladdin Mostafa: Okay. So, uh this is uh related to the de composition leakage.
+S G Mathavan: part?
+Aladdin Mostafa: If you got uh for some of the tasks uh you were leaking answers uh and formulas to to only to only in the composition file not provided in the instructions MD itself verifier hint as well.
+S G Mathavan: Got it. Okay. Uh then I think the very important uh point right score caps,
+Aladdin Mostafa: Yeah.
+S G Mathavan: ceilings, floors, multipliers, more specific reward branches. To be honest, guys, like I was able to find a lot of mathemat mathematical terms when I was going through the reward files which was written by some of the trainers in phase one. And when it was flagged by the client right I was able to find out the intuitive part of math where we can multiply and make a reward reduce to be honest if you have any sort of the score gaps ceilings floor and I've also already mentioned that if you're coming up with a rule which is not very well resonating with your scenario uh the example which I gave right a presentation will be sort of uh if you are if I'm going to ask you to create the presentation and I'm going to give give you a list of of curing uh
+
+
+
+
+01:17:50
+
+
+S G Mathavan: templates work and how Turing template will be looking and if you're asking your multi- agent to create exactly that in that template rules and if you're checking it that's really good and that's a that's how a real world scenario would be doing right like same sort of another person in the real world who is using our uh like client's LLM and he will be able to see a real world meaningful uh contribution from the product and we are the ones who are improving the product from a real world scenario We need to think from a real world scenario user and that's how if I'm going to come up within rules something like okay the word count is not met and from some sort of a format which is not relevant to my scenario or some sort of like the full stop to be made in each and every three four sentences these are something like rules which are not resonating to the scenario and also doesn't make any meaningful uh uh work right if you you have to think in a way that if I'm going to produce this task to the client and if the product
+
+
+
+
+01:18:50
+
+
+Aladdin Mostafa: It is
+S G Mathavan: is going to improve with this data will this be an improving improved session in my future if I'm going to use the same product of the client will will I be able to
+Aladdin Mostafa: made sure
+S G Mathavan: have an improved uh user experience with that product right then you have to think in that perspective and create some sort of data sets like that and if you are thinking in that way you will definitely not come up with some verify reward hacking structure, schemas and world count, binary gates, code caps, ceilings, some sort of like that. Moving forward, if the QA members are not able to understand your verifier files, some sort of like a very easy verifier files, right? And uh if your file is very complex with mathematical formulas, things like that and if you have score caps, things like that, it will be abruptly rejected. it will not be sent uh to the delivery or uh sent to added to the delivery batch itself. it will be sent to reward.
+
+
+
+
+01:19:51
+
+
+S G Mathavan: uh even I'm I'm saying some sort of if the reward file is even complex and makes meaningful attribution that is not allowed here because it if I'm going to read your reward file and if I'm able to see that okay uh you have asked few checks six or seven checks you are just checking the seven checks and give you are giving equally giving one point for the seven checks that makes sense that's that's a good reward the reward is nothing but you are checking whether the all the ask that which you have as an instruction is being maintained or not. If you're going to come up with some weightage score caps things like that okay I can see that the multi- aent is doing well in this or the single agent is failing in this I'm going to give a high weightage for it give a low weightage for the other things that's not the way particular task we are interested in so that we will be rejecting moving forward a cryptically and still logs task state mismatches yeah this is also nothing but we were able to see in the reworks uh area where if the reviewer is sending asked to rework, right?
+
+
+
+
+01:20:56
+
+
+S G Mathavan: And they were able to find out some instructions are uh like not making sense. You have to remove it and you you you guys are not rerunning it once again. And this is actually being flagged by the client side. We have checks in place but also make sure this is something uh also like uh not very meaningful to the client because we we if we are doing the work correctly we need to uh if the instruction MD is being changed we need to rerun the execution logs once again and we should not be aptly going through the result we need to enjoy the process of creating the task here not specifically just completing it and giving it to the QA members and Oracle Golden output. Yeah, as I mentioned earlier, oracles are irrelevant, but still the oracle value should not be present in the instruction.mmd. Public answer key and internet lookup risk. Uh what is this exactly? Uh
+Aladdin Mostafa: Uh actually, yeah, you can ignore this
+S G Mathavan: okay.
+
+
+
+
+01:21:54
+
+
+Aladdin Mostafa: one.
+S G Mathavan: Uh and another point which is again comes to a very alarming situation, right? We were able to find uh two to three trainers specifically. they were using timeout gaps uh but they were able to achieve the timeout using API uh like the BPN and slowing down the network process. This was easily been captured by the client and this will also will not be entertained and they will not the further uh like uh collaboration even uh like not in the project even with the Turing will be uh not encouraged if this pattern is being matched and if these kinds of pattern is being matched and you are coming up with a false uh gap with the single agent and multi- aent fail close infrastructure. Uh this is a very important point. Uh so we were able to see a lot of patterns in the task where single agent was able to score zero and multi- aent was able to score good but in depth we were able to see that your single agent was uh ran with a without an API key or with an uh 44 error from the fireworks gateway which is simply it has been returned to the reward zero.
+
+
+
+
+01:23:08
+
+
+S G Mathavan: We really don't know if it is like an uh intentional work being done or it is like an uh misclassification right but moving forward this should also be not being in place and your single agent definitely will not be having a reward zero moving forward in the long task it will be having partial rewards if you are getting a reward zero you need to debug where the single agent done uh didn't do well right I will come back to this point specifically I will emphasize the role and responsibility ities for each and every trainer here. I feel that is also misinterpreted uh and project scope here. I will come back to that strict parser fail closed before semantic uh judging. Uh okay. Yeah. uh it means like uh we were creating JSONs right previously and the JSON if the single agent was not able to create a proper JSON it was resulting in a passer error but it failed in creating the JSON but it didn't fail in uh giving a right answer here the client was able to compare the agent output and the Oracle output see that the single agent actually did well it just failed in the parser error it doesn't add any meaningful uh training for the client.
+
+
+
+
+01:24:22
+
+
+S G Mathavan: So they also have rejected these task. So this also roots back to the responsibilities for each and every trainer in the call. I will come back to that exact phrase exact substring oracle wording dependencies. Yeah, this is something we will not be facing that in the phase two. But yeah and duplicate near variant task we have some uh the the similarity checker in place in the labeling tool. But I feel this is again roots back to the creativity part which I have addressed. Be creative in your scenarios. Be much more creative in coming up with the complex uh scenarios not in your reward files or not in your uh test cases to bring up the engineered gap. So make sure to avoid those cases. Mislabel packaging wrong task artifacts. Uh these are something rare and we will be able to catch in the delivery uh file. I know it is complex. It it is complex to handle multiple task and multiple task folders things like that.
+
+
+
+
+01:25:24
+
+
+S G Mathavan: But make sure to have a very clean folder structure. Make sure to give us a task in a perfect folder structure with not mislabeled UU ID. If you're creating a task, create the folder in the specific UU ID format. Swam bench and the task like domain SN/ something like that. because we were able to see task where execution logs were in a different UU ID and the task is in a different UID which is nothing but the trainer just copied or duplicated the previous task submission and just manipulated the instruction things like that this is not a very clean workflow right the clients were also flagging whether this execution logs relevant to this fold of task or which is not it is relevant to other task whether it was a trainer mistake or other mistakes anyway is the execution logs were relevant to the task but the namings were difference here. So make sure to avoid those things and uh throttling output tokens I have already covered this is something like playing with the network uh and coming up with a single agent timeout error and make sure to avoid these cases and it is uh appropriately uh like uh flagging to work ethics.
+
+
+
+
+01:26:36
+
+
+S G Mathavan: Any questions here?
+Aladdin Mostafa: I just wanted to add Maddie regarding the throttling link port. Uh in case you are marking the task fail because time out on single agent, you need to check the output tokens per second for the single agent and the multi- aent. Make sure it's not uh very low in the single agent run. So this is not a valid timeout scenario. If so, you need to rerun it.
+S G Mathavan: a break. Please go
+Bright Amidiagbe: Yeah. So, yeah, I want clarification for the part where um I think there are two
+S G Mathavan: ahead.
+Bright Amidiagbe: clarification I want to make. Um if the single agent because we talked about the part whereby the agent did the work but maybe there was no output file and then scored zero. So I think because the judge is going to judge based on that output file. So the judge is not seeing the out file and decide to score zero. Is that permitted? I think that's one.
+
+
+
+
+01:27:37
+
+
+Bright Amidiagbe: Then the second one
+S G Mathavan: No, I'm really not sure but I'm not able to get your question a bit. Can you come again? Your voice is little low.
+Bright Amidiagbe: Can you hear me?
+S G Mathavan: Yes. Yeah,
+Bright Amidiagbe: Yes. Yeah. Yeah.
+S G Mathavan: please go ahead.
+Bright Amidiagbe: I'm saying that in a situation whereby because you said there was situation whereby the final the single agent or maybe the agent did the work. The single agent did the work but he didn't get an ad yet. So what I was trying to say is that the judge is going to judge based on the output. Let's say okay I need an output JSON or output MD or whatever output that's what I'm going to use to judge the response. Maybe is a map reduce but the actually did the work but the agent did not produce any output in that case. So is that allowed? Uh
+S G Mathavan: Uh so you're saying that what the single agent didn't produce any output but
+
+
+
+
+01:28:32
+
+
+Bright Amidiagbe: so
+S G Mathavan: the multi- aent was able to produce an output file. Am I correct?
+Bright Amidiagbe: yes yes but you see did the work maybe let's say the map the
+S G Mathavan: Yes in that case. Yeah, in that case it Yeah,
+Bright Amidiagbe: map produced and was able to do
+S G Mathavan: it is. Yeah, in that case it is a valid failure if the single agent didn't pro produce an agent output but the multi- aent was able to produce an agent output file.
+Bright Amidiagbe: Okay. Okay. So, and again I've seen also seen scenario I think where the now they are using purely LLM judge where the LM judge just call the single agent or multi single agent zero flat zero. So maybe the single agents didn't do the work well because why asking this is that the second h work we did to complete it you mentioned that any single agent should not score zero so in this phase two if the LM judge score call zero call the agent the work that the agent did at zero that is still going to be accepted
+
+
+
+
+01:29:42
+
+
+S G Mathavan: So I would say if your single agent is getting a zero right and if it is a valid scenario you have made a a good debugging done here that will not be flagged by the client and you also have a justification for it yes it's a valid one. Uh but coming back to phase two, our phase one is fully uh dependent on Oracle which is nothing but your spawn sub agents. You also did the work on coming up with an correct golden answer here. You compare it with the golden answer. But our phase to think in a perspective of multi-stages that is what long horizon is multi-stages which is like do the analysis come up with the PPT come up with images for that PPT some sort of three stages here and if your verifiers are dependent on these rules right definitely your single agent will at least partially pass and it was able to pass in the analysis but it was not able to pass the slide because this context is overloaded compaction hits and the context this reduced something like that.
+
+
+
+
+01:30:41
+
+
+S G Mathavan: Now we are focusing on long horizon. So definitely the partial rewards are possible for yeah over to
+Aladdin Mostafa: Yeah, thank you so much M for answering this.
+S G Mathavan: you.
+Aladdin Mostafa: Uh yeah, uh I guess we covered most of the parts regarding the these two requirements.
+S G Mathavan: The next two uh just a minute uh like bride also raised an important question which is
+Aladdin Mostafa: Uh
+S G Mathavan: like in phase two is it possible to little increase the HD? In phase two there is a possibility to decrease the a because we are not creating an oracle here. We are able to grade it based on the rules which is mentioned here. So that you are not pushing one or one out of research about the oracle and come up with it. And so this is what we have observed in our PC. I was able to create a task even at the four heart and uh if the same patterns we were able to achieve but so far the HD I'm keeping it to the management as seven.
+
+
+
+
+01:31:45
+
+
+S G Mathavan: So yeah uh definitely you will be able to have a very less reduced HD in phase two and we will be taking an action at that uh point. Okay,
+Aladdin Mostafa: Okay, thank you for this. Yeah, but for now it's still 7 hours per task. M, right?
+S G Mathavan: it's in discussion. Uh, let's not confirm it. And yeah.
+Aladdin Mostafa: Okay, got it. So yeah guys, moving forward uh what you'll have to do next is to fill in this sheet. Uh so what each one of you guys need to uh come up with an idea uh write the instruction in the end the composition MD and attach them here and one of our QA will be reviewing this and make sure uh this aligns with phase 2 requirements. So yeah once you fill in this QA will pick uh your idea and we'll be filling a review either pass or rework. If it's work it will be providing the comments here on why it's not suitable. So what you'll need to uh fill just uh as a start point each one of you need to fill in each one row uh in this sheet.
+
+
+
+
+01:33:12
+
+
+Aladdin Mostafa: I've already assigned your name here. Uh M we are stick to the same task domains. Uh is it correct? Just confirmation.
+S G Mathavan: What you're asking is the domains right? Yes. Yes. Yeah. We are following the same domain.
+Aladdin Mostafa: Yes.
+S G Mathavan: We have added a phase two classes. Uh there is a change in the delivery structure. uh which will be uh led by Aladdin and uh there is a also some sort of inputs which needs to be present in task. ML file dag bit and dag depth d bit and dag depth it is nothing but how much is the depth of decomposition which you have created the scenario how much depth of scenario which need it needs and the dep width of sub aent it needs. So you will also be outputting giving the input to the to those uh values in the dash.2ML based on your of the multi- aents as performed. Now in our new harness diff file there will be uh we have made a new changes to the harness we have used and different agent harness which is open code and I have made some changes in that uh code itself to give the orchestrator sub agent all its uh trajectories.
+
+
+
+
+01:34:28
+
+
+S G Mathavan: So you will be getting all even if the agent is spawning 100 sub aents in your task you will be getting all the 100 sub aent files in the trajectory folder. Yeah. Over to you.
+Aladdin Mostafa: Yeah. Uh in this repo guys, you'll be you'll find the patch you need to apply to the harness uh to start on phase two. We'll be using open code. Yeah. And you'll need to apply this patch. Getting back to the sheets, you can here uh select multiple uh classes. For example, you can have a task with long writing and browsing as well. So select all that classes uh for your task here in this column and provide the instruction and the composition files. You may as well provide uh the data set source links uh as the tasks are all real world data. Then uh one of the key leads will be reviewing your idea and market either pass or reward. Once passed, you you feel free to go ahead and start working on your task.
+
+
+
+
+01:35:49
+
+
+Aladdin Mostafa: Uh Stephan here.
+S G Mathavan: link as
+Aladdin Mostafa: Uh
+S G Mathavan: well.
+Estifanos Gashawtena: Yeah. Yes. Yes. Maria, I have one question regarding the workflow.
+Aladdin Mostafa: okay.
+Estifanos Gashawtena: So the trainer should get confirmation from Q before creating task, right?
+S G Mathavan: Exactly the creativity part.
+Estifanos Gashawtena: About Yeah,
+S G Mathavan: Yes.
+Estifanos Gashawtena: I want to go Jack. Yeah, thanks.
+Aladdin Mostafa: Okay. Uh Maddie, I'll have a separate sheet for the 50 tasks. I will let this only without a link to link.
+S G Mathavan: focus on the 15.
+Aladdin Mostafa: This
+S G Mathavan: Let's focus on the 15.
+Aladdin Mostafa: is
+S G Mathavan: It's I know we have a goal of 50. Let's first whoever is in the call will work on the first dash.
+Aladdin Mostafa: Yeah.
+S G Mathavan: Let's see if they are creative and if they are having any issues similar to phase one issues. Let's see here. We will never be able to uh validate all the creativity ideas for each 50 task.
+
+
+
+
+01:36:44
+
+
+S G Mathavan: We will be doing it only for phases. Once the uh phase is picked up right, you will be getting the necessary uh like help from all QA members. But once you got the phase, you will be creating much more creative task. And we also have parallelly working on the creativity part of creating some LLM uh generation task some sort of like that which will also help you in coming up with more creative task. But yeah, for now this is more of like consider this as an intermediate process and that will be evaluated by the QA
+Aladdin Mostafa: Okay. Yeah.
+S G Mathavan: members.
+Aladdin Mostafa: And please attach the labeling to link as well. We'll be adding you guys to the project just after this call finish. Okay. I guess that's all for my sides.
+S G Mathavan: Okay. Uh yeah, I will quickly take over the session. So first thing I wanted to address is the responsibility of the trainer in this project. I feel some of them uh in the project are not aware of the whole responsibility of this task right.
+
+
+
+
+01:37:50
+
+
+S G Mathavan: Uh so it's they it's like they it's like they create instruction.mmd they create decomposition.mmd they come up with real world data set they find out a gap here and okay I have got a gap let me pass the task and send it to the cl uh client. So first thing here is that it is a direct client interaction project. So I I know you guys also had a question which is like my but the client is rejecting a task why am I going why am I having that rejection in my task this is something like the project rooted in the coordination between the client and curing this is a trainer based pro process uh this is what's some sort of like an based like half a task pay based model is nothing but this is a direct interaction with the client and the turing and they only pay for uh uh talent who is working in the project every other cost every other cost leads QA leads everything is like fully obtained by Turing here and we specifically have QA less just to make sure the less interaction being reduced with the client and also with Turing here that's a known initiative by Turing so why am I saying this is the whole responsibility of your rejection is the trainer's uh like the trainer's whole work right so you have to be very much responsible for your task If you are not able to justify your task that it is a valid gap,
+
+
+
+
+01:39:15
+
+
+S G Mathavan: it is a valid gap between uh okay yeah Mohammed uh feel free to uh look into the recording. This is a very important uh uh understanding which me I need to have with all the trainers. Uh yeah so you it is your responsibility to give a very good valid task with a very good valid gap. It's not specifically like you have achieved the numbers and you're going to go ahead because this is something will be catched by the client QA. They they evaluate each and every task which you are submitting to the client and if anything is not very training grade quality they abruptly reject it and send it to the trainer. So consider this is more of like use your QA leads as your peer reviewers or something like okay you have a friendly guidance here. So you are creating a multiple artifacts related task. You will definitely make some mistakes here. That is the layer where you have to make sure okay can you check this to make sure that I'm not making any other uh mistakes.
+
+
+
+
+01:40:17
+
+
+S G Mathavan: Right? You consider them as an secondary eye here to make sure they are they are also improving. They are aware of the client changes client issues and they will also be making sure they will be very strict here. But make sure that this is the level of understanding I wanted everyone in the call to have as QA member is more of like a second right to you. But you should not be delegating your level of responsibilities for your task to the QA members. Coming back to the responsibilities whatever you write in the instruction decomposition.yamel camel and so Oracle Oracle is not relevant to phase two but yeah whatever you write in the uh task is your responsibility you need to come up with a real world data here it's not specifically like okay I'm going to do a task I will ask cursor or claude or any agentic harness to write the instruction md file for for me decomposition for me it's not like that and we are also not restricting you to not use it and I'm going to emphasize a point on how to use it for example everyone in even on the client side in Turing everyone is using agentic it is all about how you use it and in the PC samples also we have used the agentic artist to come up with wide variety of creativity part it's more of like an peer uh guy right and when I can give you an example of while I was working on the task and I was
+
+
+
+
+01:41:47
+
+
+S G Mathavan: able to see how you guys were able to came up with the caps. When I was working on my task, I was able to get an creative idea of doing doing a multiple of conversation with the agent and asking how a real world user will be do some research on Reddit and an AI failures are happening uh in real world. Come up with a scenario where they have mentioned these are the AI failures it abruptly failed here. Then I I would be doing my brainstorming session with my agent gardeners right and if it then it was able to come up with an instruction MD with a lot of detailed hashtags and blah blah blah very detailed one and I appropriately rejected that request and let it know about it that how I wanted I understood all the uh output which it gave I wrote a draft version I I used to be like fastly typing so it would be having a grammar mistakes and spelling mistakes. That is the level of uh part I want my AI to do.
+
+
+
+
+01:42:49
+
+
+S G Mathavan: I don't want it to do my task intent here. That is my own responsibility. I will be creating my task here and it is your responsibility just to reframe it and re-sentence it or not just giving me a detailed one. I'm not accepting whatever it is giving me here. I will be only responsible. I will be getting a draft version. I will be reviewing that app version. I will come up with my own version. Ask the agent to rewrite it in a perfect grammar and perfect no spelling mistakes. Then you will send me and draft version. I will re-review it. If if it it satisfies me, I will be adding that to the instruction.mmd. And if it is only real world scenario, consider this from another another perspective. Right? If I'm going to give a star task to Brite and Bright is not interested in reading artif because it is just fully of AI generated and uh it is not full of hashtags and uh things like that.
+
+
+
+
+01:43:47
+
+
+S G Mathavan: You have to think from another perspective here. See if the other person is not interested in learning about the creativeness in your task then it's not a good task. You have to re-evaluate it to rewrite it again in a perfect format. And the next thing here is decomposition.yam. ML this rule is applies to the decomposition ML and everything right and a major pattern I was able to see in phase one people wrote instruction MD using AI decomposition using AI it has commands saying that the single agent will fail in the test cases and the multi- aent will be passing and the very alarming situation is today client have rejected few task and going through each and every task and I was able to See a scenario where the trainer made the LLM the the the agentic harness the cursor right it wrote an test case file a judge LLM judge test case rubric file itself saying that this single agent will fail and this will multi agent will pass this is something very much alarming if you're not interested in reading your own task that is not a right fit project for you and if you're not interested in it please let us know we can transfer you to a different want.
+
+
+
+
+01:45:04
+
+
+S G Mathavan: So I I need everyone in the team to be putting a lot of efforts and reading their own uh creation here and they want they need to be very interested in whatever the creativity part which you're doing in this task. And I was able to see that the trainer was wrote wrote the rubrics using the LLM. It is totally fine to write the rubrics using LLM but they need to do a draft version reread it understand it whether it is resonating with the uh task here or not that is all the secondary third checks in the first check itself it's like the LLM is like just helping you out here and it wrote a rubric like single agent will fail and multi- aent passes and if your test cases are something like verifying single agent it is whether it is a single agent it gives you a score and whether it is a multiple agent it gives you a score that is not a very good quality of data and I feel that specific trainer is not interested in this whole project itself and they are not very interested in creating task in this project this is a very alarming situation I would say and the second thing on my journey right while creating task in the P I was not able to achieve the gap that that was like uh the the first part I I I also got frustrated what is this I spent a lot of time here and I created some rubrics and everything and end of the day I was able to see the single agent was able to create a simple script and it was able to
+
+
+
+
+01:46:29
+
+
+S G Mathavan: achieve a good gap here but I it's not specifically like I have yeah what I was about to say this one I like I was asking a creativity part on my uh cursor right like the clot and cursor and codeex or whatever I was using clot so I was asking what can be done for bringing up the gap it specifically mentioned why don't we do some caps here and why don't we use some uh constraints here and then I was able to get the idea how the trainers are getting various ideas and creativity to bring the test case manipulation here so please make sure to avoid it this is something like I was able to aware of it like I just read it and this is something I told claude that this is aly not I to be honest I also gave with the trainer guidelines and uh how a perfect task needs to be and still it chose the reward hacking scenario which is like coming up with constraints and things like that. I also tried to explain it it's not resonating to the task and it is just you are coming up with some formulas to bring up the gap and it was again going to do the same changes then I just paused at that moment I troed my I tro my first task away I created my second task with the perfect one which is like I I was able to reason it in my first scenario when I'm selecting a scenario I reasoned it I used AI tools to understand whether
+
+
+
+
+01:47:59
+
+
+S G Mathavan: this specific scenario will you be able to solve it with any scripts languages and I was able to get a lot of libraries in help with this AI agents I was able to get to know that okay these libraries are present to solve my task I feel then that's not a good quality of task I just reject it and go to my next creativity part right I feel this is how you need to use AI here you should not be accepting whatever it throws at you you have to reverify it you have to reason it along on it and then use AI likewise is to create more perfect task. So moving forward whatever the task which you're creating the artifacts any artifacts which you're creating should be very humanly readable and if ask your question if you are going to come back in two to three days if you want to if it pushes you to read the instruction MD right and uh you feel that you are not interested in reading that instruction MD that's not a very good task and to be honest guys I'm verifying all the client rejections here And it is it is also a very hard part for me to read all your instruction at MD.
+
+
+
+
+01:49:05
+
+
+S G Mathavan: I'm really not interested in reading those instructions. So please be aware of that. Keep that in mind and make sure you are doing an humanly readable task and giving a humanly readable task which where I if you are reading the task it also helps you to helps the other trainers to inspire but not specifically like bore them with your task right uh so keep that in mind apart from that uh Alan can you stop sharing your screen I just wanted to go through the recent client feedbacks and uh address few points Yeah. Uh so I know we have already over time. Uh so yeah I I'm going through the client feedback uh in the document. First thing here is uh this one uh which is a legitimate error uh which is nothing but the trainers. Okay. I I have uh actually uh to be honest I didn't mention the one specific important responsibility of the client uh in important responsibility of the trainer as well. So now you have came up with a real world scenario task and uh it's not h a generated it's very good and you have created the execution logs and I feel there is an another layer which the trainers currently are missing think in the direction how the single agent is able to pass how the multi multi- aent is able to pass what specific trajectories it it used I used my claw and my codeex to read these trajectories get understanding it.
+
+
+
+
+01:50:46
+
+
+S G Mathavan: I also don't trust it to whether it is just giving me a brief about it. I will let uh it know the like I will let my claics know about it like pinpoint me the exact line uh so that I will be able to understand it. So this kind of debugging is missing on the trainer side where you you get a gap you are good you are just package it and send it to the uh delivery you're not curious on how you have you were able to achieve the gap what made the single agent uh what made the single agent fail here and I feel you need to spend the time here irrespective of any uh ag right because if you're going to spend a time on indepth understanding the system where single agent is failing where the multiple agent is able to pass. Definitely on your second and third task your a will be reduced because you are understanding the system where single agent is able to fail and how the single agent output is. This is something like you are going into the system you are understanding how the failure has happened irrespective of okay I got the gap let me go through it in this process you will also be understanding whether the gap was achieved because of my verifier fault or whether the gap was achieved because my single agent was able to uh like uh doing some routine loop checks or some network issues things like that this debug debugging lay layer is also missed and
+
+
+
+
+01:52:11
+
+
+S G Mathavan: this is also the response responsibility of the trainer while creating the task. If you have achieved the gap, if you have not achieved the gap, go through the trajectories. You don't have to read each and every line. That's where you can use your agent which is like ask it to read the trajectories. Ask how the single agent was able to solve the task. How the single agent was not able to solve the task. How multi- agent is able to solve the task and not able to solve the task. What kinds of tool it used and where it went wrong. Right? If you're doing this first step, you will be having your own trajectory to come up with more good task. And if you're doing this in-depth analysis, the HT will definitely be reduced on your two to three or four task itself because you know how the systems work and you are going in a very streamlined manner. So with that said, this particular error is nothing but the justification, right?
+
+
+
+
+01:53:02
+
+
+S G Mathavan: The single agent, the the single agent was able to give an output. The multi- aent was also able to give an output. But when I was able to compare the oracle with the single agent output, I was able to see that the single agent actually performed well and the multi- aent also performed well aligning with it. So no gap has been preserved in this area. So in this case I was able to next my question is whether the trainer used some uh uh like they used LLM judge that's good but whether they have used any sentences to make uh this gap retained right but in this case in this task they haven't used any but this is a very alarming situation where your judge LM also hallucinated gave a really low score because the rubrics which you have given which how you need to grade how you need to score is not very uh like detailed and very uh like uh I would say indepth in the LLM judge. So in that case your LLM judge orchestration itself you are weakened.
+
+
+
+
+01:54:03
+
+
+S G Mathavan: You you don't have a very good LLM judge here. So in these type of cases you will be able to understand it while you're debugging it. How what is the output file of the single agent? Compare it with your Oracle or what what has happened with your single agent. You have to go through the artifacts which is produced by a single agent and multi- agent understand it. So in this case the LLM judge gave a score little less code but the single agent was doing it perfectly fine and it was having an 100% accuracy and same thing here it is also a poor judge LLM gap. So the trainer should have if the trainer has done this debugging step he wouldn't have wasted all his seven hours or the hours he spent for this task. he could have easily reiterated it and then brought up the task to the delivery for standards. Right? And this task is also similar that the LLM gave it uh 0.22 score uh but uh the single agent output Oracle actually needs to be scored zero because it gave a really bad task.
+
+
+
+
+01:55:07
+
+
+S G Mathavan: So I'm just going to contest it with the client asking them to reconsider this even though the LLM gave it a partial score here which should be avoided moving forward. You should be coming up with a very strict LLM judge which strict in the sense it should be resonating to whatever you ask in the instruction and a very detailed one. If your LLM judge is not very strong then you will be getting these false gaps and which will also be affected from the client side. they will be mentioning it. So this is something like in I need to uh discuss it with the client. So this case uh okay I I think this is also uh something I'm going to contest it with the client. Next thing here is uh this is a very alarming situation too uh which is the client have rejected it because they were able to see these keywords in the rubrics uh which they have written. This is comes back to the importance is the trainer used and AI agents like cursor gemini or or anti-gravity whatever they have used it to write the rubrics and they they didn't even gave it a chance to read what the logic is what the rubric is and if they have done it they will be able to identify it but they the end part here is we were able to see commands which is related to multi- aent single agent in the specific rubric in the judge LLM rubric itself which is alarming then the clite
+
+
+
+
+01:56:40
+
+
+S G Mathavan: rejected this task but the truth here is the gap was real and the task even though it is an LLM generated one the trainer wasted all his a because of this minor issue where he trusted the cla and declawed and he wasted 7 hours of worth of task here so that's an issue here and this is also the same thing evidence of LLM generated rubrics. This is a like he specifically mentioned this is a classic single agent failure in an LLM generated rubric. Uh in the rubric itself this is also similar cases we are the client is rejecting the task. So make sure uh I'm just showing you these examples so you get to know about the emphasis of the point which I'm make trying to make here. So try to understand the impactfulness here. I don't want anyone in this call to waste all your work because of some minor mistakes here and to be honest a human reviewer will not be going through it in detail and things like this because this is something which is sort of during his initiative and not being blind client right make sure they will be able to help you out but you need to be responsible for your task make sure that you give a perfect task here and whole task where single agent multi- aent was not able to perform yeah this is like a very uh alarming task too.
+
+
+
+
+01:58:06
+
+
+S G Mathavan: What happened is this is something I think this is from bright task. Yeah. Uh this is a task where uh it's more of like a browsing task. I uh where the task involves a list of uh links to be uh where the single agent and multi- aent needs to fetch information and then create a JSON. But what happened is when I was going through the single agent trajectory and the multi- aent trajectory, no one was able to do a web uh fetch here. It means that the the site was actually we will not be able to get any information from the site. I think it's an government site uh if I'm not wrong. So we are not able to get any information from the site. But the multi- aent was able to score 0.68 68 and the single agent was able to score 0.15 which means that the single agent was able to like fabricate some results on the output irrespective of it was not able to get the information from the browser and the multi- aent also was able to fabricate the result here and the verifier which was written by the trainer is also very not uh which is not very strict and which is not very resonating to the task.
+
+
+
+
+01:59:19
+
+
+S G Mathavan: So it gave a partial reward here which came up with the gap which is nothing but this is actually not very useful to the client and all the trajectories which is produced by the single agent and multi- aent is it is not useful and they it resulted in always an error. No single fetch URL was able to succeed here. So this is also considered as a fabricated results and the client have rejected it. Okay. uh apart from that I'm meant to go through it. If I'm able to say see any new patterns I will raise it in that channel. But uh I hope uh everyone got a gist of it. How what is the importance of going through your own task? what is being happening here on the single agent and multi- aent and uh yeah I will open for question and I hope we had a very detailed session but this is a very important session I feel and uh thank you so much for hearing all our words and thank you Adatin and for all your session it was very insightful and I was able to learn a lot from your creativeness too this is something like this project is something like there is no golden answer here it is all about our creativity part And all our humans are all the
+
+
+
+
+02:00:31
+
+
+S G Mathavan: trainers in here right we need to show our show our own creativity here and that's how we will be able to succeed this phase two and the 50 task which you are about to create are the ones consider that as a milestone if you're not going to do it well we will not be able to proceed with the project so let's make sure to give all our best and uh let's make sure this PC is a successful one any questions Okay, if not uh yeah once I'm done with my analysis I will also leave the commands and I will share it with that in our old channel. Uh let's also make sure to start the work. You will be getting your API keys labeling tool access. I have removed your labeling tool access for the previous project. I will be uh like Aladdin will give you the access once again. uh so uh you can go through it once again and uh yeah we can start with the creativity part from now on.
+
+
+
+
+02:01:30
+
+
+S G Mathavan: Thank you team. Thank you so much uh
+Estifanos Gashawtena: Yeah. Yes. Mi to to speed up our process.
+S G Mathavan: for
+Estifanos Gashawtena: I think it's better to come up this idea by study. I think it's better.
+S G Mathavan: exactly yeah first thing don't start with your task first do a lot of brainstorming with your friends with your agents uh and come up with your creativeness here uh what is the long horizon so Aladan will also be sharing what is the client requirement here and what mistakes needs to be avoided in the document you can have a look and do your creativity part here. So, Estifana Zaladin will be reviewing your creativity part and then verifying it. Once it is verified, then it you will be going through it. So, make sure uh the inspection.mmd has been created some sort of like an real world uh one which is if it is not it will be abruply rejected. Yeah. Uh emphasizing it once again too. Uh anything else? Uh okay. How soon would we get the artifacts used in the demos? Uh I think once after this call will be sending you all the artifacts. No issues on that job. Yeah. If nothing else I think uh we are right uh on that uh time. I'm sorry not right on the time right on the topic which we are about to finish. So sorry for taking a lot of time guys. Uh meet you all soon. Have a very good day. Bye everyone.
+Aladdin Mostafa: Yeah, thanks everyone for joining and have a nice day. Bye-bye.
+S G Mathavan: Bye everyone. Yeah. Thank you Job.
+
+
+
+
+Transcription ended after 02:03:09
+
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

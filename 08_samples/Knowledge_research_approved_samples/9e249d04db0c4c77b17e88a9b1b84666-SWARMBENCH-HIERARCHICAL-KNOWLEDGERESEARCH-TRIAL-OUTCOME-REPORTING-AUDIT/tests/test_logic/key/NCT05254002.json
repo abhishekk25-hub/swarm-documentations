@@ -1,0 +1,372 @@
+{
+ "nct": "NCT05254002",
+ "prespecification_version": 4,
+ "prespecification_date": "2022-05-08",
+ "publications": [
+  "PMC11556932",
+  "PMC12315800",
+  "PMC12722168"
+ ],
+ "prespecified_units": [
+  {
+   "uid": "pri1",
+   "measure": "Relative change from baseline in UACR at 180 days in combination therapy group versus empagliflozin alone",
+   "role": "primary",
+   "timeframe": "Up to 180 days",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12722168",
+   "reported_label": "Least squares (LS) mean ratios (with 95% CI) of change from baseline in UACR for combination therapy versus finerenone or empagliflozin alone",
+   "reported_instrument": "urine albumin-creatinine ratio (UACR)",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary endpoint, change in UACR (which was log-transformed given skewed distribution), was analyzed using a mixed model for repeated measures and expressed as least-squares mean ratio comparing combination therapy with each monotherapy.",
+   "result_quote": "For instance, in the very high risk group ( n = 462), the least squares mean ratio of combination therapy was 0.72 [95% confidence interval (CI) 0.59-0.89] compared with finerenone alone and 0.75 (95% CI 0.61-0.91) compared with empagliflozin alone."
+  },
+  {
+   "uid": "pri2",
+   "measure": "Relative change from baseline in UACR at 180 days in combination therapy group versus finerenone alone",
+   "role": "primary",
+   "timeframe": "Up to 180 days",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12722168",
+   "reported_label": "Least squares (LS) mean ratios (with 95% CI) of change from baseline in UACR for combination therapy versus finerenone or empagliflozin alone",
+   "reported_instrument": "urine albumin-creatinine ratio (UACR)",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary endpoint, change in UACR (which was log-transformed given skewed distribution), was analyzed using a mixed model for repeated measures and expressed as least-squares mean ratio comparing combination therapy with each monotherapy.",
+   "result_quote": "For instance, in the very high risk group ( n = 462), the least squares mean ratio of combination therapy was 0.72 [95% confidence interval (CI) 0.59-0.89] compared with finerenone alone and 0.75 (95% CI 0.61-0.91) compared with empagliflozin alone."
+  },
+  {
+   "uid": "sec3",
+   "measure": "Relative change in UACR category (>30%, >40%, >50%) at 180 days",
+   "role": "secondary",
+   "timeframe": "Up to 180 days",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12722168",
+   "reported_label": "reduction in UACR to a prespecified threshold of >30%",
+   "reported_instrument": "urine albumin-creatinine ratio (UACR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "A secondary efficacy outcome was the reduction in UACR to a prespecified threshold of >30%, which is supported by the American Diabetes Association Standards of Care as a target for therapeutic optimization [ 12 ].",
+   "result_quote": "Similarly, a substantial proportion of patients with simultaneous initiation of finerenone and empagliflozin experienced >30% decline in UACR from baseline to Day 180 (58.1% in the low/moderate risk, 74.2% in the high risk and 70.6% in the very high risk group)."
+  },
+  {
+   "uid": "sec5",
+   "measure": "eGFR decline greater than 30% at 30 days from baseline",
+   "role": "secondary",
+   "timeframe": "Up to 30 days",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12722168",
+   "reported_label": ">30% decline in eGFR at 30 +/- 4 days",
+   "reported_instrument": "estimated glomerular filtration rate (eGFR)",
+   "reported_role": "safety",
+   "role_evidence_quote": "Adverse events potentially relevant to finerenone, empagliflozin or their combination were systematically collected and included hyperkalemia, acute kidney injury, >30% decline in eGFR at 30 +/- 4 days, symptomatic hypotension, urosepsis or pyelonephritis, and genital mycotic infections.",
+   "result_quote": "eGFR that declined to >30% at 30 +/- 4 days after initiation of combination therapy was more common in low/moderate risk (12.1%) and high risk groups (8.2%) compared with very high risk group (4.4%)."
+  },
+  {
+   "uid": "sec7",
+   "measure": "Number of participants with of acute kidney injury (AKI) events",
+   "role": "secondary",
+   "timeframe": "Up to 180 days",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12722168",
+   "reported_label": "Acute kidney injury",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Adverse events potentially relevant to finerenone, empagliflozin or their combination were systematically collected and included hyperkalemia, acute kidney injury, >30% decline in eGFR at 30 +/- 4 days, symptomatic hypotension, urosepsis or pyelonephritis, and genital mycotic infections.",
+   "result_quote": "However, rates of investigator-reported acute kidney injury were infrequent (<=3%) with combination therapy across KDIGO risk categories."
+  },
+  {
+   "uid": "sec8",
+   "measure": "Total number of AKI events",
+   "role": "secondary",
+   "timeframe": "Up to 180 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec9",
+   "measure": "Number of participants with hyperkalemia events (moderate hyperkalemia [5.5 <K+ <=6.0 mmol/L], severe hyperkalemia [K+ >6.0 mmol/L])",
+   "role": "secondary",
+   "timeframe": "Up to 180 days",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12722168",
+   "reported_label": "Serum K >5.5 mmol/L",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment-emergent adverse events are reported for any participant who experienced an adverse event after first dose and up to 3 days after temporary or permanent drug discontinuation.",
+   "result_quote": "Serum K >5.5 mmol/L b\n31 (19.6)\n33 (22.3)\n16 (10.3)\n80 (17.3)"
+  },
+  {
+   "uid": "sec11",
+   "measure": "Relative change from baseline in K+",
+   "role": "secondary",
+   "timeframe": "Up to 180 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec14",
+   "measure": "Number of participants with symptomatic hypotension events",
+   "role": "secondary",
+   "timeframe": "Up to 180 days",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12722168",
+   "reported_label": "Symptomatic hypotension",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Adverse events potentially relevant to finerenone, empagliflozin or their combination were systematically collected and included hyperkalemia, acute kidney injury, >30% decline in eGFR at 30 +/- 4 days, symptomatic hypotension, urosepsis or pyelonephritis, and genital mycotic infections.",
+   "result_quote": "Symptomatic hypotension did not occur in any patient with low/moderate or high KDIGO risk, and was reported in two patients with very high KDIGO risk (Table 2 )."
+  },
+  {
+   "uid": "sec16",
+   "measure": "Number of participants with genital mycotic events",
+   "role": "secondary",
+   "timeframe": "Up to 180 days",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12722168",
+   "reported_label": "Genital mycotic infection",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Adverse events potentially relevant to finerenone, empagliflozin or their combination were systematically collected and included hyperkalemia, acute kidney injury, >30% decline in eGFR at 30 +/- 4 days, symptomatic hypotension, urosepsis or pyelonephritis, and genital mycotic infections.",
+   "result_quote": "Genital mycotic infection\n3 (1.9)\n0\n1 (0.6)\n4 (0.9)"
+  },
+  {
+   "uid": "sec18",
+   "measure": "Number of participants with ketoacidosis events",
+   "role": "secondary",
+   "timeframe": "Up to 180 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec19",
+   "measure": "Total number of ketoacidosis events",
+   "role": "secondary",
+   "timeframe": "Up to 180 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec20",
+   "measure": "Number of participants with necrotizing fasciitis of the perineum events",
+   "role": "secondary",
+   "timeframe": "Up to 180 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec21",
+   "measure": "Total number of necrotizing fasciitis of the perineum events",
+   "role": "secondary",
+   "timeframe": "Up to 180 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec22",
+   "measure": "Number of participants with urosepsis and pyelonephritis events",
+   "role": "secondary",
+   "timeframe": "Up to 180 days",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12722168",
+   "reported_label": "Urosepsis and pyelonephritis",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Adverse events potentially relevant to finerenone, empagliflozin or their combination were systematically collected and included hyperkalemia, acute kidney injury, >30% decline in eGFR at 30 +/- 4 days, symptomatic hypotension, urosepsis or pyelonephritis, and genital mycotic infections.",
+   "result_quote": "Urosepsis and pyelonephritis\n0\n0\n1 (0.6)\n1 (0.2)"
+  }
+ ],
+ "additional_units": [
+  {
+   "rid": "PMC11556932#0",
+   "reporting_document": "PMC11556932",
+   "reported_label": "albuminuria",
+   "reported_instrument": "albuminuria",
+   "reported_role": "other",
+   "role_evidence_quote": "A subanalysis of a phase 3 clinical trial of spironolactone in heart failure showed the antiproteinuria effects of this drug",
+   "result_quote": "A subanalysis of a phase 3 clinical trial of spironolactone in heart failure showed the antiproteinuria effects of this drug (39% placebo-adjusted reduction in albuminuria)."
+  },
+  {
+   "rid": "PMC11556932#1",
+   "reporting_document": "PMC11556932",
+   "reported_label": "another kidney-specific composite endpoint that included a sustained >=57% decline in eGFR from baseline",
+   "reported_instrument": "eGFR",
+   "reported_role": "other",
+   "role_evidence_quote": "it was associated with a significant 23% reduction in another kidney-specific composite endpoint that included a sustained >=57% decline in eGFR from baseline",
+   "result_quote": "Although there was no significant effect of finerenone on the composite kidney endpoint (equivalent to the primary endpoint of FIDELIO-DKD; the secondary endpoint in this trial), it was associated with a significant 23% reduction in another kidney-specific composite endpoint that included a sustained >=57% decline in eGFR from baseline."
+  },
+  {
+   "rid": "PMC11556932#2",
+   "reporting_document": "PMC11556932",
+   "reported_label": "albuminuria reduction",
+   "reported_instrument": "UACR",
+   "reported_role": "other",
+   "role_evidence_quote": "A randomized, open-label crossover trial in patients with CKD revealed a robust additive UACR-lowering effect of combining the SGLT2i dapagliflozin with eplerenone",
+   "result_quote": "A randomized, open-label crossover trial in patients with CKD revealed a robust additive UACR-lowering effect of combining the SGLT2i dapagliflozin with eplerenone (a clinically relevant albuminuria reduction of 53% after 4 weeks)."
+  },
+  {
+   "rid": "PMC11556932#3",
+   "reporting_document": "PMC11556932",
+   "reported_label": "urinary albumin excretion",
+   "reported_instrument": "urinary albumin excretion",
+   "reported_role": "other",
+   "role_evidence_quote": "Add-on eplerenone to stable antihypertensive treatment caused a 22% reduction in urinary albumin excretion versus a control period",
+   "result_quote": "Add-on eplerenone to stable antihypertensive treatment caused a 22% reduction in urinary albumin excretion versus a control period Potassium levels were increased during eplerenone treatment"
+  },
+  {
+   "rid": "PMC11556932#4",
+   "reporting_document": "PMC11556932",
+   "reported_label": "serum potassium >5.5 mmol/L",
+   "reported_instrument": "serum potassium",
+   "reported_role": "safety",
+   "role_evidence_quote": "Key Efficacy Results/conclusions and Post-treatment Serum Potassium/incidence of Hyperkalemia",
+   "result_quote": "Lower risks of CKD progression and cardiovascular events with finerenone versus placebo Higher mean serum potassium with finerenone versus placebo and higher proportion of patients with serum potassium >5.5 mmol/L with finerenone versus placebo (21.7 versus 9.8%). Discontinuations of regimen because of hyperkalemia infrequent with finerenone (2.3%)"
+  },
+  {
+   "rid": "PMC11556932#5",
+   "reporting_document": "PMC11556932",
+   "reported_label": "Discontinuations of regimen because of hyperkalemia",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Key Efficacy Results/conclusions and Post-treatment Serum Potassium/incidence of Hyperkalemia",
+   "result_quote": "Lower risks of CKD progression and cardiovascular events with finerenone versus placebo Higher mean serum potassium with finerenone versus placebo and higher proportion of patients with serum potassium >5.5 mmol/L with finerenone versus placebo (21.7 versus 9.8%). Discontinuations of regimen because of hyperkalemia infrequent with finerenone (2.3%)"
+  },
+  {
+   "rid": "PMC11556932#6",
+   "reporting_document": "PMC11556932",
+   "reported_label": "discontinuations of regimen because of hyperkalemia",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Key Efficacy Results/conclusions and Post-treatment Serum Potassium/incidence of Hyperkalemia",
+   "result_quote": "Finerenone improved cardiovascular outcomes in patients with type 2 diabetes and stage 2-4 CKD with moderately elevated albuminuria or stage 1 or 2 CKD with severely elevated albuminuria versus placebo Incidence of hyperkalemia higher with finerenone versus placebo but none led to death, with few discontinuations of regimen (1.2% versus 0.4%) or hospitalization (0.6% versus 0.1%)"
+  },
+  {
+   "rid": "PMC11556932#7",
+   "reporting_document": "PMC11556932",
+   "reported_label": "hospitalization because of hyperkalemia",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Key Efficacy Results/conclusions and Post-treatment Serum Potassium/incidence of Hyperkalemia",
+   "result_quote": "Finerenone improved cardiovascular outcomes in patients with type 2 diabetes and stage 2-4 CKD with moderately elevated albuminuria or stage 1 or 2 CKD with severely elevated albuminuria versus placebo Incidence of hyperkalemia higher with finerenone versus placebo but none led to death, with few discontinuations of regimen (1.2% versus 0.4%) or hospitalization (0.6% versus 0.1%)"
+  },
+  {
+   "rid": "PMC11556932#8",
+   "reporting_document": "PMC11556932",
+   "reported_label": "hyperkalemia",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Key Efficacy Results/conclusions and Post-treatment Serum Potassium/incidence of Hyperkalemia",
+   "result_quote": "Spironolactone+ACEi/ARB treatment significantly decreased albumin creatinine ratio Six patients had hyperkalemia, and one patient had serious hyperkalemia and discontinued spironolactone; all during open label run-in"
+  },
+  {
+   "rid": "PMC11556932#9",
+   "reporting_document": "PMC11556932",
+   "reported_label": "serious hyperkalemia",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Key Efficacy Results/conclusions and Post-treatment Serum Potassium/incidence of Hyperkalemia",
+   "result_quote": "Spironolactone+ACEi/ARB treatment significantly decreased albumin creatinine ratio Six patients had hyperkalemia, and one patient had serious hyperkalemia and discontinued spironolactone; all during open label run-in"
+  },
+  {
+   "rid": "PMC11556932#10",
+   "reporting_document": "PMC11556932",
+   "reported_label": "hyperkalemia (potassium >5.5 mmol/L)",
+   "reported_instrument": "potassium",
+   "reported_role": "safety",
+   "role_evidence_quote": "Key Efficacy Results/conclusions and Post-treatment Serum Potassium/incidence of Hyperkalemia",
+   "result_quote": "Addition of low-dose eplerenone to RAASis might have renoprotective effects through reduction of albuminuria No serious safety concerns were observed Serum potassium slightly but significantly increased with eplerenone versus placebo but no cases of hyperkalemia (potassium >5.5 mmol/L) in either group"
+  },
+  {
+   "rid": "PMC11556932#11",
+   "reporting_document": "PMC11556932",
+   "reported_label": "severe hyperkalemia",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Key Efficacy Results/conclusions and Post-treatment Serum Potassium/incidence of Hyperkalemia",
+   "result_quote": "KBP-5074 lowers BP with some risk of hyperkalemia Incidence of hyperkalemia slightly greater with 0.5 mg KBP-5074. No cases of severe hyperkalemia reported"
+  },
+  {
+   "rid": "PMC11556932#12",
+   "reporting_document": "PMC11556932",
+   "reported_label": "albuminuria reduction",
+   "reported_instrument": "UACR",
+   "reported_role": "other",
+   "role_evidence_quote": "Robust additive UACR-lowering effect observed when combining dapagliflozin with eplerenone",
+   "result_quote": "Robust additive UACR-lowering effect observed when combining dapagliflozin with eplerenone (a clinically relevant albuminuria reduction of 53% after 4 wk) Incidence of hyperkalemia less when eplerenone used in combination with dapagliflozin"
+  },
+  {
+   "rid": "PMC12722168#0",
+   "reporting_document": "PMC12722168",
+   "reported_label": "change in UACR from baseline to 180 days",
+   "reported_instrument": "urine albumin-creatinine ratio (UACR)",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary efficacy outcome was the change in UACR from baseline to 180 days.",
+   "result_quote": "At Day 180, combination therapy reduced UACR levels similarly across all KDIGO risk categories (-61.7% in the low/moderate-risk, -60.7% in the high-risk, and -52.4% in the very high-risk categories; Fig. 2A )."
+  },
+  {
+   "rid": "PMC12722168#3",
+   "reporting_document": "PMC12722168",
+   "reported_label": "proportions with >30% decline in UACR at 90 days",
+   "reported_instrument": "urine albumin-creatinine ratio (UACR)",
+   "reported_role": "other",
+   "role_evidence_quote": "Furthermore, at the immediate previous visit (at 90 days), clearer benefits were seen in this subgroup further supporting instability in these estimates (proportions with >30% decline in UACR at 90 days: 66.7% with combination therapy, 43.5% with finerenone alone and 46.9% with empagliflozin alone).",
+   "result_quote": "Furthermore, at the immediate previous visit (at 90 days), clearer benefits were seen in this subgroup further supporting instability in these estimates (proportions with >30% decline in UACR at 90 days: 66.7% with combination therapy, 43.5% with finerenone alone and 46.9% with empagliflozin alone)."
+  },
+  {
+   "rid": "PMC12722168#4",
+   "reporting_document": "PMC12722168",
+   "reported_label": ">=1 adverse event",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment-emergent adverse events are reported for any participant who experienced an adverse event after first dose and up to 3 days after temporary or permanent drug discontinuation.",
+   "result_quote": ">=1 adverse event\n60 (38.0)\n47 (31.8)\n37 (23.7)\n144 (31.2)"
+  },
+  {
+   "rid": "PMC12722168#7",
+   "reporting_document": "PMC12722168",
+   "reported_label": "Hyperkalemia",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Adverse events potentially relevant to finerenone, empagliflozin or their combination were systematically collected and included hyperkalemia, acute kidney injury, >30% decline in eGFR at 30 +/- 4 days, symptomatic hypotension, urosepsis or pyelonephritis, and genital mycotic infections.",
+   "result_quote": "Hyperkalemia a\n20 (13.5)\n18 (11.4)\n8 (5.1)\n46 (10.0)"
+  },
+  {
+   "rid": "PMC12722168#9",
+   "reporting_document": "PMC12722168",
+   "reported_label": "Serum K >5.5 to <=6.0 mmol/L",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment-emergent adverse events are reported for any participant who experienced an adverse event after first dose and up to 3 days after temporary or permanent drug discontinuation.",
+   "result_quote": "Serum K >5.5 to <=6.0 mmol/L b\n26 (16.5)\n30 (20.3)\n13 (8.3)\n69 (14.9)"
+  },
+  {
+   "rid": "PMC12722168#10",
+   "reporting_document": "PMC12722168",
+   "reported_label": "Serum K >6.0 mmol/L",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment-emergent adverse events are reported for any participant who experienced an adverse event after first dose and up to 3 days after temporary or permanent drug discontinuation.",
+   "result_quote": "Serum K >6.0 mmol/L b\n9 (5.7)\n8 (5.4)\n6 (3.8)\n23 (5.0)"
+  }
+ ],
+ "dropped_unusable_units": [
+  "PMC12315800#0: NCT05254002/PMC12315800#0 role: quote too short to be evidence",
+  "PMC12315800#1: NCT05254002/PMC12315800#1 role: quote too short to be evidence",
+  "PMC12315800#2: NCT05254002/PMC12315800#2 role: quote too short to be evidence",
+  "PMC12315800#3: NCT05254002/PMC12315800#3 role: quote too short to be evidence",
+  "PMC12315800#4: NCT05254002/PMC12315800#4 role: quote too short to be evidence",
+  "PMC12315800#5: NCT05254002/PMC12315800#5 role: quote too short to be evidence",
+  "PMC12315800#6: NCT05254002/PMC12315800#6 role: quote too short to be evidence",
+  "PMC12315800#7: NCT05254002/PMC12315800#7 role: quote too short to be evidence",
+  "PMC12315800#8: NCT05254002/PMC12315800#8 role: quote too short to be evidence",
+  "PMC12315800#9: NCT05254002/PMC12315800#9 role: quote too short to be evidence",
+  "PMC12315800#10: NCT05254002/PMC12315800#10 role: quote too short to be evidence"
+ ]
+}

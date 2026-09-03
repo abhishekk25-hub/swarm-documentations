@@ -1,0 +1,231 @@
+{
+  "sources": [
+    {
+      "id": "S-01",
+      "authority": "FTA Circular 4702.1B (Title VI Requirements and Guidelines for FTA Recipients)",
+      "domains": [
+        "transit.dot.gov",
+        "fta.dot.gov"
+      ],
+      "fact_tokens": [
+        [
+          "4702.1b"
+        ],
+        [
+          "chapter iv",
+          "chapter 4"
+        ],
+        [
+          "major service change"
+        ]
+      ],
+      "topic": "service-equity analysis requirements; minority and low-income definitions"
+    },
+    {
+      "id": "S-02",
+      "authority": "Title VI of the Civil Rights Act of 1964 (42 U.S.C. 2000d)",
+      "domains": [
+        "govinfo.gov",
+        "uscode.house.gov",
+        "law.cornell.edu"
+      ],
+      "fact_tokens": [
+        [
+          "2000d"
+        ],
+        [
+          "42 u.s.c"
+        ],
+        [
+          "civil rights act of 1964"
+        ]
+      ],
+      "topic": "statutory prohibition on discrimination in federally assisted programs"
+    },
+    {
+      "id": "S-03",
+      "authority": "49 CFR Part 21 (DOT Title VI implementing regulations)",
+      "domains": [
+        "ecfr.gov",
+        "govinfo.gov",
+        "law.cornell.edu"
+      ],
+      "fact_tokens": [
+        [
+          "part 21"
+        ],
+        [
+          "49 cfr"
+        ]
+      ],
+      "topic": "DOT nondiscrimination regulations binding on FTA recipients"
+    },
+    {
+      "id": "S-04",
+      "authority": "DOT Order 5610.2C (Environmental Justice)",
+      "domains": [
+        "transportation.gov",
+        "fhwa.dot.gov"
+      ],
+      "fact_tokens": [
+        [
+          "5610.2"
+        ],
+        [
+          "environmental justice"
+        ]
+      ],
+      "topic": "DOT environmental-justice policy on low-income and minority populations"
+    },
+    {
+      "id": "S-05",
+      "authority": "Executive Order 12898 (Environmental Justice)",
+      "domains": [
+        "federalregister.gov",
+        "archives.gov",
+        "epa.gov"
+      ],
+      "fact_tokens": [
+        [
+          "12898"
+        ],
+        [
+          "environmental justice"
+        ]
+      ],
+      "topic": "federal EJ mandate underlying DOT/FTA equity review"
+    },
+    {
+      "id": "S-06",
+      "authority": "ACS Table B03002 (Hispanic or Latino Origin by Race)",
+      "domains": [
+        "data.census.gov",
+        "census.gov"
+      ],
+      "fact_tokens": [
+        [
+          "b03002"
+        ]
+      ],
+      "topic": "source table for the minority population share"
+    },
+    {
+      "id": "S-07",
+      "authority": "ACS Table C17002 (Ratio of Income to Poverty Level)",
+      "domains": [
+        "data.census.gov",
+        "census.gov"
+      ],
+      "fact_tokens": [
+        [
+          "c17002"
+        ]
+      ],
+      "topic": "source table for the low-income population share"
+    },
+    {
+      "id": "S-08",
+      "authority": "ACS Table B08201 (Household Size by Vehicles Available)",
+      "domains": [
+        "data.census.gov",
+        "census.gov"
+      ],
+      "fact_tokens": [
+        [
+          "b08201"
+        ],
+        [
+          "vehicles available"
+        ]
+      ],
+      "topic": "zero-vehicle households / transit dependence context"
+    },
+    {
+      "id": "S-09",
+      "authority": "ACS Table C16001 (Language Spoken at Home)",
+      "domains": [
+        "data.census.gov",
+        "census.gov"
+      ],
+      "fact_tokens": [
+        [
+          "c16001"
+        ],
+        [
+          "language spoken at home"
+        ],
+        [
+          "limited english"
+        ]
+      ],
+      "topic": "limited-English-proficiency population context"
+    },
+    {
+      "id": "S-10",
+      "authority": "ACS Table B01001 (Sex by Age)",
+      "domains": [
+        "data.census.gov",
+        "census.gov"
+      ],
+      "fact_tokens": [
+        [
+          "b01001"
+        ]
+      ],
+      "topic": "older-adult ridership context"
+    },
+    {
+      "id": "S-11",
+      "authority": "FTA National Transit Database (NTD)",
+      "domains": [
+        "transit.dot.gov",
+        "fta.dot.gov"
+      ],
+      "fact_tokens": [
+        [
+          "national transit database"
+        ],
+        [
+          "ntd"
+        ]
+      ],
+      "topic": "reporting framework / service-level reference"
+    },
+    {
+      "id": "S-12",
+      "authority": "GTFS Reference (General Transit Feed Specification)",
+      "domains": [
+        "gtfs.org"
+      ],
+      "fact_tokens": [
+        [
+          "gtfs"
+        ],
+        [
+          "general transit feed"
+        ]
+      ],
+      "topic": "schedule-feed format behind the GTFS export"
+    },
+    {
+      "id": "S-13",
+      "authority": "U.S. Census Bureau ACS margin-of-error / methodology guidance",
+      "domains": [
+        "census.gov"
+      ],
+      "fact_tokens": [
+        [
+          "margin of error"
+        ],
+        [
+          "moe"
+        ],
+        [
+          "methodology"
+        ]
+      ],
+      "topic": "reliability/MOE caveats on the demographic shares"
+    }
+  ],
+  "_note": "Acceptable citation domains and load-bearing fact tokens for each required authority. Used to score the source_register sheet; the verifier does not perform network access."
+}

@@ -1,0 +1,51 @@
+I run the regulatory analytics desk at a firm that defends skilled nursing facilities in CMS enforcement cases. We keep giving settlement advice off the ALJ decision alone, and it keeps aging badly, because the Departmental Appeals Board changes more on review than people assume: durations get stretched, penalties get recalculated, and whole findings get reversed or vacated. I need a defensible issue-by-issue map of what the Board actually did to each ALJ ruling in a fixed set of appeals, so our attorneys can look up how a given kind of issue has fared on review and cite the exact language.
+
+The record for this project sits in the top level directory /input_artifacts, which is an absolute path outside your working directory, so read from there rather than from /workspace, which is yours and starts out empty. The file /input_artifacts/appeal_pairs.csv lists the 45 appeals, one row per pair, giving the Board decision number, the ALJ decision number, the facility, and the two files that carry that appeal. Each pair is one ALJ decision from the Civil Remedies Division and the Board decision that reviewed it. Everything you report must come from these documents alone. The files are:
+
+- /input_artifacts/decisions/board-dab-2738.txt, /input_artifacts/decisions/alj-cr4466.txt, /input_artifacts/decisions/board-dab-2789.txt, /input_artifacts/decisions/alj-cr4706.txt, /input_artifacts/decisions/board-dab-2792.txt, /input_artifacts/decisions/alj-cr4659.txt
+- /input_artifacts/decisions/board-dab-2794.txt, /input_artifacts/decisions/alj-cr4715.txt, /input_artifacts/decisions/board-dab-2829.txt, /input_artifacts/decisions/alj-cr4771.txt, /input_artifacts/decisions/board-dab-2830.txt, /input_artifacts/decisions/alj-cr4670.txt
+- /input_artifacts/decisions/board-dab-2849.txt, /input_artifacts/decisions/alj-cr4293.txt, /input_artifacts/decisions/board-dab-2850.txt, /input_artifacts/decisions/alj-cr4769.txt, /input_artifacts/decisions/board-dab-2853.txt, /input_artifacts/decisions/alj-cr4861.txt
+- /input_artifacts/decisions/board-dab-2858.txt, /input_artifacts/decisions/alj-cr4785.txt, /input_artifacts/decisions/board-dab-2869.txt, /input_artifacts/decisions/alj-cr4922.txt, /input_artifacts/decisions/board-dab-2874.txt, /input_artifacts/decisions/alj-cr4859.txt
+- /input_artifacts/decisions/board-dab-2891.txt, /input_artifacts/decisions/alj-cr4926.txt, /input_artifacts/decisions/board-dab-2895.txt, /input_artifacts/decisions/alj-cr4851.txt, /input_artifacts/decisions/board-dab-2905.txt, /input_artifacts/decisions/alj-cr4988.txt
+- /input_artifacts/decisions/board-dab-2913.txt, /input_artifacts/decisions/alj-cr4865.txt, /input_artifacts/decisions/board-dab-2937.txt, /input_artifacts/decisions/alj-cr4916.txt, /input_artifacts/decisions/board-dab-2946.txt, /input_artifacts/decisions/alj-cr4997.txt
+- /input_artifacts/decisions/board-dab-2947.txt, /input_artifacts/decisions/alj-cr4998.txt, /input_artifacts/decisions/board-dab-2953.txt, /input_artifacts/decisions/alj-cr4842.txt, /input_artifacts/decisions/board-dab-2954.txt, /input_artifacts/decisions/alj-cr4978.txt
+- /input_artifacts/decisions/board-dab-2991.txt, /input_artifacts/decisions/alj-cr5374.txt, /input_artifacts/decisions/board-dab-3006.txt, /input_artifacts/decisions/alj-cr4979.txt, /input_artifacts/decisions/board-dab-3008.txt, /input_artifacts/decisions/alj-cr5059.txt
+- /input_artifacts/decisions/board-dab-3035.txt, /input_artifacts/decisions/alj-cr5179.txt, /input_artifacts/decisions/board-dab-3036.txt, /input_artifacts/decisions/alj-cr5677.txt, /input_artifacts/decisions/board-dab-3040.txt, /input_artifacts/decisions/alj-cr5060.txt
+- /input_artifacts/decisions/board-dab-3046.txt, /input_artifacts/decisions/alj-cr5132.txt, /input_artifacts/decisions/board-dab-3049.txt, /input_artifacts/decisions/alj-cr5120.txt, /input_artifacts/decisions/board-dab-3052.txt, /input_artifacts/decisions/alj-cr5232.txt
+- /input_artifacts/decisions/board-dab-3094.txt, /input_artifacts/decisions/alj-cr5091.txt, /input_artifacts/decisions/board-dab-3119.txt, /input_artifacts/decisions/alj-cr5241.txt, /input_artifacts/decisions/board-dab-3146.txt, /input_artifacts/decisions/alj-cr5922.txt
+- /input_artifacts/decisions/board-dab-3147.txt, /input_artifacts/decisions/alj-cr6427.txt, /input_artifacts/decisions/board-dab-3160.txt, /input_artifacts/decisions/alj-cr5285.txt, /input_artifacts/decisions/board-dab-3163.txt, /input_artifacts/decisions/alj-cr5296.txt
+- /input_artifacts/decisions/board-dab-3185.txt, /input_artifacts/decisions/alj-cr5854.txt, /input_artifacts/decisions/board-dab-3191.txt, /input_artifacts/decisions/alj-cr5745.txt, /input_artifacts/decisions/board-dab-3192.txt, /input_artifacts/decisions/alj-cr5169.txt
+- /input_artifacts/decisions/board-dab-3194.txt, /input_artifacts/decisions/alj-cr5054.txt, /input_artifacts/decisions/board-dab-3210.txt, /input_artifacts/decisions/alj-cr5237.txt, /input_artifacts/decisions/board-dab-3211.txt, /input_artifacts/decisions/alj-cr5233.txt
+- /input_artifacts/decisions/board-dab-3220.txt, /input_artifacts/decisions/alj-cr5812.txt, /input_artifacts/decisions/board-dab-3228.txt, /input_artifacts/decisions/alj-cr5351.txt, /input_artifacts/decisions/board-dab-3231.txt, /input_artifacts/decisions/alj-cr5159.txt
+
+For every pair, write one JSON file at /logs/agent/pair_records/dab<NNNN>.json, where <NNNN> is the Board decision number from the manifest (for example dab2850.json). Each record needs these pair-level fields:
+
+- facility and state
+- a_docket and c_docket, the Board and ALJ docket numbers
+- board_date and alj_date, ISO format
+- alj_route: full_hearing if the judge convened a hearing and took testimony, summary_judgment if the judge
+  decided the case on a summary judgment motion, written_record if the parties waived a hearing and the judge
+  ruled on the written record without applying the summary judgment standard, or dismissal_ruling if the
+  request for hearing was dismissed without reaching the merits
+- who_sought_review: petitioner, cms, or both
+- ij_trajectory: an object with cms (yes or no, did CMS find immediate jeopardy), alj, and board (each one of: upheld, overturned, upheld_in_part, vacated, not_reached, not_applicable)
+- cmp_imposed, cmp_alj, and cmp_board_final: the penalty as CMS imposed it, as the ALJ sustained it, and as it stands after the Board. Each is an object with components, a list of {kind: per_day or per_instance, rate, start, end, days, total}, and a grand_total. Days are inclusive counts and rate times days must equal the component total. If the Board vacated and remanded rather than leaving a final penalty, use {"components": [], "grand_total": null, "status": "vacated_remanded"}. Not every appeal involves a money penalty at all, since some of these enforcement actions are a denial of payment for new admissions or another remedy on its own. Where no civil money penalty was imposed, set all three fields to null rather than inventing an amount.
+
+Then a units list: one entry per issue the Board actually rules on in that appeal, including issues it upholds without discussion because nobody challenged them. Each unit carries:
+
+- issue_category, one of: substantial_compliance (was the facility out of substantial compliance with a participation requirement, one unit per regulatory citation the Board treats separately), noncompliance_duration (when noncompliance began or ended), immediate_jeopardy_finding (existence or level of immediate jeopardy), cmp_amount_reasonableness, cmp_type (per-day versus per-instance), procedural_summary_judgment (was summary judgment proper), procedural_evidentiary (evidence rulings, cross examination, new evidence offered on appeal), hearing_entitlement_dismissal (right to a hearing, timeliness, dismissal propriety), scope_of_review (the Board declines or limits review of an issue), other_procedural
+- reg_cite, the 42 C.F.R. citation the unit turns on, like 483.25(d)(1), or null
+- period, the date range the unit concerns as start..end, or null
+- alj_ruling: for_cms, for_petitioner, or not_reached
+- board_ruling: affirmed, reversed, modified, vacated_remanded, or declined_to_reach
+- board_ground, the primary ground the Board decided on, one of: substantial_evidence (the record supports the ALJ), legal_error (the ALJ misapplied the law), clearly_erroneous_not_shown (immediate jeopardy stands because the facility did not show CMS clearly erroneous), disputed_material_facts (summary judgment could not stand), waived_or_forfeited (argument not properly raised below), not_disputed_on_appeal (nobody challenged it, upheld without discussion), not_reviewable (a regulation bars review of the issue), harmless_error, new_evidence_refused, burden_not_met (the challenger failed its burden on the penalty factors), prima_facie_unrebutted
+- board_quote: the passage of the Board decision that carries this ruling, copied word for word from the board file
+- alj_quote: the passage of the ALJ decision that carries the ruling under review, copied word for word from the ALJ file. If the ALJ never reached the issue, quote the passage that shows that posture.
+
+Quotes are the part my attorneys will actually cite, so they must be exact contiguous text from the named document, not paraphrase, and each quote must come from the document it claims to come from.
+
+Alongside the records, maintain /logs/agent/issues_ledger.csv with one row per unit across the whole set, these columns: board_decision, alj_decision, facility, issue_category, reg_cite, alj_ruling, board_ruling, board_ground. This is the lookup table; the JSON records are the citable detail behind it.
+
+A complete record for most pairs beats notes about all of them, and anything not written to the two paths above does not exist for my purposes.
+
+Two cautions from our own first pass at a few of these. The Board often restates the ALJ decision before ruling, so language about what the ALJ found is not the Board ruling; take the ruling from where the Board speaks for itself. And the final order paragraph rarely carries the whole story: duration changes, penalty recalculations, and issues disposed of as unchallenged are usually settled in the body, so a record built from the conclusion section alone will be wrong for a good share of these appeals.

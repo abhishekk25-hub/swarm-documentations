@@ -1,0 +1,453 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+realized_subagent_target: 37
+dependency_levels: 11
+
+dispatch_protocol: >-
+  Each subtask below is a separate dispatch, and dispatching is the first thing that
+  happens rather than the last. The convener holds no working set of its own: it reads the
+  charter to know what it is convening and then dispatches, and every figure, reading and
+  reconciliation in this round arrives as a handoff from the board that owns it. A round
+  worked out in the convener's own context and then announced to the boards is not this
+  plan being followed, whatever the papers look like at the end, because the boards are
+  what keeps a hundred animals and three hundred and sixty-two statements from being
+  reconciled by one reader against one working set. The same holds one level down: a chair
+  that answers its own board's questions has removed the pass over the corpus its workers
+  were there to make. Nothing here asks for a single pipeline that produces all six
+  artifacts at once, and a subtask's work belongs to that subtask even where the caller
+  could do it faster itself.
+
+dependency_semantics: >-
+  Two different relations are recorded here and they should not be read as one. The
+  board_charter map is about who answers to whom: a chair stays live for as long as its
+  board is working, so a chair appearing above a worker says nothing about when either
+  finishes. The depends_on lists are about information instead, naming the handoffs a
+  subtask needs in hand before it can call itself done, which is a weaker condition than
+  waiting for the subtask that produced them to shut down. parallel_group then partitions
+  the subtasks by what may genuinely run at the same time, so any subtask that consumes
+  another's handoff is placed in a later group than the one it consumes from.
+
+conflict_channels: >-
+  This round is built to produce disagreement, and the disagreement is itself a
+  deliverable. Three channels are expected to carry contradictions up to the arbitration
+  panel rather than being settled inside a board: genetics against veterinary, where the
+  animals of highest conservation priority are disproportionately the animals under a
+  standing restriction; veterinary against movement, where an animal cleared to breed is
+  not cleared to travel to the holding that could host it; and movement against genetics,
+  where the free place is not at the holding of the cow that genetics ranks first. A board
+  that settles one of these on its own authority has removed evidence the panel needs.
+
+board_charter:
+  root:
+    - round-convener
+  round-convener:
+    - genetics-board-chair
+    - veterinary-board-chair
+    - movement-board-chair
+    - arbitration-panel
+    - artifact-drafting-lead
+    - release-scrutineer
+  genetics-board-chair:
+    - pedigree-intake
+    - relatedness-computer
+    - founder-share-tracer
+  veterinary-board-chair:
+    - calving-history-reader
+    - correspondence-reader-amh-elz
+    - correspondence-reader-frb-kan
+    - correspondence-reader-lnz-obr
+    - correspondence-reader-prg-tdn
+    - correspondence-reader-urb-zrn
+    - standing-adjudicator-amh-elz
+    - standing-adjudicator-frb-kan
+    - standing-adjudicator-lnz-obr
+    - standing-adjudicator-prg-tdn
+    - standing-adjudicator-urb-zrn
+    - mating-exclusion-registrar
+  movement-board-chair:
+    - place-and-box-surveyor
+    - liveweight-specialist
+    - border-and-certificate-specialist
+    - isolation-band-specialist
+  arbitration-panel:
+    - relief-obligation-registrar
+    - allocation-candidate-generator
+    - contested-allocation-adjudicator
+    - place-allocation-arbiter
+    - movement-feasibility-arbiter
+  artifact-drafting-lead:
+    - kinship-register-writer
+    - allocation-table-writer
+    - movement-table-writer
+    - conflict-table-writer
+    - dashboard-builder
+    - conservation-plan-writer
+
+sub_tasks:
+  - id: round-convener
+    description: >-
+      Hold the round together. Dispatch the three review boards first and let them work
+      without sight of each other, then dispatch the arbitration panel once each board has
+      returned one reconciled handoff, then the drafting lead, then the scrutineer. Treat
+      /input_artifacts/mating_charter.md as the only authority and refuse any handoff that
+      cites an outside standard instead. Report which handoffs arrived, which boards
+      escalated a contradiction and what remains unresolved; author no deliverable
+      directly.
+    depends_on: []
+    parallel_group: convening
+
+  # ---------------------------------------------------------------- genetics board
+  - id: genetics-board-chair
+    description: >-
+      Own relatedness for the whole herdbook. Fix the treatment of unknown and
+      unresolvable parent positions once from the charter and hand that single ruling to
+      the intake, the relatedness pass and the founder tracer before any of them starts,
+      so the same gap is never treated two ways. Then merge their handoffs into the
+      board's single position: one ranked conservation-priority table covering every
+      living animal exactly once, with no gaps or shared ranks, and the animals the board
+      argues for this round. This node owns that position; no other subtask produces it.
+    depends_on: [relatedness-computer, founder-share-tracer]
+    parallel_group: genetics-merge
+
+  - id: pedigree-intake
+    description: >-
+      Read /input_artifacts/herdbook_pedigree.csv end to end and hand the board a working
+      pedigree ordered so that both parents precede their offspring. Report the count of
+      blank parent fields, of parent identifiers that appear nowhere as a record of their
+      own, and of records whose recorded sex sits oddly against the parent role they fill,
+      so the board can reconcile what comes back against those figures.
+    depends_on: []
+    parallel_group: genetics-intake
+
+  - id: relatedness-computer
+    description: >-
+      Own the relatedness pass over the whole extract and hand the board its numbers.
+      Return, for every living animal, its inbreeding coefficient, its mean kinship over
+      the living herd and its place in the resulting priority order, plus the pair
+      kinship for any two living animals the boards later ask about. This is one pass and
+      it stays in one place: relatedness between two animals depends on the entire
+      ancestry above them, so a segment of the pedigree yields no finished figure for
+      anybody in it, and the intermediate table is far too large to hand to anyone. Report
+      the numbers themselves, never the working.
+    depends_on: [pedigree-intake]
+    parallel_group: genetics-relatedness
+
+  - id: founder-share-tracer
+    description: >-
+      Return, for every living animal, the proportion of its genome descending from each
+      founder position, in the reporting form the charter sets out, together with the
+      closure total for each animal.
+    depends_on: [pedigree-intake]
+    parallel_group: genetics-early
+
+
+  # ---------------------------------------------------------------- veterinary board
+  - id: veterinary-board-chair
+    description: >-
+      Own clinical standing for every living animal. Split
+      /input_artifacts/herd_health_notes/ by the holdings listed in its index, give every
+      reader the charter's reconciliation rules before it starts, and require a row back
+      for each animal in its block including animals nothing was written about. Then merge
+      the adjudicated findings into the board's single position: one breeding standing per
+      living animal with breeding standing and fitness to travel kept separate, the
+      register of mating exclusions, and the statement governing each animal it will not
+      release. This node owns that position; no other subtask produces it.
+    depends_on: [standing-adjudicator-amh-elz, standing-adjudicator-frb-kan,
+                 standing-adjudicator-lnz-obr, standing-adjudicator-prg-tdn,
+                 standing-adjudicator-urb-zrn,
+                 mating-exclusion-registrar, calving-history-reader]
+    parallel_group: vet-merge
+
+  - id: calving-history-reader
+    description: >-
+      Own /input_artifacts/previous_matings.csv. Return, for every living cow, the seasons
+      and calving counts recorded against her, and separately the cow-and-bull combinations
+      the record already shows more than once. The board needs both: the first decides
+      which cows the charter rests this round, the second decides which combinations the
+      round may not repeat. Cover every living cow, including those with no recorded
+      history.
+    depends_on: []
+    parallel_group: vet-reading
+
+  - id: correspondence-reader-amh-elz
+    description: >-
+      Read the correspondence for AMH, BLK, DRW and ELZ. Return every statement made about
+      every animal sectioned in those files, with the visit date it was made at, the
+      animal it concerns, any end date it names and the sentence itself reproduced word
+      for word. Transcribe what is there; the board decides which statement prevails.
+    depends_on: []
+    parallel_group: vet-reading
+
+  - id: correspondence-reader-frb-kan
+    description: >-
+      Read the correspondence for FRB, GLT, HRB and KAN on the same terms, preserving the
+      order statements appear in within a visit.
+    depends_on: []
+    parallel_group: vet-reading
+
+  - id: correspondence-reader-lnz-obr
+    description: >-
+      Read the correspondence for LNZ, MUN and OBR on the same terms, covering every
+      animal sectioned in those files including any with no statement against them.
+    depends_on: []
+    parallel_group: vet-reading
+
+  - id: correspondence-reader-prg-tdn
+    description: >-
+      Read the correspondence for PRG, SCH and TDN on the same terms, capturing any figure
+      a statement attaches to an isolation requirement.
+    depends_on: []
+    parallel_group: vet-reading
+
+  - id: correspondence-reader-urb-zrn
+    description: >-
+      Read the correspondence for URB, VOG, WLD and ZRN on the same terms, capturing the
+      other animal named wherever a statement concerns a pairing between two of them.
+    depends_on: []
+    parallel_group: vet-reading
+
+  - id: standing-adjudicator-amh-elz
+    description: >-
+      Take the AMH, BLK, DRW and ELZ transcript and settle, for each animal in it and each
+      restriction on that animal separately, what stands on the round date under the
+      charter's rules. Return the verdict per restriction together with the single
+      statement that governs it, reproduced word for word with its visit date. Judge only
+      the animals in this transcript; another adjudicator holds the rest.
+    depends_on: [correspondence-reader-amh-elz]
+    parallel_group: vet-adjudication
+
+  - id: standing-adjudicator-frb-kan
+    description: >-
+      The same for the FRB, GLT, HRB and KAN transcript: verdict per animal per
+      restriction on the round date, each with the statement that governs it word for word
+      and the visit date it was made at.
+    depends_on: [correspondence-reader-frb-kan]
+    parallel_group: vet-adjudication
+
+  - id: standing-adjudicator-lnz-obr
+    description: >-
+      The same for the LNZ, MUN and OBR transcript: verdict per animal per restriction on
+      the round date, each with its governing statement word for word and the visit date.
+    depends_on: [correspondence-reader-lnz-obr]
+    parallel_group: vet-adjudication
+
+  - id: standing-adjudicator-prg-tdn
+    description: >-
+      The same for the PRG, SCH and TDN transcript: verdict per animal per restriction on
+      the round date, each with its governing statement word for word and the visit date.
+    depends_on: [correspondence-reader-prg-tdn]
+    parallel_group: vet-adjudication
+
+  - id: standing-adjudicator-urb-zrn
+    description: >-
+      The same for the URB, VOG, WLD and ZRN transcript: verdict per animal per
+      restriction on the round date, each with its governing statement word for word and
+      the visit date.
+    depends_on: [correspondence-reader-urb-zrn]
+    parallel_group: vet-adjudication
+
+  - id: mating-exclusion-registrar
+    description: >-
+      Build the register of mating exclusions that stand, keyed to both animals named in
+      each. Return alongside it the exclusions whose named partner is not in the living
+      herd, marked as such, for the board to apply the charter to.
+    depends_on: [standing-adjudicator-amh-elz, standing-adjudicator-frb-kan,
+                 standing-adjudicator-lnz-obr, standing-adjudicator-prg-tdn,
+                 standing-adjudicator-urb-zrn]
+    parallel_group: vet-registry
+
+
+  # ---------------------------------------------------------------- movement board
+  - id: movement-board-chair
+    description: >-
+      Own everything that governs where an animal can go. Dispatch the capacity,
+      liveweight, border, isolation and relief specialists, then merge their findings into
+      the board's single position: capacity by holding, transport category by animal,
+      certificate class by route, and isolation base by route, together with the holdings
+      whose isolation occupancy already exceeds their capacity. Return the placements the
+      board's own findings would block alongside those it can carry. Fitness to travel is
+      the veterinary board's finding and is not settled here. This node owns that position;
+      no other subtask produces it.
+    depends_on: [place-and-box-surveyor, liveweight-specialist,
+                 border-and-certificate-specialist, isolation-band-specialist]
+    parallel_group: movement-merge
+
+  - id: place-and-box-surveyor
+    description: >-
+      Establish free breeding places and free isolation boxes per holding from
+      /input_artifacts/member_holdings.csv, confirm the network total against the fourteen
+      the round expects, and identify the holdings whose isolation occupancy already
+      exceeds their capacity.
+    depends_on: []
+    parallel_group: movement-work
+
+  - id: liveweight-specialist
+    description: >-
+      Establish the current liveweight of every living animal from
+      /input_artifacts/weight_records.csv and assign the transport category from the bands
+      in /input_artifacts/movement_rules.csv, naming the record used for each animal and
+      flagging any whose two records fall either side of a band boundary.
+    depends_on: []
+    parallel_group: movement-work
+
+  - id: border-and-certificate-specialist
+    description: >-
+      Determine, for every ordered pair of holdings, whether a consignment between them
+      crosses a national border and which certificate class the rule table raises. Return
+      it as a lookup the panel can apply to any movement it later chooses.
+    depends_on: []
+    parallel_group: movement-work
+
+  - id: isolation-band-specialist
+    description: >-
+      Return the receiving isolation for any consignment as the band for the destination's
+      health status and border status, and state that an animal-specific extension is
+      added on top from the veterinary board's finding. Request those figures; do not
+      supply them.
+    depends_on: []
+    parallel_group: movement-work
+
+  - id: relief-obligation-registrar
+    description: >-
+      Settle the movements the round owes irrespective of any mating. This needs both
+      boards at once: the movement board's list of holdings whose isolation occupancy
+      exceeds capacity, and the veterinary board's standing restrictions, which say which
+      animals are kept singly and which cannot travel. Neither board can answer it alone,
+      which is why the subtask sits at this level of the plan. Return the animals owed a
+      move, the destinations with a free isolation box, and any animal that cannot be
+      relieved at all.
+    depends_on: [movement-board-chair, veterinary-board-chair]
+    parallel_group: arbitration-relief
+
+
+  # ---------------------------------------------------------------- arbitration
+  - id: arbitration-panel
+    description: >-
+      Take the three board positions as given and settle the round across them. Dispatch the
+      candidate generator, the contested-case adjudicator, the place arbiter and the movement
+      arbiter, and hold them to the charter where the boards disagree; do not send a finding
+      back to a board to be softened. Report which contradictions were escalated, which board
+      position was overruled in each and what remains open. The committed round itself is
+      produced by the arbiters below, not here; author no deliverable directly.
+    depends_on: [genetics-board-chair, veterinary-board-chair, movement-board-chair,
+                 place-allocation-arbiter, movement-feasibility-arbiter]
+    parallel_group: arbitration
+
+  - id: allocation-candidate-generator
+    description: >-
+      Enumerate every mating the charter permits, carrying for each the movement it would
+      require so the panel can see its cost. Return the candidate set, not a chosen round.
+    depends_on: [genetics-board-chair, veterinary-board-chair, movement-board-chair]
+    parallel_group: arbitration-candidates
+
+  - id: contested-allocation-adjudicator
+    description: >-
+      Work the cases where the boards disagree: a high-priority animal the veterinary
+      board will not release, a mating whose bull cannot travel, a partner ruled out by an
+      exclusion. Decide each on the charter and record the losing position with the animal
+      and the evidence that settled it.
+    depends_on: [allocation-candidate-generator, veterinary-board-chair, movement-board-chair]
+    parallel_group: arbitration-adjudication
+
+  - id: place-allocation-arbiter
+    description: >-
+      Commit the free breeding places across the candidate set within each holding's own
+      limit and the network total, and identify for each mating placed the specific
+      alternative it displaced. Return the committed round.
+    depends_on: [contested-allocation-adjudicator]
+    parallel_group: arbitration-placement
+
+  - id: movement-feasibility-arbiter
+    description: >-
+      Derive the movements the committed round requires, add the obligatory relief
+      movements the registrar returned, and complete each with its certificate class,
+      transport category, receiving isolation and the capacity remaining at the destination
+      once the whole round is counted. Cover every movement the round creates and none it
+      does not.
+    depends_on: [place-allocation-arbiter, relief-obligation-registrar]
+    parallel_group: arbitration-movement
+
+  # ---------------------------------------------------------------- drafting
+  - id: artifact-drafting-lead
+    description: >-
+      Turn the arbitrated round into the six deliverables at their exact declared paths
+      under /logs/agent. Give every writer the same arbitrated facts so no two artifacts
+      disagree on an identifier, a decision or a total, and require each writer to confirm
+      its file exists and is complete before reporting done.
+    depends_on: [arbitration-panel, movement-feasibility-arbiter]
+    parallel_group: drafting
+
+  - id: kinship-register-writer
+    description: >-
+      Write /logs/agent/kinship_register.csv in the declared column order, one row per
+      living animal, quoting for each the statement that governs its breeding standing.
+    depends_on: []
+    parallel_group: drafting-work
+
+  - id: allocation-table-writer
+    description: >-
+      Write /logs/agent/mating_allocations.csv in the declared column order, naming for
+      each mating the alternative it displaced and arguing the choice from that mating's
+      own figures.
+    depends_on: []
+    parallel_group: drafting-work
+
+  - id: movement-table-writer
+    description: >-
+      Write /logs/agent/movement_plan.csv in the declared column order, covering every
+      movement the round creates and none it does not, quoting the isolation evidence
+      where an extension applies.
+    depends_on: []
+    parallel_group: drafting-work
+
+  - id: conflict-table-writer
+    description: >-
+      Write /logs/agent/board_conflicts.csv in the declared column order, one row per
+      animal the charter counts as a conflict, carrying each board's position on that
+      animal, the constraint that bound and how the panel arbitrated it. The positions and
+      the resolution note are written the way the boards put them, in sentences naming that
+      animal and the figure or the ruled-out partner, holding or record the position turns
+      on. A status word repeated down the column is not a position and does not carry what
+      the panel decided.
+    depends_on: []
+    parallel_group: drafting-work
+
+  - id: dashboard-builder
+    description: >-
+      Build /logs/agent/herd_dashboard.html as one self-contained page: a drawn priority
+      figure with a visible mark per living animal carrying its identifier, the
+      allocations, the conflicts, and the three embedded JSON blocks whose contents must
+      equal the tables the other writers filed.
+    depends_on: []
+    parallel_group: drafting-work
+
+  - id: conservation-plan-writer
+    description: >-
+      Write /logs/agent/conservation_plan.md to the declared headings and length, with a
+      control-totals table, animals discussed by identifier against facts the record
+      confirms for them, a defence of every allocation, and limitations covering the
+      founder convention, the herdbook's own defects, the round-date cutoff and the
+      existence of other feasible rounds. This node writes in an isolated context, so
+      carry the shape into it rather than assuming it is remembered: the headings are
+      Round outcome, Conservation standing, Control totals, Board conflicts, Movements and
+      isolation, Allocation decisions, Provenance and limitations, in that order; the
+      control-totals table is two columns keyed living_animals, breeding_eligible,
+      allocations_made, places_committed, movements_planned, cross_border_movements,
+      animals_under_restriction and conflicts_recorded; the length band is 1,800 to 3,200
+      words. The figures behind those keys come from the handoffs, not from this node. The
+      limitations are written against /input_artifacts/source_manifest.json and the
+      charter's own conventions rather than from memory, and each of the four is given a
+      sentence of its own.
+    depends_on: []
+    parallel_group: drafting-work
+
+  # ---------------------------------------------------------------- release
+  - id: release-scrutineer
+    description: >-
+      Before release, check the six files exist at their exact paths, that identifiers,
+      decisions and totals agree across them, that no quoted statement belongs to a
+      different animal or to a statement that does not govern, that no holding is
+      over-booked, and that every conflict the charter requires is present. Return what is
+      wrong and have it fixed; do not rewrite the round yourself.
+    depends_on: [artifact-drafting-lead]
+    parallel_group: release

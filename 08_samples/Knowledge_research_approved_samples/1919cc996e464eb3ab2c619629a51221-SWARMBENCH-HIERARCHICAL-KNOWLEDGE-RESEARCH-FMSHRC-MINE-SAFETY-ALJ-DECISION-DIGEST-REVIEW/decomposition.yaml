@@ -1,0 +1,583 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+
+sub_tasks:
+
+  - id: lead--g1
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g1-01, spec--g1-02, spec--g1-03, spec--g1-04]
+    description: >-
+      Read across the eight completed decision digests in review group 1. Prepare a group rollup that compares
+      mine or proceeding types, cited standards, evidence, credibility treatment, applied tests, negligence or
+      motivation findings, S&S or unwarrantable-failure results, dispositions, and penalties or remedies.
+      Assemble the eight register rows with columns report, case_name, docket, issue_family, disposition,
+      penalty_or_remedy, note_status.
+
+  - id: spec--g1-01
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f01 and f02 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g1-02
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f03 and f04 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g1-03
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f05 and f06 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g1-04
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f07 and f08 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: lead--g2
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g2-01, spec--g2-02, spec--g2-03, spec--g2-04]
+    description: >-
+      Read across the eight completed decision digests in review group 2. Prepare a group rollup that compares
+      mine or proceeding types, cited standards, evidence, credibility treatment, applied tests, negligence or
+      motivation findings, S&S or unwarrantable-failure results, dispositions, and penalties or remedies.
+      Assemble the eight register rows with columns report, case_name, docket, issue_family, disposition,
+      penalty_or_remedy, note_status.
+
+  - id: spec--g2-01
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f09 and f10 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g2-02
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f11 and f12 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g2-03
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f13 and f14 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g2-04
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f15 and f16 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: lead--g3
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g3-01, spec--g3-02, spec--g3-03, spec--g3-04]
+    description: >-
+      Read across the eight completed decision digests in review group 3. Prepare a group rollup that compares
+      mine or proceeding types, cited standards, evidence, credibility treatment, applied tests, negligence or
+      motivation findings, S&S or unwarrantable-failure results, dispositions, and penalties or remedies.
+      Assemble the eight register rows with columns report, case_name, docket, issue_family, disposition,
+      penalty_or_remedy, note_status.
+
+  - id: spec--g3-01
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f17 and f18 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g3-02
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f19 and f20 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g3-03
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f21 and f22 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g3-04
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f23 and f24 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: lead--g4
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g4-01, spec--g4-02, spec--g4-03, spec--g4-04]
+    description: >-
+      Read across the eight completed decision digests in review group 4. Prepare a group rollup that compares
+      mine or proceeding types, cited standards, evidence, credibility treatment, applied tests, negligence or
+      motivation findings, S&S or unwarrantable-failure results, dispositions, and penalties or remedies.
+      Assemble the eight register rows with columns report, case_name, docket, issue_family, disposition,
+      penalty_or_remedy, note_status.
+
+  - id: spec--g4-01
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f25 and f26 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g4-02
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f27 and f28 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g4-03
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f29 and f30 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g4-04
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f31 and f32 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: lead--g5
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g5-01, spec--g5-02, spec--g5-03, spec--g5-04]
+    description: >-
+      Read across the eight completed decision digests in review group 5. Prepare a group rollup that compares
+      mine or proceeding types, cited standards, evidence, credibility treatment, applied tests, negligence or
+      motivation findings, S&S or unwarrantable-failure results, dispositions, and penalties or remedies.
+      Assemble the eight register rows with columns report, case_name, docket, issue_family, disposition,
+      penalty_or_remedy, note_status.
+
+  - id: spec--g5-01
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f33 and f34 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g5-02
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f35 and f36 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g5-03
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f37 and f38 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g5-04
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f39 and f40 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: lead--g6
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g6-01, spec--g6-02, spec--g6-03, spec--g6-04]
+    description: >-
+      Read across the eight completed decision digests in review group 6. Prepare a group rollup that compares
+      mine or proceeding types, cited standards, evidence, credibility treatment, applied tests, negligence or
+      motivation findings, S&S or unwarrantable-failure results, dispositions, and penalties or remedies.
+      Assemble the eight register rows with columns report, case_name, docket, issue_family, disposition,
+      penalty_or_remedy, note_status.
+
+  - id: spec--g6-01
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f41 and f42 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g6-02
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f43 and f44 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g6-03
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f45 and f46 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g6-04
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f47 and f48 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: lead--g7
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g7-01, spec--g7-02, spec--g7-03, spec--g7-04]
+    description: >-
+      Read across the eight completed decision digests in review group 7. Prepare a group rollup that compares
+      mine or proceeding types, cited standards, evidence, credibility treatment, applied tests, negligence or
+      motivation findings, S&S or unwarrantable-failure results, dispositions, and penalties or remedies.
+      Assemble the eight register rows with columns report, case_name, docket, issue_family, disposition,
+      penalty_or_remedy, note_status.
+
+  - id: spec--g7-01
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f49 and f50 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g7-02
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f51 and f52 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g7-03
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f53 and f54 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g7-04
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f55 and f56 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: lead--g8
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g8-01, spec--g8-02, spec--g8-03, spec--g8-04]
+    description: >-
+      Read across the eight completed decision digests in review group 8. Prepare a group rollup that compares
+      mine or proceeding types, cited standards, evidence, credibility treatment, applied tests, negligence or
+      motivation findings, S&S or unwarrantable-failure results, dispositions, and penalties or remedies.
+      Assemble the eight register rows with columns report, case_name, docket, issue_family, disposition,
+      penalty_or_remedy, note_status.
+
+  - id: spec--g8-01
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f57 and f58 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g8-02
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f59 and f60 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g8-03
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f61 and f62 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g8-04
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f63 and f64 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: lead--g9
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g9-01, spec--g9-02, spec--g9-03, spec--g9-04]
+    description: >-
+      Read across the eight completed decision digests in review group 9. Prepare a group rollup that compares
+      mine or proceeding types, cited standards, evidence, credibility treatment, applied tests, negligence or
+      motivation findings, S&S or unwarrantable-failure results, dispositions, and penalties or remedies.
+      Assemble the eight register rows with columns report, case_name, docket, issue_family, disposition,
+      penalty_or_remedy, note_status.
+
+  - id: spec--g9-01
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f65 and f66 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g9-02
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f67 and f68 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g9-03
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f69 and f70 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: spec--g9-04
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full the assigned FMSHRC administrative-law decisions f71 and f72 at
+      /environment/input_artifacts/decisions/<id>.txt. Write one /logs/agent/output/digests/<id>.md per
+      decision, using the required record format. Identify the cited standard or protected activity, the
+      condition and decisive testimony or documents, credibility findings, the applied Mine Act test,
+      negligence or motivation analysis, S&S or unwarrantable-failure treatment where reached, the
+      disposition, and penalty or other remedy. Ground each statement only in its own decision and use
+      original prose.
+
+  - id: merge
+    agent_type: general
+    parallel_group: merge
+    depends_on: [lead--g1, lead--g2, lead--g3, lead--g4, lead--g5, lead--g6, lead--g7, lead--g8, lead--g9]
+    description: >-
+      Reconcile the nine group rollups and register slices into /logs/agent/output/case_register.csv and
+      /logs/agent/output/mine_safety_survey.md. Preserve one canonical row for each f01 through f72. The
+      survey must compare cited standards, condition and proof patterns, credibility rationales, Mine Act
+      tests, negligence, S&S and unwarrantable-failure findings, discrimination matters, dispositions, and
+      remedies with record identifiers supporting every cross-case theme. Use the leads' work rather than
+      rereading all 72 source decisions.

@@ -1,0 +1,33 @@
+[task]
+name = "swarmbench/b406a200bacf478f8fec7da73c5bce63-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-PROXY-GOVERNANCE-BRIEFS"
+description = "Read 55 real SEC DEF 14A proxy statements and write one governance-and-pay brief per company: board independence and accountability, how executive pay is designed and whether it tracks performance, the say-on-pay result, related-party or conflict flags, and what a share-voter should weigh. Each brief must be a reasoned reading grounded in that company's own filing, not a transcription or a generic stewardship memo."
+
+[metadata]
+verifier_type = "hybrid"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_writing", "long_horizon"]
+dag_depth = 3
+dag_width = 55
+human_solving_hours_estimate = 92
+human_solving_hours_justification = "Sized to the ~472K-token proxy corpus (55 DEF 14A narrative extracts). Phase 1 reading: careful end-to-end reading of each company's governance discussion and Compensation Discussion and Analysis against each other, at roughly 50 minutes per company for a voting-desk analyst who must locate board leadership structure, independence, committees, pay philosophy, metrics, equity vehicles, say-on-pay results, and related-person disclosures = 55 x 50 min = 45.8 h. Phase 2 writing: drafting a six-section company-specific brief with judgments, not transcription, at roughly 35 minutes per company = 55 x 35 min = 32.1 h. Phase 3 verification: checking every material claim back to the filing and catching cross-company bleed, at roughly 10 minutes per company = 55 x 10 min = 9.2 h. Phase 4 book-level consistency review and coverage index QA across the 55 briefs = 5 h. Total = 45.8 + 32.1 + 9.2 + 5 = 92 hours, inside the 80-200 h band for a mid-hundreds-of-thousands-token professional reading corpus. The work does not compress: each brief stands on its own against its own proxy, so skimming or writing from ticker reputation produces generic briefs that fail."
+estimated_sub_agents = 59
+input_token_estimate = 472000
+high_level_prompt_word_count = 173
+reference_link = "https://www.sec.gov/files/company_tickers.json"
+scoring_design = "Hybrid verifier package: tests/verify.py is the sole grader, with verifier_type hybrid. Fourteen checks in three buckets - five static, six reward-hacking, three partial-oracle - each returning a score in [0,1]. verify.py takes the unweighted mean within each bucket and blends the bucket means with fixed weights static:reward_hacking:partial_oracle = 1:2:3, so the reward is (total_static_check_score*1 + total_reward_hacking_check_score*2 + total_partial_oracle_check_score*3)/6, bounded by construction. Content, the reward-hacking and partial-oracle buckets together, is 5/6 (83%) of the reward, above the 60% floor, and structural is 1/6 (17%), inside the 40% ceiling. reward.json reports exactly the four required numeric fields and nothing else; per-check notes and per-company LLM justifications print to stdout/test log. Static checks cover coverage, required sections with per-section body floors, first-line heading format, length plus lexical diversity, and deliverable-path hygiene. Reward-hacking checks require body-level identity, grounded spans with a 15% verbatim-overlap anti-copy cap, anti-templating, synthesis markers, plus two independent LLM grades (grounding and depth) that each print per-company booleans and justification; each LLM check is one of six reward-hacking items and therefore well under 60% of total reward. Partial-oracle checks compare a held-out subset for identity-plus-body content, distinctive phrases (discounted under bulk copy), and scoped section substance. Infrastructure/judge failures are labelled LLM_JUDGE_STATUS=skipped or CHECK_ERROR in the log rather than silent zeros; a missing WANDB_API_KEY or total W&B Inference outage skips the LLM checks at score 1.0 (canonical county-service contract) so an infrastructure gap does not collapse content reward. The agent environment keeps network_enabled=false; the verifier stage sets network_enabled=true so the W&B Inference judge endpoint (moonshotai/Kimi-K2.6 via WANDB_API_KEY) is reachable at grade time."
+why_multi_agent = "The load-bearing work is irreducible per-document reading and company-specific judgment: fifty-five definitive proxy statements totaling about 472K tokens, each long enough that the governance discussion and Compensation Discussion and Analysis must be read against each other before a voting brief can be written. A single context cannot hold and faithfully reason over that set. It gets through a few companies, then coverage collapses: board independence and leadership structure are stated generically, pay metrics and equity vehicles are guessed from reputation, say-on-pay results are omitted or invented, related-party sections are skipped, and briefs start to look interchangeable across issuers. The deliverable rewards exactly what fails under that load: fifty-five distinct briefs, each grounded in its own filing, with the six required sections and a company-specific voting takeaway. The work splits into a genuine three-tier hierarchy: three slice leads that each own a third of the sorted ticker list; fifty-five brief workers, one company each, that read a single full proxy in a clean context and write that brief to full depth; and a synthesis lead that reduces the completed briefs into a coverage index. Depth is load-bearing because no worker can be asked to hold the whole book, and the synthesis step only runs after every brief exists. The advantage is local reading fidelity across many independent filings plus a late coverage check, not fetch speed; there is no hidden information and no trap, because a skilled persistent reader with enough context would succeed - the corpus and the per-company reasoning simply do not fit in one."
+network_enabled = false
+
+[agent]
+timeout_sec = 3600
+
+[verifier]
+timeout_sec = 1200
+network_enabled = true
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 900
+network_enabled = false

@@ -1,0 +1,174 @@
+version: "1.0"
+coordination_pattern: specialist-routing
+orchestrator_directive: >
+  You are the orchestrator only. Dispatch sub-agents with the task tool and nothing else.
+  Do not use bash, read, grep, or write yourself. Graded files are ONLY under /logs/agent/
+  per instruction.md.
+
+  EIGHT WAVES (21 task calls from you). EVERY response MUST contain one or more task() calls.
+  A message with text only and no task() call ends the run and fails the task. Never write
+  "Now dispatching Wave N" without task() calls in that same message.
+
+  Wave 1 (parallel, explore): specialist--macro-fiscal, specialist--health,
+    specialist--education, specialist--poverty-inequality, specialist--governance,
+    specialist--climate-environment
+  Wave 2 (parallel, explore): validator--domain-macro, validator--domain-health,
+    validator--domain-education, validator--domain-poverty, validator--domain-governance,
+    validator--domain-climate
+  Wave 3 (parallel, explore): builder--cohort-gaps, builder--source-audit
+  Wave 4 (explore): reviewer--harmonization
+  Wave 5 (parallel, explore): builder--composite-index, builder--summary-metrics
+  Wave 6 (parallel, explore): builder--diagnostic-report, builder--charts-and-animation
+  Wave 7 (explore): reviewer--coverage-qa
+  Wave 8 (explore): reducer--package-assembly
+
+  When Wave 2 validators return, your next message must be task() for Wave 3 only (no prose).
+  Continue through Wave 8. You are done only when reducer--package-assembly returns.
+sub_tasks:
+- id: specialist--macro-fiscal
+  depends_on: []
+  parallel_group: domain-specialists
+  description: >
+    Scope: macro-fiscal domain for all 20 countries per /input_artifacts/diagnostic_brief.md
+    and instruction.md. Output: /workspace/parts/macro.md, /workspace/parts/gaps_macro.csv,
+    and complete /logs/agent/domain_macro.csv (all 20 countries, scoring-year rows only).
+- id: specialist--health
+  depends_on: []
+  parallel_group: domain-specialists
+  description: >
+    Scope: health domain for all 20 countries per diagnostic_brief.md and instruction.md.
+    Output: /workspace/parts/health.md, /workspace/parts/gaps_health.csv, and complete
+    /logs/agent/domain_health.csv (all 20 countries, scoring-year rows only).
+- id: specialist--education
+  depends_on: []
+  parallel_group: domain-specialists
+  description: >
+    Scope: education domain for all 20 countries per diagnostic_brief.md and instruction.md.
+    Output: /workspace/parts/education.md, /workspace/parts/gaps_education.csv, and complete
+    /logs/agent/domain_education.csv (all 20 countries, scoring-year rows only).
+- id: specialist--poverty-inequality
+  depends_on: []
+  parallel_group: domain-specialists
+  description: >
+    Scope: poverty domain for all 20 countries per diagnostic_brief.md and instruction.md.
+    Output: /workspace/parts/poverty.md, /workspace/parts/gaps_poverty.csv, and complete
+    /logs/agent/domain_poverty.csv (all 20 countries, scoring-year rows only).
+- id: specialist--governance
+  depends_on: []
+  parallel_group: domain-specialists
+  description: >
+    Scope: governance domain for all 20 countries per diagnostic_brief.md and instruction.md.
+    Output: /workspace/parts/governance.md, /workspace/parts/gaps_governance.csv, and complete
+    /logs/agent/domain_governance.csv (all 20 countries, scoring-year rows only, brief WGI
+    codes in indicator_code column, source=75 in every URL).
+- id: specialist--climate-environment
+  depends_on: []
+  parallel_group: domain-specialists
+  description: >
+    Scope: climate domain for all 20 countries per diagnostic_brief.md and instruction.md.
+    Output: /workspace/parts/climate.md, /workspace/parts/gaps_climate.csv, and complete
+    /logs/agent/domain_climate.csv (all 20 countries, scoring-year rows only).
+- id: validator--domain-macro
+  depends_on: [specialist--macro-fiscal]
+  parallel_group: domain-validate
+  description: >
+    Scope: confirm /logs/agent/domain_macro.csv covers all 20 countries with scoring-year
+    rows per instruction.md. Output: /workspace/parts/valid_macro.md.
+- id: validator--domain-health
+  depends_on: [specialist--health]
+  parallel_group: domain-validate
+  description: >
+    Scope: confirm /logs/agent/domain_health.csv covers all 20 countries with scoring-year
+    rows per instruction.md. Output: /workspace/parts/valid_health.md.
+- id: validator--domain-education
+  depends_on: [specialist--education]
+  parallel_group: domain-validate
+  description: >
+    Scope: confirm /logs/agent/domain_education.csv covers all 20 countries with scoring-year
+    rows per instruction.md. Output: /workspace/parts/valid_education.md.
+- id: validator--domain-poverty
+  depends_on: [specialist--poverty-inequality]
+  parallel_group: domain-validate
+  description: >
+    Scope: confirm /logs/agent/domain_poverty.csv covers all 20 countries with scoring-year
+    rows per instruction.md. Output: /workspace/parts/valid_poverty.md.
+- id: validator--domain-governance
+  depends_on: [specialist--governance]
+  parallel_group: domain-validate
+  description: >
+    Scope: confirm /logs/agent/domain_governance.csv covers all 20 countries with scoring-year
+    rows, brief WGI codes, and source=75 URLs per instruction.md.
+    Output: /workspace/parts/valid_governance.md.
+- id: validator--domain-climate
+  depends_on: [specialist--climate-environment]
+  parallel_group: domain-validate
+  description: >
+    Scope: confirm /logs/agent/domain_climate.csv covers all 20 countries with scoring-year
+    rows per instruction.md. Output: /workspace/parts/valid_climate.md.
+- id: builder--cohort-gaps
+  depends_on: [specialist--macro-fiscal, specialist--health, specialist--education,
+               specialist--poverty-inequality, specialist--governance,
+               specialist--climate-environment]
+  parallel_group: cohort-build
+  description: >
+    Scope: merge /workspace/parts/gaps_*.csv and build cohort metadata per instruction.md.
+    Output: /logs/agent/cohort.csv and /logs/agent/data_gaps.csv (at least 34 rows, one row
+    per missing country-indicator pair or missing year; do not expand into thousands of rows).
+- id: builder--source-audit
+  depends_on: [specialist--macro-fiscal, specialist--health, specialist--education,
+               specialist--poverty-inequality, specialist--governance,
+               specialist--climate-environment]
+  parallel_group: cohort-build
+  description: >
+    Scope: read the six domain_*.csv files under /logs/agent/ and write /logs/agent/source_audit.csv
+    with columns iso3, domain, indicator_code, year, source_url (exactly one audit row per
+    domain CSV data row).
+- id: reviewer--harmonization
+  depends_on: [validator--domain-macro, validator--domain-health, validator--domain-education,
+               validator--domain-poverty, validator--domain-governance,
+               validator--domain-climate, builder--cohort-gaps, builder--source-audit]
+  parallel_group: reconcile-validate
+  description: >
+    Scope: validate all six domain CSVs, cohort.csv, data_gaps.csv, and source_audit.csv under
+    /logs/agent/ per instruction.md. Output: /workspace/parts/harmonized.md.
+- id: builder--composite-index
+  depends_on: [reviewer--harmonization]
+  parallel_group: synthesis
+  description: >
+    Scope: composite index with the exact columns from instruction.md, two-decimal scores, ranks,
+    strongest and weakest domains. Output: /logs/agent/composite_index.csv and
+    /workspace/parts/index.md.
+- id: builder--summary-metrics
+  depends_on: [builder--cohort-gaps, builder--source-audit]
+  parallel_group: synthesis
+  description: >
+    Scope: summary counts per instruction.md. Output: /logs/agent/summary.csv.
+- id: builder--diagnostic-report
+  depends_on: [builder--composite-index, builder--summary-metrics]
+  parallel_group: synthesis-deliverables
+  description: >
+    Scope: diagnostic_report.md per instruction.md under /logs/agent/ using composite_index.csv
+    with labeled two-decimal lines and ## Data Coverage Caveats citing specific data_gaps.csv rows.
+    Output: /logs/agent/diagnostic_report.md only.
+- id: builder--charts-and-animation
+  depends_on: [builder--composite-index, builder--summary-metrics]
+  parallel_group: synthesis-deliverables
+  description: >
+    Scope: charts and animation per instruction.md under /logs/agent/ aligned with
+    composite_index.csv and domain CSVs. Output: /logs/agent/charts/resilience_ranking.png,
+    /logs/agent/charts/domain_heatmap.png, and /logs/agent/resilience_race.mp4.
+- id: reviewer--coverage-qa
+  depends_on: [builder--diagnostic-report, builder--charts-and-animation,
+               builder--composite-index, builder--summary-metrics]
+  parallel_group: qa
+  description: >
+    Scope: cross-file consistency audit per instruction.md including two-decimal composite
+    scores, gap row counts, and report label parity with composite_index.csv.
+    Output: /workspace/parts/qa.md.
+- id: reducer--package-assembly
+  depends_on: [builder--diagnostic-report, builder--charts-and-animation,
+               reviewer--coverage-qa]
+  parallel_group: reduce
+  description: >
+    Scope: apply qa.md fixes and confirm every filename from instruction.md exists under
+    /logs/agent/ before returning.

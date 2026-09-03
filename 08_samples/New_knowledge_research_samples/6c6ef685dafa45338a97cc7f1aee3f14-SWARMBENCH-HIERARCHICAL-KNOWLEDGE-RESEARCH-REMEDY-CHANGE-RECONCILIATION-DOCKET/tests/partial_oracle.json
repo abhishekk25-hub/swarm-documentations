@@ -1,0 +1,96 @@
+{
+  "register_samples": [
+    {
+      "site_id": "SITE-07",
+      "document_id": "586742",
+      "affected_medium": "none",
+      "change_class": "administrative-correction",
+      "superseded_requirement": "NONE"
+    },
+    {
+      "site_id": "SITE-01",
+      "document_id": "692965",
+      "affected_medium": "soil",
+      "change_class": "scope-narrowing"
+    }
+  ],
+  "crosswalk_samples": [
+    {
+      "site_id": "SITE-09",
+      "medium": "soil",
+      "contaminant": "lead",
+      "value_as_written": "500",
+      "unit_as_written": "ppm",
+      "normalized_value": 500.0,
+      "normalized_unit": "mg/kg",
+      "controlling_document_id": "109381",
+      "superseded_by": "109382"
+    },
+    {
+      "site_id": "SITE-09",
+      "medium": "soil",
+      "contaminant": "lead",
+      "value_as_written": "400",
+      "unit_as_written": "ppm",
+      "normalized_value": 400.0,
+      "normalized_unit": "mg/kg",
+      "controlling_document_id": "109382",
+      "superseded_by": "NONE"
+    },
+    {
+      "site_id": "SITE-09",
+      "medium": "soil",
+      "contaminant": "beryllium",
+      "value_as_written": "1",
+      "unit_as_written": "ppm",
+      "normalized_value": 1.0,
+      "normalized_unit": "mg/kg",
+      "controlling_document_id": "109381",
+      "superseded_by": "NONE"
+    },
+    {
+      "site_id": "SITE-09",
+      "medium": "soil",
+      "contaminant": "chromium",
+      "value_as_written": "390",
+      "unit_as_written": "ppm",
+      "normalized_value": 390.0,
+      "normalized_unit": "mg/kg",
+      "controlling_document_id": "109381",
+      "superseded_by": "NONE"
+    },
+    {
+      "site_id": "SITE-09",
+      "medium": "soil",
+      "contaminant": "pcbs",
+      "value_as_written": "1",
+      "unit_as_written": "ppm",
+      "normalized_value": 1.0,
+      "normalized_unit": "mg/kg",
+      "controlling_document_id": "109381",
+      "superseded_by": "NONE"
+    },
+    {
+      "site_id": "SITE-01",
+      "medium": "soil",
+      "contaminant": "lead",
+      "value_as_written": "500",
+      "unit_as_written": "mg/kg",
+      "normalized_value": 500.0,
+      "normalized_unit": "mg/kg",
+      "controlling_document_id": "541228",
+      "superseded_by": "NONE"
+    },
+    {
+      "site_id": "SITE-01",
+      "medium": "soil",
+      "contaminant": "arsenic",
+      "value_as_written": "69",
+      "unit_as_written": "mg/kg",
+      "normalized_value": 69.0,
+      "normalized_unit": "mg/kg",
+      "controlling_document_id": "541228",
+      "superseded_by": "NONE"
+    }
+  ]
+}

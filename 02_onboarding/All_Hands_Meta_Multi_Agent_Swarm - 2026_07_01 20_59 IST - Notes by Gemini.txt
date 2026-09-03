@@ -1,0 +1,509 @@
+﻿✍️ Quick Notes
+All_Hands_Meta_Multi_Agent_Swarm
+
+
+Jul 1, 2026
+
+
+Muhammad Mamdouh Nikhil Meda Tumbo Lobi John Sridaran Sridaran Mohammad Feroz Saksham Jain Srisabari S Anjali Laishram Karthick E Palani Selvam Logesh Logesh S G Mathavan Ramesh Kumar K Aladdin Mostafa Naveen Naveen Ruturaj Solanki Estifanos Gashawtena Vaibhav Ahir Atif Shoaib Abhishek Kathirasan Vinodkumar Baste Yousef el Khawaga Jitendra Kumar Meher Satish Bogala Hansen Osei-korasare Job Owonubi Mohammad Feroz Shaik Bright Amidiagbe Olusegun Olayinka Aditya Somani Kiran Vignesh K Benaiah Yusuf Segun Oni Bhanu Prakash Reddy Nalamadgu
+
+
+Team discussed improving agent performance via robust rubric refinement and strategic task decomposition for multi-agent systems.
+
+
+Rubric Strategy and Optimization
+* Rubrics require robust validation beyond static existence checks to prevent reward hacking.
+* Weightage-based rubrics cause exponential scoring errors and are strictly prohibited.
+* Point-based metrics replace weightage to ensure accurate evaluation.
+
+
+Task Design and Corpus Complexity
+* Task complexity requires multiple layers and subtasks to differentiate single and multi-agent performance.
+* Large corpus sizes enable granular checking lists and detailed evaluation.
+* Open Code supports natural language browsing and URL fetching without hardcoded references.
+
+
+Debugging and Performance Analysis
+* Performance gaps indicate insufficient debugging of agent trajectories.
+* Reviewing logs and trajectory files guides strategic rubric improvements.
+* Multi-agent outputs serve as reference points for verifying agent correctness.
+
+
+Operational Communication
+* Unresolved blockers hinder progress and require active peer and lead support.
+* Creative collaboration and brainstorming are essential for tackling complex tasks.
+
+
+Next steps
+* [Jitendra Kumar Meher] Find Alternate Sources: Identify and use alternative URLs or sources instead of hardcoding a GitHub repository or broken links. This ensures task reproducibility for clients.
+* [The group] Review Open Code: Read the open code documentation to understand the available tools for browsing and task execution.
+* [The group] Analyze Task Logs: Examine single and multi-agent trajectory logs to identify causes for performance gaps. Review outputs to guide strategic rubric improvements rather than making blind changes.
+* [The group] Remove Weightage Rubrics: Eliminate weightage-based checks from rubrics and adopt point-based metrics instead. Ensure rubrics do not rely on multipliers that cause scoring issues.
+* [The group] Post Questions: Utilize the unofficial QA channel to raise questions and brainstorm with team members. Address blockers proactively by sharing concerns and seeking feedback from leads and peers.
+
+
+
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📝 Full Notes
+Jul 1, 2026
+All_Hands_Meta_Multi_Agent_Swarm
+Invited Muhammad Mamdouh Nikhil Meda Tumbo Lobi John Sridaran Sridaran Mohammad Feroz Saksham Jain Srisabari S Anjali Laishram Karthick E Palani Selvam Logesh Logesh S G Mathavan Ramesh Kumar K Aladdin Mostafa Naveen Naveen Ruturaj Solanki Estifanos Gashawtena Vaibhav Ahir Atif Shoaib Abhishek Kathirasan Vinodkumar Baste Yousef el Khawaga Jitendra Kumar Meher Satish Bogala Hansen Osei-korasare Job Owonubi Mohammad Feroz Shaik Bright Amidiagbe Olusegun Olayinka Aditya Somani Kiran Vignesh K Benaiah Yusuf Segun Oni Bhanu Prakash Reddy Nalamadgu
+Attachments All_Hands_Meta_Multi_Agent_Swarm
+Meeting records Transcript Recording 
+
+
+
+
+Summary
+Team discussed improving agent performance via robust rubric refinement and strategic task decomposition for multi-agent systems.
+
+Improving Verification Rubrics
+Weak rubrics allowing superficial completion must be replaced with checks verifying content validity and data integrity. Transitioning to additive point systems instead of weightage avoids exponential score distortion.
+
+Task Complexity and Debugging
+Trainers should increase task complexity using decomposition files and compare agent trajectories to identify performance gaps. Embedding detailed formatting requirements directly into task inputs prevents low-quality outputs.
+
+Strategic Task Optimization
+The team decided to adopt a hybrid approach for browsing tasks that validates relevant source hits rather than hardcoded URLs. Collaborative debugging through the discussion channel remains essential for task resolution.
+
+
+
+
+Next steps
+* [Jitendra Kumar Meher] Find Alternate Sources: Identify and use alternative URLs or sources instead of hardcoding a GitHub repository or broken links. This ensures task reproducibility for clients.
+* [The group] Review Open Code: Read the open code documentation to understand the available tools for browsing and task execution.
+* [The group] Analyze Task Logs: Examine single and multi-agent trajectory logs to identify causes for performance gaps. Review outputs to guide strategic rubric improvements rather than making blind changes.
+* [The group] Remove Weightage Rubrics: Eliminate weightage-based checks from rubrics and adopt point-based metrics instead. Ensure rubrics do not rely on multipliers that cause scoring issues.
+* [The group] Post Questions: Utilize the unofficial QA channel to raise questions and brainstorm with team members. Address blockers proactively by sharing concerns and seeking feedback from leads and peers.
+
+
+
+
+Details
+Did the screenshots in this section make your notes better or worse?
+* Meeting Agenda and Objectives: Ruturaj Solanki opened the meeting to address the performance gap between single-agent and multi-agent systems. The primary cause identified for this gap is the lack of strong rubrics—the specific checks used by the verifier or judge to assess agent outputs (00:01:08).
+  
+
+* Identifying Weak Rubrics: Ruturaj Solanki explained that many existing rubrics only check for the mere existence of files rather than their quality or validity, which allows agents to bypass verification (00:04:57). For instance, in a task requiring the generation of CSV data for 20 countries, the rubric verified the presence of files rather than the integrity of the data, which led to lower accuracy because the agent produced random data to bypass the checks (00:06:09). Robust checks must verify that content is valid, not corrupted, and meets specific requirements rather than just checking for structural presence (00:08:22).
+  
+
+* Improving Scraping Task Rubrics: Ruturaj Solanki provided an example of a task involving scraping 120 sources, where the agent was receiving points regardless of whether the scraping was successful. They recommended implementing robust checks that verify the correctness of the scraped data rather than awarding points for completion alone (00:09:31). Applying these improvements helped increase performance scores from 65 to 80 (00:10:47).
+  
+
+* Prohibition of Weightage Rubrics: Ruturaj Solanki strongly advised against using "weightage" rubrics, which multiply points instead of adding them, as this causes exponential score distortions and misrepresents performance. Trainers must use point metrics instead, as using weightage in multi-agent runs produces negative results due to the variance in outputs from different sub-agents (00:11:59).
+  
+
+* Expanding Task Complexity: Ruturaj Solanki advised that if rubrics are already robust but the performance gap persists, the issue may lie with the corpus or task size (00:14:25) (00:16:48). They suggested increasing task complexity by adding multiple layers of sub-tasks or sub-goals and using a decomposition YAML file to spawn sub-agents, which helps test capabilities like reading large corpora more effectively (00:15:37).
+  
+
+* Analyzing Agent Logs to Correct Scoring Paradoxes: Ruturaj Solanki noted that sometimes a single agent may appear to perform as well as a multi-agent system due to weak, generic rubrics (00:17:50). By analyzing the logs and output files rather than blindly trusting score results, trainers can verify if the agent actually completed the work. Applying stricter rubrics may lower scores for both single and multi-agent systems, providing a more accurate reflection of performance (00:19:12).
+  
+
+* Optimizing Verifier Performance: Ruturaj Solanki suggested that trainers should compare the steps taken by single and multi-agent systems to identify why one excels, ensuring checks are applied equally (00:20:50). Additionally, for tasks involving sequential API calls, trainers should implement parallelism in their verifiers to optimize speed and reduce computational time (00:23:04).
+  
+
+* Handling Website Access Blockers: Jitendra Kumar Meher proposed using a local mock web server in a Docker environment to handle inaccessible websites, but Ruturaj Solanki advised against this as it negatively affects task reproducibility (00:24:30). Instead, they recommended finding similar, accessible sources or using public repositories, provided the data remains available long-term (00:25:37).
+* Browsing Task Strategies: S G Mathavan clarified that there are two types of browsing tasks: those with predefined URLs and those requiring natural language queries (00:27:22). Ruturaj Solanki advised against hardcoding specific URLs into rubrics, recommending a hybrid approach that checks if any relevant URL was hit instead of requiring an exact match (00:28:13).
+* Project Deliverables and Creativity: S G Mathavan noted that only 13 of the 50 required tasks have been completed for the client. To address challenges in creativity, they encouraged trainers to review the provided loom video and avoid repeating established patterns from phase one, such as relying solely on GitHub repositories (00:29:07).
+  
+
+* Embedding Requirements in Tasks: S G Mathavan explained that rubric complexity can be increased by embedding detailed requirements—such as document formatting, color codes, or deep-dive search requirements—directly into the task input or sources. This prevents agents from bypassing tasks with nonsensical or low-quality output (00:32:41) (00:34:59).
+* Debugging and Trajectory Analysis: S G Mathavan emphasized that trainers failing to achieve the performance gap are often not debugging effectively (00:37:28). Trainers should analyze the trajectories of both single and multi-agent systems, comparing produced files to understand failures and refine their approach rather than abandoning tasks (00:38:44).
+* Creating Complex Rubrics via Reference Answers: S G Mathavan suggested using multi-agent output as a reference answer to create complex rubrics (00:39:40). By reviewing the multi-agent results, verifying random samples against the source data, and using these validated values as test cases, trainers can construct more accurate and detailed evaluation criteria (00:40:47).
+* Communication and Peer Support: S G Mathavan encouraged active participation in the Q&A channel to share insights and unblock tasks, noting that the channel currently lacks meaningful discussion (00:44:21). Ruturaj Solanki reinforced that any scenario involving potential issues in rubrics or test cases should be shared in the channel to allow for collaborative improvement, including technical checks like OCR or formatting validation (00:46:14).
+
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Jul 1, 2026
+All_Hands_Meta_Multi_Agent_Swarm - Transcript
+00:01:08
+
+
+Ruturaj Solanki: Yeah. Hello guys. Look for others to join.
+S G Mathavan: Hey. Hi team. Hi.
+Ruturaj Solanki: Hi. Hi sir. Hi
+S G Mathavan: Uh maybe let's get started.
+Ruturaj Solanki: medic.
+S G Mathavan: Uh start the recording. Whoever missed the call, they can go through the recording.
+Ruturaj Solanki: Absolutely. Let me share my screen.
+S G Mathavan: Yeah.
+Ruturaj Solanki: Uh is my screen visible?
+S G Mathavan: Yes.
+Ruturaj Solanki: Okay. Hello guys. Uh good evening and uh uh let me uh quickly tell you what the agenda of this meeting is. So basically uh we know that many of us are struggling from uh achieving the gap the score the score between the single agent and the multi- agent. So uh we did some analysis uh through the task that we had obtained and the one of the major issues that we uh identified was not having a strong rubric. A rubric is nothing but the checks that we are performing uh uh through the verifier or the judge whatever you prefer.
+
+
+
+
+00:04:57
+
+
+Ruturaj Solanki: So these are the checks that we need to uh uh basically like go through the agent's output output and see if the agent performed well or not. So I'll uh continue this presentation and I'll uh show you some examples of the uh task that we had and uh what the rubrics uh those had and what was improvement that they could achieve. So quickly uh starting with this uh understand rubric is in a such a way that uh if you are uh if you are uh basically you built up a house and uh in the house you are just having uh do just doors and uh doors and all you don't have a roof. So not having complete checks makes the uh process very difficult. So uh let's go with the examples very quickly. So the very first case was the task goal. I'll start with the task goal. The goal was to score 20 count uh the data of the world bank data across 20 countries and like six development domains. So this was the particular goal.
+
+
+
+
+00:06:09
+
+
+Ruturaj Solanki: They had to build a CSV charts and animation and written report. This was the main goal. they had the agent had to generate this four uh documents. So what the problem was the grader the verifier the rubrics the rubrics only checked the existence of the files and if they were created or not and that was the main huge uh issues that we uh identified. So I'll go in details. So this was a check that involves the present. So the first check was to see if the country has uh 20 rows 20 countries in it. I mean the CSV has 20 countries in it. And the second one was to see if the score uh index score was within zero and 100. The third one was if the rank was clean or not. The fourth one was was the report 1500 plus generated or not.
+Abhishek Kathirasan: What's the capacity?
+Ruturaj Solanki: So yeah. So this were the four checks that were like present in the uh rubrics. So let me tell you how this agent can like simply break this.
+
+
+
+
+00:07:16
+
+
+Ruturaj Solanki: So instead of checking uh uh let's say I have 20 countries but instead of checking those particular 20 countries that the data was given the agent is having some random 20 countries. So the the numeric values are being checked making the agent I mean our verifier uh basically like bypassing our verifier and our accuracy dropping. So in in this you can directly link it with this that the agent didn't perform the instruction it had a workaround to just bypass our rubric or a verifier. So that is not acceptable. The second one is like having the index arrange. So these are the like static checks. So instead of like those static checks, we could have been like more uh uh you can say more um robust. So instead of just checking the uh like the presence of the countries like if the uh each row has a country or not, we could have checked each row has exact countries that were like described in the instruction or is it with the same uh uh data that we had provided.
+
+
+
+
+00:08:22
+
+
+Ruturaj Solanki: The first check. The second one was to if to see if the files that have been created are not empty like basically the data which is in the file is is it not empty or is it having uh any um major issues with the file or is it corrupted. So what happens is uh this everything is like generated via uh transferred by API calls right in some cases you may see that the files are there the sizes is there I mean the it shows in KBS and all but when you try to open it the data is corrupted because of a malformed JSON or something similar to that. So we have to also keep in mind that those are those things are also get checked. The third one uh I can go on with the points but the main issue uh here is having a rubrics with a very robust checks that not only checks for structures but also checks for the validity of the structure like if the files that have been created has a valid input has a valid output convert valid uh computation logic or everything that is in the rubric is I mean uh in the file is correct or not.
+
+
+
+
+00:09:31
+
+
+Ruturaj Solanki: So here what we uh here in another adding another point here is um like have a complete checklist basically a rubric that checks each and everything that is mentioned in the uh mentioned in the instructions. also add a layer where you can check uh kind of uh reward hacking scenarios where agent could cheat and basically like uh come up with a a solution that is not acceptable. That is one case. Coming to the next uh section, next case here you can see the task was to build like 120 uh files around like uh basically action files and has to like script through this 120 sources. So what the check was about? The check was about like did they basically like go through this 120 and uh was it uh like added to the uh checklist. So let's say the check was like this. If a check was made, no matter the result, like if it was a success or if it was a failure, the point was added to the scores. So basically, the agent was able to have like 30 points directly without even uh checking the result.
+
+
+
+
+00:10:47
+
+
+Ruturaj Solanki: So instead of the direct check we could have like checked if the uh if whatever the agent scraped from the browser or the internet or any uh from any files was it correct. We could have we uh we have to implement those uh uh those kind of tricks as well. Then as you can see this is what it had and these are kinds of uh improvements that we could uh basically I just did it as well. So um basically I what I did was I applied some of the checks and see the if the result was improving or not. As you can see the gap from directly from 65 it increased to 80. I of course I was not able to run all the tests. So there are like some projected scores as well but yes so this method of like having a very robust rubrics is very helpful while achieving the gap. So this is the second guess. Uh coming to the third case. Yeah, this one is uh like uh very important one because this is uh actually this case should not even be there in the uh like the analysis phase because the case particular uses a weightage rubric.
+
+
+
+
+00:11:59
+
+
+Ruturaj Solanki: So what is this weight weightage rubric? It basically instead of like adding up the score, it multiplies the points. Let's say um if your if one action was performed and it was correct uh it instead of like adding a one point or two point it multiplies it with a reward function that basically uh increase the uh uh scoring exponentially and if let's say if there is a negative scoring and if it is multiplied by 05 or something like this the score suddenly instead of having like 50 it suddenly drops to like 7 10. So yeah that is the uh very um bad or you can say very wrong way to use weightage and and and in the phase two I think we are simply avoiding or you are it we are not allowed to use any weightage rubrics. So I'm I'm again emphasizing on this one. Instead of weightage rubrics uh weightage checks you are to check it using a point metrics not a weightage. If the trainers is found that they are using any weightage uh they will be receiving a warning from us.
+
+
+
+
+00:13:08
+
+
+Ruturaj Solanki: So that is very important. Uh please keep in mind that you are not using any weightage checks in your um uh in your uh checks or the rubrics or the judge. So as you can see this is what happened. Uh basically what if the deliverable were present it was like uh adding into like just completion factor. It was in multiplying the files. Let's say if it has five files it was multiplying the points with the five files. So which is like yeah which is like basically very wrong which will like increase the gap very exponentially. As you can see earlier the agent was scoring only 10. Why? Because the single agent was able to achieve all the files, create all the files, all the CIS, all things were ready but the correctness was very low. But in uh and the agent was agent did a very small mistake and it was uh scoring very less. So yeah this is a very uh important point here using if you use weightage in a multi- aent run it will always come up with a very negative result because there are not single output from a uh single output from uh not a single output multi- aent performs like very there are like sub aents and sub aents of it they produce different different outputs.
+
+
+
+
+00:14:25
+
+
+Ruturaj Solanki: So yeah this uh weightage factors affect it very much. Coming to the fourth case yeah there is a cases where uh you can say it as this way like your rubrics is very perfect. Your rubrics is like uh having checks every single thing. It is also checking the edge cases. It is also checking every scenario that the agent could try to cheat but still you are not able to achieve the gap. the one of the main reason was the uh corpus the the data itself the task itself was not long enough. So instead of trying to like just simply give a uh records and analyze it and give output you could have added multiple multiple layers of uh task multiple layers of subtask or sub goals into the task. I I'll tell you this I'll read out this task. What happened here was so there are like u pro uh files 48 PDF files it has to be uh uh read by the agent and has to create a very good um summary of those files. So what happened was it only checked if the field were matching or not.
+
+
+
+
+00:15:37
+
+
+Ruturaj Solanki: The test cases I talking about the test cases. So the test cases were like this if the field exactly matched or not. Second if all the file uh field checks were there uh in the projects or not. The third check uh honest uh if the uh the two cases uh and the third one was like if the rubrics itself was not wrong. Uh this is a good point actually this are good but yeah instead we could have checked if the project all uh was uh like instead of like a small record it could have been grown to like a very good uh amount of numbers. So we are not limited by the numbers of agent. We could have uh written a very good uh decomposition YAML file where we are spawning like uh multiple sub aents and having a very good tree structure sub aent spawning another two sub aents to go through the project files decreasing the computation time as well as along with the uh capabilities of reading the corpus large corpus. So this is this was just an idea you can increase the uh basically increase the uh task uh size itself the corpus size itself.
+
+
+
+
+00:16:48
+
+
+Ruturaj Solanki: So not having a very good uh very good rubrics is also an issue and if you have a very good cor uh rubrics and but you still you are facing gap issues please check the uh corpus size itself basically the task size itself try to add multiple layers into it. They will be helpful while you are uh basically like creating a task and also while adding this multiple layers you will be able to add multiple checks to the layers as well. So there uh you can also basically they are like directly affecting your test cases as soon as you increase the corpus size or you increase the complexity or add multiple layers you can uh increase the uh checking list as well. So that is one case coming to the final case which is very um uh which is very uh important. So I'll directly come up with an example. Do you remember the very first case where the single agent was scoring? I'll just look at the final scores. You see the single agent was performing as good as the multi- agent.
+
+
+
+
+00:17:50
+
+
+Ruturaj Solanki: I'll I'll simply tell you this why this happened. So because of this only the checks the generic tests generic checks to see if the countries were present. Second one was to see if there was any issues or not. I mean the there was any um missing files there was structural issues or not. So due to those checks what happened was the agent was able to score a staggering.9 into uh from one. So this was technically wrong. So what happened was the if you analyze the files of the output from the single agent you can see that it the report that it generated was not even uh of 1500 s also it was only able to having around like 14 countries making it a very poor very poor output. it was not able to basically come up with a uh it was not even able to solve the task and on the other hand the team uh the agent was able to write a report of around 7,800 words with all the 20 countries but due to a poor very poor rubrics what happened was where it should have been scored more where the factors were like if the accuracy is more you can also add reward points as well let's say these are the reward points.
+
+
+
+
+00:19:12
+
+
+Ruturaj Solanki: Basically, if the agent is performing uh uh exponentially good, exceptionally good and instead of like just having a very um uh very basic checks, you can add more and uh reward points to it. If the multi- agent is able to come up with a solution that you didn't even uh expect it to be coming up coming up with kind of a edge cases and you can see that the after applying the changes uh we applied like uh the uh the same uh checks that I told you you can see the score was a the single agent decreased the uh from 0.9 to 65 and also there is a k as well the single uh the multi- agent also decreased from 0.955 to 0.90. Why? Because the checks also applies to the multi- agent as well. So where you when you add like more checks, more strict more robust rubrics, there is a possible scenario where you are seeing a very uh different results different result from whatever you were expecting. So when you see that your rubrics is also good where you uh where your cap is uh very small just read the read the output files whatever it generated whatever the logs were just don't blindly see the uh results of the scores go through the logs analyze it and see see um I mean so you once one idea is to let's say if the agent is like performing very well the single agent is performing doing very well.
+
+
+
+
+00:20:50
+
+
+Ruturaj Solanki: What you could do is you can go and see if the a what are the what are the steps that the agent did, what are the checklist that it completed and at the same time you can also verify the multi- agent as well. What are the steps it did and what were the uh things where it excelled. You can add uh those uh basically those checks uh those kind of checks where it excelled. No, not an unfair checks. Of course, not an unfair check, but a check where uh both agents are tested equally. So, yeah. U please check the output files as well. Please check the logs to see analyze why the gap was small. Instead of just directly bombarding with a change, you can analyze it and do a strategic change which is much more important. Uh yes you can also check check like in three simple checks if the rubric is right or not or just like having a static checks is a agent is doing a actual work or is it not scripting the whole solution.
+
+
+
+
+00:21:53
+
+
+Ruturaj Solanki: See uh if there is a task where it has to analyze some data sets or something a single agent can write a whole complete script in a single uh executable Python file or anything and it can like execute the whole thing in one go where the multi- agent would struggle is basically it has to write it in a chunk it has to it has to actually analyze the files what the agent what the simulation will do let's say there is a data set of around few thousand uh few thousand sample files Okay, 2,000 uh data rows and all. Uh and this data is divided into uh basically uh 10 different files. So what will happen here is let's say the single agent found a pattern and wrote a whole script single script to complete the uh checks and uh through the output. On the other hand, what the multiple agent will do, it will go through the file and because there are multiple agents, they will handle each and every file separately increasing your computational time as well and then they will com come up with a script then the Q uh basically the leader the agent the handler the agent main agent will write a script and then the checks will be performed.
+
+
+
+
+00:23:04
+
+
+Ruturaj Solanki: So you see the multi- agent is actually doing the work instead of just uh uh single agent instead of just uh doing the um skimming through the data set and writing a script. So your task should be like uh very good um layers of task you can say as actual work actual computational work and yeah I think that was that was the whole uh whole point of it. Any questions guys? Uh just also before ending uh before coming to uh before any questions uh also there were uh many uh there were some uh cases where the agent was taking very uh too long in verifier right uh so we've uh please try to analyze if there uh this is a additional point because we saw or three more task that you're having sequential API calls instead of those you can have a parallelism in the checks so that your uh uh tests are uh performed very quickly. This this is a optimization tip uh other than this. So yeah feel free to ask any question guys.
+Jitendra Kumar Meher: Um yeah I have
+
+
+
+
+00:24:30
+
+
+S G Mathavan: Yes, Jitendra is
+Jitendra Kumar Meher: one question now only was talking with
+Ruturaj Solanki: Mhm.
+Jitendra Kumar Meher: so uh the issue is uh the website locker okay so can we like uh make a uh like u uh entry point u
+Ruturaj Solanki: Mhm.
+Jitendra Kumar Meher: basically uh we are modifying the docker environment's entry point Okay. So that it can like uh spin up a local Python web server basically in the back end. Okay. So and we'll putting our PDF files there. So basically we are like creating a uh like mock uh server. Will that uh uh work or
+Ruturaj Solanki: What will happen is in this scenario what will happen is it will affect the reproducibility of the
+Jitendra Kumar Meher: uh Okay.
+Ruturaj Solanki: task.
+Jitendra Kumar Meher: So what will be the best alternative in this
+Ruturaj Solanki: uh if you are a not able to access the websites try to find a similar source let's
+Jitendra Kumar Meher: case?
+Ruturaj Solanki: say it is a PDF or something like website which is not accessible through our internet or our agents try to find a similar source uh you can like uh change
+
+
+
+
+00:25:37
+
+
+Estifanos Gashawtena: Y
+Ruturaj Solanki: your instructions in a manner where uh basically uh fetches another links instead of those but a similar link
+Estifanos Gashawtena: or you are or you are uploading some PDF JRA you can upload that PDF on your repo and
+Jitendra Kumar Meher: Uh
+Estifanos Gashawtena: you can provide your repository as source.
+Jitendra Kumar Meher: yeah.
+Estifanos Gashawtena: as
+Jitendra Kumar Meher: Okay. Yeah,
+Ruturaj Solanki: Yeah.
+Estifanos Gashawtena: well.
+Ruturaj Solanki: Yes.
+Jitendra Kumar Meher: got it.
+Ruturaj Solanki: Uh uploading the repo to directly to GitHub uh is uh I mean it is not advisable because what will happen in is basically the clients won't stay reproducible task. Okay. What if in the future your task is uh your data set is being uh in the GitHub and you remove it and clients are using it.
+Jitendra Kumar Meher: No, that will be public. Uh,
+Ruturaj Solanki: So yeah it
+Jitendra Kumar Meher: basically if I put that then uh I'll make sure it is public. Uh,
+Ruturaj Solanki: is fine. It is fine.
+Jitendra Kumar Meher: yeah.
+
+
+
+
+00:26:27
+
+
+Ruturaj Solanki: Will you be able to keep it forever in your uh in your so
+Jitendra Kumar Meher: Okay. Uh, yeah, that is the question.
+Ruturaj Solanki: that's so instead of uh uploading it uh to
+Jitendra Kumar Meher: Mhm.
+Ruturaj Solanki: the uh to the GitHub you can try alternate links. So internet is right right you can find a similar file in multiple websites multiple links.
+Jitendra Kumar Meher: Yeah.
+Ruturaj Solanki: Yeah,
+Jitendra Kumar Meher: Okay.
+Ruturaj Solanki: simple solution would be let's say if you are fetching a resources which is available in a website you know what the resources just do a simple Google search seef just give the
+Jitendra Kumar Meher: Got it. Got it. Yeah, got it.
+Ruturaj Solanki: link
+Jitendra Kumar Meher: I'll do that. Actually, that is only the blocker. Now I am facing I think many others also facing same thing. Okay.
+Ruturaj Solanki: yes I'm ready
+Jitendra Kumar Meher: Yeah.
+S G Mathavan: Yeah.
+Jitendra Kumar Meher: Yeah.
+S G Mathavan: Uh I just want to distinct two uh types of browsing uh tasks, right?
+
+
+
+
+00:27:22
+
+
+S G Mathavan: First thing is as Jitendra mentioned, there are some predefined URLs. You wanted the agent to go through it, fetch the content and then write some uh analysis reports, things like that, right? like uh of downstream workflows is uh uh like up to your creativity. But there is also another type of browsing which is like just a natural language query. For example, if I'm try trying to uh create a travel plan, uh I will not uh giving the predefined URLs, right? I will be giving my agent and scope to what what is the goal here is and it will search
+Jitendra Kumar Meher: Okay.
+S G Mathavan: using the natural language query and create a plan according to my budget and things like that. And those are the rubrics which you will be validating whether the budget has been met and things like that. Right? You also be focusing on the natural language uh browsing task also.
+Jitendra Kumar Meher: Oh,
+S G Mathavan: Open code also supports it.
+
+
+
+
+00:28:13
+
+
+S G Mathavan: So if you haven't gone through the open code document you can also go through it understand what and all the tools which is available. So the goal code supports two types of web browsing.
+Jitendra Kumar Meher: heat.
+S G Mathavan: One is browsing uh via the natural language intent and another one is whatever URL which you are giving it will be able to fetch it directly from the URL.
+Jitendra Kumar Meher: Okay. Okay. Okay. Yeah,
+Ruturaj Solanki: Yeah.
+Jitendra Kumar Meher: that is good
+Ruturaj Solanki: And additional thing is when writing a rubrics for this kind of task,
+Jitendra Kumar Meher: idea.
+Ruturaj Solanki: let's say, which are basically browsing the internet, uh please don't hardcode the URLs or expected URLs, a list of URLs into the checks. This will affect the accuracy as well. So then your rubric should be like uh um hybrid kind of thing. Instead of checking the exit URL was hit or not, it should check if any URL was hit, relevant URL was hit kind of. Yes.
+
+
+
+
+00:29:07
+
+
+Jitendra Kumar Meher: Hey,
+S G Mathavan: Uh I just also want to give a uh TLDDR of the whole session right guys because we have a target which needs to be met around 50 task which needs to be delivered to the client by end of this week but so far we have generated only 13 task in the delivery batch and which is in the delivery batch. So the issue primary issues which we were able to classify is first thing a set of trainers who are struggling in the creativity part which we were able to address it by the loom video. So if still some trainers are struggling in the creativity part they don't know how to approach a task and how to use the prompts which is created by the LM generated pipeline right and you don't know how to handle those scenarios you can definitely go through the loom and I feel uh a lot of trainers have were able to improve after going through the loom video and they were able to get an idea how to approach on uh tackling the new creativity task right because on phase one everything was on like some sort of a pattern and people were able to create the same patterns of task but here moving forward we don't have an oracle we need to be creative on the task level and also then the rubric level so this was the first uh level of candidates which we were able to address I hope uh no one in
+
+
+
+
+00:30:28
+
+
+S G Mathavan: the call is struggling in the creativity part if you're struggling please reach out to me and Rut uh and hopefully you should have also gone through the loom video and still you are having some doubts feel free to reach out to and raise valuable questions we will be able to answer it and that's what you will be able to improve on the creativity part. Second thing here is okay uh Karthick is have asked a question for using GitHub repo plus live URL fetching hybrid fetching is good approach or not? Yes, it is a good good approach. But I would also uh say that uh as mentioned right like uh like we should not be sticking fully on the GitHub repository because uh we were able to see a pattern on phase one like the paper DB task people were creating a same patterns of task which is like giving patterns of uh a list of papers asking few questions and that's how they were able to break the model but we should not be also seeing the similar patterns here.
+
+
+
+
+00:31:28
+
+
+S G Mathavan: the client specifically wanted a real world browsing task. So try to fetch uh like as Ruturaj mentioned right the fallback first layer is see if there are any valid URLs apart from that whatever you have selected it see whether there are any other valid URLs try to replace it. If still you have you are not able to do it and all the task scenarios specifically like a government document then you can fall back to this GitHub repository or you can also think of any other repositories like the public hosting platform. We should also be not sticking all the trainers to be sticking to one specific solution here which is GitHub repository. We can also go through Dropbox things like that. We need to be very much creative on that level two which is like the client will not be flagging even in the future right so let's also make sure to avoid that. So coming back to the second scenario here here is uh a majority of candidates uh in the project were able to create uh be creative in the task they were able to get the approval from the creativity part uh but they were not able to achieve the gap and that's where we that that's where the purpose of this call is where how we were able to approach this is we collected the samples.
+
+
+
+
+00:32:41
+
+
+S G Mathavan: So whatever the examples which you have seen in this call it's a real world task which is created by the users and they were approaching saying that we were not able to achieve the gap then they were uh just going through the next uh task here. What we did as a debugging layer here is whether uh it is where the issue has arisen because all the task they were created uh that was created is much of a very good complexity. We were able to find out two issues in the task why they were not able to get the gap which is first thing as mentioned the rubrics where the rubrics have been not very strong and which comes to the uh another question right how how will I be able to create a very good rubric here so there are two types of rubrics you will be able to create either on the task requirement itself so come up with a very complex long horizon task which asks for a a lot of requirements right so if I'm just going to give uh let the LLM know about it that the P generate a PDF generate an image and just checking if the PDF and images is there definitely the signal agent will be able to pass by generating any nonsense of output right it will not be uh it it is considered of reward hacking scenarios and I feel uh if you're having this scenario then your task is not in a very well-de manner so what you have to do here is the first thing embedding the rubrics in
+
+
+
+
+00:34:04
+
+
+S G Mathavan: your tab uh make uh a lot of details in how the PDF needs to be, how a report needs to be, how let's say you are creating a report for the company and the company has some certain rules on how to create PDFs, presentations and uh images and you can also think of like I was able to see a creative task from Ruturaj where he was able to create a list of videos and the videos should be having a similar type of colors templates and these are the things of single agent will be able to create a video but it will not be able to generate with the perfect requirement which you have given in the task. Right? This is something you will be able to do it. So embed your requirements in the task. And the second type of task which you will be able to create is embed the requirements from the sources which you have given. So let's say the rub you can definitely arrive rubrics on the sources which you are giving.
+
+
+
+
+00:34:59
+
+
+S G Mathavan: For example, PDF if uh uh an example which was from Estifanos task is he have given an,000 pages of uh book right and he asked to create an summary document for an lecture which is happening uh next week. So the lect the summary should be covering a a list of chapters. What he did is he was able to create the summary for all the chapters and the single agent will definitely be able to fail because it will not be able to read all the thousand pages and give a very good chapter list. Right? This is something the type of rubric which is embedded in the task input itself. So and another example is if you're doing a browsing task if you have given a predefined URL and in the predefined URL there is also another predefined URL you your agent will be pushing its limits to go in depth of first search like it it will be going in a depth search and seeing collect all the information whatever in that specific web URL and if you're scaling it in the same scenario for all the other web URLs right you will be able to easily see if the depth of the information is also be covered in your report or not something like that.
+
+
+
+
+00:36:09
+
+
+S G Mathavan: This is the second type of you are embedding the rubrics here. So this comes back to the question which is like the currently the trainers are not able to achieve the gap because their rubrics are very uh less of complex and they were not covering uh a very inetailed and detailed rubrics. And the second thing here is the rubrics are very good but the scale is not an uh up to the mark and the single agent was able to solve it because the scale of input artifacts the scale of problem which you're giving to the agent is not very complex. So I wanted to also uh give you a thought process here on the phase one we were having an uh I would say we were having an ended uh point which is the oracle. The trainers were able to create an oracle. they were not having any creativity uh in the rubrics because they can easily send the oracle value compare with the single agent output or the multi- aent output here but to be honest we will not be able to create an oracle in these type of scenarios and how you need to approach the phase two is you should not be coming up with problem statements or scenarios which pushes the model intelligence here because I was able to see uh scenarios where like simple code based bug fixes and still trainers are
+
+
+
+
+00:37:28
+
+
+S G Mathavan: sticking into simple code uh code based bug fixes and also uh something like the agent is intelligent enough to solve it. This is not the task which the client need you you have to come up with a task which is complex in coordination. So ask your question if your decomposition.yamel is not very complex to solve the problem then that's not a right fit of task which you will be giving you a gap here right and you have to first ask a question whether if I'm going to orchestrate multiple agents to solve this scenario which I came up with whether will will be like uh will my decomposition.yaml YAML will be complex or not. If you're saying that it's it's not going to be a complex, it's just simple fan out or simple map reduce pattern already which has been covered in phase one, then definitely your task will not be uh achieving the gap. And the second thing here is you have to think in a direction where you will be able to achieve the gap. Which means that the trainers whoever created this task right where they were not able to achieve the gap they didn't have a debugging layer which means that they were not going through the single agent trajectory.
+
+
+
+
+00:38:44
+
+
+S G Mathavan: What happened in the single agent trajectory? What happened in the multi- aent trajectory? What are all the files which the multi- aent produced? What are all the files the single agent produced? They were not debugging here. If they have debugged it, they will they wouldn't have lost lost a lot of house, right? Because uh what is happening here is if they are not achieving the gap, they are going to another uh scenario which is like you have wasted a lot of hours in your first task and you could definitely improve your first task itself where you have abandoned it and going to an another layer of approach. Right? If you are not doing an very serious debugging here, you will be in an very uh in a loop of search but you will not be able to succeed in task completion. So make sure to go through the trajectories files which is produced by the single agent. See where it failed and whether the failure is relevant to the coordination pattern or not whether the failure is relevant to whatever the network API calls and how the multi- aent was able to solve it.
+
+
+
+
+00:39:40
+
+
+S G Mathavan: And if you're able to see this uh tra trajectories right you will be able to get an indepth understanding about how these single agents will be failing and in future this learning will be able to amplify your task production right and in in few in two two or three days if you're having this debugging process in your task creation you will be able to easily come up with an idea okay single agent will be say failing in these areas and this is how I'm going to create my task and the Next thing here is rubrics part. Coming back to rubrics, how you will be able to create a complex rubrics. I know creating a complex rubrics. If let's say you haven't embedded any requirements in the task and your task is more of like doing a browsing and you have a a list of 100 or 200 URLs and going through all the 200 URLs you will be able to not you you will never be able to write a rubric here because uh just going through 200 URLs and doing your manual read and coming up with an answer will not make sense right so in that case I would say keep it as a trick which is like First run your multi- agent.
+
+
+
+
+00:40:47
+
+
+S G Mathavan: Come up with a very good decomposition. Aamel file. Come up with a very good uh task and you can keep a simple test cases here. I know this will be a time consuming one but at least you will not be abandoning your task, right? So do your multi- aent run with a very good co coordination pattern. Then the sub aents have been spawned and it did it work correctly. go through the multi- aent trajectory, see if it was able to do it all the work correctly and see how the output files are being produced. Now if you have a reference file go through the reference file check um some sort of values right for specific URLs check if the values have been correct or not things like that you you have reduced your search space here so whatever the uh confirm whatever the values which you have confirmed for example if I'm asking the multi- aent to read all 200 URLs and uh write an excel sheet and I will be just confirming a 10 to 20 random checks and confirming it Okay, the oracle is present here perfectly and I will also be checking it in my in the specific website whether the exact value is being present or not.
+
+
+
+
+00:41:55
+
+
+S G Mathavan: So if you're doing a random 20 check definitely you can use this random 20 values in your test cases and that's how you will be able to also create a complex rubric right you can use the multi- aent as a reference answer make sure to confirm it you should not be blindly trusting it because if clients are going to ask a question saying that how did you come up with it we need to have a reason how you were able to come up with it so make sure to crossverify it crossverify it the first initial is nothing but it is try it will help you to reduce the search base but definitely you need to search and if you are able to get it right then you can definitely write the rubric now you have a reference answer you can get a detailed one uh output from the agents like slides presentations images now you have an output to uh like uh view and once you have viewed the outputs you will be able to get an idea how what and all the rubrics you will be able to create you can pass the sheet get give it to the LLM state that whether the values have been correct or not things like that this is also in one layer here but the caveat here is if you're coming with the test cases very good of rubrics and which is a reference from the multi-
+
+
+
+
+00:43:09
+
+
+S G Mathavan: aent you you still need to run the multi- aent again and the single agent again so make sure the test cases are being verified correctly uh and up to-ate test cases are being used right so these are the uh like uh observation we were able to see. Uh so any questions or doubts so far? Great. Uh if no other questions, can I get a thumbs up? So let's see if the session was useful and you will be able to come up here with your task uh by end of today. Great. Okay. Uh yeah, that gives me a confidence guys. Uh thank you so much and thank you for Ruturaj for organizing this wonderful presentation right will also be going through all your uh submissions and also he will also be joining joining your standup uh we will also be measuring if this presentation is making sense and also it is whether it is improving the throughput or not and a very important uh uh like uh I I feel uh the level of communication we need to have here is the Q&A uh uh channel, right?
+
+
+
+
+00:44:21
+
+
+S G Mathavan: Uh you can consider that as an unofficial channel. Don't feel hesitate, don't hesitate to post any questions or queries, right? Even if it is an uh a very basic question, feel free to post it. We will be able to help you out. But please don't be blocked in anywhere. So that Ruturaj any of the QA leads or even the peer reviewers who are peer members who are available, your peer friendly uh trainers, right? The your team members can also help you on that. But don't be blocked in any of the stages. So try to do a lot of brainstorming uh session in that channel. If you're not able to do it then you will not be able to unblock yourself. So this project is not specifically like a specific trainer will be working on it own task. If I'm not going to talk with or I'm not going to talk with partners I will not be able to get this idea and the level of expertise which I'm having currently right if like how to debug things and things right.
+
+
+
+
+00:45:18
+
+
+S G Mathavan: So if you wanted to amplify your knowledge, you need to communicate with the other trainers. See how creative they are and how you can with the level of intelligence which they have demonstrated, how you can demonstrate your level of creativity in aligning with that right so you will be able to also get a lot of insights from likewise. So I feel make sure to raise a lot of questions in that channel. I feel it is being a very inactive channel. So it should be having a lot of meaningful questions and creativity questions over there. So let's have an habit to post a lot of questions. There is no leads over there overseeing it and they will not be questioning why there is a lot of messages happening in the channel, right? So feel free to post a lot of questions in there. Uh yes.
+Ruturaj Solanki: Yeah, one more thing to add guys. Uh any scenario where you are thinking that something is kind of like wrong.
+
+
+
+
+00:46:14
+
+
+Ruturaj Solanki: Let's say uh something is in the test cases you feel like this might be a issue this feel free to message that that also your test files are also we can see where we could improve the test cases like checks the rubrics as well. So any doubt you have in the checks like say just there are like many ways to check a rubrics or write a rubrics uh it's just a matter of like uh how how well we perceive the check checks. So yes uh feel free to message any time any uh questions very very minor questions as well. Uh I think there was a very good uh point uh ma uh Maddie also mentioned where a company has a rule right of documents. Uh how are we going to like test it? We can test it via formatting uh structures. We can test it via color codes. We can also uh basically we can use uh some uh OCR or we can use very uh deterministic checks as well to uh basically extract the uh ash code of the color to verify it. So there are many ways to check. So yeah you just have to like simply uh feel yeah just uh just in closing uh you just have to like feel free to ask any questions if you can improve this or anything. Yeah, that's that's for my
+S G Mathavan: Great. Yeah. Thank you, team. Uh, bye everyone.
+Estifanos Gashawtena: Some baby
+Ruturaj Solanki: Bye. Bye, guys.
+
+
+
+
+Transcription ended after 00:47:53
+
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

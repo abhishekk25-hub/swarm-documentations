@@ -1,0 +1,299 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+
+sub_tasks:
+- id: lead--slice-1
+  depends_on: []
+  parallel_group: leads
+  agent_type: general
+  description: "Slice 1 lead. List /input_artifacts/proxies/ and sort the ticker file names; take the FIRST third of the sorted list as your slice (19 companies). You own brief workers brief--w01, brief--w02, brief--w03, brief--w04, brief--w05, brief--w06, brief--w07, brief--w08, brief--w09, brief--w10, brief--w11, brief--w12, brief--w13, brief--w14, brief--w15, brief--w16, brief--w17, brief--w18, brief--w19; assign each worker exactly one company from your slice (one company per worker) and give it that ticker. Do not read proxies or write briefs yourself; after your workers finish, confirm every brief in your slice exists under /logs/agent/briefs/."
+- id: lead--slice-2
+  depends_on: []
+  parallel_group: leads
+  agent_type: general
+  description: "Slice 2 lead. List /input_artifacts/proxies/ and sort the ticker file names; take the SECOND third of the sorted list as your slice (18 companies). You own brief workers brief--w20, brief--w21, brief--w22, brief--w23, brief--w24, brief--w25, brief--w26, brief--w27, brief--w28, brief--w29, brief--w30, brief--w31, brief--w32, brief--w33, brief--w34, brief--w35, brief--w36, brief--w37; assign each worker exactly one company from your slice (one company per worker) and give it that ticker. Do not read proxies or write briefs yourself; after your workers finish, confirm every brief in your slice exists under /logs/agent/briefs/."
+- id: lead--slice-3
+  depends_on: []
+  parallel_group: leads
+  agent_type: general
+  description: "Slice 3 lead. List /input_artifacts/proxies/ and sort the ticker file names; take the THIRD third of the sorted list as your slice (18 companies). You own brief workers brief--w38, brief--w39, brief--w40, brief--w41, brief--w42, brief--w43, brief--w44, brief--w45, brief--w46, brief--w47, brief--w48, brief--w49, brief--w50, brief--w51, brief--w52, brief--w53, brief--w54, brief--w55; assign each worker exactly one company from your slice (one company per worker) and give it that ticker. Do not read proxies or write briefs yourself; after your workers finish, confirm every brief in your slice exists under /logs/agent/briefs/."
+- id: brief--w01
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 1. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w02
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 2. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w03
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 3. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w04
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 4. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w05
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 5. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w06
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 6. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w07
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 7. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w08
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 8. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w09
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 9. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w10
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 10. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w11
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 11. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w12
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 12. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w13
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 13. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w14
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 14. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w15
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 15. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w16
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 16. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w17
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 17. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w18
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 18. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w19
+  depends_on: [lead--slice-1]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 19. Your slice-1 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w20
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 20. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w21
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 21. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w22
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 22. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w23
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 23. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w24
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 24. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w25
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 25. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w26
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 26. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w27
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 27. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w28
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 28. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w29
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 29. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w30
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 30. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w31
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 31. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w32
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 32. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w33
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 33. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w34
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 34. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w35
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 35. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w36
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 36. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w37
+  depends_on: [lead--slice-2]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 37. Your slice-2 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w38
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 38. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w39
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 39. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w40
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 40. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w41
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 41. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w42
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 42. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w43
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 43. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w44
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 44. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w45
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 45. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w46
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 46. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w47
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 47. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w48
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 48. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w49
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 49. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w50
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 50. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w51
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 51. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w52
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 52. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w53
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 53. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w54
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 54. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: brief--w55
+  depends_on: [lead--slice-3]
+  parallel_group: brief-workers
+  agent_type: explore
+  description: "Brief worker 55. Your slice-3 lead assigns you exactly one company (one ticker). Read the full proxy at /input_artifacts/proxies/<ticker>.txt and write a governance-and-pay brief of that company to /logs/agent/briefs/<ticker>.md in the exact required format (a level-1 heading naming the company and ticker, then the sections Company and meeting; Board and governance structure; Executive compensation design; Pay-for-performance and say-on-pay; Related-party and conflict flags; Shareholder voting takeaway). Cover only the single company your lead assigned you."
+- id: synthesize--index
+  depends_on: [brief--w01, brief--w02, brief--w03, brief--w04, brief--w05, brief--w06, brief--w07, brief--w08, brief--w09, brief--w10, brief--w11, brief--w12, brief--w13, brief--w14, brief--w15, brief--w16, brief--w17, brief--w18, brief--w19, brief--w20, brief--w21, brief--w22, brief--w23, brief--w24, brief--w25, brief--w26, brief--w27, brief--w28, brief--w29, brief--w30, brief--w31, brief--w32, brief--w33, brief--w34, brief--w35, brief--w36, brief--w37, brief--w38, brief--w39, brief--w40, brief--w41, brief--w42, brief--w43, brief--w44, brief--w45, brief--w46, brief--w47, brief--w48, brief--w49, brief--w50, brief--w51, brief--w52, brief--w53, brief--w54, brief--w55]
+  parallel_group: synthesize
+  agent_type: general
+  description: "Synthesis lead. Runs only after every brief worker has finished. Do not read the proxies or rewrite any brief. Read the completed briefs under /logs/agent/briefs/ and assemble a single coverage index at /logs/agent/briefs_index.md that lists every company by ticker with its one-line governance-and-pay voting takeaway drawn from that company's brief. Cross-check tickers against /input_artifacts/proxies/ and note any company that has no brief."

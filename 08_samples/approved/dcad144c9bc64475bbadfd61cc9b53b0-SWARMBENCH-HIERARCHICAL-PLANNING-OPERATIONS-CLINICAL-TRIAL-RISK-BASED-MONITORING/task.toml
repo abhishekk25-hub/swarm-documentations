@@ -1,0 +1,33 @@
+[task]
+name = "swarmbench/dcad144c9bc64475bbadfd61cc9b53b0-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-CLINICAL-TRIAL-RISK-BASED-MONITORING"
+description = "Quarterly risk-based clinical-trial monitoring plan: from ~50 real ClinicalTrials.gov study records, an adopted RBM rulebook and a list of authorities, read each record to extract the risk fields, set aside out-of-scope studies, reconcile overall-vs-site status conflicts, risk-score and tier every in-scope trial, schedule monitoring visits under the weekly CRA-hours cap and visit-window cadence, confirm and cite 12 GCP/FDA/CFR authorities, and deliver a workbook and written plan."
+
+[metadata]
+verifier_type = "executable"
+domain = "planning-operations"
+coordination_pattern = "hierarchical"
+secondary_classification = ["browsing", "long_writing"]
+dag_depth = 3
+dag_width = 22
+human_solving_hours_estimate = 27.0
+human_solving_hours_justification = "Read ~50 real ClinicalTrials.gov study records and extract each trial's monitoring-risk fields (overall and site-level statuses, study type, phase, enrollment count and basis, number of sites, intervention types, last-update date), apply the scope rule and reconcile the overall-vs-site status conflicts = 360 min; risk-score, tier and assign monitoring hours to every in-scope trial and build the reference monitoring schedule against the weekly CRA-hours cap and the visit-window cadence (schedule_visit / window_infeasible / defer_capacity), with the capacity allocation = 240 min; confirm and freeze citations for 12 authorities against the official sources (ICH E6(R2)/E6(R3), FDA RBM guidance + Q&A, ICH E8(R1), 21 CFR 312/812/11, FDAAA 801, 45 CFR 46, TransCelerate RBM, NLM registry) = 300 min; write the long evidence-backed monitoring plan (twelve sections, a quantified per-trial monitoring proof for every in-scope trial, the window/capacity infeasibility analysis, the data-reconciliation and exclusions) = 480 min; build the workbook and reconcile the whole packet for internal consistency = 240 min. Total ~1620 min ~= 27h."
+estimated_sub_agents = 22
+input_token_estimate = 120000
+reference_link = "https://clinicaltrials.gov/data-api/api , https://www.ich.org/page/efficacy-guidelines , https://www.fda.gov/regulatory-information/search-fda-guidance-documents/oversight-clinical-investigations-risk-based-approach-monitoring , https://www.ecfr.gov/current/title-21/chapter-I/subchapter-D/part-312 , https://www.ecfr.gov/current/title-21/chapter-I/subchapter-H/part-812"
+why_multi_agent = "The deliverable is a full risk-based monitoring packet whose hard part is breadth of careful reading, not arithmetic. The load-bearing monitoring-risk facts do not arrive as a clean table: they live in ~50 long, format-varying real ClinicalTrials.gov prose records, and every trial's risk fields - its overall recruitment status versus its divergent per-site statuses, its phase and study type, its enrollment count and whether the count is estimated or actual, its facility count, its intervention types and its last-update date - must be read out of the record before any score or schedule exists. A single code-capable agent cannot script its way past this: there is no structured input to parse, and once the numbers are extracted the scoring, tiering and the reference schedule are modest. The score is dominated by work that does not compress into one script and that a single context cannot sustain to completion: reading every one of the fifty records accurately (in one context the later records get skimmed, so the regulated-intervention flag is dropped, enrollment is misread and overall-vs-site status divergences are missed, which silently corrupts the risk tiers and the schedule), confirming and freezing citations for twelve distinct live authorities (load-bearing browsing, each an actual retrieval of an ICH/FDA/eCFR/HHS/registry source), writing a long evidence-backed plan with a specific quantified monitoring proof for every in-scope trial and a full window/capacity infeasibility analysis, and carrying every trial in the portfolio through to an audited decision. The work routes naturally to a hierarchical specialist team with three dependency levels. Level one is a leaf-worker layer: thirteen extraction-batch specialists that each read and extract a small slice of the records carefully and in parallel, and five research specialists that partition the twelve authorities (GCP foundations, current-revision GCP and Q&A, study-design/framework, FDA/CFR regulation, registry/human-subjects) so the browsing is done in parallel and verified. Level two is a pair of subset coordinators that sit above their own groups - an extraction-coordinator that reads the thirteen batch outputs, merges them into one portfolio table and confirms full trial coverage, and a research-coordinator that reads the five research outputs, merges them into one source register and confirms all twelve authorities are confirmed. Level three is the final pair of assemblers that run in parallel from the two consolidated masters - a workbook-builder that derives the tiers, schedule and capacity allocation, reconciles every part against the rulebook and writes the workbook, and a plan-writer that produces the long twelve-section plan (per-trial proofs, infeasibility/mitigations, framing). The intermediate coordinators are what turn a flat fan-out into a genuine hierarchy: they absorb the breadth of eighteen leaf outputs into two clean masters so each final assembler synthesizes from consolidated, coverage-checked inputs rather than eighteen raw fragments. Partitioning the reading and the breadth across specialists, then consolidating through coordinators, is what keeps extraction accuracy, citation coverage, per-trial proofs and audit coverage complete, which is exactly where the single agent degrades."
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 900
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600
+
+# Requires outbound internet so the research specialists can reach the live ICH,
+# FDA, eCFR/govinfo, HHS, ClinicalTrials.gov and TransCelerate pages to confirm and
+# freeze citations for the twelve governing authorities.
+network_enabled = true

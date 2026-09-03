@@ -1,0 +1,324 @@
+version: "1.0"
+coordination_pattern: "specialist-routing"
+
+sub_tasks:
+
+  - id: sla-performance-specialist
+    parallel_group: specialists
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      You are the SLA and Performance specialist. Your job is to verify the
+      uptime commitments and SLA claims for all 25 vendors listed in
+      instruction.md.
+
+      For each vendor, find their trust or compliance page and locate their
+      published uptime SLA percentage. Then find their public status history
+      page to see whether historical uptime data supports the claim. Copy a
+      verbatim excerpt of at least 20 words from the source page that states
+      the SLA commitment.
+
+      Vendors to check: Slack, Zoom, Atlassian, Notion, HubSpot, Dropbox,
+      Salesforce, ServiceNow, Okta, DocuSign, Box, Monday.com, Workday,
+      Zendesk, Twilio, Snowflake, Datadog, Cloudflare, PagerDuty, Elastic,
+      Confluent, MongoDB, GitLab, Airtable, Figma.
+
+      Write /workspace/findings_sla.json as a JSON array with one object per
+      vendor containing: vendor_name, sla_claim (the uptime % they commit to),
+      sla_evidence_url (URL of the vendor's public status history or uptime page
+      where historical availability data can be verified — for most vendors this
+      is status.[vendor].com, [vendor].statuspage.io, or a /availability path
+      under their trust page; this must be the live status or uptime history page,
+      NOT the vendor's marketing page, trust homepage, or generic /legal page),
+      sla_supported (true / false / unverified based on whether the status page
+      history actually supports the claimed uptime %),
+      verbatim_excerpt (20+ word direct quote from the status history page or
+      the SLA terms page that states the uptime commitment),
+      notes (any discrepancy between claimed % and actual history).
+
+      Focus only on SLA and uptime. Do not check certifications, privacy,
+      incidents, or contract terms — those are handled by other specialists.
+
+  - id: security-cert-specialist
+    parallel_group: specialists
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      You are the Security Certification specialist. Your job is to verify
+      the security certification claims for all 25 vendors against public
+      certification registries.
+
+      For each vendor, find their trust or security page to identify which
+      certifications they claim (SOC 2, ISO 27001, FedRAMP, CSA STAR, etc.).
+      Then verify each claimed certification against the relevant public registry.
+      Search for the official FedRAMP authorized products list, the CSA STAR
+      registry, and ISO 27001 certified clients list to cross-check vendor claims.
+      Do not rely solely on what the vendor's own page says. Copy a verbatim
+      excerpt of at least 20 words from the registry or vendor page that states
+      the certification.
+
+      Vendors to check: Slack, Zoom, Atlassian, Notion, HubSpot, Dropbox,
+      Salesforce, ServiceNow, Okta, DocuSign, Box, Monday.com, Workday,
+      Zendesk, Twilio, Snowflake, Datadog, Cloudflare, PagerDuty, Elastic,
+      Confluent, MongoDB, GitLab, Airtable, Figma.
+
+      Write /workspace/findings_certs.json as a JSON array with one object per
+      vendor containing: vendor_name, certs_claimed (array of certification
+      names), cert_registry_status (Verified / Expired / Not found / Unverified
+      — one entry per cert), registry_evidence_url (URL to the specific registry
+      entry or search result),
+      verbatim_excerpt (20+ word direct quote from the registry or vendor page),
+      notes.
+
+      If a vendor claims a certification but it cannot be found in any public
+      registry, mark it "Not found". Focus only on security certifications.
+      Do not check SLA, privacy, incidents, or contract terms.
+
+  - id: privacy-compliance-specialist
+    parallel_group: specialists
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      You are the Data Privacy Compliance specialist. Your job is to verify
+      the GDPR and CCPA compliance claims for all 25 vendors against current
+      regulatory guidance.
+
+      For each vendor, find their privacy or data processing pages and identify
+      what GDPR and CCPA commitments they publish. Check whether these
+      commitments align with current regulatory guidance from the ICO for GDPR
+      and the FTC for CCPA — search for the current official guidance from each
+      regulator to verify vendor claims are consistent with actual obligations.
+      Copy a verbatim excerpt of at least 20 words from the vendor's privacy
+      page that states their commitment.
+
+      Look specifically for: availability of a Data Processing Agreement (DPA),
+      data residency options, right-to-deletion commitments, and whether their
+      published guidance references are current.
+
+      Vendors to check: Slack, Zoom, Atlassian, Notion, HubSpot, Dropbox,
+      Salesforce, ServiceNow, Okta, DocuSign, Box, Monday.com, Workday,
+      Zendesk, Twilio, Snowflake, Datadog, Cloudflare, PagerDuty, Elastic,
+      Confluent, MongoDB, GitLab, Airtable, Figma.
+
+      Write /workspace/findings_privacy.json as a JSON array with one object
+      per vendor containing: vendor_name, gdpr_claim (string summary),
+      ccpa_claim (string summary), dpa_available (true / false / unverified),
+      privacy_evidence_url (URL to their privacy/DPA page),
+      regulatory_alignment (Aligned / Partial / Unverified),
+      verbatim_excerpt (20+ word direct quote from their privacy page),
+      notes.
+
+      Focus only on data privacy. Do not check SLA, certifications, incidents,
+      or contract terms.
+
+  - id: incident-history-specialist
+    parallel_group: specialists
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      You are the Incident History specialist. Your job is to find any publicly
+      reported data breaches, significant outages, or security incidents
+      involving each of the 25 vendors in the last 24 months.
+
+      IMPORTANT: Do NOT rely on the vendor's current status page (e.g.
+      status.vendor.com) — those show current uptime, not historical incidents.
+      Instead, for each vendor use web search to find historical incidents:
+      search for "[vendor name] data breach 2024", "[vendor name] security
+      incident 2025", "[vendor name] outage 2024", and check the vendor's own
+      security advisories page or blog. Also check the vendor's status page
+      history section (past incidents tab) if available. Look for vendor
+      security advisories, public breach notifications (HaveIBeenPwned,
+      SEC filings, news reports). When you find an incident, copy a verbatim
+      excerpt of at least 20 words from the source page describing it.
+
+      Vendors to check: Slack, Zoom, Atlassian, Notion, HubSpot, Dropbox,
+      Salesforce, ServiceNow, Okta, DocuSign, Box, Monday.com, Workday,
+      Zendesk, Twilio, Snowflake, Datadog, Cloudflare, PagerDuty, Elastic,
+      Confluent, MongoDB, GitLab, Airtable, Figma.
+
+      Write /workspace/findings_incidents.json as a JSON array with one object
+      per vendor containing: vendor_name, incident_found (true / false),
+      incident_summary (brief description, or "None found in last 24 months"),
+      incident_date (YYYY-MM if known, else null),
+      incident_source_url (URL to the public disclosure or report, null if none),
+      verbatim_excerpt (20+ word direct quote from the incident report, or
+      "No excerpt available" if no incident found).
+
+      If no incident is found after reasonable searching, write "None found in
+      last 24 months" — do not leave the field blank.
+      Focus only on incident history. Do not check SLA, certifications, privacy,
+      or contract terms.
+
+  - id: contract-risk-specialist
+    parallel_group: specialists
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      You are the Contract Risk specialist. Your job is to review the publicly
+      available Terms of Service and Data Processing Agreements for all 25
+      vendors and flag notable risk terms.
+
+      For each vendor, find their publicly available Terms of Service or Master
+      Service Agreement. Look specifically for:
+      - Liability cap (capped at one month fees, one year, or uncapped?)
+      - Data ownership clauses (does the vendor claim any rights to customer data?)
+      - Exit/termination terms (notice period required, data export rights?)
+      - Unilateral change rights (can vendor change terms without notice?)
+
+      Vendors to check: Slack, Zoom, Atlassian, Notion, HubSpot, Dropbox,
+      Salesforce, ServiceNow, Okta, DocuSign, Box, Monday.com, Workday,
+      Zendesk, Twilio, Snowflake, Datadog, Cloudflare, PagerDuty, Elastic,
+      Confluent, MongoDB, GitLab, Airtable, Figma.
+
+      Write /workspace/findings_contracts.json as a JSON array with one object
+      per vendor containing: vendor_name, tos_url (URL to their public ToS/MSA),
+      liability_cap (string description), data_ownership_risk (High / Medium / Low),
+      exit_terms_risk (High / Medium / Low), contract_risk_notes.
+
+      Focus only on contract risk terms. Do not check SLA, certifications,
+      privacy, or incidents.
+
+
+  - id: evidence-compiler
+    parallel_group: merger
+    subagent_type: explore
+    depends_on:
+      - sla-performance-specialist
+      - security-cert-specialist
+      - privacy-compliance-specialist
+      - incident-history-specialist
+      - contract-risk-specialist
+    description: >-
+      You are the Evidence Compiler. Read the four domain specialist findings
+      files for the evidence log: /workspace/findings_sla.json,
+      /workspace/findings_certs.json, /workspace/findings_privacy.json,
+      /workspace/findings_incidents.json. (The contract risk findings are
+      handled separately by the Conflict Resolver.)
+
+      Extract the evidence entries from each specialist's output and compile
+      them into the evidence log. For each vendor and each domain (sla, certs,
+      privacy, incidents), create one evidence entry containing: vendor_name,
+      domain (exactly one of: sla, certs, privacy, incidents), claim_made
+      (what the vendor claims or what was found), verification_url (the URL
+      used to verify), verbatim_excerpt (the 20+ word direct quote from the
+      specialist's findings — copy it exactly as the specialist recorded it).
+
+      If a specialist wrote "No excerpt available" or did not include a
+      verbatim excerpt for a vendor, carry that through — do not fabricate
+      excerpts.
+
+      IMPORTANT — entry ordering: Write entries interleaved by vendor, NOT
+      grouped by domain. The correct order is: Slack-sla, Slack-certs,
+      Slack-privacy, Slack-incidents, Zoom-sla, Zoom-certs, Zoom-privacy,
+      Zoom-incidents, Atlassian-sla ... and so on through all 25 vendors.
+      This ensures all 25 vendors appear distributed throughout the file, not
+      clustered at the end.
+
+      Before writing, verify that every one of the 25 vendors has at least one
+      entry for each of the four domains (sla, certs, privacy, incidents) —
+      that is 100 entries minimum covering all 25 vendors across all 4 domains.
+      If any vendor is missing from a domain in the specialist files, create a
+      placeholder entry with claim_made = "Not available" and verbatim_excerpt =
+      "No excerpt available". Do not write any entry where verbatim_excerpt is
+      fewer than 20 words unless it is exactly "No excerpt available" — if a
+      specialist recorded a fragment shorter than 20 words, replace it with
+      "No excerpt available" rather than carrying through a meaningless snippet.
+
+      Write /logs/agent/evidence_log.json as a JSON array with at least 100
+      entries (25 vendors x 4 domains). Each entry must have all five fields.
+
+  - id: conflict-resolver
+    parallel_group: merger
+    subagent_type: explore
+    depends_on:
+      - sla-performance-specialist
+      - security-cert-specialist
+      - privacy-compliance-specialist
+      - incident-history-specialist
+      - contract-risk-specialist
+    description: >-
+      You are the Conflict Resolver. Read all five specialist findings files:
+      /workspace/findings_sla.json, /workspace/findings_certs.json,
+      /workspace/findings_privacy.json, /workspace/findings_incidents.json,
+      /workspace/findings_contracts.json.
+
+      Resolve boundary cases across specialist outputs:
+
+      1. If a vendor has a reported incident but no corresponding mention in
+         privacy findings, flag this as an unaddressed privacy gap.
+
+      2. If a vendor claims ISO 27001 or SOC 2 but privacy findings show weak
+         or unverified GDPR alignment, flag the inconsistency.
+
+      3. If a vendor's contract shows High data_ownership_risk but their privacy
+         claim appears strong, note the contradiction.
+
+      4. If the same claim appears in both certs and privacy findings with
+         conflicting status, keep the more conservative result and note it.
+
+      Merge all five findings per vendor into one resolved record. Write
+      /workspace/findings_resolved.json as a JSON array with one object per
+      vendor containing all fields from all five specialist outputs, plus a
+      conflict_notes field describing any resolved boundary cases.
+
+      Then assign an overall_risk level per vendor: High if any cert "Not found"
+      in registry, confirmed incident in last 24 months, data_ownership_risk
+      High, or three or more Unverified claims. Medium if one or two Unverified
+      claims, expired cert, moderate contract risk, or unsupported SLA. Low if
+      everything checks out.
+
+      Rank all 25 vendors 1 (highest risk) to 25 (lowest risk). Write
+      /workspace/risk_ranking.json as a JSON array sorted by risk_rank with
+      fields: vendor_name, risk_rank (integer 1-25), risk_level (High / Medium
+      / Low), justification (one to two sentences citing specific findings from
+      at least two of the four audit domains — for example: "SOC 2 registry
+      shows 'Not found' (certs) and a confirmed June 2025 breach was reported
+      (incidents)" or "SLA history shows 99.5% vs claimed 99.99% (sla) and
+      GDPR DPA is missing (privacy)"; a risk ranking produced from a four-domain
+      audit must reflect evidence from multiple domains, not a single data point).
+
+  - id: final-assembler
+    parallel_group: output
+    subagent_type: explore
+    depends_on:
+      - conflict-resolver
+      - evidence-compiler
+    description: >-
+      You are the Final Assembler. Read /workspace/findings_resolved.json and
+      /workspace/risk_ranking.json.
+
+      You must produce two files under /logs/agent/:
+
+      First, produce /logs/agent/output.xlsx with exactly two sheets using
+      openpyxl or xlsxwriter.
+
+      Sheet 1 — vendor_audit (25 data rows, one per vendor, plus header row):
+      Columns in order: vendor_name, sla_claim, sla_evidence_url, cert_claimed,
+      cert_registry_status, privacy_claim, privacy_verified, incident_summary,
+      incident_source_url, overall_risk, notes
+
+      Sheet 2 — risk_ranking (25 data rows, one per vendor, plus header row):
+      Columns in order: vendor_name, risk_rank, risk_level, justification
+
+      Strict rules for the xlsx:
+      - No blank cells — write "Unverified" for any field where data is missing
+      - cert_registry_status must be exactly one of: Verified, Expired,
+        Not found, Unverified
+      - overall_risk must be exactly one of: High, Medium, Low
+      - risk_rank values must be integers 1 through 25 with no duplicates
+
+      Second, produce /logs/agent/risk_report.md as a written risk assessment
+      between 2000 and 3000 words. Start with an executive summary of 200 to
+      300 words covering the overall compliance posture across all 25 vendors.
+      Then cover per-domain findings for SLA, certifications, privacy, and
+      incidents, naming specific vendors. Call out the top five highest-risk
+      vendors by name with specific evidence. Identify cross-vendor patterns.
+      Close with a contract renewal action plan: for each of the five highest-risk
+      vendors assign a renewal decision of Renew, Renegotiate, or Escalate to Legal,
+      list the specific contract clauses or compliance gaps that drove that decision,
+      and give a suggested sequence for handling them across Q3. Write in continuous
+      prose with clear paragraph breaks, no markdown headings. Reference specific
+      vendors throughout.
+
+      Make sure the top five vendors in risk_ranking match the top five called
+      out in the risk report.

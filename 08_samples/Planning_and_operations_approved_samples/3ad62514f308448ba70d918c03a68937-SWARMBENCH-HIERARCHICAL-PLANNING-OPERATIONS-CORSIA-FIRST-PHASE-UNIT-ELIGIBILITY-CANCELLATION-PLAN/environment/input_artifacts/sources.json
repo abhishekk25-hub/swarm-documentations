@@ -1,0 +1,59 @@
+{
+  "captured": "2026-08-17",
+  "note": "Each entry is a verbatim capture of a public document. Re-fetch the url and compare the SHA-256 to confirm nothing here has been altered.",
+  "sources": [
+    {
+      "source_id": "ICAO-CEEU-2026-04",
+      "publisher": "International Civil Aviation Organization",
+      "title": "ICAO document - CORSIA Eligible Emissions Units, 14th edition, April 2026",
+      "url": "https://www.icao.int/sites/default/files/environmental-protection/CORSIA/Documents/CORSIA%20Eligible%20Emissions%20Units/CORSIA-Eligible-Emissions-Units_April-2026.pdf",
+      "captured": "2026-08-17",
+      "pdf_file": "/input_artifacts/sources/ICAO-CEEU-2026-04.pdf",
+      "text_file": "/input_artifacts/sources/ICAO-CEEU-2026-04.txt",
+      "pdf_sha256": "cede2b61d7b5f738670cbf754a863629b4aa4349b5ecc121018d2f5e39481b2e",
+      "text_sha256": "ae26d0bd785f24fcfd7ddb9cb6645f12bf6245264e09f303310ef78e2e1bcf90",
+      "pdf_bytes": 678732,
+      "text_bytes": 55777,
+      "governs": "Which programmes the ICAO Council approved for each compliance period, and for each the Eligibility Timeframe, the Eligible Unit Dates and the Scope of Eligibility with its exclusions."
+    },
+    {
+      "source_id": "ICAO-TAB-SUMMARY-2026-04",
+      "publisher": "ICAO Technical Advisory Body",
+      "title": "Programme Eligibility Summary Table, April 2026",
+      "url": "https://www.icao.int/sites/default/files/environmental-protection/CORSIA/TAB/2026/Programme-Eligibility-Summary-Table-Apr2026.pdf",
+      "captured": "2026-08-17",
+      "text_file": "/input_artifacts/sources/ICAO-TAB-SUMMARY-2026-04.txt",
+      "text_sha256": "ecb31a945820b57d55ee14742c0f1e18daf5cef0eedfc723725b1d740a8e58ad",
+      "text_bytes": 1697,
+      "governs": "Which programmes hold full or conditional approval across the pilot, first and second compliance periods.",
+      "pdf_sha256_of_source_pdf": "5901bd0b59ef2c2b7143a1443c0df308e359fa560a27da4fe2826c3032452de9",
+      "note": "Text extracted from the publisher's PDF; the hash is of that PDF as fetched from the url."
+    },
+    {
+      "source_id": "ICAO-EUC-DOC09",
+      "publisher": "International Civil Aviation Organization",
+      "title": "ICAO document - CORSIA Emissions Unit Eligibility Criteria",
+      "url": "https://www.icao.int/sites/default/files/sp-files/environmental-protection/CORSIA/Documents/ICAO_Document_09.pdf",
+      "captured": "2026-08-17",
+      "text_file": "/input_artifacts/sources/ICAO-EUC-DOC09.txt",
+      "text_sha256": "f9936149ff86f8c63735c1852304ffb1d1490adb3002667fa70edd5b135d7a1d",
+      "text_bytes": 11102,
+      "governs": "The programme-level criteria the Council assesses against, including the avoidance of double counting.",
+      "pdf_sha256_of_source_pdf": "0a3aefe92404167b7a6e73850976294efe012f4e8d8dffa929805fae67560553",
+      "note": "Text extracted from the publisher's PDF; the hash is of that PDF as fetched from the url."
+    },
+    {
+      "source_id": "VROD-2026-06",
+      "publisher": "Berkeley Carbon Trading Project, Goldman School of Public Policy, University of California Berkeley",
+      "title": "Voluntary Registry Offsets Database v2026-06",
+      "url": "https://gspp.berkeley.edu/assets/uploads/page/Voluntary-Registry-Offsets-Database--v2026-06.xlsx",
+      "captured": "2026-08-17",
+      "derived_files": [
+        "/input_artifacts/candidate_pool.csv",
+        "/input_artifacts/programme_labelling_extract.csv"
+      ],
+      "pdf_sha256": "6068c1bc5b28ce39c14af50220ace62f8e79cdab85f45f3ff179a37cb1bdb61c",
+      "governs": "The registry record for each candidate activity: registry of issue, activity type and methodology, host country, first project vintage, per-vintage quantity still unretired, and the labels each programme has attached to the activity."
+    }
+  ]
+}

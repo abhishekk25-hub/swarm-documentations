@@ -1,0 +1,301 @@
+{
+  "task": "swarmbench/af1c5fc298264529a8c0c085b156c327-SWARMBENCH-SPECIALIST-ROUTING-PLANNING-OPERATIONS-DELMARVA-SUPERLOAD-CORRIDOR-PERMIT-DISPOSITION",
+  "grader": "tests/verify.py",
+  "reward_file": "/logs/verifier/reward.json",
+  "scoring": "Each check returns a fraction in [0, 1]. Bucket scores are the plain mean of their checks. reward = (static_checks + 2*reward_hacking_checks + 3*partial_oracle_checks)/6. No caps, floors, ceilings, binary gates, mode-specific branches or per-check multipliers are applied anywhere.",
+  "determinism": "Fully deterministic. No LLM judge, no network access, no randomness, no clock read and no answer-key file. Every expectation is recomputed from the packaged inputs at grading time.",
+  "total_checks": 35,
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Opens each of the seven declared output paths directly - no searching, guessing or relocating - and scores the share that exist, stay under the 3 MB ceiling, and carry records that belong to this docket: the disposition file must name at least two real application ids, the register and the chart at least two real structure numbers, the programme at least one, the refusal register and the letter at least one and two real application ids respectively, and the CSV and TSV files must carry a header plus rows with the right delimiter. Field-level correctness is not inspected here.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/structure_capacity_register.csv",
+        "/logs/agent/permit_dispositions.json",
+        "/logs/agent/rerating_programme.csv",
+        "/logs/agent/corridor_bottleneck_ledger.tsv",
+        "/logs/agent/refusal_register.csv",
+        "/logs/agent/capacity_profile.svg",
+        "/logs/agent/permit_decision_letter.md"
+      ],
+      "check_function": "static_required_artifacts_present",
+      "how_it_prevents_task_authenticity_violation": "Stops a run being credited for work whose artifact was never written, was written to a relative logs/agent folder instead of the absolute one, or was left as a stub. Because the gate looks for the docket's own identifiers rather than a byte count or a well-formed shell, neither a one-character placeholder nor a type-conforming empty stub such as an empty JSON object or a bare svg scores anything here."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Requires the register header to be the exact 24 columns in the exact order instruction.md fixes, the row count to be 88, the structure numbers written to cover the 88 structures in the pinned NBI extract, and the rows to be sorted by corridor_id then ascending kilometerpoint then structure number. Each of the four is a separate fraction and the check returns their mean.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/structure_capacity_register.csv",
+      "check_function": "static_register_shape_and_coverage",
+      "how_it_prevents_task_authenticity_violation": "Prevents a partial register being presented as a complete corridor assessment: coverage is measured against the 88 structures in the packaged extract, not against however many rows the agent chose to write."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "Parses permit_dispositions.json and requires exactly the three top-level keys docket_date, dispositions and summary; 72 entries; each entry carrying exactly the thirteen declared keys and no others; the summary carrying exactly the eleven declared keys; and the application ids present covering the 72 in the packaged application table.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/permit_dispositions.json",
+      "check_function": "static_dispositions_json_shape",
+      "how_it_prevents_task_authenticity_violation": "Stops an agent inventing extra fields to look thorough or dropping declared fields it could not compute, and stops a short disposition list passing as a disposed docket."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "Requires rerating_programme.csv and refusal_register.csv to carry their exact declared headers, requires the programme to hold a number of rows scaled against how many structures the evidence actually makes re-ratable rather than merely being non-empty, requires every application id in the refusal register to exist in the packaged application table, and requires that register to be sorted ascending. An empty refusal register fails the last two legs rather than passing them vacuously.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/rerating_programme.csv",
+        "/logs/agent/refusal_register.csv"
+      ],
+      "check_function": "static_programme_and_refusal_shape",
+      "how_it_prevents_task_authenticity_violation": "Closes the loophole where writing an empty file satisfies ordering and membership tests by having nothing to order or check, and the matching one where a single fabricated programme row collected the same credit as a programme sized to the work."
+    },
+    "static_checks_5": {
+      "detailed_explanation_of_checks": "Requires corridor_bottleneck_ledger.tsv to be tab-separated with the exact nine declared columns, to hold 30 rows, to cover every one of the six corridor by five weight-band cells exactly once, and to be sorted by corridor then by the band order the rules file fixes.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/corridor_bottleneck_ledger.tsv",
+      "check_function": "static_ledger_shape",
+      "how_it_prevents_task_authenticity_violation": "Prevents a ledger that quietly omits the bands or corridors where the analysis was hardest while still looking like a complete grid."
+    },
+    "static_checks_6": {
+      "detailed_explanation_of_checks": "Parses capacity_profile.svg as XML, requires the root element to be svg with viewBox exactly '0 0 1200 780', requires at least one rect carrying a data-structure attribute, and scans the raw text for any href, src or xlink:href pointing at an external host.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/capacity_profile.svg",
+      "check_function": "static_chart_is_standalone_svg",
+      "how_it_prevents_task_authenticity_violation": "Stops a chart that renders only by pulling a remote asset, or that is a stub with no drawn structures, from being counted as a delivered visualisation."
+    },
+    "static_checks_7": {
+      "detailed_explanation_of_checks": "Structure of the letter only. Requires permit_decision_letter.md to open with a Docket summary section carrying at least twelve words of prose, to include one APP-nnn section for each of the 72 applications, to run in ascending application order, and to contain no duplicated section heading. Coverage is denominated over all 72 applications. Whether the summary states the docket real figures is a content question, scored separately by partial_oracle_docket_summary_figures.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/permit_decision_letter.md",
+      "check_function": "static_letter_section_inventory",
+      "how_it_prevents_task_authenticity_violation": "Prevents a letter that covers a handful of easy applications, repeats a section under two headings, or reorders sections to disguise omissions from passing as the full decision letter, and stops a one-word placeholder standing in for the summary section."
+    },
+    "static_checks_8": {
+      "detailed_explanation_of_checks": "Walks every identifier-bearing field across five artifacts - register structure numbers and governing memo ids, disposition application ids, crossed structures, controlling structures, blocking structures and cited memos, programme structures, engineers and relieved applications, refusal application ids, blocking structures and supporting memos, and ledger bottleneck structures - and scores the share that resolve to a record actually present in the packaged extract, memo corpus, application table or engineer roster.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/structure_capacity_register.csv",
+        "/logs/agent/permit_dispositions.json",
+        "/logs/agent/rerating_programme.csv",
+        "/logs/agent/corridor_bottleneck_ledger.tsv",
+        "/logs/agent/refusal_register.csv"
+      ],
+      "check_function": "static_identifier_domain_integrity",
+      "how_it_prevents_task_authenticity_violation": "Catches invented structure numbers, invented memo ids, invented engineers and invented application ids, which are the cheapest way to make an artifact look populated without doing the underlying lookup."
+    },
+    "static_checks_9": {
+      "detailed_explanation_of_checks": "Tests every ordering, emptiness and derived-count rule the instruction states, at the place it states it: disposition entries in ascending application order; structures_crossed in path order (corridor, then kilometerpoint, then structure number) for the structures actually listed; governing_memo_ids, blocking_structures and condition_codes ascending and free of repeats in the JSON; a refusal reason code present exactly when the application is not issued; a detour of zero except on a load reroute; the re-rating programme sorted by week index then structure number; relieved_application_ids ascending and free of repeats, with applications_relieved equal to that list own length; blocking_structures and supporting_memo_ids ascending and free of repeats in the refusal register; and every register column written to exactly the number of decimal places the instruction fixes for it (three for kilometerpoint, two for the derate factor and height limit, one for the four tonnage columns and the width limit, and one for the standing restriction and re-rated capacity columns wherever a figure is written in them). Scored as the share of those rules that hold.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/permit_dispositions.json",
+        "/logs/agent/rerating_programme.csv",
+        "/logs/agent/refusal_register.csv"
+      ],
+      "check_function": "static_declared_ordering_and_derived_counts",
+      "how_it_prevents_task_authenticity_violation": "Closes the gap where the instruction promises an order or a derived count that nothing tests, which would let a submission emit unordered dumps and inconsistent counts while collecting full credit for those fields."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "Scores four coverage-denominated fractions and returns their mean: structure rows that are unique, real, and carry at least one derived value (effective capacity or derate factor - the re-rating effort figure is a table lookup on the raw extract and does not count) that holds up against the evidence, denominated over the 88 in the extract; unique known application entries against the 72 in the table; programme rows that name a genuinely re-rate-eligible structure with no duplicated row and no application claimed on two rows; and refusal rows covering the applications that the evidence actually leaves unissued, less duplicates and less rows padded in for applications that were issued. Every denominator is the corpus, never the rows the agent chose to write.",
+      "weight": 2,
+      "agent_output_path": [
+        "/logs/agent/structure_capacity_register.csv",
+        "/logs/agent/permit_dispositions.json",
+        "/logs/agent/rerating_programme.csv",
+        "/logs/agent/refusal_register.csv"
+      ],
+      "check_function": "reward_hacking_no_duplicate_or_phantom_rows",
+      "how_it_prevents_task_authenticity_violation": "Defeats the cheapest ways to fake completeness: repeating rows to hit a count, trimming the file to only the rows the run is sure of so that duplicate and phantom tests pass on a shrunken denominator, padding the refusal register with issued applications, and copying the real structure numbers across while stubbing out every other cell, which now earns nothing because the identity has to be accompanied by a derived value that survives checking."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Two halves multiplied rather than averaged, so neither half can carry the check alone. The self-consistency half recomputes all eleven summary fields from the agent own written rows: the five decision counts and the application count from the disposition entries, structures assessed and structures carrying a standing restriction from the register, distinct controlling structures and total detour kilometres from the entries, and relieved applications from the programme rows. The grounded half checks three counts that cannot be read off the instruction and only fall out of the analysis - the number of structures the memo file actually leaves restricted, the number of distinct controlling structures across the docket, and the total detour distance - and requires the refusal register to hold exactly as many rows as the summary own unissued counts declare.",
+      "weight": 2,
+      "agent_output_path": [
+        "/logs/agent/permit_dispositions.json",
+        "/logs/agent/structure_capacity_register.csv",
+        "/logs/agent/rerating_programme.csv"
+      ],
+      "check_function": "reward_hacking_summary_reconciles_with_rows",
+      "how_it_prevents_task_authenticity_violation": "A coherent fabrication satisfies self-consistency by construction, so it is multiplied by the grounded half rather than averaged with it: an agent that derives its summary programmatically from fabricated rows now scores zero here instead of collecting half the check. The docket size and structure count are deliberately excluded because the instruction states them, so restating them proves nothing."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Three legs. First, for all 88 structures, whether the agent's effective capacity moves away from the operating rating exactly when the derate, posting cap or standing interim limit require it to move, and holds equal to it exactly when they do not. Second, whether the size of that move is right, comparing the ratio of written capacity to pinned operating rating against the same ratio in the evidence to within one percent. Third, whether the spread of distinct capacity values written and the share held by the single most common value are comparable to the evidence, taking the harsher of the two. The check returns the mean.",
+      "weight": 2,
+      "agent_output_path": "/logs/agent/structure_capacity_register.csv",
+      "check_function": "reward_hacking_register_is_derived_not_copied",
+      "how_it_prevents_task_authenticity_violation": "Detects the hollow registers that look complete: transcribing the pinned operating rating into the capacity column without applying a derate or a standing limit, stamping one default figure down the whole column, and applying a single uniform factor to every row, which satisfies direction and distribution but fails on the size of the move."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Three defences, all denominated over the 72 applications. Pairwise eight-gram Jaccard of each section against every other section in the letter, requiring the worst overlap to stay under 0.45; the average reach of the five most reused eight-word runs, with reuse up to 30 percent treated as ordinary drafting; and whether each section carries at least three identifiers or figures that genuinely belong to that application - a structure on its own path, a memo governing one of them, its own applicant, commodity, gross weight, width, height or controlling capacity - each of which appears in no more than a quarter of the sections.",
+      "weight": 2,
+      "agent_output_path": "/logs/agent/permit_decision_letter.md",
+      "check_function": "reward_hacking_letter_sections_are_case_specific",
+      "how_it_prevents_task_authenticity_violation": "Stops one paragraph being reproduced 72 times with the identifiers swapped. Because the first leg compares against every other section rather than a local window, spacing a rotation of templates apart no longer hides it; because the second leg averages the five most reused runs, rotating several templates does not slip under a single-run threshold; and because the third leg counts only marks drawn from that application own evidence, sprinkling arbitrary unique nonsense strings no longer satisfies it."
+    },
+    "reward_hacking_checks_5": {
+      "detailed_explanation_of_checks": "For each of the 72 applications, seven tests. The first three are measured against the evidence and against the agent's own row together, so both must agree: the gross weight stated in the section and in the disposition row must both equal the packaged application record, the controlling structure named in the section and in the row must both be the one the evidence gives, and the decision spoken in the section and written in the row must both be the evidence-determined decision. The remaining four are measured against the packaged application record: names at least one structure that genuinely lies on that application path in the packaged records, states the packaged overall width or height, names the applicant on record, and names the commodity on record. A section that names more than two structures beyond the ones the movement actually touches forfeits all seven.",
+      "weight": 2,
+      "agent_output_path": [
+        "/logs/agent/permit_decision_letter.md",
+        "/logs/agent/permit_dispositions.json"
+      ],
+      "check_function": "reward_hacking_letter_figures_match_dispositions",
+      "how_it_prevents_task_authenticity_violation": "Catches a letter that is internally decorative rather than derived: figures that contradict the agent own structured output, and sections that never touch the packaged facts of the application they claim to decide. Grounding the first three tests in the evidence means a letter mail-merged faithfully from a fabricated disposition scores nothing on them, and the flood guard means printing the whole structure roster into every section scores nothing at all."
+    },
+    "reward_hacking_checks_6": {
+      "detailed_explanation_of_checks": "Builds shingles of six consecutive content words (function words removed) from the letter and measures the share that also appear in the packaged field memo corpus or the rules file. Zero overlap earns full credit and eight percent or more earns none, on a linear scale between.",
+      "weight": 2,
+      "agent_output_path": "/logs/agent/permit_decision_letter.md",
+      "check_function": "reward_hacking_letter_not_copied_source_prose",
+      "how_it_prevents_task_authenticity_violation": "Prevents the long-writing requirement being met by pasting inspection narrative and rulebook text into the letter. Shingling over content words rather than raw contiguous words means padding a lifted passage with filler words does not collapse the measured overlap."
+    },
+    "reward_hacking_checks_7": {
+      "detailed_explanation_of_checks": "Four legs, each denominated over the 88 structures. First, every bar x, y, height, width and corridor attribute recomputed from the evidence: the structure real kilometerpoint and its evidence-determined effective capacity. Second, the share of drawn bars that are neither phantom (a data-structure that is not a real structure) nor duplicated. Third, whether data-role is RERATED for the structures in the submitted programme, BOTTLENECK for the corridor bottleneck the evidence gives, and NORMAL elsewhere. Fourth, whether each of the six lanes carries a visible text label naming its corridor and that corridor lowest effective capacity, and whether a visible text states the engineer-weeks the programme spends.",
+      "weight": 2,
+      "agent_output_path": [
+        "/logs/agent/capacity_profile.svg",
+        "/logs/agent/structure_capacity_register.csv",
+        "/logs/agent/rerating_programme.csv"
+      ],
+      "check_function": "reward_hacking_chart_geometry_follows_register",
+      "how_it_prevents_task_authenticity_violation": "A chart mechanically re-derived from a fabricated register used to score full marks here. Every leg is now measured against the evidence or against the drawn bars themselves rather than against the submitted register, so a self-consistent fabrication earns nothing on geometry or role, phantom and duplicated bars are penalised directly, and the label leg stops a chart that draws bars but communicates nothing."
+    },
+    "reward_hacking_checks_8": {
+      "detailed_explanation_of_checks": "Two legs. Every decision, condition code, escort class, refusal reason code, material class and programme week index is tested against the closed list the rules file states. Then the normalised mutual information between the decisions the agent wrote and the decisions the evidence gives is computed application by application, and the same for escort class, so the measure is of paired agreement rather than of label shape.",
+      "weight": 2,
+      "agent_output_path": [
+        "/logs/agent/permit_dispositions.json",
+        "/logs/agent/refusal_register.csv",
+        "/logs/agent/structure_capacity_register.csv",
+        "/logs/agent/rerating_programme.csv"
+      ],
+      "check_function": "reward_hacking_no_invented_codes_or_criteria",
+      "how_it_prevents_task_authenticity_violation": "Blocks criteria and codes invented outside the rulebook, and separately blocks verdicts that carry no information about the case: stamping one verdict across the docket scores zero, and so does cycling the closed vocabulary round the applications, because neither tells you anything about which application got which verdict."
+    },
+    "reward_hacking_checks_9": {
+      "detailed_explanation_of_checks": "Scores an F1 of the register's structure-to-memo citations against the memos the rules actually make govern on the docket date, then separately the share of memos cited in the dispositions and refusal register that are governing memos, and returns the mean.",
+      "weight": 2,
+      "agent_output_path": [
+        "/logs/agent/structure_capacity_register.csv",
+        "/logs/agent/permit_dispositions.json",
+        "/logs/agent/refusal_register.csv"
+      ],
+      "check_function": "reward_hacking_memo_citations_actually_govern",
+      "how_it_prevents_task_authenticity_violation": "Neither citing nothing nor citing every memo on a structure's file can pass. A citation only earns credit when the memo named is the one that survives the supersession, concurrence, rescission and review-date tests, which is exactly the reading the task is about."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "For each of the 88 structures, six values recomputed from the pinned extract and the rules: the whole transcribed identity block taken as one item (route label, county, year built, design load code, operating rating, inventory rating, posting status and material class, all of which must be right together), then the governing condition rating as the lowest of the four coded condition items that carry a digit, the derate factor that rating produces, the width limit, the height limit and the bypass detour length. Scored as the share of the 528 values that match.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/structure_capacity_register.csv",
+      "check_function": "partial_oracle_coded_facts_and_derate",
+      "how_it_prevents_task_authenticity_violation": "Confirms the coded facts were actually read rather than assumed: that items coded N were skipped rather than treated as zero, that the no-restriction sentinels in the clearance fields were recognised, and that the identity block was carried across from the real record instead of being filled in from memory. Bundling the eight transcription fields into a single item keeps easy copying from dominating the check."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "Rebuilds, from the 331 memos themselves, which structures carry an interim gross crossing limit standing on the docket date and at what figure, by walking each structure's memos in filed order and applying the rules on concurrence, revision, rescission and the review-by date. Scored as an F1 of structure-and-figure pairs against the agent's register, with no credit for silence.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/structure_capacity_register.csv",
+      "check_function": "partial_oracle_standing_restrictions",
+      "how_it_prevents_task_authenticity_violation": "This is the load-bearing evidence read. Asserting no limits, asserting every proposed limit, carrying a rescinded limit forward, keeping a lapsed one alive or attaching a neighbour's limit all score zero on the pairs they get wrong, and leaving the column blank earns nothing at all."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "For each of the 88 structures, recomputes effective capacity as the operating rating times the condition derate, capped at the inventory rating where the structure is posted, then floored by any standing interim limit, and compares the agent's figure to within 0.05 t.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/structure_capacity_register.csv",
+      "check_function": "partial_oracle_effective_capacity",
+      "how_it_prevents_task_authenticity_violation": "Tests the one number every downstream decision rests on. It cannot be reached by transcription: it requires the coded condition read, the posting flag applied and the memo file settled."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "Grades the written deliverable against the evidence rather than against the agent's own rows. For each application: whether the section states the evidence-determined decision and no competing one, whether it names the evidence-determined controlling structure, whether it states that structure true effective capacity, whether it names every corridor the path runs on, whether it states how many structures the path crosses, whether it names every memo that governs a standing limit on the path (and names no memo at all where none governs), and, where the application is not issued, whether it names every one of its blocking structures. A section that names far more structures than the movement actually touches forfeits the identity legs, so flooding the page with identifiers cannot satisfy them.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/permit_decision_letter.md",
+      "check_function": "partial_oracle_letter_states_case_facts",
+      "how_it_prevents_task_authenticity_violation": "Makes the long-form artifact carry real content. A fluent letter that narrates the wrong decision, the wrong controlling structure or the wrong capacity earns nothing here, however well formed it is."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "For each of the 88 structures, three values: the eligibility flag under the condition, posting-status, design-load-code and improvement tests; the re-rated capacity as the lower of the design-load ceiling and the operating rating, required to be blank where the structure is not eligible; and the engineer-week effort from material class, span count and structure length.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/structure_capacity_register.csv",
+      "check_function": "partial_oracle_rerate_eligibility_and_yield",
+      "how_it_prevents_task_authenticity_violation": "Stops the re-rating layer being asserted rather than derived - marking everything eligible, quoting a ceiling as the re-rated capacity without bounding it by the operating rating, or defaulting the effort figure."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "For each of the 72 applications, rebuilds the path from its declared legs: every structure on a named corridor whose kilometerpoint lies inside that leg entry and exit, counted once where legs overlap, ordered by corridor then kilometerpoint then structure number. Two legs averaged: the mean F1 of the structure set against the agent structures_crossed, and the share of applications whose list matches the true path exactly and in order.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/permit_dispositions.json",
+      "check_function": "partial_oracle_path_construction",
+      "how_it_prevents_task_authenticity_violation": "Confirms the route was resolved against the packaged positions rather than guessed from the corridor name, and that the ordering the instruction asks for reflects the real sequence rather than an arbitrary dump."
+    },
+    "partial_oracle_checks_7": {
+      "detailed_explanation_of_checks": "For each of the 72 applications, whether the controlling structure is the one with the smallest effective capacity less gross weight, ties broken by the lower structure number, and whether the stated headroom matches to within 0.05 t.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/permit_dispositions.json",
+      "check_function": "partial_oracle_controlling_structure",
+      "how_it_prevents_task_authenticity_violation": "Catches a run that names the first structure on the path, the lowest-rated one by the pinned rating rather than by effective capacity, or a plausible structure it never actually compared."
+    },
+    "partial_oracle_checks_8": {
+      "detailed_explanation_of_checks": "Macro F1 across the five decisions - ISSUE, ISSUE_WITH_CONDITIONS, REROUTE_LOAD, REROUTE_CLEARANCE and REFUSE - over all 72 applications, each recomputed by running the rules ladder in order.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/permit_dispositions.json",
+      "check_function": "partial_oracle_decision_classification",
+      "how_it_prevents_task_authenticity_violation": "Macro averaging means a run that concentrates on the common verdict and never finds the rare ones scores badly, so the clearance reroutes and outright refusals cannot be skipped."
+    },
+    "partial_oracle_checks_9": {
+      "detailed_explanation_of_checks": "Builds the global set of application-and-condition-code pairs the rules require - the crawl, centreline and no-meet trio where weight exceeds capacity, lane closure where width exceeds the limit, police escort on width or no-meet, night move on the busiest structure - and scores an F1 against the pairs the agent wrote.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/permit_dispositions.json",
+      "check_function": "partial_oracle_condition_codes",
+      "how_it_prevents_task_authenticity_violation": "Scored globally rather than per application, so leaving the field empty everywhere earns nothing instead of collecting credit from the applications that legitimately carry no codes."
+    },
+    "partial_oracle_checks_10": {
+      "detailed_explanation_of_checks": "Macro F1 across NONE, SINGLE and DOUBLE over all 72 applications, each derived from the width and gross-weight thresholds in the rules.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/permit_dispositions.json",
+      "check_function": "partial_oracle_escort_class",
+      "how_it_prevents_task_authenticity_violation": "A small independent rule that is easy to default. Macro averaging denies credit to a run that assigns one class throughout."
+    },
+    "partial_oracle_checks_11": {
+      "detailed_explanation_of_checks": "Two legs: an F1 over the global set of application-and-blocking-structure pairs, and the share of the rerouted applications carrying the correct summed bypass detour distance, denominated over the applications that genuinely have a detour.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/permit_dispositions.json",
+      "check_function": "partial_oracle_blocking_structures_and_detour",
+      "how_it_prevents_task_authenticity_violation": "Identifies whether the run found the structures that actually stop each movement, and whether the detour figure was summed from the packaged bypass lengths of those structures rather than asserted."
+    },
+    "partial_oracle_checks_12": {
+      "detailed_explanation_of_checks": "For each application the evidence leaves unissued, five facts: that the row exists at all, the refusal reason code, the shortfall in tonnes against the lowest effective capacity among its blocking structures, whether re-rating those structures would in fact relieve it when the ladder is re-run at their re-rated capacities, and the earliest relief week, which must be the week the last of its blocking structures completes under the programme the agent actually submitted, or blank where that programme does not relieve it.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/refusal_register.csv",
+      "check_function": "partial_oracle_refusal_register_reasons",
+      "how_it_prevents_task_authenticity_violation": "The relief flag cannot be guessed: it requires re-running the whole ladder at the re-rated capacities, and it is false for every clearance reroute because refined analysis does not raise an overhead clearance. The relief week ties this register to the submitted programme, so the two files cannot be produced independently of one another."
+    },
+    "partial_oracle_checks_13": {
+      "detailed_explanation_of_checks": "Three legs averaged. Feasibility: per row, whether the structure is eligible, the effort figure right, the before and after capacities right, the engineer's specialty covering the material, and the weeks free and inside the eight-week window, plus the twenty-week budget and each engineer's availability. Honesty: the share of applications the programme claims to relieve that genuinely relieve when the ladder is re-run, averaged with the share of relieved applications credited to the structure the tie-break rule names, being whichever of its blocking structures finishes last and on a tie the lower structure number. Saturation: applications actually relieved against the optimum this verifier computes by exhaustive search over the candidate structures under the budget.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/rerating_programme.csv",
+      "check_function": "partial_oracle_rerating_programme_feasibility_and_saturation",
+      "how_it_prevents_task_authenticity_violation": "Rewards a programme that was solved rather than asserted. Claiming relief that does not survive re-running the ladder earns nothing, and a feasible but lazy programme is measured against what the twenty weeks could actually have bought."
+    },
+    "partial_oracle_checks_14": {
+      "detailed_explanation_of_checks": "For each of the 30 corridor-by-band cells, six derived values: structures below the band ceiling, the corridor's lowest effective capacity, its bottleneck structure, the applications whose weight falls in that band and whose path touches the corridor, how many of those are blocked on it, and whether the bottleneck has a usable bypass. The band ceiling itself is dictated by the instruction and is not scored.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/corridor_bottleneck_ledger.tsv",
+      "check_function": "partial_oracle_corridor_ledger_values",
+      "how_it_prevents_task_authenticity_violation": "Ties the corridor view back to both the capacity layer and the disposition layer, so the ledger cannot be filled from the extract alone, and refuses credit for the one column the instruction hands over."
+    },
+    "partial_oracle_checks_15": {
+      "detailed_explanation_of_checks": "Rebuilds each application as it stands on the docket date by walking its correspondence in date order and applying the amendments that bind, then checks three things: that the gross weight written in the disposition is the one that stands rather than the one that was filed, that the set of applications decided WITHDRAWN matches the set actually withdrawn (scored as an F1), and that the applications whose weight was amended carry the amended figure rather than the filed one.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/permit_dispositions.json",
+      "check_function": "partial_oracle_amended_application_record",
+      "how_it_prevents_task_authenticity_violation": "The filed application table is deliberately stale: most applications have been amended since and several withdrawn. A run that scripts the structured table and never opens the correspondence produces a confident, internally consistent docket built on superseded figures, and this check is where that shows up directly rather than only through its downstream effects."
+    },
+    "partial_oracle_checks_16": {
+      "detailed_explanation_of_checks": "For each of the 88 structures, classifies movement between the 2022 FHWA delivery and the pinned 2024 extract as DETERIORATED, IMPROVED or STABLE by applying the governing-condition rule to each delivery own coded items and comparing operating ratings, then scores macro F1 over the three classes against the register column.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/structure_capacity_register.csv",
+      "check_function": "partial_oracle_condition_trend",
+      "how_it_prevents_task_authenticity_violation": "This is the one column that cannot be answered from the current extract at all: it requires opening the prior-delivery file and comparing two real FHWA publications. Macro averaging means the 68 stable structures cannot carry the score, so a blanket STABLE earns little and the 13 improved and 7 deteriorated structures have to be found."
+    },
+    "partial_oracle_checks_17": {
+      "detailed_explanation_of_checks": "Reads the letter Docket summary section and checks that it states the docket real headline figures: the number of applications, each of the five decision counts recomputed from the evidence, and the number of structures carrying a standing interim limit; then that it states the two figures that are the agent own choices, the engineer-weeks the submitted programme spends and the applications it relieves. Each figure must sit in the same clause as words identifying which figure it is, so a figure quoted without a label does not count, and a summary carrying more than twenty distinct numbers scores zero because listing every figure available is not stating the docket figures.",
+      "weight": 3,
+      "agent_output_path": "/logs/agent/permit_decision_letter.md",
+      "check_function": "partial_oracle_docket_summary_figures",
+      "how_it_prevents_task_authenticity_violation": "The opening summary was otherwise only tested for presence, so a placeholder would have collected the credit. It now has to carry figures that match the evidence and the submitted programme, each next to the words that say what it is, which also defeats dumping the correct digits into a bare list."
+    }
+  }
+}

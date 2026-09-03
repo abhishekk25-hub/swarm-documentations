@@ -1,0 +1,29 @@
+[task]
+name = "swarmbench/e4f1a8c2d75b3096ab12ef345678cd90-SWARMBENCH-HIERARCHICAL-BROWSING-GLOBAL-MMR-DASHBOARD"
+description = "Build a live-data maternal and newborn health board pack for 100 countries across four regions: fetch three World Bank indicators and one WHO profile page per country through a hierarchical multi-agent pipeline, then produce three CSV files (data, MMR trend, source audit), a six-slide PowerPoint deck with region-coloured charts, and a Word executive summary with investment priority scoring."
+
+[metadata]
+verifier_type = "llm-judge"
+domain = "data-analysis"
+coordination_pattern = "hierarchical"
+secondary_classification = ["browsing", "multi_modal"]
+dag_depth = 3
+dag_width = 28
+human_solving_hours_estimate = 40.0
+human_solving_hours_justification = "A researcher must open the World Bank API for three indicators per country (100 × 3 = 300 API calls, each requiring URL construction, response parsing, and null-value handling ≈ 8 min each = 2400 min = 40 h), visit 100 WHO country profile pages and extract the health-situation sentence (100 × 5 min = 500 min = 8.3 h), write 100 structured JSON files with source URLs (100 × 4 min = 400 min = 6.7 h), produce the six-slide PowerPoint deck with four regional tables and two embedded charts (90 min), and compile the Word executive summary with investment priority scoring (30 min). Total = 40 + 8.3 + 6.7 + 1.5 + 0.5 = 57 h. A 30 % efficiency gain from URL-construction templating across same-region countries (shared base URL, only ISO3 varies) reduces this to 57 × 0.70 ≈ 40 h."
+estimated_sub_agents = 8
+input_token_estimate = 150000
+reference_link = "https://data.worldbank.org/indicator/SH.STA.MMRT"
+why_multi_agent = "The task runs as a three-tier hierarchy (dag_depth = 3). The orchestrator delegates to four regional managers, each of which spawns parallel country-level workers (up to 7 in parallel for Africa), validates their outputs, and writes a regional handoff file before yielding. A single agent processing 100 countries serially saturates its context window by country 10-12, causing it to fabricate or skip the remaining countries. The regional managers isolate each region in its own context and add a real verification step absent from flat fan-out. After all four managers complete, a data-aggregator and an audit-writer run in parallel to produce the three CSV files; a deck-producer and report-writer then run concurrently to produce the PowerPoint and Word summary. Each synthesis role has a single responsibility, so failures are localised and the reducer chain does not stall if one deliverable fails."
+
+[agent]
+timeout_sec = 747
+
+[verifier]
+timeout_sec = 900
+requires_network = true
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600

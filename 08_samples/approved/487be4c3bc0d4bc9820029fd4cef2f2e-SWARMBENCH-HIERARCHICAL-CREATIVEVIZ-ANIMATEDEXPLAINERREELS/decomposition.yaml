@@ -1,0 +1,502 @@
+# Hierarchical decomposition — Animated DATA-STORY reels (16 World Bank sections).
+#
+# Level 0 orchestrator -> 16 reel workers (one per section): fetch country+peer live,
+#   derive the story facts, write a faithful narrative, and render that section's reel.
+# Level 1 reel worker -> NO task tool; does its own fetch/analysis/writing/rendering.
+# Level 2 assembler -> concatenates the 16 records into manifest.json + output.json.
+#
+# Each section is independent; no computed truths/values appear here (only task inputs).
+
+coordination_pattern: hierarchical
+
+sub_tasks:
+  - id: reel-worker-pop_de
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/DE/indicator/SP.POP.TOTL?format=json&date=2000:2022&per_page=100
+      and the peer (France) series for the same indicator:
+      https://api.worldbank.org/v2/country/FR/indicator/SP.POP.TOTL?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From Germany's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": Germany's latest vs France's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the France comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/pop_de.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "Germany", the indicator "Total population", the latest value, and
+      the story beats (trend, peak/trough year, France comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"pop_de","country":"Germany","indicator":"Total population","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"France","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/pop_de.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/pop_de.mp4
+
+  - id: reel-worker-gdppc_jp
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/JP/indicator/NY.GDP.PCAP.CD?format=json&date=2000:2022&per_page=100
+      and the peer (South Korea) series for the same indicator:
+      https://api.worldbank.org/v2/country/KR/indicator/NY.GDP.PCAP.CD?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From Japan's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": Japan's latest vs South Korea's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the South Korea comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/gdppc_jp.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "Japan", the indicator "GDP per capita (USD)", the latest value, and
+      the story beats (trend, peak/trough year, South Korea comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"gdppc_jp","country":"Japan","indicator":"GDP per capita (USD)","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"South Korea","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/gdppc_jp.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/gdppc_jp.mp4
+
+  - id: reel-worker-life_br
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/BR/indicator/SP.DYN.LE00.IN?format=json&date=2000:2022&per_page=100
+      and the peer (Argentina) series for the same indicator:
+      https://api.worldbank.org/v2/country/AR/indicator/SP.DYN.LE00.IN?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From Brazil's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": Brazil's latest vs Argentina's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the Argentina comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/life_br.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "Brazil", the indicator "Life expectancy at birth", the latest value, and
+      the story beats (trend, peak/trough year, Argentina comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"life_br","country":"Brazil","indicator":"Life expectancy at birth","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"Argentina","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/life_br.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/life_br.mp4
+
+  - id: reel-worker-elec_ng
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/NG/indicator/EG.ELC.ACCS.ZS?format=json&date=2000:2022&per_page=100
+      and the peer (Kenya) series for the same indicator:
+      https://api.worldbank.org/v2/country/KE/indicator/EG.ELC.ACCS.ZS?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From Nigeria's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": Nigeria's latest vs Kenya's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the Kenya comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/elec_ng.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "Nigeria", the indicator "Access to electricity (%)", the latest value, and
+      the story beats (trend, peak/trough year, Kenya comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"elec_ng","country":"Nigeria","indicator":"Access to electricity (%)","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"Kenya","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/elec_ng.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/elec_ng.mp4
+
+  - id: reel-worker-internet_id
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/ID/indicator/IT.NET.USER.ZS?format=json&date=2000:2022&per_page=100
+      and the peer (Philippines) series for the same indicator:
+      https://api.worldbank.org/v2/country/PH/indicator/IT.NET.USER.ZS?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From Indonesia's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": Indonesia's latest vs Philippines's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the Philippines comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/internet_id.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "Indonesia", the indicator "Internet users (%)", the latest value, and
+      the story beats (trend, peak/trough year, Philippines comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"internet_id","country":"Indonesia","indicator":"Internet users (%)","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"Philippines","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/internet_id.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/internet_id.mp4
+
+  - id: reel-worker-urban_mx
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/MX/indicator/SP.URB.TOTL.IN.ZS?format=json&date=2000:2022&per_page=100
+      and the peer (Colombia) series for the same indicator:
+      https://api.worldbank.org/v2/country/CO/indicator/SP.URB.TOTL.IN.ZS?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From Mexico's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": Mexico's latest vs Colombia's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the Colombia comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/urban_mx.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "Mexico", the indicator "Urban population (%)", the latest value, and
+      the story beats (trend, peak/trough year, Colombia comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"urban_mx","country":"Mexico","indicator":"Urban population (%)","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"Colombia","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/urban_mx.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/urban_mx.mp4
+
+  - id: reel-worker-co2pc_us
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/US/indicator/EN.GHG.CO2.PC.CE.AR5?format=json&date=2000:2022&per_page=100
+      and the peer (China) series for the same indicator:
+      https://api.worldbank.org/v2/country/CN/indicator/EN.GHG.CO2.PC.CE.AR5?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From United States's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": United States's latest vs China's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the China comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/co2pc_us.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "United States", the indicator "CO2 emissions per capita", the latest value, and
+      the story beats (trend, peak/trough year, China comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"co2pc_us","country":"United States","indicator":"CO2 emissions per capita","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"China","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/co2pc_us.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/co2pc_us.mp4
+
+  - id: reel-worker-gdpgr_in
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/IN/indicator/NY.GDP.MKTP.KD.ZG?format=json&date=2000:2022&per_page=100
+      and the peer (China) series for the same indicator:
+      https://api.worldbank.org/v2/country/CN/indicator/NY.GDP.MKTP.KD.ZG?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From India's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": India's latest vs China's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the China comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/gdpgr_in.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "India", the indicator "GDP growth (%)", the latest value, and
+      the story beats (trend, peak/trough year, China comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"gdpgr_in","country":"India","indicator":"GDP growth (%)","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"China","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/gdpgr_in.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/gdpgr_in.mp4
+
+  - id: reel-worker-infl_tr
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/TR/indicator/FP.CPI.TOTL.ZG?format=json&date=2000:2022&per_page=100
+      and the peer (Brazil) series for the same indicator:
+      https://api.worldbank.org/v2/country/BR/indicator/FP.CPI.TOTL.ZG?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From Turkey's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": Turkey's latest vs Brazil's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the Brazil comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/infl_tr.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "Turkey", the indicator "Inflation (%)", the latest value, and
+      the story beats (trend, peak/trough year, Brazil comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"infl_tr","country":"Turkey","indicator":"Inflation (%)","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"Brazil","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/infl_tr.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/infl_tr.mp4
+
+  - id: reel-worker-unemp_es
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/ES/indicator/SL.UEM.TOTL.ZS?format=json&date=2000:2022&per_page=100
+      and the peer (Germany) series for the same indicator:
+      https://api.worldbank.org/v2/country/DE/indicator/SL.UEM.TOTL.ZS?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From Spain's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": Spain's latest vs Germany's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the Germany comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/unemp_es.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "Spain", the indicator "Unemployment (%)", the latest value, and
+      the story beats (trend, peak/trough year, Germany comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"unemp_es","country":"Spain","indicator":"Unemployment (%)","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"Germany","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/unemp_es.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/unemp_es.mp4
+
+  - id: reel-worker-fert_eg
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/EG/indicator/SP.DYN.TFRT.IN?format=json&date=2000:2022&per_page=100
+      and the peer (India) series for the same indicator:
+      https://api.worldbank.org/v2/country/IN/indicator/SP.DYN.TFRT.IN?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From Egypt's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": Egypt's latest vs India's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the India comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/fert_eg.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "Egypt", the indicator "Fertility rate", the latest value, and
+      the story beats (trend, peak/trough year, India comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"fert_eg","country":"Egypt","indicator":"Fertility rate","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"India","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/fert_eg.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/fert_eg.mp4
+
+  - id: reel-worker-prim_et
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/ET/indicator/SE.PRM.ENRR?format=json&date=2000:2022&per_page=100
+      and the peer (Kenya) series for the same indicator:
+      https://api.worldbank.org/v2/country/KE/indicator/SE.PRM.ENRR?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From Ethiopia's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": Ethiopia's latest vs Kenya's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the Kenya comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/prim_et.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "Ethiopia", the indicator "Primary school enrollment (%)", the latest value, and
+      the story beats (trend, peak/trough year, Kenya comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"prim_et","country":"Ethiopia","indicator":"Primary school enrollment (%)","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"Kenya","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/prim_et.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/prim_et.mp4
+
+  - id: reel-worker-mort_in
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/IN/indicator/SH.DYN.MORT?format=json&date=2000:2022&per_page=100
+      and the peer (Bangladesh) series for the same indicator:
+      https://api.worldbank.org/v2/country/BD/indicator/SH.DYN.MORT?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From India's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": India's latest vs Bangladesh's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the Bangladesh comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/mort_in.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "India", the indicator "Under-5 mortality rate", the latest value, and
+      the story beats (trend, peak/trough year, Bangladesh comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"mort_in","country":"India","indicator":"Under-5 mortality rate","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"Bangladesh","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/mort_in.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/mort_in.mp4
+
+  - id: reel-worker-rural_cn
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/CN/indicator/SP.RUR.TOTL.ZS?format=json&date=2000:2022&per_page=100
+      and the peer (India) series for the same indicator:
+      https://api.worldbank.org/v2/country/IN/indicator/SP.RUR.TOTL.ZS?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From China's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": China's latest vs India's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the India comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/rural_cn.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "China", the indicator "Rural population (%)", the latest value, and
+      the story beats (trend, peak/trough year, India comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"rural_cn","country":"China","indicator":"Rural population (%)","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"India","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/rural_cn.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/rural_cn.mp4
+
+  - id: reel-worker-renew_de
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/DE/indicator/EG.FEC.RNEW.ZS?format=json&date=2000:2022&per_page=100
+      and the peer (France) series for the same indicator:
+      https://api.worldbank.org/v2/country/FR/indicator/EG.FEC.RNEW.ZS?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From Germany's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": Germany's latest vs France's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the France comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/renew_de.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "Germany", the indicator "Renewable energy (%)", the latest value, and
+      the story beats (trend, peak/trough year, France comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"renew_de","country":"Germany","indicator":"Renewable energy (%)","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"France","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/renew_de.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/renew_de.mp4
+
+  - id: reel-worker-milit_us
+    parallel_group: map
+    depends_on: []
+    description: >-
+      WORKER RULES — READ FIRST: You are a leaf-level reel worker. DO NOT use the task
+      tool. DO NOT spawn sub-agents. Do all of the work below yourself.
+      Fetch LIVE (requires network) the country series:
+      https://api.worldbank.org/v2/country/US/indicator/MS.MIL.XPND.GD.ZS?format=json&date=2000:2022&per_page=100
+      and the peer (Russia) series for the same indicator:
+      https://api.worldbank.org/v2/country/RU/indicator/MS.MIL.XPND.GD.ZS?format=json&date=2000:2022&per_page=100
+      Points are in response[1], each {"date":"YYYY","value":<number or null>}; use non-null points.
+      From United States's own series derive, for real: latest_value + latest_year (most recent non-null);
+      peak_year (year of highest value); trough_year (year of lowest value); trend_direction
+      ("rising"/"falling"/"flat" comparing latest vs earliest, ~2% band); and peer_comparison
+      ("higher"/"lower": United States's latest vs Russia's latest).
+      Write a faithful 150-250 word NARRATIVE telling this series' real story (start/end,
+      trend, what happened at the peak and trough years, the Russia comparison) using the real
+      numbers — specific, not generic, nothing the data doesn't show.
+      Render an explainer reel to /logs/agent/reels/milit_us.mp4 using Python (matplotlib
+      FuncAnimation -> ffmpeg mp4): 7.0-9.0s, genuine motion (the chart grows over 2000-2022),
+      >=320px short side, with the country "United States", the indicator "Military expenditure (% GDP)", the latest value, and
+      the story beats (trend, peak/trough year, Russia comparison) legible on screen.
+      Append your record to the shared manifest:
+      {"section_id":"milit_us","country":"United States","indicator":"Military expenditure (% GDP)","latest_value":<num>,
+       "latest_year":<int>,"trend_direction":"..","peak_year":<int>,"trough_year":<int>,
+       "peer_country":"Russia","peer_comparison":"..","narrative":"<150-250 words>",
+       "reel":"reels/milit_us.mp4"}.
+      Confirm with: ls -la /logs/agent/reels/milit_us.mp4
+
+  - id: assembler
+    parallel_group: reduce
+    depends_on:
+      - reel-worker-pop_de
+      - reel-worker-gdppc_jp
+      - reel-worker-life_br
+      - reel-worker-elec_ng
+      - reel-worker-internet_id
+      - reel-worker-urban_mx
+      - reel-worker-co2pc_us
+      - reel-worker-gdpgr_in
+      - reel-worker-infl_tr
+      - reel-worker-unemp_es
+      - reel-worker-fert_eg
+      - reel-worker-prim_et
+      - reel-worker-mort_in
+      - reel-worker-rural_cn
+      - reel-worker-renew_de
+      - reel-worker-milit_us
+    description: >-
+      You are the assembler. Do NOT re-render or rewrite any story. Collect the 16 worker
+      records and write /logs/agent/manifest.json as a JSON LIST of the 16 records, and
+      /logs/agent/output.json as {"sections": [ ...the same 16 records... ]}. Each record
+      must have: section_id, country, indicator, latest_value, latest_year, trend_direction,
+      peak_year, trough_year, peer_country, peer_comparison, narrative, reel. Then verify all
+      16 reels exist with: ls -la /logs/agent/reels/

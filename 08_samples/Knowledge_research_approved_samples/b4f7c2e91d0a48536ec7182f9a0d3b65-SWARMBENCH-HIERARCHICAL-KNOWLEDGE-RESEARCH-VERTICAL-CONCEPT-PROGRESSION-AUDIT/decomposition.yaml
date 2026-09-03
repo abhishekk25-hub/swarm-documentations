@@ -1,0 +1,741 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+orchestrator_guidance: >-
+  Each sub-task is dispatched once; at most one retry on hard failure. If retry
+  fails, escalate with the missing-unit or missing-concept list instead of recursive
+  redispatch. The concept register issued by registrar--concepts is binding on every
+  downstream sub-task: no sub-task may invent, rename or drop a concept_id after it is
+  issued, and a reader that disagrees escalates rather than filing its own label.
+
+sub_tasks:
+  - id: mgr--k2
+    parallel_group: manage
+    depends_on: []
+    description: >-
+      You are the K-2 band manager. Your scope is the fifteen K-2 units. Dispatch exactly
+      five reader sub-agents, one per reader sub-task in your band (reader--k2-01
+      through reader--k2-05), each owning the three unit_ids that sub-task names.
+      Dispatch each of your five readers exactly once and spawn no further sub-agents
+      beyond those five. Your own output is a short text status naming which of the
+      fifteen K-2 unit_id draft files exist under /logs/agent/units/ and which are
+      missing. Write no files yourself and do not restate a reader's observations.
+
+  - id: mgr--g35
+    parallel_group: manage
+    depends_on: []
+    description: >-
+      You are the 3-5 band manager. Your scope is the fifteen 3-5 units. Dispatch exactly
+      five reader sub-agents, one per reader sub-task in your band (reader--g35-01
+      through reader--g35-05), each owning the three unit_ids that sub-task names.
+      Dispatch each of your five readers exactly once and spawn no further sub-agents
+      beyond those five. Your own output is a short text status naming which of the
+      fifteen 3-5 unit_id draft files exist under /logs/agent/units/ and which are
+      missing. Write no files yourself and do not restate a reader's observations.
+
+  - id: mgr--g68
+    parallel_group: manage
+    depends_on: []
+    description: >-
+      You are the 6-8 band manager. Your scope is the fifteen 6-8 units. Dispatch exactly
+      five reader sub-agents, one per reader sub-task in your band (reader--g68-01
+      through reader--g68-05), each owning the three unit_ids that sub-task names.
+      Dispatch each of your five readers exactly once and spawn no further sub-agents
+      beyond those five. Your own output is a short text status naming which of the
+      fifteen 6-8 unit_id draft files exist under /logs/agent/units/ and which are
+      missing. Write no files yourself and do not restate a reader's observations.
+
+  - id: mgr--g912
+    parallel_group: manage
+    depends_on: []
+    description: >-
+      You are the 9-12 band manager. Your scope is the fifteen 9-12 units. Dispatch exactly
+      five reader sub-agents, one per reader sub-task in your band (reader--g912-01
+      through reader--g912-05), each owning the three unit_ids that sub-task names.
+      Dispatch each of your five readers exactly once and spawn no further sub-agents
+      beyond those five. Your own output is a short text status naming which of the
+      fifteen 9-12 unit_id draft files exist under /logs/agent/units/ and which are
+      missing. Write no files yourself and do not restate a reader's observations.
+
+  - id: reader--k2-01
+    parallel_group: read
+    depends_on:
+      - mgr--k2
+    description: >-
+      Own exactly these three units and no others: K2-STEM-01, K2-HUMANITIES-01, K2-ARTS-01.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--k2-02
+    parallel_group: read
+    depends_on:
+      - mgr--k2
+    description: >-
+      Own exactly these three units and no others: K2-STEM-02, K2-HUMANITIES-02, K2-ARTS-02.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--k2-03
+    parallel_group: read
+    depends_on:
+      - mgr--k2
+    description: >-
+      Own exactly these three units and no others: K2-STEM-03, K2-HUMANITIES-03, K2-ARTS-03.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--k2-04
+    parallel_group: read
+    depends_on:
+      - mgr--k2
+    description: >-
+      Own exactly these three units and no others: K2-STEM-04, K2-HUMANITIES-04, K2-ARTS-04.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--k2-05
+    parallel_group: read
+    depends_on:
+      - mgr--k2
+    description: >-
+      Own exactly these three units and no others: K2-STEM-05, K2-HUMANITIES-05, K2-ARTS-05.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--g35-01
+    parallel_group: read
+    depends_on:
+      - mgr--g35
+    description: >-
+      Own exactly these three units and no others: G35-STEM-01, G35-HUMANITIES-01, G35-ARTS-01.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--g35-02
+    parallel_group: read
+    depends_on:
+      - mgr--g35
+    description: >-
+      Own exactly these three units and no others: G35-STEM-02, G35-HUMANITIES-02, G35-ARTS-02.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--g35-03
+    parallel_group: read
+    depends_on:
+      - mgr--g35
+    description: >-
+      Own exactly these three units and no others: G35-STEM-03, G35-HUMANITIES-03, G35-ARTS-03.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--g35-04
+    parallel_group: read
+    depends_on:
+      - mgr--g35
+    description: >-
+      Own exactly these three units and no others: G35-STEM-04, G35-HUMANITIES-04, G35-ARTS-04.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--g35-05
+    parallel_group: read
+    depends_on:
+      - mgr--g35
+    description: >-
+      Own exactly these three units and no others: G35-STEM-05, G35-HUMANITIES-05, G35-ARTS-05.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--g68-01
+    parallel_group: read
+    depends_on:
+      - mgr--g68
+    description: >-
+      Own exactly these three units and no others: G68-STEM-01, G68-HUMANITIES-01, G68-ARTS-01.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--g68-02
+    parallel_group: read
+    depends_on:
+      - mgr--g68
+    description: >-
+      Own exactly these three units and no others: G68-STEM-02, G68-HUMANITIES-02, G68-ARTS-02.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--g68-03
+    parallel_group: read
+    depends_on:
+      - mgr--g68
+    description: >-
+      Own exactly these three units and no others: G68-STEM-03, G68-HUMANITIES-03, G68-ARTS-03.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--g68-04
+    parallel_group: read
+    depends_on:
+      - mgr--g68
+    description: >-
+      Own exactly these three units and no others: G68-STEM-04, G68-HUMANITIES-04, G68-ARTS-04.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--g68-05
+    parallel_group: read
+    depends_on:
+      - mgr--g68
+    description: >-
+      Own exactly these three units and no others: G68-STEM-05, G68-HUMANITIES-05, G68-ARTS-05.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--g912-01
+    parallel_group: read
+    depends_on:
+      - mgr--g912
+    description: >-
+      Own exactly these three units and no others: G912-STEM-01, G912-HUMANITIES-01, G912-ARTS-01.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--g912-02
+    parallel_group: read
+    depends_on:
+      - mgr--g912
+    description: >-
+      Own exactly these three units and no others: G912-STEM-02, G912-HUMANITIES-02, G912-ARTS-02.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--g912-03
+    parallel_group: read
+    depends_on:
+      - mgr--g912
+    description: >-
+      Own exactly these three units and no others: G912-STEM-03, G912-HUMANITIES-03, G912-ARTS-03.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--g912-04
+    parallel_group: read
+    depends_on:
+      - mgr--g912
+    description: >-
+      Own exactly these three units and no others: G912-STEM-04, G912-HUMANITIES-04, G912-ARTS-04.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: reader--g912-05
+    parallel_group: read
+    depends_on:
+      - mgr--g912
+    description: >-
+      Own exactly these three units and no others: G912-STEM-05, G912-HUMANITIES-05, G912-ARTS-05.
+      Read each unit's own passage in full and deliver one draft unit concept sheet
+      per owned unit at /logs/agent/units/<unit_id>.json, following section 3 of
+      /input_artifacts/articulation_standard.md. Record exactly three observations
+      per sheet, each anchored to a verbatim quotation of fifteen to sixty words
+      taken from that unit's own passage file, each carrying a demand_level judged
+      from the passage against the section 4 scale rather than from the unit's band,
+      and each carrying a treatment_note that says what this passage does with the
+      concept. Propose a provisional concept_id for each observation in the slug form
+      section 1 fixes, and report your nine proposed slugs in your text output so the
+      registrar can reconcile them; expect your slugs to be replaced. Quality gate for
+      this 3-unit slice: every quote is verbatim and in range, every summary and note
+      names things its own passage actually contains, and no note or reason is reused
+      across your three units. Write exactly those three files, write no dossier,
+      index or report file, and do not spawn sub-agents.
+
+  - id: registrar--concepts
+    parallel_group: register
+    depends_on:
+      - reader--k2-01
+      - reader--k2-02
+      - reader--k2-03
+      - reader--k2-04
+      - reader--k2-05
+      - reader--g35-01
+      - reader--g35-02
+      - reader--g35-03
+      - reader--g35-04
+      - reader--g35-05
+      - reader--g68-01
+      - reader--g68-02
+      - reader--g68-03
+      - reader--g68-04
+      - reader--g68-05
+      - reader--g912-01
+      - reader--g912-02
+      - reader--g912-03
+      - reader--g912-04
+      - reader--g912-05
+    description: >-
+      You are the concept registrar and you own the one decision no reader can take alone.
+      Read all sixty draft sheets under /logs/agent/units/ and the provisional slugs the
+      twenty readers proposed. Consolidate them into a register of exactly twenty-four
+      concepts that satisfies every constraint in section 7 of
+      /input_artifacts/articulation_standard.md: 180 observations falling across 24
+      concepts, each concept holding four to twelve observations drawn from at least four
+      units and at least two grade bands, at least eight concepts reaching three or more
+      bands, at least seven drawing on two or more subject clusters, and at least six
+      concepts led by each of STEM, HUMANITIES and ARTS. Merge provisional slugs that name
+      one idea, and split any slug whose observations turn out to be two different ideas
+      that merely share a word, applying the rule in section 2 of the standard against the
+      passages the readers actually cited. Your output is the binding register: for every
+      one of the 180 observations, the unit_id, its position in that sheet, and the final
+      concept_id it must carry, together with an assignment of the twenty-four final
+      concept_ids to the six compiler slots, four concepts to each slot. Change no file
+      yourself and do not spawn sub-agents.
+
+  - id: reconcile--k2
+    parallel_group: reconcile
+    depends_on:
+      - registrar--concepts
+    description: >-
+      Apply the registrar's binding register to the fifteen K-2 sheets under
+      /logs/agent/units/. For each of your band's sheets, replace every provisional
+      concept_id with the final concept_id the register assigns to that observation, and
+      leave the quote, treatment_note, demand_level and demand_reason as the reader
+      wrote them unless the register's merge makes a note wrong about the concept it now
+      names, in which case rewrite that note about the same passage evidence. Confirm
+      each sheet still carries exactly three observations with three different
+      concept_ids. Your text output lists any observation the register did not cover.
+      Touch only your own band's fifteen files and do not spawn sub-agents.
+
+  - id: reconcile--g35
+    parallel_group: reconcile
+    depends_on:
+      - registrar--concepts
+    description: >-
+      Apply the registrar's binding register to the fifteen 3-5 sheets under
+      /logs/agent/units/. For each of your band's sheets, replace every provisional
+      concept_id with the final concept_id the register assigns to that observation, and
+      leave the quote, treatment_note, demand_level and demand_reason as the reader
+      wrote them unless the register's merge makes a note wrong about the concept it now
+      names, in which case rewrite that note about the same passage evidence. Confirm
+      each sheet still carries exactly three observations with three different
+      concept_ids. Your text output lists any observation the register did not cover.
+      Touch only your own band's fifteen files and do not spawn sub-agents.
+
+  - id: reconcile--g68
+    parallel_group: reconcile
+    depends_on:
+      - registrar--concepts
+    description: >-
+      Apply the registrar's binding register to the fifteen 6-8 sheets under
+      /logs/agent/units/. For each of your band's sheets, replace every provisional
+      concept_id with the final concept_id the register assigns to that observation, and
+      leave the quote, treatment_note, demand_level and demand_reason as the reader
+      wrote them unless the register's merge makes a note wrong about the concept it now
+      names, in which case rewrite that note about the same passage evidence. Confirm
+      each sheet still carries exactly three observations with three different
+      concept_ids. Your text output lists any observation the register did not cover.
+      Touch only your own band's fifteen files and do not spawn sub-agents.
+
+  - id: reconcile--g912
+    parallel_group: reconcile
+    depends_on:
+      - registrar--concepts
+    description: >-
+      Apply the registrar's binding register to the fifteen 9-12 sheets under
+      /logs/agent/units/. For each of your band's sheets, replace every provisional
+      concept_id with the final concept_id the register assigns to that observation, and
+      leave the quote, treatment_note, demand_level and demand_reason as the reader
+      wrote them unless the register's merge makes a note wrong about the concept it now
+      names, in which case rewrite that note about the same passage evidence. Confirm
+      each sheet still carries exactly three observations with three different
+      concept_ids. Your text output lists any observation the register did not cover.
+      Touch only your own band's fifteen files and do not spawn sub-agents.
+
+  - id: compiler--dossier-01
+    parallel_group: compile
+    depends_on:
+      - reconcile--k2
+      - reconcile--g35
+      - reconcile--g68
+      - reconcile--g912
+    description: >-
+      Compile four of the twenty-four concept dossiers, taking the four the registrar
+      assigned to compiler slot 1, and write them to
+      /logs/agent/concepts/<concept_id>.json under section 5 of
+      /input_artifacts/articulation_standard.md. A dossier's rungs are exactly the
+      observations that named its concept_id after reconciliation, one rung per
+      observation, each repeating that sheet's grade_band and demand_level unchanged;
+      you may not drop a rung or add a unit that did not claim the concept. Order the
+      rungs by band, and write advance_over_previous for each rung by opening both that
+      rung's passage and the one below it and saying what the higher treatment actually
+      adds. Compute bands_covered, span_class and regression_flags from your own rungs
+      by the rules in section 6 rather than choosing them. Write exactly your four
+      files, write no sheet, index or report file, and do not spawn sub-agents.
+
+  - id: compiler--dossier-02
+    parallel_group: compile
+    depends_on:
+      - reconcile--k2
+      - reconcile--g35
+      - reconcile--g68
+      - reconcile--g912
+    description: >-
+      Compile four of the twenty-four concept dossiers, taking the four the registrar
+      assigned to compiler slot 2, and write them to
+      /logs/agent/concepts/<concept_id>.json under section 5 of
+      /input_artifacts/articulation_standard.md. A dossier's rungs are exactly the
+      observations that named its concept_id after reconciliation, one rung per
+      observation, each repeating that sheet's grade_band and demand_level unchanged;
+      you may not drop a rung or add a unit that did not claim the concept. Order the
+      rungs by band, and write advance_over_previous for each rung by opening both that
+      rung's passage and the one below it and saying what the higher treatment actually
+      adds. Compute bands_covered, span_class and regression_flags from your own rungs
+      by the rules in section 6 rather than choosing them. Write exactly your four
+      files, write no sheet, index or report file, and do not spawn sub-agents.
+
+  - id: compiler--dossier-03
+    parallel_group: compile
+    depends_on:
+      - reconcile--k2
+      - reconcile--g35
+      - reconcile--g68
+      - reconcile--g912
+    description: >-
+      Compile four of the twenty-four concept dossiers, taking the four the registrar
+      assigned to compiler slot 3, and write them to
+      /logs/agent/concepts/<concept_id>.json under section 5 of
+      /input_artifacts/articulation_standard.md. A dossier's rungs are exactly the
+      observations that named its concept_id after reconciliation, one rung per
+      observation, each repeating that sheet's grade_band and demand_level unchanged;
+      you may not drop a rung or add a unit that did not claim the concept. Order the
+      rungs by band, and write advance_over_previous for each rung by opening both that
+      rung's passage and the one below it and saying what the higher treatment actually
+      adds. Compute bands_covered, span_class and regression_flags from your own rungs
+      by the rules in section 6 rather than choosing them. Write exactly your four
+      files, write no sheet, index or report file, and do not spawn sub-agents.
+
+  - id: compiler--dossier-04
+    parallel_group: compile
+    depends_on:
+      - reconcile--k2
+      - reconcile--g35
+      - reconcile--g68
+      - reconcile--g912
+    description: >-
+      Compile four of the twenty-four concept dossiers, taking the four the registrar
+      assigned to compiler slot 4, and write them to
+      /logs/agent/concepts/<concept_id>.json under section 5 of
+      /input_artifacts/articulation_standard.md. A dossier's rungs are exactly the
+      observations that named its concept_id after reconciliation, one rung per
+      observation, each repeating that sheet's grade_band and demand_level unchanged;
+      you may not drop a rung or add a unit that did not claim the concept. Order the
+      rungs by band, and write advance_over_previous for each rung by opening both that
+      rung's passage and the one below it and saying what the higher treatment actually
+      adds. Compute bands_covered, span_class and regression_flags from your own rungs
+      by the rules in section 6 rather than choosing them. Write exactly your four
+      files, write no sheet, index or report file, and do not spawn sub-agents.
+
+  - id: compiler--dossier-05
+    parallel_group: compile
+    depends_on:
+      - reconcile--k2
+      - reconcile--g35
+      - reconcile--g68
+      - reconcile--g912
+    description: >-
+      Compile four of the twenty-four concept dossiers, taking the four the registrar
+      assigned to compiler slot 5, and write them to
+      /logs/agent/concepts/<concept_id>.json under section 5 of
+      /input_artifacts/articulation_standard.md. A dossier's rungs are exactly the
+      observations that named its concept_id after reconciliation, one rung per
+      observation, each repeating that sheet's grade_band and demand_level unchanged;
+      you may not drop a rung or add a unit that did not claim the concept. Order the
+      rungs by band, and write advance_over_previous for each rung by opening both that
+      rung's passage and the one below it and saying what the higher treatment actually
+      adds. Compute bands_covered, span_class and regression_flags from your own rungs
+      by the rules in section 6 rather than choosing them. Write exactly your four
+      files, write no sheet, index or report file, and do not spawn sub-agents.
+
+  - id: compiler--dossier-06
+    parallel_group: compile
+    depends_on:
+      - reconcile--k2
+      - reconcile--g35
+      - reconcile--g68
+      - reconcile--g912
+    description: >-
+      Compile four of the twenty-four concept dossiers, taking the four the registrar
+      assigned to compiler slot 6, and write them to
+      /logs/agent/concepts/<concept_id>.json under section 5 of
+      /input_artifacts/articulation_standard.md. A dossier's rungs are exactly the
+      observations that named its concept_id after reconciliation, one rung per
+      observation, each repeating that sheet's grade_band and demand_level unchanged;
+      you may not drop a rung or add a unit that did not claim the concept. Order the
+      rungs by band, and write advance_over_previous for each rung by opening both that
+      rung's passage and the one below it and saying what the higher treatment actually
+      adds. Compute bands_covered, span_class and regression_flags from your own rungs
+      by the rules in section 6 rather than choosing them. Write exactly your four
+      files, write no sheet, index or report file, and do not spawn sub-agents.
+
+  - id: rollup--index
+    parallel_group: rollup
+    depends_on:
+      - compiler--dossier-01
+      - compiler--dossier-02
+      - compiler--dossier-03
+      - compiler--dossier-04
+      - compiler--dossier-05
+      - compiler--dossier-06
+    description: >-
+      Compile /logs/agent/progression_index.json under section 8 of
+      /input_artifacts/articulation_standard.md by reading the sixty delivered sheets and
+      the twenty-four delivered dossiers and counting what they actually carry. Recompute
+      every derived value rather than copying a dossier's own claim, and where a dossier's
+      derived fields disagree with its rungs, index the recomputation and say so in your
+      text output. Write only that one file and do not spawn sub-agents.
+
+  - id: rollup--report
+    parallel_group: rollup
+    depends_on:
+      - compiler--dossier-01
+      - compiler--dossier-02
+      - compiler--dossier-03
+      - compiler--dossier-04
+      - compiler--dossier-05
+      - compiler--dossier-06
+    description: >-
+      Write /logs/agent/articulation_report.md in the five sections section 9 of
+      /input_artifacts/articulation_standard.md names. Derive every band count, every
+      concept named as spanning and every concept named as broken by recomputing from the
+      sixty sheets and twenty-four dossiers yourself. Do not read the progression index as
+      your source of fact; an index that misstates a dossier does not make the report true,
+      and you may use it only as a cross-check to report a disagreement. Where the sheets
+      repeat one another or say little of their own passages, say what has to be rewritten
+      rather than calling the audit ready to file. Write only that one file and do not
+      spawn sub-agents.

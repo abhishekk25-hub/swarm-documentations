@@ -1,0 +1,865 @@
+FCC RULEMAKING RELEASE
+Rule subject: Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz
+Document number: 2026-03744
+Issuing agency: Federal Communications Commission
+Responsible Bureau: Wireless Telecommunications Bureau
+Federal Register citation: 91 FR 9140
+Publication date: 2026-02-25
+
+Federal Register, Volume 91 Issue 37 (Wednesday, February 25, 2026)
+
+
+[Federal Register Volume 91, Number 37 (Wednesday, February 25, 2026)]
+[Rules and Regulations]
+[Pages 9140-9169]
+From the Federal Register Online via the Government Publishing Office [ www.gpo.gov ]
+[FR Doc No: 2026-03744]
+
+
+=======================================================================
+-----------------------------------------------------------------------
+
+FEDERAL COMMUNICATIONS COMMISSION
+
+47 CFR Parts 0 and 15
+
+[ET Docket No. 18-295 and GN Docket No. 17-183; FCC 26-1; FR ID 331544]
+
+
+Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-
+Band Spectrum Between 3.7 and 24 GHz
+
+AGENCY: Federal Communications Commission.
+
+ACTION: Final rule.
+
+-----------------------------------------------------------------------
+
+SUMMARY: In this document, the Federal Communications Commission
+(Commission or FCC) adopts rules allowing unlicensed geofenced variable
+power (GVP) devices to operate in the U-NII-5 and U-NII-7 portions of
+the 6 GHz band (5.925-7.125 GHz) at up to 11 dBm/MHz EIRP power
+spectral density and 24 dBm EIRP. GVP devices must use geofencing
+systems to prevent harmful interference to licensed microwave links and
+radio astronomy observatories. The geofencing systems will calculate
+exclusion zones where GVP devices cannot operate on specified
+frequencies. Each GVP access point must have a geolocation capability
+to determine its location and avoid operating on prohibited frequencies
+within the exclusion zones. Client devices must operate 6 dB below the
+access point's authorized power. These rules permit the GVP devices to
+operate at higher power than very lower power 6 GHz band unlicensed
+devices.
+
+DATES: This rule is effective April 27, 2026.
+
+FOR FURTHER INFORMATION CONTACT: Nicholas Oros of the Office of
+Engineering and Technology, Policy and Rules Division, at 202-418-0636
+or [email protected] .
+
+SUPPLEMENTARY INFORMATION: This is a summary of the Commission's Fourth
+Report and Order, in ET Docket No. 18-295 and GN Docket No. 17-183, FCC
+26-1, adopted on January 29, 2026, and released on January 30, 2026.
+The full text of this document is available for public inspection and
+can be downloaded at https://docs.fcc.gov/public/attachments/FCC-26-1A1.pdf . Alternative formats are available for people with disabilities
+(Braille, large print, electronic files, audio format) by sending an
+email to [email protected] or calling the Commission's Consumer and
+Governmental Affairs Bureau at (202) 418-0530 (voice), (202) 418-0432
+(TTY).
+ Regulatory Flexibility Act. The Regulatory Flexibility Act of 1980,
+as amended (RFA) requires that an agency
+
+[[Page 9141]]
+
+prepare a regulatory flexibility analysis for notice and comment
+rulemakings, unless the agency certifies that ``the rule will not, if
+promulgated, have a significant economic impact on a substantial number
+of small entities.'' Accordingly, the Commission has prepared a Final
+Regulatory Flexibility Analysis (FRFA) concerning the possible impact
+of the rule changes contained in the Fourth Report and Order on small
+entities. The FRFA is set forth in Appendix C, https://www.fcc.gov/document/fcc-votes-enable-better-faster-wi-fi-and-next-gen-connectivity-0 .
+ Paperwork Reduction Act. This document does not contain new or
+modified information collection requirements subject to the Paperwork
+Reduction Act of 1995, Public Law 104-13. In addition, therefore, it
+does not contain any new or modified information collection burden
+``for small business concerns with fewer than 25 employees,'' pursuant
+to the Small Business Paperwork Relief Act of 2002, Public Law 107-198,
+44 U.S.C. 3506(c)(4).
+ Congressional Review Act. The Commission has determined, and the
+Administrator of the Office of Information and Regulatory Affairs,
+Office of Management and Budget, concurs, that this this rule is
+``major'' under the Congressional Review Act, 5 U.S.C. 804(2). The
+Commission will send a copy of the Fourth Report and Order to Congress
+and the Government Accountability Office pursuant to 5 U.S.C.
+801(a)(1)(A).
+
+Synopsis
+
+Introduction
+
+ In this document, the Commission adopts rules for geofenced
+variable power (GVP) devices to operate in the U-NII-5 (5.925-6.425
+GHz) and U-NII-7 (6.525-6.875 GHz) portions of the 6 GHz band at up to
+11 dBm/MHz EIRP power spectral density (PSD) and 24 dBm EIRP. GVP
+devices must work in tandem with a geofencing system to minimize the
+likelihood of a significant risk of harmful interference to licensed
+fixed microwave links and radio astronomy observatories. The geofencing
+systems will calculate exclusion zones in which the GVP devices will
+not be permitted to operate co-frequency with microwave links or in a
+portion of the U-NII-7 band used by radio astronomy. Each GVP access
+point will be required to have a geolocation capability to determine
+its location and avoid operating on prohibited frequencies within the
+exclusion zones. GVP client devices will operate under the control of
+GVP access points at 6 dB less power than the authorized power of the
+controlling GVP access point. Using geofencing will enable GVP devices
+to operate at significantly higher power levels than the -5 dBm/MHz
+EIRP PSD and 14 dBm EIRP at which non-geofenced very low power (VLP)
+devices are permitted to operate. At this time, the Commission is
+limiting the GVP device operation to the U-NII-5 and U-NII-7 portions
+of the 6 GHz band and defer considering such action for the U-NII-6 and
+U-NII-8 bands.
+
+Power Limits for GVP Access Points
+
+ In the 6 GHz Second FNPRM (89 FR 874, January 8, 2024), the
+Commission sought comment on the appropriate power limits for GVP
+devices in the U-NII-5 and U-NII-7 bands. As an initial matter, the
+Commission noted that Apple, Broadcom et al. had requested that it
+permit VLP devices to operate at up to 1 dBm/MHz EIRP PSD and 14 dBm
+EIRP. Based on the technical record, the Commission declined in the 6
+GHz Second Order (89 FR 874, January 8, 2024) to adopt this PSD level
+and instead limited VLP operations to a maximum of -5 dBm/MHz EIRP PSD
+and 14 dBm EIRP. However, the Commission explained that it could allow
+GVP devices to operate at a higher PSD level if such devices are
+prohibited from operating co-channel and in close proximity to licensed
+microwave receive sites. The Commission proposed that VLP devices be
+permitted to operate across the entire 6 GHz band--U-NII-5, U-NII-6, U-
+NII-7, and U-NII-8--at up to 1 dBm/MHz EIRP PSD and 14 dBm EIRP while
+under the control of a geofencing system to minimize the likelihood of
+harmful interference to licensed incumbent services. Although the
+Commission expressly sought comment on these proposed power limits, it
+also asked whether it should allow GVP devices to operate with higher
+PSD and EIRP limits. The Commission sought comment on a range of power
+limits and specifically asked whether it could ``allow a power limit
+higher than 14 dBm EIRP,'' identifying as one such example power levels
+``up to 21 dBm EIRP.'' Furthermore, the Commission asked whether ``even
+higher PSD and EIRP limits [would] increase the risk of harmful
+interference to licensed incumbent services'' and whether ``the
+proposed geofencing system . . . [would] be sufficient to reduce this
+risk.'' By using the phrase ``even higher,'' the Commission signaled
+that it sought comment on power limits higher than those discussed
+earlier in the paragraph--i.e., higher than 1 dBm/MHz EIRP PSD and 21
+dBm EIRP.
+ Apple, Broadcom et al. request that GVP devices be permitted to
+operate at up to 8 dBm/MHz EIRP PSD and 21 dBm EIRP across the entire 6
+GHz band. According to Apple, Broadcom et al., creating geofencing-
+capable devices ``will require manufacturers to add expensive new
+hardware and software to a wide range of consumer and enterprise
+equipment,'' and such investment cannot be justified for the marginal
+benefit that would be provided by the proposed power limits. Apple,
+Broadcom et al. stress that unless the GVP maximum permitted power is
+21 dBm EIRP, consumers will not experience any additional benefit from
+a higher PSD when using channels wider than 80-megahertz because total
+power transmitted is proportional to the PSD and capping the maximum
+EIRP at 21 dBm would allow all channel bandwidths to operate with more
+than 14 dBm EIRP total power. They explain that ``increas[ing] power
+limits for all channel sizes available in the 6 GHz band . . . is
+important because wider channels are subject to more noise and
+therefore require additional power to maintain a sufficient signal-to-
+noise ratio. Apple, Broadcom et al. similarly recommend permitting a
+maximum PSD of 8 dBm/MHz EIRP so that all channels, regardless of
+bandwidth, can operate at the maximum power level. They further claim
+that ``an increase in the PSD limit would not result in any higher risk
+of harmful interference because of the limitations imposed by the
+proposed geofencing system'' (e.g., the proposal that ``the size of an
+exclusion zone must increase in proportion to a GVP device's power
+level'').
+ Apple, Broadcom et al. point to several computer simulations they
+submitted prior to the issuance of the 6 GHz Second FNPRM as evidence
+that GVP devices can operate at up to 21 dBm EIRP without creating a
+significant risk of harmful interference to licensed incumbents. One
+computer simulation that modeled the interaction between outdoor VLP
+devices and the 97,888 6 GHz band fixed microwave links in the United
+States for 20-, 40-, 80-, and 160-megahertz bandwidth VLP signals
+concluded that there was only a 0.00059% probability that a VLP device
+operating at 21 dBm EIRP would cause a microwave link to experience an
+interference-to-noise (I/N) ratio greater than -6 dB. According to
+Apple, Broadcom et al., the computer simulation demonstrates that VLP
+devices operating at 21 dBm with no additional mitigation rules would
+not create a significant harmful interference
+
+[[Page 9142]]
+
+risk. Apple, Broadcom et al. argued that this minimal risk would be
+mitigated by the proposed geofencing rules, which ``would prohibit
+transmissions in the very rare instances where the [computer
+simulations] found that [VLP] operations could exceed the -6 dB I/N
+metric.''
+ The Dynamic Spectrum Alliance (DSA) and Wi-Fi Alliance support the
+same power levels for GVP devices as Apple, Broadcom et al. DSA
+believes that the GVP power levels proposed by the Commission, 14 dBm
+EIRP and 1 dBm/MHz EIRP PSD, do not ``provide[ ] a sufficient economic
+incentive for companies to make the necessary investments [to] develop[
+] and commercializ[e] such [devices].'' DSA points out that the
+proposed power levels would only benefit devices operating on 20-
+megahertz or 40-megahertz channels, but that most use cases are better
+suited to larger channel sizes. DSA urges the Commission to instead
+adopt a geofenced VLP framework with a 21 dBm EIRP limit and 8 dBm/MHz
+EIRP PSD. According to DSA, ``[t]he higher EIRP limit . . . will
+provide greater reliability for [augmented reality/virtual reality]
+applications,'' and ``[t]he increased EIRP PSD limits will enable
+narrow band applications, which may not be feasible under the [current]
+VLP limits.'' The Wi-Fi Alliance ask that the Commission ``create a new
+device class for higher power VLP devices capable of operating at up to
+21 dBm EIRP and 8 dBm/MHz EIRP PSD. According to the Wi-Fi Alliance,
+allowing VLP devices to operate at up to 21 dBm EIRP ``will enable new
+applications that are not possible at the current VLP power levels and
+enable a more robust connectivity for existing applications.''
+ While Apple initially joined Apple, Broadcom et al. in requesting
+GVP power levels of up to 8 dBm/MHz EIRP PSD and 21 dBm maximum EIRP,
+Apple later proposed a simplified geofencing version with only two
+power levels: 1 dBm/MHz EIRP PSD and 8 dBm/MHz EIRP PSD, both with a
+maximum 21 dBm EIRP, instead of permitting variable power up to the 8
+dBm/MHz EIRP PSD and 21 dBm EIRP limits. The geofencing systems would
+calculate two exclusion zones--one for each PSD level--and a GVP device
+would check its location to determine whether it may operate and, if
+so, its maximum power level. This version would reduce the calculations
+needed by the geofencing systems because they would not need to support
+variable GVP power levels.
+ More recently, Apple and Meta contend that maximum authorized power
+levels of at least 11 dBm/MHz PSD and 24 dBm EIRP for GVP access points
+and 5 dBm/MHz PSD and 18 dBm EIRP for GVP client devices are
+``essential for adequate reliability and performance for GVP use
+cases.'' They claim that ``GVP devices are likely to predominately be
+wearable devices,'' such as smartwatches and augmented reality glasses,
+which have ``significant latency and throughput requirements.'' These
+wearable devices would face up to 96 dB of attenuation communicating
+across the user's body. They also point to other use cases, such as
+multiple peer-to-peer links, which would also greatly benefit from
+higher power levels. They claim that their analysis shows that these
+higher power levels are essential to meet the performance goals for
+these and other envisioned use cases.
+ Federated Wireless supports the Commission's proposal to allow
+greater power for VLP devices operating under the control of a
+geofencing system, but instead of spending time and resources
+developing a new system for geofencing, Federated Wireless advocates
+relying on the currently authorized AFC systems. Federated Wireless
+also encourages permitting GVP devices to operate at higher power than
+the proposed 1 dBm/MHz EIRP PSD and 14 dBm EIRP because AFC systems are
+``capable of offering the same level of protection to incumbents
+regardless of the unlicensed device transmit power.''
+ The Wi-Fi Alliance points out that the computer simulations upon
+which the Commission relied in permitting VLP operations ``show
+virtually no impact on the microwave links even for VLP devices
+operating at 1 dBm/MHz EIRP PSD.'' The Wi-Fi Alliance claims that VLP
+devices will be predominantly used indoors, that their signals will be
+attenuated by body loss when they are used outdoors, and that outdoor
+VLP transmitters will operate far below the likely height of any 6 GHz
+microwave facilities. Therefore, the Wi-Fi Alliance claims that
+existing mitigation requirements are sufficient to protect microwave
+operations from VLP devices operating at up to 1 dBm/MHz EIRP PSD and
+14 dBm EIRP. The Wi-Fi Alliance contends that because the risk of
+harmful interference from VLP devices operating at this power level
+``is already extremely low,'' there is no benefit in imposing
+geofencing requirements. The IEEE LAN/MAN Standards Committee (IEEE
+LMSC) also does not believe that the Commission should require
+geofencing if it increases the power level to 1 dBm/MHz EIRP PSD and 14
+dBm EIRP because it effectively only would permit higher power for 20-
+megahertz and 40-megathertz channels and would not result in increased
+risk to incumbent services. IEEE LMSC claims that the incremental
+improvement from this power increase does not justify mandating the
+relatively complex geofencing mechanism and that developing this
+geofencing mechanism will potentially delay this VLP mode from
+deploying.
+ Cisco and HP Enterprise support slightly higher VLP power levels to
+accommodate body loss, but caution that increasing VLP power needs to
+be done so as to ensure that unlicensed LPI devices continue to coexist
+among themselves and with VLP devices. According to Cisco and HP
+Enterprise, the top request of enterprise customers is that Wi-Fi be
+more predictable and reliable. Cisco and HP Enterprise explain that
+interference to enterprise Wi-Fi means less spectrum availability,
+which results in smaller channels with decreased capacity and increased
+latency. They point out that ``[g]eofencing does not consider
+coexistence with enterprise [Wi-Fi] networks'' and that ``[h]igher
+power VLP . . . could interfere with other VLP use[s].'' They claim
+that enterprise customers would like VLP to be coordinated by the
+infrastructure when in the presence of LPI access points. Cisco and HP
+state that the actual affect that VLP and GVP devices will have on
+enterprise Wi-Fi networks is unknown, but that CableLabs is currently
+studying that issue. Cisco and HP Enterprise recommend that the
+Commission ``adopt reasonable limits on GVP/VLP while standards
+develop''--i.e., ``slightly higher powered VLP to accommodate body
+loss''--that improve coexistence among the different types of Wi-Fi
+devices.
+ AT&T urges caution with respect to liberalizing the 6 GHz
+unlicensed rules and expresses concern that the computer simulations on
+which VLP device rules are based remain unfiled and untested. AT&T
+suggests that the Commission ``gain some understanding of the impact of
+actual, commercially deployed VLP devices before liberalizing the rules
+by which they operate and, if it ultimately determines to do so, to act
+with caution in a manner that is reversible.'' AT&T suggests that the
+power limits for GVP devices ``should start conservatively, provide for
+future modification, and be capped with reference to [the] risks
+defined by geolocation parameters,'' with the power levels lower if the
+Commission adopts a geofencing framework that carries substantial risk
+to incumbent microwave receivers. AT&T is concerned that the proposal
+of 1 dBm/
+
+[[Page 9143]]
+
+MHz EIRP PSD limit ``does not appear to be a conservative starting
+point'' and, ``[e]ven more dire, the 6 GHz Second FNPRM seeks comment
+on increasing the [maximum] EIRP to 21 dBm.'' AT&T complains that ``the
+[GVP] proponents' response to the 6 GHz Second FNPRM amounts to
+platitudes that geofencing . . . will self-evidently protect incumbents
+and the Commissions needs not worry because their prior studies . . .
+should nonetheless carry the day.'' AT&T claims that ``no geofencing
+advocate has advanced a proposal for geofencing that allows incumbents
+to rationally evaluate the potential for harmful interference.'' AT&T
+demands that before the Commission authorizes GVP operations, the
+record should contain proposed rules that cover such topics as location
+determination and accuracy, how geofencing boundaries will be
+implemented, additive interference, the geofencing model (geofencing
+system architecture), GVP device elevation, database and geofence
+reauthorization intervals, and an exclusion zone buffer to account for
+mobility.
+ Evergy cautions that the Commission ``should hold off on further
+expanding unlicensed operations in the 6 GHz band until enough real-
+world experience has occurred to gain the confidence of incumbents in
+the utility industry.'' Evergy is concerned that unlicensed devices
+will raise the noise floor and result in harmful interference to
+incumbent licensed operations. Evergy cautions that if harmful
+interference occurs, its ``existing mission-critical systems may become
+unreliable and inoperable while its engineers engage in . . . [the]
+extremely difficult, if not impossible, task'' of identifying the
+responsible unlicensed device(s). Evergy describes the proposed 1 dBm/
+MHz EIRP PSD as ``a dramatic increase in power that poses significant
+risk to incumbent licensees'' and urges the Commission to reject this
+proposal as well as the request by GVP advocates for maximum power
+levels of 21 dBm EIRP and 8 dBm/MHz EIRP PSD. Evergy asks that the
+Commission ensures that any geofencing solution protect microwave links
+commensurate with the protection provided by the AFC system.
+ The American Petroleum Institute (API) does not support permitting
+VLP devices to operate at 1 dBm/MHz EIRP PSD until more field data on
+VLP devices and interference is collected, which it predicts would take
+two years or more. Provided data is collected over the proper time
+frame and the results show VLP devices are operating without impacting
+incumbents, API claims that the proposed geofencing system allowing GVP
+devices to operate at up to 1 dBm/MHz EIRP PSD and 14 dBm EIRP appears
+to have merit. The Utilities Technology Council and the Edison Electric
+Institute (UTC/EEI) joint comments advise the Commission to ``refrain
+from further expanding unlicensed operations in the 6 GHz band'' until
+it better understands the interference environment from currently
+authorized 6 GHz unlicensed devices. The Association of Public-Safety
+Communications Officials, International (APCO), noting the rules for
+that VLP devices have only recently been implemented, advises the
+Commission to let ``[r]eal-world operational experience and testing . .
+. guide any future decision-making rather than risk essential public
+safety communications networks with theoretical models and lab testing
+alone.''
+ The Electric Power Research Institute (EPRI) states that if VLP
+devices ``[are] allowed to operate at 1 dBm/MHz [EIRP] PSD, then it is
+imperative that the method used to prevent operation in areas with
+elevated risk of harmful interference be infallible.'' EPRI claims that
+its research shows that even at the -5 dBm/MHz EIRP PSD level at which
+VLP devices operate, a scheme to prevent VLP devices from operating co-
+channel in a microwave receiver's main beamwidth is necessary to
+prevent harmful interference and that exclusion zones could be an
+effective method to protect these sites provided the propagation models
+align with the findings from real-world testing.
+ Discussion. The Commission is adopting rules to permit GVP devices
+to operate in the U-NII-5 and U-NII-7 portions of the 6 GHz band at up
+to 11 dBm/MHz EIRP PSD and 24 dBm EIRP while under the control of a
+geofencing system. As discussed in more detail in this document, the
+geofencing system must comply with various requirements to prevent GVP
+operations at locations where they may cause a significant risk of
+harmful interference to licensed incumbent services that share the 6
+GHz band. The geofencing system will use the same propagation models
+and protection criteria that are employed by AFC systems to calculate
+exclusion zones in which the GVP access points will not be permitted to
+operate co-channel with a microwave receiver. The geofencing system
+will also prevent GVP access points from operating near certain radio
+astronomy observatories. The GVP access points will be required to have
+a geolocation capability to determine when they enter an exclusion zone
+and must adjust their operating frequency, if necessary, to meet this
+condition. GVP client devices, which will not be required to have a
+geolocation capability, will operate only under the control of a GVP
+access point at 6 dB less than the controlling access point's
+authorized power.
+ The Commission adopts the 11 dBm/MHz EIRP PSD and 24 dBm EIRP power
+levels rather than the 1 dBm/MHz EIRP PSD and 14 dBm EIRP power levels
+proposed in the 6 GHz Second FNPRM for several reasons. First, the
+geofencing systems will be equally effective in preventing a
+significant risk of harmful interference at the higher power levels
+because the size of the exclusion zones will increase to account for
+the higher power--i.e., the size of the exclusion zones scales with the
+power level. Second, the Commission agrees with commenters who opine
+that permitting higher power levels than those proposed in the 6 GHz
+Second FNPRM provides a stronger incentive for manufacturers to invest
+in geofencing systems and GVP devices. Moreover, the Commission
+recognizes that adopting the proposed GVP power levels, which are only
+an incremental power increase to the VLP power levels, may not convince
+industry to undertake the expenses associated with developing this new
+class of devices. Lastly, the Commission believes that 11 dBm/MHz EIRP
+PSD and 24 dBm EIRP are necessary for GVP access points to deliver the
+required reliability and performance for body worn applications, as
+Apple and Meta point out. According to measurements conducted by the
+Wireless Research Center of North Carolina, which examined the
+attenuation between two body worn devices for six test subjects, body
+attenuation can range from 28 to 96 dB. Considering the high level of
+signal attenuation that must be overcome between body-worn devices, the
+Commission concludes that the higher power levels it's permitting are
+appropriate.
+ Commenters agree that permitting higher power levels will enable
+more versatile GVP devices to be developed and result in a wide variety
+of innovative products. As Apple, Broadcom et al., point out, the
+higher PSD level will be particularly useful for applications that rely
+on narrow channels such as high bitrate audio and control signaling
+while the higher maximum power will benefit data-intensive tasks in
+applications such as artificial reality/virtual reality, automotive
+technologies, screen mirroring, hotspots, and indoor location and
+navigation. Adopting the higher power levels requested by industry with
+a geofencing requirement provides more versatility to encourage
+innovative uses
+
+[[Page 9144]]
+
+and incentivize investment without increasing the harmful interference
+risk to incumbent users. The Commission also points out that even
+though it's permitting up to 11 dBm/MHz PSD and 24 dBm EIRP levels, the
+Commission expects the majority of devices to operate below these
+maximum levels most of the time. For many reasons, including to
+increase battery life, portable devices generally operate at the
+minimum power level necessary to close the link. In addition, the
+Commission notes that Apple and Meta's filing shows that body
+attenuation is highly variable based on individual factors; the maximum
+power is only needed for the extreme cases when body attenuation is at
+its highest. Thus, the higher power levels the Commission is allowing
+combined with a geofencing system that scales exclusion zones to the
+power level provides maximum flexibility for the development of
+versatile devices to provide new applications to the public while
+continuing to protect incumbent services from a significant risk of
+harmful interference.
+ The Commission declines to adopt the two-power level model
+suggested by Apple. The Commission appreciates the desire to simplify
+geofencing system implementation, but believe this decision is best
+driven by geofencing system providers based on intended customers and
+applications or through industry consensus within a standards process.
+The rules the Commission adopts simply define maximum PSD and EIRP and
+permit geofencing system providers to determine whether to calculate a
+single exclusion zone based on the maximum power or to calculate
+multiple exclusion zones indexed for lower power levels. Thus,
+geofencing system providers can determine the proper tradeoff between
+the flexibility and complexity associated with calculating a single or
+multiple exclusion zones.
+ The Commission also does not find it appropriate to limit the power
+available to GVP devices to protect enterprise LPI Wi-Fi devices, as
+suggested by Cisco and HP Enterprise. 6 GHz band unlicensed devices are
+expected to share the band with other unlicensed devices. The operators
+of enterprise Wi-Fi networks have no basis to expect that they can
+manage use of the 6 GHz band spectrum solely for their benefit. One of
+the Commission's goals for expanding unlicensed use in the 6 GHz bands
+is to encourage the development of innovative consumer devices. By
+increasing the power available to VLP devices that employ geofencing,
+the Commission will enable exciting new applications, such as body-worn
+devices for augmented reality/virtual reality, as well as provide for
+higher data rates for existing uses, such as Wi-Fi hotspots. The
+Commission does not believe that it would be in the public interest to
+forego these new applications to potentially prevent harmful
+interference from occurring to other unlicensed device users. The new
+applications and higher data rates will be widely available to all
+consumers and businesses. The Commission believes this is preferrable
+to the alternative of restricting the capabilities of GVP devices by
+limiting their power in order to, in effect, permit enterprises to
+exclusively use the shared 6 GHz band spectrum within their facilities.
+Moreover, the Commission notes that its rules contain provisions
+designed to promote coexistence among all devices operating in the 6
+GHz bands. For example, GVP devices will need to comply with the same
+contention-based protocol requirements already in place for LPI and VLP
+devices and the dynamic transmit power control requirement in place for
+VLP devices.
+ The Commission declines to delay adopting GVP rules in order to
+collect more data or conduct testing, as suggested by API, UTC/EEI,
+APCO, Evergy, and AT&T. The Commission also sees no reason to adopt the
+incremental approach of initially adopting a lower GVP power level and
+potentially increasing it after the Commission gains more experience
+with GVP operations. The Commission's rules for AFC-enabled standard-
+power devices were adopted in 2020, (85 FR 31390, May 26, 2020), and
+AFC systems have been approved for commercial operation since February
+2024. The Commission has not received any interference complaints
+related to 6 GHz standard-power devices operating under the control of
+AFC systems. Because GVP geofencing systems will employ the same
+propagation models and determine exclusion zones using the same I/N
+threshold as the AFC systems, the Commission is confident that the
+geofencing systems will be equally effective at preventing a
+significant risk of harmful interference. Also, in the unlikely event
+that harmful interference occurs, the Commission will require
+geofencing systems to adjust any or all exclusion zones. Thus, the
+rules contain an effective mitigation strategy should harmful
+interference occur.
+ The Commission is unpersuaded by Evergy's concerns regarding
+increasing the noise floor or causing harmful interference to microwave
+receivers. The geofencing system will prevent operation of GVP access
+points and associated client devices at locations where they present a
+risk of causing harmful interference to microwave receivers. The
+Commission notes that Evergy has not presented any technical analysis
+indicating that such harmful interference will occur in practice or
+that GVP devices operating in conjunction with a geofencing system will
+raise the noise floor. The Commission's experience with AFC systems and
+the fact that the exclusion zones can be adjusted, if necessary,
+indicate that harmful interference is unlikely to be an issue and that
+if any interference issues do arise, they can be addressed by the
+Commission. As to EPRI's contention that any method used to prevent VLP
+device operation in areas with elevated interference risk must be
+``infallible,'' we acknowledge that no spectrum management system is
+infallible. However, based on past experience with using databases to
+effect spectrum management opportunities, such as with the AFC systems
+and the spectrum access systems (SAS) used to manage access to the
+3550-3700 MHz band in the Citizens Broadband Radio Service, the
+Commission believes that the geofencing systems that its rules are
+enabling will permit GVP operation without posing a significant risk of
+harmful interference.
+ The Commission disagrees with AT&T that the lack of a specific
+proposal by GVP advocates prevented incumbents from rationally
+evaluating the potential for harmful interference. The rules the
+Commission is adopting closely mirror its proposal in the 6 GHz Second
+FNPRM and require GVP devices to operate pursuant to a geofencing
+system that will be based on the same propagation models as used for
+the AFC systems. The 6 GHz Second FNPRM sufficiently discussed the
+topics that AT&T claims must be included in a serious proposed set of
+GVP rules.
+ The Commission is not increasing the general (i.e., non-geofenced)
+VLP PSD to 1 dBm/MHz EIRP, as suggested by the Wi-Fi Alliance and the
+IEEE LMSC. The 6 GHz Second FNPRM explicitly declined to seek comment
+on modifying the VLP rules for devices operating without a geofencing
+system except for some aspects of the out-of-band emission limits.
+Thus, any consideration of higher power for non-geofenced VLP devices
+is beyond the scope of the FCC's proceeding.
+ Finally, AT&T questions the computer simulations on which the
+Commission relied when adopting the VLP device rules. However, the
+Commission is not relying on those computer simulation results in
+reaching our decision to permit GVP operations. Instead, the
+
+[[Page 9145]]
+
+Commission bases its decision to permit GVP on the adoption of rules
+requiring the use of a geofencing system to prevent any significant
+risk of harmful interference. Therefore, the veracity of the
+simulations the Commission relied on when authorizing VLP devices is
+not relevant to the Commission's decision here permitting GVP
+operations.
+
+GVP Client Device Power
+
+ The 6 GHz Second FNPRM proposed to require client devices operating
+under the control of a GVP access point to transmit only on channels
+determined by that GVP access point. Under this proposal, client
+devices would not be required to directly obtain or calculate exclusion
+zones. The 6 GHz Second FNPRM proposed that client devices operating
+under the control of a GVP access point be permitted to operate at the
+same power level as the GVP access point.
+ AT&T expresses concern that the 6 GHz Second FNPRM proposed to
+permit client devices connected to GVP access points to operate at the
+same power as the GVP access point, even though only the GVP access
+points will be subject to geolocation and geofencing requirements. AT&T
+calls this a ``significant and unexplained departure from the
+requirement'' for standard-power and LPI operations that client devices
+operate at power levels at least 6 dB less than the associated access
+points. AT&T suggests that if the Commission does not require GVP
+client devices to similarly operate at lower power levels, the
+exclusion zones should be extended by 365 meters, the range over which
+AT&T claims that two GVP devices could communicate.
+ Apple, Broadcom et al. suggest that the Commission's rationale for
+adopting lower power limits for standard-power and LPI client devices
+does not apply to GVP devices. Apple, Broadcom et al., note that the
+Commission mandated lower power for standard-power and LPI client
+devices ``as a precaution against the theoretical scenario that a
+client device could operate in a location with a substantially
+different interference potential compared to its associated standard-
+power [access point].'' Apple, Broadcom et al. claim that scenario will
+not occur for GVP client devices because they ``must operate in close
+proximity [to their access point] due to their lower power levels
+relative to standard power [access points].'' Apple, Broadcom et al.
+further explain that the power level for LPI client devices was
+specifically lowered to prevent outdoor use, an issue that is not
+relevant for GVP client devices, which would be allowed to operate
+outdoors.
+ Apple supports the Commission's proposal to authorize the same
+power levels for GVP access points and client devices because the
+devices will rely on symmetrical bi-directional communication. Apple
+suggests that if the Commission decides to adjust the size of the
+exclusion zones determined by the geofencing system to account for the
+potential separation distance between a GVP access point and client
+device, ``expanding the exclusion zones by 75 meters would be a very
+conservative approach,'' as demonstrated by data presented by Apple and
+Meta. The Apple and Meta data show the separation distance that can be
+achieved between GVP access points and client devices when operating a
+communication link at different Wi-Fi modulation and coding schemes
+(MCS) in urban and suburban areas. These calculations were based on
+operation with 21 dBm EIRP, 4 dB of body loss, 0 dBi antenna gain, a
+transmit frequency of 6.5 GHz, and the use of the propagation models
+specified in the Commission's rules for AFC operation. This data
+illustrates that as the MCS level increases the GVP access points and
+client devices must be closer together to successfully communicate.
+Apple and Meta maintain that these calculations show that ``a 75-meter
+buffer would more than account for the potential distance between a
+[GVP access point] and client [device] . . . because this would be
+larger than the maximum separation distance established using AFC
+modeling for devices operating at MCS 4.'' Apple and Meta claim that
+``[GVP] devices are likely to overwhelmingly operate at MCS 4 and
+above'' because ``[o]peration at MCS 1 would not support the throughput
+requirements needed for this class of devices, which will enable
+[augmented reality], video, and other high-throughput applications.''
+They also maintain that ``in the real world, [GVP] devices will rarely,
+if ever, be separated by 75 meters'' because they ``may not be fixed,
+must be workable at far lower power than standard Wi-Fi, and include a
+geolocation-capable [access point].'' Apple and Meta note that GVP
+devices ``[t]ypically will be body-worn devices that operate with
+negligible separation distances.'' Apple and Meta also claim that
+AT&T's suggested 365-meter buffer distance cannot be replicated and
+that AT&T relies on unrealistic assumptions, such as using only the
+free-space propagation model.
+ Recently, Apple and Meta have implicitly supported a 6 dB power
+differential between GVP access points and associated client devices by
+advocating that maximum authorized power levels of at least 11 dBm/MHz
+PSD and 24 dBm EIRP for GVP access points and 5 dBm/MHz PSD and 18 dBm
+EIRP for GVP client devices are essential for adequate reliability and
+performance for GVP use cases.
+ Discussion. The Commission is adopting GVP access point power
+levels that are higher than were proposed in the 6 GHz Second FNPRM--up
+to 11 dBm/MHz EIRP PSD and 24 dBm EIRP instead of the proposed 1 dBm/
+MHz EIRP PSD and 14 dBm EIRP. At these higher power levels, it is
+possible for client devices to operate at distances farther from the
+controlling GVP access point than anticipated under the Commission's
+proposal. Although many potential GVP applications, such as body-worn
+devices for augmented reality/virtual reality, will involve access
+points and client devices located on the same person, other
+applications, such as a GVP mobile hotspot, would likely involve client
+devices that are distant from the access point. Consequently, a client
+device operating at the same power as its controlling GVP access point
+could be located within an exclusion zone even when the GVP access
+point is safely outside of the exclusion zone. Therefore, consistent
+with existing 6 GHz client device rules, the Commission will require
+client devices under the control of a GVP access point to operate at
+power levels at least 6 dB less than the power level determined by the
+geofencing system for the associated GVP access point. Because the
+Commission is implementing this power reduction requirement for GVP
+client devices, the Commission declines to extend the exclusion zone
+boundaries, as AT&T suggests.
+ Apple, Broadcom et al. provide no rationale to support its claim
+that GVP client devices must operate in close proximity to GVP access
+points. While Apple, Broadcom et al. are correct that one of the
+motivations for the 6 dB power differential between LPI access points
+and their associated client devices was to limit the client devices to
+indoor operation, client devices connected to standard-power access
+points are also restricted to 6 dB less power than their associated
+access point and such access points and client devices are not limited
+to indoor operation. This illustrates that when adopting the rules for
+standard-power devices the Commission believed that it is necessary to
+impose a 6 dB power difference between access points and client devices
+to prevent the client devices from operating too close to
+
+[[Page 9146]]
+
+microwave receivers even when the associated access point is operating
+under the control of an AFC system. The Commission continues to hold to
+that reasoning and reach the same conclusion for GVP devices. In
+addition, Apple provides no basis for contending that GVP devices will
+rely on symmetrical bi-directional communication. Other 6 GHz
+unlicensed devices such as standard-power and LPI devices function with
+a 6 dB power differential between access points and client devices and
+the Commission sees no basis for concluding that GVP devices cannot
+also be designed to account for this power difference.
+ The Commission finds that providing 6 dB lower power for GVP client
+devices is a superior approach for compensating for the separation
+distance between GVP access points and client devices than adding a 75-
+meter buffer to the exclusion zone boundaries, as suggested by Apple
+and Meta. The 75-meter buffer size is based on the assumption that at
+least MCS 4 will always be necessary for these devices. While this may
+be the case for the augmented-reality glasses and wristband
+electromyography technology that are the subject of Apple and Meta's
+presentation, the Commission is not limiting GVP devices to particular
+technologies or applications. GVP devices operating under the rules the
+Commission is adopting are expected to operate at a range of MCS levels
+as needed for different applications and will be able to employ
+technologies other than Wi-Fi. Consequently, the Commission cannot
+conclude that GVP access points and client devices will always be
+limited to a 75-meter separation distance. Applying the same 6 dB power
+level differential between access points and client devices as the
+Commission have used for other types 6 GHz unlicensed devices is a more
+straightforward approach to protecting licensed operations that share
+the 6 GHz band, while also enabling GVP client devices to operate at
+the power levels that Apple and Meta state are necessary to ensure
+reliable communications. This approach also maintains the coexistence
+scheme already in place to protect incumbents from a significant risk
+of harmful interference.
+ The Commission does not believe that imposing a 6 dB power
+differential between GVP access points and associated client devices
+will hinder the usefulness of GVP devices. As noted above, Apple and
+Meta have advocated that GVP client devices should have a maximum
+permitted power level of at least 18 dBm and 5 dBm/MHz to support the
+envisioned use cases, such as body-worn devices for augmented reality
+applications and multiple peer-to-peer links. While Apple, Broadcom et
+al. have indicated that they support 8 dBm/MHz EIRP PSD and 21 dBm EIRP
+power levels and also advocate for no power differential between GVP
+assess points and client devices, they have not indicated that limiting
+client devices to 3 dB below these power levels will hinder the
+implementation of particular use cases. Therefore, the Commission has
+no reason to conclude that the power limits its establishing for client
+devices under the control of GVP access points will inhibit the
+usefulness of GVP devices.
+ Under the rules the Commission is adopting, GVP client devices are
+limited to a maximum of 5 dBm/MHz EIRP PSD and 18 dBm EIRP. In
+addition, for GVP access points operating within an exclusion zone and
+pursuant to geofencing instructions limiting power below the maximum
+permitted, associated client devices will similarly be required to
+reduce power such that they are at least 6 dB less than the maximum
+power permitted for the GVP access point. For example, if a GVP access
+point is operating in an exclusion zone and limited by the geofencing
+system to 1 dBm/MHz EIRP PSD and 14 dBm EIRP, an associated client
+device will be limited to -5 dBm/MHz EIRP PSD and 8 dBm EIRP. However,
+if a GVP access point transmits at less than its maximum permitted
+power level, the maximum power for the client device is determined by
+subtracting 6 dB from the access points maximum permitted power, not by
+subtracting 6 dB from the access points transmit power. For example, if
+a GVP access point that is operating outside of any exclusion zone
+transmits at 5 dBm/MHz PSD and 18 dBm EIRP, an associated client device
+could transmit at this same power level because the maximum permitted
+power level of the access point is 11 dBm/MHz PSD and 24 dBm EIRP.
+
+GVP Operations in U-NII-6 and U-NII-8
+
+ In the 6 GHz Second FNPRM, the Commission proposed that geofencing
+systems protect BAS and CARS operations in the U-NII-6 and U-NII-8
+bands. The Commission noted that both the U-NII-6 and U-NII-8 bands are
+used by mobile broadcast auxiliary services, including outdoor
+electronic news gathering (ENG) trucks and low power short range
+devices, such as portable cameras and microphones. Low Power Auxiliary
+Stations, which are licensed in portions of the U-NII-8 band, operate
+on an itinerant basis and transmit over distances of approximately 100
+meters for uses such as wireless microphones, cue and control
+communications, and TV camera synchronization signals. ENG trucks
+transmit video programming, generally using telescoping directional
+antennas that are oriented toward a central receive site from remote
+sites, such as the location of news or sporting events, to a central
+receive site. The Commission proposed that the geofencing systems
+protect the BAS and CARS operations using the same propagation models,
+interference protection criterion, and body loss assumptions as used to
+protect microwave receivers in the U-NII-5 and U-NII-7 bands.
+ Due to the steerable nature of the central receive antennas, the
+Commission asked if exclusion zones surrounding central receive sites
+need to be circular to ensure protection in all directions, or could
+they be only part of a circle, i.e., less than 360 degrees. The
+Commission noted that BAS and CARS operations are typically licensed
+for the entire band(s) in which they operate (i.e., U-NII-6, U-NII-8,
+or both) and asked whether GVP devices should avoid operation across
+the entire band that a BAS/CARS site receives within the exclusion
+zones. The Commission sought comment on whether there are ways to
+reduce the size of the exclusion zones to protect BAS and CARS receive
+sites, limit the number of frequencies excluded within those zones, or
+limit receive site protection to only the specific times when they are
+in use. More specifically, the Commission asked whether BAS and CARS
+users should be required to notify a geofencing system of their ENG
+operations, and for the geofencing systems to incorporate a push
+notification feature or similar functionality to provide information
+(e.g., actual operating locations and frequency usage, on a near real-
+time basis) to GVP devices so that the exclusion zones in the U-NII-6
+and U-NII-8 bands can be tailored to actual usage rather than all
+possible usage areas. The Commission noted that if it were to adopt a
+push notification or similar approach to protect BAS/CARS based on
+usage, there would be a need for one or more centralized systems to
+register BAS/CARS usage and provide the information to geofencing
+systems.
+ The Commission proposed that low power short range BAS and CARS
+devices, such as portable cameras and microphones, and Low Power
+Auxiliary stations be protected from harmful interference by a
+combination of a required contention-based protocol and
+
+[[Page 9147]]
+
+the low probability of a GVP device operating on the same channel in a
+nearby location. The Commission explained that the sensing function
+associated with the contention-based protocol, along with the low
+probability for co-channel operation, is sufficient to ensure that GVP
+devices detect nearby mobile BAS operations and avoid transmitting co-
+channel to protect those operations from harmful interference.
+ Apple, Broadcom et al. point to a computer simulation they
+submitted prior to the issuance of the 6 GHz Second FNPRM as evidence
+that harmful interference will not occur to ENG receive sites from GVP
+operations at 21 dBm EIRP. This simulation examined two ENG receive
+sites at Cowles Mountain, San Diego, CA, and the Old Post Office in
+Washington, DC. The simulations analyzed mobile links from ENG trucks
+to BAS central receive sites for a total of six links per site. The
+simulations purport to show that both sites had a close to zero percent
+probability of experiencing an I/N higher than -6 dB due to VLP devices
+operating at 21 dBm. While Apple, Broadcom et al. claim the record
+shows there will be an insignificant risk of harmful interference when
+GVP operates at 21 dBm EIRP, they ``support the Commission's belt-and-
+suspenders use of geofencing for this GVP device class.'' They note
+that adopting a contention-based protocol requirement and the
+opportunity for broadcasters to report on ENG link locations will
+further diminish the risk of harmful interference to ENG incumbent
+licensees.
+ NAB contends that the Commission's proposal to protect mobile
+operations using exclusion zones around registered ENG central receive
+sites is based on an incomplete view of how this spectrum is used. It
+points out that ``[w]hile transmission from a mobile ENG truck to a
+central receive site is a common way that licensed users of this
+spectrum operate,'' ``[b]roadcasters make use of this spectrum in
+myriad ways when covering newsworthy events, including from camera-back
+transmitters to temporary receivers mounted on trucks that can operate
+nationwide.'' NAB claims that the proposal for BAS users to provide
+operating locations and frequencies to a database administrator would
+``add[ ] significant burden and delay to the newsgathering process''
+and require ``untold expense to implement a system to capture this
+information.'' NAB also criticizes the computer simulation upon which
+Apple, Broadcom et al. rely, claiming that the analysis showing
+absolutely no interference to ENG receivers is plainly unreasonable
+because many hypothetical VLP transmitter locations near an ENG receive
+antenna would present a signal exceeding a -6 dB I/N level.
+ Discussion. The Commission defers adoption of rules to permit GVP
+operation in the U-NII-6 and U-NII-8 bands because it does not believe
+that the record currently contains sufficient details to adopt
+geofencing that will efficiently manage spectrum while protecting
+mobile BAS and CARS operations. Because news events can occur anywhere
+with little notice, a geofencing system that is based on the actual
+location and directionality of the links between ENG truck transmitters
+and the central receive sites will require updated information on the
+locations of ENG truck transmitters. If the ENG operations are not
+tracked in a centralized database, the geofencing systems will have to
+protect the ENG receivers over a 360-degreee radius at all times. This
+large area will need to be protected across the entire U-NII-6 and U-
+NII-8 bands because BAS and CARS licenses typically permit
+transmissions across the entire bands. Because ENG news gathering is
+conducted by broadcasters throughout the nation, establishing exclusion
+zones at every ENG central receive site that covers the entire U-NII-6
+and U-NII-8 bands will remove a tremendous amount of spectrum from use
+by GVP devices. Hence, to efficiently manage access to this spectrum
+the Commission finds that it should consider how geofencing systems can
+be designed to use information on actual ENG use to quickly update the
+exclusion zones governing GVP device use.
+ While Apple, Broadcom et al. support the use of geofencing systems
+for GVP devices operating in the U-NII-6 and U-NII-8 band and contend
+that NAB has not substantiated its claim that providing real-time
+information on BAS/CARS use would be a burden to newsgathering
+operations, they have not provided any details on how geofencing
+systems would collect BAS/CARS usage information and manage GVP device
+spectrum use. For the Commission to adopt rules for geofencing systems
+that use real-time information on BAS/CARS use, the Commission would
+have to address many issues such as: How would the information on BAS/
+CARS use be collected? Who would collect this information? What
+specific information would be collected? How would the information be
+propagated to the various geofencing systems? How would updated
+exclusion zones based on this information be pushed to the GVP access
+points? How quickly would the GVP access points need to adjust their
+spectrum use as BAS/CARS spectrum use changes? Given the lack of record
+on how this process would work in practice, the Commission does not
+believe that it has sufficient information to adopt rules for
+geofencing systems for the U-NII-6 and U-NII-8 bands. In adopting rules
+to permit GVP device operations in the U-NII-5 and U-NII-7 bands while
+deferring consideration of operations in the U-NII-6 and U-NII-8 bands,
+the Commission is following the same path it used to adopt rules for
+VLP devices. In the 2023 6 GHz Second Order, the Commission adopted
+rules to permit VLP device operation in U-NII-5 and U-NII-7. In 2024,
+after obtaining a more robust record, the Commission expanded VLP
+operations to the U-NII-6 and U-NII-8 bands in the 6 GHz Third Order
+(90 FR 11373, March 6, 2025).

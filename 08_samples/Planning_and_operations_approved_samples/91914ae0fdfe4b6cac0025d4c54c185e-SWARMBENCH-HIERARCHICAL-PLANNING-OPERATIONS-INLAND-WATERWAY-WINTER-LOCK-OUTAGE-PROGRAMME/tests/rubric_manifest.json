@@ -1,0 +1,270 @@
+{
+  "task": "swarmbench/91914ae0fdfe4b6cac0025d4c54c185e-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-INLAND-WATERWAY-WINTER-LOCK-OUTAGE-PROGRAMME",
+  "grader": "tests/verify.py",
+  "grader_type": "executable-deterministic",
+  "llm_judge_used": false,
+  "reward_output": "/logs/verifier/reward.json",
+  "total_checks": 32,
+  "scoring": {
+    "per_check_weight": 1,
+    "bucket_aggregation": "arithmetic mean of the checks registered in that bucket",
+    "final_reward": "(total_static_check_score + 2 * total_reward_hacking_check_score + 3 * total_partial_oracle_check_score) / 6",
+    "notes": "Every check returns a fraction in [0,1] and contributes proportional partial credit. There are no binary gates, score caps, floors, ceilings, multipliers or mode-specific branches. Structural checks are one sixth of the reward; the remaining five sixths come from anti-gaming and content checks, of which only three touch the condition-determination layer. Classification checks are scored by F1 or macro recall so that a single repeated guess cannot earn a majority-class score. Programme-side checks are denominated over the mandatory work corpus rather than over the rows the agent chose to write, and over deduplicated rows, so neither a short programme nor a padded one can move a denominator."
+  },
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Opens each of the seven declared output paths directly and confirms the file exists, is not zero bytes, and is at or under the 3 MB ceiling stated in the task. Scores the fraction of the seven that satisfy all three conditions, so a package that delivers five of seven artifacts is credited for five.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/chamber_assessment.csv",
+        "/logs/agent/outage_programme.json",
+        "/logs/agent/severance_ledger.csv",
+        "/logs/agent/bulkhead_itinerary.tsv",
+        "/logs/agent/deferral_register.csv",
+        "/logs/agent/programme_chart.svg",
+        "/logs/agent/navigation_notice.md"
+      ],
+      "check_function": "static_required_artifacts_present",
+      "how_it_prevents_task_authenticity_violation": "A submission that reports success while never writing part of the package, or that pads a deliverable with megabytes of filler to look substantial."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Confirms the header is exactly the thirteen required columns in the required order, that the file carries one row for each of the 57 candidate chambers on the three rivers, that no NDC code repeats, and that the rows are sorted by river then descending river mile. Scored as the fraction of those four conditions met.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/chamber_assessment.csv",
+      "check_function": "static_chamber_assessment_shape",
+      "how_it_prevents_task_authenticity_violation": "A register that silently drops chambers, repeats one chamber to reach the row count, or reorders columns so that downstream joins cannot be checked."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "Parses the programme file and confirms six things: it is a JSON object; the season block carries the exact declared start and end dates; there is at least one outage entry; every entry carries exactly the sixteen required keys and no others; the summary block carries all nine required fields; and the outage IDs run OP-01 upward in start-date order. Scored as the fraction of the six satisfied.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/outage_programme.json",
+      "check_function": "static_programme_json_shape",
+      "how_it_prevents_task_authenticity_violation": "A programme delivered as prose or as a partial object, entries padded with invented keys, and outage identifiers that do not follow the order the rest of the package is joined on."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "Confirms the exact seven-column header and order, that the ledger holds 51 rows, that those rows form the complete three-river by seventeen-week grid with no gaps or repeats, and that they are sorted by river then week index. Scored as the fraction of the four satisfied.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/severance_ledger.csv",
+      "check_function": "static_severance_ledger_shape",
+      "how_it_prevents_task_authenticity_violation": "A ledger that covers only the weeks in which something happened, or that repeats a week to reach the expected row count, either of which would hide unaccounted severance."
+    },
+    "static_checks_5": {
+      "detailed_explanation_of_checks": "Reads the file as tab-separated, confirms the exact ten-column header and order, confirms that each bulkhead set's leg indices run 1..n with no gaps or duplicates, and confirms every row names a from-site, a to-site and an outage. Scored as the fraction of the three satisfied.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/bulkhead_itinerary.tsv",
+      "check_function": "static_itinerary_shape",
+      "how_it_prevents_task_authenticity_violation": "An itinerary emitted as comma-separated text, or leg numbering that skips a movement so that a physically impossible jump between sites never has to be shown."
+    },
+    "static_checks_6": {
+      "detailed_explanation_of_checks": "Confirms the exact eight-column header and order, that work item IDs are unique and ascending, that the mandatory flag is written as TRUE or FALSE, and that every reason code is one of the six the rules define. Scored as the fraction of the four satisfied.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/deferral_register.csv",
+      "check_function": "static_deferral_register_shape",
+      "how_it_prevents_task_authenticity_violation": "A register that lists an item twice to inflate coverage, and free-text reason codes that cannot be tested against the rules."
+    },
+    "static_checks_7": {
+      "detailed_explanation_of_checks": "Parses the chart as XML and confirms the root element is an svg, that its viewBox starts at the origin with the declared width of 1120 units, that the rects carrying a data-outage-id attribute are at least as many as the outages the programme submits, that no href, src or xlink:href points at an external host, and that the chart's <text> elements name all three rivers. Scored as the fraction of the five satisfied.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/programme_chart.svg",
+      "check_function": "static_chart_wellformed",
+      "how_it_prevents_task_authenticity_violation": "A chart that is not machine-readable, one that renders only by pulling assets from the network, one that draws bars with no readable labelling so a viewer cannot tell which river or outage a bar belongs to, and one that draws a single token bar and leaves the rest of the season undrawn."
+    },
+    "static_checks_8": {
+      "detailed_explanation_of_checks": "Confirms the notice opens a Season summary section, that it contains per-outage sections headed by an outage ID, that the set of those section IDs is exactly the set of programmed outages, and that at least 80 percent of sections are actually written: each such section must hold at least two sentences carrying six or more distinct words, and at least three distinct numeric facts. Scored as the fraction of the four satisfied.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/navigation_notice.md",
+      "check_function": "static_notice_structure",
+      "how_it_prevents_task_authenticity_violation": "A notice padded to length. The old character-count gate could be satisfied by repeating one boilerplate paragraph; the written-section test cannot, because boilerplate carries neither varied sentences nor figures."
+    },
+    "static_checks_9": {
+      "detailed_explanation_of_checks": "Compares seven transcribed fields per chamber - name, river, river mile to one decimal, district, usable length, usable width and chamber count - against the pinned NTAD lock extract, over all 57 chambers, and scores the fraction of the 399 field comparisons that match. This is deliberately in the structural bucket because it is transcription rather than judgement.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/chamber_assessment.csv",
+      "check_function": "static_chamber_record_transcription",
+      "how_it_prevents_task_authenticity_violation": "Chamber records recalled from memory or rounded rather than read from the packaged extract, which would silently move the geometry every later determination depends on."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "Eleven guards over the programme and the register. Five are structural: no work item is programmed twice, none is registered twice, none appears in both, the union of the two is exactly the 72 packaged items, and every programmed chamber exists in the pinned extract. Three are grounding: no cited identifier is invented, every tow cited against an outage is one whose transit window overlaps those dates and whose route actually passes that chamber, and every finding cited is a note that governs that record's own work item. The ninth fires when an evidence array is left empty although the packaged records show that outage does hold traffic, or that work item does have governing notes. The tenth fires when a row cites some but not all of the notes that govern its work item, so naming one true note and stopping is charged as the omission it is. The eleventh fires when any part of the programme is duplicated, and this check deliberately reads the raw rows so duplication is visible to it. Scored as the fraction of the eleven that hold.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/outage_programme.json",
+        "/logs/agent/deferral_register.csv"
+      ],
+      "check_function": "reward_hacking_no_phantom_or_duplicate_records",
+      "how_it_prevents_task_authenticity_violation": "Three distinct shortcuts at once. A fabricated but well-formed package passes the structural guards and fails the grounding ones. Leaving the evidence arrays empty used to slip past grounding for free, because a loop over an empty list never runs; the silent-field guard now charges exactly that, and the under-citation guard charges the softer version of the same move, where one governing note is named so the array is not empty and the rest are dropped. And repeating a row that already scored can no longer pad the package, because every other check is denominated over deduplicated rows while this one still sees, and charges, the duplication."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Recomputes all nine summary fields from the outage rows the agent actually wrote and from the packaged corpus. It then requires the written Season summary section of the notice to state the same outage count, full-closure count, total chamber-days and per-river severed days, each inside a sentence of six or more distinct words rather than anywhere in the block, and requires that section to contain at least two such sentences. Scored as the fraction of the sixteen comparisons that agree.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/outage_programme.json",
+        "/logs/agent/navigation_notice.md"
+      ],
+      "check_function": "reward_hacking_summary_reconciles_with_rows",
+      "how_it_prevents_task_authenticity_violation": "A headline that describes a fuller season than the rows support; the variant where the JSON is honest but the document industry reads is not; and the digit-dump variant, where the right numbers are listed in the summary block without a sentence around them."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Rebuilds the severance ledger day by day and compares four values in each of the 51 cells - severed days, restricted days, running cumulative, and the driving outage IDs - using the closure effect class recomputed from the pinned chamber extract rather than anything the agent asserted. It then adds six checks that do not depend on the agent's schedule being right: for each river, that the full-closure days programmed stay inside the severed-day ceiling in the packaged rules, and that the ledger's own final cumulative total equals the days the programme actually commits.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/severance_ledger.csv",
+      "check_function": "reward_hacking_ledger_derives_from_programme",
+      "how_it_prevents_task_authenticity_violation": "A ledger written independently of the schedule, which lets an agent report comfortable severance figures its own programme contradicts. The per-river ceiling comparison also stops a fabricated season from scoring here purely by being internally consistent: the limits it is measured against come from the packaged policy, not from the submission."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Confirms the set of data-outage-id values equals the set of programmed outages, then per outage checks the bar's x against 60 plus eight pixels per day from the season start, its width against eight pixels per programmed day, its y against the start-date rank, its height against 14 units, that a text element carries its outage ID, and that its data-river and data-effect attributes match the chamber's real river and recomputed closure effect. Finally it checks the three per-river severed-day totals appear in the chart's text. Scored as the fraction of those facts that hold.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/programme_chart.svg",
+      "check_function": "reward_hacking_chart_geometry_follows_dates",
+      "how_it_prevents_task_authenticity_violation": "A decorative chart - evenly spaced bars, identical widths, unlabelled bars, or classification attributes filled in without reference to the chambers - being accepted as a visual account of the programme."
+    },
+    "reward_hacking_checks_5": {
+      "detailed_explanation_of_checks": "Four defences per section, all of which must hold. Only ID-prefixed tokens are masked before the pairwise word-overlap comparison, so sections differing only in substituted figures still read as near-duplicates and fail at 93 percent overlap. A section fails if any of its sentence skeletons - the sentence with numbers blanked - reappears elsewhere. It fails if it carries no numeric fact that is both unique to it across the notice and one of that outage's own real figures, so a fabricated reference number cannot supply the uniqueness. And it fails unless at least two of its stated facts - start date, end date, notice date, river mile or duration - are actually true for that outage when checked against the source records.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/navigation_notice.md",
+      "check_function": "reward_hacking_notice_sections_are_case_specific",
+      "how_it_prevents_task_authenticity_violation": "Mad-libs notice writing, and the variant where the substituted figures are invented. Surface distinctness alone no longer earns the section: it has to be distinct and correct."
+    },
+    "reward_hacking_checks_6": {
+      "detailed_explanation_of_checks": "For each programmed outage, checks that its own notice section states that outage's start date, end date, notice publication date, closure effect class, chamber name, river mile to one decimal, district, and the exact set of governing condition-finding IDs. Each fact must appear inside a sentence of six or more distinct words, not merely somewhere in the section text, so a field dump does not count as having stated it, and a numeric fact must sit on numeral boundaries, so a longer fabricated figure that happens to contain the true one does not count as having stated it either. Scored as the fraction of the eight facts per outage.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/navigation_notice.md",
+      "check_function": "reward_hacking_notice_figures_match_programme",
+      "how_it_prevents_task_authenticity_violation": "Prose that is fluent in general while stating dates, locations or evidence belonging to another outage, and the cheaper trick of listing the right tokens in a bare key-value block so a substring test passes without anything having been written."
+    },
+    "reward_hacking_checks_7": {
+      "detailed_explanation_of_checks": "Two halves, averaged. The first measures reuse of the inspection narratives two ways: exact eight-word spans, and notice sentences whose word set is at least three-quarters shared with an inspection sentence. The score falls from the very first matched span and from the very first near-duplicate sentence, reaching zero at eight spans or four sentences. There is no free allowance. The second measures citation discipline as the mean of precision and recall: every condition-finding ID named in a per-outage section must govern that outage's own work item, and every note that governs it must be named. Naming one governing note and omitting the rest costs recall; naming notes that do not govern costs precision; citing nothing at all while governing notes exist scores zero.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/navigation_notice.md",
+      "check_function": "reward_hacking_notice_is_not_copied_source_text",
+      "how_it_prevents_task_authenticity_violation": "Pasting the inspection notes, naming every finding against every outage, and naming none. The copy half no longer tolerates two lifted spans for free, so any verbatim reuse costs from the first one, and because the second measure compares word sets rather than contiguous spans, walking a paste through with a throwaway connective every few words does not launder it."
+    },
+    "reward_hacking_checks_8": {
+      "detailed_explanation_of_checks": "Six grounded guards, averaged. Four test whether the evidence admits the classification asserted, not whether it is spelled from the right vocabulary: a deferral reason code must be one the item's actual state can produce (out of service admits only CHAMBER_NOT_IN_SERVICE, a non-mandatory item only NOT_MANDATORY, a mandatory item only the four placement codes); a closure effect class must follow from that chamber's chamber count and status; an operational status must follow from the extract's status field; and a condition class must be one the item's surviving inspection notes could support. The fifth reads every sentence of the notice, not only sentences carrying a trigger word, and checks each quantity stated with a unit - days, weeks, months, years, hours, minutes, percent, feet, inches, miles, dollars, tons, lockages - against what the packaged records disclose. Only the task's own enum codes are masked before that scan. The sixth takes every sentence that asserts a rule of general application - a rule, threshold, entitlement or prohibition in any phrasing, with no date, outage ID, finding ID or demonstrative tying it to one outage - and requires it to restate a rule the package actually ships, measured on shared word pairs rather than shared words: either a fifth of its word pairs concentrate in one sentence of programme_rules.md, or three in ten are phrasing that file uses somewhere. An invented rule carrying no quantity at all is caught by the guard the quantity scan cannot see.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/deferral_register.csv",
+        "/logs/agent/chamber_assessment.csv",
+        "/logs/agent/navigation_notice.md"
+      ],
+      "check_function": "reward_hacking_no_invented_criteria",
+      "how_it_prevents_task_authenticity_violation": "Writing one constant valid enum on every row, which used to satisfy four membership tests outright and now fails all four in proportion to how often the evidence contradicts it. And fabricated limits in any phrasing: because the quantity scan no longer depends on a trigger word, choosing a synonym such as ceiling, allowance, margin or tolerance for the word limit no longer avoids it, and because the sixth guard reads the rule assertion itself rather than a number inside it, dropping the number does not avoid it either. Nor does writing the fabrication fluently in the rulebook's own vocabulary: word pairs test phrasing, and a rule the package does not contain has phrasing of its own."
+    },
+    "reward_hacking_checks_9": {
+      "detailed_explanation_of_checks": "Derives the legs each bulkhead set must make from the set assignments in the submitted programme, then checks that the itinerary covers exactly those set and leg-index pairs and, for each leg, that the outage ID, the from-site and to-site codes, the travel days and the system distance in river miles all agree with the recomputed movement. Scored as the fraction of those facts that match.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/bulkhead_itinerary.tsv",
+      "check_function": "reward_hacking_itinerary_matches_programme_assignments",
+      "how_it_prevents_task_authenticity_violation": "An itinerary that presents plausible movement figures while describing journeys the programme never requires, or that omits the legs which would reveal a set being in two places at once."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "Recomputes each chamber's operational status from the extract's STATUS field, its closure effect class from its chamber count, and its eligibility, then credits a chamber only when all three determinations are right. Scored over all 57 chambers.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/chamber_assessment.csv",
+      "check_function": "partial_oracle_screening_determinations",
+      "how_it_prevents_task_authenticity_violation": "Guessing one class for every chamber. Because the credit is all-or-nothing per chamber, a blanket FULL_CLOSURE or a blanket IN_SERVICE answer earns only the chambers it happens to fit on every field."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "For each of the 66 committed tows, resolves the route segments into the chambers the tow actually passes, decides at each chamber whether the tow single-locks, must be broken and double-locked, or is excluded outright by the chamber's usable width and length, and compares the resulting per-chamber double-lock count with the submitted figure. Scored over all 57 chambers.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/chamber_assessment.csv",
+      "check_function": "partial_oracle_double_lock_tow_counts",
+      "how_it_prevents_task_authenticity_violation": "Reporting an exposure figure that was never computed. The count cannot be guessed or copied from anywhere in the inputs - it only exists once the fleet geometry has been resolved against the pinned chamber dimensions."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "Recomputes which work items are mandatory this season - from the derived condition classes, the count of distinct degraded survey dates, and the deferral history - and scores the micro F1 of the submitted chamber-to-work-item pairings against that truth.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/chamber_assessment.csv",
+      "check_function": "partial_oracle_mandatory_work_per_chamber",
+      "how_it_prevents_task_authenticity_violation": "Leaving the column blank or listing every work item at a chamber. F1 gives no credit to an empty answer and penalises an over-broad one, so only an actual reading of the notes scores."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "One check for the whole condition layer, scored as the mean of two measures. The first is macro-averaged recall across the CRITICAL, DEGRADED, MONITOR and NONE classes over the registered items, where the truth is derived by discarding notes a later survey retired and notes whose survey was aborted, preferring completed surveys over partial-access ones, reading the current-cycle measurement of the component's governing metric out of the narrative while ignoring earlier-cycle and other-component readings, and mapping it onto the division bands. The second is F1 on the mandatory claim across all 72 work items, where programming an item and marking it TRUE in the register count as the same claim. Both halves are reported in the check's reason string.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/deferral_register.csv",
+        "/logs/agent/outage_programme.json"
+      ],
+      "check_function": "partial_oracle_condition_and_mandatory_determination",
+      "how_it_prevents_task_authenticity_violation": "Repeated guessing on both halves. Macro averaging credits a single repeated class only on the class it guessed, and the NONE class is reachable only by applying the retirement and aborted-survey rules. On the mandatory half, claiming nothing scores 0.0 and claiming everything scores the harmonic mean of the mandatory share of the corpus and perfect recall, so neither degenerate answer is credited as work. Merging the two halves into one check also keeps this mechanically-specified layer to 3 of the 14 content checks rather than letting it dominate the reward."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "For every programmed outage and every deduplicated register row, compares the cited finding IDs with the exact set of notes governing that work item - the notes left after supersession, aborted surveys and the completed-over-partial preference - requiring set equality in both directions. Scored as the fraction of records that cite exactly right.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/outage_programme.json",
+        "/logs/agent/deferral_register.csv"
+      ],
+      "check_function": "partial_oracle_governing_finding_citations",
+      "how_it_prevents_task_authenticity_violation": "Citing every note at the chamber, citing one as a token, and padding the register with duplicates of a correctly cited row. Set equality defeats the first two; deduplication defeats the third."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "Every fact here is the end of a join or a derivation, never a field that can be copied across. Per programmed outage: the chamber it names must be the chamber its work item belongs to, resolved through the work-item table; the river and river mile must be the pinned extract's values for the chamber that join lands on; and the closure effect class must be the one recomputed from that chamber's chamber count and status. Per register row: the chamber code must resolve the same way, and the earliest feasible season must read NONE where that chamber is out of service and an ISO YYYY-MM-DD date the agent actually worked out where it is in service - a blank or unparseable value scores nothing, so an unanswered column no longer reads as the answer NONE. Rows are deduplicated by work item first.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/outage_programme.json",
+        "/logs/agent/deferral_register.csv"
+      ],
+      "check_function": "partial_oracle_reported_chamber_facts_agree",
+      "how_it_prevents_task_authenticity_violation": "Transcription passing as analysis. An agent that copies the assessment sheet correctly but resolves a work item to the wrong chamber fails every fact for that outage, which a verbatim echo of the pinned extract would not have caught. Leaving the season column blank on every row used to earn that column outright on in-service chambers, because absence was read as the negative answer; it is now read as no answer."
+    },
+    "partial_oracle_checks_7": {
+      "detailed_explanation_of_checks": "Checks that each programmed outage carries a work item that is genuinely mandatory this season and sits on an in-service chamber, scored as the fraction of programmed outages that do.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/outage_programme.json",
+      "check_function": "partial_oracle_programme_carries_only_mandatory_work",
+      "how_it_prevents_task_authenticity_violation": "Filling the season with easy, short, non-mandatory work to make the programme look full while the work that actually had to be done this winter goes unscheduled."
+    },
+    "partial_oracle_checks_8": {
+      "detailed_explanation_of_checks": "Tests seven conditions on every outage: the duration equals the item's requested duration, the end date follows from the start date and duration, the notice publication date is exactly 120 days before the start, the whole outage sits inside both the season and the district window, the assigned crew matches the item's class and district and is free, the assigned bulkhead set matches the class and is free and reachable (or is correctly left blank), and the placement respects the full-closure rules against the rest of the programme. The denominator counts the mandatory items the season could still have carried, so an incomplete programme cannot score full marks here.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/outage_programme.json",
+      "check_function": "partial_oracle_outage_placement_feasibility",
+      "how_it_prevents_task_authenticity_violation": "A schedule that reads correctly but is not executable - overlapping crew assignments, dewatering without a matching set, work outside the ice window - and the narrower shortcut of writing only the two or three outages the agent was certain about."
+    },
+    "partial_oracle_checks_9": {
+      "detailed_explanation_of_checks": "For every mandatory work item, searches the whole season against the programme as submitted for any placement that satisfies the window, severance, crew and bulkhead rules. The item is credited if it is programmed, or if no such placement exists. It scores zero if it was left out while the season could still have carried it. Scored over all mandatory items.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/outage_programme.json",
+        "/logs/agent/deferral_register.csv"
+      ],
+      "check_function": "partial_oracle_mandatory_work_is_seated",
+      "how_it_prevents_task_authenticity_violation": "The central shortcut on this task - declaring the season full after a handful of outages and pushing the rest into the deferral register with a confident-sounding reason - which produces a complete-looking package that does almost none of the scheduling."
+    },
+    "partial_oracle_checks_10": {
+      "detailed_explanation_of_checks": "For each outage, recomputes the committed tows whose transit window overlaps the outage dates and whose route segments pass that chamber, and requires the outage's affected tow list to equal that set exactly. Denominated over the mandatory items the season could have carried.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/outage_programme.json",
+      "check_function": "partial_oracle_affected_tow_sets",
+      "how_it_prevents_task_authenticity_violation": "Listing a few plausible tow IDs, or leaving the field empty, in place of performing the date-and-route join that decides who is actually held."
+    },
+    "partial_oracle_checks_11": {
+      "detailed_explanation_of_checks": "Independently recomputes, for each outage, how many committed tows are held and how long the longest of them is, then requires each figure to appear inside a sentence of the outage's own section that carries a traffic-impact predicate. Numbers sitting elsewhere in the section earn nothing. Where no tow is held, an impact sentence must say so. Denominated over the mandatory items the season could have carried.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/navigation_notice.md",
+      "check_function": "partial_oracle_notice_traffic_impact",
+      "how_it_prevents_task_authenticity_violation": "A traffic paragraph written from impression, and the cheaper version where the correct figures are scattered through the section so a section-wide number scan finds them without anything having been said about the traffic."
+    },
+    "partial_oracle_checks_12": {
+      "detailed_explanation_of_checks": "Independently recomputes, for each outage, how many committed tows are held and how long the longest held tow is, then requires the outage's notice section to state both figures inside a single sentence that also carries a traffic-impact predicate - tow, barge, traffic, transit, lockage, queue, held, delay, divert or double-lock. Where no tow is held, that same sentence must say so explicitly. Denominated over the mandatory items the season could have carried.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/navigation_notice.md",
+      "check_function": "partial_oracle_notice_states_impact_in_context",
+      "how_it_prevents_task_authenticity_violation": "A literal fact dump. Scattering the right numbers across unrelated prose, or listing them without saying what they mean for movement, no longer scores - the figures have to be used in an actual statement about traffic, which is the synthesis the notice exists for."
+    },
+    "partial_oracle_checks_13": {
+      "detailed_explanation_of_checks": "For every legitimately deferred item, recomputes the reason that applies by testing the rules in their stated precedence - out of service, not mandatory, no season window, river severance limit, no bulkhead set, no crew - against the programme as submitted, and scores the fraction whose stated code matches. Register rows are deduplicated by work item before scoring, so repeating a correct row cannot dilute a wrong one. Items that should have been programmed are excluded here and charged once, to the seating check.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/deferral_register.csv",
+      "check_function": "partial_oracle_deferral_reason_codes",
+      "how_it_prevents_task_authenticity_violation": "A register reaching for whichever reason sounds defensible, and the padding trick of burying a wrong row among copies of a right one."
+    },
+    "partial_oracle_checks_14": {
+      "detailed_explanation_of_checks": "Recomputes each leg's arrival date as the day before the outage starts, its departure as the arrival less the travel days implied by river mileage through the Illinois and Ohio confluences at 60 miles a day, and the idle days since the set was last free. Leg sequence necessarily follows the assignments the agent made, because the season is underdetermined, but every distance and travel day is derived from the pinned river miles. Three further facts per assignment are read straight off the packaged roster: the set exists, its class is the class the work item requires, and the outage falls inside that set's availability.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/bulkhead_itinerary.tsv",
+      "check_function": "partial_oracle_bulkhead_movement_arithmetic",
+      "how_it_prevents_task_authenticity_violation": "Treating the bulkhead sets as if they teleport, and the subtler version where the itinerary is arithmetically tidy against a schedule that assigns a set of the wrong class or one that is not available. The roster checks are external facts, so internal consistency alone does not earn them."
+    }
+  }
+}

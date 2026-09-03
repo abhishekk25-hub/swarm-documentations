@@ -1,0 +1,29 @@
+[task]
+name = "swarmbench/bf376a79798a4521b8e1626a83ba8af0-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-USGS-EARTH-SCIENCE-FIELD-STUDY-GUIDE"
+description = "Read 66 staged USGS earth-science reports across six hydrology disciplines and write one faithful study-index record per report - study identity, setting and objective, findings and interpretation, and the methods it actually used (chosen from a candidate pool mixing real methods with decoys) - then build a 72-node JSON-LD discipline graph and a validation log. A hybrid verifier pairs deterministic copy/grounding gates with semantic judgments from agent-visible evidence."
+
+[metadata]
+verifier_type = "llm-judge"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_writing", "long_horizon"]
+dag_depth = 3
+dag_width = 35
+human_solving_hours_estimate = 103.0
+human_solving_hours_justification = "An earth-science reference editor must read 66 staged USGS reports and write a faithful, report-specific record for each. The reports total about 959,000 words (~1.44M tokens; median ~15,000 words each - dense technical monographs with figures, tables, and methods). Reading one report closely enough to state the study area and objective, the key measured or modeled results and their interpretation, and to resolve which of the candidate field/laboratory/modeling methods the study actually applied (the candidate pools mix real methods with unrelated decoys) takes about 50 minutes; writing the grounded four-section record and checking it back against the report another 20 minutes. That is about 70 minutes per report across 66 reports (~77h), plus about 8h to assemble and validate the 72-node JSON-LD discipline graph (correct roots, per-discipline report counts matching the roster, one edge each, no duplicates), about 6h for the 66-entry validation log with truthful publication series and method flags, and about 12h cross-checking the discipline classification and method resolution across the set. Total about 103 hours, consistent with the ~1.44M-token input scale. The work does not compress: each record is graded independently against its own report, so skimming or writing from the title produces records that fail."
+estimated_sub_agents = 75
+input_token_estimate = 1450000
+reference_link = "https://pubs.usgs.gov/publication/sir20265119"
+why_multi_agent = "The binding constraint is independently reading and authoring 66 study-index records from roughly 1.44M source tokens of dense earth-science prose, which does not fit one context window and does not compress: each record is graded against its own report. A single agent cannot hold the corpus, so under the contract's structured deliverables it reads a handful of reports and emits the rest mechanically - copying report text, templating the setting and findings, and pasting candidate methods without resolving which the study used. The verifier withholds per-record credit for exactly that: a copy-density gate, a gapped source word-order gate, a function-word-share gate and a rare-report-vocabulary grounding gate each reject copied, resequenced, or harvested prose, and a semantic authorship judge rejects mechanically mangled text; the specificity and depth judges then reject records that name the study area but say what could be said of any water-science report. A copied or templated record therefore scores zero on all per-record checks even though its file and headings exist, and the validation log and graph a shortcut emits get the series, method flags and discipline edges wrong. The hierarchical decomposition removes the pressure that produces the shortcut: six discipline managers constrain context and confirm coverage, 35 specialist lanes each hold one or two reports and do the report-specific reading, method resolution and writing, and one merge task consolidates the graph and validation log without rewriting missing records, so every record is authored by an agent that actually read its own report. The advantage comes from context isolation and parallel authorship, not from mode-dependent instructions or scoring: both arms run the same model under the same harness, the same instruction.md, the same timeout and the same verifier."
+network_enabled = false
+
+[agent]
+timeout_sec = 10800
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 600

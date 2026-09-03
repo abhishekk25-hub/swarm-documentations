@@ -1,0 +1,26 @@
+[task]
+name = "swarmbench/22f8f5dc732548868854bc1447647ff8-SWARMBENCH-DEBATE-KNOWLEDGE-RESEARCH-SANCTIONS-BOARD-RED-FLAGS"
+description = "Read a pinned capture of the thirty highest-numbered public World Bank Group Sanctions Board decisions and produce a cited per-decision digest, a red-flag-to-evidence matrix, and a risk committee briefing that turns the recurring reasoning into proportionate procurement due-diligence actions for a development finance institution."
+
+[metadata]
+verifier_type = "hybrid"
+domain = "knowledge-research"
+coordination_pattern = "debate"
+secondary_classification = ["long_writing", "long_horizon"]
+dag_depth = 3
+dag_width = 30
+human_solving_hours_estimate = 138.0
+human_solving_hours_justification = "Thirty fully reasoned decisions averaging roughly 25 pages each take about 3.5 hours per decision for an integrity analyst to read and reduce to a cited record that separates allegations, respondent arguments, findings, aggravating and mitigating factors, and sanction: 30 x 3.5 = 105 hours. Re-reading the complete record set three times under a procurement lens, an investigations lens, and a legal lens adds 3 x 5.0 = 15 hours. Reconciling the three readings into settled per-decision holdings and a settled observable-indicator set adds 2 x 5.0 = 10 hours. Drafting the digest, the matrix, and the risk committee briefing and checking that citations and identifiers agree across all three artifacts adds 8 hours. Total 105 + 15 + 10 + 8 = 138 hours."
+estimated_sub_agents = 37
+input_token_estimate = 480000
+reference_link = "https://www.worldbank.org/en/about/unit/sanctions-system/sanctions-board/decisions"
+why_multi_agent = "Thirty fully reasoned Sanctions Board decisions run to several hundred pages, and each one has to be read closely enough to separate what was alleged from what the respondent argued from what the Board actually found, with a paragraph citation behind every element, before any cross-case comparison is possible. A single context that must hold all thirty of those records and then also carry the procurement, investigations, and legal readings of the same evidence and adjudicate between them spends its budget on reading before the contested work starts; the predictable degradations are a digest that collapses party argument into holding and an indicator set generalized from facts that were material only in one procedural posture. The graph answers both risks structurally: one reader per decision builds the record once with its citations intact, three role-separated readings then evaluate the identical record set so their disagreements become explicit instead of being averaged away inside a single pass, two adjudicators with disjoint scopes settle those disagreements separately - one fixing what each decision held, the other fixing which indicators are observable before contracting and what response is proportionate - and only then does a single writer assemble the three deliverables and reconcile their shared identifiers."
+
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600

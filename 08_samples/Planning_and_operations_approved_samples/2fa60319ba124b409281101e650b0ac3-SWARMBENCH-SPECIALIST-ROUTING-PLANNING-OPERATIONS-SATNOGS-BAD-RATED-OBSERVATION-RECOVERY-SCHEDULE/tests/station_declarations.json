@@ -1,0 +1,3418 @@
+{
+ "1058": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "A practical point: maintenance is locked in from 2026-07-22T10:15:00Z until 2026-07-22T21:15:00Z; the controller firmware is being reflashed. Do factor that into the plan.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-22T21:15:00Z",
+    "window_start_utc": "2026-07-22T10:15:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "Worth flagging before you schedule: if the pass tops out under 33 degrees we would rather you gave it to someone else; a tree line blocks most of the horizon. Normal service continues alongside.",
+    "max_bookings": "",
+    "min_elevation_deg": "33",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1058,
+  "station_name": "DEOS_RALF"
+ },
+ "106": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "The main thing is that tower work is booked from 15:15Z on 22 July through 00:15Z on 24 July; grounding work needs the whole chain isolated. Everything else is unaffected.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T00:15:00Z",
+    "window_start_utc": "2026-07-22T15:15:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "Before anything is booked, we decline passes that do not clear 38 degrees at their highest point; low-angle multipath here is severe. Apologies for the inconvenience.",
+    "max_bookings": "",
+    "min_elevation_deg": "38",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "So you have it in writing: anything on FSK should go elsewhere; the relevant SDR channel is out for repair. Shout if that causes a problem.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 106,
+  "station_name": "BEEGND-1"
+ },
+ "1145": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For planning purposes, 1 additional passes is all the site will manage; the operator is travelling and can only check in occasionally. That is the only limit from us.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1145,
+  "station_name": "VK4SMC #1"
+ },
+ "1156": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "Ahead of the 22-25 July window, our FSK chain is out of service, so do not book it; that path is being re-cabled this week. Outside that the site is open as normal.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1156,
+  "station_name": "VA2WBT - Montr\u00e9al, Canada"
+ },
+ "1167": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "Heads up -- we would ask you to route FSK to another site; we have no working decoder for it at present. Please plan around it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1167,
+  "station_name": "F1SXJ"
+ },
+ "1189": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "Before anything is booked, consider the site dark for the duration of the catch-up; roof access is blocked by unrelated building work. Nothing else about the site changes.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1189,
+  "station_name": "BHDynamics"
+ },
+ "1190": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Ahead of the 22-25 July window, tower work is booked from 06:30 on 22 July (UTC) through 04:30 on 23 July (UTC); the rotator gearbox is being replaced. Normal service continues alongside.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T04:30:00Z",
+    "window_start_utc": "2026-07-22T06:30:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "The main thing is that we decline passes that do not clear 33 degrees at their highest point; terrain noise dominates below that. Nothing else about the site changes.",
+    "max_bookings": "",
+    "min_elevation_deg": "33",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1190,
+  "station_name": "om3tps_home"
+ },
+ "1433": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Ahead of the 22-25 July window, the site drops out for planned work from 18:30 on 22 July (UTC) to 21:30 on 23 July (UTC); the controller firmware is being reflashed. Apologies for the inconvenience.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T21:30:00Z",
+    "window_start_utc": "2026-07-22T18:30:00Z"
+   }
+  ],
+  "ground_station": 1433,
+  "station_name": "PE2BZ-Odroid-L-band and  / or S-band"
+ },
+ "1442": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "A practical point: maintenance is locked in from 1745Z on the 22nd until 0745Z on the 23rd; the controller firmware is being reflashed. The rest of the window is clear.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T07:45:00Z",
+    "window_start_utc": "2026-07-22T17:45:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the avoidance of doubt, we decline passes that do not clear 35 degrees at their highest point; the ridge to our south swallows low passes. Outside that the site is open as normal.",
+    "max_bookings": "",
+    "min_elevation_deg": "35",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "GMSK",
+    "evidence_sentence": "To save you a wasted slot, we are not accepting GMSK work; that demodulator chain is mid-rebuild. Nothing else about the site changes.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1442,
+  "station_name": "KC4LE 2m/70cm Open Stub J-Pole"
+ },
+ "1461": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "So you have it in writing: we are able to run 1 catch-up observations at most; beyond that the upload queue backs up for days. Shout if that causes a problem.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "One thing for the recovery window: the array will be offline between 11:15Z on 22 July and 19:15Z on 22 July; the receiver is physically disconnected while the work happens. Outside that the site is open as normal.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-22T19:15:00Z",
+    "window_start_utc": "2026-07-22T11:15:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "Before anything is booked, we ask schedulers to respect a 30 degree minimum peak elevation; terrain noise dominates below that. Everything else is unaffected.",
+    "max_bookings": "",
+    "min_elevation_deg": "30",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1461,
+  "station_name": "VE2DSK-VHF-UHF"
+ },
+ "1466": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "While the catch-up runs, our contractor has the site booked 1130Z on the 24th to 2030Z on the 25th; grounding work needs the whole chain isolated. Nothing else about the site changes.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-25T20:30:00Z",
+    "window_start_utc": "2026-07-24T11:30:00Z"
+   }
+  ],
+  "ground_station": 1466,
+  "station_name": "PE0SAT-12"
+ },
+ "1519": {
+  "clear_sentences": [
+   "Station 1519 has nothing binding to declare for this window. Normal scheduling rules apply."
+  ],
+  "declarations": [],
+  "ground_station": 1519,
+  "station_name": "Not Quite ESL"
+ },
+ "1561": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the catch-up effort, nothing at all can be flown here before July 25; the rotator controller is with the vendor and there is no firm return date. Everything else is unaffected.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1561,
+  "station_name": "KK6NOW - Palm Desert, CA, US"
+ },
+ "1592": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "One thing for the recovery window: the site can carry 1 make-good bookings in total; the operator reviews each one by hand and cannot keep up beyond that. No other limits apply here.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1592,
+  "station_name": "PE1RXU"
+ },
+ "1616": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "GMSK",
+    "evidence_sentence": "A practical point: no GMSK please, though anything else is welcome; that demodulator chain is mid-rebuild. Everything else is unaffected.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1616,
+  "station_name": "TA2NMU (QFH-South)"
+ },
+ "1663": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Just so the desk knows, please book no more than 1 make-good passes here; we are on a metered connection this month. The rest of the window is clear.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "We decline passes that do not clear 48 degrees at their highest point; low-angle multipath here is severe. Do factor that into the plan.",
+    "max_bookings": "",
+    "min_elevation_deg": "48",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1663,
+  "station_name": "DK0SB-UHF-Omni"
+ },
+ "1672": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "While the catch-up runs, please cap us at 1 make-good bookings; storage fills faster than we can offload. The rest of the window is clear.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the avoidance of doubt, only passes reaching more than 33 degrees produce usable data; low-angle multipath here is severe. Normal service continues alongside.",
+    "max_bookings": "",
+    "min_elevation_deg": "33",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "DUV",
+    "evidence_sentence": "Please note: DUV is the one thing we cannot take this window; that path is being re-cabled this week. Please route affected passes elsewhere.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1672,
+  "station_name": "AAS Ager Carballada"
+ },
+ "1696": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Heads up -- we are dark for a service visit starting 22:15 UTC on the 23rd and finishing 09:15 UTC on the 24th; cabling is being re-run through the new duct. Outside that the site is open as normal.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T09:15:00Z",
+    "window_start_utc": "2026-07-23T22:15:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "Just so the desk knows, we ask schedulers to respect a 35 degree minimum peak elevation; the ridge to our south swallows low passes. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "35",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "Worth flagging before you schedule: there are no FSK bookings available here; the relevant SDR channel is out for repair. Please route affected passes elsewhere.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1696,
+  "station_name": "PE0SAT-31"
+ },
+ "1710": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "Ahead of the 22-25 July window, a peak of at least 50 degrees is required for us to accept a booking; a tree line blocks most of the horizon. No other limits apply here.",
+    "max_bookings": "",
+    "min_elevation_deg": "50",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "GMSK",
+    "evidence_sentence": "Please note: every mode except GMSK is fine by us; there is a decoding fault we have not traced yet. The rest of the window is clear.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1710,
+  "station_name": "EU1AEM"
+ },
+ "1718": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "Ahead of the 22-25 July window, this station is withdrawn from make-good scheduling across 22-25 July; the operator is away and nobody can cover the site. Anything outside that scope is fine.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1718,
+  "station_name": "YD0NXX"
+ },
+ "1725": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "Heads up -- the site is under a hard booking freeze for the whole recovery window; both club keyholders are travelling. We can take anything else you send us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1725,
+  "station_name": "ok1phu-2"
+ },
+ "1861": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Heads up -- we can commit to a limit of 1 extra passes; the operator reviews each one by hand and cannot keep up beyond that. The rest of the window is clear.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Ahead of the 22-25 July window, there is a scheduled outage running 10:45 UTC on the 24th to 21:45 UTC on the 24th; power to the shelter is isolated for the period. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T21:45:00Z",
+    "window_start_utc": "2026-07-24T10:45:00Z"
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "GMSK",
+    "evidence_sentence": "Worth flagging before you schedule: GMSK passes will be rejected by the scheduler here; sample rates for it exceed what the host can sustain. The rest of the window is clear.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1861,
+  "station_name": "LW2DYB"
+ },
+ "1864": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "So you have it in writing: we have had to stand the station down until the end of the month; the rotator controller is with the vendor and there is no firm return date. Nothing else about the site changes.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1864,
+  "station_name": "SA2KNG Omni UHF/VHF"
+ },
+ "1888": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the catch-up effort, we are not taking any make-good bookings during the 22-25 July window; the site insurance lapsed and has to be renewed first. That is the only limit from us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 1888,
+  "station_name": "SA2KNG Experimental"
+ },
+ "1936": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "The main thing is that expect nothing usable from 2026-07-23T06:45:00Z right through to 2026-07-23T20:45:00Z; the dish drive is being re-greased and re-aligned. Please plan around it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T20:45:00Z",
+    "window_start_utc": "2026-07-23T06:45:00Z"
+   }
+  ],
+  "ground_station": 1936,
+  "station_name": "VK4JBE-UHF"
+ },
+ "2009": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "For this shift only, this station is closed to new observation requests until after July 25; a lightning strike took out the front end and parts are on order. The rest of the window is clear.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2009,
+  "station_name": "VA6RPI UHF Alberta Canada."
+ },
+ "2029": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "A practical point: an engineer is on site from 2230Z on the 24th to 0000Z on the 26th and the chain will be broken; cabling is being re-run through the new duct. The rest of the window is clear.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-26T00:00:00Z",
+    "window_start_utc": "2026-07-24T22:30:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the avoidance of doubt, anything that culminates under 35 degrees will come back as noise; the neighbouring industrial estate wipes out the downlink at low angles. Normal service continues alongside.",
+    "max_bookings": "",
+    "min_elevation_deg": "35",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "GMSK",
+    "evidence_sentence": "For the catch-up effort, there are no GMSK bookings available here; there is a decoding fault we have not traced yet. Shout if that causes a problem.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2029,
+  "station_name": "EU1AEM"
+ },
+ "2097": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "In short, if the pass tops out under 48 degrees we would rather you gave it to someone else; low-angle multipath here is severe. Everything else is unaffected.",
+    "max_bookings": "",
+    "min_elevation_deg": "48",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2097,
+  "station_name": "KU4YJ"
+ },
+ "2107": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "One local caveat: please cap us at 1 make-good bookings; the operator is travelling and can only check in occasionally. Everything else is unaffected.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the catch-up effort, our contractor has the site booked 1845Z on the 23rd to 1645Z on the 24th; cabling is being re-run through the new duct. Outside that the site is open as normal.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T16:45:00Z",
+    "window_start_utc": "2026-07-23T18:45:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "In short, anything that culminates under 35 degrees will come back as noise; terrain noise dominates below that. Shout if that causes a problem.",
+    "max_bookings": "",
+    "min_elevation_deg": "35",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2107,
+  "station_name": "JH4XSY-pi"
+ },
+ "2125": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "So you have it in writing: we are able to run 1 catch-up observations at most; storage fills faster than we can offload. Normal service continues alongside.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "In short, a peak of at least 38 degrees is required for us to accept a booking; a tree line blocks most of the horizon. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "38",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "GMSK",
+    "evidence_sentence": "One thing for the recovery window: GMSK passes will be rejected by the scheduler here; that path is being re-cabled this week. We will flag it if anything shifts.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2125,
+  "station_name": "M0GLU"
+ },
+ "2134": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "The main thing is that we have room for 1 of these and no more; the operator reviews each one by hand and cannot keep up beyond that. Please route affected passes elsewhere.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Heads up -- our contractor has the site booked 2026-07-23T17:15:00Z to 2026-07-24T20:15:00Z; power to the shelter is isolated for the period. No other limits apply here.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T20:15:00Z",
+    "window_start_utc": "2026-07-23T17:15:00Z"
+   }
+  ],
+  "ground_station": 2134,
+  "station_name": "MAUSyagi"
+ },
+ "2138": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "Ahead of the 22-25 July window, we are declining FSK passes for now; the relevant SDR channel is out for repair. The rest of the window is clear.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2138,
+  "station_name": "OM7AAK"
+ },
+ "2154": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Please note: we can commit to a limit of 1 extra passes; we are on a metered connection this month. We remain open either side of it.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2154,
+  "station_name": "PC4L"
+ },
+ "2173": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "One local caveat: maintenance is locked in from 02:45 UTC on the 24th until 10:45 UTC on the 24th; grounding work needs the whole chain isolated. Anything outside that scope is fine.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T10:45:00Z",
+    "window_start_utc": "2026-07-24T02:45:00Z"
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK AX.25 G3RUH",
+    "evidence_sentence": "Ahead of the 22-25 July window, we have had to suspend FSK AX.25 G3RUH entirely; the filter for that path is out for repair. Outside that the site is open as normal.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2173,
+  "station_name": "PE0SAT-21"
+ },
+ "2178": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the catch-up effort, this site can absorb at most 1 additional catch-up observations; our SD cards are near end of life and we are rationing writes. Please plan around it.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "Worth flagging before you schedule: our usable window starts at about 33 degrees elevation; nearby buildings shadow anything shallow. Please route affected passes elsewhere.",
+    "max_bookings": "",
+    "min_elevation_deg": "33",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2178,
+  "station_name": "DIYSATELLITE"
+ },
+ "223": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the catch-up effort, we are able to run 1 catch-up observations at most; power budget at the site is tight. The rest of the window is clear.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 223,
+  "station_name": "W2MMD GCARC Clubhouse"
+ },
+ "2246": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "One constraint from our side: an engineer is on site from 07:30Z on 22 July to 18:30Z on 22 July and the chain will be broken; grounding work needs the whole chain isolated. Everything else is unaffected.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-22T18:30:00Z",
+    "window_start_utc": "2026-07-22T07:30:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "Ahead of the 22-25 July window, we decline passes that do not clear 48 degrees at their highest point; reflections off the water confuse anything shallow. We will flag it if anything shifts.",
+    "max_bookings": "",
+    "min_elevation_deg": "48",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2246,
+  "station_name": "HB9FXX Komodo Dome"
+ },
+ "2303": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "One thing for the recovery window: we are not taking any make-good bookings during the 22-25 July window; a lightning strike took out the front end and parts are on order. Please plan around it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2303,
+  "station_name": "Rhodes College"
+ },
+ "2379": {
+  "clear_sentences": [
+   "We have no availability limits to declare for 22-25 July. Book us as needed."
+  ],
+  "declarations": [],
+  "ground_station": 2379,
+  "station_name": "Dtec Station"
+ },
+ "2381": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Ahead of the 22-25 July window, this site can absorb at most 3 additional catch-up observations; we are on a metered connection this month. Please route affected passes elsewhere.",
+    "max_bookings": "3",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "The main thing is that there is a scheduled outage running 2026-07-24T15:15:00Z to 2026-07-25T05:15:00Z; the rotator gearbox is being replaced. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-25T05:15:00Z",
+    "window_start_utc": "2026-07-24T15:15:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "One local caveat: treat 35 degrees as the lowest culmination we can work with; our horizon is poor in almost every direction. Everything else is unaffected.",
+    "max_bookings": "",
+    "min_elevation_deg": "35",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2381,
+  "station_name": "Piszkesteto VHF"
+ },
+ "2410": {
+  "clear_sentences": [
+   "No restrictions to report for the recovery window. We have capacity to spare this week."
+  ],
+  "declarations": [],
+  "ground_station": 2410,
+  "station_name": "GAO UHF"
+ },
+ "2416": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "To save you a wasted slot, please write this site off for the whole exercise; shelter power works have run over. Normal service continues alongside.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2416,
+  "station_name": "N5ZKK-UHF-HELICAL"
+ },
+ "2545": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "We have pulled this station out of the scheduling pool for the recovery window; shelter power works have run over. Do factor that into the plan.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2545,
+  "station_name": "AC Sch\u00f6nforst"
+ },
+ "2550": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For planning purposes, we will take 1 and decline anything beyond that; storage fills faster than we can offload. Normal service continues alongside.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "While the catch-up runs, we hold a 48 degree floor on maximum elevation for booked work; the site sits in a bowl with high ground all round. The rest of the window is clear.",
+    "max_bookings": "",
+    "min_elevation_deg": "48",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK AX.100 Mode 5",
+    "evidence_sentence": "To save you a wasted slot, no FSK AX.100 Mode 5 please, though anything else is welcome; we have no working decoder for it at present. We will flag it if anything shifts.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2550,
+  "station_name": "USU GAS Yagi Az+El"
+ },
+ "2685": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "While the catch-up runs, nothing at all can be flown here before July 25; the mast is down for structural repair. Sorry to add to the workload.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2685,
+  "station_name": "VE9EX-1"
+ },
+ "2701": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "A practical point: between 2026-07-24T22:30:00Z and 2026-07-25T20:30:00Z the antenna is committed to other work; the receiver is physically disconnected while the work happens. Shout if that causes a problem.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-25T20:30:00Z",
+    "window_start_utc": "2026-07-24T22:30:00Z"
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK AX.100 Mode 5",
+    "evidence_sentence": "A practical point: no FSK AX.100 Mode 5 please, though anything else is welcome; we have no working decoder for it at present. We remain open either side of it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2701,
+  "station_name": "DL2SKY"
+ },
+ "2743": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Ahead of the 22-25 July window, we are able to run 1 catch-up observations at most; the operator reviews each one by hand and cannot keep up beyond that. Normal service continues alongside.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the catch-up effort, between 2345Z on the 22nd and 0745Z on the 23rd the antenna is committed to other work; the rotator gearbox is being replaced. No other limits apply here.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T07:45:00Z",
+    "window_start_utc": "2026-07-22T23:45:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "For this shift only, we ask schedulers to respect a 38 degree minimum peak elevation; a tree line blocks most of the horizon. Outside that the site is open as normal.",
+    "max_bookings": "",
+    "min_elevation_deg": "38",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2743,
+  "station_name": "AldingaBeach Ground Station"
+ },
+ "2830": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Just so the desk knows, 1 additional passes is all the site will manage; power budget at the site is tight. We can take anything else you send us.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FM",
+    "evidence_sentence": "To save you a wasted slot, no FM please, though anything else is welcome; the filter for that path is out for repair. Do factor that into the plan.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2830,
+  "station_name": "SM0TGU - L and S-Band"
+ },
+ "2859": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "So you have it in writing: the site can carry 1 make-good bookings in total; the operator reviews each one by hand and cannot keep up beyond that. Anything outside that scope is fine.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "The site drops out for planned work from 0330Z on the 23rd to 1230Z on the 24th; the receiver is physically disconnected while the work happens. Shout if that causes a problem.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T12:30:00Z",
+    "window_start_utc": "2026-07-23T03:30:00Z"
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "One constraint from our side: we would ask you to route FSK to another site; sample rates for it exceed what the host can sustain. Anything outside that scope is fine.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2859,
+  "station_name": "OE6EUR15"
+ },
+ "2865": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "CW",
+    "evidence_sentence": "Worth flagging before you schedule: CW traffic cannot be serviced here at the moment; sample rates for it exceed what the host can sustain. We can take anything else you send us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2865,
+  "station_name": "OK9UWU"
+ },
+ "2968": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Please note: we are dark for a service visit starting 20:45 UTC on the 23rd and finishing 04:45 UTC on the 24th; grounding work needs the whole chain isolated. That is the only limit from us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T04:45:00Z",
+    "window_start_utc": "2026-07-23T20:45:00Z"
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "For the avoidance of doubt, our FSK chain is out of service, so do not book it; the filter for that path is out for repair. We remain open either side of it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 2968,
+  "station_name": "UX5UL"
+ },
+ "2987": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "To save you a wasted slot, we can commit to a limit of 3 extra passes; beyond that the upload queue backs up for days. We remain open either side of it.",
+    "max_bookings": "3",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "For planning purposes, maintenance is locked in from 20:00 UTC on the 24th until 04:00 UTC on the 25th; the receiver is physically disconnected while the work happens. No other limits apply here.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-25T04:00:00Z",
+    "window_start_utc": "2026-07-24T20:00:00Z"
+   }
+  ],
+  "ground_station": 2987,
+  "station_name": "VU2JEK_Nitin"
+ },
+ "3015": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Heads up -- between 2026-07-24T08:15:00Z and 2026-07-24T16:15:00Z the antenna is committed to other work; the rotator gearbox is being replaced. We will flag it if anything shifts.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T16:15:00Z",
+    "window_start_utc": "2026-07-24T08:15:00Z"
+   }
+  ],
+  "ground_station": 3015,
+  "station_name": "M0JFP Staines Space and weather UHF"
+ },
+ "3020": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "For this shift only, every slot in the recovery period is unavailable to you; roof access is blocked by unrelated building work. We can take anything else you send us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3020,
+  "station_name": "Jim UHF"
+ },
+ "3021": {
+  "clear_sentences": [
+   "The site is in normal service for the entire recovery window. The standard network minimum applies."
+  ],
+  "declarations": [],
+  "ground_station": 3021,
+  "station_name": "LSTN Station at Gates County Public Library"
+ },
+ "3067": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For this shift only, please book no more than 1 make-good passes here; beyond that the upload queue backs up for days. Apologies for the inconvenience.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the catch-up effort, we lose the station to engineering between 08:45Z on 23 July and 16:45Z on 23 July; the rotator gearbox is being replaced. The rest of the window is clear.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T16:45:00Z",
+    "window_start_utc": "2026-07-23T08:45:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "While the catch-up runs, only passes reaching more than 38 degrees produce usable data; the neighbouring industrial estate wipes out the downlink at low angles. Please route affected passes elsewhere.",
+    "max_bookings": "",
+    "min_elevation_deg": "38",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3067,
+  "station_name": "HS-MarsOnEarthProject-1"
+ },
+ "3093": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the avoidance of doubt, please book no more than 1 make-good passes here; power budget at the site is tight. No other limits apply here.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "A practical point: we need the bird to get above 35 degrees before it clears our skyline; our horizon is poor in almost every direction. Please plan around it.",
+    "max_bookings": "",
+    "min_elevation_deg": "35",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3093,
+  "station_name": "Nekosat (QFH UHF)"
+ },
+ "3106": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Worth flagging before you schedule: we have planned maintenance from 1945Z on the 24th until 1345Z on the 25th; cabling is being re-run through the new duct. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-25T13:45:00Z",
+    "window_start_utc": "2026-07-24T19:45:00Z"
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "Ahead of the 22-25 July window, please keep FSK observations off this station; there is a decoding fault we have not traced yet. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3106,
+  "station_name": "DEX-ONE"
+ },
+ "3150": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Please note: our contractor has the site booked 0900Z on the 23rd to 2000Z on the 23rd; the antenna sits at stow for the duration. Shout if that causes a problem.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T20:00:00Z",
+    "window_start_utc": "2026-07-23T09:00:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the avoidance of doubt, we need the bird to get above 35 degrees before it clears our skyline; the site sits in a bowl with high ground all round. Please route affected passes elsewhere.",
+    "max_bookings": "",
+    "min_elevation_deg": "35",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "While the catch-up runs, FSK is the one thing we cannot take this window; there is a decoding fault we have not traced yet. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3150,
+  "station_name": "Valpo WIRED Lab SatNOGS-Kit-1"
+ },
+ "3153": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "One thing for the recovery window: there is a scheduled outage running 06:45Z on 24 July to 14:45Z on 24 July; the receiver is physically disconnected while the work happens. That is the only limit from us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T14:45:00Z",
+    "window_start_utc": "2026-07-24T06:45:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "For this shift only, our usable window starts at about 33 degrees elevation; reflections off the water confuse anything shallow. Anything outside that scope is fine.",
+    "max_bookings": "",
+    "min_elevation_deg": "33",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3153,
+  "station_name": "EI4FNB UHF Omni"
+ },
+ "3168": {
+  "clear_sentences": [
+   "Station 3168 has nothing binding to declare for this window. We have capacity to spare this week."
+  ],
+  "declarations": [],
+  "ground_station": 3168,
+  "station_name": "OH2UDS- HS-MarsOnEarthProject-4-Finland"
+ },
+ "3170": {
+  "clear_sentences": [
+   "We are fully operational for the catch-up period with no local limits. Send us what you like."
+  ],
+  "declarations": [],
+  "ground_station": 3170,
+  "station_name": "OE6ISP_Eggbeater"
+ },
+ "3244": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Please note: we will take 1 and decline anything beyond that; beyond that the upload queue backs up for days. Anything outside that scope is fine.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "While the catch-up runs, if the pass tops out under 40 degrees we would rather you gave it to someone else; reflections off the water confuse anything shallow. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "40",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3244,
+  "station_name": "VK4JBE-TESTING"
+ },
+ "3258": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "In short, nothing at all can be flown here before July 25; the site insurance lapsed and has to be renewed first. Normal service continues alongside.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3258,
+  "station_name": "NuSpace SN1"
+ },
+ "3282": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "So you have it in writing: only passes reaching more than 35 degrees produce usable data; terrain noise dominates below that. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "35",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3282,
+  "station_name": "ha7dcd and decent.org"
+ },
+ "3313": {
+  "clear_sentences": [
+   "This station is running clean with nothing outstanding to report. Send us what you like."
+  ],
+  "declarations": [],
+  "ground_station": 3313,
+  "station_name": "PE2BZ-403 MHz-at-work"
+ },
+ "3315": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "In short, we have room for 1 of these and no more; beyond that the upload queue backs up for days. We remain open either side of it.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "One thing for the recovery window: there is a hard blackout on this site from 11:00 on 25 July (UTC) to 19:00 on 25 July (UTC); the dish drive is being re-greased and re-aligned. Apologies for the inconvenience.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-25T19:00:00Z",
+    "window_start_utc": "2026-07-25T11:00:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "To save you a wasted slot, we decline passes that do not clear 40 degrees at their highest point; the site sits in a bowl with high ground all round. We remain open either side of it.",
+    "max_bookings": "",
+    "min_elevation_deg": "40",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3315,
+  "station_name": "PARSEC 2"
+ },
+ "34": {
+  "clear_sentences": [
+   "The site is in normal service for the entire recovery window. Book us as needed."
+  ],
+  "declarations": [],
+  "ground_station": 34,
+  "station_name": "M0SZT"
+ },
+ "3402": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Heads up -- the site can carry 1 make-good bookings in total; power budget at the site is tight. We will flag it if anything shifts.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3402,
+  "station_name": "StreetDirt S-Band"
+ },
+ "342": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK AX.100 Mode 5",
+    "evidence_sentence": "Ahead of the 22-25 July window, we have had to suspend FSK AX.100 Mode 5 entirely; we have no working decoder for it at present. We remain open either side of it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 342,
+  "station_name": "EA5WA Pobla Llarga"
+ },
+ "3433": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Between 24 July at 08:00 UTC and 25 July at 06:00 UTC the antenna is committed to other work; the controller firmware is being reflashed. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-25T06:00:00Z",
+    "window_start_utc": "2026-07-24T08:00:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the catch-up effort, anything peaking below 35 degrees is unusable here; the ridge to our south swallows low passes. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "35",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK AX.100 Mode 5",
+    "evidence_sentence": "One constraint from our side: no FSK AX.100 Mode 5 please, though anything else is welcome; the relevant SDR channel is out for repair. Nothing else about the site changes.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3433,
+  "station_name": "HA5MI"
+ },
+ "3438": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Please note: count on 1 slots from us, not more; the site shares a link with the household and we must be fair to it. Sorry to add to the workload.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Before anything is booked, there is a hard blackout on this site from 13:45 UTC on the 22nd to 21:45 UTC on the 22nd; the dish drive is being re-greased and re-aligned. Normal service continues alongside.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-22T21:45:00Z",
+    "window_start_utc": "2026-07-22T13:45:00Z"
+   }
+  ],
+  "ground_station": 3438,
+  "station_name": "StreetDirt UHF"
+ },
+ "3442": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the catch-up effort, please cap us at 1 make-good bookings; the site shares a link with the household and we must be fair to it. We can take anything else you send us.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "For planning purposes, there is a hard blackout on this site from 2026-07-22T11:45:00Z to 2026-07-23T09:45:00Z; the signal chain is open throughout. Shout if that causes a problem.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T09:45:00Z",
+    "window_start_utc": "2026-07-22T11:45:00Z"
+   }
+  ],
+  "ground_station": 3442,
+  "station_name": "PE2BZ s-band experimental now on docker"
+ },
+ "3543": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "In short, our ceiling for this exercise is 1 bookings; storage fills faster than we can offload. We will flag it if anything shifts.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the avoidance of doubt, we lose the station to engineering between 19:15 UTC on the 23rd and 17:15 UTC on the 24th; cabling is being re-run through the new duct. We can take anything else you send us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T17:15:00Z",
+    "window_start_utc": "2026-07-23T19:15:00Z"
+   }
+  ],
+  "ground_station": 3543,
+  "station_name": "StreetDirt S-band parabolic"
+ },
+ "3584": {
+  "clear_sentences": [
+   "Station 3584 is open for the whole 22-25 July period. Normal scheduling rules apply."
+  ],
+  "declarations": [],
+  "ground_station": 3584,
+  "station_name": "sat-rx"
+ },
+ "3590": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "The main thing is that assume zero availability from us across the entire horizon; the mast is down for structural repair. Anything outside that scope is fine.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3590,
+  "station_name": "EuroSpaceHub-UCM"
+ },
+ "3610": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the catch-up effort, the most we can take for the recovery effort is 1 passes; the operator reviews each one by hand and cannot keep up beyond that. Anything outside that scope is fine.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "One local caveat: we have planned maintenance from 2026-07-23T03:45:00Z until 2026-07-23T21:45:00Z; the rotator gearbox is being replaced. We remain open either side of it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T21:45:00Z",
+    "window_start_utc": "2026-07-23T03:45:00Z"
+   }
+  ],
+  "ground_station": 3610,
+  "station_name": "ka6akh-ground-station"
+ },
+ "3634": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "We will take 1 and decline anything beyond that; the operator reviews each one by hand and cannot keep up beyond that. Other than that we are fully available.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "Ahead of the 22-25 July window, the site is only worth using above 33 degrees peak; low-angle multipath here is severe. Sorry to add to the workload.",
+    "max_bookings": "",
+    "min_elevation_deg": "33",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK AX.100 Mode 5",
+    "evidence_sentence": "Just so the desk knows, please keep FSK AX.100 Mode 5 observations off this station; that path is being re-cabled this week. That is the only limit from us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3634,
+  "station_name": "ZR6DM @ Heidelberg - UHF"
+ },
+ "3677": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Heads up -- our contractor has the site booked 22 July at 16:45 UTC to 23 July at 03:45 UTC; the antenna sits at stow for the duration. Shout if that causes a problem.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T03:45:00Z",
+    "window_start_utc": "2026-07-22T16:45:00Z"
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "To save you a wasted slot, we are declining FSK passes for now; the relevant SDR channel is out for repair. We will flag it if anything shifts.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3677,
+  "station_name": "SOBE01"
+ },
+ "3689": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "This site can absorb at most 1 additional catch-up observations; power budget at the site is tight. Outside that the site is open as normal.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3689,
+  "station_name": "DF0OHM Turnstile VHF (Test UHF)"
+ },
+ "37": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "One thing for the recovery window: we are able to run 1 catch-up observations at most; our SD cards are near end of life and we are rationing writes. Shout if that causes a problem.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 37,
+  "station_name": "DL4PD"
+ },
+ "3715": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Just so the desk knows, we lose the station to engineering between 2026-07-22T07:45:00Z and 2026-07-22T18:45:00Z; the rotator gearbox is being replaced. Please plan around it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-22T18:45:00Z",
+    "window_start_utc": "2026-07-22T07:45:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "Treat 40 degrees as the lowest culmination we can work with; our horizon is poor in almost every direction. Do factor that into the plan.",
+    "max_bookings": "",
+    "min_elevation_deg": "40",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "Ahead of the 22-25 July window, FSK traffic cannot be serviced here at the moment; that path is being re-cabled this week. The rest of the window is clear.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3715,
+  "station_name": "Gooseberry_Hill"
+ },
+ "3804": {
+  "clear_sentences": [
+   "No maintenance, no embargo and no cap at station 3804 this week. The standard network minimum applies."
+  ],
+  "declarations": [],
+  "ground_station": 3804,
+  "station_name": "DP0GVN-UHF"
+ },
+ "3855": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the catch-up effort, this site can absorb at most 1 additional catch-up observations; we are on a metered connection this month. Sorry to add to the workload.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Heads up -- there is a scheduled outage running 2026-07-23T14:15:00Z to 2026-07-24T23:15:00Z; cabling is being re-run through the new duct. We can take anything else you send us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T23:15:00Z",
+    "window_start_utc": "2026-07-23T14:15:00Z"
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "GMSK",
+    "evidence_sentence": "Please note: there are no GMSK bookings available here; that path is being re-cabled this week. Apologies for the inconvenience.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3855,
+  "station_name": "GS ChNord UHF"
+ },
+ "3863": {
+  "clear_sentences": [
+   "Station 3863 is open for the whole 22-25 July period. We have capacity to spare this week."
+  ],
+  "declarations": [],
+  "ground_station": 3863,
+  "station_name": "VK2RZ"
+ },
+ "3905": {
+  "clear_sentences": [
+   "We have no availability limits to declare for 22-25 July. We have capacity to spare this week."
+  ],
+  "declarations": [],
+  "ground_station": 3905,
+  "station_name": "LW1EXU-GroundStation"
+ },
+ "3918": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK AX.100 Mode 5",
+    "evidence_sentence": "We would ask you to route FSK AX.100 Mode 5 to another site; sample rates for it exceed what the host can sustain. Sorry to add to the workload.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3918,
+  "station_name": "YL3CT-1"
+ },
+ "3925": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "One constraint from our side: we can commit to a limit of 3 extra passes; beyond that the upload queue backs up for days. We remain open either side of it.",
+    "max_bookings": "3",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "The main thing is that anything peaking below 40 degrees is unusable here; nearby buildings shadow anything shallow. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "40",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3925,
+  "station_name": "UT4UYF/P"
+ },
+ "3951": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "To save you a wasted slot, we need the bird to get above 43 degrees before it clears our skyline; low-angle multipath here is severe. We can take anything else you send us.",
+    "max_bookings": "",
+    "min_elevation_deg": "43",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3951,
+  "station_name": "UT4UYF/M"
+ },
+ "3952": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "The main thing is that anything peaking below 43 degrees is unusable here; a new building went up on the near skyline. Please plan around it.",
+    "max_bookings": "",
+    "min_elevation_deg": "43",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "While the catch-up runs, FSK is the one thing we cannot take this window; it shares hardware with the beacon monitor, which is tied up. We remain open either side of it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 3952,
+  "station_name": "UT5U**"
+ },
+ "40": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Just so the desk knows, our allowance for the window is 1 observations; the operator is travelling and can only check in occasionally. Do factor that into the plan.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "Please note: we are not accepting FSK work; sample rates for it exceed what the host can sustain. We can take anything else you send us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 40,
+  "station_name": "CGBSAT-UHF"
+ },
+ "4022": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Just so the desk knows, an engineer is on site from 10:30 UTC on the 23rd to 13:30 UTC on the 24th and the chain will be broken; the receiver is physically disconnected while the work happens. No other limits apply here.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T13:30:00Z",
+    "window_start_utc": "2026-07-23T10:30:00Z"
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "GMSK",
+    "evidence_sentence": "One local caveat: please keep GMSK observations off this station; sample rates for it exceed what the host can sustain. Nothing else about the site changes.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4022,
+  "station_name": "SPUTNIX-VHF/UHF-Magadan"
+ },
+ "4044": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Before anything is booked, our ceiling for this exercise is 1 bookings; storage fills faster than we can offload. We remain open either side of it.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "One thing for the recovery window: we decline passes that do not clear 33 degrees at their highest point; the ridge to our south swallows low passes. Apologies for the inconvenience.",
+    "max_bookings": "",
+    "min_elevation_deg": "33",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4044,
+  "station_name": "South Australia - UHF"
+ },
+ "4073": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "We are able to run 1 catch-up observations at most; the site shares a link with the household and we must be fair to it. Please route affected passes elsewhere.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "If the pass tops out under 30 degrees we would rather you gave it to someone else; the site sits in a bowl with high ground all round. We will flag it if anything shifts.",
+    "max_bookings": "",
+    "min_elevation_deg": "30",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4073,
+  "station_name": "Eldr\u00fan"
+ },
+ "4084": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Heads up -- our contractor has the site booked 1030Z on the 24th to 2130Z on the 24th; the controller firmware is being reflashed. Do factor that into the plan.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T21:30:00Z",
+    "window_start_utc": "2026-07-24T10:30:00Z"
+   }
+  ],
+  "ground_station": 4084,
+  "station_name": "Astronomiemuseum Turnstile VHF (Test UHF)"
+ },
+ "4094": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Before anything is booked, tower work is booked from 2026-07-24T13:15:00Z through 2026-07-25T16:15:00Z; cabling is being re-run through the new duct. No other limits apply here.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-25T16:15:00Z",
+    "window_start_utc": "2026-07-24T13:15:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the avoidance of doubt, nothing shallower than 35 degrees is going to decode from this site; low-angle multipath here is severe. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "35",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "LRPT",
+    "evidence_sentence": "A practical point: LRPT is embargoed at this site; that path is being re-cabled this week. Please plan around it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4094,
+  "station_name": "Sofia SAT Club - LZ1GNU"
+ },
+ "4111": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Please note: 1 additional passes is all the site will manage; the site shares a link with the household and we must be fair to it. The rest of the window is clear.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "One thing for the recovery window: the site drops out for planned work from 2026-07-23T20:15:00Z to 2026-07-24T23:15:00Z; the receiver is physically disconnected while the work happens. Anything outside that scope is fine.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T23:15:00Z",
+    "window_start_utc": "2026-07-23T20:15:00Z"
+   }
+  ],
+  "ground_station": 4111,
+  "station_name": "Plyachka"
+ },
+ "4136": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "The main thing is that there is no capacity here whatsoever this window; roof access is blocked by unrelated building work. We can take anything else you send us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4136,
+  "station_name": "estima5633"
+ },
+ "4151": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "The main thing is that there is a scheduled outage running 16:45Z on 22 July to 14:45Z on 23 July; the preamp is being swapped out. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T14:45:00Z",
+    "window_start_utc": "2026-07-22T16:45:00Z"
+   }
+  ],
+  "ground_station": 4151,
+  "station_name": "DEX-X"
+ },
+ "4186": {
+  "clear_sentences": [
+   "Nothing to flag from our side for 22-25 July. Happy to take whatever you send."
+  ],
+  "declarations": [],
+  "ground_station": 4186,
+  "station_name": "IAR-GS"
+ },
+ "4188": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "A practical point: we lose the station to engineering between 0845Z on the 23rd and 1945Z on the 23rd; the controller firmware is being reflashed. Everything else is unaffected.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T19:45:00Z",
+    "window_start_utc": "2026-07-23T08:45:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "The main thing is that we need the bird to get above 40 degrees before it clears our skyline; a tree line blocks most of the horizon. Please plan around it.",
+    "max_bookings": "",
+    "min_elevation_deg": "40",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4188,
+  "station_name": "ISAE Supaero UHF"
+ },
+ "4206": {
+  "clear_sentences": [
+   "Station 4206 is open for the whole 22-25 July period. Treat us as fully available."
+  ],
+  "declarations": [],
+  "ground_station": 4206,
+  "station_name": "NUUGS2"
+ },
+ "4210": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "One local caveat: this site can absorb at most 1 additional catch-up observations; our SD cards are near end of life and we are rationing writes. Please route affected passes elsewhere.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "The main thing is that treat 40 degrees as the lowest culmination we can work with; terrain noise dominates below that. We can take anything else you send us.",
+    "max_bookings": "",
+    "min_elevation_deg": "40",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4210,
+  "station_name": "NUUGS1"
+ },
+ "4222": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "Just so the desk knows, we ask schedulers to respect a 38 degree minimum peak elevation; our horizon is poor in almost every direction. Outside that the site is open as normal.",
+    "max_bookings": "",
+    "min_elevation_deg": "38",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4222,
+  "station_name": "DH1OK-UHF-SatRX"
+ },
+ "4255": {
+  "clear_sentences": [
+   "Station 4255 has nothing binding to declare for this window. Happy to take whatever you send."
+  ],
+  "declarations": [],
+  "ground_station": 4255,
+  "station_name": "Goonhilly-M0XGH"
+ },
+ "4309": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "The main thing is that our contractor has the site booked 05:00 UTC on the 23rd to 13:00 UTC on the 23rd; the antenna sits at stow for the duration. The rest of the window is clear.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T13:00:00Z",
+    "window_start_utc": "2026-07-23T05:00:00Z"
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "One local caveat: no FSK please, though anything else is welcome; that demodulator chain is mid-rebuild. Normal service continues alongside.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4309,
+  "station_name": "SQ7RAD"
+ },
+ "431": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "The site is only worth using above 33 degrees peak; low-angle multipath here is severe. Normal service continues alongside.",
+    "max_bookings": "",
+    "min_elevation_deg": "33",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 431,
+  "station_name": "PE0SAT-11"
+ },
+ "4326": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "A practical point: an engineer is on site from 2100Z on the 24th to 0000Z on the 26th and the chain will be broken; cabling is being re-run through the new duct. Do factor that into the plan.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-26T00:00:00Z",
+    "window_start_utc": "2026-07-24T21:00:00Z"
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "BPSK",
+    "evidence_sentence": "BPSK is the one thing we cannot take this window; we have no working decoder for it at present. That is the only limit from us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4326,
+  "station_name": "KB9LEB_Debian_12"
+ },
+ "4355": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "One thing for the recovery window: count on 2 slots from us, not more; we are on a metered connection this month. That is the only limit from us.",
+    "max_bookings": "2",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "A practical point: the receiver comes down at 24 July at 13:00 UTC and is not back until 25 July at 11:00 UTC; the preamp is being swapped out. Apologies for the inconvenience.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-25T11:00:00Z",
+    "window_start_utc": "2026-07-24T13:00:00Z"
+   }
+  ],
+  "ground_station": 4355,
+  "station_name": "YC8UMD"
+ },
+ "4391": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "One thing for the recovery window: the site can carry 3 make-good bookings in total; the site shares a link with the household and we must be fair to it. Shout if that causes a problem.",
+    "max_bookings": "3",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4391,
+  "station_name": "UHF-VHF Sofia City Balcony"
+ },
+ "4394": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Ahead of the 22-25 July window, 3 additional passes is all the site will manage; the site shares a link with the household and we must be fair to it. We can take anything else you send us.",
+    "max_bookings": "3",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "GMSK",
+    "evidence_sentence": "One thing for the recovery window: GMSK traffic cannot be serviced here at the moment; sample rates for it exceed what the host can sustain. Do factor that into the plan.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4394,
+  "station_name": "JF6FYI Nishikazu, KitaKyushu, QFH (UHF)"
+ },
+ "4410": {
+  "clear_sentences": [
+   "We are fully operational for the catch-up period with no local limits. Normal scheduling rules apply."
+  ],
+  "declarations": [],
+  "ground_station": 4410,
+  "station_name": "Prodromos"
+ },
+ "4460": {
+  "clear_sentences": [
+   "The site is in normal service for the entire recovery window. Send us what you like."
+  ],
+  "declarations": [],
+  "ground_station": 4460,
+  "station_name": "Sofia SAT Club - Bay Ivan"
+ },
+ "4497": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "While the catch-up runs, we cannot accept any recovery bookings between 22 and 25 July; the new feedline is still awaiting certification. We remain open either side of it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4497,
+  "station_name": "VA3HEV"
+ },
+ "4595": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Please note: we are dark for a service visit starting 24 July at 14:30 UTC and finishing 24 July at 22:30 UTC; the controller firmware is being reflashed. Sorry to add to the workload.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T22:30:00Z",
+    "window_start_utc": "2026-07-24T14:30:00Z"
+   }
+  ],
+  "ground_station": 4595,
+  "station_name": "EA4TA"
+ },
+ "4601": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "We are dark for a service visit starting 2026-07-22T11:15:00Z and finishing 2026-07-22T22:15:00Z; the controller firmware is being reflashed. The rest of the window is clear.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-22T22:15:00Z",
+    "window_start_utc": "2026-07-22T11:15:00Z"
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FM",
+    "evidence_sentence": "While the catch-up runs, we would ask you to route FM to another site; that path is being re-cabled this week. Shout if that causes a problem.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4601,
+  "station_name": "QMR-KWT2-HOUSE"
+ },
+ "4613": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "While the catch-up runs, please cap us at 1 make-good bookings; our SD cards are near end of life and we are rationing writes. Apologies for the inconvenience.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "One thing for the recovery window: there is a scheduled outage running 20:15 UTC on the 23rd to 18:15 UTC on the 24th; the controller firmware is being reflashed. That is the only limit from us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T18:15:00Z",
+    "window_start_utc": "2026-07-23T20:15:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "Ahead of the 22-25 July window, treat 30 degrees as the lowest culmination we can work with; the neighbouring industrial estate wipes out the downlink at low angles. Do factor that into the plan.",
+    "max_bookings": "",
+    "min_elevation_deg": "30",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4613,
+  "station_name": "Saratoga, CA Ground Station"
+ },
+ "4632": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Before anything is booked, count on 1 slots from us, not more; the operator is travelling and can only check in occasionally. Outside that the site is open as normal.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "To save you a wasted slot, nothing shallower than 33 degrees is going to decode from this site; low-angle multipath here is severe. Apologies for the inconvenience.",
+    "max_bookings": "",
+    "min_elevation_deg": "33",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4632,
+  "station_name": "KH6DAD-UHF EggNOG"
+ },
+ "4649": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Ahead of the 22-25 July window, between 13:45 UTC on the 22nd and 22:45 UTC on the 23rd the antenna is committed to other work; the antenna sits at stow for the duration. Nothing else about the site changes.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T22:45:00Z",
+    "window_start_utc": "2026-07-22T13:45:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "To save you a wasted slot, treat 30 degrees as the lowest culmination we can work with; the ridge to our south swallows low passes. We will flag it if anything shifts.",
+    "max_bookings": "",
+    "min_elevation_deg": "30",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "So you have it in writing: we would ask you to route FSK to another site; that demodulator chain is mid-rebuild. Shout if that causes a problem.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4649,
+  "station_name": "BG7XTQ"
+ },
+ "4665": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Heads up -- please book no more than 1 make-good passes here; the site shares a link with the household and we must be fair to it. That is the only limit from us.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4665,
+  "station_name": "DUTH_GS"
+ },
+ "4680": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Just so the desk knows, our ceiling for this exercise is 1 bookings; the operator reviews each one by hand and cannot keep up beyond that. Please plan around it.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4680,
+  "station_name": "MAJESAT"
+ },
+ "4702": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Please note: do not send us more than 1 extra jobs; beyond that the upload queue backs up for days. We can take anything else you send us.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the catch-up effort, we decline passes that do not clear 40 degrees at their highest point; a new building went up on the near skyline. The rest of the window is clear.",
+    "max_bookings": "",
+    "min_elevation_deg": "40",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "So you have it in writing: we are declining FSK passes for now; the filter for that path is out for repair. Shout if that causes a problem.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4702,
+  "station_name": "DUS-NORD-UHF"
+ },
+ "4704": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For this shift only, we have room for 1 of these and no more; our SD cards are near end of life and we are rationing writes. Do factor that into the plan.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "In short, passes under 30 degrees at culmination are not worth recording here; terrain noise dominates below that. Nothing else about the site changes.",
+    "max_bookings": "",
+    "min_elevation_deg": "30",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "One local caveat: no FSK please, though anything else is welcome; there is a decoding fault we have not traced yet. The rest of the window is clear.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4704,
+  "station_name": "oozsat-GS"
+ },
+ "4739": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "A practical point: we are dark for a service visit starting 1815Z on the 22nd and finishing 1615Z on the 23rd; the preamp is being swapped out. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T16:15:00Z",
+    "window_start_utc": "2026-07-22T18:15:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "Ahead of the 22-25 July window, nothing shallower than 43 degrees is going to decode from this site; terrain noise dominates below that. We will flag it if anything shifts.",
+    "max_bookings": "",
+    "min_elevation_deg": "43",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "For the catch-up effort, FSK passes will be rejected by the scheduler here; it shares hardware with the beacon monitor, which is tied up. Please plan around it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4739,
+  "station_name": "F4arda_1"
+ },
+ "4743": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "A practical point: please cap us at 1 make-good bookings; the operator reviews each one by hand and cannot keep up beyond that. We will flag it if anything shifts.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "CW",
+    "evidence_sentence": "Heads up -- no CW please, though anything else is welcome; that path is being re-cabled this week. Anything outside that scope is fine.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4743,
+  "station_name": "PISTATION-UHF"
+ },
+ "4762": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "1 additional passes is all the site will manage; the operator reviews each one by hand and cannot keep up beyond that. We remain open either side of it.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Please note: maintenance is locked in from 2026-07-24T06:45:00Z until 2026-07-24T20:45:00Z; the preamp is being swapped out. No other limits apply here.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T20:45:00Z",
+    "window_start_utc": "2026-07-24T06:45:00Z"
+   }
+  ],
+  "ground_station": 4762,
+  "station_name": "SatNogs CNLP"
+ },
+ "4768": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Just so the desk knows, we are able to run 1 catch-up observations at most; we are on a metered connection this month. Other than that we are fully available.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "GMSK",
+    "evidence_sentence": "Ahead of the 22-25 July window, please keep GMSK observations off this station; it shares hardware with the beacon monitor, which is tied up. That is the only limit from us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4768,
+  "station_name": "DL7NDR UHF-Turnstile"
+ },
+ "4803": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "AFSK",
+    "evidence_sentence": "Ahead of the 22-25 July window, anything on AFSK should go elsewhere; it shares hardware with the beacon monitor, which is tied up. Nothing else about the site changes.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4803,
+  "station_name": "KC1OCA  UC-4364-531R (UHF)"
+ },
+ "4806": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Please note: we will take 3 and decline anything beyond that; we are on a metered connection this month. Please route affected passes elsewhere.",
+    "max_bookings": "3",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "There is a scheduled outage running 24 July at 22:45 UTC to 25 July at 06:45 UTC; the controller firmware is being reflashed. Anything outside that scope is fine.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-25T06:45:00Z",
+    "window_start_utc": "2026-07-24T22:45:00Z"
+   }
+  ],
+  "ground_station": 4806,
+  "station_name": "KC1OCA UC-1464-531L (VHF)"
+ },
+ "4825": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Expect nothing usable from 15:45 on 22 July (UTC) right through to 05:45 on 23 July (UTC); the preamp is being swapped out. Nothing else about the site changes.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T05:45:00Z",
+    "window_start_utc": "2026-07-22T15:45:00Z"
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "Before anything is booked, our FSK chain is out of service, so do not book it; sample rates for it exceed what the host can sustain. Anything outside that scope is fine.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4825,
+  "station_name": "PISTATION-VHF"
+ },
+ "4829": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For planning purposes, please cap us at 1 make-good bookings; power budget at the site is tight. Everything else is unaffected.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "GMSK",
+    "evidence_sentence": "Before anything is booked, GMSK passes will be rejected by the scheduler here; the relevant SDR channel is out for repair. That is the only limit from us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4829,
+  "station_name": "lu6gs-a"
+ },
+ "4856": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "One constraint from our side: we cannot accept any recovery bookings between 22 and 25 July; the rotator controller is with the vendor and there is no firm return date. Anything outside that scope is fine.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4856,
+  "station_name": "biGS"
+ },
+ "4857": {
+  "clear_sentences": [
+   "No restrictions to report for the recovery window. Treat us as fully available."
+  ],
+  "declarations": [],
+  "ground_station": 4857,
+  "station_name": "iz0qpo"
+ },
+ "4882": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the catch-up effort, the station will not be answering the scheduler at all this week; the operator is away and nobody can cover the site. Do factor that into the plan.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4882,
+  "station_name": "Shadi"
+ },
+ "4910": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Heads up -- count on 1 slots from us, not more; we are on a metered connection this month. We can take anything else you send us.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "A practical point: we ask schedulers to respect a 30 degree minimum peak elevation; terrain noise dominates below that. Please plan around it.",
+    "max_bookings": "",
+    "min_elevation_deg": "30",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4910,
+  "station_name": "Pelt-UHF-Fixed-Yagi"
+ },
+ "4924": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For planning purposes, please cap us at 1 make-good bookings; beyond that the upload queue backs up for days. Anything outside that scope is fine.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4924,
+  "station_name": "Wroclaw Ground Station"
+ },
+ "4949": {
+  "clear_sentences": [
+   "Station 4949 is open for the whole 22-25 July period. Send us what you like."
+  ],
+  "declarations": [],
+  "ground_station": 4949,
+  "station_name": "Berlin_QFH_UHF"
+ },
+ "4950": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "For this shift only, there is a hard blackout on this site from 16:45 on 22 July (UTC) to 00:45 on 23 July (UTC); the antenna sits at stow for the duration. Do factor that into the plan.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T00:45:00Z",
+    "window_start_utc": "2026-07-22T16:45:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "One thing for the recovery window: we hold a 38 degree floor on maximum elevation for booked work; the neighbouring industrial estate wipes out the downlink at low angles. No other limits apply here.",
+    "max_bookings": "",
+    "min_elevation_deg": "38",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4950,
+  "station_name": "jp7dvx"
+ },
+ "4957": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "For this shift only, we have pulled this station out of the scheduling pool for the recovery window; we are relocating the shelter this week. We can take anything else you send us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4957,
+  "station_name": "Veve-UHF"
+ },
+ "4961": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "We are able to run 1 catch-up observations at most; the operator reviews each one by hand and cannot keep up beyond that. Other than that we are fully available.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "GMSK",
+    "evidence_sentence": "Every mode except GMSK is fine by us; sample rates for it exceed what the host can sustain. Please plan around it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 4961,
+  "station_name": "Berowra Groundstation"
+ },
+ "4963": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Just so the desk knows, we have planned maintenance from 21:45 on 24 July (UTC) until 05:45 on 25 July (UTC); power to the shelter is isolated for the period. Shout if that causes a problem.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-25T05:45:00Z",
+    "window_start_utc": "2026-07-24T21:45:00Z"
+   }
+  ],
+  "ground_station": 4963,
+  "station_name": "PISTATION-1000"
+ },
+ "5024": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the avoidance of doubt, treat 43 degrees as the lowest culmination we can work with; a new building went up on the near skyline. We will flag it if anything shifts.",
+    "max_bookings": "",
+    "min_elevation_deg": "43",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "GMSK",
+    "evidence_sentence": "One thing for the recovery window: our GMSK chain is out of service, so do not book it; that path is being re-cabled this week. Please plan around it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 5024,
+  "station_name": "INSTED-Ground Station(UHF)"
+ },
+ "5026": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "Before anything is booked, this station is closed to new observation requests until after July 25; the rotator controller is with the vendor and there is no firm return date. Nothing else about the site changes.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 5026,
+  "station_name": "NKUA EVRIPOS - VHF"
+ },
+ "5042": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "The main thing is that our allowance for the window is 1 observations; power budget at the site is tight. Do factor that into the plan.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "While the catch-up runs, the site drops out for planned work from 08:15 on 25 July (UTC) to 00:00 on 26 July (UTC); the dish drive is being re-greased and re-aligned. Please plan around it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-26T00:00:00Z",
+    "window_start_utc": "2026-07-25T08:15:00Z"
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "Please note: we have had to suspend FSK entirely; that path is being re-cabled this week. We will flag it if anything shifts.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 5042,
+  "station_name": "LU3ARN"
+ },
+ "5049": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "So you have it in writing: FSK passes will be rejected by the scheduler here; it shares hardware with the beacon monitor, which is tied up. Nothing else about the site changes.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 5049,
+  "station_name": "JF6FYI Nishikazu, KitaKyushu, 3-ele Yagi(UHF)"
+ },
+ "5062": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "For planning purposes, our usable window starts at about 38 degrees elevation; a tree line blocks most of the horizon. We can take anything else you send us.",
+    "max_bookings": "",
+    "min_elevation_deg": "38",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 5062,
+  "station_name": "wz4jm station"
+ },
+ "5065": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For this shift only, we are able to run 1 catch-up observations at most; power budget at the site is tight. Everything else is unaffected.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "While the catch-up runs, tower work is booked from 0300Z on the 24th through 0600Z on the 25th; the dish drive is being re-greased and re-aligned. That is the only limit from us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-25T06:00:00Z",
+    "window_start_utc": "2026-07-24T03:00:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "In short, the site is only worth using above 45 degrees peak; low-angle multipath here is severe. The rest of the window is clear.",
+    "max_bookings": "",
+    "min_elevation_deg": "45",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 5065,
+  "station_name": "329CZ144"
+ },
+ "5066": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "One thing for the recovery window: please book no more than 1 make-good passes here; storage fills faster than we can offload. Sorry to add to the workload.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 5066,
+  "station_name": "SA1CKW"
+ },
+ "5068": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For planning purposes, 2 additional passes is all the site will manage; the operator is travelling and can only check in occasionally. Please route affected passes elsewhere.",
+    "max_bookings": "2",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the catch-up effort, tower work is booked from 08:45Z on 24 July through 22:45Z on 24 July; the receiver is physically disconnected while the work happens. Nothing else about the site changes.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T22:45:00Z",
+    "window_start_utc": "2026-07-24T08:45:00Z"
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FM",
+    "evidence_sentence": "For planning purposes, no FM please, though anything else is welcome; it shares hardware with the beacon monitor, which is tied up. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 5068,
+  "station_name": "329CZ144"
+ },
+ "5076": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "One constraint from our side: a peak of at least 35 degrees is required for us to accept a booking; the neighbouring industrial estate wipes out the downlink at low angles. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "35",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 5076,
+  "station_name": "Tac-Satnogs"
+ },
+ "579": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For this shift only, we can commit to a limit of 1 extra passes; our SD cards are near end of life and we are rationing writes. Normal service continues alongside.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Heads up -- maintenance is locked in from 0130Z on the 25th until 1230Z on the 25th; the dish drive is being re-greased and re-aligned. Other than that we are fully available.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-25T12:30:00Z",
+    "window_start_utc": "2026-07-25T01:30:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "For the avoidance of doubt, nothing shallower than 40 degrees is going to decode from this site; the neighbouring industrial estate wipes out the downlink at low angles. We will flag it if anything shifts.",
+    "max_bookings": "",
+    "min_elevation_deg": "40",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 579,
+  "station_name": "Um Alaish 4"
+ },
+ "6": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "The main thing is that this site can absorb at most 1 additional catch-up observations; our SD cards are near end of life and we are rationing writes. Apologies for the inconvenience.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "For this shift only, the receiver comes down at 1030Z on the 24th and is not back until 2130Z on the 24th; the dish drive is being re-greased and re-aligned. Normal service continues alongside.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T21:30:00Z",
+    "window_start_utc": "2026-07-24T10:30:00Z"
+   }
+  ],
+  "ground_station": 6,
+  "station_name": "Apomahon"
+ },
+ "657": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "Just so the desk knows, this site can absorb at most 1 additional catch-up observations; our SD cards are near end of life and we are rationing writes. We can take anything else you send us.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FM",
+    "evidence_sentence": "For this shift only, anything on FM should go elsewhere; the filter for that path is out for repair. Outside that the site is open as normal.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 657,
+  "station_name": "ZL2MST"
+ },
+ "754": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "To save you a wasted slot, the site is only worth using above 35 degrees peak; our horizon is poor in almost every direction. We remain open either side of it.",
+    "max_bookings": "",
+    "min_elevation_deg": "35",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 754,
+  "station_name": "W6MSU UHF"
+ },
+ "760": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "One constraint from our side: count on 1 slots from us, not more; we are on a metered connection this month. Apologies for the inconvenience.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 760,
+  "station_name": "KD5QZG - VHF/UHF"
+ },
+ "766": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "One thing for the recovery window: this site can absorb at most 3 additional catch-up observations; the operator is travelling and can only check in occasionally. Please route affected passes elsewhere.",
+    "max_bookings": "3",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 766,
+  "station_name": "Dunchurch"
+ },
+ "812": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "One constraint from our side: tower work is booked from 08:30Z on 22 July through 11:30Z on 23 July; the signal chain is open throughout. We can take anything else you send us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-23T11:30:00Z",
+    "window_start_utc": "2026-07-22T08:30:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "While the catch-up runs, anything peaking below 35 degrees is unusable here; our horizon is poor in almost every direction. Please route affected passes elsewhere.",
+    "max_bookings": "",
+    "min_elevation_deg": "35",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "GMSK",
+    "evidence_sentence": "One constraint from our side: anything on GMSK should go elsewhere; the relevant SDR channel is out for repair. Nothing else about the site changes.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 812,
+  "station_name": "PF_DE_UHF_X_DIPOLE"
+ },
+ "858": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_freeze",
+    "embargoed_mode": "",
+    "evidence_sentence": "Ahead of the 22-25 July window, the station will not be answering the scheduler at all this week; the new feedline is still awaiting certification. Do factor that into the plan.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 858,
+  "station_name": "SM0TGU - VHF UHF"
+ },
+ "868": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "maintenance_window",
+    "embargoed_mode": "",
+    "evidence_sentence": "Worth flagging before you schedule: an engineer is on site from 1430Z on the 23rd to 0830Z on the 24th and the chain will be broken; the dish drive is being re-greased and re-aligned. We can take anything else you send us.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "2026-07-24T08:30:00Z",
+    "window_start_utc": "2026-07-23T14:30:00Z"
+   },
+   {
+    "constraint_type": "min_elevation",
+    "embargoed_mode": "",
+    "evidence_sentence": "Before anything is booked, only passes reaching more than 50 degrees produce usable data; a tree line blocks most of the horizon. Do factor that into the plan.",
+    "max_bookings": "",
+    "min_elevation_deg": "50",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 868,
+  "station_name": "Welland"
+ },
+ "91": {
+  "clear_sentences": [],
+  "declarations": [
+   {
+    "constraint_type": "booking_cap",
+    "embargoed_mode": "",
+    "evidence_sentence": "For this shift only, we can commit to a limit of 1 extra passes; beyond that the upload queue backs up for days. Sorry to add to the workload.",
+    "max_bookings": "1",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   },
+   {
+    "constraint_type": "mode_embargo",
+    "embargoed_mode": "FSK",
+    "evidence_sentence": "The main thing is that please keep FSK observations off this station; the filter for that path is out for repair. Please plan around it.",
+    "max_bookings": "",
+    "min_elevation_deg": "",
+    "window_end_utc": "",
+    "window_start_utc": ""
+   }
+  ],
+  "ground_station": 91,
+  "station_name": "M0EYT / 2E0NOG"
+ }
+}

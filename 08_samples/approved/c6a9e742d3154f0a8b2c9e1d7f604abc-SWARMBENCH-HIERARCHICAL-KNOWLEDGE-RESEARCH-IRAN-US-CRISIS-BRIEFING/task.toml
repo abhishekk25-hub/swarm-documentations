@@ -1,0 +1,28 @@
+[task]
+name = "swarmbench/c6a9e742d3154f0a8b2c9e1d7f604abc-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-IRAN-US-CRISIS-BRIEFING"
+description = "Neutral crisis-intelligence briefing on the June 2025 Iran-US escalation: audit 100 seed URLs, extract 250-350 quote-backed evidence rows, cite at least 70 distinct sources, reconcile disputed claims and contradictions, and produce 14 professional deliverables."
+
+[metadata]
+verifier_type = "llm-judge"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["browsing", "long_writing", "long_horizon"]
+dag_depth = 3
+dag_width = 33
+human_solving_hours_estimate = 118.0
+human_solving_hours_justification = "100 URL audits at 20-30 minutes each = 33-50h because each source must be read, classified, attributed, and converted into source-audit notes. Extracting 250-350 quote-backed evidence rows at 5-7 minutes per row = 21-41h. Building timeline events, actor positions, claim confidence, impacts, uncertainties, and contradiction ledgers across heterogeneous official/news/analysis sources = 18h. Reconciling consistency across 14 deliverables = 14h. Writing and editing the executive briefing, 6,000-10,000 word report, slides, talking points, monitoring plan, and citation index = 22h. Final citation, neutrality, and safety review = 8h. Total range = 116-153h, so the estimate is 118h for a professional analyst with ordinary tooling."
+estimated_sub_agents = 27
+input_token_estimate = 220000
+why_multi_agent = "The task creates single-agent failure through breadth collapse, attention degradation, and interlocking artifact constraints. The agent must inspect 100 seed URLs across official statements, international organizations, wire services, regional reporting, think tanks, market/shipping sources, and reference context, then extract 250-350 evidence rows from at least 70 distinct URLs, including quote-backed evidence from at least 45 distinct URLs. A single agent tends to over-focus on the headline strike timeline, cite source IDs without quote-level verification, and lose secondary dimensions such as legal context, Al Udeid retaliation, Strait of Hormuz risk, aviation/shipping effects, humanitarian implications, and conflicting damage assessments. It must also keep 14 deliverables mutually consistent through source IDs, evidence IDs, claim IDs, event IDs, and contradiction IDs. The hierarchical multi-agent run can assign source clusters to workers, have domain managers reconcile evidence and contradictions, and use reducer agents to enforce cross-artifact consistency without relying on a manufactured verifier gap."
+reference_link = "https://en.wikipedia.org/wiki/2025_United_States_strikes_on_Iranian_nuclear_sites"
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600

@@ -1,0 +1,291 @@
+S W A R M B E N C H P H A S E 2 · T E A M R E V I E W
+Common mistakes that
+send a task to rework
+Every item in this deck has already been raised in review, most of them on more than one task. None
+of them are hard to fix. All of them cost a repackage cycle and a run budget when they slip through.
+28 Jul 2026
+
+-- 1 of 19 --
+
+W H Y W E A R E H E R E A G A I N
+Almost every review comes back
+for the same short list
+These are not new findings and they are not edge cases. They are the same handful of issues, on
+task after task, and every one of them has already been covered with this team. They should not be
+reaching a reviewer at all.
+T H E C O S T
+Each one is found after submission, so the fix costs a
+repackage plus a fresh single and multi run. The multi
+run alone is hours and tens of dollars.
+T H E G O O D N E W S
+None of them require a redesign. Every item here is a
+checklist step that takes minutes if it is done before
+submitting instead of after.
+T H E A S K
+Treat this deck as the pre-submit checklist. If any item
+on it is true of your package, it is not ready to send.
+
+-- 2 of 19 --
+
+A G E N D A
+Three things
+01 	02 Common issues that send a task to rework The recurring review findings, one by one, with the fix.
+03 	04 RCA documents not being submitted The RCA is being written the night before standup instead of kept beside the task from day one.
+05 	06 Gap not achieved Why chasing the gap fails, and what to do instead.
+
+-- 3 of 19 --
+
+I S S U E 0 1
+The task reads as LLM generated
+A reviewer reads instruction.md as something a human trainer wrote. Anything that
+reads as model output is a finding, and this is the cheapest one on the list to avoid.
+Em dashes throughout the instruction body.
+Markdown spec-sheet formatting: ### headings, bolded field tables, numbered requirement lists.
+Opening the instruction with a # heading so it reads as a specification, not a request.
+
+-- 4 of 19 --
+
+I S S U E 0 2
+Not commenting on the Quality Gate document
+The QG LLM judge is not a one-shot report. It is a loop, and the loop only closes if you
+write your side of it down.
+01
+Run the QG LLM judge on your
+package. 	→
+02
+Read the feedback and fix the issues.
+→
+03
+Once you have confirmed the fixes, re-
+run the QG LLM judge. 	→
+04
+If it comes back with new issues you
+do not fully agree with, comment on
+the document: how you resolved it, or
+why it is invalid.
+T H E I S S U E
+A few trainers are not adding comments on the document at all. Without that, nobody can tell a fixed finding from an ignored one, and a disputed finding just gets raised
+again on the next round. Every finding needs one line from you, either how it was resolved or why you believe it does not apply.
+
+-- 5 of 19 --
+
+I S S U E 0 3
+Metadata does not match the execution logs
+Declared depth, declared width and estimated_sub_agents all have to match what the trajectory
+actually shows. A common one is a declared dag_depth of 3 or more where the run only ever
+materialized a flat fan-out.
+F I X
+Re-measure depth, width and spawn count from the multi trajectory after the run, then write task.toml from that. Not from the plan.
+If the realized shape is a flat fan-out and depth 2 or more is required, the decomposition needs a genuine intermediate tier that the orchestrator is forced through, not a
+relabeled one.
+
+-- 6 of 19 --
+
+I S S U E 0 4
+The task root carries extra files
+Task root listing contains .agents, .codex, and .git
+A L L OW E D AT TA S K R O OT, E X AC T LY 	N E V E R
+Run a listing of the packaged root as the last thing you do, every time.
+decomposition.yaml
+instruction.md
+task.toml
+environment/
+execution_logs/
+tests/
+.git, .agents, .codex, .DS_Store
+solution/, oracle.json
+README.md or stray notes files
+
+-- 7 of 19 --
+
+I S S U E 0 5
+The source URL was never checked
+The URL mentioned in the instruction results in a 403 error, so the agent cannot perform the task on it. The multi tries to fabricate and achieves it.
+It is the trainer's responsibility to check that the given source or URL is valid and reachable from the internet before proceeding with task
+creation.
+This is the worst class on the list, because it produces a passing run built on invented data. A failure
+is easy to spot. A fabricated pass is not.
+F I X
+Verify every URL in the instruction and in every input artifact from a clean environment, and record the date in the RCA.
+Check for rate limiting, not just reachability. A source that answers once and throttles under real load is the same defect.
+Do not let an external rate limit be your difficulty.
+Prefer a pre-staged or cached corpus so fetching is never the bottleneck.
+
+-- 8 of 19 --
+
+I S S U E 0 6
+Weights, gates, caps and floors in the verifier
+The rubric has to be additive. Anything that shapes the reward beyond counting passed
+checks is a finding.
+N OT A L L OW E D 	
+Ad-hoc weights outside the agreed point values
+Multipliers, for example completion * rubric
+Score caps and score floors
+A binary gate that zeroes the score before the judge runs
+A fallback reward written when the verifier fails
+R E Q U I R E D
+Additive points only, 1 for structure, 2 for reward-hacking, 3 for partial oracle,
+nothing higher
+Reward is points earned over points available
+No multipliers, no caps, no floors, no gates
+An infrastructure-failure flag, so an outage is distinguishable from a bad
+submission rather than becoming a fabricated score
+
+-- 9 of 19 --
+
+I S S U E 0 7
+Do not mandate tool use
+Ask for the deliverable, not the method. Naming a specific library, or fixing the order in which the
+work has to be done, is an implementation constraint, and the verifier only ever sees the final
+deliverable, never the agent's trace. So there is no way to enforce it and no reason to ask for it.
+F I X
+State the required outputs and the evidence quality bar, and leave the method open. The model can use any tool it wants, only the result gets graded.
+
+-- 10 of 19 --
+
+T H E R C A D O C U M E N T
+It is being written the night before standup
+W H AT I S H A P P E N I N G 	W H AT I T I S F O R
+T H E R U L E
+Keep the RCA open beside the task from Phase 1. Write the phase entry when you finish the phase, not when someone asks for the document. Every task gets one,
+submitted, whether or not the task shipped.
+The RCA gets opened when the task is already blocked, or the evening before
+standup when it is asked for.
+Phase timings are reconstructed from memory, so nobody can see where the
+handle time actually went.
+Half the phases come back empty, and it is exactly the half that would have
+explained the delay.
+Several are simply never submitted.
+It is the only place the decision trail lives: what you predicted, what you ran, what
+you changed, and what that did.
+Filled in as you go it costs minutes per phase. Reconstructed at the end it costs
+hours and is less accurate.
+
+-- 11 of 19 --
+
+G A P N O T A C H I E V E D
+Five RCAs, five tasks, zero gaps
+TA S K 	S I N G L E A G E N T 	M U LT I A G E N T 	G A P
+Task 1 	0.5515 	0.6667 	0.115
+Task 2 	0.339 	0.50 	0.16
+Task 3 	0.4062 	0.0 crashed 	n/a
+Task 4 	0.5469 	0.506 	−0.04
+Task 5 	0.4467 	0.5834 	0.137
+Floor is 0.20. Nobody cleared it, and two tasks moved the wrong way after a deliberate fix. That is
+not five bad-luck stories, it is one shared design error.
+
+-- 12 of 19 --
+
+G A P N O T A C H I E V E D
+The single agent starts from a high floor
+If roughly half the reward is reachable by a submission that is complete, schema-valid and lexically
+derived from the source, then an agent that reads nothing already banks 0.5 and there is no room
+above it for a 0.20 gap.
+Averaging a saturated structural half with a floored judged half lands every competent submission
+near 0.5. The scoring architecture, not the task, is what fails to express the gap.
+
+-- 13 of 19 --
+
+G A P N O T A C H I E V E D
+An agent that did nothing should not score half
+While every check is worth the same, a handful of file-existence checks is a large share of the
+reward. That is how a submission with no real work still lands near 0.5.
+file A exists
+file B exists
+file C exists
+output.json parses
+Four checks, four equal points, awarded for producing empty shells. On a ten-check rubric that is 40 percent before any work happens.
+G U I D A N C E F R O M M A N A G E M E N T : P O I N T VA L U E B Y C H E C K T Y P E
+1 pt
+Structure check
+Files exist, parse, match the schema, columns and enums
+are valid.
+2 pts
+Reward-hacking check
+Catches gaming: templating, near-duplicates, fabricated
+evidence, uniform filler, degenerate submissions.
+3 pts
+Partial oracle check
+Is the answer actually right: accuracy and recall against
+real ground truth, grounded evidence, judged depth.
+W H Y T H I S WO R KS
+Nothing is worth more than 3 points, and reward is passed points over total possible points. The structural layer's share of the total drops on its own, without removing any
+checks, so completeness alone can no longer carry a submission and the real work is where the points are.
+
+-- 14 of 19 --
+
+P O I N T W E I G H T S
+What it does to the score
+Take five checks in each category, and assume the structural ones mostly pass, because
+they usually do.
+C AT E G O R Y 	W E I G H T 	PA S S E D T E S T S
+Structure 	1 	4 of 5
+Reward hacking 	2 	1 of 5
+Partial oracle 	3 	1 of 5
+score = sum(passed tests × weight) / sum(total tests × weight)
+W I T H N O W E I G H T S
+passed = 1 + 1 + 4 	= 6
+total = 5 + 5 + 5 	= 15
+score = 6 / 15 	= 40%
+Structure contributes roughly 27 percent of the final score, 4 of the 15 possible points.
+W I T H W E I G H T E D P O I N T S
+passed = 1×2 + 1×3 + 4×1 = 9
+total = 5×2 + 5×3 + 5×1 = 30
+score = 9 / 30 	= 30%
+Structure contributes roughly 13 percent, 4 of the 30 possible weighted points.
+S A M E S U B M I S S I O N , S A M E C H E C KS
+The score drops from 40 to 30 percent and the structural share halves, purely because the structural pass is no longer carrying the result. Nothing was removed and
+nothing was made stricter.
+
+-- 15 of 19 --
+
+D O N ' T C H A S E T H E G A P
+What chasing looks like, and why it fails
+C H A S I N G 	W H AT AC T U A L LY H A P P E N E D
+I N O N E L I N E
+A check that costs both arms equally does not move the gap. Never spend an iteration on a check whose effect is smaller than normal run-to-run variance.
+Harden the one judge that is scoring too generously.
+Reweight reward off the oracle and onto the judged checks.
+Add a check to catch the specific thing SA did last run.
+Add more sub-agent roles and hope MA climbs.
+A judge was hardened from 0.875 to 0.000 on SA exactly as designed. SA's total
+went up 0.057, because run-to-run variance on other axes was larger than the
+check removed.
+Reward was moved off the oracle onto judged narrative depth. Both arms dropped
+by the same amount. Gap unchanged.
+
+-- 16 of 19 --
+
+D O T H I S I N S T E A D
+Same model on both sides
+The single agent and the multi agent run the same model, so the same intelligence is on both sides
+of the comparison. Adding more tests does not make the single agent fail, it just lowers both scores
+by the same amount.
+D O E S N O T C R E AT E A G A P
+More checks. Stricter checks. A harsher judge. Anything that makes the rubric tougher
+is paid for equally by both arms, so the difference between them stays exactly where it
+was.
+C R E AT E S A G A P
+A genuinely more complex task, one that a single context cannot hold at quality, plus a
+decomposition that lets the swarm actually split it. The decomposition is where the
+multi agent's benefit comes from, so that is where the effort belongs.
+S O
+If the gap is short, the answer is a harder task and a better decomposition.yaml, not a stricter verifier.
+
+-- 17 of 19 --
+
+D E M O
+Read the trajectories
+Read what the model actually did, on the failed runs as well as the final ones. Use harbor view
+rather than grepping raw JSON.
+
+-- 18 of 19 --
+
+T H E E N D
+TLDR
+✓ Avoid the common mistakes in this deck
+✓ Follow the proper workflow
+✓ Take ownership of every part of your task
+✓ Keep a document of what works, what does not, and your blockers
+
+-- 19 of 19 --

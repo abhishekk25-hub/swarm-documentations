@@ -1,0 +1,1018 @@
+{
+ "nct": "NCT02584283",
+ "prespecification_version": 0,
+ "prespecification_date": "2015-10-20",
+ "publications": [
+  "PMC11745596",
+  "PMC12513034",
+  "PMC6416838",
+  "PMC6701560"
+ ],
+ "prespecified_units": [
+  {
+   "uid": "pri1",
+   "measure": "The incidence of symptomatic non-anastomotic biliary strictures (NAS)",
+   "role": "primary",
+   "timeframe": "6 months",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11745596",
+   "reported_label": "symptomatic nonanastomotic biliary strictures",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary endpoint focused on the incidence of symptomatic nonanastomotic biliary strictures within 6 mo posttransplant, with secondary endpoints encompassing additional graft-related and general complications.",
+   "result_quote": "Compared with SCS, DHOPE resulted in a 68% reduction in the incidence of symptomatic nonanastomotic biliary strictures, a 57% reduction in postreperfusion syndrome, and a 39% reduction in early allograft dysfunction."
+  },
+  {
+   "uid": "sec1",
+   "measure": "Asymptomatic NAS",
+   "role": "secondary",
+   "timeframe": "6 months",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12513034",
+   "reported_label": "asymptomatic biliary abnormalities on MRC",
+   "reported_instrument": "magnetic resonance cholangiography (MRC)",
+   "reported_role": "other",
+   "role_evidence_quote": "Clinical Evolution of Abnormalities on Protocol MRC",
+   "result_quote": "Of the remaining 114 asymptomatic patients, 40 patients had no abnormalities and 74 patients had biliary abnormalities on MRC."
+  },
+  {
+   "uid": "sec4",
+   "measure": "Graft (censored and uncensored for patient death) survival",
+   "role": "secondary",
+   "timeframe": "7 days, 1, 3 , 6 months after transplantation",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12513034",
+   "reported_label": "death-censored graft survival",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary endpoints included ACR, graft, and patient survival.",
+   "result_quote": "The 5-year death-censored graft survival was similar in both groups, 82% versus 79% ( P =0.806, Fig. 2 C)."
+  },
+  {
+   "uid": "sec5",
+   "measure": "Patient survival",
+   "role": "secondary",
+   "timeframe": "7 days, 1, 3 , 6 months after transplantation",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12513034",
+   "reported_label": "Patient survival",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary endpoints included ACR, graft, and patient survival.",
+   "result_quote": "Patient survival at 5 years was comparable between the groups (63% machine perfusion vs 70% control group, P =0.254, Fig. 2 D)."
+  },
+  {
+   "uid": "sec7",
+   "measure": "Initial poor function",
+   "role": "secondary",
+   "timeframe": "7 days",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec8",
+   "measure": "Blood pressure",
+   "role": "secondary",
+   "timeframe": "5 min before reperfusion, at reperfusion and after 10 and 20 minutes of reperfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec9",
+   "measure": "Heart rate",
+   "role": "secondary",
+   "timeframe": "5 min before reperfusion, at reperfusion and after 10 and 20 minutes of reperfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec10",
+   "measure": "Vasopressor dosage",
+   "role": "secondary",
+   "timeframe": "5 min before reperfusion, at reperfusion and after 10 and 20 minutes of reperfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec13",
+   "measure": "Renal function",
+   "role": "secondary",
+   "timeframe": "day 7, and 1, 3, 6 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec14",
+   "measure": "Flow",
+   "role": "secondary",
+   "timeframe": "At 0, 15, 30, 45, 60, 75, 90, 105, 120 minutes after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec15",
+   "measure": "Pressure",
+   "role": "secondary",
+   "timeframe": "At 0, 15, 30, 45, 60, 75, 90, 105, 120 minutes after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec16",
+   "measure": "Resistance",
+   "role": "secondary",
+   "timeframe": "At 0, 15, 30, 45, 60, 75, 90, 105, 120 minutes after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec17",
+   "measure": "(In selected centers) value of perfusate's pH",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec18",
+   "measure": "(In selected centers) value of perfusate's sodium",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec19",
+   "measure": "(In selected centers) value of perfusate's potassium",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec20",
+   "measure": "(In selected centers) value of perfusate's bicarbonate",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec21",
+   "measure": "(In selected centers) value of perfusate's lactate",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec22",
+   "measure": "(In selected centers) value of perfusate's alanine transaminase (ALT)",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec23",
+   "measure": "(In selected centers) value of perfusate's aspartate transaminase (AST)",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec24",
+   "measure": "(In selected centers) value of perfusate's alkaline phosphatase (AlkP)",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec25",
+   "measure": "(In selected centers) value of perfusate's gamma glutamyltransferase ( GT)",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec26",
+   "measure": "(In selected centers) value of perfusate's urea",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec27",
+   "measure": "(In selected centers) value of perfusate's total bilirubin",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec28",
+   "measure": "(In selected centers) value of perfusate's thrombomodulin",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec29",
+   "measure": "(In selected centers) value of perfusate's high mobility group box-1 (HMBG) protein",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec30",
+   "measure": "(In selected centers) value of perfusate's cytochrome C",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec31",
+   "measure": "(In selected centers) level of miRNA CDmiR-30e in perfusate",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec32",
+   "measure": "(In selected centers) level of miRNA CDmiR-222 in perfusate",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec33",
+   "measure": "(In selected centers) level of miRNA CDmiR-296 in perfusate",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec34",
+   "measure": "(In selected centers) level of miRNA HDmiR-122 in perfusate",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec35",
+   "measure": "(In selected centers) level of miRNA HDmiR-148a in perfusate",
+   "role": "secondary",
+   "timeframe": "At 5 minutes before and at 0.5 hour, 1 hour, 1.5 hours and 2 hours after start of perfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec36",
+   "measure": "Histopathological status liver and bile ducts (in selected centers)",
+   "role": "secondary",
+   "timeframe": "Within 0 to 30 minutes before perfusion, at 2 hours of perfusion, and at 1 hour after reperfusion",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec39",
+   "measure": "Health related quality of life",
+   "role": "secondary",
+   "timeframe": "within 6 months before transplantation and 6 months after transplantation",
+   "reported": false,
+   "change_disclosed": false
+  }
+ ],
+ "additional_units": [
+  {
+   "rid": "PMC11745596#1",
+   "reporting_document": "PMC11745596",
+   "reported_label": "postreperfusion syndrome",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The primary endpoint focused on the incidence of symptomatic nonanastomotic biliary strictures within 6 mo posttransplant, with secondary endpoints encompassing additional graft-related and general complications.",
+   "result_quote": "Compared with SCS, DHOPE resulted in a 68% reduction in the incidence of symptomatic nonanastomotic biliary strictures, a 57% reduction in postreperfusion syndrome, and a 39% reduction in early allograft dysfunction."
+  },
+  {
+   "rid": "PMC11745596#2",
+   "reporting_document": "PMC11745596",
+   "reported_label": "early allograft dysfunction",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The primary endpoint focused on the incidence of symptomatic nonanastomotic biliary strictures within 6 mo posttransplant, with secondary endpoints encompassing additional graft-related and general complications.",
+   "result_quote": "Compared with SCS, DHOPE resulted in a 68% reduction in the incidence of symptomatic nonanastomotic biliary strictures, a 57% reduction in postreperfusion syndrome, and a 39% reduction in early allograft dysfunction."
+  },
+  {
+   "rid": "PMC11745596#3",
+   "reporting_document": "PMC11745596",
+   "reported_label": "retransplantation within 1 y",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The primary endpoint focused on the incidence of symptomatic nonanastomotic biliary strictures within 6 mo posttransplant, with secondary endpoints encompassing additional graft-related and general complications.",
+   "result_quote": "Nine patients required retransplantation within 1 y: 3 patients in the DHOPE group and 6 patients in the SCS group."
+  },
+  {
+   "rid": "PMC11745596#4",
+   "reporting_document": "PMC11745596",
+   "reported_label": "hepatic arterial thrombosis",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Nine patients required retransplantation within 1 y: 3 patients in the DHOPE group and 6 patients in the SCS group.",
+   "result_quote": "The indications for retransplantation in the DHOPE group were hepatic arterial thrombosis (n = 2) and secondary liver dysfunction in the context of multiorgan failure of unknown origin (n = 1)."
+  },
+  {
+   "rid": "PMC11745596#5",
+   "reporting_document": "PMC11745596",
+   "reported_label": "secondary liver dysfunction in the context of multiorgan failure of unknown origin",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Nine patients required retransplantation within 1 y: 3 patients in the DHOPE group and 6 patients in the SCS group.",
+   "result_quote": "The indications for retransplantation in the DHOPE group were hepatic arterial thrombosis (n = 2) and secondary liver dysfunction in the context of multiorgan failure of unknown origin (n = 1)."
+  },
+  {
+   "rid": "PMC11745596#6",
+   "reporting_document": "PMC11745596",
+   "reported_label": "primary nonfunction",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Nine patients required retransplantation within 1 y: 3 patients in the DHOPE group and 6 patients in the SCS group.",
+   "result_quote": "The indications for retransplantation in the SCS group were primary nonfunction (n = 1), acute rejection (n = 1), hepatic arterial thrombosis (n = 1), rebleeding from subcapsular hematoma (n = 1), nonanastomotic biliary strictures (n = 1), and venous outflow tract obstruction (n = 1)."
+  },
+  {
+   "rid": "PMC11745596#7",
+   "reporting_document": "PMC11745596",
+   "reported_label": "acute rejection",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Nine patients required retransplantation within 1 y: 3 patients in the DHOPE group and 6 patients in the SCS group.",
+   "result_quote": "The indications for retransplantation in the SCS group were primary nonfunction (n = 1), acute rejection (n = 1), hepatic arterial thrombosis (n = 1), rebleeding from subcapsular hematoma (n = 1), nonanastomotic biliary strictures (n = 1), and venous outflow tract obstruction (n = 1)."
+  },
+  {
+   "rid": "PMC11745596#8",
+   "reporting_document": "PMC11745596",
+   "reported_label": "hepatic arterial thrombosis",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Nine patients required retransplantation within 1 y: 3 patients in the DHOPE group and 6 patients in the SCS group.",
+   "result_quote": "The indications for retransplantation in the SCS group were primary nonfunction (n = 1), acute rejection (n = 1), hepatic arterial thrombosis (n = 1), rebleeding from subcapsular hematoma (n = 1), nonanastomotic biliary strictures (n = 1), and venous outflow tract obstruction (n = 1)."
+  },
+  {
+   "rid": "PMC11745596#9",
+   "reporting_document": "PMC11745596",
+   "reported_label": "rebleeding from subcapsular hematoma",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Nine patients required retransplantation within 1 y: 3 patients in the DHOPE group and 6 patients in the SCS group.",
+   "result_quote": "The indications for retransplantation in the SCS group were primary nonfunction (n = 1), acute rejection (n = 1), hepatic arterial thrombosis (n = 1), rebleeding from subcapsular hematoma (n = 1), nonanastomotic biliary strictures (n = 1), and venous outflow tract obstruction (n = 1)."
+  },
+  {
+   "rid": "PMC11745596#10",
+   "reporting_document": "PMC11745596",
+   "reported_label": "nonanastomotic biliary strictures",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Nine patients required retransplantation within 1 y: 3 patients in the DHOPE group and 6 patients in the SCS group.",
+   "result_quote": "The indications for retransplantation in the SCS group were primary nonfunction (n = 1), acute rejection (n = 1), hepatic arterial thrombosis (n = 1), rebleeding from subcapsular hematoma (n = 1), nonanastomotic biliary strictures (n = 1), and venous outflow tract obstruction (n = 1)."
+  },
+  {
+   "rid": "PMC11745596#11",
+   "reporting_document": "PMC11745596",
+   "reported_label": "venous outflow tract obstruction",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Nine patients required retransplantation within 1 y: 3 patients in the DHOPE group and 6 patients in the SCS group.",
+   "result_quote": "The indications for retransplantation in the SCS group were primary nonfunction (n = 1), acute rejection (n = 1), hepatic arterial thrombosis (n = 1), rebleeding from subcapsular hematoma (n = 1), nonanastomotic biliary strictures (n = 1), and venous outflow tract obstruction (n = 1)."
+  },
+  {
+   "rid": "PMC11745596#12",
+   "reporting_document": "PMC11745596",
+   "reported_label": "Patient death within 1 y after transplantation",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Patient death within 1 y after transplantation occurred in 14 cases: 11 in the DHOPE group and 3 in the SCS group.",
+   "result_quote": "Patient death within 1 y after transplantation occurred in 14 cases: 11 in the DHOPE group and 3 in the SCS group."
+  },
+  {
+   "rid": "PMC11745596#13",
+   "reporting_document": "PMC11745596",
+   "reported_label": "multiorgan failure",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "The causes of death in the DHOPE group were multiorgan failure (n = 3), respiratory failure (n = 2), hepatocellular carcinoma recurrence (n = 2), sepsis (n = 2), hemophagocytic syndrome (n = 1), and anoxic brain injury (n = 1).",
+   "result_quote": "The causes of death in the DHOPE group were multiorgan failure (n = 3), respiratory failure (n = 2), hepatocellular carcinoma recurrence (n = 2), sepsis (n = 2), hemophagocytic syndrome (n = 1), and anoxic brain injury (n = 1)."
+  },
+  {
+   "rid": "PMC11745596#14",
+   "reporting_document": "PMC11745596",
+   "reported_label": "respiratory failure",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "The causes of death in the DHOPE group were multiorgan failure (n = 3), respiratory failure (n = 2), hepatocellular carcinoma recurrence (n = 2), sepsis (n = 2), hemophagocytic syndrome (n = 1), and anoxic brain injury (n = 1).",
+   "result_quote": "The causes of death in the DHOPE group were multiorgan failure (n = 3), respiratory failure (n = 2), hepatocellular carcinoma recurrence (n = 2), sepsis (n = 2), hemophagocytic syndrome (n = 1), and anoxic brain injury (n = 1)."
+  },
+  {
+   "rid": "PMC11745596#15",
+   "reporting_document": "PMC11745596",
+   "reported_label": "hepatocellular carcinoma recurrence",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "The causes of death in the DHOPE group were multiorgan failure (n = 3), respiratory failure (n = 2), hepatocellular carcinoma recurrence (n = 2), sepsis (n = 2), hemophagocytic syndrome (n = 1), and anoxic brain injury (n = 1).",
+   "result_quote": "The causes of death in the DHOPE group were multiorgan failure (n = 3), respiratory failure (n = 2), hepatocellular carcinoma recurrence (n = 2), sepsis (n = 2), hemophagocytic syndrome (n = 1), and anoxic brain injury (n = 1)."
+  },
+  {
+   "rid": "PMC11745596#16",
+   "reporting_document": "PMC11745596",
+   "reported_label": "sepsis",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "The causes of death in the DHOPE group were multiorgan failure (n = 3), respiratory failure (n = 2), hepatocellular carcinoma recurrence (n = 2), sepsis (n = 2), hemophagocytic syndrome (n = 1), and anoxic brain injury (n = 1).",
+   "result_quote": "The causes of death in the DHOPE group were multiorgan failure (n = 3), respiratory failure (n = 2), hepatocellular carcinoma recurrence (n = 2), sepsis (n = 2), hemophagocytic syndrome (n = 1), and anoxic brain injury (n = 1)."
+  },
+  {
+   "rid": "PMC11745596#17",
+   "reporting_document": "PMC11745596",
+   "reported_label": "hemophagocytic syndrome",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "The causes of death in the DHOPE group were multiorgan failure (n = 3), respiratory failure (n = 2), hepatocellular carcinoma recurrence (n = 2), sepsis (n = 2), hemophagocytic syndrome (n = 1), and anoxic brain injury (n = 1).",
+   "result_quote": "The causes of death in the DHOPE group were multiorgan failure (n = 3), respiratory failure (n = 2), hepatocellular carcinoma recurrence (n = 2), sepsis (n = 2), hemophagocytic syndrome (n = 1), and anoxic brain injury (n = 1)."
+  },
+  {
+   "rid": "PMC11745596#18",
+   "reporting_document": "PMC11745596",
+   "reported_label": "anoxic brain injury",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "The causes of death in the DHOPE group were multiorgan failure (n = 3), respiratory failure (n = 2), hepatocellular carcinoma recurrence (n = 2), sepsis (n = 2), hemophagocytic syndrome (n = 1), and anoxic brain injury (n = 1).",
+   "result_quote": "The causes of death in the DHOPE group were multiorgan failure (n = 3), respiratory failure (n = 2), hepatocellular carcinoma recurrence (n = 2), sepsis (n = 2), hemophagocytic syndrome (n = 1), and anoxic brain injury (n = 1)."
+  },
+  {
+   "rid": "PMC11745596#19",
+   "reporting_document": "PMC11745596",
+   "reported_label": "sepsis",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Sepsis was the cause of death in the 3 cases in the SCS group.",
+   "result_quote": "Sepsis was the cause of death in the 3 cases in the SCS group."
+  },
+  {
+   "rid": "PMC11745596#20",
+   "reporting_document": "PMC11745596",
+   "reported_label": "graft survival years",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The incremental cost-effectiveness ratio (ICER), including its 95% confidence interval, was determined by dividing the difference in total costs over 1 y by the difference in functioning grafts after 1 y.",
+   "result_quote": "When considering the cost per graft survival year, the machine perfusion group demonstrated 53.0 graft survival years, which was slightly higher than the 52.6 graft survival years in the SCS group."
+  },
+  {
+   "rid": "PMC11745596#21",
+   "reporting_document": "PMC11745596",
+   "reported_label": "graft survival",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The incremental cost-effectiveness ratio (ICER), including its 95% confidence interval, was determined by dividing the difference in total costs over 1 y by the difference in functioning grafts after 1 y.",
+   "result_quote": "In the control group, this was 52.6 graft survival years for 59 patients (89.1%). For the DHOPE group, this was 53.0 survival years for 60 patients (88.4%)."
+  },
+  {
+   "rid": "PMC11745596#22",
+   "reporting_document": "PMC11745596",
+   "reported_label": "total medical costs up to 1 y posttransplant",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The current study is an economic evaluation of the DHOPE-DCD trial, a predetermined secondary outcome measure using data from the 3 Dutch centers.",
+   "result_quote": "The mean total cost per patient up to 1 y posttransplant was  126 221 for the SCS group and  110 794 for the DHOPE group."
+  },
+  {
+   "rid": "PMC11745596#23",
+   "reporting_document": "PMC11745596",
+   "reported_label": "Surgical interventions",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The current study is an economic evaluation of the DHOPE-DCD trial, a predetermined secondary outcome measure using data from the 3 Dutch centers.",
+   "result_quote": "Surgical interventions\n1 425 160\n1 749 665\n26 883\n33 267\n-6384\n-19.2%"
+  },
+  {
+   "rid": "PMC11745596#24",
+   "reporting_document": "PMC11745596",
+   "reported_label": "Intensive care stay",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The current study is an economic evaluation of the DHOPE-DCD trial, a predetermined secondary outcome measure using data from the 3 Dutch centers.",
+   "result_quote": "Intensive care stay b\n1 001 836\n1 387 998\n18 898\n26 391\n-7493\n-28.4%"
+  },
+  {
+   "rid": "PMC11745596#25",
+   "reporting_document": "PMC11745596",
+   "reported_label": "Ward stay",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The current study is an economic evaluation of the DHOPE-DCD trial, a predetermined secondary outcome measure using data from the 3 Dutch centers.",
+   "result_quote": "Ward stay b\n1 102 864\n1 371 592\n20 803\n26 079\n-5275\n-20.2%"
+  },
+  {
+   "rid": "PMC11745596#26",
+   "reporting_document": "PMC11745596",
+   "reported_label": "Laboratory diagnostics",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The current study is an economic evaluation of the DHOPE-DCD trial, a predetermined secondary outcome measure using data from the 3 Dutch centers.",
+   "result_quote": "Laboratory diagnostics\n1 040 445\n1 199 996\n19 626\n22 816\n-3190\n-14.0%"
+  },
+  {
+   "rid": "PMC11745596#27",
+   "reporting_document": "PMC11745596",
+   "reported_label": "Outpatient and day treatment",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The current study is an economic evaluation of the DHOPE-DCD trial, a predetermined secondary outcome measure using data from the 3 Dutch centers.",
+   "result_quote": "Outpatient and day treatment c\n267 595\n329 103\n5048\n6257\n-1210\n-19.3%"
+  },
+  {
+   "rid": "PMC11745596#28",
+   "reporting_document": "PMC11745596",
+   "reported_label": "Nonsurgical interventions",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The current study is an economic evaluation of the DHOPE-DCD trial, a predetermined secondary outcome measure using data from the 3 Dutch centers.",
+   "result_quote": "Nonsurgical interventions\n206 488\n270 499\n3895\n5143\n-1248\n-24.3%"
+  },
+  {
+   "rid": "PMC11745596#29",
+   "reporting_document": "PMC11745596",
+   "reported_label": "Imaging diagnostics",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The current study is an economic evaluation of the DHOPE-DCD trial, a predetermined secondary outcome measure using data from the 3 Dutch centers.",
+   "result_quote": "Imaging diagnostics\n183 094\n219 339\n3454\n4170\n-717\n-17.2%"
+  },
+  {
+   "rid": "PMC11745596#30",
+   "reporting_document": "PMC11745596",
+   "reported_label": "Other diagnostics",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The current study is an economic evaluation of the DHOPE-DCD trial, a predetermined secondary outcome measure using data from the 3 Dutch centers.",
+   "result_quote": "Other diagnostics\n94 460\n110 316\n1782\n2097\n-316\n-15.1%"
+  },
+  {
+   "rid": "PMC11745596#31",
+   "reporting_document": "PMC11745596",
+   "reported_label": "Machine perfusion",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The current study is an economic evaluation of the DHOPE-DCD trial, a predetermined secondary outcome measure using data from the 3 Dutch centers.",
+   "result_quote": "Machine perfusion\n551 682\n0\n10 406\n0\n10 406\nNA"
+  },
+  {
+   "rid": "PMC11745596#33",
+   "reporting_document": "PMC11745596",
+   "reported_label": "overall cost reduction",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The current study is an economic evaluation of the DHOPE-DCD trial, a predetermined secondary outcome measure using data from the 3 Dutch centers.",
+   "result_quote": "The use of DHOPE consistently reduced the cost per patient in every category compared with SCS alone, with an overall cost reduction of 12.2%."
+  },
+  {
+   "rid": "PMC11745596#34",
+   "reporting_document": "PMC11745596",
+   "reported_label": "intensive care costs",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The current study is an economic evaluation of the DHOPE-DCD trial, a predetermined secondary outcome measure using data from the 3 Dutch centers.",
+   "result_quote": "The most significant reduction occurred in intensive care costs (28.4%), followed by nonsurgical interventions (24.3%)."
+  },
+  {
+   "rid": "PMC11745596#35",
+   "reporting_document": "PMC11745596",
+   "reported_label": "nonsurgical interventions",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The current study is an economic evaluation of the DHOPE-DCD trial, a predetermined secondary outcome measure using data from the 3 Dutch centers.",
+   "result_quote": "The most significant reduction occurred in intensive care costs (28.4%), followed by nonsurgical interventions (24.3%)."
+  },
+  {
+   "rid": "PMC11745596#36",
+   "reporting_document": "PMC11745596",
+   "reported_label": "laboratory diagnostics",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The current study is an economic evaluation of the DHOPE-DCD trial, a predetermined secondary outcome measure using data from the 3 Dutch centers.",
+   "result_quote": "Costs for the remaining categories were reduced by at least 14.0% (laboratory diagnostics)."
+  },
+  {
+   "rid": "PMC11745596#37",
+   "reporting_document": "PMC11745596",
+   "reported_label": "mean reduction per patient in transplant-related costs",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The current study is an economic evaluation of the DHOPE-DCD trial, a predetermined secondary outcome measure using data from the 3 Dutch centers.",
+   "result_quote": "The mean reduction per patient in transplant-related costs in the machine perfusion group, compared with the SCS group was  25 832, which was higher than the costs for machine perfusion in all 3 cost scenarios."
+  },
+  {
+   "rid": "PMC11745596#38",
+   "reporting_document": "PMC11745596",
+   "reported_label": "Cost saving in scenario 1",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Costs for machine perfusion were analyzed using 3 different scenarios.",
+   "result_quote": "Cost saving in scenario 1 was  15 426 (25 832 - 10 406), in scenario 2 was  8560 (25 832 - 17 272), and in scenario 3 was  6996 (25 832 - 18 836)."
+  },
+  {
+   "rid": "PMC11745596#39",
+   "reporting_document": "PMC11745596",
+   "reported_label": "Cost saving in scenario 2",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Costs for machine perfusion were analyzed using 3 different scenarios.",
+   "result_quote": "Cost saving in scenario 1 was  15 426 (25 832 - 10 406), in scenario 2 was  8560 (25 832 - 17 272), and in scenario 3 was  6996 (25 832 - 18 836)."
+  },
+  {
+   "rid": "PMC11745596#40",
+   "reporting_document": "PMC11745596",
+   "reported_label": "Cost saving in scenario 3",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Costs for machine perfusion were analyzed using 3 different scenarios.",
+   "result_quote": "Cost saving in scenario 1 was  15 426 (25 832 - 10 406), in scenario 2 was  8560 (25 832 - 17 272), and in scenario 3 was  6996 (25 832 - 18 836)."
+  },
+  {
+   "rid": "PMC11745596#41",
+   "reporting_document": "PMC11745596",
+   "reported_label": "minimal number of procedures needed per year for cost-effectiveness in scenario 1",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The minimal number of procedures needed for cost-effectiveness was calculated for each scenario.",
+   "result_quote": "In scenario 1, reflecting basic machine perfusion costs, DHOPE was already cost-effective after 1 procedure per year."
+  },
+  {
+   "rid": "PMC11745596#42",
+   "reporting_document": "PMC11745596",
+   "reported_label": "minimal number of procedures needed per year for cost-effectiveness in scenario 2",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The minimal number of procedures needed for cost-effectiveness was calculated for each scenario.",
+   "result_quote": "For scenario 2 (including personnel costs) and scenario 3 (including costs for personnel and a dedicated OPR unit), the numbers needed for cost-effectiveness were 25 and 30 per year, respectively."
+  },
+  {
+   "rid": "PMC11745596#43",
+   "reporting_document": "PMC11745596",
+   "reported_label": "minimal number of procedures needed per year for cost-effectiveness in scenario 3",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The minimal number of procedures needed for cost-effectiveness was calculated for each scenario.",
+   "result_quote": "For scenario 2 (including personnel costs) and scenario 3 (including costs for personnel and a dedicated OPR unit), the numbers needed for cost-effectiveness were 25 and 30 per year, respectively."
+  },
+  {
+   "rid": "PMC11745596#44",
+   "reporting_document": "PMC11745596",
+   "reported_label": "incremental cost-effectiveness ratio (ICER)",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The incremental cost-effectiveness ratio (ICER), including its 95% confidence interval, was determined by dividing the difference in total costs over 1 y by the difference in functioning grafts after 1 y.",
+   "result_quote": "Although overall costs (transplant-related costs plus costs for machine perfusion) were approximately  15 000 lower in the DHOPE group, the 95% confidence ellipse crosses both axes, indicating that the cost and effect differences were not statistically significant when using graft survival as an endpoint."
+  },
+  {
+   "rid": "PMC11745596#45",
+   "reporting_document": "PMC11745596",
+   "reported_label": "symptomatic nonanastomotic biliary strictures",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary endpoint focused on the incidence of symptomatic nonanastomotic biliary strictures within 6 mo posttransplant, with secondary endpoints encompassing additional graft-related and general complications.",
+   "result_quote": "In the DHOPE-DCD trial, DHOPE was associated with a 68% reduction in the rate of symptomatic nonanastomotic biliary strictures."
+  },
+  {
+   "rid": "PMC12513034#0",
+   "reporting_document": "PMC12513034",
+   "reported_label": "incidence of NAS",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary endpoint was the incidence of NAS at 5-year follow-up.",
+   "result_quote": "After 5 years of follow-up, the incidence of NAS was significantly lower in the machine perfusion group, compared with control group: 14% versus 26% (hazard ratio: 0.47, 95% CI: 0.23-0.99; P =0.048)."
+  },
+  {
+   "rid": "PMC12513034#1",
+   "reporting_document": "PMC12513034",
+   "reported_label": "symptomatic NAS",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary endpoint in the present study was the incidence of symptomatic NAS at 5 years after transplantation.",
+   "result_quote": "At 5 years after transplantation, the incidence of symptomatic NAS was significantly lower in the machine perfusion group compared with the control group: 11 of 78 patients (14%) in the machine perfusion group versus 20 of 78 patients (26%) in the control group (hazard ratio: 0.4, 95% CI: 0.23-0.99; P =0.048)."
+  },
+  {
+   "rid": "PMC12513034#4",
+   "reporting_document": "PMC12513034",
+   "reported_label": "treatments for NAS",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary endpoints included treatment for NAS, graft and patient survival, acute and chronic rejection.",
+   "result_quote": "The cumulative number of treatments for NAS was lower in the machine perfusion group than in the control group (81 vs 120, respectively) (Table 2 )."
+  },
+  {
+   "rid": "PMC12513034#18",
+   "reporting_document": "PMC12513034",
+   "reported_label": "Acute cellular rejection",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary endpoints included ACR, graft, and patient survival.",
+   "result_quote": "Dual hypothermic oxygenated machine perfusion (DHOPE) of donor livers before transplantation has been shown to reduce the incidence of symptomatic NAS and acute cellular rejection (ACR) within 6 months, but long-term results are unknown."
+  },
+  {
+   "rid": "PMC12513034#19",
+   "reporting_document": "PMC12513034",
+   "reported_label": "Acute cellular rejection in immune-mediated disease patients",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary endpoints included ACR, graft, and patient survival.",
+   "result_quote": "In patients with immune-mediated disease, who are at increased risk of ACR, the rate of ACR was significantly lower in the machine perfusion group: 0% versus 32% ( P =0.036)."
+  },
+  {
+   "rid": "PMC12513034#25",
+   "reporting_document": "PMC12513034",
+   "reported_label": "Histopathological severity (RAI)",
+   "reported_instrument": "rejection activity index (RAI) score",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary endpoints included treatment for NAS, graft and patient survival, acute and chronic rejection.",
+   "result_quote": "Histopathological severity (RAI) P , median (IQR)\n6 (4-7)\n6 (4-7)\n1"
+  },
+  {
+   "rid": "PMC12513034#35",
+   "reporting_document": "PMC12513034",
+   "reported_label": "Chronic rejection",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary endpoints included treatment for NAS, graft and patient survival, acute and chronic rejection.",
+   "result_quote": "Chronic rejection, n (%)\n0 (0)\n2 (3)\n0.497"
+  },
+  {
+   "rid": "PMC12513034#37",
+   "reporting_document": "PMC12513034",
+   "reported_label": "Retransplantation within 5 yrs",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary endpoints included ACR, graft, and patient survival.",
+   "result_quote": "Retransplantation within 5 yrs, n (%)\n10 (13)\n12 (15)\n0.753"
+  },
+  {
+   "rid": "PMC12513034#45",
+   "reporting_document": "PMC12513034",
+   "reported_label": "Patient death within 5 yrs",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary endpoints included ACR, graft, and patient survival.",
+   "result_quote": "Patient death within 5 yrs, n (%)\n29 (37)\n23 (29)\n0.350"
+  },
+  {
+   "rid": "PMC12513034#56",
+   "reporting_document": "PMC12513034",
+   "reported_label": "Retransplantation due to NAS",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary endpoints included ACR, graft, and patient survival.",
+   "result_quote": "Retransplantation due to NAS occurred 3 times in the machine perfusion group versus 6 times in the control group (Table 2 )."
+  },
+  {
+   "rid": "PMC12513034#57",
+   "reporting_document": "PMC12513034",
+   "reported_label": "treatment for acute rejection",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary endpoints included treatment for NAS, graft and patient survival, acute and chronic rejection.",
+   "result_quote": "The most common treatment consisted of boluses of steroids: 57% in the machine perfusion group and 58% in control group."
+  },
+  {
+   "rid": "PMC12513034#58",
+   "reporting_document": "PMC12513034",
+   "reported_label": "severe and refractory ACR",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary endpoints included treatment for NAS, graft and patient survival, acute and chronic rejection.",
+   "result_quote": "In both groups, there was one case where severe and refractory ACR led to retransplantation (Table 2 )."
+  },
+  {
+   "rid": "PMC12513034#59",
+   "reporting_document": "PMC12513034",
+   "reported_label": "biliary abnormalities on MRC in combination with clinical symptoms of NAS",
+   "reported_instrument": "magnetic resonance cholangiography (MRC)",
+   "reported_role": "other",
+   "role_evidence_quote": "Clinical Evolution of Abnormalities on Protocol MRC",
+   "result_quote": "In total, 133 of 156 patients (85%) had an MRC at 6 months after transplantation of which 19 patients had biliary abnormalities on MRC in combination with clinical symptoms of NAS."
+  },
+  {
+   "rid": "PMC12513034#61",
+   "reporting_document": "PMC12513034",
+   "reported_label": "symptomatic NAS",
+   "reported_instrument": "magnetic resonance cholangiography (MRC)",
+   "reported_role": "other",
+   "role_evidence_quote": "Clinical Evolution of Abnormalities on Protocol MRC",
+   "result_quote": "Of the 74 patients with asymptomatic biliary abnormalities on MRC, 10 patients (14%) developed symptomatic NAS, 5 out of 43 (12%) in the machine perfusion group and 5 out of 31 (16%) in the control group."
+  },
+  {
+   "rid": "PMC12513034#62",
+   "reporting_document": "PMC12513034",
+   "reported_label": "symptomatic NAS",
+   "reported_instrument": "magnetic resonance cholangiography (MRC)",
+   "reported_role": "other",
+   "role_evidence_quote": "Clinical Evolution of Abnormalities on Protocol MRC",
+   "result_quote": "Of the 40 patients without abnormalities on MRC and without symptoms, 2 out of 40 (5%) developed symptomatic NAS, one in each study group (Supplementary Figure 1, Supplemental Digital Content 1, http://links.lww.com/SLA/F577 )."
+  },
+  {
+   "rid": "PMC12513034#63",
+   "reporting_document": "PMC12513034",
+   "reported_label": "new cases of symptomatic NAS between 6 months and 5 years",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary endpoint in the present study was the incidence of symptomatic NAS at 5 years after transplantation.",
+   "result_quote": "The incidence of new cases of symptomatic NAS between 6 months and 5 years was 12% in the machine perfusion group and 16% in the control group."
+  },
+  {
+   "rid": "PMC12513034#64",
+   "reporting_document": "PMC12513034",
+   "reported_label": "symptomatic NAS",
+   "reported_instrument": "magnetic resonance cholangiography (MRC)",
+   "reported_role": "other",
+   "role_evidence_quote": "Clinical Evolution of Abnormalities on Protocol MRC",
+   "result_quote": "Dual hypothermic oxygenated machine perfusion (DHOPE) of donor livers before transplantation has been shown to reduce the incidence of symptomatic NAS and acute cellular rejection (ACR) within 6 months, but long-term results are unknown."
+  },
+  {
+   "rid": "PMC12513034#65",
+   "reporting_document": "PMC12513034",
+   "reported_label": "symptomatic NAS",
+   "reported_instrument": "magnetic resonance cholangiography (MRC)",
+   "reported_role": "other",
+   "role_evidence_quote": "Clinical Evolution of Abnormalities on Protocol MRC",
+   "result_quote": "Interestingly, also in patients who did not have any biliary abnormalities on the 6-month protocol MRC 5% later developed symptomatic NAS."
+  },
+  {
+   "rid": "PMC12513034#66",
+   "reporting_document": "PMC12513034",
+   "reported_label": "symptomatic NAS",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary endpoint in the present study was the incidence of symptomatic NAS at 5 years after transplantation.",
+   "result_quote": "In the present study, patient follow-up was extended up to 5 years in which a total of 12 new cases of NAS were observed (6 in each group) with incidence curves practically running parallel after 12 months."
+  },
+  {
+   "rid": "PMC6416838#0",
+   "reporting_document": "PMC6416838",
+   "reported_label": "non-anastomotic biliary strictures (NAS)",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Non-anastomotic biliary strictures (NAS) are a major complication after liver transplantation and occur in 29% of patients receiving a DCD donor graft, compared to 11% among recipients of donation after brain death (DBD) liver grafts in the University Medical Center Groningen (unpublished data).",
+   "result_quote": "Non-anastomotic biliary strictures (NAS) are a major complication after liver transplantation and occur in 29% of patients receiving a DCD donor graft, compared to 11% among recipients of donation after brain death (DBD) liver grafts in the University Medical Center Groningen (unpublished data)."
+  },
+  {
+   "rid": "PMC6416838#1",
+   "reporting_document": "PMC6416838",
+   "reported_label": "incidence of NAS",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary endpoint is the incidence of symptomatic NAS at six months after DCD liver transplantation.",
+   "result_quote": "The incidence of NAS was 29% after DCD liver transplantation and 11% after DBD liver transplantation in patients transplanted in the UMCG from 2008 to 2013 (unpublished data)."
+  },
+  {
+   "rid": "PMC6416838#2",
+   "reporting_document": "PMC6416838",
+   "reported_label": "incidence of NAS",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The study is powered to detect a clinically relevant difference in incidence of NAS between the two study groups.",
+   "result_quote": "This incidence is similar to that reported by Abt et al. (27% in DCD versus 2% in DBD transplantation), Dubbeld et al. (24% versus 8%), Croome et al. (22% versus 4%), and Meurisse et al. (33% versus 12%) [ 6 , 34 - 36 ]."
+  },
+  {
+   "rid": "PMC6416838#3",
+   "reporting_document": "PMC6416838",
+   "reported_label": "incidence of NAS",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary objective is to study the efficacy of end-ischemic DHOPE in reducing the incidence of symptomatic NAS after DCD liver transplantation.",
+   "result_quote": "We aim to reduce the incidence of NAS after DCD liver transplantation with DHOPE to the level observed after DBD liver transplantation (absolute difference of 29-11 = 18%)."
+  },
+  {
+   "rid": "PMC6416838#4",
+   "reporting_document": "PMC6416838",
+   "reported_label": "NAS",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "We base this presumed reduction on our results in the pilot study in which 1 of 10 (10%) of the patients with a DHOPE treated liver developed NAS.",
+   "result_quote": "We base this presumed reduction on our results in the pilot study in which 1 of 10 (10%) of the patients with a DHOPE treated liver developed NAS."
+  },
+  {
+   "rid": "PMC6416838#5",
+   "reporting_document": "PMC6416838",
+   "reported_label": "incidence of NAS",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The interim analysis aims to determine the incidence of NAS in the control group as a means of determining whether the assumption in our sample size calculation was correct: 29% patients develop NAS after DCD liver transplantation.",
+   "result_quote": "The interim analysis aims to determine the incidence of NAS in the control group as a means of determining whether the assumption in our sample size calculation was correct: 29% patients develop NAS after DCD liver transplantation."
+  },
+  {
+   "rid": "PMC6416838#6",
+   "reporting_document": "PMC6416838",
+   "reported_label": "NAS",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "The most troublesome complications after DCD liver transplantation are biliary complications such as NAS, which have been reported in up to 30% of the patients after DCD liver transplantation compared to 10% in recipients of a DBD liver graft [ 36 , 41 , 42 ].",
+   "result_quote": "The most troublesome complications after DCD liver transplantation are biliary complications such as NAS, which have been reported in up to 30% of the patients after DCD liver transplantation compared to 10% in recipients of a DBD liver graft [ 36 , 41 , 42 ]."
+  },
+  {
+   "rid": "PMC6416838#7",
+   "reporting_document": "PMC6416838",
+   "reported_label": "the diagnosis of NAS",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "For the primary endpoint, the time interval of six months after transplantation is chosen because the diagnosis of NAS is reported at a median of three to four months after transplantation [ 23 , 43 ].",
+   "result_quote": "For the primary endpoint, the time interval of six months after transplantation is chosen because the diagnosis of NAS is reported at a median of three to four months after transplantation [ 23 , 43 ]."
+  },
+  {
+   "rid": "PMC6416838#8",
+   "reporting_document": "PMC6416838",
+   "reported_label": "the cases of NAS within four months",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "For the primary endpoint, the time interval of six months after transplantation is chosen because the diagnosis of NAS is reported at a median of three to four months after transplantation [ 23 , 43 ].",
+   "result_quote": "Some studies have reported an occurrence of 100% of the cases of NAS within four months [ 33 , 43 - 45 ]."
+  },
+  {
+   "rid": "PMC6701560#0",
+   "reporting_document": "PMC6701560",
+   "reported_label": "non-anastomotic strictures (NAS) of the biliary tree",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Machine perfusion as a tool to resuscitate ECD livers",
+   "result_quote": "Furthermore, the incidence of non-anastomotic strictures (NAS) of the biliary tree was 10% in the DHOPE group, compared with 35% in the SCS group."
+  },
+  {
+   "rid": "PMC6701560#1",
+   "reporting_document": "PMC6701560",
+   "reported_label": "ECD graft survival",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Machine perfusion as a tool to resuscitate ECD livers",
+   "result_quote": "Furthermore, in a clinical trial performed by the group in Essen, ECD graft survival was a 100% at 6 months after transplantation in the COR group, whereas this was 85% in the SCS group."
+  }
+ ],
+ "dropped_unusable_units": [
+  "sec2: NCT02584283/sec2 role: quote too short to be evidence",
+  "sec3: NCT02584283/sec3 role: quote too short to be evidence",
+  "sec6: NCT02584283/sec6 role: quote too short to be evidence",
+  "PMC12513034#2: NCT02584283/PMC12513034#2 role: quote too short to be evidence",
+  "PMC12513034#3: NCT02584283/PMC12513034#3 role: quote too short to be evidence",
+  "PMC12513034#5: NCT02584283/PMC12513034#5 role: quote too short to be evidence",
+  "PMC12513034#6: NCT02584283/PMC12513034#6 role: quote too short to be evidence",
+  "PMC12513034#7: NCT02584283/PMC12513034#7 role: quote too short to be evidence",
+  "PMC12513034#8: NCT02584283/PMC12513034#8 role: quote too short to be evidence",
+  "PMC12513034#10: NCT02584283/PMC12513034#10 role: quote too short to be evidence",
+  "PMC12513034#11: NCT02584283/PMC12513034#11 role: quote too short to be evidence",
+  "PMC12513034#12: NCT02584283/PMC12513034#12 role: quote too short to be evidence",
+  "PMC12513034#13: NCT02584283/PMC12513034#13 role: quote too short to be evidence",
+  "PMC12513034#14: NCT02584283/PMC12513034#14 role: quote too short to be evidence",
+  "PMC12513034#15: NCT02584283/PMC12513034#15 role: quote too short to be evidence",
+  "PMC12513034#16: NCT02584283/PMC12513034#16 role: quote too short to be evidence",
+  "PMC12513034#17: NCT02584283/PMC12513034#17 role: quote too short to be evidence",
+  "PMC12513034#20: NCT02584283/PMC12513034#20 result: quote too short to be evidence",
+  "PMC12513034#21: NCT02584283/PMC12513034#21 result: quote too short to be evidence",
+  "PMC12513034#22: NCT02584283/PMC12513034#22 result: quote too short to be evidence",
+  "PMC12513034#23: NCT02584283/PMC12513034#23 role: quote too short to be evidence",
+  "PMC12513034#24: NCT02584283/PMC12513034#24 role: quote too short to be evidence",
+  "PMC12513034#26: NCT02584283/PMC12513034#26 result: quote too short to be evidence",
+  "PMC12513034#27: NCT02584283/PMC12513034#27 result: quote too short to be evidence",
+  "PMC12513034#28: NCT02584283/PMC12513034#28 result: quote too short to be evidence",
+  "PMC12513034#29: NCT02584283/PMC12513034#29 result: quote too short to be evidence",
+  "PMC12513034#30: NCT02584283/PMC12513034#30 role: quote too short to be evidence",
+  "PMC12513034#31: NCT02584283/PMC12513034#31 result: quote too short to be evidence",
+  "PMC12513034#32: NCT02584283/PMC12513034#32 result: quote too short to be evidence",
+  "PMC12513034#33: NCT02584283/PMC12513034#33 result: quote too short to be evidence",
+  "PMC12513034#34: NCT02584283/PMC12513034#34 role: quote too short to be evidence",
+  "PMC12513034#36: NCT02584283/PMC12513034#36 role: quote too short to be evidence",
+  "PMC12513034#38: NCT02584283/PMC12513034#38 role: quote too short to be evidence",
+  "PMC12513034#40: NCT02584283/PMC12513034#40 role: quote too short to be evidence",
+  "PMC12513034#41: NCT02584283/PMC12513034#41 role: quote too short to be evidence",
+  "PMC12513034#42: NCT02584283/PMC12513034#42 role: quote too short to be evidence",
+  "PMC12513034#43: NCT02584283/PMC12513034#43 result: quote too short to be evidence",
+  "PMC12513034#44: NCT02584283/PMC12513034#44 role: quote too short to be evidence",
+  "PMC12513034#46: NCT02584283/PMC12513034#46 result: quote too short to be evidence",
+  "PMC12513034#47: NCT02584283/PMC12513034#47 result: quote too short to be evidence",
+  "PMC12513034#48: NCT02584283/PMC12513034#48 result: quote too short to be evidence",
+  "PMC12513034#49: NCT02584283/PMC12513034#49 result: quote too short to be evidence",
+  "PMC12513034#50: NCT02584283/PMC12513034#50 role: quote too short to be evidence",
+  "PMC12513034#51: NCT02584283/PMC12513034#51 result: quote too short to be evidence",
+  "PMC12513034#52: NCT02584283/PMC12513034#52 result: quote too short to be evidence",
+  "PMC12513034#53: NCT02584283/PMC12513034#53 role: quote too short to be evidence",
+  "PMC6701560#2: NCT02584283/PMC6701560#2 role: quote too short to be evidence"
+ ]
+}

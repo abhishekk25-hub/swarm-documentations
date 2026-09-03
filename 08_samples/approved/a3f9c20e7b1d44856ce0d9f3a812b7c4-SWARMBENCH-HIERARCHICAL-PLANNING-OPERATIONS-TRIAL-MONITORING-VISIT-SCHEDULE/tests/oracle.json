@@ -1,0 +1,948 @@
+{
+  "ref_date": "2026-06-01",
+  "stale_cutoff": "2025-06-01",
+  "constraints": {
+    "max_visits": 18,
+    "max_nights": 30,
+    "min_per_partner": 1,
+    "max_per_site": 1
+  },
+  "sites": [
+    {
+      "site_id": "S01",
+      "partner_org": "Cleveland Clinic",
+      "region": "Midwest",
+      "nct_id": "NCT00000361",
+      "travel_nights": 2,
+      "overall_status": "TERMINATED",
+      "last_update_posted": "2006-04-24",
+      "primary_completion_date": null,
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 3,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 3,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S02",
+      "partner_org": "Cleveland Clinic",
+      "region": "Midwest",
+      "nct_id": "NCT00000579",
+      "travel_nights": 2,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2016-03-23",
+      "primary_completion_date": null,
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 2,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 2,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S03",
+      "partner_org": "Cleveland Clinic",
+      "region": "Midwest",
+      "nct_id": "NCT00070564",
+      "travel_nights": 2,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "last_update_posted": "2025-07-31",
+      "primary_completion_date": "2015-01-28",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 1
+      },
+      "risk_score": 1,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S04",
+      "partner_org": "Cleveland Clinic",
+      "region": "Midwest",
+      "nct_id": "NCT00004732",
+      "travel_nights": 2,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2017-05-17",
+      "primary_completion_date": "2011-02-28",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 0,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S05",
+      "partner_org": "Duke University",
+      "region": "South",
+      "nct_id": "NCT00009906",
+      "travel_nights": 2,
+      "overall_status": "TERMINATED",
+      "last_update_posted": "2014-12-23",
+      "primary_completion_date": "2007-05-28",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 3,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 3,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S06",
+      "partner_org": "Duke University",
+      "region": "South",
+      "nct_id": "NCT00000133",
+      "travel_nights": 2,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2014-02-04",
+      "primary_completion_date": null,
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 2,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 2,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S07",
+      "partner_org": "Duke University",
+      "region": "South",
+      "nct_id": "NCT00005398",
+      "travel_nights": 2,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "last_update_posted": "2026-01-13",
+      "primary_completion_date": "2026-05-28",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 1
+      },
+      "risk_score": 1,
+      "modality": "Observational"
+    },
+    {
+      "site_id": "S08",
+      "partner_org": "Duke University",
+      "region": "South",
+      "nct_id": "NCT00003861",
+      "travel_nights": 2,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "last_update_posted": "2023-08-31",
+      "primary_completion_date": "2100-01-28",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 0,
+      "modality": "Observational"
+    },
+    {
+      "site_id": "S09",
+      "partner_org": "Johns Hopkins",
+      "region": "Northeast",
+      "nct_id": "NCT00000243",
+      "travel_nights": 1,
+      "overall_status": "TERMINATED",
+      "last_update_posted": "2017-01-12",
+      "primary_completion_date": null,
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 3,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 3,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S10",
+      "partner_org": "Johns Hopkins",
+      "region": "Northeast",
+      "nct_id": "NCT00000133",
+      "travel_nights": 1,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2014-02-04",
+      "primary_completion_date": null,
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 2,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 2,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S11",
+      "partner_org": "Johns Hopkins",
+      "region": "Northeast",
+      "nct_id": "NCT00217737",
+      "travel_nights": 1,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "last_update_posted": "2026-05-29",
+      "primary_completion_date": "2024-02-22",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 1
+      },
+      "risk_score": 1,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S12",
+      "partner_org": "Johns Hopkins",
+      "region": "Northeast",
+      "nct_id": "NCT00000143",
+      "travel_nights": 1,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2016-03-14",
+      "primary_completion_date": "2000-06-28",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 0,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S13",
+      "partner_org": "MD Anderson Cancer Center",
+      "region": "South",
+      "nct_id": "NCT00002976",
+      "travel_nights": 2,
+      "overall_status": "TERMINATED",
+      "last_update_posted": "2013-04-11",
+      "primary_completion_date": "2006-07-28",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 3,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 3,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S14",
+      "partner_org": "MD Anderson Cancer Center",
+      "region": "South",
+      "nct_id": "NCT00006025",
+      "travel_nights": 2,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2018-06-27",
+      "primary_completion_date": "2005-01-10",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 2,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 2,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S15",
+      "partner_org": "MD Anderson Cancer Center",
+      "region": "South",
+      "nct_id": "NCT00076310",
+      "travel_nights": 2,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "last_update_posted": "2026-04-15",
+      "primary_completion_date": "2025-05-01",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 1
+      },
+      "risk_score": 1,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S16",
+      "partner_org": "MD Anderson Cancer Center",
+      "region": "South",
+      "nct_id": "NCT00038610",
+      "travel_nights": 2,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2015-09-18",
+      "primary_completion_date": "2014-07-28",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 0,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S17",
+      "partner_org": "Massachusetts General Hospital",
+      "region": "Northeast",
+      "nct_id": "NCT00003847",
+      "travel_nights": 1,
+      "overall_status": "TERMINATED",
+      "last_update_posted": "2013-09-05",
+      "primary_completion_date": "2001-02-28",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 3,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 3,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S18",
+      "partner_org": "Massachusetts General Hospital",
+      "region": "Northeast",
+      "nct_id": "NCT00000173",
+      "travel_nights": 1,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2009-12-11",
+      "primary_completion_date": "2004-01-28",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 2,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 2,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S19",
+      "partner_org": "Massachusetts General Hospital",
+      "region": "Northeast",
+      "nct_id": "NCT00070499",
+      "travel_nights": 1,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "last_update_posted": "2026-05-29",
+      "primary_completion_date": "2010-11-01",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 1
+      },
+      "risk_score": 1,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S20",
+      "partner_org": "Massachusetts General Hospital",
+      "region": "Northeast",
+      "nct_id": "NCT00000143",
+      "travel_nights": 1,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2016-03-14",
+      "primary_completion_date": "2000-06-28",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 0,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S21",
+      "partner_org": "Mayo Clinic",
+      "region": "Midwest",
+      "nct_id": "NCT00002976",
+      "travel_nights": 2,
+      "overall_status": "TERMINATED",
+      "last_update_posted": "2013-04-11",
+      "primary_completion_date": "2006-07-28",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 3,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 3,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S22",
+      "partner_org": "Mayo Clinic",
+      "region": "Midwest",
+      "nct_id": "NCT00000117",
+      "travel_nights": 2,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2009-09-17",
+      "primary_completion_date": null,
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 2,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 2,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S23",
+      "partner_org": "Mayo Clinic",
+      "region": "Midwest",
+      "nct_id": "NCT00045201",
+      "travel_nights": 2,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "last_update_posted": "2026-04-13",
+      "primary_completion_date": "2013-09-13",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 1
+      },
+      "risk_score": 1,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S24",
+      "partner_org": "Mayo Clinic",
+      "region": "Midwest",
+      "nct_id": "NCT00004732",
+      "travel_nights": 2,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2017-05-17",
+      "primary_completion_date": "2011-02-28",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 0,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S25",
+      "partner_org": "Mount Sinai",
+      "region": "Northeast",
+      "nct_id": "NCT00002796",
+      "travel_nights": 1,
+      "overall_status": "TERMINATED",
+      "last_update_posted": "2013-02-01",
+      "primary_completion_date": "2004-12-28",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 3,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 3,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S26",
+      "partner_org": "Mount Sinai",
+      "region": "Northeast",
+      "nct_id": "NCT00000139",
+      "travel_nights": 1,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2010-03-24",
+      "primary_completion_date": null,
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 2,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 2,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S27",
+      "partner_org": "Mount Sinai",
+      "region": "Northeast",
+      "nct_id": "NCT00003641",
+      "travel_nights": 1,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "last_update_posted": "2026-02-25",
+      "primary_completion_date": "2015-01-28",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 1
+      },
+      "risk_score": 1,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S28",
+      "partner_org": "Mount Sinai",
+      "region": "Northeast",
+      "nct_id": "NCT00000143",
+      "travel_nights": 1,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2016-03-14",
+      "primary_completion_date": "2000-06-28",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 0,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S29",
+      "partner_org": "Stanford University",
+      "region": "West",
+      "nct_id": "NCT00000752",
+      "travel_nights": 3,
+      "overall_status": "WITHDRAWN",
+      "last_update_posted": "2021-10-28",
+      "primary_completion_date": null,
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 3,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 3,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S30",
+      "partner_org": "Stanford University",
+      "region": "West",
+      "nct_id": "NCT00000408",
+      "travel_nights": 3,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2013-05-03",
+      "primary_completion_date": "2002-02-28",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 2,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 2,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S31",
+      "partner_org": "Stanford University",
+      "region": "West",
+      "nct_id": "NCT00003641",
+      "travel_nights": 3,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "last_update_posted": "2026-02-25",
+      "primary_completion_date": "2015-01-28",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 1
+      },
+      "risk_score": 1,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S32",
+      "partner_org": "Stanford University",
+      "region": "West",
+      "nct_id": "NCT00009633",
+      "travel_nights": 3,
+      "overall_status": "RECRUITING",
+      "last_update_posted": "2026-06-24",
+      "primary_completion_date": "2030-03-31",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 0,
+      "modality": "Observational"
+    },
+    {
+      "site_id": "S33",
+      "partner_org": "UCLA",
+      "region": "West",
+      "nct_id": "NCT00000419",
+      "travel_nights": 3,
+      "overall_status": "TERMINATED",
+      "last_update_posted": "2013-05-03",
+      "primary_completion_date": null,
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 3,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 3,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S34",
+      "partner_org": "UCLA",
+      "region": "West",
+      "nct_id": "NCT00000420",
+      "travel_nights": 3,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2013-05-03",
+      "primary_completion_date": null,
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 2,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 2,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S35",
+      "partner_org": "UCLA",
+      "region": "West",
+      "nct_id": "NCT00268385",
+      "travel_nights": 3,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "last_update_posted": "2026-06-17",
+      "primary_completion_date": "2018-10-18",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 1
+      },
+      "risk_score": 1,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S36",
+      "partner_org": "UCLA",
+      "region": "West",
+      "nct_id": "NCT00031408",
+      "travel_nights": 3,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "last_update_posted": "2025-10-07",
+      "primary_completion_date": "2027-12-31",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 0,
+      "modality": "Observational"
+    },
+    {
+      "site_id": "S37",
+      "partner_org": "UCSF",
+      "region": "West",
+      "nct_id": "NCT00000577",
+      "travel_nights": 3,
+      "overall_status": "WITHDRAWN",
+      "last_update_posted": "2017-01-16",
+      "primary_completion_date": null,
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 3,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 3,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S38",
+      "partner_org": "UCSF",
+      "region": "West",
+      "nct_id": "NCT00000139",
+      "travel_nights": 3,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2010-03-24",
+      "primary_completion_date": null,
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 2,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 2,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S39",
+      "partner_org": "UCSF",
+      "region": "West",
+      "nct_id": "NCT00217737",
+      "travel_nights": 3,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "last_update_posted": "2026-05-29",
+      "primary_completion_date": "2024-02-22",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 1
+      },
+      "risk_score": 1,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S40",
+      "partner_org": "UCSF",
+      "region": "West",
+      "nct_id": "NCT00000143",
+      "travel_nights": 3,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2016-03-14",
+      "primary_completion_date": "2000-06-28",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 0,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S41",
+      "partner_org": "University of Michigan",
+      "region": "Midwest",
+      "nct_id": "NCT00002976",
+      "travel_nights": 2,
+      "overall_status": "TERMINATED",
+      "last_update_posted": "2013-04-11",
+      "primary_completion_date": "2006-07-28",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 3,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 3,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S42",
+      "partner_org": "University of Michigan",
+      "region": "Midwest",
+      "nct_id": "NCT00000171",
+      "travel_nights": 2,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2005-06-24",
+      "primary_completion_date": null,
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 2,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 2,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S43",
+      "partner_org": "University of Michigan",
+      "region": "Midwest",
+      "nct_id": "NCT00070499",
+      "travel_nights": 2,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "last_update_posted": "2026-05-29",
+      "primary_completion_date": "2010-11-01",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 1
+      },
+      "risk_score": 1,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S44",
+      "partner_org": "University of Michigan",
+      "region": "Midwest",
+      "nct_id": "NCT00004732",
+      "travel_nights": 2,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2017-05-17",
+      "primary_completion_date": "2011-02-28",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 0,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S45",
+      "partner_org": "Vanderbilt University",
+      "region": "South",
+      "nct_id": "NCT00002819",
+      "travel_nights": 2,
+      "overall_status": "TERMINATED",
+      "last_update_posted": "2013-04-11",
+      "primary_completion_date": "2000-02-28",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 3,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 3,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S46",
+      "partner_org": "Vanderbilt University",
+      "region": "South",
+      "nct_id": "NCT00000133",
+      "travel_nights": 2,
+      "overall_status": "COMPLETED",
+      "last_update_posted": "2014-02-04",
+      "primary_completion_date": null,
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 2,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 2,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S47",
+      "partner_org": "Vanderbilt University",
+      "region": "South",
+      "nct_id": "NCT00003641",
+      "travel_nights": 2,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "last_update_posted": "2026-02-25",
+      "primary_completion_date": "2015-01-28",
+      "has_results": true,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 1
+      },
+      "risk_score": 1,
+      "modality": "Interventional"
+    },
+    {
+      "site_id": "S48",
+      "partner_org": "Vanderbilt University",
+      "region": "South",
+      "nct_id": "NCT00031408",
+      "travel_nights": 2,
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "last_update_posted": "2025-10-07",
+      "primary_completion_date": "2027-12-31",
+      "has_results": false,
+      "risk_components": {
+        "status_high_risk": 0,
+        "recruiting_stale": 0,
+        "completed_no_results": 0,
+        "overdue_primary_completion": 0
+      },
+      "risk_score": 0,
+      "modality": "Observational"
+    }
+  ],
+  "optimal_plan": {
+    "selected_site_ids": [
+      "S01",
+      "S05",
+      "S09",
+      "S10",
+      "S13",
+      "S17",
+      "S18",
+      "S21",
+      "S25",
+      "S26",
+      "S27",
+      "S29",
+      "S33",
+      "S37",
+      "S41",
+      "S45",
+      "S46"
+    ],
+    "total_risk": 45,
+    "visits": 17,
+    "nights": 30
+  }
+}

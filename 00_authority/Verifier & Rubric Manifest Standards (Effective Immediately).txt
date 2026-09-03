@@ -1,0 +1,212 @@
+﻿Announcement: Verifier & Rubric Manifest Standards (Effective Immediately)
+
+Briefing / meeting notes (operational nuance — this announcement WINS on
+conflict): `../02_onboarding/All -Hands - Verifier & Rubric Manifest Standards
+[MANDATORY] - 2026_08_04 20_29 IST - Notes by Gemini.txt`
+
+Overview
+Based on client feedback across Batch-12 and Batch-14, the following standards are now mandatory for every task going forward.
+
+
+Important: Tasks that violate Requirement #3 (Verifier Weight Distribution) or Requirement #5 (rubric_manifest.json Accuracy) will be automatically rejected by the Quality Gate.
+
+
+________________
+
+
+1. Use the Correct verifier_type
+When a task combines:
+
+
+* Deterministic or structural checks, and
+* LLM Judge reward-hacking or partial-oracle checks,
+
+
+the verifier must declare:
+
+
+verifier_type = "hybrid"
+
+Only use:
+
+
+* executable when the verifier is purely deterministic.
+* llm-judge when every check is performed by the judge.
+
+
+________________
+
+
+2. Standardize verify.py Output
+Every verifier must produce the blended reward and expose complete scoring information.
+Required Outputs
+Aggregate Scores
+The verifier must separately report:
+
+
+* structural_check_score
+* reward_hacking_check_score
+* partial_oracle_check_score
+Per-Check Breakdown
+Each check must include:
+
+
+* Check name
+* Score
+* Notes
+
+
+inside reward.json / result.json.
+LLM Judge Transparency
+For every LLM Judge check, include:
+
+
+* Judge score
+* Judge justification / reasoning
+
+
+—not just a numeric pass/farning score.
+
+
+________________
+
+
+3. Content Must Be ≥ 40% of Total Score
+Content consists of:
+
+
+* reward_hacking_check_score
+* partial_oracle_check_score
+
+
+combined.
+Requirement
+* Content ≥ 40%
+* Structural ≤ 60%
+
+
+Tasks with structural checks exceeding 60% of the total score will be hard rejected.
+
+
+Correction from the draft: The requirement is a minimum 40% content contribution, which naturally limits structural scoring to 60%. It is not a 40% cap on structural checks.
+
+
+________________
+
+
+4. Content Checks Must Verify Held-Out Information
+Content checks must validate work that cannot simply be copied from the provided inputs.
+
+
+Avoid checks that merely confirm:
+
+
+* Values already present in agent input files
+* Sentences copied verbatim from supplied documents
+
+
+Where a complete oracle is impractical:
+
+
+* Manually verify a small held-out subset
+* Ensure those held-out values are absent from all agent inputs
+* Give that subset meaningful weight in the final score
+
+
+________________
+
+
+5. rubric_manifest.json Must Match verify.py
+The manifest must accurately describe the verifier implementation.
+Requirements
+No Misleading Weights
+If scoring uses:
+
+
+* Non-uniform weighting
+* Multiplicative gates
+* Coverage caps
+* Blended aggregation
+
+
+the manifest must explicitly represent that behavior.
+
+
+Do not imply an equal-weight average when one does not exist.
+
+
+________________
+
+
+No Duplicate check_function Entries
+A check_function must appear only once in the manifest.
+
+
+Duplicate declarations unintentionally multiply the influence of that check.
+
+
+________________
+
+
+Include Every Reward Component
+Every mechanism affecting the final reward must appear in the manifest, including:
+
+
+* Gates
+* Multipliers
+* Alternate scoring paths
+* Fallback logic
+
+
+Nothing that materially changes the final reward may be omitted.
+
+
+________________
+
+
+Quality Gate Enforcement
+These requirements are now enforced by:
+
+
+* S-08 Static Check
+* QD-03 (Checks 7 & 8)
+
+
+Tasks failing these validations will not pass review.
+
+
+________________
+
+
+6. SA and MA Must Use the Same Verifier
+Single-Agent (SA) and Multi-Agent (MA) runs must always be evaluated using the identical version of verify.py.
+
+
+If the verifier changes after one arm has already been executed:
+
+
+* Re-run both SA and MA.
+* Re-verify both using the updated verifier.
+
+
+Never deliver a benchmark where SA and MA were scored by different verifier snapshots.
+
+
+________________
+
+
+7. Content Checks Must Actually Discriminate
+Being categorized as a content check is not enough.
+
+
+Before delivery:
+
+
+* Test against a deliberately weak, hollow, or templated submission.
+* Confirm that poor work receives appropriately poor scores.
+
+
+If an empty or low-effort submission still scores highly, tighten the check before shipping.
+
+
+________________

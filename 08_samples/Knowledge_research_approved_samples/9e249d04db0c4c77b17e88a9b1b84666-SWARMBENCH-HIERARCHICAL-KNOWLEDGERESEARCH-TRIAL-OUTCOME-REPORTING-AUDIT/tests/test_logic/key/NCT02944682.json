@@ -1,0 +1,1818 @@
+{
+ "nct": "NCT02944682",
+ "prespecification_version": 4,
+ "prespecification_date": "2017-06-14",
+ "publications": [
+  "PMC11027158",
+  "PMC11079463",
+  "PMC11097839",
+  "PMC11757157",
+  "PMC12083286",
+  "PMC12755731",
+  "PMC13132538",
+  "PMC13166104"
+ ],
+ "prespecified_units": [
+  {
+   "uid": "pri1",
+   "measure": "Birth weight",
+   "role": "primary",
+   "timeframe": "Up to 5 months (within 24 hours of birth, 3-5 months post randomization)",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11027158",
+   "reported_label": "estimated fetal weight or birthweight",
+   "reported_instrument": "INTERGROWTH-21st reference equations",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Fetal growth was a prespecified secondary outcome.",
+   "result_quote": "estimated fetal weight or birthweight (-0 13 vs -0 12; p=0 70)"
+  },
+  {
+   "uid": "pri3",
+   "measure": "Length-for-age z-score",
+   "role": "primary",
+   "timeframe": "24 months after birth",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12755731",
+   "reported_label": "observed mean LAZ at 12 months",
+   "reported_instrument": "length-for-age z-score (LAZ)",
+   "reported_role": "other",
+   "role_evidence_quote": "Mean LAZ at birth and at 3, 6, 9, and 12 months are presented in Table 2 , and model fit statistics are presented in the Supplemental Materials ( S4 Table ).",
+   "result_quote": "Observed mean LAZ of infants from birth to 12 months of age with at least three measurements."
+  },
+  {
+   "uid": "pri4",
+   "measure": "Blood pressure",
+   "role": "primary",
+   "timeframe": "30 months",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC13166104",
+   "reported_label": "blood pressure",
+   "reported_instrument": "Omron (R) Model HEM-907XL",
+   "reported_role": "secondary",
+   "role_evidence_quote": "In secondary analyses, we considered effect modification by age, study site, and BMI ( Supplemental Table S5 ).",
+   "result_quote": "Exposure to air pollutants, like fine particulate matter (PM 2.5 ), has been linked to higher blood pressure (BP)."
+  },
+  {
+   "uid": "sec2",
+   "measure": "Change in fetal growth",
+   "role": "secondary",
+   "timeframe": "Baseline, Gestation Week 24-28 and Gestation Week 32-36",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11027158",
+   "reported_label": "estimated fetal weight or birthweight",
+   "reported_instrument": "INTERGROWTH-21st reference equations",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Fetal growth was a prespecified secondary outcome.",
+   "result_quote": "estimated fetal weight or birthweight (-0 13 vs -0 12; p=0 70)"
+  },
+  {
+   "uid": "sec4",
+   "measure": "Change in gross motor development",
+   "role": "secondary",
+   "timeframe": "3 month of age to 24 months of age",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec5",
+   "measure": "Brachial artery reactivity testing (BART)",
+   "role": "secondary",
+   "timeframe": "24 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec6",
+   "measure": "Carotid intima-media thickness (CIMT)",
+   "role": "secondary",
+   "timeframe": "24 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec7",
+   "measure": "Adult respiratory health and well-being",
+   "role": "secondary",
+   "timeframe": "24 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "oth2",
+   "measure": "Carbon monoxide (CO) exposure",
+   "role": "other",
+   "timeframe": "Up to 18 months after delivery",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11027158",
+   "reported_label": "Personal exposures to carbon monoxide",
+   "reported_instrument": "EL-USB-300",
+   "reported_role": "other",
+   "role_evidence_quote": "The intervention reduced prenatal, averaged, post-randomisation personal exposures to PM 2 5 , black carbon, and carbon monoxide ( table 2 ).",
+   "result_quote": "Average prenatal maternal exposures after randomisation +\n0 7 (1 2)\n1450\n2 2 (3 6)\n1430"
+  },
+  {
+   "uid": "oth3",
+   "measure": "Black carbon (BC) exposure",
+   "role": "other",
+   "timeframe": "Up to 18 months after delivery",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11027158",
+   "reported_label": "Personal exposures to black carbon",
+   "reported_instrument": "SootScan Model OT21 transmissometer",
+   "reported_role": "other",
+   "role_evidence_quote": "The intervention reduced prenatal, averaged, post-randomisation personal exposures to PM 2 5 , black carbon, and carbon monoxide ( table 2 ).",
+   "result_quote": "Average prenatal maternal exposures after randomisation +\n4 1 (5 6)\n1413\n11 2 (9 3)\n1376"
+  }
+ ],
+ "additional_units": [
+  {
+   "rid": "PMC11027158#0",
+   "reporting_document": "PMC11027158",
+   "reported_label": "head circumference",
+   "reported_instrument": "INTERGROWTH-21st reference equations",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Fetal growth was a prespecified secondary outcome.",
+   "result_quote": "head circumference (0 30 vs 0 39; p=0 04)"
+  },
+  {
+   "rid": "PMC11027158#1",
+   "reporting_document": "PMC11027158",
+   "reported_label": "abdominal circumference",
+   "reported_instrument": "INTERGROWTH-21st reference equations",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Fetal growth was a prespecified secondary outcome.",
+   "result_quote": "abdominal circumference (0 38 vs 0 39; p=0 99)"
+  },
+  {
+   "rid": "PMC11027158#2",
+   "reporting_document": "PMC11027158",
+   "reported_label": "femur length",
+   "reported_instrument": "INTERGROWTH-21st reference equations",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Fetal growth was a prespecified secondary outcome.",
+   "result_quote": "femur length (0 44 vs 0 45; p=0 73)"
+  },
+  {
+   "rid": "PMC11027158#4",
+   "reporting_document": "PMC11027158",
+   "reported_label": "head circumference Z score",
+   "reported_instrument": "INTERGROWTH-21st reference equations",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Fetal growth was a prespecified secondary outcome.",
+   "result_quote": "except for a head circumference Z score that was -0 12 SDs smaller in participants in the intervention group than in those in the control group."
+  },
+  {
+   "rid": "PMC11027158#6",
+   "reporting_document": "PMC11027158",
+   "reported_label": "Personal exposures to PM 2 5",
+   "reported_instrument": "Enhanced Children MicroPEM [ECM]",
+   "reported_role": "other",
+   "role_evidence_quote": "The intervention reduced prenatal, averaged, post-randomisation personal exposures to PM 2 5 , black carbon, and carbon monoxide ( table 2 ).",
+   "result_quote": "Average prenatal maternal exposures after randomisation +\n35 0 (37 2)\n1437\n103 3 (97 9)\n1409"
+  },
+  {
+   "rid": "PMC11027158#7",
+   "reporting_document": "PMC11027158",
+   "reported_label": "Personal exposures to PM 2 5",
+   "reported_instrument": "Enhanced Children MicroPEM [ECM]",
+   "reported_role": "other",
+   "role_evidence_quote": "Personal exposures to PM 2 5 , black carbon, and carbon monoxide measured over 24 h at baseline and after randomisation",
+   "result_quote": "Prenatal maternal exposures at baseline *\n119 5 (133 6)\n1352\n111 9 (110 9)\n1352"
+  },
+  {
+   "rid": "PMC11027158#9",
+   "reporting_document": "PMC11027158",
+   "reported_label": "Personal exposures to black carbon",
+   "reported_instrument": "SootScan Model OT21 transmissometer",
+   "reported_role": "other",
+   "role_evidence_quote": "Personal exposures to PM 2 5 , black carbon, and carbon monoxide measured over 24 h at baseline and after randomisation",
+   "result_quote": "Prenatal maternal exposures at baseline *\n12 6 (10 9)\n1223\n12 4 (9 2)\n1211"
+  },
+  {
+   "rid": "PMC11027158#11",
+   "reporting_document": "PMC11027158",
+   "reported_label": "Personal exposures to carbon monoxide",
+   "reported_instrument": "EL-USB-300",
+   "reported_role": "other",
+   "role_evidence_quote": "Personal exposures to PM 2 5 , black carbon, and carbon monoxide measured over 24 h at baseline and after randomisation",
+   "result_quote": "Prenatal maternal exposures at baseline *\n2 7 (4 5)\n1384\n2 3 (4 0)\n1375"
+  },
+  {
+   "rid": "PMC11027158#12",
+   "reporting_document": "PMC11027158",
+   "reported_label": "estimated fetal weight Z score",
+   "reported_instrument": "INTERGROWTH-21st reference equations",
+   "reported_role": "other",
+   "role_evidence_quote": "Finally, we also conducted exposure-response analyses using the longitudinal fetal growth Z scores as continuous variables and 24 h personal exposures to PM 2 5 , black carbon, and carbon monoxide as the main covariate, also continuous, obtained at the baseline visit, first pregnancy visit, and second pregnancy visit.",
+   "result_quote": "except for an association between lower Z scores of estimated fetal weight and higher personal exposures to PM 2 5 (scaled to the interquartile difference and ranging from 23 3 ug/m 3 to 98 4 ug/m 3 ) at 33 weeks and black carbon at 40 weeks ( figure 4 )."
+  },
+  {
+   "rid": "PMC11027158#13",
+   "reporting_document": "PMC11027158",
+   "reported_label": "estimated fetal weight",
+   "reported_instrument": "INTERGROWTH-21st reference equations",
+   "reported_role": "other",
+   "role_evidence_quote": "Finally, we also conducted exposure-response analyses using the longitudinal fetal growth Z scores as continuous variables and 24 h personal exposures to PM 2 5 , black carbon, and carbon monoxide as the main covariate, also continuous, obtained at the baseline visit, first pregnancy visit, and second pregnancy visit.",
+   "result_quote": "Interquartile differences in personal exposures to PM 2 5 or black carbon yielded estimated fetal weight SDs in the range of 0 03 to 0 05, well below a clinically meaningful difference of 0 2 SDs. 20"
+  },
+  {
+   "rid": "PMC11079463#0",
+   "reporting_document": "PMC11079463",
+   "reported_label": "metabolic features detected by HILIC column",
+   "reported_instrument": "hydrophilic interaction liquid chromatography (HILIC)",
+   "reported_role": "primary",
+   "role_evidence_quote": "We evaluated the relationship of maternal BMI on the human milk metabolome among Guatemalan mothers.",
+   "result_quote": "Of the total metabolic features detected by HILIC column (19,199 features) and by C18 column (11,594 features), BMI was associated with 1026 HILIC and 500 C18 features."
+  },
+  {
+   "rid": "PMC11079463#1",
+   "reporting_document": "PMC11079463",
+   "reported_label": "metabolic features detected by C18 column",
+   "reported_instrument": "reverse phase C18 chromatography",
+   "reported_role": "primary",
+   "role_evidence_quote": "We evaluated the relationship of maternal BMI on the human milk metabolome among Guatemalan mothers.",
+   "result_quote": "Of the total metabolic features detected by HILIC column (19,199 features) and by C18 column (11,594 features), BMI was associated with 1026 HILIC and 500 C18 features."
+  },
+  {
+   "rid": "PMC11079463#2",
+   "reporting_document": "PMC11079463",
+   "reported_label": "HILIC metabolic features associated with BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "We evaluated the relationship of maternal BMI on the human milk metabolome among Guatemalan mothers.",
+   "result_quote": "Of the total metabolic features detected by HILIC column (19,199 features) and by C18 column (11,594 features), BMI was associated with 1026 HILIC and 500 C18 features."
+  },
+  {
+   "rid": "PMC11079463#3",
+   "reporting_document": "PMC11079463",
+   "reported_label": "C18 metabolic features associated with BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "We evaluated the relationship of maternal BMI on the human milk metabolome among Guatemalan mothers.",
+   "result_quote": "Of the total metabolic features detected by HILIC column (19,199 features) and by C18 column (11,594 features), BMI was associated with 1026 HILIC and 500 C18 features."
+  },
+  {
+   "rid": "PMC11079463#4",
+   "reporting_document": "PMC11079463",
+   "reported_label": "metabolic features after FDR BH < 0.2",
+   "reported_instrument": "Benjamini-Hochberg false discovery rate procedure",
+   "reported_role": "primary",
+   "role_evidence_quote": "We evaluated the relationship of maternal BMI on the human milk metabolome among Guatemalan mothers.",
+   "result_quote": "However, no significant features were identified after adjusting for multiple comparisons using the Benjamini-Hochberg false discovery rate procedure (FDR BH < 0.2)."
+  },
+  {
+   "rid": "PMC11079463#5",
+   "reporting_document": "PMC11079463",
+   "reported_label": "HILIC/+ESI metabolic features included in final analyses",
+   "reported_instrument": "hydrophilic interaction liquid chromatography (HILIC) with positive electrospray ionization (ESI)",
+   "reported_role": "primary",
+   "role_evidence_quote": "We evaluated the relationship of maternal BMI on the human milk metabolome among Guatemalan mothers.",
+   "result_quote": "After processing and data quality checks, 19,199 metabolic features from the HILIC/+ESI column and 11,594 metabolic features from the C18/-ESI column were included in the final analyses, as can be seen in Figure 3 ."
+  },
+  {
+   "rid": "PMC11079463#6",
+   "reporting_document": "PMC11079463",
+   "reported_label": "C18/-ESI metabolic features included in final analyses",
+   "reported_instrument": "reverse phase (C18) chromatography with negative ESI",
+   "reported_role": "primary",
+   "role_evidence_quote": "We evaluated the relationship of maternal BMI on the human milk metabolome among Guatemalan mothers.",
+   "result_quote": "After processing and data quality checks, 19,199 metabolic features from the HILIC/+ESI column and 11,594 metabolic features from the C18/-ESI column were included in the final analyses, as can be seen in Figure 3 ."
+  },
+  {
+   "rid": "PMC11079463#7",
+   "reporting_document": "PMC11079463",
+   "reported_label": "HILIC ESI m/z features significantly associated with continuous maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "We evaluated the relationship of maternal BMI on the human milk metabolome among Guatemalan mothers.",
+   "result_quote": "After adjusting for covariates, maternal age, maternal education, and maternal dietary diversity, 1000 m/z features were significantly associated with continuous maternal BMI in the HILIC ESI and 590 m/z features in the C18 ESI ( P < 0.05), as can be seen in Figure 3 ."
+  },
+  {
+   "rid": "PMC11079463#8",
+   "reporting_document": "PMC11079463",
+   "reported_label": "C18 ESI m/z features significantly associated with continuous maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "We evaluated the relationship of maternal BMI on the human milk metabolome among Guatemalan mothers.",
+   "result_quote": "After adjusting for covariates, maternal age, maternal education, and maternal dietary diversity, 1000 m/z features were significantly associated with continuous maternal BMI in the HILIC ESI and 590 m/z features in the C18 ESI ( P < 0.05), as can be seen in Figure 3 ."
+  },
+  {
+   "rid": "PMC11079463#9",
+   "reporting_document": "PMC11079463",
+   "reported_label": "m/z features significant after FDR BH < 0.2",
+   "reported_instrument": "Benjamini-Hochberg procedure",
+   "reported_role": "primary",
+   "role_evidence_quote": "We evaluated the relationship of maternal BMI on the human milk metabolome among Guatemalan mothers.",
+   "result_quote": "After adjusting for multiple comparison testing, no significant m/z features were identified for either column (FDR BH < 0.2)."
+  },
+  {
+   "rid": "PMC11079463#10",
+   "reporting_document": "PMC11079463",
+   "reported_label": "metabolic pathways significantly associated with maternal BMI (Metapone)",
+   "reported_instrument": "Metapone (version 3.18)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In this exploratory study, we conducted HRM to characterize human milk composition and explore changes in the milk metabolome associated with maternal BMI, from among a subpopulation of Guatemalan mothers participating in the HAPIN trial.",
+   "result_quote": "Metapone identified 8 metabolic pathways that were significantly associated with maternal BMI including galactose metabolism, biosynthesis of amino acids, xenobiotics metabolism and metabolism of xenobiotics by cytochrome p450, fructose and mannose metabolism, C5-branched dibasic acid metabolism, mineral absorption, and serotonergic synapse ( Supplemental Figure 1 )."
+  },
+  {
+   "rid": "PMC11079463#19",
+   "reporting_document": "PMC11079463",
+   "reported_label": "HILIC/+ESI metabolic pathways significantly associated with maternal BMI (Mummichog)",
+   "reported_instrument": "Mummichog (version 1.0.9)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pathway enrichment analyses were analyzed separately in Mummichog (version 1.0.9) for significant metabolic features identified in the HILIC/+ESI and C18/-ESI columns.",
+   "result_quote": "Sixteen metabolic pathways, from the HILIC/+ESI column, and 12 metabolic pathways, from the C18/-ESI column, were significantly associated with maternal BMI."
+  },
+  {
+   "rid": "PMC11079463#20",
+   "reporting_document": "PMC11079463",
+   "reported_label": "C18/-ESI metabolic pathways significantly associated with maternal BMI (Mummichog)",
+   "reported_instrument": "Mummichog (version 1.0.9)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Pathway enrichment analyses were analyzed separately in Mummichog (version 1.0.9) for significant metabolic features identified in the HILIC/+ESI and C18/-ESI columns.",
+   "result_quote": "Sixteen metabolic pathways, from the HILIC/+ESI column, and 12 metabolic pathways, from the C18/-ESI column, were significantly associated with maternal BMI."
+  },
+  {
+   "rid": "PMC11079463#21",
+   "reporting_document": "PMC11079463",
+   "reported_label": "level 1 confirmed metabolites significantly associated with continuous maternal BMI",
+   "reported_instrument": "high-resolution tandem mass spectroscopy (LC-MS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "Twenty-eight metabolites associated with BMI were confirmed and identified with level 1 evidence ( Table 3 )."
+  },
+  {
+   "rid": "PMC11079463#22",
+   "reporting_document": "PMC11079463",
+   "reported_label": "HILIC/+ESI level 1 confirmed metabolites associated with BMI",
+   "reported_instrument": "hydrophilic interaction liquid chromatography (HILIC) with positive electrospray ionization (ESI)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "Specifically, 23 metabolites were confirmed identified from the HILIC/+ESI column and 5 metabolites were confirmed identified from the C18/-ESI column."
+  },
+  {
+   "rid": "PMC11079463#23",
+   "reporting_document": "PMC11079463",
+   "reported_label": "C18/-ESI level 1 confirmed metabolites associated with BMI",
+   "reported_instrument": "reverse phase (C18) chromatography with negative ESI",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "Specifically, 23 metabolites were confirmed identified from the HILIC/+ESI column and 5 metabolites were confirmed identified from the C18/-ESI column."
+  },
+  {
+   "rid": "PMC11079463#24",
+   "reporting_document": "PMC11079463",
+   "reported_label": "2-methylmaleate association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "131.03\n81.4\n2-methylmaleate\nC02226\nM+H\n-0.02881\nValine, leucine, and isoleucine biosynthesis\nESI+"
+  },
+  {
+   "rid": "PMC11079463#25",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Itaconate association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "131.03\n81.4\nItaconate\nC00490\nM+H\n-0.02881\nC5-Branched dibasic acid metabolism\nESI+"
+  },
+  {
+   "rid": "PMC11079463#26",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Tyramine association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "138.09\n31.1\nTyramine\nC00483\nM+H\n-0.00501\nTyrosine metabolism\nESI+"
+  },
+  {
+   "rid": "PMC11079463#27",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Phenylethanolamine association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "138.09\n31.7\nPhenylethanolamine\nC02735\nM+H\n-0.00501\nCatecholamine biosynthesis\nESI+"
+  },
+  {
+   "rid": "PMC11079463#28",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Tyramine/phenylethanolamine association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "138.09\n32\nTyramine/phenylethanolamine\nUnknown\nM+H\n-0.00501\nCatecholamine metabolism\nESI+"
+  },
+  {
+   "rid": "PMC11079463#29",
+   "reporting_document": "PMC11079463",
+   "reported_label": "N-methyl-aspartic acid association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "148.06\n77.4\nN-methyl-aspartic acid\nC12269\nM+H\n-0.02559\nNeurotransmitter and neuroendocrine regulator\nESI+"
+  },
+  {
+   "rid": "PMC11079463#30",
+   "reporting_document": "PMC11079463",
+   "reported_label": "N-acetylserine association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "148.06\n42\nN-acetylserine\nC12269\nM+H\n-0.02559\nSulfur metabolism\nESI+"
+  },
+  {
+   "rid": "PMC11079463#31",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Methionine association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "150.06\n53\nMethionine\nC00073 C01733\nM+H\n-0.01017\nCysteine and methionine metabolism\nESI+"
+  },
+  {
+   "rid": "PMC11079463#32",
+   "reporting_document": "PMC11079463",
+   "reported_label": "4-coumarate association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "165.06\n30\n4-coumarate\nC00811\nM+H\n-0.01313\nUbiquinone and other terpenoid-quinone biosynthesis\nESI+"
+  },
+  {
+   "rid": "PMC11079463#33",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Phenylpyruvate association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "165.06\n59.2\nPhenylpyruvate\nC00166\nM+H\n-0.01313\nPhenylalanine metabolism\nESI+"
+  },
+  {
+   "rid": "PMC11079463#34",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Indole-3-acetamide association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "175.09\n30.6\nIndole-3-acetamide\nC02693\nM+H\n-0.01609\nTryptophan metabolism\nESI+"
+  },
+  {
+   "rid": "PMC11079463#35",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Citrulline association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "176.10\n91.2\nCitrulline\nC00327\nM+H\n-0.01609\nArginine biosynthesis\nESI+"
+  },
+  {
+   "rid": "PMC11079463#36",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Mannosamine association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "180.09\n76.8\nMannosamine\nC03570\nM+H\n-0.01066\nUnknown\nESI+"
+  },
+  {
+   "rid": "PMC11079463#37",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Theophylline association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "181.08\n35\nTheophylline\nC07130\nM+H\n0.016358\nCaffeine metabolism\nESI+"
+  },
+  {
+   "rid": "PMC11079463#38",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Paraxanthine association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "181.08\n36\nParaxanthine\nC13747\nM+H\n0.007511\nCaffeine metabolism\nESI+"
+  },
+  {
+   "rid": "PMC11079463#39",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Theobromine association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "181.08\n36\nTheobromine\nC07480\nM+H\n0.007511\nCaffeine metabolism\nESI+"
+  },
+  {
+   "rid": "PMC11079463#40",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Dimethylxanthine association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "181.08\n36\nDimethylxanthine\nC07480\nM+H\n0.007511\nCaffeine metabolism\nESI+"
+  },
+  {
+   "rid": "PMC11079463#41",
+   "reporting_document": "PMC11079463",
+   "reported_label": "5-hydroxy-tryptophan association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "221.09\n58.5\n5-hydroxy-tryptophan\nC00643\nM+H\n0.002007\nTryptophan metabolism\nESI+"
+  },
+  {
+   "rid": "PMC11079463#42",
+   "reporting_document": "PMC11079463",
+   "reported_label": "N-acetylneuraminate association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "310.11\n76.5\nN-acetylneuraminate\nC00270\nM+H\n0.018689\nAmino sugar and nucleotide sugar metabolism\nESI+"
+  },
+  {
+   "rid": "PMC11079463#43",
+   "reporting_document": "PMC11079463",
+   "reported_label": "LPC (14:0) association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "468.31\n42\nLPC (14:0)\nHMDB0010379\nM+H\n-0.02186\nPhosphatidylcholine turnover\nESI+"
+  },
+  {
+   "rid": "PMC11079463#44",
+   "reporting_document": "PMC11079463",
+   "reported_label": "LPC (20:1) association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "508.34\n42\nLPC (20:1)\nHMDB0011512\nM+H\n0.001738\nPhosphatidylcholine turnover\nESI+"
+  },
+  {
+   "rid": "PMC11079463#45",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Cer(D18:1/16:0) association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "538.52\n26\nCer(D18:1/16:0)\nUnknown\nM+H\n6.48E-04\nLipid signaling pathway\nESI+"
+  },
+  {
+   "rid": "PMC11079463#46",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Protoporphyrin association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "563.27\n27.9\nProtoporphyrin\n4971\nM+H\n-0.0157\nPorphyrin metabolism\nESI+"
+  },
+  {
+   "rid": "PMC11079463#47",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Phenylalanine association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "164.07\n25.4\nPhenylalanine\nC00079\nM-H\n0.00979\nPhenylalanine metabolism\nESI-"
+  },
+  {
+   "rid": "PMC11079463#48",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Transaconitate association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "173.01\n19.3\nTransaconitate\nC02341\nM-H\n-0.0012\nC5-Branched dibasic acid metabolism\nESI-"
+  },
+  {
+   "rid": "PMC11079463#49",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Galactitol association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "181.07\n22.2\nGalactitol\nC01697\nM-H\n0.00397\nGalactose metabolism\nESI-"
+  },
+  {
+   "rid": "PMC11079463#50",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Myristic acid association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "227.21\n220.2\nMyristic acid\nC06424\nM-H\n-0.01742\nFatty acid biosynthesis\nESI-"
+  },
+  {
+   "rid": "PMC11079463#51",
+   "reporting_document": "PMC11079463",
+   "reported_label": "Gamma-linolenic acid association with maternal BMI",
+   "reported_instrument": "metabolome-wide association study (MWAS)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Chemical identity of level 1 confirmed metabolites significantly associated with continuous maternal BMI ( P < 0.05)",
+   "result_quote": "277.22\n223.2\nGamma-linolenic acid\nC06426\nM-H\n-0.00259\nLinoleic acid metabolism\nESI-"
+  },
+  {
+   "rid": "PMC11097839#0",
+   "reporting_document": "PMC11097839",
+   "reported_label": "presenting with dental caries",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Using an integrated approach that includes ECC evaluation, ETS exposure measurements and early biological markers of effect and susceptibility, we aim to: (1) determine whether in utero, infant and current exposures to ETS (self-reported and measured) are associated with stages of ECC; (2) assess select biomarkers in saliva, buccal cells, dried blood spot (DBS) and urine indicative of exposure to ETS, oxidative stress, inflammation and epigenetic modifications.",
+   "result_quote": "A recent meta-analysis has demonstrated that children residing with a smoker had significantly higher odds (prenatal-OR: 1.57 (1.47-1.67); postnatal-OR: 1.72 (1.45-2.05)) of presenting with dental caries. 7"
+  },
+  {
+   "rid": "PMC11097839#1",
+   "reporting_document": "PMC11097839",
+   "reported_label": "presenting with dental caries",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Using an integrated approach that includes ECC evaluation, ETS exposure measurements and early biological markers of effect and susceptibility, we aim to: (1) determine whether in utero, infant and current exposures to ETS (self-reported and measured) are associated with stages of ECC; (2) assess select biomarkers in saliva, buccal cells, dried blood spot (DBS) and urine indicative of exposure to ETS, oxidative stress, inflammation and epigenetic modifications.",
+   "result_quote": "A recent meta-analysis has demonstrated that children residing with a smoker had significantly higher odds (prenatal-OR: 1.57 (1.47-1.67); postnatal-OR: 1.72 (1.45-2.05)) of presenting with dental caries. 7"
+  },
+  {
+   "rid": "PMC11097839#2",
+   "reporting_document": "PMC11097839",
+   "reported_label": "prevalence of ECC",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Using an integrated approach that includes ECC evaluation, ETS exposure measurements and early biological markers of effect and susceptibility, we aim to: (1) determine whether in utero, infant and current exposures to ETS (self-reported and measured) are associated with stages of ECC; (2) assess select biomarkers in saliva, buccal cells, dried blood spot (DBS) and urine indicative of exposure to ETS, oxidative stress, inflammation and epigenetic modifications.",
+   "result_quote": "Among Indian children, the prevalence of ECC varies between 42% and 63%. 18"
+  },
+  {
+   "rid": "PMC11097839#5",
+   "reporting_document": "PMC11097839",
+   "reported_label": "high levels of dental caries",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Practical lessons from CARES-HAPIN pilot study",
+   "result_quote": "A preliminary investigation was conducted with 21 children to evaluate the adequacy of the research procedures (i.e., clinical assessment, questionnaire administration and biospecimen collection). Half of the children exhibited high levels of dental caries, with an average of 37.1% affected surfaces."
+  },
+  {
+   "rid": "PMC11097839#6",
+   "reporting_document": "PMC11097839",
+   "reported_label": "affected surfaces",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Practical lessons from CARES-HAPIN pilot study",
+   "result_quote": "A preliminary investigation was conducted with 21 children to evaluate the adequacy of the research procedures (i.e., clinical assessment, questionnaire administration and biospecimen collection). Half of the children exhibited high levels of dental caries, with an average of 37.1% affected surfaces."
+  },
+  {
+   "rid": "PMC11757157#0",
+   "reporting_document": "PMC11757157",
+   "reported_label": "head circumference",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Here we report on the intervention effects on exploratory outcomes, head circumference and length (including gestational age adjusted Z-scores) at birth.",
+   "result_quote": "Intention-to-treat analysis showed that the intervention did not affect head circumference (  = -0.01 cm, 95 %CI -0.11, 0.09), head circumference-for-gestational age Z-score (  = -0.01, 95 %CI -0.08, 0.07), or birth length (  = 0.14 cm, 95 %CI -0.01, 0.29) but did increase birth length-for-gestational age Z-score (  = 0.09, 95 %CI 0.01, 0.16)."
+  },
+  {
+   "rid": "PMC11757157#1",
+   "reporting_document": "PMC11757157",
+   "reported_label": "head circumference-for-gestational age Z-score",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Here we report on the intervention effects on exploratory outcomes, head circumference and length (including gestational age adjusted Z-scores) at birth.",
+   "result_quote": "Intention-to-treat analysis showed that the intervention did not affect head circumference (  = -0.01 cm, 95 %CI -0.11, 0.09), head circumference-for-gestational age Z-score (  = -0.01, 95 %CI -0.08, 0.07), or birth length (  = 0.14 cm, 95 %CI -0.01, 0.29) but did increase birth length-for-gestational age Z-score (  = 0.09, 95 %CI 0.01, 0.16)."
+  },
+  {
+   "rid": "PMC11757157#2",
+   "reporting_document": "PMC11757157",
+   "reported_label": "birth length",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Here we report on the intervention effects on exploratory outcomes, head circumference and length (including gestational age adjusted Z-scores) at birth.",
+   "result_quote": "Intention-to-treat analysis showed that the intervention did not affect head circumference (  = -0.01 cm, 95 %CI -0.11, 0.09), head circumference-for-gestational age Z-score (  = -0.01, 95 %CI -0.08, 0.07), or birth length (  = 0.14 cm, 95 %CI -0.01, 0.29) but did increase birth length-for-gestational age Z-score (  = 0.09, 95 %CI 0.01, 0.16)."
+  },
+  {
+   "rid": "PMC11757157#3",
+   "reporting_document": "PMC11757157",
+   "reported_label": "birth length-for-gestational age Z-score",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Here we report on the intervention effects on exploratory outcomes, head circumference and length (including gestational age adjusted Z-scores) at birth.",
+   "result_quote": "Intention-to-treat analysis showed that the intervention did not affect head circumference (  = -0.01 cm, 95 %CI -0.11, 0.09), head circumference-for-gestational age Z-score (  = -0.01, 95 %CI -0.08, 0.07), or birth length (  = 0.14 cm, 95 %CI -0.01, 0.29) but did increase birth length-for-gestational age Z-score (  = 0.09, 95 %CI 0.01, 0.16)."
+  },
+  {
+   "rid": "PMC11757157#4",
+   "reporting_document": "PMC11757157",
+   "reported_label": "birth length-for-gestational age Z-score",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additionally, we conducted corresponding exposure-response analyses to measure the associations between these exploratory outcomes and personal measures to fine particulate matter (PM2.5), black carbon (BC), and carbon monoxide (CO).",
+   "result_quote": "After covariate adjustment, exposure-response analysis revealed that each log-unit increase in BC was associated with a decrease in birth length-for-gestational age Z-score (  = -0.07, 95 %CI -0.13, -0.005)."
+  },
+  {
+   "rid": "PMC11757157#5",
+   "reporting_document": "PMC11757157",
+   "reported_label": "Head circumference (cm)",
+   "reported_instrument": "Gulick II tapes",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Here we report on the intervention effects on exploratory outcomes, head circumference and length (including gestational age adjusted Z-scores) at birth.",
+   "result_quote": "Head circumference (cm)\n-0.01 (-0.11, 0.09)\n0.10 (-0.10, 0.30)\n-0.17 (-0.39, 0.06)\n-0.05 (-0.23, 0.12)\n0.09 (-0.11, 0.30)"
+  },
+  {
+   "rid": "PMC11757157#6",
+   "reporting_document": "PMC11757157",
+   "reported_label": "Head circumference Z-score",
+   "reported_instrument": "INTERGROWTH-21st (International Fetal and Newborn Growth Consortium for the 21st Century) standards",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Here we report on the intervention effects on exploratory outcomes, head circumference and length (including gestational age adjusted Z-scores) at birth.",
+   "result_quote": "Head circumference Z-score\n-0.01 (-0.08, 0.07)\n0.08 (-0.07, 0.23)\n-0.14 (-0.31, 0.03)\n-0.06 (-0.20, 0.08)\n0.10 (-0.06, 0.26)"
+  },
+  {
+   "rid": "PMC11757157#7",
+   "reporting_document": "PMC11757157",
+   "reported_label": "Birth Length (cm)",
+   "reported_instrument": "seca 417 board",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Here we report on the intervention effects on exploratory outcomes, head circumference and length (including gestational age adjusted Z-scores) at birth.",
+   "result_quote": "Birth Length (cm)\n0.14 (-0.01, 0.29)\n0.31 (-0.01, 0.64)\n0.04 (-0.28, 0.35)\n0.16 (-0.11, 0.44)\n0.05 (-0.24, 0.35)"
+  },
+  {
+   "rid": "PMC11757157#8",
+   "reporting_document": "PMC11757157",
+   "reported_label": "Birth Length Z-score",
+   "reported_instrument": "INTERGROWTH-21st (International Fetal and Newborn Growth Consortium for the 21st Century) standards",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Here we report on the intervention effects on exploratory outcomes, head circumference and length (including gestational age adjusted Z-scores) at birth.",
+   "result_quote": "Birth Length Z-score\n0.09 * (0.01, 0.16)\n0.19 * (0.04, 0.34)\n0.002 (-0.14, 0.15)\n0.09 (-0.05, 0.23)\n0.06 (-0.10, 0.21)"
+  },
+  {
+   "rid": "PMC11757157#9",
+   "reporting_document": "PMC11757157",
+   "reported_label": "Head Circumference (cm)",
+   "reported_instrument": "Gulick II tapes",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additionally, we conducted corresponding exposure-response analyses to measure the associations between these exploratory outcomes and personal measures to fine particulate matter (PM2.5), black carbon (BC), and carbon monoxide (CO).",
+   "result_quote": "Head Circumference (cm)\n-0.02 (-0.10, 0.05)\n-0.05 (-0.13, 0.04)\n0.02 (-0.02, 0.07)"
+  },
+  {
+   "rid": "PMC11757157#10",
+   "reporting_document": "PMC11757157",
+   "reported_label": "Head circumference Z-score",
+   "reported_instrument": "INTERGROWTH-21st (International Fetal and Newborn Growth Consortium for the 21st Century) standards",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additionally, we conducted corresponding exposure-response analyses to measure the associations between these exploratory outcomes and personal measures to fine particulate matter (PM2.5), black carbon (BC), and carbon monoxide (CO).",
+   "result_quote": "Head circumference Z-score\n-0.02 (-0.08, 0.03)\n-0.06 (-0.12, 0.01)\n0.02 (-0.02, 0.06)"
+  },
+  {
+   "rid": "PMC11757157#11",
+   "reporting_document": "PMC11757157",
+   "reported_label": "Birth Length (cm)",
+   "reported_instrument": "seca 417 board",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additionally, we conducted corresponding exposure-response analyses to measure the associations between these exploratory outcomes and personal measures to fine particulate matter (PM2.5), black carbon (BC), and carbon monoxide (CO).",
+   "result_quote": "Birth Length (cm)\n-0.09 (-0.20, 0.02)\n-0.09 (-0.21, 0.04)\n0.02 (-0.05, 0.08)"
+  },
+  {
+   "rid": "PMC11757157#12",
+   "reporting_document": "PMC11757157",
+   "reported_label": "Birth Length Z-score",
+   "reported_instrument": "INTERGROWTH-21st (International Fetal and Newborn Growth Consortium for the 21st Century) standards",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additionally, we conducted corresponding exposure-response analyses to measure the associations between these exploratory outcomes and personal measures to fine particulate matter (PM2.5), black carbon (BC), and carbon monoxide (CO).",
+   "result_quote": "Birth Length Z-score\n-0.05 (-0.11, 0.00)\n-0.07 * (-0.13, -0.005)\n0.01 (-0.02, 0.04)"
+  },
+  {
+   "rid": "PMC11757157#13",
+   "reporting_document": "PMC11757157",
+   "reported_label": "head circumference measurements",
+   "reported_instrument": "Gulick II tapes",
+   "reported_role": "other",
+   "role_evidence_quote": "We aimed to assess anthropometric measurements of newborns within 24 h of birth.",
+   "result_quote": "There were 2683 (87.7 %) birth length measurements, 2670 (87.2 %) birth length-for-gestational age Z-scores, 2693 (88.0 %) head circumference measurements, and 2679 (87.5 %) head circumference-for-gestational age Z-scores."
+  },
+  {
+   "rid": "PMC11757157#14",
+   "reporting_document": "PMC11757157",
+   "reported_label": "birth length measurements",
+   "reported_instrument": "seca 417 board",
+   "reported_role": "other",
+   "role_evidence_quote": "We aimed to assess anthropometric measurements of newborns within 24 h of birth.",
+   "result_quote": "There were 2683 (87.7 %) birth length measurements, 2670 (87.2 %) birth length-for-gestational age Z-scores, 2693 (88.0 %) head circumference measurements, and 2679 (87.5 %) head circumference-for-gestational age Z-scores."
+  },
+  {
+   "rid": "PMC11757157#15",
+   "reporting_document": "PMC11757157",
+   "reported_label": "birth length-for-gestational age Z-scores",
+   "reported_instrument": "INTERGROWTH-21st (International Fetal and Newborn Growth Consortium for the 21st Century) standards",
+   "reported_role": "other",
+   "role_evidence_quote": "We aimed to assess anthropometric measurements of newborns within 24 h of birth.",
+   "result_quote": "There were 2683 (87.7 %) birth length measurements, 2670 (87.2 %) birth length-for-gestational age Z-scores, 2693 (88.0 %) head circumference measurements, and 2679 (87.5 %) head circumference-for-gestational age Z-scores."
+  },
+  {
+   "rid": "PMC11757157#16",
+   "reporting_document": "PMC11757157",
+   "reported_label": "head circumference-for-gestational age Z-scores",
+   "reported_instrument": "INTERGROWTH-21st (International Fetal and Newborn Growth Consortium for the 21st Century) standards",
+   "reported_role": "other",
+   "role_evidence_quote": "We aimed to assess anthropometric measurements of newborns within 24 h of birth.",
+   "result_quote": "There were 2683 (87.7 %) birth length measurements, 2670 (87.2 %) birth length-for-gestational age Z-scores, 2693 (88.0 %) head circumference measurements, and 2679 (87.5 %) head circumference-for-gestational age Z-scores."
+  },
+  {
+   "rid": "PMC11757157#17",
+   "reporting_document": "PMC11757157",
+   "reported_label": "PM2.5",
+   "reported_instrument": "Enhanced Children's MicroPEM (ECM, RTI International, Research Triangle Park)",
+   "reported_role": "other",
+   "role_evidence_quote": "Particulate matter <= 2.5 um (PM2.5), black carbon (BC) and carbon monoxide (CO) 24-hour personal exposures were measured three times during pregnancy.",
+   "result_quote": "There was a 71.9 % reduction in PM2.5 in the intervention group with similar reductions for BC and CO."
+  },
+  {
+   "rid": "PMC11757157#18",
+   "reporting_document": "PMC11757157",
+   "reported_label": "fine particulate matter <= 2.5 um in diameter (PM2.5 ug/m3)",
+   "reported_instrument": "Enhanced Children's MicroPEM (ECM, RTI International, Research Triangle Park)",
+   "reported_role": "other",
+   "role_evidence_quote": "Personal exposures to PM2.5, CO and BC were measured for 24-hours at each time point.",
+   "result_quote": "Table 2 24-hour personal exposure levels for fine particulate matter <= 2.5 um in diameter (PM2.5 ug/m3), black carbon (BC ug/m3) and carbon monoxide (CO ppm) during pregnancy over time across the two treatment groups."
+  },
+  {
+   "rid": "PMC11757157#19",
+   "reporting_document": "PMC11757157",
+   "reported_label": "fine particulate matter <= 2.5 um in diameter (PM2.5 ug/m3)",
+   "reported_instrument": "Enhanced Children's MicroPEM (ECM, RTI International, Research Triangle Park)",
+   "reported_role": "other",
+   "role_evidence_quote": "Personal exposures to PM2.5, CO and BC were measured for 24-hours at each time point.",
+   "result_quote": "Table 2 24-hour personal exposure levels for fine particulate matter <= 2.5 um in diameter (PM2.5 ug/m3), black carbon (BC ug/m3) and carbon monoxide (CO ppm) during pregnancy over time across the two treatment groups."
+  },
+  {
+   "rid": "PMC11757157#20",
+   "reporting_document": "PMC11757157",
+   "reported_label": "fine particulate matter <= 2.5 um in diameter (PM2.5 ug/m3)",
+   "reported_instrument": "Enhanced Children's MicroPEM (ECM, RTI International, Research Triangle Park)",
+   "reported_role": "other",
+   "role_evidence_quote": "Personal exposures to PM2.5, CO and BC were measured for 24-hours at each time point.",
+   "result_quote": "Table 2 24-hour personal exposure levels for fine particulate matter <= 2.5 um in diameter (PM2.5 ug/m3), black carbon (BC ug/m3) and carbon monoxide (CO ppm) during pregnancy over time across the two treatment groups."
+  },
+  {
+   "rid": "PMC11757157#21",
+   "reporting_document": "PMC11757157",
+   "reported_label": "fine particulate matter <= 2.5 um in diameter (PM2.5 ug/m3)",
+   "reported_instrument": "Enhanced Children's MicroPEM (ECM, RTI International, Research Triangle Park)",
+   "reported_role": "other",
+   "role_evidence_quote": "Personal exposures to PM2.5, CO and BC were measured for 24-hours at each time point.",
+   "result_quote": "PM2.5 was reduced from 120.1 ug/m 3 at baseline to 35.8 ug/m 3 at 32-36 weeks of gestation in the intervention arm."
+  },
+  {
+   "rid": "PMC11757157#22",
+   "reporting_document": "PMC11757157",
+   "reported_label": "black carbon (BC ug/m3)",
+   "reported_instrument": "Soot Scan Model OT21 Optical Transmissometer (Magee Scientific)",
+   "reported_role": "other",
+   "role_evidence_quote": "Personal exposure to BC was estimated from PM2.5 filter samples using a Soot Scan Model OT21 Optical Transmissometer (Magee Scientific).",
+   "result_quote": "Particulate matter <= 2.5 um (PM2.5), black carbon (BC) and carbon monoxide (CO) 24-hour personal exposures were measured three times during pregnancy."
+  },
+  {
+   "rid": "PMC11757157#23",
+   "reporting_document": "PMC11757157",
+   "reported_label": "carbon monoxide (CO ppm)",
+   "reported_instrument": "Lascar EL-USB-CO300 (Lascar Electronics)",
+   "reported_role": "other",
+   "role_evidence_quote": "CO concentrations were measured using the Lascar EL-USB-CO300 (Lascar Electronics).",
+   "result_quote": "Similarly, BC was reduced from 12.6 ug/m 3 at baseline to 4.3 ug/m 3 at 32-36 weeks of gestation; and CO was reduced from 2.7 ppm at baseline to 0.7 ppm at 32-36 weeks of gestation in the intervention arm, with a significant difference between arms."
+  },
+  {
+   "rid": "PMC11757157#24",
+   "reporting_document": "PMC11757157",
+   "reported_label": "PM2.5",
+   "reported_instrument": "Enhanced Children's MicroPEM (ECM, RTI International, Research Triangle Park)",
+   "reported_role": "other",
+   "role_evidence_quote": "Personal exposures to PM2.5, CO and BC were measured for 24-hours at each time point.",
+   "result_quote": "Among the four countries, Guatemala had the largest percent reduction (79.5 %) in PM2.5, whereas Peru had largest percent reduction (82.8 %) in BC and Rwanda had major percent reduction (80 %) in CO ( Table S2 )."
+  },
+  {
+   "rid": "PMC11757157#25",
+   "reporting_document": "PMC11757157",
+   "reported_label": "BC",
+   "reported_instrument": "Soot Scan Model OT21 Optical Transmissometer (Magee Scientific)",
+   "reported_role": "other",
+   "role_evidence_quote": "Personal exposure to BC was estimated from PM2.5 filter samples using a Soot Scan Model OT21 Optical Transmissometer (Magee Scientific).",
+   "result_quote": "Among the four countries, Guatemala had the largest percent reduction (79.5 %) in PM2.5, whereas Peru had largest percent reduction (82.8 %) in BC and Rwanda had major percent reduction (80 %) in CO ( Table S2 )."
+  },
+  {
+   "rid": "PMC11757157#26",
+   "reporting_document": "PMC11757157",
+   "reported_label": "CO",
+   "reported_instrument": "Lascar EL-USB-CO300 (Lascar Electronics)",
+   "reported_role": "other",
+   "role_evidence_quote": "CO concentrations were measured using the Lascar EL-USB-CO300 (Lascar Electronics).",
+   "result_quote": "Among the four countries, Guatemala had the largest percent reduction (79.5 %) in PM2.5, whereas Peru had largest percent reduction (82.8 %) in BC and Rwanda had major percent reduction (80 %) in CO ( Table S2 )."
+  },
+  {
+   "rid": "PMC11757157#27",
+   "reporting_document": "PMC11757157",
+   "reported_label": "elapsed time between randomization and the delivery of the intervention",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "3.2.\n\nIntervention coverage and Adherence",
+   "result_quote": "For the pregnant women from intervention arm, the median (Q1, Q3) elapsed time between randomization and the delivery of the intervention was 8 (5, 15) days; for Guatemala, it was 9 (5, 15); for India, it was 14 (9, 20); for Peru, it was 5 (2, 7); and for Rwanda, it was 11 (7, 20) days ( Table 2 )."
+  },
+  {
+   "rid": "PMC11757157#28",
+   "reporting_document": "PMC11757157",
+   "reported_label": "LPG stove placed in households during the intended 14-day window",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "3.2.\n\nIntervention coverage and Adherence",
+   "result_quote": "After randomization, an LPG stove was placed in 1156 households (72.9 %) during the intended 14-day window."
+  },
+  {
+   "rid": "PMC11757157#29",
+   "reporting_document": "PMC11757157",
+   "reported_label": "time under intervention during pregnancy",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "3.2.\n\nIntervention coverage and Adherence",
+   "result_quote": "The median time under intervention during pregnancy was 149 days (21 weeks, or around 5 months), and the median gestational age at the time of stove installation/first fuel supply was 17.9 (15.4, 20.6) weeks (Q1, Q3)."
+  },
+  {
+   "rid": "PMC11757157#30",
+   "reporting_document": "PMC11757157",
+   "reported_label": "gestational age at the time of stove installation/first fuel supply",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "3.2.\n\nIntervention coverage and Adherence",
+   "result_quote": "The median time under intervention during pregnancy was 149 days (21 weeks, or around 5 months), and the median gestational age at the time of stove installation/first fuel supply was 17.9 (15.4, 20.6) weeks (Q1, Q3)."
+  },
+  {
+   "rid": "PMC11757157#31",
+   "reporting_document": "PMC11757157",
+   "reported_label": "traditional cook stoves were either not used at all or used less than once each month of follow-up",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "3.2.\n\nIntervention coverage and Adherence",
+   "result_quote": "In almost 86 % of intervention households, traditional cook stoves were either not used at all or used less than once each month of follow-up ( Clasen et al., 2022 , Quinn et al., 2021 )."
+  },
+  {
+   "rid": "PMC12083286#0",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Agreement with the statement 'In my community we have a problem with smoke in the air'",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The objectives of this exploratory, qualitative study are to develop contextually appropriate and comprehensible report-back materials describing personal air pollution exposure results to participants of the multi-country Household Air Pollution Intervention Network (HAPIN) trial, and to assess study participants' environmental health literacy",
+   "result_quote": "For example, 34 respondents (92%) agreed with the statement 'In my community we have a problem with smoke in the air';"
+  },
+  {
+   "rid": "PMC12083286#1",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Agreement with the statement 'Smoke in the air can make people sick'",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The objectives of this exploratory, qualitative study are to develop contextually appropriate and comprehensible report-back materials describing personal air pollution exposure results to participants of the multi-country Household Air Pollution Intervention Network (HAPIN) trial, and to assess study participants' environmental health literacy",
+   "result_quote": "100% agreed that 'Smoke in the air can make people sick' and 100% agreed that 'Children who spend more time in the kitchen while their mothers are cooking have more health problems because of the smoke in the kitchen air'."
+  },
+  {
+   "rid": "PMC12083286#2",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Agreement with the statement 'Children who spend more time in the kitchen while their mothers are cooking have more health problems because of the smoke in the kitchen air'",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The objectives of this exploratory, qualitative study are to develop contextually appropriate and comprehensible report-back materials describing personal air pollution exposure results to participants of the multi-country Household Air Pollution Intervention Network (HAPIN) trial, and to assess study participants' environmental health literacy",
+   "result_quote": "100% agreed that 'Smoke in the air can make people sick' and 100% agreed that 'Children who spend more time in the kitchen while their mothers are cooking have more health problems because of the smoke in the kitchen air'."
+  },
+  {
+   "rid": "PMC12083286#3",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Cough as a health problem associated with exposure to smoke",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The survey assessed three aspects of environmental health literacy: Awareness and knowledge (of environmental exposures and their effects on health), Skills and self-efficacy (ability to enable health-protective decisions) and Community change (collective action to reduce exposures and protect health).",
+   "result_quote": "The types of health problems most associated with exposure to smoke tended toward acute symptoms like cough (n=30, 81%), headache (n=26, 70.2%), eye irritation (n=18, 48.6%) and dizziness (n=5; 13.5%) instead of chronic diseases like high blood pressure (n=3; <1%) and heart problems (n=2; <1%)."
+  },
+  {
+   "rid": "PMC12083286#4",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Headache as a health problem associated with exposure to smoke",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The survey assessed three aspects of environmental health literacy: Awareness and knowledge (of environmental exposures and their effects on health), Skills and self-efficacy (ability to enable health-protective decisions) and Community change (collective action to reduce exposures and protect health).",
+   "result_quote": "The types of health problems most associated with exposure to smoke tended toward acute symptoms like cough (n=30, 81%), headache (n=26, 70.2%), eye irritation (n=18, 48.6%) and dizziness (n=5; 13.5%) instead of chronic diseases like high blood pressure (n=3; <1%) and heart problems (n=2; <1%)."
+  },
+  {
+   "rid": "PMC12083286#5",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Eye irritation as a health problem associated with exposure to smoke",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The survey assessed three aspects of environmental health literacy: Awareness and knowledge (of environmental exposures and their effects on health), Skills and self-efficacy (ability to enable health-protective decisions) and Community change (collective action to reduce exposures and protect health).",
+   "result_quote": "The types of health problems most associated with exposure to smoke tended toward acute symptoms like cough (n=30, 81%), headache (n=26, 70.2%), eye irritation (n=18, 48.6%) and dizziness (n=5; 13.5%) instead of chronic diseases like high blood pressure (n=3; <1%) and heart problems (n=2; <1%)."
+  },
+  {
+   "rid": "PMC12083286#6",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Dizziness as a health problem associated with exposure to smoke",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The survey assessed three aspects of environmental health literacy: Awareness and knowledge (of environmental exposures and their effects on health), Skills and self-efficacy (ability to enable health-protective decisions) and Community change (collective action to reduce exposures and protect health).",
+   "result_quote": "The types of health problems most associated with exposure to smoke tended toward acute symptoms like cough (n=30, 81%), headache (n=26, 70.2%), eye irritation (n=18, 48.6%) and dizziness (n=5; 13.5%) instead of chronic diseases like high blood pressure (n=3; <1%) and heart problems (n=2; <1%)."
+  },
+  {
+   "rid": "PMC12083286#7",
+   "reporting_document": "PMC12083286",
+   "reported_label": "High blood pressure as a health problem associated with exposure to smoke",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The survey assessed three aspects of environmental health literacy: Awareness and knowledge (of environmental exposures and their effects on health), Skills and self-efficacy (ability to enable health-protective decisions) and Community change (collective action to reduce exposures and protect health).",
+   "result_quote": "The types of health problems most associated with exposure to smoke tended toward acute symptoms like cough (n=30, 81%), headache (n=26, 70.2%), eye irritation (n=18, 48.6%) and dizziness (n=5; 13.5%) instead of chronic diseases like high blood pressure (n=3; <1%) and heart problems (n=2; <1%)."
+  },
+  {
+   "rid": "PMC12083286#8",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Heart problems as a health problem associated with exposure to smoke",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The survey assessed three aspects of environmental health literacy: Awareness and knowledge (of environmental exposures and their effects on health), Skills and self-efficacy (ability to enable health-protective decisions) and Community change (collective action to reduce exposures and protect health).",
+   "result_quote": "The types of health problems most associated with exposure to smoke tended toward acute symptoms like cough (n=30, 81%), headache (n=26, 70.2%), eye irritation (n=18, 48.6%) and dizziness (n=5; 13.5%) instead of chronic diseases like high blood pressure (n=3; <1%) and heart problems (n=2; <1%)."
+  },
+  {
+   "rid": "PMC12083286#9",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Pneumonia as a health problem associated with exposure to smoke",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The survey assessed three aspects of environmental health literacy: Awareness and knowledge (of environmental exposures and their effects on health), Skills and self-efficacy (ability to enable health-protective decisions) and Community change (collective action to reduce exposures and protect health).",
+   "result_quote": "Pneumonia (n=25; 67.6%), one of the primary outcomes of the HAPIN trial, was the most frequently mentioned disease."
+  },
+  {
+   "rid": "PMC12083286#10",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Unable to name a health problem associated with smoke exposure",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The survey assessed three aspects of environmental health literacy: Awareness and knowledge (of environmental exposures and their effects on health), Skills and self-efficacy (ability to enable health-protective decisions) and Community change (collective action to reduce exposures and protect health).",
+   "result_quote": "One-fifth (n=8; 21%) of the participants could not name a health problem associated with smoke exposure."
+  },
+  {
+   "rid": "PMC12083286#11",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Agreement with the statement 'Even when I cook with a wood-burning stove, there are things I can do to reduce the smoke in the air'",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The results for responses intended to assess participants' Skills and Self-efficacy , or their ability to enable health-protective decisions around reducing exposure to air pollution, were mixed.",
+   "result_quote": "Although all respondents agreed that 'I can make decisions that improve my health and the health of my family' and 30 (81%) agreed that 'Even when I cook with a wood-burning stove, there are things I can do to reduce the smoke in the air', only slightly more respondents disagreed than agreed with the statement 'The smoke that is produced when cooking with an open fire is a necessary part of life and there is not much we can do about it': disagree-19 (52%) versus agree-15 (42%)."
+  },
+  {
+   "rid": "PMC12083286#12",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Agreement with the statement 'The smoke that is produced when cooking with an open fire is a necessary part of life and there is not much we can do about it'",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The results for responses intended to assess participants' Skills and Self-efficacy , or their ability to enable health-protective decisions around reducing exposure to air pollution, were mixed.",
+   "result_quote": "only slightly more respondents disagreed than agreed with the statement 'The smoke that is produced when cooking with an open fire is a necessary part of life and there is not much we can do about it': disagree-19 (52%) versus agree-15 (42%)."
+  },
+  {
+   "rid": "PMC12083286#13",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Agreement with the statement that gas stoves were too expensive to use all the time",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The results for responses intended to assess participants' Skills and Self-efficacy , or their ability to enable health-protective decisions around reducing exposure to air pollution, were mixed.",
+   "result_quote": "29 (78%) respondents agreed that gas stoves were too expensive to use all the time."
+  },
+  {
+   "rid": "PMC12083286#14",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Response of 'didn't know' to how to reduce smoke exposure while cooking",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The results for responses intended to assess participants' Skills and Self-efficacy , or their ability to enable health-protective decisions around reducing exposure to air pollution, were mixed.",
+   "result_quote": "11 respondents, or 30% of the sample, said they 'didn't know' how they could reduce smoke exposure while cooking."
+  },
+  {
+   "rid": "PMC12083286#15",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Sometimes talking to friends and neighbours about the problem of air pollution",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The results related to Community change suggested that engagement of Guatemalan HAPIN participants with others in their community on issues related to air pollution was not common, particularly outside of immediate friends and family.",
+   "result_quote": "Although 21 (57%) respondents 'sometimes' talk to friends and neighbours about the problem of air pollution, 14 (38%) 'never' did."
+  },
+  {
+   "rid": "PMC12083286#16",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Never talking to friends and neighbours about the problem of air pollution",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The results related to Community change suggested that engagement of Guatemalan HAPIN participants with others in their community on issues related to air pollution was not common, particularly outside of immediate friends and family.",
+   "result_quote": "Although 21 (57%) respondents 'sometimes' talk to friends and neighbours about the problem of air pollution, 14 (38%) 'never' did."
+  },
+  {
+   "rid": "PMC12083286#17",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Never talking to community leaders about air pollution problems",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The results related to Community change suggested that engagement of Guatemalan HAPIN participants with others in their community on issues related to air pollution was not common, particularly outside of immediate friends and family.",
+   "result_quote": "Meanwhile, 36 (97%) 'never' talked to community leaders about these problems, and a majority (n=31, 84%) either responded 'disagree' or 'don't know' to the statement 'If there is something causing smoke in the air in my community, my neighbours and I act to get it stopped'."
+  },
+  {
+   "rid": "PMC12083286#18",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Disagree or don't know response to the statement 'If there is something causing smoke in the air in my community, my neighbours and I act to get it stopped'",
+   "reported_instrument": "brief, 16-question quantitative survey in Spanish",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The results related to Community change suggested that engagement of Guatemalan HAPIN participants with others in their community on issues related to air pollution was not common, particularly outside of immediate friends and family.",
+   "result_quote": "a majority (n=31, 84%) either responded 'disagree' or 'don't know' to the statement 'If there is something causing smoke in the air in my community, my neighbours and I act to get it stopped'."
+  },
+  {
+   "rid": "PMC12083286#19",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Baseline PM 2.5 exposures between control and intervention groups in Guatemala",
+   "reported_instrument": "24-hour fine particulate matter (PM 2.5 ), using the RTI Enhanced Children's MicroPEM (ECM, RTI International)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Given the small sample size and right-skewed distribution of data, we used the Wilcoxon rank-sum test to evaluate the median differences at baseline and post-baseline by study arm and stratified by country.",
+   "result_quote": "In Guatemala, there was no statistically significant difference in baseline PM 2.5 exposures between control (n=19) and intervention (n=22) groups (Wilcoxon rank-sum, p=0.75)."
+  },
+  {
+   "rid": "PMC12083286#20",
+   "reporting_document": "PMC12083286",
+   "reported_label": "PM 2.5 exposures after baseline between control and intervention groups in Guatemala",
+   "reported_instrument": "24-hour fine particulate matter (PM 2.5 ), using the RTI Enhanced Children's MicroPEM (ECM, RTI International)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Given the small sample size and right-skewed distribution of data, we used the Wilcoxon rank-sum test to evaluate the median differences at baseline and post-baseline by study arm and stratified by country.",
+   "result_quote": "However, the differences in mean PM 2.5 exposures after baseline were significantly different in the control (median 154 ug/m 3 , IQR: 93-197) and the intervention arms (median 21 ug/m 3 , IQR: 15-43) (Wilcoxon rank-sum, p<0.001)."
+  },
+  {
+   "rid": "PMC12083286#21",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Baseline PM 2.5 exposures between control and intervention groups in Rwanda",
+   "reported_instrument": "24-hour fine particulate matter (PM 2.5 ), using the RTI Enhanced Children's MicroPEM (ECM, RTI International)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Given the small sample size and right-skewed distribution of data, we used the Wilcoxon rank-sum test to evaluate the median differences at baseline and post-baseline by study arm and stratified by country.",
+   "result_quote": "Similarly, in Rwanda, there was no statistically significant difference in baseline PM 2.5 exposures between control (n=10) and intervention (n=10) groups (Wilcoxon rank-sum, p=0.10)."
+  },
+  {
+   "rid": "PMC12083286#22",
+   "reporting_document": "PMC12083286",
+   "reported_label": "PM 2.5 exposures after baseline between control and intervention groups in Rwanda",
+   "reported_instrument": "24-hour fine particulate matter (PM 2.5 ), using the RTI Enhanced Children's MicroPEM (ECM, RTI International)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Given the small sample size and right-skewed distribution of data, we used the Wilcoxon rank-sum test to evaluate the median differences at baseline and post-baseline by study arm and stratified by country.",
+   "result_quote": "However, the differences in mean PM 2.5 exposures after baseline were significantly different in the control (median 88 ug/m 3 , IQR: 56-153) and the intervention arms (median 38 ug/m 3 , IQR: 24-48) (Wilcoxon rank-sum, p<0.003) ( table 1 )."
+  },
+  {
+   "rid": "PMC12083286#23",
+   "reporting_document": "PMC12083286",
+   "reported_label": "PM 2.5 (ug/m 3 ) Baseline, <20 weeks",
+   "reported_instrument": "RTI Enhanced Children's MicroPEM (ECM, RTI International)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "For PM 2.5 air pollution data, we calculated descriptive statistics for control and intervention groups by study phase (baseline vs postintervention measures) and by country.",
+   "result_quote": "Baseline, <20 weeks\n162 (113)\n147 (63-251)\n225 (392)\n133 (77-162)\n108 (85)\n93 (48-132)\n189 (112)\n202 (98-258)"
+  },
+  {
+   "rid": "PMC12083286#24",
+   "reporting_document": "PMC12083286",
+   "reported_label": "PM 2.5 (ug/m 3 ) 24-28 weeks",
+   "reported_instrument": "RTI Enhanced Children's MicroPEM (ECM, RTI International)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "For PM 2.5 air pollution data, we calculated descriptive statistics for control and intervention groups by study phase (baseline vs postintervention measures) and by country.",
+   "result_quote": "24-28 weeks\n35 (39)\n21 (15-46)\n140 (81)\n117 (76-186)\n43 (28)\n33 (23-53)\n97 (53)\n111 (45-141)"
+  },
+  {
+   "rid": "PMC12083286#25",
+   "reporting_document": "PMC12083286",
+   "reported_label": "PM 2.5 (ug/m 3 ) 32-36 weeks",
+   "reported_instrument": "RTI Enhanced Children's MicroPEM (ECM, RTI International)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "For PM 2.5 air pollution data, we calculated descriptive statistics for control and intervention groups by study phase (baseline vs postintervention measures) and by country.",
+   "result_quote": "32-36 weeks\n26 (16)\n20 (11-42)\n171 (117)\n144 (74-262)\n33 (17)\n24 (23-43)\n91 (33)\n85 (71-115)"
+  },
+  {
+   "rid": "PMC12083286#26",
+   "reporting_document": "PMC12083286",
+   "reported_label": "PM 2.5 (ug/m 3 ) Pregnancy mean, after baseline",
+   "reported_instrument": "RTI Enhanced Children's MicroPEM (ECM, RTI International)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "For PM 2.5 air pollution data, we calculated descriptive statistics for control and intervention groups by study phase (baseline vs postintervention measures) and by country.",
+   "result_quote": "Pregnancy mean, after baseline\n30 (25)\n21 (15-43) *\n155 (76)\n154 (93-197) *\n42 (26)\n38 (24-48) +\n90 (40)\n88 (56-131) +"
+  },
+  {
+   "rid": "PMC12083286#27",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Time needed by dynamic working groups to review the three graphical displays of air pollution data",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "The purpose of the DWG was to ask participants to interpret three different graphical representations of PM 2.5 personal exposure data generated by HAPIN exposure scientists.",
+   "result_quote": "On average, groups needed 70 min to review the three graphical displays of air pollution data."
+  },
+  {
+   "rid": "PMC12083286#28",
+   "reporting_document": "PMC12083286",
+   "reported_label": "Response rate among invited Guatemalan participants",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "In Guatemala, a list of 50 women (25 from the intervention arm; 25 from the control arm) was generated by the local principal investigator, of which 41 consented to participate (82% response rate).",
+   "result_quote": "In Guatemala, a list of 50 women (25 from the intervention arm; 25 from the control arm) was generated by the local principal investigator, of which 41 consented to participate (82% response rate)."
+  },
+  {
+   "rid": "PMC12755731#0",
+   "reporting_document": "PMC12755731",
+   "reported_label": "high LAZ trajectory",
+   "reported_instrument": "length-for-age z-score (LAZ)",
+   "reported_role": "other",
+   "role_evidence_quote": "Here, we report the effects of the intervention on linear growth trajectories between birth and 12 months.",
+   "result_quote": "Approximately 13.2% of infants belong to the high LAZ trajectory, 53.8% of infants belong to the medium LAZ trajectory and 33.0% belong to the low LAZ trajectory."
+  },
+  {
+   "rid": "PMC12755731#1",
+   "reporting_document": "PMC12755731",
+   "reported_label": "medium LAZ trajectory",
+   "reported_instrument": "length-for-age z-score (LAZ)",
+   "reported_role": "other",
+   "role_evidence_quote": "Here, we report the effects of the intervention on linear growth trajectories between birth and 12 months.",
+   "result_quote": "Approximately 13.2% of infants belong to the high LAZ trajectory, 53.8% of infants belong to the medium LAZ trajectory and 33.0% belong to the low LAZ trajectory."
+  },
+  {
+   "rid": "PMC12755731#2",
+   "reporting_document": "PMC12755731",
+   "reported_label": "low LAZ trajectory",
+   "reported_instrument": "length-for-age z-score (LAZ)",
+   "reported_role": "other",
+   "role_evidence_quote": "Here, we report the effects of the intervention on linear growth trajectories between birth and 12 months.",
+   "result_quote": "Approximately 13.2% of infants belong to the high LAZ trajectory, 53.8% of infants belong to the medium LAZ trajectory and 33.0% belong to the low LAZ trajectory."
+  },
+  {
+   "rid": "PMC12755731#3",
+   "reporting_document": "PMC12755731",
+   "reported_label": "observed mean LAZ at birth",
+   "reported_instrument": "length-for-age z-score (LAZ)",
+   "reported_role": "other",
+   "role_evidence_quote": "Mean LAZ at birth and at 3, 6, 9, and 12 months are presented in Table 2 , and model fit statistics are presented in the Supplemental Materials ( S4 Table ).",
+   "result_quote": "Birth\n\n2528\n-1.01 (1.11)\n1262\n-0.98 (1.11)\n1266\n-1.05 (1.11)\n-0.07 (-0.01, 0.15)"
+  },
+  {
+   "rid": "PMC12755731#4",
+   "reporting_document": "PMC12755731",
+   "reported_label": "observed mean LAZ at 3 months",
+   "reported_instrument": "length-for-age z-score (LAZ)",
+   "reported_role": "other",
+   "role_evidence_quote": "Mean LAZ at birth and at 3, 6, 9, and 12 months are presented in Table 2 , and model fit statistics are presented in the Supplemental Materials ( S4 Table ).",
+   "result_quote": "Observed mean LAZ of infants from birth to 12 months of age with at least three measurements."
+  },
+  {
+   "rid": "PMC12755731#5",
+   "reporting_document": "PMC12755731",
+   "reported_label": "observed mean LAZ at 6 months",
+   "reported_instrument": "length-for-age z-score (LAZ)",
+   "reported_role": "other",
+   "role_evidence_quote": "Mean LAZ at birth and at 3, 6, 9, and 12 months are presented in Table 2 , and model fit statistics are presented in the Supplemental Materials ( S4 Table ).",
+   "result_quote": "Observed mean LAZ of infants from birth to 12 months of age with at least three measurements."
+  },
+  {
+   "rid": "PMC12755731#6",
+   "reporting_document": "PMC12755731",
+   "reported_label": "observed mean LAZ at 9 months",
+   "reported_instrument": "length-for-age z-score (LAZ)",
+   "reported_role": "other",
+   "role_evidence_quote": "Mean LAZ at birth and at 3, 6, 9, and 12 months are presented in Table 2 , and model fit statistics are presented in the Supplemental Materials ( S4 Table ).",
+   "result_quote": "Observed mean LAZ of infants from birth to 12 months of age with at least three measurements."
+  },
+  {
+   "rid": "PMC12755731#8",
+   "reporting_document": "PMC12755731",
+   "reported_label": "percentage of infants in each latent class by intervention assignment",
+   "reported_instrument": "length-for-age z-score (LAZ)",
+   "reported_role": "other",
+   "role_evidence_quote": "We used a multiple group latent class growth analysis to examine if patterns of linear growth from birth to 12 months of age across the 4 trial countries vary as a function of intervention arm (Model 1), controlling for the fixed effects of randomization strata [ 24 ].",
+   "result_quote": "The percentages of infants in each latent class were not significantly different between intervention (higher: 12.3% of infants, medium: 27.3%, lower: 10.8%) and control (higher: 10.6%, medium: 27.9%, lower: 12.1%) arms (p > 0.9)."
+  },
+  {
+   "rid": "PMC12755731#9",
+   "reporting_document": "PMC12755731",
+   "reported_label": "latent class LAZ growth trajectories between the intervention and control groups",
+   "reported_instrument": "length-for-age z-score (LAZ)",
+   "reported_role": "other",
+   "role_evidence_quote": "We used a multiple group latent class growth analysis to examine if patterns of linear growth from birth to 12 months of age across the 4 trial countries vary as a function of intervention arm (Model 1), controlling for the fixed effects of randomization strata [ 24 ].",
+   "result_quote": "In addition, there were no significant differences in latent class LAZ growth trajectories between the intervention and control groups (p > 0.9) ( Fig 2 )."
+  },
+  {
+   "rid": "PMC12755731#10",
+   "reporting_document": "PMC12755731",
+   "reported_label": "entropy of latent class models",
+   "reported_instrument": "length-for-age z-score (LAZ)",
+   "reported_role": "other",
+   "role_evidence_quote": "We used Bayesian Information Criteria (BIC) to assess model fit and the Bootstrap Likelihood Ratio (BLRT) and Lo, Mendell, and Rubin Likelihood Ratio tests (LMR-LRT) to determine the number of latent classes [ 26 ].",
+   "result_quote": "Entropy was > 0.80, indicating that latent classes are highly discriminating only for the three and four class models [ 33 ]."
+  },
+  {
+   "rid": "PMC12755731#11",
+   "reporting_document": "PMC12755731",
+   "reported_label": "latent class trajectories by country",
+   "reported_instrument": "length-for-age z-score (LAZ)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "We examined latent class growth trajectories separately by country (Model 2), infant sex (Model 3), and timing of the intervention delivery (Model 4) within the pooled sample.",
+   "result_quote": "We did not identify any significant differences between latent class trajectories by country (p > 0.9) (Model 2) or by sex (p > 0.9) (Model 3)."
+  },
+  {
+   "rid": "PMC12755731#12",
+   "reporting_document": "PMC12755731",
+   "reported_label": "latent class trajectories by infant sex",
+   "reported_instrument": "length-for-age z-score (LAZ)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "We examined latent class growth trajectories separately by country (Model 2), infant sex (Model 3), and timing of the intervention delivery (Model 4) within the pooled sample.",
+   "result_quote": "We did not identify any significant differences between latent class trajectories by country (p > 0.9) (Model 2) or by sex (p > 0.9) (Model 3)."
+  },
+  {
+   "rid": "PMC12755731#17",
+   "reporting_document": "PMC12755731",
+   "reported_label": "latent class trajectories by timing of intervention delivery during gestation",
+   "reported_instrument": "length-for-age z-score (LAZ)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Therefore, we examined whether LAZ growth trajectories differed by timing of the intervention (<18 weeks compared to >=18 weeks) (Model 4).",
+   "result_quote": "However, we identified no significant differences between those in the early and late gestation groups (p > 0.9) (Model 4)."
+  },
+  {
+   "rid": "PMC12755731#18",
+   "reporting_document": "PMC12755731",
+   "reported_label": "personal particulate matter less than 2.5 micrometers in diameter (PM 2.5 ) exposures below the World Health Organization Annual Interim Target 1",
+   "reported_instrument": "Personal particulate matter less than 2.5 micrometers in diameter (PM 2.5 )",
+   "reported_role": "other",
+   "role_evidence_quote": "Intervention fidelity and adherence; Exposure contrast between intervention and control groups",
+   "result_quote": "In the post-randomization follow-up period during pregnancy, 69% of intervention-group PM 2.5 exposures were below the World Health Organization Annual Interim Target 1 compared to 23% of control-group PM 2.5 exposures [ 14 ], indicating that the LPG intervention successfully reduced household air pollution exposures [ 14 ]."
+  },
+  {
+   "rid": "PMC13132538#0",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Median PM 2.5 gravimetric concentrations in the control group",
+   "reported_instrument": "gravimetric",
+   "reported_role": "other",
+   "role_evidence_quote": "The one-way analysis of variance (ANOVA) was computed to test for statistically significant differences in the concentration between both intervention arms.",
+   "result_quote": "Median PM 2.5 gravimetric concentrations were 93.5 u g/m 3 (interquartile range (IQR = 52.6 - 160.5) and 21.4 u g/m 3 (IQR = 12.0 - 32.0) in the control and LPG intervention groups, respectively"
+  },
+  {
+   "rid": "PMC13132538#1",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Median PM 2.5 gravimetric concentrations in the LPG intervention group",
+   "reported_instrument": "gravimetric",
+   "reported_role": "other",
+   "role_evidence_quote": "The one-way analysis of variance (ANOVA) was computed to test for statistically significant differences in the concentration between both intervention arms.",
+   "result_quote": "Median PM 2.5 gravimetric concentrations were 93.5 u g/m 3 (interquartile range (IQR = 52.6 - 160.5) and 21.4 u g/m 3 (IQR = 12.0 - 32.0) in the control and LPG intervention groups, respectively"
+  },
+  {
+   "rid": "PMC13132538#2",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Median adjusted nephelometric PM 2.5 concentrations in the control group",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "other",
+   "role_evidence_quote": "The one-way analysis of variance (ANOVA) was computed to test for statistically significant differences in the concentration between both intervention arms.",
+   "result_quote": "the median adjusted nephelometric concentrations were 83.7 u g/m 3 (IQR = 47.6 - 148 9) and 22.6 u g/m 3 (IQR = 17.5 - 29.7) in the control and LPG groups, respectively"
+  },
+  {
+   "rid": "PMC13132538#3",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Median adjusted nephelometric PM 2.5 concentrations in the LPG intervention group",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "other",
+   "role_evidence_quote": "The one-way analysis of variance (ANOVA) was computed to test for statistically significant differences in the concentration between both intervention arms.",
+   "result_quote": "the median adjusted nephelometric concentrations were 83.7 u g/m 3 (IQR = 47.6 - 148 9) and 22.6 u g/m 3 (IQR = 17.5 - 29.7) in the control and LPG groups, respectively"
+  },
+  {
+   "rid": "PMC13132538#4",
+   "reporting_document": "PMC13132538",
+   "reported_label": "24-h average PM 2.5 gravimetric concentrations between the control and intervention groups",
+   "reported_instrument": "gravimetric",
+   "reported_role": "other",
+   "role_evidence_quote": "The one-way analysis of variance (ANOVA) was computed to test for statistically significant differences in the concentration between both intervention arms.",
+   "result_quote": "Based on the analysis of variance, there was a statistically significant difference in the 24-h average PM 2.5 concentrations between the control and intervention groups ( p < 0.001) for both gravimetric and nephelometric comparisons."
+  },
+  {
+   "rid": "PMC13132538#5",
+   "reporting_document": "PMC13132538",
+   "reported_label": "24-h average PM 2.5 nephelometric concentrations between the control and intervention groups",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "other",
+   "role_evidence_quote": "The one-way analysis of variance (ANOVA) was computed to test for statistically significant differences in the concentration between both intervention arms.",
+   "result_quote": "Based on the analysis of variance, there was a statistically significant difference in the 24-h average PM 2.5 concentrations between the control and intervention groups ( p < 0.001) for both gravimetric and nephelometric comparisons."
+  },
+  {
+   "rid": "PMC13132538#6",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Spearman correlation for gravimetric ECM comparisons overall",
+   "reported_instrument": "gravimetric",
+   "reported_role": "primary",
+   "role_evidence_quote": "We conducted two main comparisons to assess the ECM reliability: gravimetric against gravimetric and nephelometric against nephelometric collocations (pairs).",
+   "result_quote": "Overall, correlations were high for both gravimetric and adjusted nephelometric comparisons (   = 0.94) Figure 4 ."
+  },
+  {
+   "rid": "PMC13132538#7",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Spearman correlation for adjusted nephelometric ECM comparisons overall",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "primary",
+   "role_evidence_quote": "We conducted two main comparisons to assess the ECM reliability: gravimetric against gravimetric and nephelometric against nephelometric collocations (pairs).",
+   "result_quote": "Overall, correlations were high for both gravimetric and adjusted nephelometric comparisons (   = 0.94) Figure 4 ."
+  },
+  {
+   "rid": "PMC13132538#8",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Spearman correlation for gravimetric ECM comparisons in the control group",
+   "reported_instrument": "gravimetric",
+   "reported_role": "primary",
+   "role_evidence_quote": "Spearman correlation, Bland-Altman agreement, ICC, and RMSE were estimated after stratifying the ECM comparisons by groups derived from the study arms.",
+   "result_quote": "Spearman correlations were higher in the control arm (0.91) than in the LPG intervention arm (0.67) in the gravimetric comparisons."
+  },
+  {
+   "rid": "PMC13132538#9",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Spearman correlation for gravimetric ECM comparisons in the LPG intervention group",
+   "reported_instrument": "gravimetric",
+   "reported_role": "primary",
+   "role_evidence_quote": "Spearman correlation, Bland-Altman agreement, ICC, and RMSE were estimated after stratifying the ECM comparisons by groups derived from the study arms.",
+   "result_quote": "Spearman correlations were higher in the control arm (0.91) than in the LPG intervention arm (0.67) in the gravimetric comparisons."
+  },
+  {
+   "rid": "PMC13132538#10",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Spearman correlation for adjusted nephelometric ECM comparisons in the control group",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "primary",
+   "role_evidence_quote": "Spearman correlation, Bland-Altman agreement, ICC, and RMSE were estimated after stratifying the ECM comparisons by groups derived from the study arms.",
+   "result_quote": "The same trend was observed for adjusted nephelometric measurements in the control (0.92) and intervention arms (0.75)."
+  },
+  {
+   "rid": "PMC13132538#11",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Spearman correlation for adjusted nephelometric ECM comparisons in the intervention group",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "primary",
+   "role_evidence_quote": "Spearman correlation, Bland-Altman agreement, ICC, and RMSE were estimated after stratifying the ECM comparisons by groups derived from the study arms.",
+   "result_quote": "The same trend was observed for adjusted nephelometric measurements in the control (0.92) and intervention arms (0.75)."
+  },
+  {
+   "rid": "PMC13132538#12",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Bland-Altman mean difference for gravimetric ECM comparisons overall",
+   "reported_instrument": "gravimetric",
+   "reported_role": "primary",
+   "role_evidence_quote": "The Bland-Altman method was used as a measure of agreement for each of the comparisons.",
+   "result_quote": "The agreement was similar in the gravimetric (5.70 u g/m 3 ) and nephelometric comparisons (4.33 u g/m 3 )."
+  },
+  {
+   "rid": "PMC13132538#13",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Bland-Altman mean difference for adjusted nephelometric ECM comparisons overall",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "primary",
+   "role_evidence_quote": "The Bland-Altman method was used as a measure of agreement for each of the comparisons.",
+   "result_quote": "The agreement was similar in the gravimetric (5.70 u g/m 3 ) and nephelometric comparisons (4.33 u g/m 3 )."
+  },
+  {
+   "rid": "PMC13132538#14",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Intraclass correlation coefficient for gravimetric ECM comparisons overall",
+   "reported_instrument": "gravimetric",
+   "reported_role": "primary",
+   "role_evidence_quote": "The reliability for each ECM comparison was estimated with the natural log-transformed concentrations using the intraclass correlation coefficient (ICC) one-way random effects model",
+   "result_quote": "ICC values were 0.93 and 0.95 for the gravimetric and adjusted nephelometric comparisons, respectively ( Table 1 )."
+  },
+  {
+   "rid": "PMC13132538#15",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Intraclass correlation coefficient for adjusted nephelometric ECM comparisons overall",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "primary",
+   "role_evidence_quote": "The reliability for each ECM comparison was estimated with the natural log-transformed concentrations using the intraclass correlation coefficient (ICC) one-way random effects model",
+   "result_quote": "ICC values were 0.93 and 0.95 for the gravimetric and adjusted nephelometric comparisons, respectively ( Table 1 )."
+  },
+  {
+   "rid": "PMC13132538#16",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Intraclass correlation coefficient for gravimetric ECM comparisons in the control group",
+   "reported_instrument": "gravimetric",
+   "reported_role": "primary",
+   "role_evidence_quote": "The reliability for each ECM comparison was estimated with the natural log-transformed concentrations using the intraclass correlation coefficient (ICC) one-way random effects model",
+   "result_quote": "When stratifying by study group, ICC values were 0.89 in gravimetric comparisons and 0.93 for nephelometric comparisons in the control group."
+  },
+  {
+   "rid": "PMC13132538#17",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Intraclass correlation coefficient for adjusted nephelometric ECM comparisons in the control group",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "primary",
+   "role_evidence_quote": "The reliability for each ECM comparison was estimated with the natural log-transformed concentrations using the intraclass correlation coefficient (ICC) one-way random effects model",
+   "result_quote": "When stratifying by study group, ICC values were 0.89 in gravimetric comparisons and 0.93 for nephelometric comparisons in the control group."
+  },
+  {
+   "rid": "PMC13132538#18",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Intraclass correlation coefficient for gravimetric ECM comparisons in the intervention group",
+   "reported_instrument": "gravimetric",
+   "reported_role": "primary",
+   "role_evidence_quote": "The reliability for each ECM comparison was estimated with the natural log-transformed concentrations using the intraclass correlation coefficient (ICC) one-way random effects model",
+   "result_quote": "In contrast, the reliability was 0.72 in gravimetric and 0.76 in nephelometric comparisons in the intervention group."
+  },
+  {
+   "rid": "PMC13132538#19",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Intraclass correlation coefficient for adjusted nephelometric ECM comparisons in the intervention group",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "primary",
+   "role_evidence_quote": "The reliability for each ECM comparison was estimated with the natural log-transformed concentrations using the intraclass correlation coefficient (ICC) one-way random effects model",
+   "result_quote": "In contrast, the reliability was 0.72 in gravimetric and 0.76 in nephelometric comparisons in the intervention group."
+  },
+  {
+   "rid": "PMC13132538#20",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Root mean square error for gravimetric ECM comparisons overall",
+   "reported_instrument": "gravimetric",
+   "reported_role": "primary",
+   "role_evidence_quote": "The root mean square error (RMSE) was computed as an additional method to assess the reliability of the comparisons.",
+   "result_quote": "The overall RMSE was also observed to be lower in the gravimetric collocations (26.69 u g/m 3 ) compared to the nephelometric collocations (31.76 u g/m 3 )."
+  },
+  {
+   "rid": "PMC13132538#21",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Root mean square error for adjusted nephelometric ECM comparisons overall",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "primary",
+   "role_evidence_quote": "The root mean square error (RMSE) was computed as an additional method to assess the reliability of the comparisons.",
+   "result_quote": "The overall RMSE was also observed to be lower in the gravimetric collocations (26.69 u g/m 3 ) compared to the nephelometric collocations (31.76 u g/m 3 )."
+  },
+  {
+   "rid": "PMC13132538#22",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Spearman correlation (95% CI) for gravimetric ECM comparisons overall",
+   "reported_instrument": "gravimetric",
+   "reported_role": "primary",
+   "role_evidence_quote": "Spearman correlation coefficients and their 95% CIs were estimated to determine the strength of the comparisons.",
+   "result_quote": "Gravimetric\nOverall\n220\n0.94 (0.89-0.96)\n0.93 (0.91-0.95)\n26.69"
+  },
+  {
+   "rid": "PMC13132538#23",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Intraclass correlation coefficient (95% CI) for gravimetric ECM comparisons overall",
+   "reported_instrument": "gravimetric",
+   "reported_role": "primary",
+   "role_evidence_quote": "The reliability for each ECM comparison was estimated with the natural log-transformed concentrations using the intraclass correlation coefficient (ICC) one-way random effects model",
+   "result_quote": "Gravimetric\nOverall\n220\n0.94 (0.89-0.96)\n0.93 (0.91-0.95)\n26.69"
+  },
+  {
+   "rid": "PMC13132538#24",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Root mean square error for gravimetric ECM comparisons overall from Table 1",
+   "reported_instrument": "gravimetric",
+   "reported_role": "primary",
+   "role_evidence_quote": "The root mean square error (RMSE) was computed as an additional method to assess the reliability of the comparisons.",
+   "result_quote": "Gravimetric\nOverall\n220\n0.94 (0.89-0.96)\n0.93 (0.91-0.95)\n26.69"
+  },
+  {
+   "rid": "PMC13132538#25",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Spearman correlation (95% CI) for adjusted nephelometric ECM comparisons overall",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "primary",
+   "role_evidence_quote": "Spearman correlation coefficients and their 95% CIs were estimated to determine the strength of the comparisons.",
+   "result_quote": "Nephelometric\nOverall\n221\n0.94 (0.90-0.97)\n0.95 (0.94-0.96)\n31.76"
+  },
+  {
+   "rid": "PMC13132538#26",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Intraclass correlation coefficient (95% CI) for adjusted nephelometric ECM comparisons overall",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "primary",
+   "role_evidence_quote": "The reliability for each ECM comparison was estimated with the natural log-transformed concentrations using the intraclass correlation coefficient (ICC) one-way random effects model",
+   "result_quote": "Nephelometric\nOverall\n221\n0.94 (0.90-0.97)\n0.95 (0.94-0.96)\n31.76"
+  },
+  {
+   "rid": "PMC13132538#27",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Root mean square error for adjusted nephelometric ECM comparisons overall from Table 1",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "primary",
+   "role_evidence_quote": "The root mean square error (RMSE) was computed as an additional method to assess the reliability of the comparisons.",
+   "result_quote": "Nephelometric\nOverall\n221\n0.94 (0.90-0.97)\n0.95 (0.94-0.96)\n31.76"
+  },
+  {
+   "rid": "PMC13132538#28",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Bland-Altman agreement for gravimetric ECM comparisons below the 25th percentile",
+   "reported_instrument": "gravimetric",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Correlations and agreement were also assessed by splitting the data into ranges based on the 25th, 50th, and 75th percentiles to further evaluate the effect of concentration ranges.",
+   "result_quote": "< 25th\n1.95\n0.75\n0.31\n0.54"
+  },
+  {
+   "rid": "PMC13132538#29",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Bland-Altman agreement for adjusted nephelometric ECM comparisons below the 25th percentile",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Correlations and agreement were also assessed by splitting the data into ranges based on the 25th, 50th, and 75th percentiles to further evaluate the effect of concentration ranges.",
+   "result_quote": "< 25th\n1.95\n0.75\n0.31\n0.54"
+  },
+  {
+   "rid": "PMC13132538#30",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Spearman correlation for gravimetric ECM comparisons below the 25th percentile",
+   "reported_instrument": "gravimetric",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Correlations and agreement were also assessed by splitting the data into ranges based on the 25th, 50th, and 75th percentiles to further evaluate the effect of concentration ranges.",
+   "result_quote": "< 25th\n1.95\n0.75\n0.31\n0.54"
+  },
+  {
+   "rid": "PMC13132538#31",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Spearman correlation for adjusted nephelometric ECM comparisons below the 25th percentile",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Correlations and agreement were also assessed by splitting the data into ranges based on the 25th, 50th, and 75th percentiles to further evaluate the effect of concentration ranges.",
+   "result_quote": "< 25th\n1.95\n0.75\n0.31\n0.54"
+  },
+  {
+   "rid": "PMC13132538#40",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Bland-Altman agreement for gravimetric ECM comparisons above the 75th percentile",
+   "reported_instrument": "gravimetric",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Correlations and agreement were also assessed by splitting the data into ranges based on the 25th, 50th, and 75th percentiles to further evaluate the effect of concentration ranges.",
+   "result_quote": "> 75th\n17.48\n12.57\n0.86\n0.82"
+  },
+  {
+   "rid": "PMC13132538#41",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Bland-Altman agreement for adjusted nephelometric ECM comparisons above the 75th percentile",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Correlations and agreement were also assessed by splitting the data into ranges based on the 25th, 50th, and 75th percentiles to further evaluate the effect of concentration ranges.",
+   "result_quote": "> 75th\n17.48\n12.57\n0.86\n0.82"
+  },
+  {
+   "rid": "PMC13132538#42",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Spearman correlation for gravimetric ECM comparisons above the 75th percentile",
+   "reported_instrument": "gravimetric",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Correlations and agreement were also assessed by splitting the data into ranges based on the 25th, 50th, and 75th percentiles to further evaluate the effect of concentration ranges.",
+   "result_quote": "> 75th\n17.48\n12.57\n0.86\n0.82"
+  },
+  {
+   "rid": "PMC13132538#43",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Spearman correlation for adjusted nephelometric ECM comparisons above the 75th percentile",
+   "reported_instrument": "adjusted nephelometric",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Correlations and agreement were also assessed by splitting the data into ranges based on the 25th, 50th, and 75th percentiles to further evaluate the effect of concentration ranges.",
+   "result_quote": "> 75th\n17.48\n12.57\n0.86\n0.82"
+  },
+  {
+   "rid": "PMC13132538#44",
+   "reporting_document": "PMC13132538",
+   "reported_label": "Absolute ICC difference between gravimetric and nephelometric comparisons stratified by control and intervention groups",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "When comparing the ICCs in gravimetric samples and nephelometric values, the absolute difference was the same if stratified by control and intervention groups (ICC difference = 0.04).",
+   "result_quote": "When comparing the ICCs in gravimetric samples and nephelometric values, the absolute difference was the same if stratified by control and intervention groups (ICC difference = 0.04)."
+  },
+  {
+   "rid": "PMC13166104#0",
+   "reporting_document": "PMC13166104",
+   "reported_label": "systolic BP",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "We modeled exposure-response relationships between exposures to PM 2.5 , BC, and CO (separately) and the primary (systolic BP) and secondary (diastolic BP) outcomes.",
+   "result_quote": "We modeled exposure-response relationships between exposures to PM 2.5 , BC, and CO (separately) and the primary (systolic BP) and secondary (diastolic BP) outcomes."
+  },
+  {
+   "rid": "PMC13166104#1",
+   "reporting_document": "PMC13166104",
+   "reported_label": "SBP",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "We modeled exposure-response relationships between exposures to PM 2.5 , BC, and CO (separately) and the primary (systolic BP) and secondary (diastolic BP) outcomes.",
+   "result_quote": "where the highest quartile had a 1.6 mmHg increase in SBP versus the referent group (p = 0.05)."
+  },
+  {
+   "rid": "PMC13166104#2",
+   "reporting_document": "PMC13166104",
+   "reported_label": "systolic",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "One of the primary endpoints of HAPIN was the effect of HAP on blood pressure among these older women (mean age 52).",
+   "result_quote": "Average BP throughout the study was 113.2 (SD 14.1) systolic and 69.0 (SD 9.9) diastolic."
+  },
+  {
+   "rid": "PMC13166104#3",
+   "reporting_document": "PMC13166104",
+   "reported_label": "diastolic",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "We modeled exposure-response relationships between exposures to PM 2.5 , BC, and CO (separately) and the primary (systolic BP) and secondary (diastolic BP) outcomes.",
+   "result_quote": "Average BP throughout the study was 113.2 (SD 14.1) systolic and 69.0 (SD 9.9) diastolic."
+  },
+  {
+   "rid": "PMC13166104#4",
+   "reporting_document": "PMC13166104",
+   "reported_label": "SBP (mmHg)",
+   "reported_instrument": "Omron (R) Model HEM-907XL",
+   "reported_role": "primary",
+   "role_evidence_quote": "the primary (systolic BP)",
+   "result_quote": "SBP (mmHg)\nLinear\n-0.009\n0.011\n0.44"
+  },
+  {
+   "rid": "PMC13166104#6",
+   "reporting_document": "PMC13166104",
+   "reported_label": "SBP (mmHg)",
+   "reported_instrument": "Omron (R) Model HEM-907XL",
+   "reported_role": "primary",
+   "role_evidence_quote": "the primary (systolic BP)",
+   "result_quote": "SBP (mmHg)\nLong-term b\n0.00165\n0.60\n0.85"
+  },
+  {
+   "rid": "PMC13166104#8",
+   "reporting_document": "PMC13166104",
+   "reported_label": "SBP (mmHg)",
+   "reported_instrument": "Omron (R) Model HEM-907XL",
+   "reported_role": "primary",
+   "role_evidence_quote": "the primary (systolic BP)",
+   "result_quote": "The highest quartile of BC was associated with an increase of about 2 mmHg to SBP."
+  },
+  {
+   "rid": "PMC13166104#9",
+   "reporting_document": "PMC13166104",
+   "reported_label": "SBP (mmHg)",
+   "reported_instrument": "Omron (R) Model HEM-907XL",
+   "reported_role": "primary",
+   "role_evidence_quote": "the primary (systolic BP)",
+   "result_quote": "The highest quartile of PM 2.5 was also found to have an elevation of 1.6 mmHg (p = 0.05)."
+  },
+  {
+   "rid": "PMC13166104#10",
+   "reporting_document": "PMC13166104",
+   "reported_label": "SBP (mmHg)",
+   "reported_instrument": "Omron (R) Model HEM-907XL",
+   "reported_role": "primary",
+   "role_evidence_quote": "the primary (systolic BP)",
+   "result_quote": "SBP (mmHg)\nLinear\n0.00353\n0.59\n10951\n0.13"
+  },
+  {
+   "rid": "PMC13166104#12",
+   "reporting_document": "PMC13166104",
+   "reported_label": "BP",
+   "reported_instrument": "Omron (R) Model HEM-907XL",
+   "reported_role": "secondary",
+   "role_evidence_quote": "In secondary analyses, we considered effect modification by age, study site, and BMI ( Supplemental Table S5 ).",
+   "result_quote": "In change score models, finding were inconsistent across study sites, although Guatemala has a significant increase in BP over time with higher PM 2.5 (p = 0.002) and higher BC (p = 0.002)."
+  },
+  {
+   "rid": "PMC13166104#13",
+   "reporting_document": "PMC13166104",
+   "reported_label": "SBP",
+   "reported_instrument": "Omron (R) Model HEM-907XL",
+   "reported_role": "secondary",
+   "role_evidence_quote": "In secondary analyses, we considered effect modification by age, study site, and BMI ( Supplemental Table S5 ).",
+   "result_quote": "we found a significant association between BC on SBP among participants older than the median age of 50 (p = 0.03)."
+  },
+  {
+   "rid": "PMC13166104#15",
+   "reporting_document": "PMC13166104",
+   "reported_label": "SBP",
+   "reported_instrument": "Omron (R) Model HEM-907XL",
+   "reported_role": "other",
+   "role_evidence_quote": "As sensitivity analyses, we ran both change-score and mixed models (with long-term average and short-term change) for SBP for both PM 2.5 and BC after adding back the 41 women who had been excluded for taking BP medication.",
+   "result_quote": "We also found a positive association with PM 2.5 , where the highest quartile had a 1.6 mmHg increase in SBP versus the referent group (p = 0.05)."
+  },
+  {
+   "rid": "PMC13166104#16",
+   "reporting_document": "PMC13166104",
+   "reported_label": "SBP",
+   "reported_instrument": "Omron (R) Model HEM-907XL",
+   "reported_role": "primary",
+   "role_evidence_quote": "the primary (systolic BP)",
+   "result_quote": "Uppermost quartiles were statistically significant for SBP when compared to the lowest quartile, with increases of 2.0 and 1.7 mmHg SBP, respectively."
+  }
+ ],
+ "dropped_unusable_units": [
+  "PMC11079463#11: NCT02944682/PMC11079463#11 role: quote too short to be evidence",
+  "PMC11079463#12: NCT02944682/PMC11079463#12 role: quote too short to be evidence",
+  "PMC11079463#13: NCT02944682/PMC11079463#13 role: quote too short to be evidence",
+  "PMC11079463#14: NCT02944682/PMC11079463#14 role: quote too short to be evidence",
+  "PMC11079463#15: NCT02944682/PMC11079463#15 role: quote too short to be evidence",
+  "PMC11079463#16: NCT02944682/PMC11079463#16 role: quote too short to be evidence",
+  "PMC11079463#17: NCT02944682/PMC11079463#17 role: quote too short to be evidence",
+  "PMC11079463#18: NCT02944682/PMC11079463#18 role: quote too short to be evidence",
+  "PMC11097839#3: NCT02944682/PMC11097839#3 role: quote too short to be evidence",
+  "PMC11097839#4: NCT02944682/PMC11097839#4 role: quote too short to be evidence",
+  "PMC12755731#13: NCT02944682/PMC12755731#13 role: quote too short to be evidence",
+  "PMC12755731#14: NCT02944682/PMC12755731#14 role: quote too short to be evidence",
+  "PMC12755731#15: NCT02944682/PMC12755731#15 role: quote too short to be evidence",
+  "PMC12755731#16: NCT02944682/PMC12755731#16 role: quote too short to be evidence",
+  "PMC13132538#32: NCT02944682/PMC13132538#32 result: quote too short to be evidence",
+  "PMC13132538#33: NCT02944682/PMC13132538#33 result: quote too short to be evidence",
+  "PMC13132538#34: NCT02944682/PMC13132538#34 result: quote too short to be evidence",
+  "PMC13132538#35: NCT02944682/PMC13132538#35 result: quote too short to be evidence",
+  "PMC13132538#36: NCT02944682/PMC13132538#36 result: quote too short to be evidence",
+  "PMC13132538#37: NCT02944682/PMC13132538#37 result: quote too short to be evidence",
+  "PMC13132538#38: NCT02944682/PMC13132538#38 result: quote too short to be evidence",
+  "PMC13132538#39: NCT02944682/PMC13132538#39 result: quote too short to be evidence",
+  "PMC13166104#5: NCT02944682/PMC13166104#5 role: quote too short to be evidence",
+  "PMC13166104#7: NCT02944682/PMC13166104#7 role: quote too short to be evidence",
+  "PMC13166104#11: NCT02944682/PMC13166104#11 role: quote too short to be evidence"
+ ]
+}

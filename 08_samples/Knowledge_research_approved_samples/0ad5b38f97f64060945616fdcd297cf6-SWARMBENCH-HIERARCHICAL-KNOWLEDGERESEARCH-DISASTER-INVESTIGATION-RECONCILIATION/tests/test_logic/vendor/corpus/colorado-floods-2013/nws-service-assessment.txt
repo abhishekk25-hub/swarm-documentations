@@ -1,0 +1,4372 @@
+Service Assessment
+
+The Record Front Range and Eastern Colorado
+Floods of September 11–17, 2013
+
+U.S. DEPARTMENT OF COMMERCE
+National Oceanic and Atmospheric Administration
+National Weather Service
+Silver Spring, Maryland
+
+Cover Photograph:
+Left Image
+
+Map of event total rainfall for the period Sep. 9–16 (NOAA/ESRL)
+
+Upper Right
+
+River flooding on the South Platte River at Highway 34 near Greely, CO
+(Huffington Post.com)
+
+Middle Right
+
+Flash flood damage in Jamestown, CO, along Left Hand Creek
+(M. Leffingwell, Boulder Daily Camera)
+
+Lower Right
+
+Flash Flood damage on Rock Creek at Dillon Road and Highway 287,
+Louisville, CO (M. Leffingwell, Boulder Daily Camera)
+
+ii
+
+Service Assessment
+
+The Record Front Range and Eastern Colorado
+Floods of September 11–17, 2013
+
+June 2014
+
+National Weather Service
+Louis W. Uccellini
+Assistant Administrator for Weather Services
+
+iii
+
+Preface
+Copious amounts of tropical moisture flowed northward from the Pacific Ocean and Gulf of
+Mexico into eastern Colorado on September 9–16, 2013. The combination of a slow moving
+upper-level system over the Great Basin region, favorable upslope easterly flow along the Front
+Range, and the presence of a stalled frontal system resulted in several episodes of torrential
+rainfall. The heaviest rain fell on the evenings of September 11–12. By week’s end, a swath of
+8–17 inches of rain resulted in widespread, devastating flash flooding in the South Platte River
+Basin from Denver downstream to western Nebraska and in the upper Arkansas River Basin
+along the upper Fountain Creek. There were eight fatalities directly attributed to the flooding.
+Because of the significant impacts of the event, the National Oceanic and Atmospheric
+Administration’s National Weather Service formed a service assessment team to evaluate its
+performance before and during the record flooding. The findings and recommendations from
+this assessment will be factored into the 2015 Annual Operating Plan to improve the quality of
+operational National Weather Service products and services and enhance its ability to provide an
+increase in public education and awareness materials relating to flash flooding, areal flooding,
+and river flooding. The ultimate goal of this report is to help the National Weather Service meet
+its mission of protecting lives and property and enhancing the national economy.
+
+Louis W. Uccellini
+Assistant Administrator
+for Weather Services
+June 2014
+
+iv
+
+Table of Contents
+Page
+1
+
+2
+
+3
+
+Introduction ............................................................................................................................. 4
+1.1 NWS Mission ................................................................................................................ 4
+1.2 Purpose of Assessment Report ...................................................................................... 4
+1.3 Methodology ................................................................................................................. 5
+Hydrometeorological Overview.............................................................................................. 6
+2.1 Event Evolution ............................................................................................................. 6
+2.2 Hydrologic Perspective and Response ........................................................................ 11
+2.3 Impacts ........................................................................................................................ 16
+2.4 Flash Flood Verification .............................................................................................. 19
+2.5 River Flood Verification .............................................................................................. 19
+Facts, Findings, Recommendations, and Best Practices ....................................................... 21
+3.1 Operations ................................................................................................................... 21
+3.1.1
+NWS National Centers .................................................................................. 21
+3.1.2
+Weather Forecast Offices .............................................................................. 23
+3.1.3
+River Forecast Centers .................................................................................. 25
+3.2 Decision Support Services and Products ..................................................................... 28
+3.2.1
+Services and Products for Local Partners and Users: Outreach and
+Preparedness Activities ................................................................................. 28
+3.2.2
+Services and Products for Local Partners and Users: Prior to the Event..... 29
+3.2.3
+Services and Products for Local Partners and Users: During the Event ...... 32
+3.2.3.1 EMWIN and iNWS ......................................................................... 33
+3.2.3.2 River Forecast Services ................................................................... 33
+3.2.3.3 Social Media .................................................................................... 34
+3.2.3.4 Flash Flood Emergency ................................................................... 34
+3.2.3.5 Use of the Civil Emergency Message ............................................. 35
+3.3 Science of QPF Forecasting and Hydrologic Modeling .............................................. 36
+3.3.1
+Numerical Quantitative Precipitation Forecasts ........................................... 36
+3.3.2
+Hydrologic Prediction and Dissemination .................................................... 41
+3.4 Systems........................................................................................................................ 43
+3.4.1
+AWIPS II ....................................................................................................... 44
+3.4.2
+Communications Bandwidth ......................................................................... 45
+3.4.3
+Communications Outage ............................................................................... 46
+3.5 Training ....................................................................................................................... 47
+
+Appendices
+Appendix A
+Appendix B
+Appendix C
+Appendix D
+Appendix E
+Appendix F
+
+Acronyms .......................................................................................................... A-1
+Findings, Recommendations, and Best Practices ............................................. B-1
+Methodology ..................................................................................................... C-1
+Summary of Flash Flood and Areal Flood Warnings ........................................ D-1
+Summary of River Flood Guidance Verification for MBRFC and ABRFC .... E-1
+References ..........................................................................................................F-1
+
+v
+
+List of Figures
+Page
+Figure 1:
+Figure 2:
+Figure 3:
+Figure 4:
+Figure 5:
+Figure 6:
+Figure 7:
+Figure 8:
+Figure 9:
+Figure 10:
+Figure 11:
+Figure 12:
+Figure 13:
+Figure 14:
+Figure 15:
+
+Figure 16:
+
+Figure 17:
+Figure 18:
+Figure 19:
+Figure 20:
+
+Figure 21:
+
+Rainfall analysis for September 9–16, 2013.. ......................................................... 6
+Shown is a time series of the PW in the atmosphere above Boulder, CO,
+during this heavy rainfall and flooding event. ........................................................ 7
+Blended Total Precipitable Water as derived from satellite observations ............... 8
+Radar image of base reflectivity showing heavy rainfall on Wednesday,
+September 11, at 10:25 p.m. MDT......................................................................... 9
+Timeline of rainfall accumulation at selected locations in north central
+Colorado. ............................................................................................................... 10
+Annual exceedence probabilities for the worst case 48-hour rainfall ....................11
+Map showing the Arkansas and South Platte River Basins .................................. 12
+Flow duration hydrograph for Boulder Creek showing the magnitude of the
+September flood.. .................................................................................................. 13
+Flow duration hydrograph for the South Platte River showing the magnitude
+of the September flood.. ........................................................................................ 13
+Flooding in the South Platte and Platte River Basins in September 2013
+occurred from Denver, CO, to Kearney, NE ......................................................... 14
+Observed hydrograph on Boulder Creek demonstrating the rapid rise and
+multiple crests. ...................................................................................................... 15
+Flooding in the Arkansas Basin in September 2013 primarily occurred in parts
+of the Fountain Creek Basin. ............................................................................... 16
+FEMA Disaster Declarations for Colorado as of October 21, 2013 ..................... 18
+Shown are forecast rainfall amounts (left) and excessive rainfall outlooks
+(right) issued by the WPC prior to the event ........................................................ 22
+The Weather Story from WFO Pueblo for September 10 highlighting the
+potential for heavy rainfall across south central Colorado and especially the
+higher terrain ......................................................................................................... 30
+The Weather Story from WFO Boulder for September 13 highlighting the
+potential for locally heavy rainfall and continued flooding across the Front
+Range .................................................................................................................... 30
+Shown are plume diagrams of accumulated analyzed precipitation from Stage
+IV data.. ................................................................................................................. 37
+Shown are Stage IV and Global Ensemble-Mean forecast accumulated
+precipitation at three different times preceding the flood event. .......................... 38
+Shown are plume diagrams of accumulated precipitation (black) for 12 UTC
+(6 a.m.) September 10 to 12 UTC September 16... ............................................... 39
+Shown are stamp maps from SREF forecasts initialized at 15 UTC (9 a.m.
+MDT) September 10, with accumulations over the 87-h period to 06 UTC
+(midnight) September 14.. .................................................................................... 40
+Shown are burn scar delineations with two values (i.e., local rainfall guidance
+values used for issuing flash flood advisories and warnings) in the Front
+Range overlaid on displays of the gridded topography.. ....................................... 42
+
+vi
+
+List of Tables
+Page
+Table 1:
+Table 2:
+Table 3:
+Table 4:
+Table 5:
+
+Table 6:
+
+Colorado flood fatalities during the September 2013 event ................................. 18
+Flash Flood Warning statistics including False Alarm Ratio ................................ 19
+Flash flood event statistics including average initial lead time and probability
+of detection............................................................................................................ 19
+WFO River Flood Warning verification statistics ................................................. 20
+Summary of preliminary peak discharge data and gage performance for
+selected NWS river observation points in the South Platte River Basin,
+September 11–18, 2013......................................................................................... 27
+Summary of AWIPS II trouble tickets and discrepancy reports ........................... 44
+
+vii
+
+Service Assessment Team
+The following people participated as members of the Service Assessment Team:
+David Vallee
+Robert Kimbrough
+Chris Darden
+Michael DeWeese
+Tom Frieders
+Peter Gabrielsen
+Tom Hamill
+Wallace Hogsett
+Ken Weidner
+
+Hydrologist in Charge, Northeast River Forecast Center,
+Taunton, MA (Co-Team Lead)
+Associate Director, USGS Colorado Water Science Center,
+Denver, CO (Co-Team Lead)
+Meteorologist in Charge, Weather Forecast Office (WFO)
+Huntsville, AL
+Development and Operations Hydrologist, North Central River Forecast
+Center, Chanhassen, MN
+Warning Coordination Meteorologist, WFO Billings, Montana
+Chief, System Operations Division, Eastern Region Headquarters,
+Bohemia, NY
+Meteorologist, NOAA Earth System Research Lab, Physical Sciences
+Division, Boulder, CO
+Science and Operations Officer, Weather Prediction Center,
+College Park, MD
+Director of Emergency Management, Sumner County, TN
+
+Subject-Matter Experts/Consultants:
+Kate Abshire
+Julie Demuth
+Eve Gruntfest
+Rebecca Morss
+
+Physical Scientist, Office of Hydrologic Development,
+Silver Spring, MD
+Associate Scientist III, NCAR, Boulder, CO
+Research Scientist, Trauma, Health and Hazards Center University of
+Colorado, Colorado Springs, CO
+Scientist III, National Center for Atmospheric Research (NCAR),
+Boulder, CO
+
+Other Valuable Contributors:
+Melody Magnus
+Salvatore Romano
+Christopher Strager
+Cindy Woods
+Douglas Young
+
+Technical Editor, Innovim, Inc., OCWWS, Silver Spring, MD
+Evaluation Meteorologist, OCWWS Performance Branch,
+Silver Spring, MD
+Acting Director, Office of Climate, Water, and Weather Services
+(OCWWS), Silver Spring, MD
+Chief, Performance and Awareness Division, Silver Spring, MD
+Chief, OCWWS Performance Branch, Silver Spring, MD
+
+viii
+
+Executive Summary
+On September 11–17, 2013, devastating and widespread flash flooding occurred along much
+of the Front Range of the Rocky Mountains in eastern Colorado from Colorado Springs to Fort
+Collins. Flash flooding in tributary streams would later evolve into major river flooding on the
+lower main stem South Platte River, eventually reaching the Platte River in western Nebraska.
+Eight people lost their lives as a direct result of the flooding. Most of these fatalities occurred
+during the height of flash floods on the evenings of September 11 and 12. Local authorities
+evacuated more than 18,000 people. Approximately 19,000 homes and commercial buildings
+were damaged with more than 1,500 destroyed. Authorities estimate the flooding damaged or
+destroyed almost 485 miles of roads and 50 bridges in the impacted counties.
+The event began on September 9 as a large, slow-moving upper-level circulation that became
+nearly stationary over the Great Basin of the southwest United States. The broad flow around
+this system pulled plumes of tropical moisture northward from the Pacific Ocean off the western
+coast of Mexico and the western Gulf of Mexico. A frontal system became stationary along the
+Front Range of the Rockies while upslope easterly flow became established. Three episodes of
+torrential rainfall struck the Front Range from Fort Collins southward to Colorado Springs and
+east to Denver and Aurora, CO. The most intense events occurred on the nights of September
+11–12, and September 15. Rainfall totals far exceeded existing records. In Boulder, 24-hour
+amounts exceeded 9 inches by the morning of September 12, nearly doubling the previous
+record. Event rainfall totals exceeded 17 inches in the climatologically favored upslope areas of
+the Front Range with a large area in eastern Colorado measuring 8–17 inches of precipitation.
+This region of Colorado is no stranger to devastating flash floods. One of the worst floods of
+record occurred in the Big Thompson Canyon in the summer of 1976, claiming 144 lives;
+however, that rainfall event was small in areal and temporal coverage. The footprint of the
+September 2013 event was vast, covering most of the Front Range of the Rocky Mountains of
+Colorado.
+People in many parts of the Front Range had become more aware of flash flooding during the
+4 years before this event, primarily due to major wildfires that had left behind significant burn
+scars. The public was made aware that the flood threat increases when there is heavy rain on
+recent burn scars. The most significant burn scars included those associated with the Waldo
+Canyon Fire above Manitou Springs, the Black Forest Fire north of Colorado Springs, the High
+Park Fire west of Fort Collins, and the Fourmile Canyon Fire west of Boulder. Because of these
+burn scars, there had been considerable collaboration between county and local Emergency
+Management Agency (EMA) officials and Weather Forecast Offices (WFO) Pueblo and Boulder
+during the previous 2 years. These strong relationships paid great dividends as flash flooding
+developed during this event.
+The NOAA Climate Prediction Center identified atmospheric ingredients necessary for
+potential heavy rainfall more than a week in advance, as highlighted in its 6–10 and 8–14 day
+outlooks, which forecast the establishment of a wetter than normal pattern. As early as 5 days in
+advance, the NWS Weather Prediction Center (WPC) began issuing 48–72 hour forecasts
+indicating the potential for 2–4 inches of rainfall for portions of the Front Range. WPC refined
+1
+
+these forecasts as the event approached and highlighted areas of slight and moderate risk for
+excessive rainfall capable of producing flash flooding. Similarly, WFOs Pueblo and Boulder
+indicated correctly, as much as 5 days in advance, the potential for locally heavy rainfall in Area
+Forecast Discussions and Hazardous Weather Outlooks.
+As the start of the event approached, deterministic model guidance displayed considerable
+variability for timing, location, and magnitude of heavy rainfall. One of the most useful tools
+was the Short Range Ensemble Forecast System (SREF), which was more consistent in
+magnitude, showing event total rainfall of 8 inches, though the location and timing of the
+heaviest rain was not consistent. Model output from individual SREF members is not readily
+available to WFO forecasters. Given the shifting deterministic model guidance, WFOs Boulder
+and Pueblo could not accurately anticipate and predict the timing, magnitude, and extent of
+heavy rainfall that struck the Front Range.
+Although only a portion of the impacted Front Range was under a Flash Flood Watch before
+the first round of torrential rains on the evening of September 11, WFO Pueblo and WFO
+Boulder both reacted quickly by collectively issuing 78 Flash Flood Warnings. The average
+Probability of Detection was quite high, 94 percent. The average weighted lead time for all flash
+flood warnings issued was 69 minutes, which is above the national goal of 58 minutes.
+The inability to anticipate accurately the precise location and magnitude of heavy rainfall
+affected river forecasts provided by the Missouri Basin and the Arkansas–Red River Basin River
+Forecast Centers (RFC). A significant number of streamflow gages failed in the impacted river
+basins, limiting the ability of local WFOs and RFCs to capture the rate of rise and the
+magnitudes of some of the initial rises. Complicating matters further for the Missouri Basin RFC
+(MBRFC) was the loss of Automated Local Evaluation in Real Time (ALERT) rain gage data as
+the result of a recent installation of the Advanced Weather Interactive Processing System II
+(AWIPS II). Unfortunately, the RFC did not realize it had lost this data until after the flooding.
+Forecasting the propagation of the flood wave down the South Platte River was especially
+challenging for the Missouri Basin RFC due to the presence of braided river channels, which
+existing RFC hydrologic and hydraulic models do not handle adequately.
+Despite obstacles, most partners were satisfied with the level of services NWS provided. The
+Boulder County EMA said that WFO Boulder helped them save hundreds of lives. At times, the
+WFOs found it extremely challenging to deliver effective decision support services (DSS) given
+the complexity and magnitude of the event. This Service Assessment highlights opportunities for
+improvements to DSS provision, partner outreach, and communication.
+Complicating matters for the impacted WFOs was the loss of a critical fiber optics cable in
+central Colorado. This loss of telecommunications affected offices in the southwestern United
+States and impacted AWIPS, NWR, and WSR-88D communications. NWS Central Region
+Headquarters coordinated the dispatch of the Very Small Aperture Satellite Communications
+Terminal (VSAT) system to WFO Grand Junction, but the process to deploy and deliver VSAT
+failed to bring the office online. At one point during the event, rainwater leaked into the NOAA
+facility that houses WFO Boulder, raising concerns about the potential for having to invoke
+extended service backup. Central Region Headquarters had to develop a tertiary backup solution
+in preparation for this possibility.
+2
+
+The Missouri Basin and Arkansas-Red River Basin RFCs had worked with the WFOs over
+the previous year to define specific burn scar basins within the Flash Flood Monitoring and
+Prediction System. The identification of burn scar basins within the Flash Flood Monitoring and
+Prediction System improved forecaster situational awareness about flash flooding potential in
+these small burn scarred areas.
+Findings and recommendations of this service assessment touch aspects of field operations,
+decision support services, science, and training. Key findings and recommendations follow:
+ There was limited direct coordination between WPC and the impacted WFOs and RFCs
+before and during this event regarding rainfall and flash flooding potential. WPC and the
+WFOs and RFCs should replicate the successful winter-weather coordination model for
+significant hydrologic events.
+ The NWS does not have a policy defining and describing DSS. As a result, DSS content
+and delivery vary greatly between offices. The NWS should implement a formal policy
+for DSS, as outlined in its Annual Operating Plan. The policy should capitalize on the
+Weather-Ready Nation Roadmap, and define DSS and its information formats, content,
+methods for dissemination and communication. The policy should also define
+recommended operational configurations for effective service delivery.
+ The hydrologic product suite continues to be complex and cumbersome and often lacks
+the level of detail and specificity sought by partners. The NWS should move from a
+product-driven framework to a hazards information-driven framework. The NWS also
+should enhance the tools and techniques that provide objective characterization of
+flooding at ungaged locations so hazard information leverages Common Alerting
+Protocol to articulate clearly the severity, urgency, and certainty for a given hazardous
+situation.
+ Medium-range and short-range forecast models significantly underestimated the
+magnitude of rainfall. NOAA does not have a coordinated, visible, well-funded program
+to evaluate and improve model Quantitative Precipitation Forecasts (QPF) similar to the
+hurricane forecast improvement program. NOAA should execute a sustained,
+collaborative research and development program that engages academic and federal
+partners to improve QPF and substantially increase its skill in detecting extreme
+precipitation events.
+ Bandwidth limitations made it difficult to maintain situational awareness and provide
+timely service delivery. The slow Internet connection diminished the effectiveness of
+DSS. NWS should identify the resources needed to meet bandwidth requirements
+necessary to support operations during high-impact events and during service backup.
+ Continued budgetary stresses and travel restrictions has significantly reduced
+hydrometeorological in-residence training and conference attendance while the
+availability of self-paced and distance learning courses have increased. The NWS
+training program should formulate a balanced approach to training, leveraging a
+combination of in-residence, distance learning, and self-paced training opportunities in
+concert with the established Hydrologic Professional Development Series (PDS) to
+satisfy training requirements. The NWS training program should develop a catalogue of
+all available training courses, and identify and update outdated modules.
+
+3
+
+Service Assessment Report
+1
+
+Introduction
+1.1 NWS Mission
+
+The mission of the National Oceanic and Atmospheric Administration’s (NOAA) National
+Weather Service (NWS) is to protect life and property by providing weather, hydrologic, and
+climate forecasts and warnings for the United States, its territories, adjacent waters, and ocean
+areas. The NWS disseminates centrally produced data, weather products, and guidance to
+122 Weather Forecast Offices (WFO) and 13 River Forecast Centers (RFC). The forecasters at
+the WFOs and RFCs issue all local forecasts and warnings to the public and interface with local
+emergency managers (EM) and state and local government to promote community awareness
+and understanding of local climates, forecasts, and weather events.
+The NWS is organized into six regional headquarters and one national headquarters, which
+provide policy, guidance, and administrative support to the WFOs and RFCs. The National
+Centers for Environmental Prediction (NCEP), consisting of nine prediction centers, provide
+central guidance, outlooks, and hazardous weather watches and warnings to the NWS
+organization and the public.
+1.2 Purpose of Assessment Report
+The NWS may conduct service assessments of significant weather-related events that result
+in one or more of the following: multiple fatalities, numerous injuries requiring hospitalization,
+significant impact on the economy of a large area or population, extensive national public
+interest or media coverage, or an unusual level of attention to NWS operations (performance of
+systems or adequacy of warnings, watches, and forecasts) by media, the EM community, or
+elected officials. Service assessments evaluate the NWS performance and ensure the
+effectiveness of NWS products and services in meeting its mission. The goal of service
+assessments is to better protect life and property by implementing recommendations and best
+practices that improve NWS products and services.
+This document presents findings and recommendations resulting from the evaluation of NWS
+performance during the heavy rains and subsequent river and flash flooding in eastern Colorado
+and western Nebraska on September 11–17, 2013. Heavy rainfall over several days produced
+widespread flash flooding and major to record river flooding. This event resulted in eight
+fatalities, considerable property loss, and significantly affected transportation and commerce.
+The objectives of this assessment are to identify significant findings, issue recommendations,
+and best practices related to the following key areas:
+
+
+
+
+
+Timeliness, quality, accuracy, and usefulness of NWS forecasts and warning services
+Situational awareness of the affected field offices prior to and during this event
+Effectiveness of current hydrologic and numerical weather prediction modeling
+capabilities for this event
+Effectiveness of coordination and decision support services for federal partners and key
+4
+
+
+
+1.3
+
+stakeholders prior to and during this event
+Effectiveness of NWS continuity of operations during a major communications failure
+and determination whether this process needs to be improved
+Methodology
+
+The NWS formed an assessment team on September 13, 2013, consisting of employees from
+NWS field offices, the Office of Climate, Water, and Weather Services (OCWWS) in the
+NWS Headquarters (NWSH), an Associate Director of a U.S. Geological Survey (USGS)
+Water Science Center, and a county EM Director. Several social scientists and other subject
+matter experts served as team consultants. The 10-member team completed the following:
+ Performed an on-scene evaluation from November 3-8, 2013
+ Conducted interviews with staff from WFOs Pueblo and Boulder, CO, as well as the
+Missouri Basin RFC and the Arkansas-Red RFC (ABRFC). These offices had primary
+responsibility for providing forecasts, warnings, and DSS to the residents and EMs of the
+affected areas
+ Interviewed EMs, the media, and local and federal water partners in the impacted areas
+ Evaluated products and services issued by the Climate Prediction Center, WPC, National
+Environmental Satellite, Data, and Information Service Satellite Analysis Branch, WFOs,
+and MBRFC
+ Developed a list of significant findings and recommendations to improve the
+effectiveness of NWS products and services
+After a series of internal reviews, the NOAA Assistant Administrator for Weather Services
+approved and signed the Service Assessment and issued it to the American public.
+
+5
+
+2
+
+Hydrometeorological Overview
+
+Devastating and widespread flash flooding occurred along much of the Front Range of the
+Rocky Mountains of Colorado on September 11–17, 2013. Flash flooding in tributary streams
+would later evolve into major river flooding in the South Platte River Basin, eventually reaching
+the main stem Platte River in western Nebraska. Eight people lost their lives as a direct result of
+the flooding; many of these deaths occurred during the height of the flash floods on the evenings
+of September 11–12. Local authorities evacuated nearly 18,000 people. Flooding damaged
+approximately 19,000 homes and commercial buildings, with over 1,500 completely destroyed.
+In addition, the flooding damaged approximately 485 miles of roads, including 50 bridges in the
+impacted counties.
+2.1 Event Evolution
+Historic rainfall occurred in northern Colorado from September 9 to September 16 and
+resulted in severe flash flooding along the northern Front Range of Colorado and subsequent
+river flooding downstream along the South Platte River and its tributaries (Figure 1). The
+heaviest rain fell along the Front Range northwest of Denver on September 11–12.
+
+Figure 1:
+
+Rainfall analysis for September 9–16, 2013. Map created with the Storm Precipitation Analysis
+System through a collaborative effort by Applied Weather Associates, LLC, MetStat, Inc. and Colorado
+Climate Center (Colorado State University). Radar data supplied by Weather Decision Technologies, Inc.
+
+6
+
+Precipitation amounts were historically large for many locations due to the long duration and
+broad spatial extent of the event. During this same period, other significant heavy rainfalls
+occurred just east of Denver in Aurora, CO, southwest of Colorado Springs, CO, and through
+much of central and southern New Mexico. The precipitation event along the northern Front
+Range of Colorado is the primary focus of this assessment, given the large societal impact in
+this area.
+In the days leading up to the event, several meteorological ingredients developed that are
+common precursors for heavy precipitation and flash flooding along the Front Range. These
+ingredients included relatively moist, unstable atmospheric conditions and easterly winds
+pushing the moisture up the face of the Rocky Mountains. One of the most notable aspects of
+this event was persistent record amounts of moisture present in the atmosphere as measured by
+the observed precipitable water (PW) values. Values of between 1.2 and 1.4 inches during the
+height of the heavy rainfall events exceeded the all-time observed maximum values for
+September (Figure 2). The combination of a stationary frontal system, instability, and persistent
+upslope easterly flow against the Front Range of the Rockies acted upon the deep tropical
+moisture plume.
+
+Figure 2: Shown is a time series of the PW in the atmosphere above Boulder, CO, during this heavy rainfall and
+flooding event. The green line denotes the previous maximum PW for September as determined from
+weather balloon data; the orange line denotes the 99th percentile of the water vapor climatology for
+September, also from weather balloon data.
+
+7
+
+The large-scale atmospheric wind pattern on September 11 was characterized by a nearstationary upper-level trough over the Desert Southwest and a ridge over the mid-Mississippi
+Valley. Between the two weather systems, deep southerly flow east of the Front Range brought
+anomalous moisture north from the Gulf of Mexico as depicted in satellite-derived Blended Total
+Precipitable Water (Figure 3A). Additionally, southwesterly flow east of the upper-level trough
+likely facilitated additional moisture transport northward from the tropical east Pacific Ocean.
+
+A
+
+Figure 3:
+
+B
+
+Blended Total Precipitable Water as derived from satellite observations (A), and Surface weather map
+analysis (B) valid September 11, 2013, 6 p.m. Mountain Daylight Time (MDT). For (A),
+superimposed arrows show atmospheric flow at 850 hPa, 700 hPa, and 500 hPa.
+
+At the surface, a cold front moved slowly south and had become nearly stationary across east
+central Colorado by the evening of September 11(Figure 3B). As the cold front stalled, deep
+moisture continued to move into north-central Colorado resulting in scattered showers and
+thunderstorms on September 9–10, although the heaviest rain fell in New Mexico. During the
+evening hours of September 11, the first period of heavy rain began to develop in a west-east
+oriented band north of Denver, as well as northward parallel to the foothills. Individual cells
+within the band propagated westward toward the foothills. Because the flow in the lower
+atmosphere was directed toward the mountains, when the moisture-rich air reached the foothills,
+the upslope flow likely acted to enhance the precipitation rates near steep topography.
+The rainfall processes were different from those that often occur in intense thunderstorms
+that extend to very high altitudes. The rainfall developed and fell mostly within the lower
+atmosphere, where temperatures were relatively warm. These “warm rain” processes are
+efficient in converting water vapor to liquid rain and are often associated with high rain rates.
+8
+
+Flash flooding started in the Boulder area during the early evening hours of September 11.
+Before midnight, the areal coverage of the rain increased markedly and became anchored along
+the foothills northwest of Denver (Figure 4). The event resulted in high rain rates given the high
+moisture content, slow movement, and topographic enhancement. Flash flooding became
+widespread overnight in the counties north and west of Denver. Over 8 inches of rainfall
+occurred in Boulder during the night of September 11.
+
+Figure 4:
+
+Radar image of base reflectivity showing heavy rainfall on Wednesday, September 11,
+at 10:25 p.m. MDT
+
+The heavy rain continued throughout the morning hours of September 12 over an unusually
+large area from Fort Collins to Boulder extending southeast to Aurora before tapering off by
+midday. After only a brief lull, heavy rainfall began to redevelop over much of the same area
+impacted the night before. This second round of heavy rainfall continued throughout the night
+and finally began to taper on Friday morning, September 13. Sunday brought the third and final
+episode of heavy rain, but not nearly the intensity of September 11–12. Figure 5 shows a
+timeline of accumulated rainfall for various locations impacted during this event.
+
+9
+
+Figure 5: Timeline of rainfall accumulation at selected locations in north central Colorado.
+
+The Front Range of Colorado is certainly no stranger to flash flooding. This event had a
+much larger footprint than other major floods such as the Big Thompson Canyon Flood of 1976
+or the July 1997 Fort Collins flood. The September 2013 event covered most of the Front Range
+of eastern Colorado and produced record-breaking daily and multi-day rainfall. To put this event
+into climatological context, the annual exceedence probability for the 48-hour period
+encompassing the heaviest rainfall for this event exceeds 0.2 percent and in some areas
+approaches the 0.1 percent probability of occurrence (Figure 6). This event established a new
+state record for 24-hour rain of 11.85 inches in Fort Carson, CO. Boulder established a new 24hour rainfall record of 9.08 inches, far exceeding the previous record of 4.80 inches set on
+July 31, 1919. Boulder also established a new monthly rainfall record of 18.16 inches, nearly
+doubling the previous record of 9.60 inches set in May 1995.
+
+10
+
+Figure 6:
+
+Annual exceedence probabilities for the worst case 48-hour rainfall
+
+2.2 Hydrologic Perspective and Response
+Eastern Colorado primarily resides in the South Platte River Basin in the north and the
+Arkansas River Basin in the south (Figure 7). Both river basins feature steep gradient headwater
+streams that drain from the east side of the Continental Divide in the Rocky Mountains from
+elevations as high as 14,000 feet. Exiting the foothills between 5,500 and 7,000 feet, streams
+flow across Colorado’s Front Range Urban Corridor extending from Pueblo north to Fort Collins.
+This area encompasses 85 percent of the state’s population. Downstream from the urban areas,
+the South Platte and Arkansas rivers flow through primarily agricultural areas before exiting the
+state at an elevation of about 3,500 feet.
+11
+
+Figure 7: Map showing the Arkansas and South Platte River Basins
+
+The hydrologic regime of eastern Colorado is characterized by high streamflow in May and
+June from annual spring snowmelt runoff, with flows continuing to recede throughout the
+summer and fall. Streamflow is relatively low throughout winter. Above normal snowpack can
+result in localized minor to moderate flooding in May and June. In late summer, more localized
+flooding infrequently occurs as a result of localized convective rainfall. The September 2013
+event was extremely rare due to the widespread nature of intense rain, producing flooding over
+an extensive area. The anomalous nature of this event is evident in USGS flow duration
+hydrographs from gage locations across the area, including Boulder Creek near Boulder
+(Figure 8) and the South Platte River at Fort Morgan (Figure 9).
+
+12
+
+Figure 8:
+
+Flow duration hydrograph for Boulder Creek showing the magnitude of the September flood.
+The bluish-purple bar (top color) represents the 95 percentile to the maximum observed flow prior to
+2013. The black line represents the observed flow from 2013.
+
+Figure 9:
+
+Flow duration hydrograph for the South Platte River showing the magnitude of the September flood.
+The bluish-purple (top color) represents the 95 percentile to the maximum observed flow prior to 2013.
+The solid black line represents the observed flow from 2013. The period of missing data leading up to
+the crest is due to gage damage from floodwaters.
+
+13
+
+In the South Platte Basin that September, there was frequent flash flooding along the entire
+Front Range and Foothills Region of eastern Colorado. Flooding occurred in the Denver
+metropolitan area, including the eastern suburb of Aurora, and in mountain streams that join the
+main stem South Platte between Denver and Kersey. The latter region includes the major
+mountain tributaries of Bear Creek, Clear Creek, Boulder Creek, St. Vrain Creek, Big Thompson
+River, and the Cache La Poudre River. Combined flow from the mountain tributaries and the
+Denver area resulted in flooding in the main stem South Platte River from Denver to the
+confluence with the Platte River east of North Platte, NE, and in the main stem Platte River
+downstream to Kearney, NE (Figure 10).
+The U.S. Army Corps of Engineers operates three reservoirs to control flooding in the
+Denver metropolitan area: on the main stem South Platte just upstream of Denver; on the
+mountain tributary Bear Creek, which flows through west Denver; and on Cherry Creek, a plains
+stream that flows into downtown Denver. During the September 2013 flood event, only Bear
+Creek Reservoir captured significant flood flow because flooding was minor in the main stem
+South Platte River upstream of Denver and in Cherry Creek. On the Big Thompson River, the
+Bureau of Reclamation – Eastern Colorado Area Office had to respond quickly to the
+overwhelming increase in flows from the tremendous rainfall. The unexpected nature of the
+event made it challenging to mobilize staff overnight and to move people in position due to
+washed out roadways.
+
+Figure 10:
+
+Flooding in the South Platte and Platte River Basins in September 2013 occurred from Denver, CO, to
+Kearney, NE
+
+Small stream and headwater systems in the Front Range of Colorado are flashy and respond
+quickly to rainfall, with as little as a few tenths of an inch of runoff causing a rise of several feet
+in stage. Smaller streams experienced multiple crests from the repeated rainfall over the basin,
+typical of streams subject to flash flooding (Figure 11). Historically, flash floods in the region
+are isolated and usually caused by localized convective rainfall. As the storm system stalled on
+the night of September 11; however, numerous streams began to rise rapidly above flood stage
+14
+
+almost simultaneously over a large area. The rain inundated roads and low-lying drainages with
+rushing water. As tributaries along the foothills crested and began to subside over the next
+24–48 hours following the rain overnight on September 11–12, the flood wave concentrated in
+main stem rivers and traveled downstream continuing to cause record flooding.
+
+Figure 11:
+
+Observed hydrograph on Boulder Creek demonstrating the rapid rise and multiple crests. The initial
+rise increased from base flow to moderate flood level in just 6 hours.
+
+In the Arkansas River Basin, flooding in September 2013 was primarily in the Fountain
+Creek Basin, which originates in the foothills northwest of Colorado Springs (Figure 12). After
+exiting the mountains near Manitou Springs, the creek flows through the Colorado Springs and
+continues south for 40 miles, where it joins the Arkansas River at Pueblo. Fountain Creek is
+extremely flashy and responds quickly to even modest rainfall totals. The upper part of the basin
+included burned areas from two major fires that had occurred in recent years, increasing flash
+flooding and debris flows. In 2012, the Waldo Canyon Fire burned about 18,000 acres in the
+foothills just west of Colorado Springs. In 2013, the Black Forest Fire burned 14,000 acres north
+of Colorado Springs. Although three significant flash flood events occurred off the Waldo burn
+scar in the summer of 2013, the most severe flooding in the Fountain Creek Basin in September
+2013 occurred in non-burned areas draining the east flank of Pikes Pike, southwest of Colorado
+Springs.
+
+15
+
+Figure 12:
+
+Flooding in the Arkansas Basin in September 2013 primarily occurred in parts of the Fountain
+Creek Basin.
+
+2.3 Impacts
+Damage from flash flooding and debris flows was extensive in numerous mountain
+tributaries of the South Platte River Basin including the Big Thompson River, Left Hand Creek,
+Little Thompson River, Cache la Poudre River, St. Vrain Creek, Coal Creek, Boulder Creek, and
+South Boulder Creek. Floodwaters also caused damage in the Sand Creek Basin, which drains
+the town of Aurora, a Denver suburb. During the height of the flash flooding along the Front
+Range, not only were stream channels rapidly overflowing, but many streets and urban drainages
+also became raging conduits of water, making these roadways impassable. The floodwaters then
+concentrated in the lower main stem South Platte River, impacting Weld, Morgan, Washington,
+and Logan counties in eastern Colorado. Farther south in the upper Arkansas Basin near
+Colorado Springs, flash flooding in Rock Creek, Cheyenne Creek, and Fountain Creek caused
+extensive damage in western El Paso County.
+High waters resulted in flooded and washed out roadways and bridges, stranded vehicles and
+forced workplaces, universities, and many private and public schools to close from September 12
+to September 17. Besides the 8 fatalities across the state, over 18,000 people were evacuated
+16
+
+during and after the flood due to high waters and subsequent damage to infrastructure. At the
+height of the event, more than 1,200 people were listed as missing, most in Boulder and Larimer
+counties. The Boulder County EMA reported that at the height of the flooding, every road into
+the foothills in the entire county was impassable. Many foothills and mountain roads were also
+closed to the north and south. With vehicular access and telecommunications cut off, small
+mountain communities were isolated for several days. Once the rainfall diminished, emergency
+personnel conducted evacuation and search and rescue efforts using helictopters and on foot.
+The evacuation is believed to be the largest such effort since Hurricane Katrina. Direct and
+indirect losses from housing, infrastructure, and economic are estimate to be around $3 billion
+according to the State of Colorado: Action Plan for Disaster Recovery.
+Based on FEMA information, the flooding destroyed more than 350 homes with over 19,000
+homes and commercial buildings damaged, many of which were impossible to reach except on
+foot. Flooding resulted in a total of 485 miles of damaged roadway, destroyed 30 state highway
+bridges, and severely damaged another 20 bridges. During the height of the flooding, authorities
+were forced to close 36 state highways. Some highways could not be repaired for weeks or even
+months. In Larimer County, flooding damaged approximately 85 percent of the roads and
+bridges, cutting off several mountain communities, including a portion of Highway 34 bewteen
+Loveland and Estes Park. In all, FEMA Disaster Declarations for Colorado as of October 21,
+2013 covered 16 counties (Figure 13).
+The U.S. Forest Service reported significant flood related impacts in the Arapahoe and
+Roosevelt National Forests, including damage to 232 roads covering 380 miles, 4 bridges, 70
+trails covering 236 miles, and impacts to 42 of its facilities.
+The USGS mapped more than 1,300 landslides generated by the storm. The landslides
+occurred over a broad range of elevations, geology, and ecosystems and were directly
+responsible for the loss of three lives and considerable damage to property. Landslides and
+debris flows delivered considerable coarse-grained sediment to stream channels, which
+exacerbated the damage done by flooding in the mountain areas.
+Railroad infrastructure was severly damaged: the flooding damaged 150 miles of track and
+toppled several railroad bridges. Union Pacific reported the loss of 20 miles of its line west of
+Denver and 19 miles of its line between Denver and Cheyenne, WY. This loss caused the
+diversion of rail traffic 600 miles north and west. BNSF Railway reported the loss of 1,200 feet
+of track in Loveland along the Big Thompson River, 3,000 feet of rail in Longmont along the
+St. Vrain River, and 2,000 feet of track in Boulder.
+Flooding also significantly impacted Colorado’s dams. In all, 27 state dams sustained some
+degree of damage with a handful of low-hazard dams completely failing. Dozens of other small,
+low-hazard dams not subject to state inspection failed during the event.
+
+17
+
+Figure 13:
+
+FEMA Disaster Declarations for Colorado as of October 21, 2013
+
+NWS confirmed eight fatalities (Table 1) as a direct result of the flooding and debris flows
+across eastern Colorado. A majority of the flood victims were in canyon areas along the east
+slopes of the Colorado Rockies when floodwaters rose, rapidly innundating homes and roads.
+Two fatalities occurred along a foothills road when a car was stranded in high water and debris.
+Table 1:
+
+Colorado flood fatalities during the September 2013 event
+
+Flooding Fatalities
+Sex
+
+Age
+
+Date
+
+M
+
+72
+
+9/11/13
+
+F
+
+19
+
+9/11/13
+
+M
+
+19
+
+9/11/13
+
+M
+
+80
+
+9/12/13
+
+F
+
+60
+
+9/12/13
+
+F
+
+79
+
+9/12/13
+
+M
+
+54
+
+9/12/13
+
+M
+
+47
+
+9/15/13
+
+Location
+Jamestown, CO
+James Canyon
+Boulder, County
+Boulder, CO
+Boulder County
+Boulder, CO
+Boulder County
+Lyons, CO
+St Vrain River
+Boulder County
+Cedar Cove, CO
+Big Thompson River
+Larimer County
+Cedar Cove, CO
+Big Thompson River
+Larimer County
+Fountain Creek
+El Paso County
+Sand Creek
+El Paso County
+
+Cause of Death
+Blunt force trauma when home caved in under 12 feet of rocks
+and mud
+Drowning while abandoning her stranded car in floodwaters
+Drowning while trying to rescue a fellow car passenger from
+floodwaters
+Drowning in floodwaters (returned after evacuating)
+
+Drowning as home washed away
+Drowning and blunt force trauma while trying to climb to
+higher ground (hit with water and debris)
+Drowning in floodwaters
+Drowning in floodwaters
+
+18
+
+2.4 Flash Flood Verification
+WFOs Pueblo and Boulder collectively issued 78 flash flood warnings from September 11 to
+September 15, 2013. Only WFO Pueblo had a Flash Flood Watch in effect before the initial
+round of flash flooding on the late afternoon and evening of September 11. The watch extended
+into the early morning hours of September 12.
+Probability of detection was quite high, averaging nearly 94 percent with an average False
+Alarm Ratio below 11 percent (Table 2 and Table 3). The average initial lead time for all
+warnings was 69 minutes, above the national goal of 58 minutes (Table 3). There were several
+warnings issued during the early morning of hours of September 12 that provided zero lead time.
+Appendix D provides a complete listing of watch and warning products.
+Table 2:
+
+Flash Flood Warning statistics including False Alarm Ratio
+
+Forecast
+Office
+Boulder
+
+# of
+warnings
+64
+
+Pueblo
+
+14
+
+Total
+
+78
+
+Table 3:
+
+# of Warnings
+Verified
+55
+
+# of Warnings
+Unverified
+9
+
+False Alarm
+Ratio
+14.1%
+
+13
+
+1
+
+7.1%
+
+68
+
+10
+
+10.6%
+
+Flash flood event statistics including average initial lead time and probability of detection.
+
+Forecast
+Office
+
+# of
+Events
+
+# of Partially
+Warned
+Events
+27
+
+Probability of
+Detection
+
+63
+
+# of Fully
+Warned
+Events
+36
+
+93.6%
+
+Avg. Weighted
+Lead Time
+(mins.)
+77
+
+Boulder
+Pueblo
+
+12
+
+8
+
+4
+
+95.4%
+
+24
+
+Total
+
+75
+
+44
+
+31
+
+93.9%
+
+69
+
+2.5 River Flood Verification
+The majority of river-related flooding affected the South Platte River Basin, including the
+main stem South Platte and many of its headwater streams in the WFO Boulder service area.
+Response times of the rivers and streams in the South Platte Basin range from fast-responding
+mountain streams, such as Boulder Creek, Big Thompson River, and the Saint Vrain Creek, to
+slower main stem river locations such as the South Platte River at Balzac and Julesburg. River
+flooding also occurred on Fountain Creek in WFO Pueblo’s area and extended into a portion of
+the Arkansas River.
+WFOs Boulder and Pueblo, with forecast support from MBRFC and ABRFC respectively,
+issued warnings with minimal lead time at several headwater locations on the nights of
+September 11–12. Lead times increased as the headwater flow moved downstream into the
+South Platte and Arkansas Rivers. Table 4 provides a summary of river flood warning
+verification for WFOs Boulder and Pueblo. Appendix D provides a breakdown of MBRFC river
+forecast guidance lead times with respect to flood stage as a function of river response time.
+19
+
+Table 4:
+
+WFO River Flood Warning verification statistics
+
+Forecast
+Office
+
+Total
+Warnings
+
+Verified
+Warnings
+
+Non
+Verified
+Warnings
+
+Total
+Events
+
+Average
+Lead Time
+(hours)
+
+False Alarm
+Ratio
+
+Boulder
+
+17
+
+12
+
+5
+
+12
+
+25.16
+
+0.29%
+
+Pueblo
+
+12
+
+10
+
+2
+
+10
+
+3.46
+
+0.17%
+
+Total
+
+29
+
+22
+
+9
+
+22
+
+14.31
+
+0.23%
+
+20
+
+3
+
+Facts, Findings, Recommendations, and Best Practices
+3.1 Operations
+
+Heavy rainfall and flash flooding evolved quickly along the Front Range of the Rocky
+Mountains of Colorado on the evening of September 11. While National Center forecasts
+indicated the potential for very heavy rainfall and at least a slight risk for rainfall to exceed flash
+flood guidance, significant variability in magnitude, timing, and location of the heaviest rainfall
+made it difficult for the WFOs to anticipate the rapid evolution of torrential rainfall and initial
+flash flooding. WFO and RFC staff responded quickly to the evolution of the flash and river
+flooding. Those offices referred to a flash flood emergency in products and civil emergency
+messages. NWS products included enhanced urgency wording to obtain immediate response to
+the event. The combination of these products and close collaboration with county EMs in the
+Pueblo and Boulder County Warning Areas (CWA) helped limit the number of fatalities.
+3.1.1 NWS National Centers
+More than a week in advance, the Climate Prediction Center’s 6–10 day outlooks indicated a
+significant pattern shift across the western United States with a transition from a hot and humid
+regime to a cooler and wetter than normal pattern. By September 4, the Day 3–7 U.S. Hazards
+Outlook depicted an area of possible flooding stretching from the Front Range southward across
+western New Mexico and all of Arizona. The WPC 7-day deterministic forecasts indicated a
+large area in which 2–4 inches of rain was possible in this same region.
+Three days before the event, WPC was forecasting an extensive slight risk area in which
+rainfall could exceed flash flood guidance (Figure 14). These probabilistic excessive rainfall
+forecasts continued through the onset of the event. WPC 24-hour probabilistic rainfall forecasts
+indicated the potential for 3–4 inches of rain over areas of the Front Range at the 95th percentile,
+but confidence was highest that excessive rainfall would occur over portions of New Mexico.
+Forecasters and hydrologists use the probabilistic quantitative precipitation forecast (PQPF)
+guidance to estimate the probability of any rainfall amount at a given location. The 95th
+percentile indicates a worst case—an amount of rain having a 5 percent chance of exceedence.
+The WFOs and RFCs use WPC QPF and PQPF grids in a variety of ways. RFCs leverage
+WPC QPF for the purposes of hydrologic modeling. Hydrometeorological Analysis and Support
+Meteorologists at MBRFC and ABRFC start with WPC QPF and make adjustments typically for
+the first few forecast periods to account for timing and local topographic effects. These
+meteorologists may also incorporate local WFO QPF grids prior to generating the hydrologic
+forecasts. MBRFC and ABRFC use the 5 percent and 95 percent PQPF grids to generate
+additional streamflow simulations for planning purposes. These additional ensemble simulations
+are shared with partners such as the USACE and EMs.
+WFOs utilize WPC grids as a guidance product and input to their forecast process.
+WFOs stated that the guidance often lacks the resolution necessary to resolve rainfall over
+complex terrain. WFOs will utilize local expertise and high-resolution Numerical Model Output
+to adjust the WPC QPF before publishing it to the National Digital Forecast Database. PQPF
+grids are used much less frequently and primarily for a subjective assessment of the flood or
+flash flood potential.
+21
+
+Figure 14:
+
+Shown are forecast rainfall amounts (left) and excessive rainfall outlooks (right) issued by the
+WPC prior to the event. WPC issued flash flood outlooks 3 days (top), 2 days (middle), and 1 day
+(bottom) prior to the peak of the event. Closed green contours indicate slight risk areas; closed
+blue contours show moderate risk areas.
+
+Significant Numerical Weather Prediction (NWP) run-to-run variability in magnitude, timing,
+and location of potential heavy rainfall for this event made it difficult for WPC, WFO, and RFC
+forecasters to identify the location, timing, and magnitude of the potential heavy rainfall, as
+evident in forecast discussions. In spite of the potential for widespread heavy rainfall, other than
+routine technical discussions that accompany the QPF and probabilistic excessive rainfall
+forecasts, there was little direct coordination between WPC and the impacted WFOs and RFCs
+before the event. During major land-falling tropical cyclone events or significant winter storms,
+WPC and the WFOs collaborate through region-wide conference calls to discuss the forecast
+philosophy and to foster a collaborative approach, ensuring consistency in the forecast and
+messaging. A similar approach for significant convective and synoptic-scale heavy rainfall
+events could have improved forecast confidence, accuracy, and service delivery.
+Finding 1: There was limited direct coordination regarding rainfall potential and flash flooding
+potential between WPC and the impacted WFOs and RFCs prior to this event.
+
+22
+
+Recommendation 1: WPC and the WFOs and RFCs should replicate the successful winter
+weather coordination model for significant hydrologic events by conducting coordination calls
+when the potential exists for widespread heavy rainfall and flash flooding.
+3.1.2 Weather Forecast Offices
+WFO Boulder had most of its staff available to assist with warning and forecast operations
+the week of September 9, with the exception of the Meteorologist in Charge (MIC), who was
+filling in as the Acting MIC at WFO Cheyenne, WY. In the absence of the MIC, the WFO
+Boulder Warning Coordination Meteorologist (WCM) was Acting MIC during the event.
+Washed out roads made it impossible for the WFO Boulder MIC to return to Boulder; however,
+the MIC maintained close contact with WFO Boulder and assisted in communication with
+Central Region Headquarters.
+Forecasters in WFOs Boulder and Pueblo recognized that a much wetter regime was setting
+up over the region capable of producing at least localized heavy rainfall. For example, on
+September 9, WFO Boulder issued an Area Forecast Discussion citing an “abnormally wet
+period” for several days and potential for rainfall that could produce flash flooding. The WFO
+issued flash flood watches for September 9, but heavy rainfall and flash flooding did not
+develop.
+On September 10–11, WFOs Boulder and Pueblo continued to discuss the potential for heavy
+rainfall. On the morning of September 11, Hazardous Weather Outlooks (HWO) highlighted the
+potential for heavy rain. The HWO stated the potential for rainfall rates in excess of 2 inches per
+hour and flash flooding, not just for the burn scar areas but also for urban areas. Significant
+NWP output variability in magnitude, timing, and location of potential heavy rainfall and the
+lack of flash flooding on September 9 contributed to WFO Boulder’s decision not to issue a flash
+flood watch on September 11. Forecasters did not anticipate the large geographical coverage of
+heavy rainfall. QPFs provided by the WFOs did not predict the intense rainfall of September 11–
+12. The RFCs used these QPFs as input into their river forecasts, which contributed to the initial
+errors in river forecast timing and magnitude.
+WFO Boulder had normal forecaster staffing levels the afternoon of September 11, including
+the WCM/Acting MIC and Senior Service Hydrologist (SSH). While showers had developed
+late in the afternoon over parts of the area, the duty forecast team determined the activity did not
+warrant additional overnight staffing. WFO Pueblo had augmented evening and overnight
+staffing on September 11–12 in anticipation of the heavy rainfall. WFO Pueblo issued flash
+flood watches for a large portion of its CWA on the morning of September 11.
+The rainfall began to increase in intensity and areal coverage quickly on the evening of
+September 11, continuing into the overnight hours. Because of the unexpected onset of
+widespread flash flooding, WFO Boulder had not assigned a dedicated event coordinator
+beforehand. The WFO received the first reports of flash flooding by 7 p.m. MDT. The evening
+and overnight shift forecasters did a commendable job issuing flash flood warnings and
+statements, but they found it challenging to keep up with the combination of warning products
+and coordination with partners during the height of the flash flooding. The WFO Boulder SSH
+made numerous telephone calls from home to WFO Boulder during the evening to provide
+assistance. The SSH returned to the office to assist with operations at approximately midnight.
+23
+
+While WFO Boulder has a documented staffing model for severe weather operations,
+including appointing an event coordinator, the lack of anticipation for such an intense and
+widespread event resulted in less than adequate staffing at the onset of the event. By Thursday
+afternoon, WFO Boulder had arranged for augmented staffing to assist with operations and DSS
+through the weekend.
+As the flood event unfolded late on September 11, the SSH assumed a significant amount of
+one-on-one coordination with the impacted counties, while forecasters focused on issuing flash
+flood warnings, statements, and social media postings. In spite of the SSH’s best efforts, it
+became impossible to perform all the tasks necessary to maintain coordination with partners,
+issue river flood warnings and statements, and produce site-specific forecasts for defined service
+locations. WFO Boulder did not have a formal team defined for hydrologic services as
+recommended from previous service assessments. This lack of local hydrologic expertise
+significantly limited the office’s ability to respond to such a widespread and multi-faceted flood
+event.
+NWS generates site-specific forecasts using the Site Specific Hydrologic Predictor tool
+(SSHP). Forecasters generate deterministic stage forecasts for headwater and fast-responding
+streams and incorporate them into warning products for a series of pre-defined locations, using
+existing runoff relationships, as well as observed and forecast hourly rainfall amounts over each
+basin. The SSH contacted the MBRFC to request forecasts for many of the headwater locations
+either already in flood or expected to flood. MBRFC responded quickly and by 1:30 a.m. on
+September 12 was assisting WFO Boulder by providing small stream forecasts. WFO Boulder
+requested this assistance again on the afternoon and evening of September 12, as the second
+round of heavy rainfall and flash flooding developed.
+Best Practice: MBRFC established site-specific capability for headwater streams in the WFO
+Boulder area, mirroring the capabilities at WFO Boulder. MBRFC leveraged this functionality
+to provide critical forecast support for headwater streams in the WFO Boulder hydrologic service
+area (HSA).
+Finding 2: WFO Boulder did not have a defined hydrology team, which limited the office’s
+ability to respond to such a widespread and multi-faceted flood event.
+Recommendation 2: WFOs should establish hydrology teams and ensure that WFO forecasters
+have sufficient knowledge, skill, and ability to deliver hydrologic forecast and warning services.
+When extensive flash flooding and flooding was unfolding across the WFO Boulder CWA,
+the Central Region Regional Operations Center (Central Region ROC) determined service
+backup might be necessary. WFO Pueblo is the primary backup office for WFO Boulder.
+Although WFO Pueblo was dealing with heavy rainfall and flash flooding, its operational
+staffing was augmented to back up WFO Boulder, if necessary. During the event, water began
+leaking into the facility that houses WFO Boulder. WFO Pueblo assumed back-up duties for an
+hour because of a fire alarm activation at WFO Boulder, likely related to the leak.
+
+24
+
+The CR ROC was concerned that, given the situation in WFO Boulder and with WFO Pueblo
+also dealing with flash flooding, WFO Boulder might need another service backup option. The
+CR ROC determined that WFO Dodge City was a logical candidate. The CR ROC and WFO
+Dodge City spent considerable time preparing for tertiary backup. For hydrologic services, a
+WFO can prepare only on an as-needed basis with assistance from the WFO Hydrologic Forecast
+System (WHFS) support group. More important, given the nature of the services that would be
+required to support Boulder, WFO Dodge City lacked several critical capabilities. As stated in
+the CR Supplement 02-2004, dated August 7, 2013, a tertiary backup office would not be able to
+do the following:
+
+
+
+
+
+
+
+Run SSHP for forecast points in the backed-up office’s HSA
+View data for the office it is supporting in a Hydroview map display unless the backup
+WFO staff redefines its viewing area for Hydroview
+Use Multisensor Precipitation Estimates (MPE) for the backed-up office; MPE requires
+extensive configuration not feasible for a tertiary backup
+View the backed-up office’s pre-defined groups in the Time Series application
+View the dam locations in the DamCREST application
+Use the predefined setting in RiverMon/PrecipMon
+
+Fortunately, WFO Boulder did not require service backup for an extended duration. Had it
+been necessary, however, WFO Dodge City functionality would have been inadequate to deliver
+critical hydrologic services for WFO Boulder.
+Finding 3: The potential activation of tertiary backup office for WFO Boulder was cumbersome
+and would have been inadequate for the delivery of vital hydrologic services.
+Recommendation 3: The NWS should develop a dynamic service backup model that allows it
+to direct specified operations and services to less-impacted offices, and ensures all necessary
+hydrologic software applications are available for the backup office.
+3.1.3 River Forecast Centers
+The USGS and Colorado Department of Water Resources (CDWR) provide the NWS with
+24 river observation points in the Arkansas River Basin in Colorado, including four on Fountain
+Creek. Except for brief data outages, most river gages in the Arkansas River Basin provided
+continuous stage and discharge data September 11–17. The USGS, CDWR, and the Nebraska
+Department of Natural Resources provide the NWS with 28 river observation points in the South
+Platte River Basin, including the 22 sites listed in Table 5. During the event, several river gages
+in the South Platte Basin stopped reporting discharge when the stage was above a station’s stagedischarge rating curve, but continued to report stage. The stage-discharge rating defines the
+relation between the gage height and the amount of water flowing in a channel. The loss of these
+discharge data had a significant impact on WFO Boulder and MBRFC’s ability to accurately
+forecast downstream river responses. The NWS relies on its partner agencies to share
+modifications to rating curves so NWS offices can incorporate rating curve data in real time into
+modeling operations. USGS gages, including those in Colorado and Nebraska, use an automated
+process that allows RFCs to access rating curve updates through the USGS Rating Depot. The
+25
+
+state agencies that operate river gages in Nebraska do not have a similar mechanism for sharing
+rating curve updates.
+Finding 4: State agencies that operate river gages, such as those in Nebraska, need an
+automated system for disseminating rating curve updates as they occur.
+Recommendation 4: RFCs should work with state partners to develop an automated means for
+agencies to share changes in existing ratings.
+During the event, several river gages in the South Platte Basin were either reporting
+erroneous data or stopped reporting data after floodwater damage. These gage issues also
+affected WFO Boulder and MBRFC’s ability to predict river response accurately. Mountain
+tributary gages destroyed during the event include St. Vrain Creek at Lyons, North Fork Big
+Thompson River at Drake, and Big Thompson River at Canyon Mouth. The South Platte gage at
+Kersey was assumed to be reporting accurate stage data during the event, showing a peak of
+18.79 feet on September 14; however, after the event, the Colorado Division of Water Resources
+determined the gage was reading about 3.7 feet too high on September 14. From Kersey
+downstream to the Colorado-Nebraska state line, none of the gages at river observation points
+provided complete or accurate data during the event.
+Finding 5: Flooding damaged or destroyed a considerable number of river gages, significantly
+limiting the amount of real-time streamflow data available to the WFOs and RFCs.
+Recommendation 5: RFCs and WFOs should work with their partners to document the upper
+operating limits of river gages and to establish alternate means for obtaining field observations
+and measurements near damaged gaging locations during significant flood events. This
+coordination could be accomplished through annual meetings that would identify key gages and
+reporting expectations for information during hydrologic events.
+
+26
+
+Table 5:
+
+Summary of preliminary peak discharge data and gage performance for selected NWS river
+observation points in the South Platte River Basin, September 11–18, 2013
+
+NWS
+ID
+
+Operating
+Agency
+
+LOVC2
+
+USGS
+
+MRRC2
+SHRC2
+
+Station Name
+
+Peak discharge
+Gage
+Discharge
+Height
+3
+(ft /s)
+(ft)
+
+Date
+
+Time
+(LST)
+
+Plum Creek near Sedalia
+
+9/14
+
+18:30
+
+8.87
+
+Colorado
+
+Bear Creek at Morrison
+
+9/13
+
+9:30
+
+9.05
+
+Colorado
+
+Bear Creek at Sheridan
+
+9/12
+
+15:00
+
+4.53
+
+582
+
+DNVC2
+
+Colorado
+
+South Platte River at
+Denver
+
+9/12
+
+11:00
+
+7.41
+
+4,090
+
+DRBC2
+
+Colorado
+
+Clear Creek at Derby
+
+9/13
+
+4:15
+
+5.29
+
+GLDC2
+
+USGS
+
+Clear Creek at Golden
+
+9/13
+
+4:00
+
+6.83
+
+1,530
+
+9/12
+
+16:30
+
+11.65
+
+11,200
+
+9/13
+
+2:00
+
+2.99
+
+409
+
+9/12
+
+23:30
+
+4.06
+
+1,720
+
+South Platte River at
+Henderson
+Middle Boulder Creek at
+Nederland
+Boulder Creek near
+Orodell
+
+HNDC2
+
+Colorado
+
+MBNC2
+
+Colorado
+
+OROC2
+
+Colorado
+
+BOCC2
+
+Colorado
+
+Boulder Creek at Boulder
+
+9/12
+
+21:15
+
+7.78
+
+BELC2
+
+Colorado
+
+South Boulder Creek near
+Eldorado Springs
+
+9/12
+
+22:00
+
+5.46
+
+LNSC2
+
+Colorado
+
+St. Vrain Creek at Lyons
+
+ESSC2
+
+Colorado
+
+Big Thompson River.
+above Lake Estes
+
+9/13
+
+5:30
+
+7.76
+
+DKKC2
+
+Colorado
+
+N. Fork Big Thompson
+River at Drake
+
+BIMC2
+
+Colorado
+
+B. Thompson River at
+Canyon Mouth
+
+FTDC2
+
+Colorado
+
+POUC2
+
+USGS
+
+Cache La Poudre River
+Canyon Mouth
+Cache La Poudre River at
+Fort Collins
+
+9/13
+
+3:15
+
+10.29
+
+9/13
+
+14:15
+
+10.79
+
+GRPC2
+
+Colorado
+
+Cache La Poudre River
+near Greeley
+
+KERC2
+
+Colorado
+
+South Platte River near
+Kersey
+
+WNAC2
+
+Colorado
+
+South Platte River near
+Weldona
+
+BZNC2
+
+Colorado
+
+South Platte River near
+Balzac
+
+9/15
+
+6:00
+
+13.71
+
+JULC2
+
+Colorado
+
+South Platte River near
+Julesburg
+
+9/18
+
+12:00
+
+10.74
+
+9/14
+
+27
+
+Comments on missing or
+erroneous data
+
+1,260
+No discharge 9/12 20:30–9/18
+21:45
+
+No discharge 9/13 2:00–15:00
+
+No data 9/11 11:00–20:30
+
+Primarily no discharge 9/12 0:009/14 0:00
+No discharge 9/11 22:30–9/12
+3:00 and 9/12 18:00–9/13 3:15
+GHt appears erroneous after about
+9/12 6:00, no GHt after 9/12
+21:15; no discharge after 9/11
+23:00
+3,020
+GHt appears erroneous starting
+9/13 0:30; no discharge after 9/12
+6:15
+GHt appears erroneous 9/12 8:3011:30, no GHt after 9/12 12:30;
+no discharge after 9/12 5:45
+No discharge 9/12 22:15–9/13
+11:15
+8,120
+GHt appears erroneous 9/15
+9:45–23:45; no discharge 9/14
+11:15–9/15 12:45, erroneous
+discharge 9/15 13:00–22:30, no
+discharge 9/15 22:45–9/16 12:30
+Erroneous GHt 9/12 18:45–9/19
+12:00
+No GHt 9/14 18:00 - 9/17 10:30;
+no discharge 9/14 14:15–9/17
+21:45
+No data 9/13 1:45–11:45; No GHt
+9/17 6:45–9/18 14:15; no
+discharge 9/15 4:15–9/19 9:30
+Discharge appears erroneous
+starting on 9/18
+
+3.2 Decision Support Services and Products
+The Service Assessment Team interviewed stakeholders served by WFO Boulder, WFO
+Pueblo, ABRFC, and MBRFC. The stakeholders included county and city EMs, media, forestry
+officials, and other local emergency response officials. The WFOs and RFCs provided a variety
+of DSS and products before, during, and after the flooding event. Most partners were familiar
+with the basic product suite provided during the event, but many lacked knowledge of the
+additional support services that were available.
+3.2.1 Services and Products for Local Partners and Users: Outreach and Preparedness
+Activities
+The recent history of forest fires and hydrologically significant burn scars resulted in a
+tremendous amount of interagency coordination, outreach, and preparedness efforts by
+WFOs Boulder and Pueblo and the impacted counties. Recent wildfires in Boulder County
+(Fourmile Fire), Larimer County (High Park Fire), and El Paso County (Waldo Canyon and
+Black Forest Fires) served as catalysts for interagency meetings regarding the enhanced threat
+of flash flooding.
+The Boulder County EMA, for example, noted that the post-fire community outreach and
+efforts were highly beneficial in enhancing community preparedness. The outreach and efforts
+helped members of isolated mountain communities provide services to each other when they
+became isolated for several days. During a series of town hall meetings, community officials
+from WFO Pueblo’s CWA praised WFO Pueblo’s outreach and collaboration efforts in the
+months leading up to the event. Several officials noted that an Integrated Warning Team
+Workshop led by WFO Pueblo in April 2013 served as a huge catalyst for enhanced partnerships
+and communication. At one of the town hall meetings, the chief meteorologist from KKTV
+(Colorado Springs) noted, “the limited loss of life is a testament to what everyone has done.”
+An interagency group delineated burn scar areas and developed a rule of thumb to address the
+flash flood potential near a burn scar; officials agreed to use the measure of 3/4 inch of rain in 1
+hour to initiate local evacuations. WFOs Pueblo and Boulder incorporated these delineated burn
+scar areas as shape files and map overlays into AWIPS/AWIPS II to assist forecast operations
+and DSS. WFO Pueblo also developed agreements to issue warnings over very small spatial
+scales better delineating flash flood threats due to the burn scars.
+This rainfall rate-based rule of thumb played a key role in supporting county jurisdictions and the
+NWS’s ability to respond to this type of high-impact hydrologic event. Counties covered by this
+agreement had emergency plans and were able to implement them quickly. EMs activated
+several Emergency Operations Centers early, mainly because of a local heavy rain threat that
+could potentially impact these burn areas.
+Best Practice: Extensive interagency outreach and preparedness activities regarding the flash
+flood potential on burn scars greatly enhanced the level of threat awareness and resulted in
+communities having an emergency plan they could implement quickly.
+
+28
+
+3.2.2 Services and Products for Local Partners and Users: Prior to the Event
+Most stakeholders interviewed indicated they rely on the NWS for information in advance of
+developing hazardous weather threatening their area, even when the information may have a high
+level of uncertainty. The feedback from partners was mostly positive for the DSS received prior
+to the event. Partners and stakeholders indicated the NWS was their source of information for
+potential high-impact events in their area. One partner in Colorado Springs described the NWS
+collaboration and coordination as the “textbook case” of how it should operate.
+Partners and stakeholders agreed that early notification raised their situational awareness for
+planning and decision-making. Those counties impacted by burn scars were most prepared and
+received the majority of DSS provided before and during the event. As the event developed,
+stakeholders in northeast Colorado, including the broadcast meteorologists interviewed,
+indicated they did not consider this event unusual until NWS-issued warnings reported
+significant impacts.
+WFO Pueblo uses a group email list to provide blast notifications of potential, high-impact
+weather updates to critical forecast information, and other DSS. The office also uses the list to
+coordinate and schedule conference calls for high-impact events. The system allows forecasters
+to send emails and set up webinars at any time. Local EMs mentioned these emails and heads-up
+webinars are crucial to their operations and assist them in pre-positioning spotters and rain gages.
+The EMs and media also stressed that the clear and consistent flow of information from the local
+partner WFO was vital to getting the message to their constituents.
+In advance of this flood event, the WFO Pueblo MIC and WCM provided a face-to-face
+briefing on Monday, September 9, at the Waldo Canyon Regional Recovery Meeting
+highlighting the threat of substantial rainfall and a high-impact event for the upcoming week. In
+addition, WFO Pueblo added a special DSS web page to its website on Tuesday, September 10,
+and emailed briefings to over 80 key partners and stakeholders on the morning of September 10.
+For this event, WFO Boulder called select counties in its CWA, while other counties had little
+interaction with the WFO before the event. More formal communication and attendance on
+state-led conference calls began on the morning of September 12.
+Best Practice: Group email blasts, notifications, and webinars are an effective way to reach
+many stakeholders and partners during an event without overly taxing the resources at WFOs.
+Several NWS stakeholders indicated the WFOs Weather Story, often referred to as the
+Graphicast, is a beneficial service. NWS uses Weather Stories at various levels and conditions to
+increase visibility across the NWS. Partners found this product easy to ingest for situational
+awareness and planning. Many of the partners in the WFOs Boulder and Pueblo CWAs often
+look at Weather Story as a first review of short term expected weather (Figure 15 and Figure
+16).
+Some staff members at WFOs Pueblo and Boulder mentioned they were unable to create
+Weather Story graphics for multiple days, events, or times, which hindered the usefulness of this
+product. Central Region uses software to create Weather Story that only allows staff to create
+and publish one image to the web page. This limit hinders an office’s ability to discuss multiple
+threats or time periods simultaneously. Further, Weather Story is easy to miss. In Central
+29
+
+Region, it is in a thumbnail view in the middle of the WFO front page. Some partners
+interviewed were not aware of this product.
+
+Figure 15:
+
+The Weather Story from WFO Pueblo for September 10 highlighting the potential for heavy rainfall
+across south central Colorado and especially the higher terrain
+
+Figure 16:
+
+The Weather Story from WFO Boulder for September 13 highlighting the potential for locally
+heavy rainfall and continued flooding across the Front Range
+
+30
+
+Finding 6: Partners commented Weather Story is a beneficial graphic, but it lacks consistency in
+method of creation, format, content, and timeliness.
+Recommendation 6: The NWS should continue enhancing Weather Story, increase its visibility,
+and standardize its implementation across the agency to meet the requirements of partners.
+The HWO is a standard NWS text product that provides hazardous weather information in
+the forecast outlook period. Many partners interviewed said it was a valuable product.
+According to NWS policy, the HWO has strict rules for the order of date, but content and length
+is at the discretion of the individual office. This flexibility has led to differences in the message
+delivery.
+Partners indicated that during their critical planning windows for events, their time is limited
+and NWS products must be concise. The HWO from WFO Boulder indicated a threat for heavy
+rainfall several days in advance: “STRONGER STORMS WILL BE CAPABLE OF PRODUCING
+FROM 1 TO 2 INCHES OF RAIN.” This information often was buried among less important
+weather threats or relegated to the end of the product. The placement of the information
+decreased its visibility and value to NWS partners.
+WFO Pueblo was also highlighting heavy rainfall and a threat of flooding and flash flooding
+for much of the impacted period in its outlooks beginning as early as the evening of Sunday,
+September 8. Language in its HWOs included: “SLOW STORM MOVEMENT WILL ADD TO
+THE HEAVY RAIN AND FLASH FLOOD THREAT.” and “STAY TUNED TO THE FORECAST
+IN THE DAYS AHEAD AS THE WEATHER PATTERN IS ABOUT TO GET VERY ACTIVE
+AGAIN.” WFO Pueblo also placed this information farther down the HWO product because the
+forecast for heavy rain was in the extended forecast period: Days 2–7.
+Fact: Partners indicated the importance of having concise and consistent information in advance
+of significant events to assist with event planning and decision-making.
+Finding 7: The HWO conveys hazardous weather information in the outlook period of the
+forecast, but its effectiveness often is reduced by its length and format.
+Recommendation 7: NWS should simplify the HWO into a bulleted format similar to other
+NWS products. The redesign should allow more flexibility in content at the WFO level.
+The delivery of DSS before this event varied considerably, within and between WFOs. DSS
+consisted of conference calls, webinars, emails, web page graphics, and other resources. Partners
+identified webinars, Weather Stories, and emails as some of the most valuable tools for highimpact events, but the delivery of these services at times lacked consistency in content and
+structure. In some instances, the services did not reach partners looking for detailed information.
+For example, WFO Boulder communicated nearly continuously during the height of the flash
+flooding with the Boulder and Larimer County EMAs, and later into the event, with downstream
+counties along the South Platte River in anticipation of the flood wave. The Boulder County
+EMA was extremely appreciative of the NWS effort, which included phone calls as often as one
+every 15–20 minutes during parts of the event. The Boulder County EMA Director described the
+level of services provided by WFO Boulder as “accurate, appropriate, and outstanding.”
+Maintaining this high level of engagement with Boulder County impeded the ability of WFO
+31
+
+Boulder staff to provide a consistent level of service to its other partners. Some partners stated
+they were unable to get through to the WFO because all phone lines were busy. Partners in
+extreme northeast Colorado were unaware of the impending floods until NWS Boulder issued
+warnings, leaving them with less time to prepare. No national NWS policy exists explicitly
+defining DSS, expectations for its content and delivery, and recommended operational
+configurations to deliver services for high impact and long duration events.
+Finding 8: The NWS does not have a formal policy defining and describing DSS, resulting in
+inconsistent content and delivery between offices.
+Recommendation 8: The NWS should implement a formal policy for DSS, as outlined in its
+Annual Operating Plan, that capitalizes on the Weather-Ready Nation Roadmap and defines DSS
+and its information formats, content, methods for dissemination and communication, as well as
+recommended operational configurations for effective service delivery.
+3.2.3 Services and Products for Local Partners and Users: During the Event
+Overall, partners stated they were satisfied with NWS forecasts and warnings during the
+event. Most partners could not identify a specific NWS product that influenced their decisions
+during the event, despite multiple products and headlines in effect detailing expected or
+forecasted impacts. When asked which NWS products they used, some partners said they relied
+on a select subset and did not know about or understand additional products and services
+available (e.g., site-specific river forecasts, Weather Story graphics, HWOs). Most DSS users
+relied not only on the NWS, but also on private contractors and, in some cases, in-house
+expertise, for weather and hydrology information leading up to and during the event.
+The hydrologic product suite is complex and cumbersome for both NWS forecasters and
+partners. During this event, these products often lacked the level of detail and specificity
+requested by partners impacted by the September floods. The complexity of the hydrologic
+product suite created challenges for forecasters due, in part, to the nature of the event’s transition
+from flash flooding to areal or river flooding, and by the volume of products required to address
+the widespread event. WFO Boulder issued 284 short-fused, hydrologic-related products
+between September 11 and September 15. Interviews with NWS forecasters revealed they spent
+considerable time determining which type of product was most relevant to a particular
+hydrologic event (e.g., flood versus flash flood, river flood statement or warning) rather than
+providing value-added DSS or analyzing real-time diagnostic information from radar, satellite,
+gages, etc.
+Partners found it challenging to keep track of all the products the WFOs were disseminating
+and to quickly extract the specific information needed to assess a situation and make decisions.
+EMs reported that once major impacts began in their area, they no longer had time to view NWS
+products. The information was not typically detailed enough to assist during their response
+mode. Other partners farther downstream from the initial flash flooding expressed that lead time
+was minimal for the river flooding that developed and affected their communities. Several DSS
+users were looking for localized impact and forecast details they did not feel the NWS provided.
+These users required details such as how much additional rain NWS was forecasting for specific
+areas and when the rain would end. Some EMAs in northeast Colorado hired private weather
+contractors for these details during the height of the storm.
+32
+
+Finding 9: The hydrologic product suite continues to be complex and cumbersome and often
+lacks the level of detail and specificity sought by partners.
+Recommendation 9a: The NWS should move from a product-driven framework to a hazards
+information-driven framework, which sequentially raises the level of situation awareness.
+Recommendation 9b: The NWS should enhance the tools and techniques that provide objective
+characterization of flooding at ungaged locations so that hazard information leverages Common
+Alerting Protocol to articulate clearly the severity, urgency, and certainty for a given hazardous
+situation.
+WFOs Boulder and Pueblo used a variety of other tools to communicate the threat directly as
+the event unfolded. These additional tools included conference calls, one-on-one phone calls,
+NWSchat, and WebEOC. The tools varied between the WFOs and from county to county within
+each CWA. For example, while some counties noted frequent phone calls and close
+coordination, other counties indicated little interaction with the NWS at the height of the
+flooding.
+Finding 10: The wide variety of tools available and used to communicate between NWS offices
+and partners can be challenging to manage and use efficiently.
+Recommendation 10: Each WFO should work with its partners to develop a unified, consistent
+communication and outreach program to keep partners informed about the full suite of forecast
+products, services, and delivery mechanisms.
+3.2.3.1
+
+EMWIN and iNWS
+
+Many partners relied heavily on the Emergency Managers Weather Information Network
+(EMWIN) and Interactive NWS (iNWS) as key alert functions for NWS watches and warnings.
+Many partners cited EMWIN and/or iNWS alerts as their first notification of an event affecting
+their area. These systems provided timely text messages and/or emails, extracting the
+information relevant for the partners’ geographic areas. Outreach and education about these
+tools proved to be a key component for notifications of short-term convective watches and
+warnings. WFO Pueblo partners praised the internally developed and managed iNWS
+application as their “go to” application for weather information and alerts. “We could not do our
+jobs without iNWS” was a common comment made at the town hall meeting in
+Colorado Springs. Partners in the WFO Boulder CWA made similar comments about EMWIN.
+3.2.3.2
+
+River Forecast Services
+
+Because the NWS issues stage and flow forecasts at predetermined forecast points on rivers
+and streams, it often can be a challenge to estimate river conditions between the forecast points.
+During this event, significant flooding impacted Sterling, CO, along the lower South Platte
+River, causing major damage to the town’s infrastructure. Unfortunately, there is no forecast
+point along the South Platte at Sterling. The town is about 25 miles downstream from the
+forecast point at Balzac and about 60 miles upstream from the forecast point at Julesburg.
+Interviews with regional constituents stated this lack of real-time data and forecast information
+significantly limited their ability to adequately prepare and respond to the flooding. Several
+33
+
+partners did not know they could request support from the SSH or which hydrologic services
+NWS provided in their region. WFO Boulder conveyed to Logan County emergency
+management and dispatch officials as early as Saturday, September 14, the potential for record
+flooding because of the flood wave moving down the South Platte River. In addition, MBRFC
+river forecast guidance provided 2 to 3 days lead time for the flood crest at Balzac and Julesburg,
+respectively.
+Finding 11: Some partners along the South Platte expressed a need for additional forecast points
+along the river, but they did not know whom to contact to request the new forecast points.
+Recommendation 11: WFOs and RFCs must strengthen partner relationships and
+understanding through focused hydrologic outreach to build understanding of current services,
+the process to initiate new forecast services, and the integral role partners have in our service
+improvement process.
+3.2.3.3
+
+Social Media
+
+As part of the NWS evolution of services and Weather-Ready Nation initiatives, social media
+has become an evolving critical means of communications with core users and stakeholders. The
+NWS uses social media as an official means of DSS and partner communications, but there are
+no formal guidelines to address the additional workload.
+Management and staff at WFOs Boulder and Pueblo indicated they were aware of the impact
+social media has in conveying the “weather message.” Both offices routinely push Weather
+Story graphic and other non-routine posts to social media as an additional means of reaching its
+users. During this event, both offices used social media extensively. For example, WFO
+Boulder issued high-impact, strongly worded Facebook and Twitter posts to highlight the
+catastrophic and life-threatening flash flooding on the night of September 11, 2013. As the
+workload continued to increase, however, the frequency and specificity of the social media posts
+varied based on staffing levels and familiarity with social media.
+Finding 12: WFOs Boulder and Pueblo used social media during this event to increase the
+dissemination of critical flood-related information. Use of social media varied in frequency,
+consistency, and specificity due, in part, to varying staffing and operational structure.
+Recommendation 12: The NWS should develop policy to address the use of social media,
+specifically addressing expectations during high-impact events.
+3.2.3.4
+
+Flash Flood Emergency
+
+During life-threatening flash flood events, offices are encouraged to use the phrase “Flash
+Flood Emergency” in statements to highlight the urgency of the situation. WFO Boulder
+successfully incorporated the flash flood emergency language in their mission-critical product
+suite during the height of the flash flooding.
+The following is an excerpt of Boulder’s Flash Flood Statement product citing a Flash Flood
+Emergency for Jefferson and Boulder counties during the height of flash flooding on the evening
+of September 11:
+34
+
+…THE FLASH FLOOD WARNING REMAINS IN EFFECT UNTIL 415 AM MDT FOR
+NORTHERN JEFFERSON AND BOULDER COUNTIES...
+...THIS IS A FLASH FLOOD EMERGENCY FOR NORTHERN JEFFERSON AND
+BOULDER COUNTIES...
+AT 1153 PM MDT...LOCAL LAW ENFORCEMENT AND EMERGENCY MANAGEMENT
+REPORTED FLASH FLOODING IN SEVERAL LOCATIONS. 4 TO 6 INCHES OF RAIN HAS
+FALLEN IN SOME PLACES THIS EVENING. FLASH FLOODING IS ALREADY OCCURRING
+IN MANY LOCATIONS AND THIS IS AN EXTREMELY DANGEROUS AND LIFE
+THREATENING SITUATION.
+Best Practice: WFO Boulder successfully incorporated the flash flood emergency language to
+raise the level of urgency for action.
+3.2.3.5
+
+Use of the Civil Emergency Message
+
+Because WFO Boulder had a close working relationship with Boulder County regarding the
+potential severity of flash flooding below burn scar areas, the Boulder County EMA had ready
+pre-written civil emergency messages. The EMA emailed these messages to the WFO
+forecasters, who, in turn, retyped them for NOAA Weather Radio (NWR) broadcast purposes.
+The following is an example of such a message the WFO issued during the early morning on
+Thursday, September 12:
+THE FOLLOWING MESSAGE IS TRANSMITTED AT THE REQUEST OF THE BOULDER
+COLORADO EMERGENCY MANAGEMENT AGENCY.
+...THIS IS A FLASH FLOOD EMERGENCY FOR BOULDER COUNTY...
+LOCAL LAW ENFORCEMENT AND EMERGENCY MANAGEMENT REPORTED FLASH
+FLOODING IN SEVERAL LOCATIONS. 4 TO 6 INCHES OF RAIN HAS FALLEN IN
+SOME PLACES THIS EVENING.
+EXTENSIVE AND SEVERE FLASH FLOODING WILL CONTINUE OVER PORTIONS OF
+BOULDER COUNTY.
+THIS IS A LIFE THREATENING SITUATION FOR PEOPLE ALONG BOULDER CREEK IN
+THE CITY OF BOULDER...IN THE FOURMILE BURN AREA...BOULDER CANYON...LEFT
+HAND CANYON AND SAINT VRAIN CREEK AREA INCLUDING LYONS. PERSONS LIVING
+IN AND NEAR THESE AREAS SHOULD MOVE TO HIGH GROUND IMMEDIATELY AND
+AVOID DRIVING.
+Best Practice: WFO Boulder effectively used the civil emergency message developed through
+its collaboration with Boulder County EMA to communicate the critical nature of the flood
+emergency.
+
+35
+
+3.3 Science of QPF Forecasting and Hydrologic Modeling
+3.3.1 Numerical Quantitative Precipitation Forecasts
+Predicting the precise timing and location of extreme precipitation can be difficult. It is
+easier to predict for larger areas or accumulations over longer durations than for smaller areas or
+shorter durations (Islam et al. 1993). The 2013 Colorado Floods, however, presented large-scale
+synoptic forcing, the presence of a large region of ample moisture over several days, and
+complex steep terrain upstream of the deep moisture. Under such conditions, forecast models
+should provide at least somewhat realistic guidance.
+Medium-range precipitation forecast guidance from the NCEP Global Ensemble Forecast
+System (GEFS) and other global systems indicated Colorado was likely to encounter much
+higher than normal precipitation during the week of the flood. Several global ensemble
+prediction systems forecasted especially heavy precipitation in the northern Front Range;
+however, the location of maximum amounts varied considerably from run-to-run and no
+prediction system accurately forecasted the magnitude of rainfall that occurred.
+Figure 17 provides a representative sample of the medium-range forecast guidance several
+days prior to the storm. The three-panel plot shows the forecast of accumulated precipitation
+around Boulder County and then in progressively larger regions around Boulder and to its east.
+The models failed to predict the rapid accumulation of precipitation over Boulder County
+(analyzed precipitation represented by the heavy black line), though they did forecast an
+anomalously wet period for this time of year. The model became more accurate over
+progressively larger regions, where there was increasing consistency between the forecast and
+analyzed precipitation amounts. The Service Assessment Team expected at least a few ensemble
+members would have predicted anomalously heavy precipitation in the smaller region over
+Boulder. This inaccuracy suggests there is room for improvement in precipitation forecasts from
+NCEP and other global weather prediction centers.
+Figure 18 provides the analyzed and forecast precipitation patterns from the GEFS and other
+ensemble prediction systems at three different times before the onset of heavy rainfall. All of the
+models, to varying extents, predicted a local accentuation of precipitation in the northern Front
+Range of Colorado, but the location and magnitude varied from run to run and from modeling
+system to modeling system. The global ensemble prediction systems forecasted less
+precipitation just prior to the event, perhaps because of the spin-up problem with numerical
+models. Hamill, 2014, presents a more thorough examination of the performance of the forecast
+models (See Appendix F).
+
+36
+
+Figure 17:
+
+Shown are plume diagrams of accumulated analyzed precipitation from Stage IV data, scaled to the
+AHPS daily analysis totals (black) and ensemble forecasts (colors) from various ensemble prediction
+systems. Depicted are 20 members’ accumulated precipitation forecasts for the European Centre for
+Medium-Range Weather Forecasts (ECMWF; green curves), the U.K. Met Office (UKMet; yellow
+curves); the NCEP GEFS (blue curves), and the Canadian Meteorological Centre (CMC; red curves).
+Panels show the accumulated precipitation averaged over three progressively larger areas, denoted by
+the red boxes. Forecasts were initialized at 00 Coordinated Universal Time (UTC) 09 September 2013
+(6 p.m. MDT, Sunday, September 8, 2013).
+
+37
+
+Figure 18:
+
+Shown are Stage IV and Global Ensemble-Mean forecast accumulated precipitation at three different
+times preceding the flood event: (A) Model runs initialized at 00 UTC September 8, 2013, (B) Model
+runs initialized at 00 UTC September 10, 2013, and (C) Model runs initialized at 00 UTC
+September 11, 2013. For each initialization time, the graphs show (a) accumulated precipitation
+analysis from the NCEP Stage IV data for 00 UTC September 9–12 UTC, September 16, 2013
+(6 p.m. MDT September 8–6 a.m. September 16); (b) NCEP GEFS ensemble-mean forecast for the
+same period; (c) UK Met ensemble-mean forecast; (d) Stage-IV precipitation forecast smoothed to
+approximately 1-degree resolution for comparison with the coarser resolution forecasts; (e) ECMWF
+ensemble-mean forecast; (f) CMC ensemble-mean forecast.
+
+As the event approached, most shorter-range forecast models, including forecasts from
+Global Forecast System (GFS) and North American Mesoscale Forecast System (NAM), were
+predicting the likelihood of heavier than normal precipitation but provided little indication of a
+record-setting event in the northern Front Range. The SREF system’s members that used the
+Advanced Research Weather Research and Forecasting (WRF/ARW) model did indicate the
+potential for record-setting precipitation in the northern Front Range.
+Figure 19 provides a representative sample of the shorter-range forecast guidance. The
+graphics present both the NAM and GFS deterministic forecasts (heavy lines) and ensemble
+predictions (thin lines) from the SREF and GEFS systems. The SREF system has several
+members that were forecasting very heavy precipitation at about the right time, even in the
+smaller region over Boulder County in the first panel. “Stamp maps” of the precipitation
+forecasts from individual members (Figure 20) indicate that SREF members using the
+WRF/ARW model consistently produced the heaviest precipitation. The SREF system also has
+members that use the Nonhydrostatic Mesoscale Model core of the Weather Research and
+Forecasting (WRF/NMM) and Nonhydrostatic Mesoscale Model on the B grid of the Weather
+Research and Forecasting (WRF/NMMB) models. While these models produced heavy
+38
+
+precipitation in Colorado and New Mexico, they provided little indication that the heavy
+precipitation would be focused on the northern Front Range. Other models, such as the
+deterministic GFS, did forecast some heavy precipitation, but early in the morning instead of the
+evening of Wednesday, September 11.
+
+Figure 19: Shown are plume diagrams of accumulated precipitation (black) for 12 UTC (6 a.m.) September 10 to
+12 UTC September 16. The heavy red curve shows deterministic NAM forecast accumulations; the
+heavy orange curve shows deterministic GFS accumulations. The blue curves show GEFS ensemble
+(data are limited to the first 5 days of the forecast), and the green curves show SREF ensemble data,
+initialized 3 hours later. The red box on each panel shows accumulation areas.
+
+39
+
+Figure 20:
+
+Shown are stamp maps from SREF forecasts initialized at 15 UTC (9 a.m. MDT) September 10, with
+accumulations over the 87-h period to 06 UTC (midnight) September 14. The left-hand panel presents
+the Stage-IV accumulated precipitation. The top row shows ensemble forecasts from the WRF/ARW
+initial conditions; the middle row shows forecasts from NMMB; the bottom row shows NMM.
+
+The heavy forecast precipitation coincident with the time of the observed heavy precipitation
+is a notable achievement for the SREF system. Examination of forecasts initialized a day or two
+earlier, however, also showed plumes of SREF forecasts accumulating very large amounts of
+precipitation, in this case forecasting the heavy precipitation on Tuesday, when much less
+rainfall occurred.
+Fact: A subset of members from the SREF using the WRF/ARW model indicated the potential
+for record-setting rainfall in the northern portions of the Front Range.
+Finding 13: NOAA does not have a coordinated, visible, well-funded program to improve
+model QPF similar to the program for hurricane forecast improvement. The U.S. Weather
+Research Program has previously formulated plans to improve QPF (Fritsch & Carbone, 2004),
+for example; full references to cited articles are provided in Appendix F. NOAA has not fully
+funded and executed such a plan.
+Recommendation 13: NOAA should execute a sustained, collaborative research and
+development program that engages academic and federal partners to improve QPF and
+substantially increase the skill in detecting extreme precipitation events.
+40
+
+NWS does not disseminate individual member output from the SREF to NWS forecasters
+due to bandwidth limitation. The AWIPS/AWIPS II system cannot generate diagrams such as
+those shown in Figure 19 and Figure 20. To access diagrams such as these, forecasters must
+access either the Storm Prediction Center SREF site or a variety of academic websites. Other
+Service Assessments have raised the issue of bandwidth limitations, such as the Spring 2011
+Middle & Lower Mississippi River Valley Floods and Tropical Storm Irene reports. The
+recently established Integration Dissemination Portfolio is expected to address bandwidth
+limitations.
+3.3.2 Hydrologic Prediction and Dissemination
+There were multiple challenges for the successful hydrologic prediction of this flood event:
+widespread and unexpected intensity of the rainfall, enhanced runoff issues due to burn scarred
+areas, and complex hydrologic processes, such as braided channel hydrology along the lower
+South Platte River. A braided channel is a stream consisting of multiple small, shallow channels
+that divide and recombine numerous times, forming a pattern resembling the strands of a braid.
+WFOs use the Flash Flood Monitoring and Prediction System (FFMP) to compare observed
+and radar-estimated rainfall to gridded flash flood guidance. Forecasters use output from FFMP
+as part of the flash flood warning decision-making process. As configured, FFMP lacks the
+capability to use high-resolution NWP QPF or ensemble-based QPF, such as QPFs from the
+SREF, as a future forcing to assess flash flood potential.
+Finding 14: FFMP lacks the capability to use high-resolution NWP to provide forecasters with a
+predictive assessment of flash flood potential in either a deterministic or a probabilistic
+framework.
+Recommendation 14: The NWS should develop methods to provide predictive capability to
+current or future flash flood monitoring and prediction tools that incorporate high-resolution
+deterministic and ensemble NWP guidance for QPF.
+WFOs Boulder and Pueblo, along with MBRFC and ABRFC, worked collaboratively to
+delineate burn scars in AWIPS (Figure 21). The two RFCs modified the gridded flash flood
+guidance system to isolate these areas within the flash flood grid and fixed the value at 1/2 inch
+in each area.
+
+41
+
+Figure 21: Shown are burn scar delineations with two values (i.e., local rainfall guidance values used for
+issuing flash flood advisories and warnings) in the Front Range overlaid on displays of the
+gridded topography. The black polygons delineate burn scars at high risk of flash flooding.
+The RFCs revised flash flood guidance values for the grids in these basins to account for the
+increased sensitivity to rainfall. WFOs monitored the radar and precipitation gages closely
+over these areas and issued warnings accordingly.
+
+Best Practice: Both MBRFC and ABRFC leveraged the gridded flash flood guidance system
+capability to define burn scar regions and dramatically lower the guidance values over these grid
+cells, thereby improving the guidance provided to the WFOs.
+WFOs rely on the SSHP tool to capture fast responses in small-scale, gaged headwater
+streams that respond too quickly for RFC lumped models to capture accurately. SSHP runs on an
+hourly time step, requiring observed and forecast hourly rainfall data. The system is designed to
+ingest manually entered hourly rainfall or gridded hourly rainfall, such as from the Multisensor
+Precipitation Estimator software.
+WFO Boulder has several headwater and small-scale forecast point locations defined and
+operating in SSHP. WFO Boulder did not have automated processes in place to deliver SSHP
+Quantitative Precipitation Estimates (QPE) or QPF. As a result, WFO Boulder forecasters had to
+devote considerable time to produce just one forecast for one location. During the intense
+widespread flash flooding on September 11–12, WFO Boulder requested MBRFC to run SSHP
+for several small-scale points in Boulder’s HSA.
+SSHP is a stand-alone hydrologic forecast tool not directly connected to the Community
+Hydrologic Prediction System (CHPS). As a result, the RFC CHPS based forecasts does not
+route SSHP forecast flows to downstream locations. MBRFC was unable to capture the intense
+42
+
+rapid rise and movement of the flood wave as it made its way from the flashy Front Range
+streams and into the South Platte River. Similarly, ABRFC also was unable to capture the very
+rapid rise on Fountain Creek that developed from intense convective rainfall in mountainous
+terrain.
+Finding 15: MBRFC and ABRFC were unable to capture the intense rapid rises on the flashy
+streams along the Front Range and the movement of the flood wave into the larger rivers, such as
+the South Platte and Arkansas Rivers.
+Recommendation 15: RFCs should leverage the capabilities of CHPS to demonstrate and
+evaluate different modeling approaches at appropriate temporal and special scales for basins that
+experience rapid runoff due to steep terrain.
+MBRFC forecasters also found the complex hydrology of the South Platte River challenging.
+Portions of the South Platte River contain braided channel hydrology. Current hydrologic and
+hydraulic modeling techniques available to RFCs cannot account for this unique and complex
+hydrology.
+Finding 16: A portion of the South Platte River consists of a braided channel, which added a
+significant level of complexity to the modeling of water through this reach of river.
+Recommendation 16: The NWS should work with federal and academic water partners to
+demonstrate and evaluate hydraulic and hydrodynamic modeling solutions necessary to predict
+accurately the movement of water through complex hydrologic reaches such as braided channels.
+One of the primary methods the NWS uses to display flood hydrograph information (as both
+a river stage and a river discharge) is the Advanced Hydrologic Prediction Service (AHPS) web
+pages. The displays on the AHPS web pages are a function of the preloaded stage-discharge
+relationships. During the flood event, inaccurate stage readings at many gaging locations
+provided erroneous discharges. These false reading resulted from rivers overflowing their banks,
+making new braided river channels that rendered the historic stage discharge-relationships
+invalid. The table of flows was a feature in the AHPS framework that was very troublesome for
+WFO Boulder. To remove access to these flows, which were incorrect because of the flooding
+magnitude, WFO Boulder spent considerable time and effort finding a solution in conjunction
+with MBRFC, CRH, and OCWWS HSD support group. The only available option was to delete
+the existing ratings for the points in question from the WFO hydrologic database—a highly
+undesirable solution. It was determined after this event that a bug in the AHPS software
+prohibited the tabular data from being turned off properly. The most recent March 2014 release
+of AHPS Build 9.0 fixes this issue.
+3.4 Systems
+While overall NWS systems functioned well during the event and provided necessary
+services, several significant deficiencies affected office operations such as forecasting,
+communications, data ingest, display, and dissemination. Specifically, local offices had issues
+using AWIPS II, with data ingest, Internet communications speed, critical communications
+outages, and AHPS web page display.
+43
+
+3.4.1 AWIPS II
+WFO Boulder is an AWIPS II demonstration site and has been responsible for testing,
+evaluating, and documenting issues with each software deployment. The WFO documents issues
+using trouble tickets. Staff submits a Discrepancy Report (DR) when an AWIPS II problem
+adversely affects an operation or mission and is capable of jeopardizing safety, security, or other
+critical operational requirements. DRs are identified by a unique number and assigned a
+1–5 priority. Once staff defines a DR, the fix is scheduled in a future system build based on
+priority and available resources.
+During the record flooding, WFO Boulder opened eight AWIPS II trouble tickets to report
+software and system issues. Table 6 provides a summary of those trouble tickets. AWIPS II
+personnel have closed two of the trouble tickets, assigned five DRs, and are investigating the
+final issue.
+Table 6:
+
+Summary of AWIPS II trouble tickets and discrepancy reports
+
+Ticket
+538349
+
+Description
+Radar from Terminal
+Doppler
+
+Discrepancy Report
+DR 16466 radar Txxx
+products not available
+
+596102
+
+Process and display
+ALERT data
+
+594856
+
+Delivery of RFC
+contingency forecasts
+Adjust the Limits
+
+DR 16685 ALERT Hydro
+Stage Data not decoding
+properly
+n/a
+
+591051
+
+594175
+(Duplicate
+of
+594170)
+593216
+
+CAVE errors at BOU
+
+593139
+
+Loop exception
+Hydrograph Time Series
+
+592716
+
+Failure to decode site
+specific river FCSR data
+
+DENFFWBOU product
+could not be transmitted
+
+DR 16643 Unable to change
+the QC Alert/Alarm Limits
+table
+DR 15844 Hydro Time Series
+
+DR 16633 TextWS: Error
+encountered during send of
+text product
+DR 15884 Hydro Time Series
+– exception when trying to
+move TS point
+n/a
+
+Resolution
+DR is classified 2, Critical, targeted for
+release 14.3.1 (7/14), Status:
+DR_16466 open
+DR was delivered in 13.5.2-11, Status:
+DR_16685 open
+Configuration issue was fixed at
+MBRFC, Status: ticket closed
+DR is assigned to release 14.2.1 (5/14),
+Status: DR_16643 open
+DR is Classified 3,High, targeted for
+release 15.1.1 (2/15), Status:
+DR_15844 closed as non-reproducible
+Raytheon still reviewing this DR; has
+not been actioned for classification,
+Status: DR_16633 open
+DR is classified 3,High, targeted for
+release 15.1.1 (2/15), Status:
+DR_15844 open
+One time occurrence, Status: ticket
+closed as non-reproducible
+
+One of the significant challenges NWS has experienced moving to AWIPS II is managing the
+list of discrepancies and ensuring resolved issues are disseminated to other AWIPS II offices
+efficiently. During the early summer of 2013, following a recent upgrade to AWIPS II, WFO
+Boulder identified a critical issue that prohibited ingest of network rain gages. Staff opened a
+trouble ticket and assigned a DR. Around the same time, MBRFC transitioned from AWIPS I to
+AWIPS II. MBRFC was unaware of the network rain gage issue until after the heavy rains and
+flooding had started. MBRFC had not received the fix and could not ingest needed data during
+the flood event.
+
+44
+
+Finding 17: The software solution addressing an issue identified by WFO Boulder prohibiting
+ingest of network rain gages was never shared with other AWIPS II offices, such as MBRFC,
+which was without these data during the flood event.
+Recommendation 17: The AWIPS Program Office, in conjunction with the NWS regions
+should develop a mechanism to notify field offices about recently disseminated patches or fixes
+to mission critical AWIPS functions, such as data ingest.
+The NWS transmits data to AWIPS via the Operational Systems Network (OPSnet) and the
+Satellite Broadcast Network (SBN). Unfortunately, these two systems do not send field offices
+many of the datasets available to NCEP using OPSnet or the SBN. Field offices need data
+developed at NCEP Environmental Modeling Center for their forecast operations.
+Fact: The AWIPS II communications infrastructure does not have the ability to ingest and
+display ensemble forecast information from the SREF system, the only short-range system that
+had members correctly producing record-setting flooding.
+Finding 18: The AWIPS II system and communications infrastructure is not yet capable of
+handling the voluminous ensemble information forecasters need to assess the uncertainty and
+likelihood of high-impact weather.
+Recommendation 18: AWIPS II needs to display and store forecast ensemble guidance
+produced by the NCEP Environmental Modeling Center. Until AWIPS II adds this function,
+regional offices should work with NCEP and local field offices to use Local Data Manager.
+3.4.2 Communications Bandwidth
+NWS uses the Internet for data ingest and dissemination. During the flood event, data users
+in Colorado reported extensive slowdowns and delays in receiving critical weather data and radar
+updates from the NWS web sites. One of the NWS’s primary means of dissemination is its web
+pages. At town hall meetings held in the Colorado Springs and Manitou Springs area, several
+attendees commented that the NWS web pages became slow or unusable at the height of the
+event. NWS forecasters at WFO Pueblo also identified the Internet sluggishness and the impacts
+it had on service delivery and communications with partners during the event. WFO Pueblo
+documented effective download speeds over OPSNet connections at below 1 megabit per second
+during the event. This bandwidth limitation made it difficult to maintain situational awareness
+and provide timely service delivery. Even though the office optimizes its network traffic to
+avoid system overload, bandwidth during the event was so slow the WCM briefed partners using
+the phone and email.
+Fact: Bandwidth at WFO Pueblo was limited during the September flooding, especially during
+periods of peak traffic, which included the periods of high-impact weather.
+Finding 19: The slow Internet connection at WFO Pueblo had a negative impact on DSS
+briefings, on the ability to use data display tools such as the recently introduced Experimental
+Data Display, and on training.
+
+45
+
+Recommendation 19: NWS should use the recently established NWS Dissemination Portfolio
+to ensure it can provide the necessary Internet bandwidth and infrastructure requirements,
+including communications redundancy to support operations during high-impact events and
+service backup.
+3.4.3 Communications Outage
+On Friday morning, September 13 (2 a.m. MDT), the fiber optic cables in Longmont and
+Harmony, CO, were cut, impacting communications and service delivery at WFOs Grand
+Junction, CO; Cheyenne, WY; and Albuquerque, NM. This cut severed connection to the
+AWIPS Wide Area Network, NWR circuits, and the administrative Local Area Network. The
+cut also affected radar data availability at the Boise, ID; Pocatello, ID; and Salt Lake City, UT,
+radar sites. Providers restored communications at these locations Saturday, September 14, at
+6:47 p.m. MDT. During the outage, WFO Cheyenne remained operational and used AWIPS to
+distribute products using the onsite Very Small Aperture Terminal (VSAT). WFO Grand
+Junction does not have an onsite VSAT and had to request service backup from WFO Salt Lake
+City. NWS only has four CONUS VSAT Fly Away Kits (portable VSAT) available for
+emergency deployment.
+WFO Cheyenne notified the CR ROC and the NWS Operations Center of the outage at
+4:25 a.m. MDT, on September 13. The NWS Operations Center worked with WFO Cheyenne to
+transfer communications successfully to the WFO’s onsite VSAT. The CR ROC made
+numerous requests to send VSAT AWIPS Fly Away Kits to WFO Grand Junction. It took over
+12 hours for NWSH to release the kit. On September 13, NWSH told the CR ROC the VSAT
+would be shipped by FedEx later that evening, but would not be delivered until Monday,
+September 16, because the FedEx office in Grand Junction was closed for the weekend. As a
+result, WFO Grand Junction activated its Continuity of Operations plan and deployed a
+forecaster to WFO Salt Lake City, anticipating a communications outage lasting through the
+weekend. WFO Grand Junction immediately received several 4G MiFi devices, which provided
+administrative Internet communications.
+The Weather Surveillance Radar 88 Doppler (WSR-88D) in Denver, CO, (KFTG)
+experienced a communication outage from 11:11 a.m. to 6:47 p.m. MDT on September 13.
+During this outage, the radar remained operational, but could not disseminate products.
+Finding 20: NWSH did not send a VSAT Fly-Away Kit to WFO Grand Junction quickly or
+efficiently and did not deploy the unit in a timely fashion.
+Recommendation 20: NWS should assign decision-making authority for release of the AWIPS
+VSAT Fly Away Kit to the regional director or designee.
+Finding 21: Although 4G coverage is not available everywhere, when available, during a
+communications outage, staff can configure 4G routers to port AWIPS, WSR-88D, and Internet.
+Recommendation 21: The NWS should establish a more robust and flexible approach to
+provide backup communication capability. Examples could include establishing VSAT
+capability at every office and the capability to use available 4G coverage.
+46
+
+3.5 Training
+For the September 2013 record rainfall and flooding, NWP models generally indicated the
+potential for heavy rainfall ahead of this event, but varied significantly in the details. NWP
+models grossly under-forecast the magnitude and the axis of the heaviest rainfall from run to run.
+NWP models and ensembles indicated the presence of ingredients necessary for extreme
+precipitation in the northern Colorado Front Range during the flood event, including very high
+column moisture content and low-level upslope flow. In fact, models showed some of these
+ingredients at historically anomalous magnitudes. Although forecasters clearly recognized the
+potential for at least localized heavy rainfall, they did not anticipate the evolution of such a
+widespread and historic event
+NWP and hydrologic forecast models and applications play a critical role guiding the
+issuance of many NWS forecast products. As the number of available models and datasets
+increases, it is increasingly challenging to ensure forecasters are equipped to use all available
+forecast data and tools. WFO forecasters expressed concern over the dramatic reduction of inresidence training and the drastically reduced access to national and regional workshops and
+conferences due to tightening budgets and group travel restrictions over the past several years.
+To compensate for reduced in-residence training, NWS has increased availability of self-paced
+and distance learning training; however, because of the rapid pace of change, some modules
+become outdated quickly, such as the WPC module discussing the PQPF product suite and its
+uses and limitations.
+An example of a hydrologically-focused, distance learning course is the NWS Warning
+Decision Training Branch’s course, Recognizing High Impact Hydro Events, in direct response to
+Recommendation 12 of the Service Assessment, Record Floods of Greater Nashville: Including
+Flooding in Middle Tennessee and Western Kentucky of May 1–4, 2010. This course addresses
+applying ensemble data in the forecast process; unfortunately, it is one of the only courses of this
+type currently available to forecasters. To date, only one-third of NWS forecasters have
+completed this course. In August 2013, the NWS released the new Hydrology Professional
+Development Series (PDS) containing a detailed set of Professional Competency Units (PCUs);
+however, significant gaps exist in available materials supporting each PCU.
+Due in part to budget constraints, NWS has cancelled many hydrometeorological inresidence training courses in the past few years. The last instructor-led training focused on QPF
+was an online format—the COMET® Program’s COMAP Symposium on QPF/Rapid Onset
+Floods, delivered in November 2010. In April 2013, COMET® offered its residence course,
+Flash Flood Hydrology and QPE, online. Although the course covered important hydrologic and
+QPE issues, it did not include the science of QPF. A COMET® course instructor noted during an
+interview with the team that the instructor-led, online approach allows training to reach more
+forecasters without the travel costs. This format also enables more updating of material than
+does the self-paced online format; however, it is difficult for the online approach to replicate the
+benefits of face-to-face interaction, especially during field studies, labs, and event simulations
+with the local SOO or DOH. Further, forecasters sometimes are pulled away from online
+training to work operations and lose the continuity offered by in-residence classes. In addition to
+the loss of in-residence training, NWS has not funded an agency-wide Hydrologic Program
+Manager’s Workshop since 2007. Such workshops allow Hydrologic Program Managers to share
+challenges and best practices with their colleagues.
+47
+
+WFO Science and Operations Officers (SOOs) and RFC Development and Operations
+Hydrologists (DOHs) facilitate local training activities and help infuse new science and forecast
+techniques into operations. SOOs and DOHs develop local training plans and facilitate office
+training to prepare for significant events. NWS funds several programs, including the
+Hydrometeorological Testbed and Collaborative Science, Technology, and Applied Research
+Program (CSTAR), to perform applied research and transition the applicable research results into
+NWS operations. The successful infusion of new science and techniques at the local level relies
+on effective transition of such research findings into the local WFOs and RFCs.
+Finding 22: Due to continued budgetary stresses and travel restrictions, NWS has reduced
+hydrometeorological in-residence training and conference attendance and increased its portfolio
+of self-paced and distance learning courses.
+Recommendation 22a: The NWS should formulate a balanced approach to training, leveraging
+a combination of in-residence, distance learning, and self-paced training opportunities in concert
+with the established PDS to satisfy field training requirements. The training approach should
+include a renewed focus on ingredients-based methodology and use of anomaly data in the
+forecast process to better predict rare or record events.
+Recommendation 22b: The NWS should provide a consolidated catalog of available training
+courses, identify and update modules that are outdated, and fill existing gaps in Instructional
+Components in each PDS.
+WFOs Boulder and Pueblo forecasters expressed having limited knowledge, proficiency, and
+training on the various aspects of hydrologic service delivery, including the tools provided in
+WHFS, most notably Hydroview, Riverpro, and the SSHP. Although WFOs have successfully
+leveraged the Weather Event Simulator (WES) system to conduct event simulations for severe
+weather operations, no such capability exists for the core WFO hydrologic applications other
+than FFMP. Although forecasters were familiar with WPC Excessive Rainfall Outlooks and
+Mesoscale Discussions, forecasters were less familiar with the content and use of PQPF
+guidance. The local office training plan is an important tool that should organize existing
+courses and materials and facilitate a robust local training program to increase forecaster
+understanding and proficiency. Training plans in general at the WFOs were limited in the detail
+and activities geared toward hydrologic science and operations.
+Finding 23: Local office training plans were limited in activities geared toward hydrologic
+science and operations.
+Recommendation 23: Regional Headquarters should work with local field offices to ensure the
+development of robust training plans which leverage existing training courses. These plans
+should incorporate science, event simulations, and drills to ensure forecaster proficiency on all
+aspects of forecast and warning operations and services. Management must ensure forecasters
+are provided the necessary dedicated time to complete all training requirements. Where possible,
+NWS should accelerate results from Testbeds and CSTAR programs into training and operation
+activities.
+
+48
+
+AWIPS II had been operational at eight field offices, including Boulder, since early to middle
+2012, with additional sites scheduled to install the software in 2014. AWIPS II does not
+currently provide archiving and data playback capability, which affects a local office’s ability to
+develop case reviews and event simulations. The current AWIPS II schedule expects delivery of
+the archive capability with build 13.5.3.
+The WES system provides playback of archive data, allowing staff to develop and facilitate
+event simulations for severe weather. A WES II Bridge package is under development that will
+allow offices to use AWIPS II archive data for playback. NWS expects delivery of this system
+in summer of 2014.
+Finding 24: WFOs cannot play back archived hydrologic data to support event simulations for
+high impact hydrologic events using the core WFO WHFS applications.
+Recommendation 24: The NWS should develop event simulation capability for the core WFO
+hydrologic program applications. Once developed, NWS must integrate hydrologic training
+requirements into NWS Instruction 20-101, Use of the Weather Event Simulator, which mandates
+at least four training simulations for each forecaster annually.
+
+49
+
+Appendix A
+ABRFC
+AHPS
+AWIPS
+CDWR
+CHPS
+CR
+CSTAR
+CWA
+DOH
+DR
+DSS
+EM
+EMA
+EMWIN
+FEMA
+FFMP
+GEFS
+GFS
+HSA
+HWO
+iNWS
+LST
+MBRFC
+MDT
+MIC
+MPE
+NAM
+NCAR
+NCEP
+NOAA
+NWP
+NWR
+NWS
+NWSH
+OCWWS
+OPSnet
+PCU
+PDS
+PQPF
+PW
+QPE
+QPF
+RFC
+ROC
+SBN
+
+Acronyms
+
+Arkansas-Red Basin River Forecast Center
+Advanced Hydrologic Prediction Service
+Advanced Weather Interactive Processing System
+Colorado Department of Water Resources
+Community Hydrologic Prediction System
+Central Region
+Collaborative Science, Technology, and Applied Research Program
+County Warning Area
+Development and Operations Hydrologist
+Discrepancy Report
+Decision Support Services
+Emergency Manager or Management
+Emergency Management Agency
+Emergency Managers Weather Information Network
+Federal Emergency Management Agency
+Flash Flood Monitoring and Prediction
+Global Ensemble Forecast System
+Global Forecast System
+Hydrologic Service Area
+Hazardous Weather Outlook
+Interactive NWS, mobile weather service delivery
+Local Standard Time
+Missouri Basin River Forecast Center
+Mountain Daylight Time
+Meteorologist in Charge
+Multisensor Precipitation Estimates
+North American Mesoscale Forecast System
+National Center for Atmospheric Research
+National Centers for Environmental Prediction
+National Oceanic and Atmospheric Administration
+Numerical Weather Prediction
+NOAA Weather Radio All Hazards
+National Weather Service
+National Weather Service Headquarters
+Office of Climate, Water, and Weather Services
+Operational Systems Network
+Professional Competency Unit
+Professional Development Series
+Probabilistic Quantitative Precipitation Forecasts
+Precipitable water
+Quantitative Precipitation Estimates
+Quantitative Precipitation Forecast
+River Forecast Center
+Regional Operations Center
+Satellite Broadcast Network
+A-1
+
+SOO
+SREF
+SSH
+SSHP
+USGS
+UTC
+VSAT
+WCM
+WES
+WFO
+WHFS
+WPC
+WRF/ARW
+WRF/NMM
+WRF/NMMB
+WSR-88D
+
+Science and Operations Officer
+Short Range Ensemble Forecast System
+Senior Service Hydrologist
+Site Specific Hydrologic Predictor
+United States Geological Survey
+Coordinated Universal Time
+Very Small Aperture Satellite Communications Terminal
+Warning Coordination Meteorologist
+Weather Event Simulator
+Weather Forecast Office
+WFO Hydrologic Forecast System
+Weather Prediction Center
+Advanced Research Weather Research and Forecasting model
+Nonhydrostatic Mesoscale Model core of the Weather Research and Forecasting
+system
+Nonhydrostatic Mesoscale Model on the B grid of the Weather Research and
+Forecasting system
+Weather Surveillance Radar 88 Doppler
+
+A-2
+
+Appendix B
+
+Findings, Recommendations, and Best Practices
+
+Definitions:
+Best Practice—An activity or procedure that has produced outstanding results during a
+particular situation that could be used to improve effectiveness and/or efficiency throughout the
+organization in similar situations. No action is required.
+Fact—A statement that describes something important learned from the assessment for which no
+action is necessary. Facts are not numbered, but often lead to recommendations.
+Finding—A statement that describes something important learned from the assessment for
+which an action may be necessary. Findings are numbered in ascending order and are associated
+with a specific recommendation or action.
+Recommendation—A specific course of action, which should improve NWS operations and
+services, based on an associated finding. Not all recommendations may be achievable but they
+are important to document. Recommendations should be clear, specific, and measurable. The
+team leader and OCWWS will compose an action item for each recommendation.
+
+Findings and Recommendations
+Finding 1: There was limited direct coordination regarding rainfall potential and flash flooding
+potential between WPC and the impacted WFOs and RFCs prior to this event.
+Recommendation 1: WPC and the WFOs and RFCs should replicate the successful winter
+weather coordination model for significant hydrologic events by conducting coordination calls
+when the potential exists for widespread heavy rainfall and flash flooding
+Finding 2: WFO Boulder did not have a defined hydrology team, which limited the office’s
+ability to respond to such a widespread and multi-faceted flood event.
+Recommendation 2: WFOs should establish hydrology teams and ensure that WFO forecasters
+have sufficient knowledge, skill, and ability to deliver hydrologic forecast and warning services.
+Finding 3: The potential activation of tertiary backup office for WFO Boulder was cumbersome
+and would have been inadequate for the delivery of vital hydrologic services.
+Recommendation 3: The NWS should develop a dynamic service backup model that allows
+specified operations and services to be directed to less-impacted offices, and ensures all
+necessary hydrologic software applications are available for the office providing backup
+services.
+Finding 4: State agencies that operate river gages, such as those in Nebraska, do not have an
+automated system in place for disseminating rating curve updates as they occur.
+Recommendation 4: RFCs should work jointly with state partners to develop an automated
+means for agencies to share changes in existing ratings.
+B-1
+
+Finding 5: Flooding damaged or destroyed a considerable number of river gages, significantly
+limiting the amount of real-time streamflow data available to the WFOs and RFCs.
+Recommendation 5: RFCs and WFOs should work with their partners to document the upper
+operating limits of river gages and to establish alternate means for obtaining field observations
+and measurements near damaged gaging locations during significant flood events. This
+coordination could be accomplished through annual meetings that would identify key gages and
+reporting expectations for information during hydrologic events.
+Finding 6: Partners commented Weather Story is a beneficial graphic, but it lacks consistency in
+method of creation, format, content, and timeliness.
+Recommendation 6: The NWS should continue enhancing Weather Story, increase its visibility,
+and standardize its implementation across the agency to meet the requirements of partners.
+Finding 7: The HWO conveys hazardous weather information in the outlook period of the
+forecast, but its effectiveness often is reduced by its length and format.
+Recommendation 7: NWS should simplify the HWO into a bulleted format similar to other
+NWS products. The redesign should allow more flexibility in content at the WFO level.
+Finding 8: The NWS does not have a formal policy defining and describing DSS resulting in
+inconsistent content and delivery between offices.
+Recommendation 8: The NWS should implement a formal policy for DSS, as outlined in its
+Annual Operating Plan that capitalizes on the Weather-Ready Nation Roadmap and defines DSS
+and its information formats, content, methods for dissemination and communication, as well as
+recommended operational configurations for effective service delivery.
+Finding 9: The hydrologic product suite continues to be complex and cumbersome and often
+lacks the level of detail and specificity sought by partners.
+Recommendation 9a: The NWS should move from a product-driven framework to a hazards
+information-driven framework, which sequentially raises the level of situation awareness.
+Recommendation 9b: The NWS should enhance the tools and techniques that provide objective
+characterization of flooding at ungaged locations so that hazard information leverages Common
+Alerting Protocol (CAP) to articulate clearly the severity, urgency, and certainty for a given
+hazardous situation.
+Finding 10: The wide variety of tools available and used to communicate between NWS offices
+and partners can be challenging to manage and use efficiently.
+Recommendation 10: Each WFO should work with its partners to develop a unified, consistent
+communication and outreach program to keep partners informed about the full suite of forecast
+products, services, and delivery mechanisms.
+
+B-2
+
+Finding 11: Some partners along the South Platte expressed a need for additional forecast points
+along the river, but they did not know whom to contact to request the new forecast points.
+Recommendation 11: WFOs and RFCs must strengthen partner relationships and
+understanding through focused hydrologic outreach to build their understanding of current
+services, the process to initiate new forecast services, and the integral role they have in our
+service improvement process.
+Finding 12: WFOs Boulder and Pueblo utilized social media during this event to increase the
+dissemination of critical flood-related information. Its use varied in frequency, consistency, and
+specificity due in part to varying staffing and operational structure.
+Recommendation 12: The NWS should develop policy to address the use of social media,
+specifically addressing expectations during high-impact events.
+Finding 13: NOAA does not have a coordinated, visible, well-funded program to improve
+model QPF similar to the program for hurricane forecast improvement. The U.S. Weather
+Research Program has previously formulated plans to improve QPF (Fritsch & Carbone, 2004),
+for example; full references to cited articles are provided in Appendix F. NOAA has not fully
+funded and executed such a plan.
+Recommendation 13: NOAA should execute a sustained, collaborative research and
+development program that engages academic and federal partners to improve QPF and
+substantially increase the skill in detecting extreme precipitation events.
+Finding 14: FFMP lacks the capability to use high-resolution NWP to provide forecasters with a
+predictive assessment of flash flood potential in either a deterministic or a probabilistic
+framework.
+Recommendation 14: The NWS should develop methods to provide predictive capability to
+current or future flash flood monitoring and prediction tools that incorporate high-resolution
+deterministic and ensemble NWP guidance for QPF.
+Finding 15: MBRFC and ABRFC were unable to capture the intense rapid rises on the flashy
+streams along the Front Range and the movement of the flood wave into the larger rivers such as
+the South Platte and Arkansas Rivers.
+Recommendation 15: RFCs should leverage the capabilities of CHPS to demonstrate and
+evaluate different modeling approaches at appropriate temporal and special scales for basins that
+experience rapid runoff due to steep terrain.
+Finding 16: A portion of the South Platte River consists of a braided channel, which added a
+significant level of complexity to the modeling of water through this reach of river.
+Recommendation 16: The NWS should work with federal and academic water partners to
+demonstrate and evaluate hydraulic and hydrodynamic modeling solutions necessary to predict
+accurately the movement of water through complex hydrologic reaches such as braided channels.
+B-3
+
+Finding 17: The software solution addressing an issue identified by WFO Boulder prohibiting
+ingest of network rain gages was never shared with other AWIPS II offices, such as MBRFC,
+which was without these data during the flood event.
+Recommendation 17: The AWIPS Program Office, in conjunction with the NWS regions
+should develop a mechanism to notify field offices about recently disseminated patches or fixes
+to mission critical AWIPS functions, such as data ingest.
+Finding 18: The AWIPS II system and communications infrastructure is not yet capable of
+handling the voluminous ensemble information forecasters need to assess the uncertainty and
+likelihood of high-impact weather.
+Recommendation 18: AWIPS II needs to display and store forecast ensemble guidance
+produced by the NCEP Environmental Modeling Center. Until this function is added, regional
+offices should work with NCEP and local field offices to use Local Data Manager for this
+function.
+Finding 19: The slow Internet connection at WFO Pueblo had a negative impact on DSS
+briefings, on the ability to use data display tools such as the recently introduced Experimental
+Data Display, and on training.
+Recommendation 19: NWS should use the recently established NWS Dissemination Portfolio
+to ensure the necessary Internet bandwidth and infrastructure requirements are provided,
+including communications redundancy to support operations during high-impact events and
+service backup.
+Finding 20: The process to secure and deliver the VSAT Fly-Away Kit to WFO Grand Junction
+was ineffective and did not deploy the unit in a timely fashion.
+Recommendation 20: NWS should assign decision-making authority for release of the AWIPS
+VSAT Fly Away Kit to the regional director or designee.
+Finding 21: Although 4G coverage is not available everywhere, when available, during a
+communications outage, staff can configure 4G routers to port AWIPS, WSR-88D, and Internet.
+Recommendation 21: The NWS should establish a more robust and flexible approach to
+provide backup communication capability. Examples could include the establishment of VSAT
+capability at every office and the capability to utilize available 4G coverage where available, etc.
+Finding 22: Due to continued budgetary stresses and travel restrictions, NWS has reduced
+hydrometeorological in-residence training and conference attendance and increased its portfolio
+of self-paced and distance learning courses.
+Recommendation 22a: The NWS should formulate a balanced approach to training, leveraging
+a combination of in-residence, distance learning, and self-paced training opportunities in concert
+with the established PDS to satisfy field training requirements. The training approach should
+include a renewed focus on ingredients-based methodology and use of anomaly data in the
+forecast process to better predict rare or record events.
+B-4
+
+Recommendation 22b: The NWS should provide a consolidated catalogue of available training
+courses, identify and update modules that are outdated, and fill existing gaps in Instructional
+Components in each PDS.
+Finding 23: Local office training plans were limited in activities geared toward hydrologic
+science and operations.
+Recommendation 23: Regional Headquarters should work with local field offices to ensure the
+development of robust training plans which leverage existing training courses. These plans
+should incorporate science, event simulations, and drills to ensure forecaster proficiency on all
+aspects of forecast and warning operations and services. Management must ensure forecasters
+are provided the necessary dedicated time to complete all training requirements. Where possible,
+NWS should accelerate results from Testbeds and CSTAR programs into training and operation
+activities.
+Finding 24: WFOs cannot play back archived hydrologic data to support event simulations for
+high impact hydrologic events using the core WFO WHFS applications.
+Recommendation 24: The NWS should develop event simulation capability for the core WFO
+hydrologic program applications. Once developed, hydrologic training requirements must be
+integrated into NWS Instruction 20-101, Use of the Weather Event Simulator, which mandates at
+least 4 training simulations for each forecaster annually.
+
+Best Practices
+Best Practice: MBRFC established site-specific capability for headwater streams in the WFO
+Boulder area, mirroring the capabilities at WFO Boulder. MBRFC leveraged this functionality
+to provide critical forecast support for headwater streams in the WFO Boulder hydrologic service
+area (HSA).
+Best Practice: Extensive interagency outreach and preparedness activities regarding the flash
+flood potential on burn scars greatly enhanced the level of threat awareness and resulted in
+communities having an emergency plan they could implement quickly.
+Best Practice: Group email blasts, notifications, and webinars are an effective way to reach
+many stakeholders and partners during an event without overly taxing the resources at WFOs.
+Best Practice: WFO Boulder successfully incorporated the flash flood emergency language to
+raise the level of urgency for action.
+Best Practice: WFO Boulder effectively used the civil emergency message developed through
+its collaboration with Boulder County EMA to communicate the critical nature of the flood
+emergency.
+Best Practice: Both MBRFC and ABRFC leveraged the gridded flash flood guidance system
+capability to define burn scar regions and dramatically lower the guidance values over these grid
+cells, thereby improving the guidance provided to the WFOs.
+B-5
+
+Appendix C
+
+Methodology
+
+The Record Eastern Colorado Floods of September 11–17, 2013, Service Assessment Team
+completed the following actions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+Conducted in-person interviews with multiple staff members at WFOs Boulder and
+Pueblo and received an in-brief from the WFO management teams, followed by a
+question and answer session
+Met with NWS CR Headquarters staff members in Kansas City, MO, about operations
+and services during the event
+Conducted in-person interviews with staff at the Missouri Basin RFC, which had
+responsibility for river forecasts in most of the affected areas, including the South Platte
+River
+Conducted in-person interview with the Staff Meteorologist at the University Corporation
+for Atmospheric Research in Boulder, CO
+Conducted in-person interviews with the following partners:
+o Boulder County EMA, including senior officials and the head of the Urban Flood
+Drainage group
+o Loveland, CO, and Aurora County Offices of Emergency Management (OEM)
+o Larimer and Weld County EMAs, and Jefferson and Logan County OEMs
+o Colorado Climate Center in Fort Collins, CO
+o On-air meteorologists at FOX9 and ABC7 in Denver, CO
+o Denver, Clear Creek County, and Adams County Offices of Emergency
+Management
+o Northeast Colorado Office of Emergency Management, as well as the Colorado
+State Office of Emergency Management
+o Science and Environmental reporter at the Boulder Daily Camera newspaper in
+Boulder, CO
+Met with community partners in Colorado Springs and Boulder, CO, including the
+U.S. Forest Service, KKTV and KRDO Colorado Springs on-air meteorologists,
+Colorado Springs Fire Department, Colorado State EMA, El Paso County EMA and Fire
+officials, Manitou Springs Chiefs of Police and Fire, and representatives from the
+Coalition for the Upper South Platte (CUSP)
+Conducted a phone interview with the leadership team at ABRFC to discuss forecast
+services and performance for the Arkansas Basin
+Conducted a phone interview with the Bureau of Reclamation–Eastern Colorado Area
+Office
+Took part in the Southern Region Rapid Evaluation of Service Activities and
+Performance (RESAP) debriefing for flooding that impacted New Mexico
+Evaluated WPC products and services and national guidance
+
+C-1
+
+Appendix D
+
+Summary of Flash Flood and Areal Flood Warnings
+
+WFO Boulder Flash Flood Watches
+Areas Included
+Central Colorado, North Central Colorado,
+and Northeast Colorado
+Central Colorado, North Central Colorado,
+and Northeast Colorado
+Central Colorado, North Central Colorado,
+and Northeast Colorado
+Central Colorado, North Central Colorado,
+and Northeast Colorado
+Central Colorado, North Central Colorado,
+and Northeast Colorado
+Central Colorado, North Central Colorado,
+and Northeast Colorado
+Central Colorado, North Central Colorado,
+and Northeast Colorado
+Central Colorado, North Central Colorado,
+and Northeast Colorado
+Central Colorado, North Central Colorado,
+and Northeast Colorado
+
+ETN (Significance)
+
+Issuance Time
+(MDT)
+
+Expiration Time
+(MDT)
+
+05 (NEW)
+
+5:05 a.m. (9/12/13)
+
+12:00 a.m. (9/13/13)
+
+05 (EXT)
+
+6:24 a.m. (9/12/13)
+
+12:00 a.m. (9/13/13)
+
+05 (EXB)
+
+9:58 a.m. (9/12/13)
+
+6:00 a.m. (9/13/13)
+
+05 (EXT)
+
+3:04 a.m. (9/13/13)
+
+12:00 p.m. (9/13/13)
+
+05 (EXT)
+
+10:07 a.m. (9/1313)
+
+9:00 p.m. (9/13/13)
+
+06 (NEW)
+
+4:30 a.m. (9/14/13)
+
+6:00 p.m. (9/15/13)
+
+06 (EXB)
+
+12:28 p.m. (9/14/13)
+
+6:00 p.m. (9/15/13)
+
+06 (EXT)
+
+3:28 p.m. (9/15/13)
+
+12:00 a.m. (9/16/13)
+
+07 (NEW)
+
+3:55 a.m. (9/16/13)
+
+7:00 p.m. (9/16/13)
+
+WFO Boulder Flash Flood Warnings
+County(ies)
+Central Washington
+Southwest Weld, Northeast
+Broomfield, Eastern Boulder
+Central Boulder
+Extreme Southwest Weld, Extreme
+Northwest Adams, Northern
+Broomfield, Boulder
+Larimer
+
+ETN
+(Significance)
+26 (NEW)
+
+9/11/13
+
+Issuance
+Time (MDT)
+3:23 p.m.
+
+Expiration
+Time (MDT)
+6:15 p.m.
+
+Verified
+(Y/N)
+N
+
+27 (NEW)
+
+9/11/13
+
+6:36 p.m.
+
+9:30 p.m.
+
+Y
+
+28 (NEW)
+
+9/11/13
+
+7:02 p.m.
+
+10:00 p.m.
+
+Y
+
+29 (NEW)
+
+9/11/13
+
+7:58 p.m.
+
+10:45 p.m.
+
+Y
+
+30 (NEW)
+
+9/11/13
+9/11/13 –
+9/12/13
+9/11/13 –
+9/12/13
+9/11/13 –
+9/12/13
+9/11/13 –
+9/12/13
+9/11/13 –
+9/12/13
+9/12/13
+9/12/13
+9/12/13
+
+8:25 p.m.
+
+11:15 p.m.
+
+Y
+
+9:46 p.m.
+
+12:45 a.m.
+
+Y
+
+10:01 p.m.
+
+1:00 a.m.
+
+N
+
+10:49 p.m.
+
+3:45 a.m.
+
+Y
+
+11:16 p.m.
+
+4:15 a.m.
+
+Y
+
+11:42 p.m.
+
+2:45 a.m.
+
+Y
+
+12:31 a.m.
+2:04 a.m.
+2:34 a.m.
+
+4:30 a.m.
+5:00 a.m.
+5:30 a.m.
+
+Y
+Y
+Y
+
+Northwest Jefferson, Boulder
+
+31 (NEW)
+
+Northwest Arapahoe, Southwest
+Adams, Central Denver
+
+32 (NEW)
+
+Larimer
+
+33 (NEW)
+
+Northern Jefferson and Boulder
+
+34 (NEW)
+
+Southwest Broomfield
+
+35 (NEW)
+
+Northwest Weld and Larimer
+Southwest Weld
+South Central Larimer
+
+36 (NEW)
+37 (NEW)
+38 (NEW)
+
+D-1
+
+Date
+
+WFO Boulder Flash Flood Warnings continued…
+County(ies)
+Southwest Weld
+Central Boulder
+Southern Larimer
+Northwest Adams
+Southwest Adams and Central
+Denver
+Weld
+Northwest Adams
+Larimer
+Northern Boulder
+Northwest Arapahoe
+Central Boulder
+Extreme Northwest Arapahoe,
+Southwest Adams, Central Denver
+Northwest Arapahoe, South
+Central Denver
+Larimer
+Boulder
+Northern Larimer
+Western Arapahoe, Southwest
+Adams, South Central Denver
+Southeast Larimer
+Southeast Larimer
+North Central Larimer
+Northwest Jefferson and Boulder
+Northwest Jefferson and Boulder
+Western Arapahoe, Eastern
+Douglas, Southeast Denver
+Larimer
+Southern Lincoln
+Northeast Park, Northwest
+Jefferson, Clear Creek, Gilpin
+Northeast Park, Northwest
+Jefferson, Clear Creek, Gilpin
+Southeast Larimer
+Southeast Larimer
+Western Adams and North
+Central Denver
+Larimer
+Northern Jefferson and Boulder
+Northern Jefferson and Boulder
+Northeast Park, Jefferson, Clear
+Creek, Gilpin
+Lincoln
+West Central Jefferson, Southeast
+Clear Creek
+
+ETN
+(Significance)
+39 (NEW)
+40 (NEW)
+41 (NEW)
+42 (NEW)
+
+9/12/13
+9/12/13
+9/12/13
+9/12/13
+
+Issuance Time
+(MDT)
+3:07 a.m.
+4:10 a.m.
+4:18 a.m.
+4:20 a.m.
+
+Expiration Time
+(MDT)
+7:00 a.m.
+7:15 a.m.
+7:15 a.m.
+7:15 a.m.
+
+Verified
+(Y/N)
+Y
+Y
+Y
+Y
+
+43 (NEW)
+
+9/12/13
+
+6:01 a.m.
+
+9:00 a.m.
+
+Y
+
+44 (NEW)
+45 (NEW)
+46 (NEW)
+47 (NEW)
+48 (NEW)
+49 (NEW)
+
+9/12/13
+9/12/13
+9/12/13
+9/12/13
+9/12/13
+9/12/13
+
+6:52 a.m.
+6:55 a.m.
+7:05 a.m.
+7:12 a.m.
+7:24 a.m.
+8:36 a.m.
+
+9:45 a.m.
+10:00 a.m.
+10:00 a.m.
+10:15 a.m.
+10:15 a.m.
+11:30 a.m.
+
+Y
+Y
+Y
+Y
+Y
+Y
+
+50 (NEW)
+
+9/12/13
+
+9:02 a.m.
+
+12:00 p.m.
+
+Y
+
+51 (NEW)
+
+9/12/13
+
+9:12 a.m.
+
+12:15 p.m.
+
+Y
+
+52 (NEW)
+53 (NEW)
+54 (NEW)
+
+9/12/13
+9/12/13
+9/12/13
+
+9:51 a.m.
+10:02 a.m.
+10:44 a.m.
+
+12:45 p.m.
+1:00 p.m.
+1:45 p.m.
+
+Y
+Y
+Y
+
+55 (NEW)
+
+9/12/13
+
+12:14 p.m.
+
+3:15 p.m.
+
+Y
+
+56 (NEW)
+56 (EXT)
+57 (NEW)
+58 (NEW)
+58 (EXT)
+
+9/12/13
+9/12/13
+9/12/13
+9/12/13
+9/12/13
+
+12:35 p.m.
+3:29 p.m.
+1:42 p.m.
+3:29 p.m.
+7:00 p.m.
+
+3:30 p.m.
+9:30 p.m.
+4:45 p.m.
+7:30 p.m.
+11:30 p.m.
+
+Y
+N
+Y
+Y
+Y
+
+59 (NEW)
+
+9/12/13
+
+5:04 p.m.
+
+9:00 p.m.
+
+Y
+
+60 (NEW)
+61 (NEW)
+
+9/12/13
+9/12/13
+
+6:07 p.m.
+6:28 p.m.
+
+9:00 p.m.
+10:30 p.m.
+
+Y
+N
+
+62 (NEW)
+
+9/12/13
+
+7:23 p.m.
+
+10:15 p.m.
+
+Y
+
+62 (EXT)
+
+9/12/13
+
+9:53 p.m.
+
+1:15 a.m.
+
+Y
+
+63 (NEW)
+63 (EXT)
+
+9/12/13
+9/12/13
+
+9:03 p.m.
+12:45 a.m.
+
+2:00 a.m.
+8:00 a.m.
+
+Y
+Y
+
+64 (NEW)
+
+9/12/13
+
+9:53 p.m.
+
+3:30 a.m.
+
+Y
+
+65 (NEW)
+66 (NEW)
+
+9/12/13
+9/12/13
+9/12/13 –
+9/13/13
+
+9:55 p.m.
+10:52 p.m.
+
+2:00 a.m.
+3:45 a.m.
+
+Y
+Y
+
+11:58 p.m.
+
+6:00 a.m.
+
+Y
+
+68 (NEW)
+
+9/13/13
+
+12:09 a.m.
+
+6:00 a.m.
+
+Y
+
+69 (NEW)
+
+9/13/13
+
+12:50 a.m.
+
+3:45 a.m.
+
+N
+
+70 (NEW)
+
+9/14/13
+
+12:50 p.m.
+
+3:45 p.m.
+
+Y
+
+67 (NEW)
+
+Date
+
+WFO Boulder Flash Flood Warnings continued…
+D-2
+
+County(ies)
+Central Larimer
+Southeast Douglas
+Extreme Northwest Elbert, Eastern
+Douglas
+Western Araphahoe
+Southwest Weld, Western Adams,
+Northern Denver
+Western Arapahoe, Southwest
+Denver
+Southeast Jefferson, Southwest
+Douglas
+Central Weld
+Extreme Southern Jefferson, Douglas
+Southwest Adams, Northeast Denver
+Morgan, Northeast Weld, Southwest
+Logan
+Central Larimer (High Park Burn)
+Central Boulder (Fourmile Burn and
+Jamestown Area)
+Extreme Southwest Weld, Northwest
+Adams, Broomfield, Southeast
+Boulder
+Western Arapahoe, Western Adams,
+Eastern Denver
+
+ETN
+(Significance)
+71 (NEW)
+72 (NEW)
+
+9/14/13
+9/14/13
+
+Issuance Time
+(MDT)
+2:09 p.m.
+2:29 p.m.
+
+Expiration
+Time (MDT)
+5:00 p.m.
+5:30 p.m.
+
+Verified
+(Y/N)
+Y
+Y
+
+73 (NEW)
+
+9/14/13
+
+2:57 p.m.
+
+6:00 p.m.
+
+Y
+
+74 (NEW)
+
+9/14/13
+
+3:23 p.m.
+
+6:15 p.m.
+
+Y
+
+75 (NEW)
+
+9/14/13
+
+3:53 p.m.
+
+6:45 p.m.
+
+Y
+
+76 (NEW)
+
+9/14/13
+
+4:23 p.m.
+
+7:15 p.m.
+
+Y
+
+77 (NEW)
+
+9/14/13
+
+4:39 p.m.
+
+7:30 p.m.
+
+Y
+
+78 (NEW)
+79 (NEW)
+80 (NEW)
+
+9/14/13
+9/14/13
+9/14/13
+
+4:51 p.m.
+5:57 p.m.
+7:00 p.m.
+
+7:45 p.m.
+8:45 p.m.
+9:45 p.m.
+
+N
+Y
+Y
+
+81 (NEW)
+
+9/14/13
+
+7:47 p.m.
+
+10:45 p.m.
+
+Y
+
+82 (NEW)
+
+9/15/13
+
+9:52 a.m.
+
+12:45 p.m.
+
+N
+
+85 (NEW)
+
+9/15/13
+
+10:41 a.m.
+
+1:30 p.m.
+
+N
+
+86 (NEW)
+
+9/15/13
+
+11:50 a.m.
+
+3:45 p.m.
+
+N
+
+87 (NEW)
+
+9/15/13
+
+12:32 p.m.
+
+4:30 p.m.
+
+N
+
+Date
+
+D-3
+
+WFO Boulder Areal Flood Warnings
+County(ies)
+Southern Weld, Central Adams
+Northwest Arapahoe, Southwest Adams,
+Central Denver
+Southeast Larimer (Big Thompson)
+Northwest Arapahoe, Western Weld, Northern
+Jefferson, Larimer, Western Adams,
+Broomfield, Denver, Boulder
+Western Arapahoe, Western Weld, Northeast
+Park, Jefferson, Larimer, Clear Creek, Adams,
+Northeast Douglas, Broomfield, Gilpin,
+Denver, Boulder
+Western Arapahoe, Western Weld, Northeast
+Park, Jefferson, Larimer, Clear Creek, Western
+Adams, Northeast Douglas, Broomfield, Gilpin,
+Denver, Boulder
+Western Arapahoe, Western Weld, Northeast
+Park, Jefferson, Larimer, Clear Creek, Western
+Adams, Northeast Douglas, Broomfield, Gilpin,
+Denver, Boulder
+Western Weld, Northeast Park, Jefferson,
+Larimer, Eastern Clear Creek, Broomfield,
+Gilpin, Denver, Boulder
+Western Arapahoe, Weld, Northwest
+Washington, Northern Sedgwick, Jefferson,
+Eastern Larimer, Extreme SE Clear Creek,
+Adams, Eastern Gilpin, Denver, Logan,
+Boulder, Morgan
+Northwest Elbert, Southern Jefferson, Douglas
+
+ETN
+(Significance)
+02 (NEW)
+
+9/11/13
+
+Issuance Time
+(MDT)
+9:53 p.m.
+
+Expiration
+Time (MDT)
+12:45 p.m.
+
+03 (NEW)
+
+9/12/13
+
+12:59 a.m.
+
+4:00 a.m.
+
+04 (NEW)
+
+9/12/13
+
+5:59 a.m.
+
+2:45 p.m.
+
+05 (NEW)
+
+9/12/13
+
+8:28 a.m.
+
+8:30 p.m.
+
+06 (NEW)
+
+9/12/13 –
+9/13/13
+
+7:35 p.m.
+
+7:30 a.m.
+
+07 (NEW)
+
+9/13/13
+
+7:34 a.m.
+
+7:30 p.m.
+
+07 (EXT)
+
+9/13/13 –
+9/14/14
+
+2:09 p.m.
+
+7:30 a.m.
+
+08 (NEW)
+
+9/14/13
+
+7:50 a.m.
+
+7:45 p.m.
+
+09 (NEW)
+
+9/15/13
+
+9:10 a.m.
+
+9:00 p.m.
+
+10 (NEW)
+
+9/15/13
+
+12:08 p.m.
+
+9:00 p.m.
+
+Date
+
+WFO Pueblo Flash Flood Watches
+Areas Included
+
+ETN
+(Significance)
+
+Issuance Time
+(MDT)
+
+Higher Terrain and Burn Scar Areas
+
+16 (NEW)
+
+9:50 a.m. (9/10/13)
+
+17 (NEW)
+
+9:05 a.m. (9/11/13)
+
+18 (NEW)
+
+3:58 p.m. (9/11/13)
+
+18 (EXB)
+
+9:19 a.m. (9/12/13)
+
+El Paso and Teller Counties
+
+19 (NEW)
+
+5:12 a.m. (9/13/13)
+
+El Paso and Teller Counties
+
+20 (NEW)
+
+12:51 p.m. (9/14/13)
+
+El Paso and Teller Counties
+
+20 (EXT)
+
+8:05 p.m. (9/15/13)
+
+El Paso County, Teller County, and the Rampart
+Range
+El Paso County, Teller County, and the Rampart
+Range
+East Central Colorado, Southeast Colorado, and
+South Central Colorado
+
+D-4
+
+Expiration Time
+(MDT)
+12:00 a.m.
+(9/10/13)
+9:00 p.m.
+(9/11/13)
+9:00 p.m.
+(9/12/13)
+6:00 a.m.
+(9/13/13)
+12:00 p.m.
+(9/13/13)
+9:00 p.m.
+(9/15/13)
+12:00 a.m.
+(9/16/13)
+
+WFO Pueblo Flash Flood Warnings
+County(ies)
+West Central El Paso
+West Central Pueblo
+West Central El Paso
+West Central El Paso
+West Central El Paso
+East Central Fremont,
+Northwest Pueblo,
+Southwest El Paso
+West Central El Paso
+West Central El Paso
+Southwest El Paso
+West Central El Paso
+
+ETN
+(Significance)
+35 (NEW)
+36 (NEW)
+37 (NEW)
+38 (NEW)
+39 (NEW)
+
+9/11/13
+9/11/13
+9/11/13
+9/12/13
+9/12/13
+
+Issuance Time
+(MDT)
+9:43 a.m.
+8:45 p.m.
+9:32 p.m.
+12:32 a.m.
+3:24 a.m.
+
+Expiration Time
+(MDT)
+1:20 p.m.
+11:30 p.m.
+12:30 a.m.
+3:30 a.m.
+6:30 a.m.
+
+Verified
+(Y/N)
+N
+Y
+Y
+Y
+Y
+
+40 (NEW)
+
+9/12/13
+
+8:33 a.m.
+
+11:30 a.m.
+
+Y
+
+41 (NEW)
+42 (NEW)
+43 (NEW)
+44 (NEW)
+
+9/12/13
+9/12/13
+9/12/13
+9/12/13
+9/12/13 –
+9/13/13
+9/15/13
+9/15/13
+9/15/13
+
+10:18 a.m.
+5:26 p.m.
+6:39 p.m.
+8:23 p.m.
+
+1:00 p.m.
+8:30 p.m.
+9:30 p.m.
+11:30 p.m.
+
+Y
+Y
+Y
+Y
+
+9:26 p.m.
+
+12:30 a.m.
+
+Y
+
+12:58 p.m.
+2:48 p.m.
+4:08 p.m.
+
+4:00 p.m.
+6:00 p.m.
+7:00 p.m.
+
+Y
+Y
+Y
+
+Southwest El Paso
+
+45 (NEW)
+
+Central El Paso
+East Central Fremont
+West Central El Paso
+
+46 (NEW)
+47 (NEW)
+48 (NEW)
+
+Date
+
+WFO Pueblo Areal Flood Warnings
+West Central El Paso
+
+ETN
+(Significance)
+03 (NEW)
+
+West Central El Paso
+
+04 (NEW)
+
+West Central El Paso
+
+05 (NEW)
+
+Southwest El Paso
+El Paso (Cheyenne Creek)
+
+06 (NEW)
+07 (NEW)
+
+County(ies)
+
+Date
+9/12/13
+9/12/13 –
+9/13/13
+9/12/13 –
+9/13/13
+9/13/13
+9/14/14
+
+D-5
+
+Issuance Time
+(MDT)
+8:08 p.m.
+
+Expiration Time
+(MDT)
+11:00 p.m.
+
+10:55 p.m.
+
+2:00 a.m.
+
+11:24 p.m.
+
+02:30 a.m.
+
+12:29 a.m.
+4:01 p.m.
+
+03:30 a.m.
+10:00 p.m.
+
+Appendix E
+
+Summary of River Flood Guidance Verification
+for MBRFC and ABRFC
+
+Alphabetical listing of forecast locations by response times
+NWS Handbook 5 ID
+
+Response Time
+
+FN3C2
+
+Gage Location
+MBRFC
+South Boulder Creek near Eldorado Springs
+Big Thompson River at Canyon Mouth
+Boulder Creek at Boulder
+North Fork Big Thompson River at Drake
+South Platte River at Denver
+Cache La Poudre River at Canyon Mouth
+above Fort Collins
+Clear Creek at Golden
+South Platte River at Henderson
+Saint Vrain Creek at Lyons
+Plum Creek near Sedalia
+Big Thompson River at Mouth near La Salle
+Bear Creek at Morrison
+Cache La Poudre River at Fort Collins
+Bear Creek at Sheridan
+Cache La Poudre River near Greeley
+South Platte River at Kersey
+South Platte River near Weldona
+South Platte River near Balzac
+South Platte River near Julesburg
+South Platte River at Roscoe
+South Platte River at North Platte
+North Platte River at North Platte
+Platte River at Brady
+Platte River near Cozad
+Platte River near Kearney
+Platte River near Grand Island
+Platte River near Duncan
+ABRFC
+Fountain Creek at Colorado Springs
+
+FHAC2
+
+Fountain Creek near Fountain
+
+Fast
+
+PNNC2
+
+Fountain Creek at Pinon
+
+Fast
+
+ADLC2
+
+Arkansas River at Avondale
+
+Medium
+
+CDMC2
+
+Arkansas River below Catlin Dam
+
+Slow
+
+LXHC2
+
+Arkansas River at La Junta
+
+Slow
+
+BELC2
+BIMC2
+BOCC2
+DKKC2
+DNVC2
+FTDC2
+GLDC2
+HNDC2
+LNSC2
+LOVC2
+LSLC2
+MRRC2
+POUC2
+SHRC2
+GRPC2
+KERC2
+WNAC2
+BZNC2
+JULC2
+RSON1
+NPSN1
+NPTN1
+BDYN1
+COZN1
+KEAN1
+GRIN1
+DNCN1
+
+E-1
+
+Fast
+Fast
+Fast
+Fast
+Fast
+Fast
+Fast
+Fast
+Fast
+Fast
+Fast
+Fast
+Fast
+Fast
+Medium
+Medium
+Medium
+Slow
+Slow
+Slow
+Slow
+Slow
+Slow
+Slow
+Slow
+Slow
+Slow
+Fast
+
+MBRFC forecast lead times for fast response rivers
+flood stage (FS) 1st RVF fcst issued
+1st time observed
+in
+feet
+with
+value
+>=
+FS
+value >= FS
+location
+BELC2
+4.5
+9/13/13 2:38
+9/12/13 5:15
+BIMC2
+6.0
+9/12/13 11:59
+9/12/13 13:30
+BOCC2
+5.5
+9/12/13 8:01
+9/12/13 6:45
+DKKC2
+6.0
+9/12/13 12:57
+9/12/13 13:30
+FTDC2
+7.5
+9/12/13 22:09
+9/13/13 3:45
+HNDC2
+10.0
+9/12/13 11:07
+9/12/13 17:15
+LNSC2
+8.5
+9/12/13 7:37
+9/12/13 13:15
+LOVC2
+8.0
+9/13/13 4:20
+9/15/13 0:00
+LSLC2
+8.0
+9/13/13 8:53
+9/13/13 7:15
+MRRC2
+9.0
+9/13/13 5:39
+9/13/13 15:00
+POUC2
+10.5
+9/12/13 22:09
+9/13/13 5:30
+
+lead time
+0 mins
+1 hr 31 mins
+0 mins
+33 mins
+5 hrs 36 mins
+6 hrs 8 mins
+5 hrs 38 mins
+19 hrs 40 mins
+0 mins
+9 hrs 21 mins
+7 hrs 21 mins
+
+MBRFC forecast lead times for medium response rivers
+location
+GRPC2
+KERC2
+WNAC2
+
+flood stage
+(FS) in feet
+
+1st RVF fcst issued
+with value >= FS
+
+1st time observed
+value >= FS
+
+8.0
+10.0
+10.0
+
+9/12/13 16:28
+9/12/13 11:07
+9/12/13 11:07
+
+9/14/13 16:15
+9/13/13 15:30
+9/17/13 16:45
+
+lead time
+1 day 23 hrs 47 mins
+1 day 4 hrs 23 mins
+5 days 5 hrs 38 mins
+
+MBRFC forecast lead times for slow response rivers
+location
+BDYN1
+BZNC2
+COZN1
+GRIN1
+JULC2
+KEAN1
+NPSN1
+RSON1
+
+flood stage
+(FS) in feet
+
+1st RVF fcst issued
+with value >= FS
+
+1st time observed
+value >= FS
+
+7.5
+10.0
+6.5
+6.5
+10.0
+6.0
+13.0
+9.0
+
+9/16/13 14:36
+9/12/13 11:07
+9/16/13 14:36
+9/21/13 14:17
+9/14/13 19:40
+9/19/13 14:40
+9/16/13 2:25
+9/14/13 16:43
+
+9/21/13 22:00
+9/15/13 10:15
+9/24/13 2:00
+9/27/13 21:15
+9/18/13 12:30
+9/26/13 10:15
+9/21/13 10:30
+9/19/13 16:45
+
+E-2
+
+lead time
+5 days 7 hrs 24 mins
+2 days 23 hrs 8 mins
+7 days 11 hrs 24 mins
+6 days 6 hrs 58 mins
+3 days 16 hrs 50 mins
+6 days 19 hrs 35 mins
+5 days 8 hrs 5 mins
+5 days 0 hrs 2 mins
+
+ABRFC forecast lead times for fast response rivers
+location
+FN3C2
+
+flood stage
+(FS) in feet
+8.0
+
+1st RVF fcst issued
+with value >=FS
+9/13/13 00:36
+
+1st time observed
+value >=FS
+9/12/13 08:45
+
+lead time
+0 mins
+
+FHAC2
+
+8.0
+
+9/13/13 5:12
+
+9/13/13 06:15
+
+1 hr 3 mins
+
+PNNC2
+
+7.0
+
+9/13/13 14:32
+
+9/13/13 13:00
+
+0 mins
+
+ABRFC forecast lead times for medium and slow response rivers
+location
+ADLC2
+CDMC2
+LXHC2
+
+flood stage
+(FS) in feet
+7.0
+8.0
+11.0
+
+1st RVF fcst issued
+with value >=FS
+9/13 06:58
+9/16 19:19
+9/16/13:45
+
+1st time observed
+value >=FS
+9/14/13 00:15
+9/16/13 19:45
+9/17/13 4:45
+
+E-3
+
+lead time
+17 hrs 17 mins
+26 mins
+15 hrs 0 mins
+
+Appendix F
+
+References
+
+Fritsch, J. Michael, R. E. Carbone, 2004: Improving Quantitative Precipitation Forecasts in the
+Warm Season: A USWRP Research and Development Strategy. Bull. Amer. Meteor.
+Soc., 85, 955–965. doi: http://dx.doi.org/10.1175/BAMS-85-7-955
+Hamill, T. M., 2014: Performance of operational model precipitation forecast guidance during
+the 2013 Colorado Front Range floods. Mon. Wea. Rev., accepted, awaiting publication.
+Islam, S., R. L. Bras, K. A. Emanuel, 1993: Predictability of mesoscale rainfall in the tropics. J.
+Appl. Meteor., 32, 297–310. doi: http://dx.doi.org/10.1175/15200450(1993)032<0297:POMRIT>2.0.CO;2
+National Weather Service, 2010: Service Assessment - Southeast United States Floods,
+September 18–23, 2009. NOAA, U.S. Dept. of Commerce, 35 pp.
+_____, 2011: Service Assessment - Record Floods of Greater Nashville: Including Flooding in
+Middle Tennessee and Western Kentucky, May 1–4, 2010. NOAA, U.S. Dept. of
+Commerce, 67 pp.
+_____, 2012: Service Assessment - Spring 2011 Middle & Lower Mississippi River Valley
+Floods. NOAA, U.S. Dept. of Commerce, 84 pp.
+_____, 2012: Service Assessment - The Missouri/Souris River Floods of May–August 2011.
+NOAA, U.S. Dept. of Commerce, 68 pp.
+_____, 2012: Service Assessment - Hurricane Irene, August 21–30, 2011. NOAA, U.S. Dept. of
+Commerce, 91 pp.
+
+F-1
+
+

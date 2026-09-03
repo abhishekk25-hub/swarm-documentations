@@ -1,0 +1,225 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+sub_tasks:
+- id: data-reconciliation-steward
+  depends_on: []
+  parallel_group: ingest
+  description: >-
+    You own the canonical route table the whole analysis is built on. Read
+    /input_artifacts/title_vi_equity_policy.md first, then
+    service_change_package_fy2026.csv (the proposal of record),
+    gtfs_schedule_export.csv, walkshed_demographics_acs.csv, and
+    service_calendar_fy2026.csv. Build one canonical row per route with the
+    governing post-change daily trips. Where the GTFS export disagrees with the
+    adopted proposal, the proposal governs and you log the discrepancy. For each
+    route compute the percent change in daily revenue miles and in daily trips on
+    the affected day type and decide whether it is a major service change on its
+    own (the 25 percent screen). Mark which routes have an actual change, and
+    using the ACS block-group overlap field flag any route below 50 percent
+    overlap as set-aside-for-data-quality (excluded from the equity rollup but
+    still disclosed). Per the policy's aggregate rule, every changed route with
+    adequate ACS coverage is included in the rollup regardless of whether it is
+    individually major. Determine the annual-trips factor for each route from the
+    service calendar. Emit a canonical route table (route_id, route_name,
+    change_type, affected_day_type, daily_trips_after_governing,
+    gtfs_conflict_flag, daily_trips_pct_change, is_major_change, has_change,
+    included_in_equity_rollup, exclusion_reason, annual_trips_before,
+    annual_trips_after), a conflict_log block (route_id, field, proposal_value,
+    gtfs_value, resolved_value, rule_applied, note), and an exclusion_log block
+    (route_id, reason, acs_overlap_pct, note). Write everything to
+    /workspace/parts/canonical_route_table.md.
+- id: regulatory-research-specialist
+  depends_on: []
+  parallel_group: research
+  description: >-
+    You confirm the legal authorities. Using /input_artifacts/sources_to_confirm.md,
+    open the official source for S-01 through S-05 (FTA Circular 4702.1B, Title VI
+    of the Civil Rights Act of 1964 at 42 U.S.C. 2000d, 49 CFR Part 21, DOT Order
+    5610.2C, and Executive Order 12898). For each, confirm the specific
+    requirement it supplies, record the URL you actually retrieved (use the
+    official domain named in sources_to_confirm.md), and freeze the retrieval
+    date. Emit a source_register block (source_id, authority, requirement_or_fact,
+    source_url, retrieved_date, used_in_section) for S-01 through S-05 to
+    /workspace/parts/sources_legal.md.
+- id: demographic-data-research-specialist
+  depends_on: []
+  parallel_group: research
+  description: >-
+    You confirm the Census data sources behind the demographic and
+    transit-dependence numbers. Using /input_artifacts/sources_to_confirm.md,
+    open the official Census source for S-06 through S-10 (ACS tables B03002,
+    C17002, B08201, C16001, and B01001). For each, confirm what the table
+    measures and how it backs the minority share, the low-income share, or the
+    transit-dependent context (zero-vehicle households, limited English
+    proficiency, older adults), record the retrieved URL and the retrieval date.
+    Emit a source_register block (source_id, authority, requirement_or_fact,
+    source_url, retrieved_date, used_in_section) for S-06 through S-10 to
+    /workspace/parts/sources_acs.md.
+- id: standards-research-specialist
+  depends_on: []
+  parallel_group: research
+  description: >-
+    You confirm the remaining reference standards. Using
+    /input_artifacts/sources_to_confirm.md, open the official source for S-11
+    through S-13 (the FTA National Transit Database, the GTFS reference, and the
+    Census ACS margin-of-error / methodology guidance), confirm what each
+    supplies, and record the retrieved URL and date. Emit a source_register block
+    (source_id, authority, requirement_or_fact, source_url, retrieved_date,
+    used_in_section) for S-11 through S-13 to /workspace/parts/sources_standards.md.
+- id: people-trips-analyst-core
+  depends_on:
+  - data-reconciliation-steward
+  parallel_group: equity-compute
+  description: >-
+    You are the people-trips analyst for the individually-major routes, the
+    realignment, and the new route. Read /workspace/parts/canonical_route_table.md,
+    /input_artifacts/walkshed_demographics_acs.csv and title_vi_equity_policy.md.
+    For each of your routes compute people-trips per the adopted method
+    (people-trips equals walkshed population times annual trips; minority and
+    low-income people-trips apply the route's ACS shares), for the before and
+    after conditions, with the delta as after minus before. The realignment
+    changes the walkshed population between before and after; the new route has a
+    zero before condition. Emit one row per route with people_trips_before,
+    people_trips_after, people_trips_delta, minority_people_trips_delta,
+    low_income_people_trips_delta and an evidence_ref. Write to
+    /workspace/parts/people_trips_core.md.
+- id: people-trips-analyst-feeders
+  depends_on:
+  - data-reconciliation-steward
+  parallel_group: equity-compute
+  description: >-
+    You are the people-trips analyst for the sub-threshold feeder routes and the
+    GTFS/proposal conflict routes. These are part of the concurrently proposed
+    package and, per the policy's aggregate rule, belong in the equity rollup;
+    use the canonical table's governing trip levels (including the resolved values
+    on the conflict routes). Read /workspace/parts/canonical_route_table.md,
+    /input_artifacts/walkshed_demographics_acs.csv and title_vi_equity_policy.md.
+    Compute people-trips the same way as the core analyst (overall, minority,
+    low-income, before and after, and the delta) for each of your routes. Emit one
+    row per route with the same fields and an evidence_ref. Write to
+    /workspace/parts/people_trips_feeders.md.
+- id: evidence-provenance-specialist
+  depends_on:
+  - data-reconciliation-steward
+  parallel_group: equity-compute
+  description: >-
+    You document the audit trail. Read /workspace/parts/canonical_route_table.md
+    and /input_artifacts/data_provenance_note.md. For every changed route, record
+    which input file and which fields substantiate its service levels and
+    demographic shares. Emit an evidence_register block (route_id, source_file,
+    source_fields, note) to /workspace/parts/evidence_register.md.
+- id: aggregate-equity-lead
+  depends_on:
+  - people-trips-analyst-core
+  - people-trips-analyst-feeders
+  - data-reconciliation-steward
+  parallel_group: rollup
+  description: >-
+    You make the disparate-impact and disproportionate-burden determination for
+    the package as a whole. Read /workspace/parts/canonical_route_table.md,
+    people_trips_core.md, people_trips_feeders.md and
+    /input_artifacts/title_vi_equity_policy.md. Sum the per-route people-trip
+    changes across every route included in the rollup and exclude only the
+    data-quality set-asides, to obtain D_overall, D_minority and D_low_income.
+    Compute each group's share of the change, compare to the service-area shares
+    in the policy, and compute the disparate-impact and disproportionate-burden
+    ratios against the policy threshold; state both findings plainly. Emit a
+    system_rollup block (one metric per row) covering routes_included_count,
+    routes_excluded_count, d_overall, d_minority, d_low_income,
+    minority_share_of_change, low_income_share_of_change,
+    service_area_minority_share, service_area_low_income_share,
+    di_db_ratio_threshold, di_ratio, db_ratio, disparate_impact_finding,
+    disproportionate_burden_finding. Write to /workspace/parts/system_rollup.md.
+- id: route-narrative-writer
+  depends_on:
+  - aggregate-equity-lead
+  - people-trips-analyst-core
+  - people-trips-analyst-feeders
+  parallel_group: writing
+  description: >-
+    You write the Route-by-Route Service and Equity Analysis section of the Board
+    report. Read /workspace/parts/canonical_route_table.md, people_trips_core.md,
+    people_trips_feeders.md and system_rollup.md. For every changed route write a
+    short, specific justification that names the route, states its people-trip
+    change and its minority and low-income people-trip change, explains the
+    service change, and ties the numbers back to the input files. Write to
+    /workspace/parts/section_route_by_route.md.
+- id: public-comment-synthesis-writer
+  depends_on:
+  - aggregate-equity-lead
+  - data-reconciliation-steward
+  parallel_group: writing
+  description: >-
+    You synthesize the public record. Read /input_artifacts/public_comment_log.txt,
+    system_rollup.md and title_vi_equity_policy.md. Address every comment in the
+    log with a disposition (for example incorporated, mitigated, noted, or
+    declined with a reason for comments outside the scope of the service-equity
+    decision such as fares or stop amenities). Emit a comment_disposition block
+    (comment_id, theme, topic, disposition, response_note) covering every comment,
+    and a narrative Public Comment Synthesis and Disposition section. Write both to
+    /workspace/parts/comment_disposition.md.
+- id: report-lead-writer
+  depends_on:
+  - aggregate-equity-lead
+  - regulatory-research-specialist
+  - demographic-data-research-specialist
+  - standards-research-specialist
+  parallel_group: writing
+  description: >-
+    You write the framing sections of the Board report. Read system_rollup.md, the
+    three sources_*.md research files, canonical_route_table.md and
+    title_vi_equity_policy.md. Write the Executive Summary, Background and Package
+    Description, Methodology and Data Sources, Major Service Change Determination,
+    Aggregate Disparate Impact and Disproportionate Burden Findings (stated plainly
+    and quantified in people-trips), Transit-Dependent Population Context (using the
+    ACS sources for zero-vehicle households, limited-English-proficiency residents,
+    and older adults), Data Limitations and Excluded Routes, Source and Schedule
+    Reconciliation, Mitigation Disposition and Recommendations (including the
+    Board's obligation under the Circular if a finding is made), and Regulatory
+    Basis and Citations. Write to /workspace/parts/section_framing.md.
+- id: visualization-specialist
+  depends_on:
+  - aggregate-equity-lead
+  - people-trips-analyst-core
+  - people-trips-analyst-feeders
+  parallel_group: writing
+  description: >-
+    You produce the three publication-quality PNG charts and save them directly in
+    /logs/agent using matplotlib (1) the annual people-trip change by route, (2) a
+    comparison of the minority and low-income share of the change against the
+    service-area shares, and (3) how much of the minority people-trip loss comes
+    from the individually-major routes versus the sub-threshold feeder routes. Emit
+    a chart_manifest block (chart_id, filename, description, derived_from_metric)
+    that points at the actual saved .png files, to /workspace/parts/chart_manifest.md.
+- id: reducer-packet-assembler
+  depends_on:
+  - data-reconciliation-steward
+  - regulatory-research-specialist
+  - demographic-data-research-specialist
+  - standards-research-specialist
+  - people-trips-analyst-core
+  - people-trips-analyst-feeders
+  - evidence-provenance-specialist
+  - aggregate-equity-lead
+  - route-narrative-writer
+  - public-comment-synthesis-writer
+  - report-lead-writer
+  - visualization-specialist
+  parallel_group: reduce
+  description: >-
+    You assemble and reconcile the final Board packet. Read every file in
+    /workspace/parts and reconcile them against /input_artifacts/title_vi_equity_policy.md
+    before assembling, confirming the conflict routes use the governing proposal
+    values, the sub-threshold feeders are present in the route matrix and included
+    in the rollup, the excluded routes are kept out, the source_register covers
+    every authority in sources_to_confirm.md, and the comment_disposition covers
+    every comment in the log. Build the Excel workbook with openpyxl and write it to
+    /logs/agent/output.xlsx with worksheets route_equity_matrix, system_rollup,
+    conflict_log, exclusion_log, source_register, comment_disposition,
+    evidence_register, chart_manifest and summary, using the exact column headers in
+    the task instruction. Assemble the written report into /logs/agent/board_report.md
+    in the section order the instruction specifies, merging the framing sections, the
+    route-by-route section, and the public-comment synthesis into one coherent
+    document with no placeholder text. Confirm the three PNG charts are in /logs/agent
+    and listed in chart_manifest. Do not finish until /logs/agent/output.xlsx and
+    /logs/agent/board_report.md both exist and are complete.

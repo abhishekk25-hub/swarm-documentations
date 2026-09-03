@@ -1,0 +1,893 @@
+FCC RULEMAKING RELEASE
+Rule subject: Modifying Emissions Limits for the 24.25-24.45 GHz and 24.75-25.25 GHz Bands
+Document number: 2024-29313
+Issuing agency: Federal Communications Commission
+Responsible Bureau: Space Bureau
+Federal Register citation: 89 FR 100856
+Publication date: 2024-12-13
+
+Federal Register, Volume 89 Issue 240 (Friday, December 13, 2024)
+
+
+[Federal Register Volume 89, Number 240 (Friday, December 13, 2024)]
+[Rules and Regulations]
+[Pages 100856-100868]
+From the Federal Register Online via the Government Publishing Office [ www.gpo.gov ]
+[FR Doc No: 2024-29313]
+
+
+-----------------------------------------------------------------------
+
+FEDERAL COMMUNICATIONS COMMISSION
+
+47 CFR Parts 2 and 30
+
+[ET Docket No. 21-186; FCC 24-124; FR ID 267422]
+
+
+Modifying Emissions Limits for the 24.25-24.45 GHz and 24.75-
+25.25 GHz Bands
+
+AGENCY: Federal Communications Commission.
+
+ACTION: Final rule.
+
+-----------------------------------------------------------------------
+
+SUMMARY: In this document, the Federal Communications Commission
+(Commission) revises the Commission's rules for the 24.25-24.45 GHz and
+24.75-25.25 GHz bands (collectively, the 24 GHz band) to implement
+certain decisions made in the World Radiocommunication Conference held
+by the International Telecommunication Union (ITU) in 2019 (WRC-19).
+Specifically, the Commission aligns part 30 of the Commission's rules
+for mobile operations in these frequencies with the Resolution 750
+limits adopted at WRC-19 to protect the passive 23.6-24.0 GHz band from
+unwanted emissions on the timeframes adopted at WRC-19.
+
+DATES: Effective date: This rule is effective January 13, 2025.
+
+FOR FURTHER INFORMATION CONTACT: Simon Banyai of the Wireless
+Telecommunications Bureau, Broadband Division, at 202-418-1443 or by
+email to [email protected] .
+
+SUPPLEMENTARY INFORMATION: This is a summary of the Commission's Report
+and Order in ET Docket No. 21-186; FCC 24-124; adopted on November 27,
+2024 and released on December 2, 2024, 2024. The full text of this
+document is available at https://docs.fcc.gov/public/attachments/FCC-24-124A1.pdf .
+ Regulatory Flexibility Act. The Regulatory Flexibility Act of 1980,
+as amended (RFA), requires that an agency prepare a regulatory
+flexibility analysis for notice-and-comment rulemakings, unless the
+agency certifies that ``the rule will not, if promulgated, have a
+significant economic impact on a substantial number of small
+entities.'' Accordingly, the Commission has prepared a Final Regulatory
+Flexibility Analysis (FRFA) concerning the possible impact of the rule
+changes contained in this Report and Order on small businesses. The
+FRFA is set forth in the back of this document.
+ Paperwork Reduction Act. This document does not contain new or
+modified information collection requirements subject to the Paperwork
+Reduction Act of 1995 (PRA), Public Law 104-13. In addition, therefore,
+it does not contain any new or modified information collection burden
+``for small business concerns with fewer than 25 employees,'' pursuant
+to the Small Business Paperwork Relief Act of 2002, Public Law 107-198,
+see 44 U.S.C. 3506(c)(4).
+ Congressional Review Act. The Commission has determined, and the
+Administrator of the Office of Information and Regulatory Affairs,
+Office of Management and Budget, concurs, that this rule is non-major
+under the Congressional Review Act, 5 U.S.C. 804(2). The Commission
+will send a copy of this Report & Order to Congress and the Government
+Accountability Office pursuant to 5 U.S.C. 801(a)(1)(A).
+ People With Disabilities. To request materials in accessible
+formats for people with disabilities (braille, large print, electronic
+files, audio format), send an email to [email protected] or call the
+Consumer and Governmental Affairs Bureau at (202) 418-0530 (voice).
+
+Synopsis
+
+I. Background
+
+ 1. The 23.6-24.0 GHz band is allocated to several passive
+scientific and research services, including the Earth Exploration
+Satellite Service (EESS) (passive), on a primary basis. EESS utilizes
+passive sensors located on satellites to measure the power level of
+naturally occurring radio emissions from water vapor and cloud liquid
+water molecules in the atmosphere, which are critical measurements for
+climatology and weather forecasting. Because naturally occurring radio
+emissions in the 23.6-24.0 GHz band are very weak, the passive sensors
+that measure them are sensitive and vulnerable to interference.
+ 2. Observations made by EESS sensors operating in the 23.6-24.0 GHz
+band are essential for meteorological applications. The National
+Oceanic and Atmospheric Administration (NOAA) uses EESS to take
+measurements considered vital to the accuracy and timeliness of weather
+forecasting, including hurricane and tornado warnings, and the National
+Aeronautics and Space Administration (NASA) also operates passive EESS
+systems in the band to conduct climatological science. Additionally,
+EESS passive sensors aid EESS active instruments that use radar on
+satellites to measure ocean topography, sea ice, and precipitation by
+measuring total atmospheric water vapor and correcting the
+``refraction-induced path delay in the radar signal.'' The 23.6-24.0
+GHz band has been used for passive sensor observations for a
+considerable length of time and has generated valuable long-term
+climate data records.
+ 3. The Commission first authorized service in the 24.25-24.45 GHz
+and 25.05-25.25 GHz bands in 1997, when it transitioned the Digital
+Electronic Messaging Service (DEMS) to these bands from the 18 GHz
+band. In 2000, the Commission adopted competitive bidding and service
+rules for 24.25-24.45 GHz and 25.05-25.25 GHz bands and created a 24
+GHz Service. This 24 GHz Service had a total of 176 Economic Areas
+(EAs) or EA-like service areas. In 2004, the Commission held Auction
+56, in which it made 880 24 GHz Service licenses available. Only seven
+of the 880 24 GHz Service licenses were sold. As of 2017, there were 33
+active DEMS licenses in these bands. While the former DEMS licenses
+were converted to Upper Microwave Flexible Use Services (UMFUS)
+licenses, they were subsequently cancelled.
+ 4. In 2016, the Commission adopted licensing and technical rules
+for UMFUS services in the 27.5-28.35 GHz band, the 37.6-38.6 GHz band,
+and the 38.6-40 GHz band. Expanding on the 2016 efforts to open high-
+frequency spectrum, in 2017, the Commission authorized the 24 GHz band
+for UMFUS, and generally applied the same licensing and technical rules
+to UMFUS in the 24 GHz band that it applied to UMFUS in other upper
+microwave bands. The UMFUS rules allow licensees flexibility to the
+services they will deploy and the architecture of their networks. Under
+these rules, licensees are able to deploy mobile services, but they
+also may deploy fixed point-to-point and point-to-multipoint systems.
+Among other things, the UMFUS rules specify that emissions outside of a
+licensee's assigned frequency block must be limited to -13 dBm/MHz.\1\
+In its decision authorizing UMFUS in the 24 GHz band, the Commission
+noted ongoing ITU studies to establish
+
+[[Page 100857]]
+
+emissions limits applicable to International Mobile Telecommunications
+(IMT) to protect passive sensors in the 23.6-24.0 GHz band, and it
+acknowledged that the UMFUS rules might be revisited once the ITU
+studies had been completed.\2\
+---------------------------------------------------------------------------
+
+ \1\ See 47 CFR 30.203(a). In the bands immediately outside and
+adjacent to the licensee's frequency block, having a bandwidth equal
+to 10 percent of the channel bandwidth, the conductive power or the
+total radiated power of any emission shall be -5 dBm/MHz or lower.
+Id. As the 23.6-24 GHz passive band is 250 megahertz away from the
+UMFUS bands, the -5 dBm/MHz does not apply within that passive band
+for UMFUS licensees.
+ \2\ IMT is the generic term used by the ITU to designate
+broadband mobile systems and encompasses IMT-2000, IMT-Advanced, and
+IMT-2020. See ITU, Radiocommunication Sector ITU-R FAQ on
+International Telecommunications (Feb. 23, 2022), https://www.itu.int/en/ITU-R/Documents/ITU-R-FAQ-IMT.pdf . As described
+below, the Commission rules do not define IMT.
+---------------------------------------------------------------------------
+
+ 5. WRC-19 allocated 24.25-25.25 GHz to mobile (except aeronautical)
+on a primary basis in Regions 1 and 2, globally identified the 24.25-
+27.5 GHz band for IMT, and established unwanted emissions limits
+applicable to IMT in the 24.25-27.5 GHz band to protect passive systems
+in the 23.6-24.0 GHz band. To implement these limits, WRC-19 modified a
+footnote to the International Table of Allocations to add Resolution
+750 (Rev. WRC-19). Resolution 750 specifies unwanted emissions limits
+in terms of Total Radiated Power (TRP) as the amount of power that may
+be radiated into any 200 megahertz block of the 23.6-24.0 GHz passive
+band by IMT base stations and IMT mobile stations operating in the
+24.25-27.5 GHz band. Resolution 750 sets emissions limits for current
+IMT devices as well as more stringent emissions limits for IMT devices
+that will be brought into use in the 24.25-27.5 GHz band after
+September 1, 2027. These two sets of unwanted emissions limits are
+shown in Table 1.
+
+ Table 1--WRC-19 Resolution 750 Unwanted Emissions Permitted Within Any
+ 200 Megahertz in the 23.6-24 GHz Passive Band
+------------------------------------------------------------------------
+ TRP limits after
+ Type of station Current TRP limits Sept. 1, 2027
+------------------------------------------------------------------------
+IMT Base Stations........... -33 dBW............. -39 dBW.
+IMT Mobile Stations......... -29 dBW............. -35 dBW.
+------------------------------------------------------------------------
+
+ 6. On April 26, 2021, the Office of Engineering and Technology
+(OET) and the Wireless Telecommunications Bureau (WTB) issued a Public
+Notice (86 FR 28522) to develop a record on whether and how the
+Commission could implement the emissions limits contained in Resolution
+750 for the active services in the 24 GHz band. The Public Notice
+sought comment on amending part 30 of the Commission's rules to conform
+to the unwanted emissions limits into the passive 23.6-24.0 GHz band
+that were adopted at WRC-19 and/or adding footnotes to the United
+States Table of Frequency Allocations at part 2 of the Commission's
+rules. Twelve parties made filings in response to the Public Notice.
+ 7. On December 22, 2023, the Commission released a Notice of
+Proposed Rulemaking (Notice) (89 FR 5440) proposing to implement
+certain decisions regarding the 24.25-27.5 GHz band made at WRC-19. The
+Notice proposed to align part 30 of the Commission's rules for mobile
+operations in the 24 GHz band with the Resolution 750 limits on
+unwanted emissions into the passive 23.6-24.0 GHz band. In addition,
+the Notice also sought comment on several different issues, including:
+(1) applying Resolution 750 limits to mobile operations; (2) applying
+emissions limits more stringent than Resolution 750; (3) applying
+Resolution 750 limits to fixed operations; (4) exempting indoor small-
+cell operations from Resolution 750 limits; (5) allowing conductive
+power measurements; and (6) the schedule for transition to the new
+Resolution 750 limits applicable after September 1, 2027.\3\
+---------------------------------------------------------------------------
+
+ \3\ See generally Notice. The Notice (at para. 29) also sought
+comment on a proposal to use a Real-time Geospatial Spectrum Sharing
+(RGSS) system as an alternative means of protecting EESS. The
+Wireless Interdisciplinary Research Group (WIRG) touts its work
+developing a proof of concept RGSS system and asks that the
+Commission establish rules allowing use of RGSS. While the
+Commission believes adopting a rule authorizing the use of RGSS is
+premature at this time, the Commission encourage further research
+and study of such systems and are open to consideration of such a
+system as it becomes more developed.
+---------------------------------------------------------------------------
+
+ 8. Comments on the Notice were due February 28, 2024, and reply
+comments were due March 14, 2024. The Commission received ten comments
+and four reply comments.
+
+II. Discussion
+
+A. Revision of Commission Rules To Adopt Resolution 750 Unwanted
+Emissions Limits
+
+ 9. Consistent with the proposal in the Notice, the Commission
+adopts the Resolution 750 unwanted out-of-band emissions (OOBE) limits
+and apply these limits to all mobile operations in the 24 GHz band. In
+response to the Notice, all commenters, including the weather
+community, scientific community, mobile operators, equipment
+manufacturers, Federal agencies, and other commenters, agree the
+Commission should align its rules for mobile operations in the 24 GHz
+band with Resolution 750. The Commission finds that the Resolution 750
+OOBE limits will appropriately protect sensitive passive sensing
+operations in the 23.6-24.0 GHz band, while at the same time allowing
+next generation wireless service to continue to develop in the United
+States. In addition, adopting the Resolution 750 limits would promote
+international harmonization and result in certain public interest
+benefits associated with such harmonization, including facilitating the
+provision of advanced wireless services in the U.S., providing
+regulatory certainty to all interested stakeholders, and promoting
+spectrum use by both wireless providers and the weather and satellite
+communities.
+ 10. Consistent with the Notice, the Commission also applies
+Resolution 750 limits to all mobile operations (as defined in parts 2
+and 20 of the Commission's rules) \4\ in the 24 GHz band. As adopted by
+WRC-19, the Resolution 750 limits apply only to IMT base and mobile
+stations. Commenters who addressed the issue support applying the
+Resolution 750 unwanted OOBE limits to all mobile operations, rather
+than just IMT operations. Moreover, the Commission's rules do not
+define IMT as a separate category of mobile, nor do they require that
+equipment comply with a particular standard in the 24 GHz band.
+
+[[Page 100858]]
+
+Furthermore, no commenter offered a technical basis for distinguishing
+between IMT and other mobile operations for purposes of domestic
+spectrum use. Finally, attempting to treat non-IMT mobile operations
+differently from IMT mobile operations could cause confusion and
+difficulties with enforcing the limits, as suggested in the Notice.
+---------------------------------------------------------------------------
+
+ \4\ See 47 CFR 2.1 (``Mobile Service. A radiocommunication
+service between mobile and land stations, or between mobile
+stations.''); see also 47 CFR 20.3 (``Mobile Service. A radio
+communication service carried on between mobile stations or
+receivers and land stations, and by mobile stations communicating
+among themselves, and includes: (a) Both one-way and two-way radio
+communications services; (b) A mobile service which provides a
+regularly interacting group of base, mobile, portable, and
+associated control and relay stations (whether licensed on an
+individual, cooperative, or multiple basis) for private one-way or
+two-way land mobile radio communications by eligible users over
+designated areas of operation; and (c) Any service for which a
+license is required in a personal communications service under part
+24 of this chapter.'')
+---------------------------------------------------------------------------
+
+ 11. As of the effective date of the rules adopted herein, mobile
+operations in the 24 GHz band will be required to comply with the
+current limits adopted at WRC-19 (which the Commission refers to as
+Phase 1 limits). The Commission finds that the application of the
+Resolution 750 OOBE limits to mobile operations strikes the appropriate
+balance between protecting adjacent passive sensing operations and
+facilitating use of the 24 GHz band.
+ 12. Rule Amendments. In the Notice, the Commission proposed to make
+any changes to the limits on emissions into the 23.6-24.0 GHz band by
+amending the part 30 rules and adding a footnote to the U.S. Table of
+Allocations. It noted that, since the part 30 rules already contained a
+rule governing emissions limits, it appeared to be appropriate to
+incorporate any changes made in this proceeding into that rule.
+Commenters broadly agree that these changes are appropriate ways of
+aligning the Commission's rules with WRC-19 Resolution 750. These
+limits will be incorporated into the Commission's part 30 technical
+rules as well as codified in a new U.S. footnote to the Table of
+Frequency Allocations (Allocation Table) in accordance with the
+proposal. Further, part 2 of the Commission's rules is amended to allow
+the Table of Frequency Allocations to show that the Resolution 750
+unwanted OOBE limits will apply to all mobile systems.
+ 13. The Commission declines to make other changes to the part 30
+rules and the Table of Frequency Allocations footnote, as it does not
+believe they are necessary. For example, NASA suggests including the
+start dates of the Phase 1 and Phase 2 OOBE limits in the Table of
+Allocations. The Phase 2 effective date will be incorporated into the
+part 30 rule and the Allocation Table footnote. Since the Phase 1
+limits will be effective immediately upon the effective date of the
+rules, the Commission believes there is no need to include the Phase 1
+effective date. NASA also recommends that the language of the amendment
+to the part 30 rules be trimmed down to a cross reference to the Table
+of Allocations. The Commission will retain the substantive emissions
+limits in section 30.203 of its rules, as it is the better practice to
+include the specified limits in these technical rules.
+
+B. Adopting Limits More Stringent Than Resolution 750
+
+ 14. In the Notice, the Commission sought comment on whether it was
+necessary to adopt even stricter OOBE limits to protect EESS systems
+than those set forth in Resolution 750 by WRC-19. The Commission
+declines to adopt limits beyond the Resolution 750 limits because the
+record does not show that such limits are technically necessary. While
+the proponents of stricter limits express concern that the Resolution
+750 limits will be insufficient to protect EESS, their concerns are
+speculative.\5\ Furthermore, no party has submitted specific technical
+data justifying stricter limits or evaluating the costs and benefits of
+applying them as directed in the Notice.
+---------------------------------------------------------------------------
+
+ \5\ While WIRG supports adoption of the Resolution 750 limits as
+a ``minimum acceptable requirement,'' it suggests that further
+research would be appropriate, after which the Commission should
+consider adopting stricter limits.
+---------------------------------------------------------------------------
+
+ 15. The Commission also notes that NTIA did not advocate for
+implementation of stricter limits, and NTIA, NOAA, and NASA all agree
+to the adoption of the Resolution 750 limits. While NOAA maintains that
+stricter limits would better protect Earth Exploration-Satellite
+Service (EESS) passive sensors, that measurements gathered by sensitive
+radiometers in the 23.6-24.0 and 31.3-31.5 GHz bands could be
+compromised by unwanted by-products from a 5G signal, and that the
+Resolution 750 limits may not adequately protect passive sensors below
+24 GHz, it nevertheless acknowledges that the WRC-19 limits are a
+compromise and are what most countries are considering.
+ 16. Moreover, while much of the weather and scientific communities
+would prefer to adopt more stringent unwanted OOBE limits, they too
+support the adoption of the Resolution 750 limits, at least as a
+preliminary step. The Commission notes that Federal agencies and non-
+federal licensees have deployed nearly 40,000 point-to-point microwave
+links in the 21.2-23.6 GHz band--immediately below the 23.6-24.0 GHz
+band--that operate with a less restrictive -13 dBm/MHz or -20 dBW/200
+MHz OOBE limit, and yet there is no indication, and no party has
+submitted a technical showing, that these point-to-point links have
+caused harmful interference to passive sensors. In contrast to these
+directly adjacent point-to-point microwave links, there will be at
+least 225 megahertz separation between UMFUS operations and the 23.6-24
+GHz passive band. Given that channels in this band are 100 megahertz
+wide, this amount of separation is significant.
+ 17. The Commission finds that adopting stricter emissions limits
+could significantly limit the ability to use the band for next
+generation wireless services and other advanced mobile services.
+Because millimeter wave spectrum has limited propagation, licensees
+must deploy higher power to ensure sufficient network coverage.
+Imposing overly restrictive emissions limits could create higher
+insertion losses due to filtering requirements, and limit the power
+carriers can use, adversely affecting services available to consumers.
+Furthermore, adopting emissions limits unique to the United States
+would be inconsistent with international harmonization.
+ 18. The Commission is not persuaded that the technical information
+provided by the National Academy of Sciences, through its Committee on
+Radio Frequencies (CORF) and the IEEE Geoscience and Remote Sensing
+Society (IEEE GRSS) justifies adopting stricter OOBE limits. CORF
+advocates for stricter emissions limits, such as those adopted by the
+European Commission (-42 dBW/200 MHz) or those of the World
+Meteorological Organization (-55 dBW/dBW/200 MHz). CORF contends that
+the Resolution 750 Phase 2 limits of -35 dBW/200 MHz for mobile devices
+equates to 0.4 mW per device, only a factor of 10 below the ITU-R
+Recommendation RS.2017 threshold for protection of passive sensors in
+the 23.6-24 GHz band.\6\ CORF argues that, even assuming somewhat
+directional beams from 5G mobile devices, it is clear that deployment
+of thousands of such devices in urban areas will exceed the
+
+[[Page 100859]]
+
+ITU threshold,\7\ but CORF does not clearly explain how it extrapolates
+the 0.4 mW per device figure from the Phase 2 standard. IEEE GRSS
+supports the stricter limits proposed by CORF, because it maintains
+that the Resolution 750 limits would allow the presence of signals
+above the interference threshold in the 23.6-24.0 GHz passive band when
+more 5G base stations are placed within the sensor's coverage area. The
+Commission finds that both CORF's and IEEE GRSS's analyses are based on
+the assumptions that there will be large but unknown numbers of mobile
+devices that are not related to specific deployments or use cases. In
+addition, IEEE GRSS and NOAA cite the European Union's decision to
+implement the more stringent limit of -39 dBW/200 MHz as of January 1,
+2024, as an argument for applying the more stringent limit on an
+accelerated timeframe in the U.S. The Commission notes, however, that
+the United States is not similarly situated to the European Union.
+Terrestrial operations in Europe are above 25 GHz and farther away from
+the passive services in the 23.6-24.0 GHz band than U.S. operations.
+Given the greater frequency separation distance, it is easier for
+European providers to permit their mobile operators to use higher power
+and yet meet stricter emissions limits without impairment to the EESS
+passive service. While the Commission understands the desire of the
+weather and scientific communities for the greatest protection
+possible, the record before it does not support adopting limits
+stricter than the limits agreed to at WRC-19. Accordingly, the
+Commission declines to adopt more stringent OOBE limits for the U.S.
+than those adopted in Resolution 750.\8\
+---------------------------------------------------------------------------
+
+ \6\ CORF states that the ``AMSR2 instrument on the GCOM-W1
+spacecraft (the successor to NASA's AMSR-E instrument launched on
+the Aqua mission in 2002) measures natural black-body emission
+signals over a 400 MHz-wide region of the spectrum at 24 GHz with 14
+x 14 km pixels. Thermal emission from one such pixel over dry land
+at 300 K (80 [deg]F) in this band totals to only ~26 W across this
+~200 km\2\ pixel. This 26 W is emitted in all directions, and the
+AMSR2 instrument receives only a fraction of a trillionth of that
+power. The ITU-R Recommendation RS.2017 interference threshold
+equates to requiring that there should be no perturbations (e.g.,
+from RFI) greater than 4 mW total emission across this entire pixel.
+This requirement enables EESS (passive) measurements to be made with
+an accuracy of 0.05 K brightness temperature (~0.09 [deg]F), which
+is considered sufficient to provide accurate weather forecasts and
+reliable quantification of potential signatures of climate change
+(which are of order of one or two degrees per century). The Res. 750
+limits of -35 dBW in 200 MHz for mobile devices equates to 0.4 mW
+per device, only a factor of 10 below the ITU-R Recommendation
+RS.2017 threshold.''
+ \7\ CORF also notes that the ITU Radiocommunication Sector
+(``ITU-R'') Recommendation RS.2017, establishes a limit of -166 dBW
+in 200 MHz for the 23.6-24.0 GHz band, to be met over 99.99 percent
+of a 10,000,000 km\2\ area. Id. at 6-7. It argues the limits
+specified in ITU-R Resolution 750 (Rev. WRC-19), when applied to
+likely IMT implementations, and taking into consideration typical
+characteristics of orbiting EESS sensors (described in ITU-R
+Recommendation RS.1861), fail to meet this RS.2017 criterion
+particularly when considering the aggregate interference from the
+vast multiplicity of transmitters that are inherent to the nature of
+IMT deployments; CORF assumes deployment of thousands of IMT devices
+in urban areas is likely an underestimate.
+ \8\ The Commission does not rely on arguments that adopting
+stricter limits would be a material change from information made
+available to bidders in the 24 GHz auction and that licensees
+reasonably made investments based on the Resolution 750 limits.
+---------------------------------------------------------------------------
+
+C. Applying Resolution 750 Limits to Other Services
+
+ 19. Fixed operations. The Notice sought comment on applying the
+Resolution 750 emissions limits to fixed operations, including point-
+to-point and point-to-multipoint operations.\9\ The Commission declines
+to do so. As adopted by the ITU, Resolution 750 does not apply to fixed
+operations; WRC-19 only studied IMT operations under a mobile service
+allocation. Fixed operation transmissions are significantly more
+directional than mobile operations--point-to-point operations have
+tightly focused and stationary beams, and point-to-multipoint base
+stations direct signals towards user stations. As noted above, there
+are existing fixed point-to-point operations under part 101 in the
+spectrum immediately below the passive band that are not subject to
+stricter emissions limits, and yet there is no indication that these
+point-to-point links have caused harmful interference to passive
+sensors.\10\ This is in contrast to the at least 225 megahertz of
+frequency separation between the UMFUS operations starting at 24.25 GHz
+and the 23.6-24.0 GHz passive band, which should further help alleviate
+interference concerns. As fixed deployments increase in the band, the
+Commission will monitor for potential issues, and, if necessary,
+consider whether to revisit the limits for fixed operations.
+---------------------------------------------------------------------------
+
+ \9\ Point-to-multipoint operations include transportable user
+equipment, where the user equipment is not intended to be used while
+in motion, but the equipment could be moved when not in operation.
+See 47 CFR 30.2. The Commission agrees with GuRu Wireless, Inc. that
+expansion of WRC-19 emissions limits to the Industrial, Scientific,
+and Medical (ISM) band is outside the scope of this proceeding.
+ \10\ CORF asserts it cannot verify whether or not these point-
+to-point links have caused harmful interference to passive sensors
+at 23.6-24.0 GHz. Ericsson states that there are no known reports of
+interference from UMFUS services to EESS in the adjacent band. IEEE
+GRSS states ``we do not have any information on whether interference
+has been detected by operational sensors''.
+---------------------------------------------------------------------------
+
+ 20. The Commission's Notice also directed proponents of applying
+the stricter limits to fixed operations to provide ``specific technical
+data as well as the costs and benefits of applying stricter limits or
+of keeping the existing limits.'' Neither proponents nor opponents of
+applying the Resolution 750 limits to fixed operations presented such
+technical or cost/benefit data. Indeed, IEEE GRSS, which supports
+applying the Resolution 750 limits to fixed, suggests that further
+studies are necessary. CORF argues that ``[i]t is counterproductive to
+protect passive uses from OOBE from mobile service equipment, but not
+from equipment used for UMFUS fixed services,'' and it ``recommends
+that a rigorous OOBE standard apply to all UMFUS equipment operating at
+24 GHz: UMFUS fixed point-to-point and point-to-multipoint equipment,
+as well as mobile equipment.'' Given the differences between fixed and
+mobile operations, however, and the lack of any technical support, the
+conclusory arguments by CORF and others are insufficient to justify
+extending Resolution 750's mobile limits to fixed operations.
+ 21. CTIA suggests that the Commission clarify that transportable
+stations (which it said are fixed stations) would not be subject to the
+more stringent emissions limits. For purposes of these rules, the
+Commission will use the definition of a mobile station contained in
+part 2 of its rules, ``[a] station in the mobile service intended to be
+used while in motion or during halts at unspecified points.'' In
+contrast, a transportable station, which the Commission's rules define
+as ``[t]ransmitting equipment that is not intended to be used while in
+motion, but rather at stationary locations,'' operates under the fixed
+service allocation and would not be subject to the Resolution 750
+limits. While transportable equipment is used in a limited number of
+stationary locations (such as a fixed modem at a home or office),
+mobile equipment could be used anywhere (for example, stopped at a red
+light).
+ 22. NTIA asks that, as an alternative to applying the Resolution
+750 limits to fixed operations, the Commission mandate downtilt in
+fixed operations to avoid transmissions towards EESS satellites.
+Because there may be situations where downtilt is not feasible (for
+example, a point-to-point link between two sites that differ in
+elevation), rather than mandating downtilt, the Commission instead
+strongly encourages licensees to avoid uptilt where practical.
+ 23. Indoor small-cell systems. The Notice also sought comment on
+Ericsson's and AT&T's proposal that indoor small-cell systems be exempt
+from the Resolution 750 limits. In response to the Public Notice,
+Ericsson stated that there is a growing interest in indoor small cell
+deployments, the 24 GHz band may provide an opportunity to enhance
+indoor coverage, and the technical rules for such use cases should not
+deviate from what is currently allowed under part 30. Ericsson further
+noted that ``several mitigating factors, including wall and building
+entry losses and the potential
+
+[[Page 100860]]
+
+for clutter losses from nearby buildings, mitigate the need for more
+stringent limits.'' Arguing that indoor small cells are not governed by
+the WRC-19 agreement limits, CTIA contends that, because ``indoor small
+cells are installed inside of buildings, the mobile signal level is
+already reduced by hundreds to thousands of times . . . [and] as a
+result, the commercial mobile signals will be negligible at the
+satellite receiver, making tighter emissions levels for indoor small
+cells unnecessary.'' T-Mobile agrees that exempting indoor small-cell
+systems would not harm passive sensors in the 23.6-24.0 GHz band
+because ``indoor small-cell systems operate inside buildings at a lower
+power, making them subject to building attenuation.'' It maintains
+that, ``[d]ue to the propagation characteristics of signals from indoor
+small-cell systems, it is unlikely that those signals would propagate
+outdoors and even be recognized by, let alone cause harmful
+interference to, passive sensors.''
+ 24. Other commenters oppose an exemption from the Resolution 750
+limits for indoor small-cell systems. IEEE GRSS notes that
+``[m]icrowave signals are not necessarily attenuated by all building
+materials at these frequencies, and there is no assurance that
+equipment built for indoor use may not be improperly installed in an
+outdoor setting.'' CORF recommends against such an exemption,
+``particularly for low-cost devices that may be deployed in large
+numbers,'' and it agrees that, while these devices typically operate at
+lower power, building entry loss serves to reduce emissions to a
+``lower but not necessarily acceptable level.'' Similarly, NASA argues
+that, while indoor operations may provide additional signal blockage of
+those signals to NASA's passive sensors, this issue was not studied
+during WRC-19 to determine the potential impact from indoor small-cell
+operations on NASA missions. NASA further notes that `indoor-only' use
+limitations are difficult to enforce, and expressed concern that even a
+very small amount of hardware operating outside may pose impacts to
+NASA mission success.
+ 25. The Commission concludes that the current record is
+insufficient to support exempting indoor base stations from the
+Resolution 750 limits, and decline to do so at this time. The current
+maximum power for UMFUS base stations is +75 dBm/100 MHz Although some
+indoor operations may operate at lower power levels, and while there
+may be some power level at which indoor operations could be safely
+exempted, the Commission lacks a sufficient record on which to craft
+such an exemption. Although the Notice asked parties advocating for
+indoor exemption from Resolution 750 to provide technical
+justification, no studies addressing the factors the Commission would
+need to evaluate with respect to such an exemption were presented.
+These factors would include, for example: (1) propagation/penetration
+losses at 24 GHz, (2) the effect of building materials on such
+propagation/penetration losses, especially materials used in ceilings
+and roofs, since the receivers being protected are in the sky, and (3)
+the sensitive nature of the observations being made in the passive
+band. Given the insufficiency of the record, the Commission declines to
+exempt indoor small-cell equipment from the Resolution 750 limits at
+this time.
+
+D. Measurement of Unwanted Emissions
+
+ 26. In the 24 GHz Notice, the Commission proposed to allow
+compliance with the unwanted emissions limits for the 23.6-24.0 GHz
+band to be demonstrated using TRP measurements, given that Resolution
+750 specifies the limits in terms of TRP. Total radiated power is a
+measure of how much power is radiated by an antenna when the antenna is
+connected to an actual radio (or transmitter). TRP is an active
+measurement in that a powered transmitter is used to transmit through
+the antenna. The total received power is calculated and summed up over
+all possible angles (hence, it is a spherical or three dimensional
+measurement).\11\ The Notice also sought comment on whether to permit
+use of conductive power measurements as well. Maximum conducted output
+power measurements do not take into account the efficiency of the
+antenna.\12\
+---------------------------------------------------------------------------
+
+ \11\ See https://www.antenna-theory.com/definitions/trp.php . TRP
+can also be defined as the integral of the power transmitted from
+all antenna elements in different directions over the entire
+radiation sphere. See ITU Radio Regulations (2020), Resolution 750
+(Rev.WRC-19), Note 5, Vol. 3 at 522.
+ \12\ TRP of a transmitter is closely related to its conductive
+power. In fact, TRP is product of antenna radiation efficiency, er,
+and conductive power P (TRP = erP) and depending on antenna
+efficiency, TRP can be virtually the same as the conductive power P.
+See W.L. Stutzman and Gary A. Thiele, Antenna Theory and Design,
+2013, equations 13-40 and 2-155.
+---------------------------------------------------------------------------
+
+ 27. The Commission will allow the use of both TRP and maximum
+conductive output power measurements to ensure compliance with the
+limits on emissions into the 23.6-24 GHz band, consistent with the part
+30 rules applicable in other UMFUS bands.\13\ As CTIA and Nokia
+observe, OET has issued a knowledge database (``KDB'') document that
+permits both TRP and maximum conducted output power measurement
+procedures to demonstrate regulatory compliance for UMFUS devices.\14\
+In the Commission's experience, maximum conducted output power
+measurements have worked well in these bands, and allowing use of
+either TRP or maximum conducted output power measurements would provide
+equipment manufacturers with maximum flexibility as they develop
+equipment for the 24 GHz band. The Commission sees no reason to treat
+the 24 GHz band differently from other UMFUS bands.
+---------------------------------------------------------------------------
+
+ \13\ 47 CFR 30.203(a). The Commission will also add the existing
+definition of ``maximum conducted output power'' contained in its
+part 15 rules into its part 30 rules. See 47 CFR 30.2.
+ \14\ See Nokia Reply Comments (citing Basic Certification
+Requirements and Measurement Procedures for Upper Microwave Flexible
+Use Services (UMFUS) Devices, FCC Office of Engineering and
+Technology Laboratory Division, Knowledge Database (KDB)
+publication, KDB 842590 D01 (Apr. 20, 2021) https://apps.fcc.gov/kdb/GetAttachment.html?id=yV3FexQrXZMe%2F42JGriFdg .
+---------------------------------------------------------------------------
+
+ 28. The Commission finds the arguments that certain commenters have
+raised against allowing conductive power measurements to be
+unpersuasive. The Commission acknowledges, as IEEE GRSS, NTIA, NOAA,
+and NASA point out, that the WRC-19 studies relied on TRP to develop
+the Resolution 750 standards. By itself, however, that fact does not
+mean that maximum conducted output power measurements cannot be used to
+demonstrate compliance. NASA argues that conductive power methodology
+does not provide an accurate characterization of the aggregate effects
+of systems' components on the measurement results, and it asserts that
+TRP and conductive power measurements methodologies may produce
+different quantitative limits for unwanted emissions. The Commission
+notes that conductive power measurements are more conservative than
+TRP. In other words, if a conductive power measurement shows
+compliance, the corresponding TRP measurement will demonstrate
+compliance as well (although the converse will not necessarily be
+true). Accordingly, allowing conductive power measurements does not
+present a substantial risk that noncompliant equipment will be placed
+into the marketplace.
+ 29. In addition, parties against allowing conductive power
+measurements argue that the TRP methodology is clearly understood, and
+NOAA points to Ericsson's prior statement that it does not anticipate
+
+[[Page 100861]]
+
+difficulties performing TRP measurements. While there is broad support
+for allowing TRP measurements, such measurements require use of an
+anechoic chamber, which imposes additional costs, and may not be
+available to all stakeholders. The Commission disagrees with NASA's
+claim that using measurement techniques other than TRP would require
+significant further technical analysis. The Commission has allowed
+licensees and equipment manufacturers to perform conductive power
+measurements in other UMFUS bands for many years, pursuant to the KDB
+guidance discussed above, and using conductive power to measure
+compliance with the Resolution 750 limits does not present any unique
+new issues. While AGU, AMS and NWA argue that the calculations required
+for OOBE measurements are not straightforward and allowing the use of
+multiple measurement methods by the industry ``would only contribute to
+the difficulty,'' they do not precisely explain what they perceive the
+difficulty to be. Finally, CORF argues that many 24 GHz devices will
+not have clean access to an antenna port, and even devices with access
+to the radiating element's port may radiate unintentionally from other
+parts of the equipment being tested. In those cases where there is no
+clear access to an antenna port, the Commission anticipates that TRP
+will be used. So long as equipment manufacturers follow the guidance
+the Commission has issued, the Commission sees no reason why conductive
+power measurements cannot work here, as they do in other UMFUS bands.
+Accordingly, the Commission will allow compliance with the emissions
+limits for equipment certification in the 24 GHz band to be
+demonstrated by measurements showing that either TRP or maximum
+conducted output power is within the limits set in Resolution 750.
+
+E. Timetable for Application of WRC-19 Limits
+
+ 30. Phase 1 to Phase 2 Transition Timetable. Having decided to
+transition to the WRC-19 Resolution 750 OOBE limit regime for the 24
+GHz band, the Commission must still determine when that transition will
+take place--i.e., the appropriate timetable for moving to stricter
+limits, as well as how it will occur--and the practical steps necessary
+for transitioning equipment to the stricter limits. The Notice proposed
+to apply the new Resolution 750 unwanted emissions limits on the
+timetable adopted at WRC-19. This timing is set forth in two footnotes
+to Resolution 750, that state:
+ \a\ A limit of -39 dB(W/200 MHz) will apply to IMT base stations
+brought into use after 1 September 2027. This limit will not apply to
+IMT base stations which have been brought into use prior to this date.
+For those IMT base stations, the limit of -33 dB(W/200 MHz) will
+continue to apply after this date.
+ and
+ \b\ A limit of -35 dB(W/200 MHz) will apply to IMT mobile stations
+brought into use after 1 September 2027. This limit will not apply to
+IMT mobile stations which have been brought into use prior to this
+date. For those IMT mobile stations, the limit of -29 dB(W/200 MHz)
+will continue to apply after this date.
+ 31. The Commission adopts the WRC-19 timetable as proposed in the
+Notice. The first phase limits (-33 dBW/200 MHz for base stations, -29
+dBW/200 MHz for mobile stations) will apply as of the effective date of
+the rules,\15\ and the second phase limits (-39 dBW/200 MHz for base
+stations, -35 dBW/200 MHz for mobile stations) will apply to all
+deployments brought into use (i.e., constructed and operating) after
+September 1, 2027. This schedule strikes an appropriate balance between
+protecting weather and scientific observations and promoting deployment
+in the 24 GHz band. Various commenters support adopting the WRC-19
+schedule. Moreover, the Commission wishes to incentivize the work of
+manufacturers like Ericsson, which asserts it has already produced
+equipment meeting the Phase 1 limit.
+---------------------------------------------------------------------------
+
+ \15\ The rules the Commission adopts in this item will be
+effective 30 days after Federal Register publication of the item.
+---------------------------------------------------------------------------
+
+ 32. The Commission declines to accelerate the effective date of the
+Phase 2 standards, as requested by NOAA, IEEE GRSS, and AGU/AMS/NWA.
+There is considerable uncertainty as to when equipment meeting Phase 2
+standards will be available. Implementing Phase 2 standards prematurely
+could make it impractical for licensees to deploy in the band. Finally,
+while WRC-19 contemplated that there could be a longer period (up to
+eight years) where Phase 1 equipment could be deployed, in fact
+deployments will be required to comply with Phase 2 in fewer than three
+years. Accordingly, it appears that the number of deployments using
+Phase 1 equipment may be lower than originally contemplated at WRC-19.
+ 33. The Commission also rejects T-Mobile's suggestion that the more
+stringent Phase 2 limits should only apply to equipment ``authorized
+for use'' after September 1, 2027, but that equipment could be
+``brought into use'' after that date even if it was certified prior to
+that date and only complied with the Phase 1 limits. T-Mobile argues
+that purchased and certified equipment that only meets the Phase 1
+limit but is unused due to certain delays beyond the control of the
+provider should be allowed be installed even after September 1, 2027;
+in other words, that providers should be permitted to use any equipment
+that was manufactured and sold before September 1, 2027, indefinitely
+under the Phase 1 limits so long as that equipment has been approved
+for use by the Commission prior to that date. The Commission disagrees
+with this position because the Commission believes this could act as an
+incentive for entities to stock up on equipment that met the Phase 1
+limit in order to deploy this equipment at their leisure during Phase
+2, effectively allowing an `end-run' around the very concept of
+implementing the Phase 2 limit after September 1, 2027. T-Mobile's
+interpretation is plainly inconsistent with what was contemplated at
+WRC-19. From the perspective of the ITU, equipment that is certified
+but also ``brought into use'' prior to September 1, 2027, will be
+`grandfathered'--i.e., allowed to continue to operate at the prior
+emissions limits even after implementation of the stricter emissions
+limits regime. But there is indeed a defined limit based on when
+equipment is `brought into use.' As the Commission stated in the
+Notice,
+
+ Because the unwanted emission limits for base stations and
+mobile stations will change after September 1, 2027 under our
+proposal, equipment certifications based on compliance with the
+first phase limits would expire on that date. Any equipment
+remaining in the supply chain--i.e. in warehouses or in transit--
+would then be illegal to sell or install under our rules.
+
+ 34. The Commission reiterates that, under the rules the Commission
+adopts, any equipment ``brought into use'' after September 1, 2027 must
+be ``authorized for use''--i.e., certified for use--according to the
+Phase 2 limits of Resolution 750. The Commission also rejects IEEE
+GRSS's argument that the ITU intended that ``all base station equipment
+that does not comply with the -39 dBW/200 MHz limit should be modified
+or removed by September 1, 2028.'' If Phase 1 equipment was brought
+into use on August 31, 2027, it can continue to operate after September
+1, 2027 per the ITU's footnote clarifications, even though it may not
+meet the increased OOBE limits. The
+
+[[Page 100862]]
+
+Commission finds that it serves the public interest to use the ITU's
+footnote clarifications for a clear and effective application of the
+time table for the limits.
+ 35. Certification of Phase 1 Equipment. The Commission also sought
+comment in the Notice on how to transition equipment deployed under the
+Phase 1 limits and to incentivize early and timely development and
+deployment of Phase 2 equipment. The Notice pointed to the equipment
+authorization program for RF devices as one tool meant to ensure
+compliance with the technical rules. RF devices must comply with the
+Commission's technical and equipment authorization requirements before
+they can be imported into or marketed in the United States. Because
+under the Commission's proposal, the unwanted emissions limits for base
+stations and mobile stations will change on September 1, 2027,
+equipment certifications based on compliance with the first phase
+limits would no longer be granted on or after this date. Furthermore,
+as noted above, any equipment remaining in the supply chain--i.e. in
+warehouses or in transit--would then be illegal to sell or install
+under the rules. In the Notice, the Commission sought comment on
+whether it should prohibit the grant of new equipment certifications
+for, or the importation of, equipment not complying with the Phase 2
+unwanted emissions limits at a date prior to September 1, 2027, as a
+means of both preventing equipment certified as complying only with
+Phase 1 limits from remaining in the supply chain--in warehouses or in
+transit--or being brought into use after September 1, 2027. As an
+example, the Commission stated that it could cease granting new
+equipment certifications or cease permitting importation of equipment
+only meeting the first phase limit after March 1, 2027, or six months
+prior to implementation of the second phase limits.
+ 36. The Commission declines to accelerate the deadline for
+equipment certification of Phase 1 equipment since the Commission does
+not believe that it would incentivize the early development and
+deployment of Phase 2 equipment, but instead may place additional
+burdens on large and small equipment manufacturers and carriers
+planning their own affairs. The benefits touted by proponents of
+setting an earlier certification deadline rely on arguments that the
+Commission does not find persuasive in light of the licensing and
+compliance paradigm it now clarifies. Under the interpretation of
+Resolution 750 limits for the 24 GHz band that the Commission adopts
+and incorporates into its rules, equipment meeting the Phase 1 limits
+can be brought into use up through September 1, 2027, and can remain in
+use thereafter. Accordingly, the Commission sees no need to stop
+certifying Phase 1 equipment before September 1, 2027. The Commission
+emphasizes that the September 1, 2027 deadline for bringing Phase 1
+equipment into use is firm, and equipment manufacturers and licensees
+must keep that firm deadline in mind when deciding to develop or to
+purchase Phase 1 equipment. Any decision to develop or to purchase
+equipment that does not meet Phase 2 emissions limits close to the
+September 1, 2027 deadline will be solely at the risk of the equipment
+manufacturer or licensee, and the Commission presumes that it will plan
+accordingly. This decision trusts equipment manufacturers and carriers
+to structure their own affairs, gives them a well-defined timeline to
+do so, and removes any disincentive for manufacturers to prematurely
+cease producing equipment that meets Phase 1.
+ 37. Requiring Phase 1 Equipment to Transition to Phase 2. The
+Commission also sought comment in the Notice on what should happen with
+Phase 1 equipment still operating after the Phase 2 deadline. NTIA,
+NOAA, and NASA advocate that equipment modified or replaced after
+September 1, 2027, must meet the more stringent Phase 2 OOBE levels.
+AGU/AMS/NWA, IEEE GRSS, and NOAA ask that base station and user
+equipment that does not comply with the -39 dBW/200 MHz limit be given
+a sunset date of September 1, 2028, by which it must be modified/
+retrofitted to meet the more stringent limits or removed.
+ 38. The Commission declines to establish a hard date by which Phase
+1 equipment brought into use on or prior to September 1, 2027, must
+comply with the Phase 2 limits, subject to certain conditions, as
+explained further below. Establishing a hard sunset date would be
+inconsistent with the WRC-19 framework, which contemplates that Phase 1
+equipment brought into use prior to September 1, 2027, could be
+operated indefinitely. Furthermore, the proponents of a hard sunset
+date have not offered any technical justification for such a sunset
+date, nor have they cited any factor that was allegedly not considered
+at WRC-19.
+ 39. Rather, the Commission will adopt NTIA's proposal to require
+that equipment modified or replaced after September 1, 2027, must meet
+the more stringent Phase 2 emissions limits, clarified by CTIA and T-
+Mobile's suggestion that, for purposes of this requirement, only base
+station modifications that affect emission characteristics would
+constitute a ``modification'' requiring compliance with the Phase 2
+limits. The Commission believes these decisions strike the appropriate
+balance between granting licensees flexibility and being consistent
+with the decisions made at WRC-19. On the one hand, allowing licensees
+to make ``modifications'' to equipment without restriction could result
+in equipment that is substantially different from what is initially
+deployed not being subject to the Phase 2 limits. On the other hand,
+there are many sorts of routine modifications that could be made to
+equipment that would have no impact on the equipment's compliance with
+the Resolution 750 limits. As CTIA notes, requiring that any
+modification trigger compliance with the Phase 2 limits would be overly
+broad and would effectively preclude licensees from making any changes
+to existing deployments without purchasing and installing entirely new
+equipment. The Commission sees no reason why those sorts of routine
+modifications should trigger a requirement to replace that equipment.
+Since the emission characteristics are critical here, the Commission
+concludes that only modifications that would change the emission
+characteristics of the equipment would constitute a ``modification''
+that would trigger a requirement to comply with the Phase 2 emissions
+limits. The Commission also concludes that any equipment that is
+completely replaced after September 1, 2027 should be treated as if it
+is newly installed and therefore subject to the post-September 1, 2027
+emissions limits of the ITU Resolution 750.

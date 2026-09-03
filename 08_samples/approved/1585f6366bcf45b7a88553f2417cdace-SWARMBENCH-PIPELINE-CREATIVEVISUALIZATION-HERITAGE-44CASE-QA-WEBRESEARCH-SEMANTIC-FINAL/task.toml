@@ -1,0 +1,24 @@
+[task]
+name = "swarmbench/1585f6366bcf45b7a88553f2417cdace-SWARMBENCH-PIPELINE-CREATIVEVISUALIZATION-HERITAGE-44CASE-QA-WEBRESEARCH-SEMANTIC-FINAL"
+description = "Prepare a source-grounded museum interpretation package from 44 real UNESCO danger-list heritage starting points by retrieving public sources, adding independent web context, answering semantic curator-review questions, clustering themes, justifying selections, and producing a board-review package."
+
+[metadata]
+verifier_type = "llm-judge"
+domain = "knowledge-research"
+coordination_pattern = "pipeline"
+secondary_classification = ["browsing", "long_writing", "long_horizon", "multi_modal"]
+dag_depth = 8
+dag_width = 8
+human_solving_hours_estimate = 40
+human_solving_hours_justification = "A museum review team would spend about 6 hours retrieving and saving public sources, 18 hours reading and memoing UNESCO/external context material, 5 hours checking provenance and quote exactness, 4 hours evaluating visual/source-rights and unsupported-claim risks, 3 hours clustering cases and justifying lead/support/holdback selections, 2 hours reconciling an evidence register, and 2 hours synthesizing and reviewing the final 30-slide visual arc."
+estimated_sub_agents = 37
+input_token_estimate = 12000
+why_multi_agent = "The work is organized as a 37-stage pipeline: eight URL-discovery shards, one bounded source-collection stage, one external-source plan reducer, one source-finalizer, one retrieval auditor, eight analysis shards, eight QA shards, eight same-shard repair shards, and one final reducer. Multi-agent execution keeps semantic reading, source comparison, curator-question answers, quote grounding, QA, and memo repair separated by case range while preserving one synthesis pass. A single agent must maintain all 44 cases plus retrieval state, quote exactness, QA findings, repair work, and final synthesis in one long context, making it more likely to drift into generic claims, missing memos, weak source comparison, quote mismatches, or ungrounded package synthesis."
+reference_link = "https://whc.unesco.org/en/danger-list/"
+oracle = "none; weighted rubric verifier with optional LLM curator-question judging"
+verifier_scoring = "Weighted verifier: 25% deterministic completeness/source/quote checks, 60% parallel per-case Fireworks LLM rubric judging using hidden reference context, validation facts, task curator questions, and agent output, and 15% Fireworks LLM judging of the final storyboard package. It does not score exact word counts, arbitrary answer lengths, agent-specific caps, secondary ceilings, or comparison to multi-agent output."
+
+
+[environment]
+cpus = 4
+memory_mb = 4096

@@ -1,0 +1,365 @@
+orchestrator_directive: >
+  You are the lead orchestrator of a 20-chapter hierarchical slide-building job. There are 20
+  per-chapter slide-writer sub-agents plus one completion-QA agent (the "queen"). Your single most
+  important responsibility is to drive the entire job to completion without ending your turn early.
+  Do NOT write any chapter slides or assemble the deck yourself.
+
+  The book is pre-sliced per chapter at /opt/book_chapters/chapter_NN.txt (zero-padded, e.g. chapter
+  7 -> /opt/book_chapters/chapter_07.txt), so writers read one small text file instead of the ~30MB
+  PDF (if /opt/book_chapters/UNAVAILABLE exists, writers fall back to
+  /input_artifacts/Principles_Finance.pdf). Each writer saves its slides to
+  /logs/agent/chapter_NN_slides.json (zero-padded), first slide titled 'Chapter N: <the chapter's
+  real title>'.
+
+  How to run the job:
+  1. Dispatch the 20 chapter writers in TWO large waves: chapters 1-10 together, then chapters
+     11-20 together. Send all ten task calls of a wave in a single turn. Wait for the wave to
+     return, then immediately dispatch the next wave.
+  2. Do not stop, pause, summarize, or hand back control between waves. After the first wave
+     finishes, your very next action must be to dispatch the second wave. If you ever notice you
+     have dispatched writers for fewer than all 20 chapters, you are not done - dispatch the
+     remaining chapters now.
+  3. After both waves are done, dispatch the completion-QA "queen" sub-agent. It audits all 20
+     slide files, authors any that are missing or empty itself, and then builds the final deck. You
+     do not assemble the deck yourself - the queen does.
+  4. You are not finished until /logs/agent/output.pptx exists, is non-empty, and covers all 20
+     chapters. Confirm it. If it is missing or incomplete, re-dispatch the queen, then confirm
+     again. only then may you end your turn.
+sub_tasks:
+- id: chapter-01
+  description: >
+    Build the key-point presentation slides for Chapter 1 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_01.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 1 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 1 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_01_slides.json as {"chapter": 1, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 1:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-02
+  description: >
+    Build the key-point presentation slides for Chapter 2 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_02.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 2 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 2 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_02_slides.json as {"chapter": 2, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 2:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-03
+  description: >
+    Build the key-point presentation slides for Chapter 3 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_03.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 3 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 3 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_03_slides.json as {"chapter": 3, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 3:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-04
+  description: >
+    Build the key-point presentation slides for Chapter 4 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_04.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 4 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 4 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_04_slides.json as {"chapter": 4, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 4:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-05
+  description: >
+    Build the key-point presentation slides for Chapter 5 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_05.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 5 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 5 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_05_slides.json as {"chapter": 5, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 5:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-06
+  description: >
+    Build the key-point presentation slides for Chapter 6 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_06.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 6 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 6 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_06_slides.json as {"chapter": 6, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 6:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-07
+  description: >
+    Build the key-point presentation slides for Chapter 7 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_07.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 7 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 7 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_07_slides.json as {"chapter": 7, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 7:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-08
+  description: >
+    Build the key-point presentation slides for Chapter 8 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_08.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 8 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 8 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_08_slides.json as {"chapter": 8, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 8:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-09
+  description: >
+    Build the key-point presentation slides for Chapter 9 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_09.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 9 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 9 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_09_slides.json as {"chapter": 9, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 9:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-10
+  description: >
+    Build the key-point presentation slides for Chapter 10 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_10.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 10 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 10 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_10_slides.json as {"chapter": 10, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 10:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-11
+  description: >
+    Build the key-point presentation slides for Chapter 11 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_11.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 11 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 11 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_11_slides.json as {"chapter": 11, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 11:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-12
+  description: >
+    Build the key-point presentation slides for Chapter 12 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_12.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 12 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 12 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_12_slides.json as {"chapter": 12, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 12:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-13
+  description: >
+    Build the key-point presentation slides for Chapter 13 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_13.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 13 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 13 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_13_slides.json as {"chapter": 13, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 13:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-14
+  description: >
+    Build the key-point presentation slides for Chapter 14 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_14.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 14 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 14 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_14_slides.json as {"chapter": 14, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 14:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-15
+  description: >
+    Build the key-point presentation slides for Chapter 15 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_15.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 15 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 15 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_15_slides.json as {"chapter": 15, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 15:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-16
+  description: >
+    Build the key-point presentation slides for Chapter 16 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_16.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 16 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 16 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_16_slides.json as {"chapter": 16, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 16:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-17
+  description: >
+    Build the key-point presentation slides for Chapter 17 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_17.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 17 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 17 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_17_slides.json as {"chapter": 17, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 17:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-18
+  description: >
+    Build the key-point presentation slides for Chapter 18 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_18.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 18 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 18 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_18_slides.json as {"chapter": 18, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 18:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-19
+  description: >
+    Build the key-point presentation slides for Chapter 19 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_19.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 19 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 19 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_19_slides.json as {"chapter": 19, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 19:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: chapter-20
+  description: >
+    Build the key-point presentation slides for Chapter 20 of the OpenStax 'Principles of
+    Finance' textbook. Read only this chapter's text, which is pre-extracted at
+    /opt/book_chapters/chapter_20.txt (if that file is missing, or /opt/book_chapters/UNAVAILABLE
+    exists, read Chapter 20 from /input_artifacts/Principles_Finance.pdf instead). Decide the
+    chapter's genuinely major key points - its core concepts, key definitions and formulas, the
+    important models, and the main takeaways - and lay them out as at most 5 slides of concise,
+    specific bullet points (the chapter's real terms/models/formulas, not vague filler). Cover only
+    Chapter 20 and stay strictly faithful to the book: do not invent facts or import outside
+    material. Save your slides to /logs/agent/chapter_20_slides.json as {"chapter": 20, "title":
+    "<the chapter's real title from the book>", "slides": [{"title": "...", "bullets": ["...",
+    "..."]}, ...]} with at most 5 slides, and make the first slide's title exactly 'Chapter 20:
+    <the chapter's real title from the book>'.
+  depends_on: []
+  parallel_group: chapter-writers
+- id: completion-qa
+  description: >
+    You are the completion-QA agent. The 20 chapter writers have run; your job is to
+    guarantee a complete deck. (1) Audit /logs/agent/chapter_01_slides.json ...
+    chapter_20_slides.json: each must exist, be valid JSON, and hold at least one non-empty slide
+    with its first slide titled 'Chapter N: <title>'. (2) For any chapter whose file is missing,
+    unreadable, empty, or malformed, author it yourself: read that chapter from
+    /opt/book_chapters/chapter_NN.txt (fallback /input_artifacts/Principles_Finance.pdf), produce at
+    most 5 faithful key-point slides, and write /logs/agent/chapter_NN_slides.json in the required
+    shape with the first slide titled 'Chapter N: <title>'. Do not rewrite chapters that are already
+    good. (3) Once all 20 chapter JSON files are present and valid, build the deck by running:
+    python3 /opt/assemble_deck.py /logs/agent/output.pptx /logs/agent  (4) Verify
+    /logs/agent/output.pptx exists, is non-empty, and covers all 20 chapters; if assembly failed or
+    a chapter is missing, fix the offending JSON and re-run the command. Do not finish until
+    /logs/agent/output.pptx exists and covers all 20 chapters.
+  depends_on: [chapter-01, chapter-02, chapter-03, chapter-04, chapter-05, chapter-06, chapter-07, chapter-08, chapter-09, chapter-10, chapter-11, chapter-12, chapter-13, chapter-14, chapter-15, chapter-16, chapter-17, chapter-18, chapter-19, chapter-20]
+  parallel_group: finalize

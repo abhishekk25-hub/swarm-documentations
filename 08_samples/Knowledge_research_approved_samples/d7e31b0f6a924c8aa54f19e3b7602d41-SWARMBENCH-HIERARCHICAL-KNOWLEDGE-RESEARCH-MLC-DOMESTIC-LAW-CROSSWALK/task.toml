@@ -1,0 +1,140 @@
+[task]
+name = "swarmbench/d7e31b0f6a924c8aa54f19e3b7602d41-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-MLC-DOMESTIC-LAW-CROSSWALK"
+description = "Build an offline transposition crosswalk for forty-two MLC 2006 provisions across twelve flag jurisdictions as of 2026-07-30: trace each provision to domestic instruments and evidence, reconcile shard findings into a workbook and lineage graph, publish coverage and method audit trails, and deliver a comparative legal memorandum the compliance board can defend."
+
+[metadata]
+verifier_type = "hybrid"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_horizon", "long_writing"]
+dag_depth = 3
+dag_width = 24
+human_solving_hours_estimate = 138.767
+human_solving_hours_justification = """
+The staged corpus is real domestic-law material for twelve flag states plus the MLC 2006 text and
+provision registry. Reading the crosswalk standard, the corpus note and the provision registry twice
+to apply them literally is 8,420 words at 130 words per minute doubled, 2.2 hours. The mapping work
+is the bulk. Five hundred four provision-by-jurisdiction cells each need the MLC provision read,
+the jurisdiction's staged sources searched, a transposition status assigned, domestic instruments
+named with citation form, evidence passages located, and amendment history checked against the as-of
+cutoff. At six minutes a cell that is 3,024 minutes, 50.4 hours. Orienting in each jurisdiction's
+source bundle before that search is possible is twenty minutes a jurisdiction, 4.0 hours. Tracing
+instrument lineage where a provision splits across statute and subsidiary legislation is four minutes
+a cell on the two hundred ten cells that carry partial or delegated status, 14.0 hours.
+The writing is forty-two provision summaries at eight minutes each drawn from the MLC text, 5.6
+hours; twelve jurisdiction coverage notes at six minutes, 1.2 hours; the comparative memorandum at
+ninety minutes, 1.5 hours; the method audit narrative at forty minutes, 0.667 hours; and the
+unresolved queue rationales at three minutes an entry for the entries expected, 2.5 hours.
+The lineage graph and workbook assembly are corpus work and cannot be done shard by shard: building
+the article lineage graph from twenty-four shard files is 3.0 hours; reconciling the six workbook
+sheets so every cell appears exactly once is 4.0 hours; the source coverage census over all staged
+files is 2.5 hours; rendering the memorandum PDF from the settled markdown is 1.0 hour.
+A final consistency pass across the seven deliverables, the twenty-four shards and the workbook
+sheets is 4.0 hours.
+Total: 2.2 + 50.4 + 4.0 + 14.0 + 5.6 + 1.2 + 1.5 + 0.667 + 2.5 + 3.0 + 4.0 + 2.5 + 1.0 + 4.0 = 96.567 hours
+for the mapping and assembly alone. The legal judgment layer, where partial transposition, reserved
+matters and federal splits must be argued rather than counted, adds four cluster reducer synthesis
+passes at seven hours each because each reducer reconciles six shard returns against the others,
+28.0 hours; and the board-facing memorandum comparative analysis across jurisdictions adds
+another 14.2 hours of cross-reading the cluster outputs.
+Grand total: 96.567 + 28.0 + 14.2 = 138.767 hours.
+"""
+estimated_sub_agents = 45
+input_token_estimate = 1011000
+reference_link = "https://www.ilo.org/sites/default/files/2024-10/NORMES_MLC%20Amendments-EN_2022_Web_1.pdf"
+why_multi_agent = """
+The binding single-agent failure mode is that the evidence for a transposition decision and the
+constraint that governs it never fit in the same window. Deciding one provision in one jurisdiction
+needs that jurisdiction's own statute, regulations, orders and guidance as staged, because a
+provision is fully transposed only where domestic law carries the obligation, partially where
+domestic law carries part of it or delegates the rest, and none where no instrument accounts for
+it. Deciding a cluster needs every shard in that cluster returned before its rows can be settled,
+because instrument_id is a per-jurisdiction sequence and six bands reading the same jurisdiction
+independently assign the same <ISO3>-I<number> token to different instruments; the collision is
+invisible inside any one band and only surfaces when the six are held together. Deciding the
+memorandum needs all twelve
+jurisdictions visible at once for the comparative claims the board will read first.
+A single agent working serially through approximately 1,011,000 staged-input tokens either stops opening jurisdiction
+bundles and starts assigning statuses on plausibility, which turns every unclear cell into a
+confident full transposition, or keeps reading and never reaches the workbook and the audit.
+
+The lineage graph makes the split unavoidable rather than merely helpful. Its edges are properties
+of the corpus and of nothing smaller: which domestic instruments amend which, which provisions share
+a common statutory parent, and which jurisdictions split implementation across statute and
+subsidiary rules. A shard-local reader cannot even see an edge whose endpoints lie in two different
+provision bands. A serial agent that has evicted band three by the time it reaches band twenty-two
+has to re-read to answer it, and the run does not have the budget twice.
+
+The hierarchy bounds each researcher's scope and reconciles the shared state in seven stages.
+frame--as-of and prep--provision-index settle the cutoff and band index at node level one. Four
+cluster leads (lead--c1 through lead--c4) at level two provide dispatch context, spawn six
+crosswalk band sub-agents each exactly once and wait for those sessions. Twenty-four crosswalk
+workers (crosswalk--c1-b01 through crosswalk--c4-b24) at level three own one provision band each
+across all twelve jurisdictions and form the widest tier at dag_width twenty-four. Four cluster
+reducers (reduce--c1 through reduce--c4) at level four perform post-leaf synthesis over six shards
+each. Integrators reduce--workbook-rows, reduce--unresolved-queue, reduce--lineage-graph and
+reduce--source-coverage build shared artifacts concurrently at level five. publish--workbook runs
+at level six. publish--board-package runs at level seven and writes the mutually reconciled method
+audit, markdown memorandum and PDF in one session, avoiding three serial publishing agents.
+That is forty sub-tasks in decomposition.yaml over seven node levels. estimated_sub_agents is
+forty-five, the sub-agent count the calibration run actually realized rather than the forty
+declared roles; each cluster lead has authority to dispatch one of its six
+band workers a second time, at most once per worker, so realized band-worker dispatches can
+exceed twenty-four by a bounded margin - the calibration run realized five such retries
+(c1-b01, c2-b08, c2-b10, c2-b12, c4-b21) for forty-five sessions against forty roles. The
+orchestrator itself never retries, respawns or redispatches any role. Those seven stages nest
+into three spawn tiers - orchestrator, cluster lead, band worker - so dag_depth is three, and
+dag_width stays twenty-four, the crosswalk band tier.
+
+The calibration pair run against this exact staged corpus confirms the wedge and the
+predicted failure mode. Single agent (swarm-opencode-single, moonshotai/Kimi-K2.6) scored 0.0322;
+multi agent (swarm-opencode-multi, same model) scored 0.6125, a 58.03-point gap. A second
+multi-agent arm run without the planning phase scored 0.6475, so the gap does not depend on the
+plan scaffold.
+
+The single-agent trajectory fails exactly where why_multi_agent predicted rather than for an
+incidental reason. One orchestrator session consumed 2,406,563 input tokens and exited its loop at
+step 50 after roughly ten minutes, having read crosswalk_standard.md but never worked from it: it
+wrote a generate_crosswalk.py script that keyword-matched provision text against the staged
+domestic sources and emitted all 504 cells mechanically, then declared the crosswalk complete. The
+result is the confident-full-transposition collapse the design anticipated - AUS is 42 of 42 full,
+BHS 41 of 42 full, and method_audit.csv records mapping_method=manual_rule, confidence=high on
+cells that were never read. It also invented its own contract: comparison_workbook.csv,
+method_audit.csv, unresolved_queue.csv and lineage_graph_edges.csv instead of the required
+mlc_transposition_workbook.xlsx, method_audit.json, unresolved_research_queue.csv and
+article_lineage_graph.json, no memorandum PDF, and 42 per-provision shards instead of the 24
+SHARD-<cluster>-<band>.json band files section 12 fixes. s_deliverables_present scored 0.0,
+o_grounding_and_authenticity scored 0.0 with a 0.0 grounding share, and all 42
+o_llm_provision_*_composite checks scored 0.0. The one thing it did produce in the right shape, the
+memorandum, scored 1.0 on o_llm_memo_comparative_quality and o_llm_memo_profiles_authored while
+scoring 0.0 on o_llm_memo_figures_reconcile - the writing capability is present; the evidence
+budget to back it is not.
+
+The multi-agent arm inverted that profile. 46 opencode sessions consumed 143,159,661 input tokens
+across the corpus that one context cannot hold, and the session tree shows genuine sub-coordination
+rather than flat dispatch: the root orchestrator issued 16 task spawns and its four cluster leads
+issued 29 more from within their own sessions, 45 subagent sessions across the 40 declared roles,
+inside the bounded retry margin; the session tree bottoms out at the twenty-four-wide crosswalk
+band tier, and the seven dependency stages ran in the declared order, confirming dag_depth seven
+and dag_width twenty-four. All 24 SHARD-C<n>-B<nn>.json band files were delivered
+(s_shards_delivered 0.7917), the judge scored all 504 cells rather than none, 30 of 42 provision
+composites scored above 0.65 with 8 at 1.0, and the two reconciliations the instruction says the
+board will re-run both passed: o_audit_header_matches_mapping_counts 1.0 and
+o_llm_memo_figures_reconcile 1.0, the judge recording that the memorandum's global 229/68/7/97/103
+split matches the authoritative aggregates exactly. The residual multi-agent losses are the
+per-jurisdiction instrument_id collisions this design named in advance - r_canonical_cell_keys and
+r_all_cells_present_once at 0.244, r_workbook_unresolved_matches_queue at 0.0 - which is headroom
+for a stronger swarm, not a defect in the wedge.
+"""
+network_enabled = false
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 900

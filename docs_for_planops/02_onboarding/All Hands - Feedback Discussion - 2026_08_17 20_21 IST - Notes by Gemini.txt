@@ -1,0 +1,470 @@
+﻿✍️ Quick notes
+Please rate the new Quick notes tab by taking a short survey.
+All Hands - Feedback Discussion
+
+
+Aug 17, 2026
+Muhammad Mamdouh Mohan Gupta Nikhil Meda Abhishek Garg Prasanth K Mehedi Hasan Srisabari S Karthick E S G Mathavan Ramesh Kumar K Bhanu Prakash Reddy Nalamadgu Edgar Kibet Ruturaj Solanki Estifanos Gashawtena Atif Shoaib Abhishek Kathirasan Vinodkumar Baste Yousef el Khawaga Satish Bogala Bright Amidiagbe Olusegun Olayinka Aditya Somani Benaiah Yusuf Kuldeep Singh Tanwar Segun Oni Alex Alex Asma
+
+
+Phase 2 delivery evaluation and technical calibration discussions centered on dataset optimization and standardizing operational verification protocols.
+
+
+Client Feedback and Expectations
+* Phase 2 samples accepted by client despite minor required fixes.
+* Client requested increased dataset complexity to limit multi-agent success rates under 60 percent.
+
+
+Metadata and Verification Integrity
+* Rubric manifest metadata alignment with function docstrings mandated.
+* Secondary verification process implemented to prevent manual errors.
+
+
+Task Configuration and LLM Judge Usage
+* Weight ratios standardized to 1:1:1 or 1:2:3 for future tasks.
+* Agent timeout parameters optional if hardware supports alternative execution strategies.
+* LLM judge implementation prioritized over regex for outputs containing linguistic ambiguity.
+* Numeric-only reporting mandated for reward.json files.
+
+
+Execution Log Standards
+* Authentic execution logs required, prohibiting manual file modifications.
+* Stale justification files prohibited to prevent perceived log manipulation.
+* Rubric manifest deemed sufficient for reporting content and structural checks.
+
+
+Infrastructure and Personnel
+* Compaction bug resolved via open code version upgrade.
+* Recruitment initiated for pod lead positions.
+
+
+Next steps
+* [S G Mathavan] Clarify weights: Clarify the use of 1 to 1 to 1 and 1 to 2 to 3 weight formats to the client for future tasks.
+* [S G Mathavan] Respond to client: Explain to the client that the rubric manifest already covers the requested structural and content check information to avoid providing additional files.
+* [S G Mathavan] Fix sandbox issue: Resolve the issue preventing the display of data on the sandbox ID in the cloud run environment.
+* [Ruturaj] Post performance: Publish the weekly feed performance metrics for each pod.
+* [The group] Improve accuracy: Verify that rubric manifest files, metadata, and problem decompositions are perfectly aligned and accurate in all future submissions.
+* [The group] Ensure authenticity: Ensure all execution logs are authentic by avoiding manual file modifications and preventing the use of stale justification files.
+* [The group] Classify checks: Verify that static checks are correctly classified in the rubric manifest and not misidentified as reward hacking.
+
+
+
+
+
+
+Want to see more? View the full notes
+Tip: You can always access your full notes from the left sidebar.
+
+
+
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+📝 Full notes
+Aug 17, 2026
+All Hands - Feedback Discussion
+Invited Muhammad Mamdouh Mohan Gupta Nikhil Meda Abhishek Garg Prasanth K Mehedi Hasan Srisabari S Karthick E S G Mathavan Ramesh Kumar K Bhanu Prakash Reddy Nalamadgu Edgar Kibet Ruturaj Solanki Estifanos Gashawtena Atif Shoaib Abhishek Kathirasan Vinodkumar Baste Yousef el Khawaga Satish Bogala Bright Amidiagbe Olusegun Olayinka Aditya Somani Benaiah Yusuf Kuldeep Singh Tanwar Segun Oni Alex Alex Asma
+Attachments All Hands - Feedback Discussion
+Meeting records Transcript Recording 
+
+
+
+
+Summary
+Phase 2 delivery evaluation and technical calibration discussions centered on dataset optimization and standardizing operational verification protocols.
+
+Client Feedback and Metrics
+Phase 2 samples received positive quality feedback but require dataset recalibration to ensure multi-agent system success rates stay below 60 percent. The team will adopt standardized 1:2:3 weighting ratios and default to maximum agent timeouts when uncertain.
+
+Technical Integrity and Processes
+Rigid regular expressions must be replaced with Large Language Model judges to prevent false failures from keyword ambiguity. Manual log manipulation is strictly prohibited, and judge logs must be separated from reward files.
+
+Infrastructure and Expansion
+Ongoing infrastructure upgrades include transitioning to Weights and Biases for better tracking and resolving cloud sandbox visibility issues. Opportunities for pod leadership are now available for internal team members.
+
+
+
+
+Decisions
+Aligned
+* Robust verifier strategy adoption The team will implement a more robust verifier strategy to increase task complexity and lower multi-agent success rates, addressing client feedback regarding dataset difficulty.
+* Scoring format standardization The team will standardize scoring across all future tasks by utilizing two specific formats: equal weights (1:1:1) and a weighted format (1:2:3).
+* LLM judge prioritization The team will prioritize the use of LLM judge over regex checks when verifiers involve ambiguous solution formats to ensure accurate agent evaluation.
+* Separate reward and judge justification files The team will separate LLM judge information from the reward.json file by moving it into a dedicated justification file, maintaining only numeric values in the reward.json.
+* Authenticity of execution logs Manual manipulation of execution files is prohibited to ensure the authenticity and integrity of logs provided to the client.
+* Content check reporting strategy The team will decline the client's request for an additional content check file, opting instead to utilize the existing rubric manifest for structural and content check reporting.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+
+
+Next steps
+* [S G Mathavan] Clarify weights: Clarify the use of 1 to 1 to 1 and 1 to 2 to 3 weight formats to the client for future tasks.
+* [S G Mathavan] Respond to client: Explain to the client that the rubric manifest already covers the requested structural and content check information to avoid providing additional files.
+* [S G Mathavan] Fix sandbox issue: Resolve the issue preventing the display of data on the sandbox ID in the cloud run environment.
+* [Ruturaj] Post performance: Publish the weekly feed performance metrics for each pod.
+* [The group] Improve accuracy: Verify that rubric manifest files, metadata, and problem decompositions are perfectly aligned and accurate in all future submissions.
+* [The group] Ensure authenticity: Ensure all execution logs are authentic by avoiding manual file modifications and preventing the use of stale justification files.
+* [The group] Classify checks: Verify that static checks are correctly classified in the rubric manifest and not misidentified as reward hacking.
+
+
+
+
+Details
+* Overview of Client Feedback (Phase 2): S G Mathavan opened the meeting by discussing the client feedback regarding the first batch of samples delivered for Phase 2. Overall, the client accepted the work and expressed satisfaction with the quality of the samples, though they identified a few minor issues that the team needs to address (00:11:21).
+* Dataset Complexity and Model Performance (Task 133691): The client noted that while the multi-agent system succeeded with high scores (96%), this high performance makes the dataset less valuable for training, as it does not sufficiently challenge the models (00:11:53). S G Mathavan explained that the client wants a dataset where the multi-agent system struggles more effectively, specifically requesting a threshold where the success rate does not exceed 60% (00:13:23).
+* Rubric Manifest and Metadata Consistency: A minor discrepancy was identified where the description in the rubric manifest.json file did not align with the docstring in the verify.py file (00:13:52). Although the verifier function was correct, the metadata incorrectly claimed dependency on other functions, necessitating better secondary verification using the Agent CLI to ensure all metadata is perfect from the start (00:14:30).
+* Task Metadata Maintenance: To ensure continued client satisfaction and avoid task rejection, the team must be vigilant in preventing repetitive metadata errors (00:15:53). While the identified verifier issue did not affect rewards or result in a major penalty, the team must avoid these mistakes in future tasks (00:16:21).
+* Weighting Ratios and Task Formatting: S G Mathavan addressed confusion regarding the weighting ratios used in tasks (00:16:43). To clarify, the team will follow two distinct formats moving forward: a simple format with equal weights and a 1:2:3 ratio format, where 3 is assigned to the partial oracle and 2 is assigned for rewarding (00:17:13).
+* Agent Timeout Strategy: Regarding agent timeout configurations, some tasks were missing these values (00:17:38). S G Mathavan explained that while this is not a mandatory hardware field, if the trainer is uncertain about the strategy, they should include the maximum timeout value the multi-agent system was able to achieve to ensure the task submission is complete (00:18:04).
+* Regular Expressions vs. Large Language Model Judge (TLDDR Task): The team encountered issues where regular expressions caused false failures because they could not handle the ambiguity of expected keywords (e.g., "disclose" vs. "disclosing") (00:18:51). S G Mathavan emphasized that when instructions allow for ambiguity, the team must use a Large Language Model (LLM) Judge rather than rigid regular expressions to avoid falsely rejecting valid agent outputs (00:20:49).
+* Reward.json Structure and Large Language Model Judge Logs: The client flagged an issue where Large Language Model (LLM) Judge information was incorrectly included inside the reward.json file (00:22:20). S G Mathavan instructed the team to keep reward.json limited to numeric values and place all Large Language Model (LLM) Judge verdicts or associated JSON output in a separate file, such as judge_justification.txt or the test output.log file (00:22:47).
+* Prevention of Manual Manipulation of Execution Logs: S G Mathavan highlighted a critical issue where the judge_justification.txt file contained different information than the reward.json file, suggesting that a trainer may have manually manipulated the logs (00:23:55). The team must avoid modifying files by hand, as this makes the execution logs appear inauthentic and could lead to the client rejecting the tasks (00:24:53).
+* Structural and Content Check Reporting: The client requested a specific file to report structural and content check scores, a request S G Mathavan plans to push back on (00:25:48). They explained that the rubric manifest.json is already sufficient, as structural scores can be calculated from static checks, and content checks can be derived from reward hacking and partial oracle tasks (00:26:27) (00:27:18). The team should ensure these functions are classified correctly within the rubric manifest rather than creating additional files (00:27:00) (00:27:35).
+* Infrastructure Updates and Data Visibility: S G Mathavan addressed technical challenges, including compaction hitting the 131,072 token limit and a bug in the OpenCode invocation. The team has upgraded the OpenCode version to resolve the bug, is transitioning to Weights and Biases for better tracking, and S G Mathavan is working to fix issues where data is not visible on the sandbox ID in the cloud run (00:28:25).
+* Team Performance and Future Opportunities: S G Mathavan commended the team for their hard work and contributions during the delivery batch. Ruturaj will share the weekly performance feed for each pod, and the team is currently looking to expand, with Pod Lead roles available for interested individuals who should reach out to Ruturaj (00:29:25).
+
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Aug 17, 2026
+All Hands - Feedback Discussion - Transcript
+00:11:21
+
+
+S G Mathavan: Hey hi team thanks for joining. Let me start the recording. So raising network issue. So if you will not be able to join the call I will take forward. So yeah the main purpose of this call is we have got a client feedback for the first uh samples on the which we have delivered on phase two.
+
+
+
+
+00:11:53
+
+
+S G Mathavan: So the good news is they have accepted it all and uh there are some minor issues. issues which needs to be addressed. So we will be going through what are those minor issues and how we need to address it and by the end of this call I will also be sharing this document. So first task which is 133691 the issue what happened here is so the clients are very much happy with the quality of verifiers and how the single agent was able to get a low score and the multi- aent was able to succeed.
+
+
+
+
+00:12:28
+
+
+S G Mathavan: But the main issue here is the multi- aent was able to succeed with a lot of good score which is 96%. Which the client is not very much interested in the phase two. So what they are looking for is a data set which is complex enough which is a very good eval data set so that they can use our data set to improve much more here.
+
+
+
+
+00:12:49
+
+
+S G Mathavan: So if you're going to uh deliver this specific data moving forward again to the client right it does not add much value to them because already the Kimmy model is able to perform 0.96 and the multi no plan is also performing really good it is near to the 90 percentage. So in this case even though the their model has been uh like they got the learnings of how to decompose the problems into sub problems and spawn these sub aents to solve these right now if they're looking for a data set which also challenges the multi-
+
+
+
+
+00:13:23
+
+
+S G Mathavan: aent capabilities here. So that's why they are uh they have requested us for a data set where the multi- aent is also struggling and the single agent is really struggling around like 10%. So how we can achieve achieve this is basically with a very good verifier right we should be able to have a more robust verifier so that it pushes the score down so this is not an exact requirement from the claim that's why they have accepted it but if you're following the same
+
+
+
+
+00:13:52
+
+
+S G Mathavan: pattern again and again I feel they will be rejecting the task in future and asking us to reduce the threshold part right like the our quality gate uh the threshold which is like the multi- aent should be like not passing more than uh 60% or multi plan should be not be passing more than 60%. So that's the main ask of the client is and the second thing is very minor but still they wanted us uh to refine it which is the rubric manifest.json JSON was having an mention of description like the multiplier lines uh the
+
+
+
+
+00:14:30
+
+
+S G Mathavan: multiplier lines so I don't want to get into detail because it would confuse the other persons who was in the call right I wanted to give you an overview that the rubric manifest JSON whatever the description which the task was having was not relevant or not were not aligning to the dock string in the verify py so the verify py was having an a good doc string It which was explaining the function correctly but the rubric manifest was explaining uh the function incorrectly and it was h mentioning that the function is
+
+
+
+
+00:15:05
+
+
+S G Mathavan: dependent on multiple other functions as well but when we were able to check in the verify the function is actually not uh like uh dependent on the other functions it was a static single uh check so this is something like of metadata that's why they are also accepting this but they wanted to flag this uh so that we don't make these issues again and again right so you can definitely use your agent CLI to do a lot of refinements like a verification once the task has been done
+
+
+
+
+00:15:34
+
+
+S G Mathavan: right let's make sure that rubric manifest.json JSON is perfect. Metadatas are perfect. Decomposition should be perfect on the first place itself. But yeah, having a secondary verification shouldn't cost us much. And then the task to ML files, right? These are very much the clients are very keen on.
+
+
+
+
+00:15:53
+
+
+S G Mathavan: So if you are repeating these mistakes again and again, they will be definitely reducing the threshold of acceptance and they will be rejecting the task. So hopefully let's make sure to avoid these issues as well. And this one is the same thing which the it was having a minor issue on the verifier. So this is also something we need to be aware of.
+
+
+
+
+00:16:21
+
+
+S G Mathavan: Uh and I didn't make this as an issue because the client uh specifically appreciated the quality of task and uh the level of complexity is also really good in this. So it's a minor issue and it is not affecting any rewards as well. So they haven't uh specifically emphasized this but we should also be very aware of this issue as well.
+
+
+
+
+00:16:43
+
+
+S G Mathavan: So whatever we have discussed so far is it is a it is a metadata issue and it is a verifier issue. The descriptions of verifier is having an issue on that. Next this sample uh okay uh this is something we don't have to worry about which they have mentioned is uh there this task is exactly using an 1 is to1 is to1 ratio which is like the weights are being used uh the trainer specifically
+
+
+
+
+00:17:13
+
+
+S G Mathavan: made a mean of 20 registry entries and they are just classifying asking whether uh moving forward will will b be having an 1 is to 2 is to three ratio for all the task uh or not So I I will also be clarifying that to the client that we are we will be following two types of formats which is uh equal weights and uh the scoring will be simple and it will be having an equal weight.
+
+
+
+
+00:17:38
+
+
+S G Mathavan: If the trainer needs to be uh introducing a weights right then he will be following this format one is to two is to three for three is for the partial oracle and two is for the rewarding. So this shouldn't be an issue and this is also uh not a major issue which they were saying that the other tasks are having an agent timeout secondary uh presence but this specific taza 2 ml was having an absence of this value.
+
+
+
+
+00:18:04
+
+
+S G Mathavan: So in this case this is also a minor fix moving forward. If you are also not going with the timeout strategy, right? I have I have explained to them saying that if the trainer is not going with the timeout strategy, they will be running the task without a timeout and hardware supports it. There's no mandatory file.
+
+
+
+
+00:18:21
+
+
+S G Mathavan: This is not a mandatory field which the hardware expects. So I have explained that. But moving forward let's also like if you are uh uncertain on the strategy and you you were able to get the gap without the time of strategy itself you can make uh you can add this value as well whatever the maximum value which your multi- aent was able to get right a multi- aent multi-in plan or the single agent what was the maximum time you can keep it as a agent time out and submit the task as well this is also a very minor one and
+
+
+
+
+00:18:51
+
+
+S G Mathavan: uh I think this was a very clean task They didn't have any minor issues being faced. They just explained what the task is all about and how it was doing on. So it should be fine. Yeah. The next task which is a serious issue I would say what happened is uh TLDDR uh they the trainer was expecting around like uh a specific uh reject they have given let's say I'm I'm giving an uh abstract
+
+
+
+
+00:19:27
+
+
+S G Mathavan: uh feedback right what they were giving is like they were they they were they was asking the agent to output the answer in a specific format and they were checking the format using the reax. So they they can definitely use LLM judge to check if the value the the keywords which is being produced by the agent are in a necessary like uh format or not.
+
+
+
+
+00:19:55
+
+
+S G Mathavan: But they were also not mentioning this these are the exact keyword needs to be present. They were not strict on these uh keywords in the instruction MD as well. But they were mentioning that this keyword can be in an different form uh like a cyber testing and maybe a cybering and addition of ing. So what they were doing is they were able to cover a lot of uh aspects of how these keywords will be present but they were they they missed a specific one for the disclose.
+
+
+
+
+00:20:29
+
+
+S G Mathavan: The agent was giving an output as disclosing but the rejects rejected it and it gave a low reward for it. So that the single agent multi no plan and multi- aent also failed it. So in this case the major uh like to like the major solution here to avoid these cases is basically use LLM judge.
+
+
+
+
+00:20:49
+
+
+S G Mathavan: The rejects are I know rejects are uh reject rejects are good and they if you are very confident that the and if you're very confident that you have mentioned this is the extract exact strict keyword and needs to be present in the output you can definitely go with the rejects but if you're giving some ambiguities for the element right to give the answers in that case rejects are not very much reliable because it could be a case where your rejects are not covering the ambiguity of solutions with the LLM consider it as valid
+
+
+
+
+00:21:24
+
+
+S G Mathavan: right so in this case we need this project is all about we need to make sure we are not falsely making an agent fail. So in this case it it falsely made the agent failed and this could this is a major issue I would say in this case the client would definitely ask us to revoke on it and which increases the interest cost and things like that.
+
+
+
+
+00:21:44
+
+
+S G Mathavan: So in the so try to reason when you're creating a verifier right try to reason if it will be able to accept a lot of ambiguity of solutions and also if my instruction is avoiding to create ambiguity of solutions right and in that case you can definitely go with the static check if your instruction are also not restricting uh that these are the exact keyword needs to be present in the output or something like that then you have to go with the LLM judge definitely So this is an issue and uh the next thing is the reward.json uh in
+
+
+
+
+00:22:20
+
+
+S G Mathavan: this task the reward.json was also having a lot of information from the LLM judge as well. They have used LLM judge but the LLM judge was not used for the reject. So in this case a simple fix is using LLM judge instead of using the rejects right and the next issue which the client was able to flag is the reward.json JSON needs to be reporting the reward structural score and the static checker scores,
+
+
+
+
+00:22:47
+
+
+S G Mathavan: the reward hacking scores and also partial reward scores. But what happened is they they were also appending the LM judge information here. So they it was having the LLM judge descriptions things like that. So in this case we need to avoid those cases. We need to make sure the LLM judge are being created in a judge justification.xt txt file or a separate file.
+
+
+
+
+00:23:09
+
+
+S G Mathavan: You can definitely create a separate file for it. You can also print the LLM judge verdict or the JSON which is being produced by the LM J right that vertex will be present in the test output.log. So whatever which has been printed out when the verifier is running the verifier logs folder will be having test output.log which will be definitely printing the uh print statements whatever you have in the verifier.
+
+
+
+
+00:23:34
+
+
+S G Mathavan: So in this case we should also be avoiding to we should try to have only the numeric value in the reward.json this is a minor one. So no issues on that front as well. Yeah this is the same as I mentioned earlier they are confused like whether which specific formula which we will be taking forward.
+
+
+
+
+00:23:55
+
+
+S G Mathavan: So I have clarified in the in the message that we are going to focus on one is to 1 is to 1 and 1 is to 2 is to three as a weights moving forward and this is a very important issue as well. What happened is the judge justification.txt was publishing a different reward than the reward uh JSON was having as a reward rate.
+
+
+
+
+00:24:19
+
+
+S G Mathavan: So this is something like I feel that either the train trainer have uh forgot to update the justification.xt txt because in this original in in this confirmed new code the judge justification.txt was not created uh it was not creating the justification.xt and it was directly uh like having the justification.xt file which is a stale file. I feel that the trainer h maybe manipulated the logs again and try to fix it by adding the previous just justification.exe.
+
+
+
+
+00:24:53
+
+
+S G Mathavan: In this case please avoid it. Whatever the execution logs which is being returned by the cloud run should be authentic enough. You should not be manipulating anything. That's the main reason why we introduce verified uh only py uh method right in our cloud run. The major issue is if you're going to manually do these things you will you would definitely miss a part here and if you're missing even a simple part a single issue like this just justification.xt txt which is a stale file right the client will be definitely
+
+
+
+
+00:25:27
+
+
+S G Mathavan: mentioning that the execution run is also not not valid so in this case you have the trainer has definitely ran the execution logs and that's how we got it and updated reward JSON but we should not be like doing these issues which could also make the client arises as a a doubt that the execution logs are being manipulated which they will be rejecting in future as well.
+
+
+
+
+00:25:48
+
+
+S G Mathavan: So make sure moving forward your files are perfect accurate with whatever the verifier logic which you are having currently in the task and make sure you're not modifying any of the files manually and doing these uh by in hand. Right? That's the next issue which we need to avoid. Okay. This is also something uh they mentioned that they wanted a content check score and structural check score in a specific file which I am going to push back saying that we are already having those information in place the rubric manifest.
+
+
+
+
+00:26:27
+
+
+S G Mathavan: So whatever the static check code which is in the which is classified as in the rubric manifest whatever the code which is like classified as static check will be considered as structural score percentage structural percentage you can consider that and whatever the functions which is been classified as reward hacking partial oracle will be cons considered as a content checks bas basically these are the lo the overview of logic for these functions right you you would be either checking the content based on a rubric Or you would be either checking the content using and partial oracle.
+
+
+
+
+00:27:00
+
+
+S G Mathavan: So all these should be a content checks. So in this case I would give it as a raising warnings that if make sure you're classifying it correctly. This is what we are going to say to the client that we we will not be providing an additional file because we are rubric manifest is perfect enough.
+
+
+
+
+00:27:18
+
+
+S G Mathavan: It is already covering those aspect. You can just count the static check function and the total function which you have. Now you can calculate the percentage of static structural checks which is being present in the task and whatever the task which is classified as reward hacking and partial oracle will be considered as a content check.
+
+
+
+
+00:27:35
+
+
+S G Mathavan: So make sure you are not having any static checks which has been classified as reward hacking. Right? This will also disrupt the uh agreement which we are coming up with the client. So that's the major issues uh which is being uh highlighted by the client. So they have reviewed six task which is which was the first batch on phase two and you can also view a consolidated uh version here.
+
+
+
+
+00:28:02
+
+
+S G Mathavan: what are the major issues they were able to raise and some of the issues are something like there is an understanding issue from the client side as well how hardware works and what can be possible what is already being done that's why I have also mentioned it in the comment so feel free to take a look uh after this call uh it should be like if you have any doubts right you can definitely go through the document and raise it in
+
+
+
+
+00:28:25
+
+
+S G Mathavan: our Q&A channel if anything needs to be clarified but uh yeah so far I think we are doing a really good work. So the the last concern is the client wanted to also flag the compaction was hitting with the limit of 131072 whenever the prompt is being on these tokens. Right? This is specifically configured for fireworks and also there was a bug in open code to invoke the compaction but the now we have upgraded the open code uh version the bug is resolved and we have also trans transition to weights and bias right that's where I'm going to push the update
+
+
+
+
+00:29:03
+
+
+S G Mathavan: moving forward we will be having a maximum output totals basically similar to what the model is capable of so this is the major update which we will be doing and I think uh the hardware version is also updated. So that's why you we are not able to see the data on a sandbox ID in the cloud run which I will also be working on to fix that issue as well.
+
+
+
+
+00:29:25
+
+
+S G Mathavan: Any other doubts or questions? Okay, I take it as no. Uh then we can call it a meeting guys. Thank you so much for the wonderful contribution and Ruturaj will also be posting the weekly uh feed performance right for each pod and which specific trainer was doing really well because we have achieved a lot of task in the delivery batch with all your hard work and contribution right I like
+
+
+
+
+00:29:55
+
+
+S G Mathavan: let's continue the same uh performance and we are also very much excited to sp expand our team as well. So we are also looking for a very good podly and let me know if anyone is really interested for a podly road. Feel free to reach out to Ruturaj so we can uh take it from there. Yeah. Thank you team. Have a good day. Bye everyone.
+
+
+
+
+Transcription ended after 00:30:28
+
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

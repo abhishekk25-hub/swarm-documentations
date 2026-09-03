@@ -1,0 +1,62 @@
+[
+    {
+        "exhibit_id":  "VIS001",
+        "source_id":  "SRC029",
+        "title":  "AHA survey visual summary of hospital financial and patient-care impacts",
+        "visual_type":  "survey infographic / chart",
+        "source_url":  "https://www.aha.org/system/files/media/file/2024/03/aha-survey-change-healthcare-cyberattack-significantly-disrupts-patient-care-hospitals-finances.pdf",
+        "local_file":  "source_pdfs/SRC029.pdf",
+        "page_hint":  "AHA survey PDF pages summarizing financial impact, cash-flow impact, workarounds, and patient-care impact",
+        "interpretation_focus":  "Use the visual proportions and labels to explain which operational pressures should become tabletop inject pressure points."
+    },
+    {
+        "exhibit_id":  "VIS002",
+        "source_id":  "SRC035",
+        "title":  "OFR brief figures on payment-flow and liquidity stress",
+        "visual_type":  "analytical figure / chart",
+        "source_url":  "https://www.financialresearch.gov/briefs/files/OFRBrief-24-05-change-healthcare-cyberattack.pdf",
+        "local_file":  "source_pdfs/SRC035.pdf",
+        "page_hint":  "OFR brief figures and tables describing claims-processing disruption, revenue shortfalls, liquidity effects, and single point of failure lessons",
+        "interpretation_focus":  "Use the visual evidence to map payment-flow dependencies and liquidity-risk decision points in incident_map.html."
+    },
+    {
+        "exhibit_id":  "VIS003",
+        "source_id":  "SRC008",
+        "title":  "UnitedHealth Q1 cyberattack financial impact table",
+        "visual_type":  "financial table",
+        "source_url":  "https://www.unitedhealthgroup.com/content/dam/UHG/PDF/investors/2024/UNH-Q1-2024-Release.pdf",
+        "local_file":  "source_pdfs/SRC008.pdf",
+        "page_hint":  "Q1 earnings release table showing direct response and business disruption impacts",
+        "interpretation_focus":  "Use the table structure to distinguish direct response cost decisions from business-disruption decisions."
+    },
+    {
+        "exhibit_id":  "VIS004",
+        "source_id":  "SRC010",
+        "title":  "UnitedHealth Q2 cyberattack restoration and impact table",
+        "visual_type":  "financial table",
+        "source_url":  "https://www.unitedhealthgroup.com/content/dam/UHG/PDF/investors/2024/UNH-Q2-2024-Release.pdf",
+        "local_file":  "source_pdfs/SRC010.pdf",
+        "page_hint":  "Q2 earnings release table showing service restoration, advance funding, and updated cyberattack impacts",
+        "interpretation_focus":  "Use the table to show how restoration progress and provider support evolve across exercise phases."
+    },
+    {
+        "exhibit_id":  "VIS005",
+        "source_id":  "SRC045",
+        "title":  "HHS HPH Cybersecurity Performance Goals visual layout",
+        "visual_type":  "control taxonomy / goals layout",
+        "source_url":  "https://hhscyber.hhs.gov/Documents/cybersecurity-performance-goals.pdf",
+        "local_file":  "source_pdfs/SRC045.pdf",
+        "page_hint":  "Performance Goals PDF sections presenting essential and enhanced goals",
+        "interpretation_focus":  "Use the visual/taxonomy layout to connect after-action remediation categories to essential and enhanced cybersecurity goals."
+    },
+    {
+        "exhibit_id":  "VIS006",
+        "source_id":  "SRC039",
+        "title":  "ALPHV BlackCat advisory TTP and mitigation tables",
+        "visual_type":  "technical table",
+        "source_url":  "https://www.cisa.gov/sites/default/files/2024-03/aa23-353a-stopransomware-alphv-blackcat-update_2.pdf",
+        "local_file":  "source_pdfs/SRC039.pdf",
+        "page_hint":  "Joint advisory tables for TTPs, IOCs, and mitigations",
+        "interpretation_focus":  "Use the visual table groupings to map technical-response decision points and defensive controls."
+    }
+]

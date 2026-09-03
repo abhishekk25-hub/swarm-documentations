@@ -1,0 +1,29 @@
+[task]
+name = "swarmbench/23984ad1c88f499c8b7b740a23151dd3-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-HHS-PRIORITY-RECOMMENDATION-CLOSURE"
+description = "Build an evidence-backed HHS priority-recommendation closure portfolio from 24 frozen GAO report and current-status pairs for Deputy Secretary sequencing decisions."
+
+[metadata]
+verifier_type = "hybrid"
+network_enabled = true
+domain = "planning-operations"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_writing", "long_horizon"]
+dag_depth = 2
+dag_width = 24
+human_solving_hours_estimate = 126.5
+human_solving_hours_justification = "442937 words / 250 wpm = 29.5 reading hours; 24 recommendation analyses x 1.5 h = 36 h; 120 actions x 0.10 h = 12 h; 72 evidence items x 0.083 h = 6 h; 24 dependency and wave decisions x 0.167 h = 4 h; 72 two-unit priority arbitrations x 0.25 h = 18 h; portfolio arbitration reconciliation, synthesis, and memo = 15 h; cross-file QA = 6 h; total = 126.5 h."
+estimated_sub_agents = 40
+input_token_estimate = 589106
+why_multi_agent = "The 435102-word corpus contains 24 independent report/status pairs, 192 high-cardinality action and evidence records, and 72 two-unit priority decisions across three lenses. Unit verification needs bounded source ownership; lens specialists must compare integrated unit packets without duplicating pair ownership; and separate reconciliation, many-to-many integration, and contract-validation stages must preserve one coherent portfolio decision."
+reference_link = "https://www.gao.gov/products/gao-25-108032"
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600

@@ -1,0 +1,7 @@
+Please complete the enforcement review package for the 72 Federal Mine Safety and Health Review Commission administrative-law decisions provided.
+
+Prepare one separate, source-grounded digest for every decision. Each digest should identify the parties or mine and docket, the citation, order, mandatory standard, protected activity, or other enforcement question, the operative condition or event, the decisive testimony and documentary proof, the judge's credibility findings, the Mine Act test and analysis actually applied, the disposition, and the assessed penalty or other remedy. Write in the reviewer’s own words from that decision alone and do not move facts, standards, findings, or remedies between matters.
+
+Prepare a corpus-wide mine-safety survey that identifies meaningful patterns and contrasts in cited standards, technical conditions, proof and credibility, negligence and gravity, significant-and-substantial and unwarrantable-failure findings, discrimination or reinstatement matters, outcomes, penalties, and relief. Anchor each comparison to the supporting report ids, parties, mines, or dockets.
+
+Submit all 72 decision digests, the mine-safety survey, and the case-register CSV at the required output locations. The register must contain one canonical row for every matter with the requested identity, issue-family, disposition, penalty-or-remedy, and completion fields. Complete the entire roster, including the final decisions.

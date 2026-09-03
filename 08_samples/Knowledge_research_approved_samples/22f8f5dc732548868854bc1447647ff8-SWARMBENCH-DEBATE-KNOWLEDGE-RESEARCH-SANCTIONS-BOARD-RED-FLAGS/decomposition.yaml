@@ -1,0 +1,120 @@
+# ============================================================================
+# EXECUTION PLAN -- parallel_group marks the concurrency stages.
+#
+# This task uses a debate coordination pattern built around a single
+# dispatching manager, record-manager, at its first stage. Of the four
+# stages below, only record-manager is a manager -- it is responsible for
+# spawning the decision-record workers that do the stage's real work via
+# the task tool, not for building a record itself. The remaining three
+# stages (specialist-readings, adjudication, final-brief) are plain
+# single-agent sub-tasks with no manager indirection -- each is one agent
+# doing its own analysis, not spawning further sub-agents. Do not perform
+# record-manager's underlying work yourself in place of spawning it, and do
+# not skip a stage's own analysis by deferring it to an upstream or
+# downstream stage.
+#
+#
+#   record-manager  (manager, stage: record-routing)
+#     |
+#     +-- decision-record worker x 30  (one per row of decisions_index.csv)
+#         = 1 manager spawning 30 decision-record workers, each building the
+#           digest record for exactly one packaged decision from its own
+#           document alone.
+#
+# Stage order and size:
+#   record-routing        1 sub-task  -- MANAGER spawns 30 decision-record
+#                                        workers, one per row of
+#                                        decisions_index.csv
+#   specialist-readings    3 sub-tasks, all in parallel, no manager -- one
+#                          procurement reading, one investigations reading,
+#                          one legal reading, each over the same thirty
+#                          finished records
+#   adjudication           2 sub-tasks, all in parallel, no manager -- one
+#                          adjudicator settling per-decision holdings, one
+#                          settling the red-flag indicator set
+#   final-brief            1 sub-task  -- single task, no spawn
+#
+# record-routing:
+#   record-manager is the sole manager in this graph. It spawns exactly
+#   thirty decision-record workers in the same batch, one per row of
+#   /input_artifacts/decisions_index.csv, passing each worker only its own
+#   row's document_filename and the record schema verbatim -- the decision
+#   number, case number, decision date, corrigendum status, the
+#   allegations/reply/findings separation, the practice(s) found, the
+#   evidentiary reasoning, the aggravating and mitigating factors, the
+#   sanction imposed with a citation for each of those four items, and the
+#   pre-contract observable warning-sign conclusion. If a worker fails,
+#   times out, or returns incomplete or invalid output, record-manager
+#   retries or replaces it before treating the record set as complete --
+#   the specialist readings downstream must never see a gap. Do NOT run the
+#   thirty workers sequentially: elapsed time for this stage should
+#   approach the single slowest worker, not the sum of all thirty.
+# specialist-readings:
+#   Three independent single-agent sub-tasks -- procurement-reading,
+#   investigations-reading, legal-reading -- each read the complete set of
+#   thirty finished decision records and argue their own angle across all
+#   of them. None reads another's output, so all three must run
+#   concurrently, not one after another.
+# adjudication:
+#   Two independent single-agent sub-tasks -- adjudicate-evidence-weight,
+#   adjudicate-indicator-set -- each read all three specialist readings and
+#   resolve a different conflict (what each decision held, versus which
+#   indicators are observable and what response is proportionate). Neither
+#   reads the other's output, so both must run concurrently.
+# final-brief:
+#   Single task, no spawn. Waits for both adjudication outputs, then writes
+#   the decision digest, the red-flag matrix, and the risk committee
+#   briefing from the settled positions, reconciling citations and
+#   identifiers so the three files agree.
+#
+# Reusable design rules encoded in the prose above (keep these true):
+#   - The manager dispatches, never does the work. record-manager spawns
+#     via the task tool and builds no decision record itself.
+#   - Pass paths and the schema, not payloads. record-manager tells each
+#     worker only its own row's document_filename and the record schema
+#     verbatim; it does not draft the record's content itself before
+#     spawning.
+#   - Name the fixed schema in full. The nine-element record schema is
+#     passed verbatim to every worker, never summarized to "the usual
+#     fields" -- a worker not given the full schema invents a subset.
+#   - Layered failure recovery. record-manager retries or replaces any
+#     decision-record worker that fails, times out, or returns invalid
+#     output, so a gap never reaches the specialist readings.
+#   - Bounded spawn depth. Nothing below the decision-record-worker level
+#     spawns further sub-agents.
+#   - Honest gaps over invented ones. Every worker writes not stated only
+#     after actually checking its own packaged document for that element --
+#     not as a default for skipping the reading, and not as a substitute
+#     for an inferred value.
+# ============================================================================
+version: "1.0"
+coordination_pattern: debate
+sub_tasks:
+  - id: record-manager
+    description: You are the record-manager, the manager for this stage, and you dispatch and never build a decision record yourself. Using the task tool, spawn one decision-record worker for each of the thirty rows in /input_artifacts/decisions_index.csv and give each worker only its own row's document_filename and the record schema verbatim, which is the decision number, the case number, the decision date, whether the decision carries a corrigendum, the allegations kept apart from the respondent's reply kept apart from the Board's own findings, the sanctionable practice or practices found, the evidentiary reasoning relied on, the aggravating and mitigating factors applied, the sanction imposed with a citation for each of those four items, and whether the decision supports a pre-contract observable warning sign. Tell every worker to write not stated where the decision does not address one of them instead of inferring a value, and only after actually checking the packaged document for that element, since writing not stated without having looked is the same dishonesty as inferring a value, not a compliant shortcut for skipping the reading. If a decision-record worker fails, times out, or returns incomplete or invalid output, recover it by retrying or replacing that worker before treating the record set as complete, since the specialist readings downstream must never see a gap.
+    depends_on: []
+    parallel_group: record-routing
+  - id: procurement-reading
+    description: Argue from a procurement angle across all thirty digest records which conduct a diligence team could observe in a bid or contract file before award and which signals only surface after an investigation
+    depends_on: [record-manager]
+    parallel_group: specialist-readings
+  - id: investigations-reading
+    description: Argue from an investigations angle across all thirty digest records how much weight the Board gave each kind of proof and which proposed signals rest on party argument rather than a finding
+    depends_on: [record-manager]
+    parallel_group: specialist-readings
+  - id: legal-reading
+    description: Argue from a legal angle across all thirty digest records how far each holding generalizes given the practice found and the procedural posture and where a corrigendum limits it
+    depends_on: [record-manager]
+    parallel_group: specialist-readings
+  - id: adjudicate-evidence-weight
+    description: Resolve the conflicts between the procurement investigations and legal readings about what each decision actually held and settle the per decision positions the digest will carry
+    depends_on: [procurement-reading, investigations-reading, legal-reading]
+    parallel_group: adjudication
+  - id: adjudicate-indicator-set
+    description: Resolve the conflicts between the procurement investigations and legal readings about which red flags are observable before contracting and settle the red flag ids and diligence responses the matrix will carry
+    depends_on: [procurement-reading, investigations-reading, legal-reading]
+    parallel_group: adjudication
+  - id: assemble-deliverables
+    description: Write /logs/agent/decision_digest.md /logs/agent/red_flag_matrix.csv and /logs/agent/risk_committee_briefing.md from the settled per decision positions and the settled red flag set and reconcile citations and identifiers so the three files agree
+    depends_on: [adjudicate-evidence-weight, adjudicate-indicator-set]
+    parallel_group: final-brief

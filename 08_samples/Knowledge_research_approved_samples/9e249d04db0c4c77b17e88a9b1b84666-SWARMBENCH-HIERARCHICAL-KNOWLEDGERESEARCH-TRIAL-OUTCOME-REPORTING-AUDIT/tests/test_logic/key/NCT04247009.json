@@ -1,0 +1,670 @@
+{
+ "nct": "NCT04247009",
+ "prespecification_version": 0,
+ "prespecification_date": "2020-01-28",
+ "publications": [
+  "PMC10798910",
+  "PMC11987391",
+  "PMC12106552"
+ ],
+ "prespecified_units": [
+  {
+   "uid": "pri2",
+   "measure": "Circulating high sensitive C-reactive protein (CRP)",
+   "role": "primary",
+   "timeframe": "From baseline up to 5 hours postprandial",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "pri4",
+   "measure": "Gene expression analysis",
+   "role": "primary",
+   "timeframe": "From baseline up to 5 hours postprandial",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "pri6",
+   "measure": "Urine metabolomics",
+   "role": "primary",
+   "timeframe": "From baseline up to 5 hours postprandial",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec1",
+   "measure": "Body composition",
+   "role": "secondary",
+   "timeframe": "Measured at inclusion of trial, expected to be complete within 6 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec2",
+   "measure": "Body composition",
+   "role": "secondary",
+   "timeframe": "Measured at inclusion and during trial, expected to be complete within 1 year",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec3",
+   "measure": "Resting metabolic rate",
+   "role": "secondary",
+   "timeframe": "through study completion, expected within 1 year",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec5",
+   "measure": "Insulin",
+   "role": "secondary",
+   "timeframe": "From baseline up to 5 hours postprandial",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec6",
+   "measure": "Patient-reported quality of life",
+   "role": "secondary",
+   "timeframe": "through study completion, expected to be complete within 1 year",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec8",
+   "measure": "Patient-reported dietary intake",
+   "role": "secondary",
+   "timeframe": "Through study completion, expected to be complete within 1 year",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec9",
+   "measure": "Patient-reported background and dietary habits",
+   "role": "secondary",
+   "timeframe": "During trial, expected to be complete within 1 year",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec10",
+   "measure": "Patient-reported disability",
+   "role": "secondary",
+   "timeframe": "During trial, expected to be complete within 1 year",
+   "reported": false,
+   "change_disclosed": false
+  }
+ ],
+ "additional_units": [
+  {
+   "rid": "PMC10798910#1",
+   "reporting_document": "PMC10798910",
+   "reported_label": "differences in metabolite patterns in the fasting state",
+   "reported_instrument": "Orthogonal Projections to Latent Structures with Discriminant Analysis (OPLS-DA)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns in the fasting state and other postprandial timepoints as well as differences in incremental area under the curve (AUC min ) for quantified metabolites.",
+   "result_quote": "No differences in metabolite patterns were found in fasting samples when comparing women with and without RA."
+  },
+  {
+   "rid": "PMC10798910#2",
+   "reporting_document": "PMC10798910",
+   "reported_label": "differences in metabolite patterns at 0.5 h postprandial timepoint",
+   "reported_instrument": "Orthogonal Projections to Latent Structures with Discriminant Analysis (OPLS-DA)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns in the fasting state and other postprandial timepoints as well as differences in incremental area under the curve (AUC min ) for quantified metabolites.",
+   "result_quote": "OPLS-DA models had a limited quality indicating that there were no differences in metabolite patterns between the groups."
+  },
+  {
+   "rid": "PMC10798910#3",
+   "reporting_document": "PMC10798910",
+   "reported_label": "differences in metabolite patterns at 1 h postprandial timepoint",
+   "reported_instrument": "Orthogonal Projections to Latent Structures with Discriminant Analysis (OPLS-DA)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns in the fasting state and other postprandial timepoints as well as differences in incremental area under the curve (AUC min ) for quantified metabolites.",
+   "result_quote": "OPLS-DA models had a limited quality indicating that there were no differences in metabolite patterns between the groups."
+  },
+  {
+   "rid": "PMC10798910#4",
+   "reporting_document": "PMC10798910",
+   "reported_label": "differences in metabolite patterns at 2 h postprandial timepoint",
+   "reported_instrument": "Orthogonal Projections to Latent Structures with Discriminant Analysis (OPLS-DA)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns in the fasting state and other postprandial timepoints as well as differences in incremental area under the curve (AUC min ) for quantified metabolites.",
+   "result_quote": "OPLS-DA models had a limited quality indicating that there were no differences in metabolite patterns between the groups."
+  },
+  {
+   "rid": "PMC10798910#5",
+   "reporting_document": "PMC10798910",
+   "reported_label": "differences in metabolite patterns at 5 h postprandial timepoint",
+   "reported_instrument": "Orthogonal Projections to Latent Structures with Discriminant Analysis (OPLS-DA)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns in the fasting state and other postprandial timepoints as well as differences in incremental area under the curve (AUC min ) for quantified metabolites.",
+   "result_quote": "OPLS-DA models had a limited quality indicating that there were no differences in metabolite patterns between the groups."
+  },
+  {
+   "rid": "PMC10798910#6",
+   "reporting_document": "PMC10798910",
+   "reported_label": "clustering patterns of observations and trends in the data in relation to known factors and outliers",
+   "reported_instrument": "Principal component analysis (PCA)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Principal component analysis (PCA) model was used to explore clustering patterns of observations and trends in the data in relation to known factors and outliers.",
+   "result_quote": "OPLS-DA models had a limited quality indicating that there were no differences in metabolite patterns between the groups."
+  },
+  {
+   "rid": "PMC10798910#7",
+   "reporting_document": "PMC10798910",
+   "reported_label": "phenylalanine concentration in fasting samples",
+   "reported_instrument": "Nuclear Magnetic Resonance (NMR) analysis",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns in the fasting state and other postprandial timepoints as well as differences in incremental area under the curve (AUC min ) for quantified metabolites.",
+   "result_quote": "The only metabolite that was significantly different in univariate tests between the two groups was phenylalanine, that was significantly higher in concentration in women with RA compared to controls ( p  = 0.008)."
+  },
+  {
+   "rid": "PMC10798910#8",
+   "reporting_document": "PMC10798910",
+   "reported_label": "phenylalanine AUC min",
+   "reported_instrument": "Nuclear Magnetic Resonance (NMR) analysis",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns in the fasting state and other postprandial timepoints as well as differences in incremental area under the curve (AUC min ) for quantified metabolites.",
+   "result_quote": "In univariate tests of AUC min for the metabolites, again phenylalanine was significantly different between the groups ( p  = 0.007) (Supplementary table 1, Supplementary Fig. 1)."
+  },
+  {
+   "rid": "PMC10798910#9",
+   "reporting_document": "PMC10798910",
+   "reported_label": "phenylalanine concentration at postprandial timepoints",
+   "reported_instrument": "Nuclear Magnetic Resonance (NMR) analysis",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns in the fasting state and other postprandial timepoints as well as differences in incremental area under the curve (AUC min ) for quantified metabolites.",
+   "result_quote": "Phenylalanine was significantly higher in patients with RA at all timepoints (Fig. 2 )."
+  },
+  {
+   "rid": "PMC10798910#10",
+   "reporting_document": "PMC10798910",
+   "reported_label": "phenylalanine concentration at fasting and postprandial timepoints",
+   "reported_instrument": "Nuclear Magnetic Resonance (NMR) analysis",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns in the fasting state and other postprandial timepoints as well as differences in incremental area under the curve (AUC min ) for quantified metabolites.",
+   "result_quote": "Concentrations of phenylalanine were significantly different at all time points ( p  < 0.05) and for AUC min"
+  },
+  {
+   "rid": "PMC10798910#11",
+   "reporting_document": "PMC10798910",
+   "reported_label": "acetoacetic acid AUC min",
+   "reported_instrument": "Nuclear Magnetic Resonance (NMR) analysis",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns in the fasting state and other postprandial timepoints as well as differences in incremental area under the curve (AUC min ) for quantified metabolites.",
+   "result_quote": "In addition, AUC min for acetoacetic acid was significantly lower among women with RA ( p  = 0.046) (Supplementary Fig. 2), but there were no differences at any individual timepoint."
+  },
+  {
+   "rid": "PMC10798910#12",
+   "reporting_document": "PMC10798910",
+   "reported_label": "association between glucose and HbA1c",
+   "reported_instrument": "Nuclear Magnetic Resonance (NMR) analysis",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In this explorative study, data are presented as median (inter quartile range (IQR)) with significance set at    = 0.05, i.e., not corrected for multi testing.",
+   "result_quote": "HbA1c was higher in the control group and was significantly correlated to glucose ( r  = 0.388, p  = 0.009)."
+  },
+  {
+   "rid": "PMC10798910#13",
+   "reporting_document": "PMC10798910",
+   "reported_label": "association between VAS pain and sarcosine",
+   "reported_instrument": "visual analogue scales (VAS) for global health, pain, and fatigue",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In addition, to be able to explore if fasting metabolites were associated to certain health variables spearman rank correlation was performed for all participants for BMI, age, HbA1c, Hb, physical activity, and diet index and for metabolites and disease related variables (VAS, CRP, ESR, tender and swollen joints, and DAS-28) for women with RA.",
+   "result_quote": "Among the disease related markers, VAS pain was associated to sarcosine ( r  = 0.551, p  = 0.008), however when adjusted for age and BMI this association became weaker ( r  = 0.476, p  = 0.034)."
+  },
+  {
+   "rid": "PMC11987391#0",
+   "reporting_document": "PMC11987391",
+   "reported_label": "interleukin- 6 (IL- 6)",
+   "reported_instrument": "Electrochemiluminescence Immunoassay (ECLIA)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Sample size for the PIRA-trial was calculated based on the primary objective, which was to compare the response in IL- 6 to three meals of different composition among women with RA, and has been described in detail elsewhere [ 33 ].",
+   "result_quote": "Postprandial inflammation was measured by interleukin- 6 (IL- 6)."
+  },
+  {
+   "rid": "PMC11987391#1",
+   "reporting_document": "PMC11987391",
+   "reported_label": "Plasma concentrations of IL- 6",
+   "reported_instrument": "Electrochemiluminescence Immunoassay (ECLIA)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Sample size for the PIRA-trial was calculated based on the primary objective, which was to compare the response in IL- 6 to three meals of different composition among women with RA, and has been described in detail elsewhere [ 33 ].",
+   "result_quote": "Plasma concentrations of IL- 6, triglycerides (TGs) and very low-density lipoprotein (VLDL) particles increased significantly after the meal compared to baseline within both groups, but no differences were observed between groups."
+  },
+  {
+   "rid": "PMC11987391#3",
+   "reporting_document": "PMC11987391",
+   "reported_label": "IL- 6",
+   "reported_instrument": "Electrochemiluminescence Immunoassay (ECLIA)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Sample size for the PIRA-trial was calculated based on the primary objective, which was to compare the response in IL- 6 to three meals of different composition among women with RA, and has been described in detail elsewhere [ 33 ].",
+   "result_quote": "Simultaneously, a decrease compared to baseline was noted for three (13.6%) women with and one (4.5%) without RA at five hours after the meal."
+  },
+  {
+   "rid": "PMC11987391#4",
+   "reporting_document": "PMC11987391",
+   "reported_label": "triglycerides (TGs)",
+   "reported_instrument": "nuclear magnetic resonance (NMR) spectrometry",
+   "reported_role": "other",
+   "role_evidence_quote": "The aim of this study was to investigate whether women with RA have a different lipemic and inflammatory response to a mixed meal containing red meat compared to women without RA.",
+   "result_quote": "Plasma concentrations of IL- 6, triglycerides (TGs) and very low-density lipoprotein (VLDL) particles increased significantly after the meal compared to baseline within both groups, but no differences were observed between groups."
+  },
+  {
+   "rid": "PMC11987391#5",
+   "reporting_document": "PMC11987391",
+   "reported_label": "TG response",
+   "reported_instrument": "nuclear magnetic resonance (NMR) spectrometry",
+   "reported_role": "other",
+   "role_evidence_quote": "The aim of this study was to investigate whether women with RA have a different lipemic and inflammatory response to a mixed meal containing red meat compared to women without RA.",
+   "result_quote": "RM-ANOVA of the TG response showed a main effect of time in both groups ( p  < 0.001) but no time-by-group interaction ( p  = 0.527)."
+  },
+  {
+   "rid": "PMC11987391#7",
+   "reporting_document": "PMC11987391",
+   "reported_label": "postprandial TG AUC min",
+   "reported_instrument": "nuclear magnetic resonance (NMR) spectrometry",
+   "reported_role": "other",
+   "role_evidence_quote": "The aim of this study was to investigate whether women with RA have a different lipemic and inflammatory response to a mixed meal containing red meat compared to women without RA.",
+   "result_quote": "Fasting TG levels showed a moderate to high positive correlation with postprandial TG AUC min (with RA;    = 0.613, p  = 0.002, without RA;    = 0.794, p  < 0.001) both in women with and without RA."
+  },
+  {
+   "rid": "PMC11987391#8",
+   "reporting_document": "PMC11987391",
+   "reported_label": "peak TG concentration",
+   "reported_instrument": "nuclear magnetic resonance (NMR) spectrometry",
+   "reported_role": "other",
+   "role_evidence_quote": "The aim of this study was to investigate whether women with RA have a different lipemic and inflammatory response to a mixed meal containing red meat compared to women without RA.",
+   "result_quote": "The peak TG concentration was on average 1.42 mmol/l (1.18-1.70) in the RA group and 1.45 mmol/l (1.13-1.91) among the women without RA."
+  },
+  {
+   "rid": "PMC11987391#9",
+   "reporting_document": "PMC11987391",
+   "reported_label": "peak TG concentration",
+   "reported_instrument": "nuclear magnetic resonance (NMR) spectrometry",
+   "reported_role": "other",
+   "role_evidence_quote": "The aim of this study was to investigate whether women with RA have a different lipemic and inflammatory response to a mixed meal containing red meat compared to women without RA.",
+   "result_quote": "The peak was typically registered at the 180-min timepoint and represented a median percentual increase of 53% from baseline in both groups."
+  },
+  {
+   "rid": "PMC11987391#10",
+   "reporting_document": "PMC11987391",
+   "reported_label": "TC",
+   "reported_instrument": "nuclear magnetic resonance (NMR) spectrometry",
+   "reported_role": "other",
+   "role_evidence_quote": "The aim of this study was to investigate whether women with RA have a different lipemic and inflammatory response to a mixed meal containing red meat compared to women without RA.",
+   "result_quote": "Plasma concentrations of TC, LDL-C, HDL-C and apoB- 100 did not change significantly in either group, nor were there any group differences in the magnitude of AUC min (Figs. 3 & 4 )."
+  },
+  {
+   "rid": "PMC11987391#11",
+   "reporting_document": "PMC11987391",
+   "reported_label": "LDL-C",
+   "reported_instrument": "nuclear magnetic resonance (NMR) spectrometry",
+   "reported_role": "other",
+   "role_evidence_quote": "The aim of this study was to investigate whether women with RA have a different lipemic and inflammatory response to a mixed meal containing red meat compared to women without RA.",
+   "result_quote": "Plasma concentrations of TC, LDL-C, HDL-C and apoB- 100 did not change significantly in either group, nor were there any group differences in the magnitude of AUC min (Figs. 3 & 4 )."
+  },
+  {
+   "rid": "PMC11987391#12",
+   "reporting_document": "PMC11987391",
+   "reported_label": "HDL-C",
+   "reported_instrument": "nuclear magnetic resonance (NMR) spectrometry",
+   "reported_role": "other",
+   "role_evidence_quote": "The aim of this study was to investigate whether women with RA have a different lipemic and inflammatory response to a mixed meal containing red meat compared to women without RA.",
+   "result_quote": "Plasma concentrations of TC, LDL-C, HDL-C and apoB- 100 did not change significantly in either group, nor were there any group differences in the magnitude of AUC min (Figs. 3 & 4 )."
+  },
+  {
+   "rid": "PMC11987391#13",
+   "reporting_document": "PMC11987391",
+   "reported_label": "apoB- 100",
+   "reported_instrument": "nuclear magnetic resonance (NMR) spectrometry",
+   "reported_role": "other",
+   "role_evidence_quote": "The aim of this study was to investigate whether women with RA have a different lipemic and inflammatory response to a mixed meal containing red meat compared to women without RA.",
+   "result_quote": "Plasma concentrations of TC, LDL-C, HDL-C and apoB- 100 did not change significantly in either group, nor were there any group differences in the magnitude of AUC min (Figs. 3 & 4 )."
+  },
+  {
+   "rid": "PMC11987391#14",
+   "reporting_document": "PMC11987391",
+   "reported_label": "very low-density lipoprotein (VLDL) particles",
+   "reported_instrument": "nuclear magnetic resonance (NMR) spectrometry",
+   "reported_role": "other",
+   "role_evidence_quote": "The aim of this study was to investigate whether women with RA have a different lipemic and inflammatory response to a mixed meal containing red meat compared to women without RA.",
+   "result_quote": "Plasma concentrations of IL- 6, triglycerides (TGs) and very low-density lipoprotein (VLDL) particles increased significantly after the meal compared to baseline within both groups, but no differences were observed between groups."
+  },
+  {
+   "rid": "PMC11987391#15",
+   "reporting_document": "PMC11987391",
+   "reported_label": "VLDL-P",
+   "reported_instrument": "nuclear magnetic resonance (NMR) spectrometry",
+   "reported_role": "other",
+   "role_evidence_quote": "The aim of this study was to investigate whether women with RA have a different lipemic and inflammatory response to a mixed meal containing red meat compared to women without RA.",
+   "result_quote": "The number of VLDL-P increased significantly within both groups ( p  < 0.001 for the main effect of time) but without a time-by-group interaction ( p  = 0.124)."
+  },
+  {
+   "rid": "PMC11987391#16",
+   "reporting_document": "PMC11987391",
+   "reported_label": "cholesterol carried in VLDL particles",
+   "reported_instrument": "nuclear magnetic resonance (NMR) spectrometry",
+   "reported_role": "other",
+   "role_evidence_quote": "The aim of this study was to investigate whether women with RA have a different lipemic and inflammatory response to a mixed meal containing red meat compared to women without RA.",
+   "result_quote": "However, the women with RA had a less pronounced response in cholesterol carried in VLDL particles ( p  = 0.03) and in TGs in the subfraction of VLDL particles with highest density ( p  = 0.03)."
+  },
+  {
+   "rid": "PMC11987391#17",
+   "reporting_document": "PMC11987391",
+   "reported_label": "VLDL-C",
+   "reported_instrument": "nuclear magnetic resonance (NMR) spectrometry",
+   "reported_role": "other",
+   "role_evidence_quote": "The aim of this study was to investigate whether women with RA have a different lipemic and inflammatory response to a mixed meal containing red meat compared to women without RA.",
+   "result_quote": "However, the AUC min for VLDL-C was significantly larger in women without RA ( p  = 0.028) (Fig. 4 )."
+  },
+  {
+   "rid": "PMC11987391#18",
+   "reporting_document": "PMC11987391",
+   "reported_label": "TGs in the subfraction of VLDL particles with highest density",
+   "reported_instrument": "nuclear magnetic resonance (NMR) spectrometry",
+   "reported_role": "other",
+   "role_evidence_quote": "The aim of this study was to investigate whether women with RA have a different lipemic and inflammatory response to a mixed meal containing red meat compared to women without RA.",
+   "result_quote": "However, the women with RA had a less pronounced response in cholesterol carried in VLDL particles ( p  = 0.03) and in TGs in the subfraction of VLDL particles with highest density ( p  = 0.03)."
+  },
+  {
+   "rid": "PMC11987391#19",
+   "reporting_document": "PMC11987391",
+   "reported_label": "TGs in VLDL particles with the highest density i.e. smallest size (VLDL- 5)",
+   "reported_instrument": "nuclear magnetic resonance (NMR) spectrometry",
+   "reported_role": "other",
+   "role_evidence_quote": "The aim of this study was to investigate whether women with RA have a different lipemic and inflammatory response to a mixed meal containing red meat compared to women without RA.",
+   "result_quote": "Moreover, when comparing the postprandial response of TGs carried in specific subfractions of VLDL, the women without RA exhibited a larger AUC min for TGs in VLDL particles with the highest density i.e. smallest size (VLDL- 5) ( p  = 0.028, Fig. 5 )."
+  },
+  {
+   "rid": "PMC11987391#20",
+   "reporting_document": "PMC11987391",
+   "reported_label": "plasma TG and IL- 6 concentrations",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Spearman's rank order correlations (denoted by the coefficient rho,   ) were performed to explore the relationship between variables.",
+   "result_quote": "There was no correlation between plasma TG and IL- 6 concentrations either at fasting (    = 0.083, p  = 0.594) or five hours after the meal (    = - 0.111, p  = 0.474) in the total study sample ( n  = 44)."
+  },
+  {
+   "rid": "PMC11987391#21",
+   "reporting_document": "PMC11987391",
+   "reported_label": "AUC min for TGs and percent change in IL- 6",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The same model was used to analyse the association between AUC min for TGs and percent change in concentrations of IL- 6.",
+   "result_quote": "Finally, no association between AUC min for TGs and percent change in IL- 6 was found (    = - 1.13, p  = 0.324, Fig. 6 & Supplemental table S.4) [See Additional file 1 ]. No group interaction was detected ( p  = 0.347)."
+  },
+  {
+   "rid": "PMC11987391#22",
+   "reporting_document": "PMC11987391",
+   "reported_label": "the response in TGs and IL- 6",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The same model was used to analyse the association between AUC min for TGs and percent change in concentrations of IL- 6.",
+   "result_quote": "No association was found between the response in TGs and IL- 6."
+  },
+  {
+   "rid": "PMC12106552#0",
+   "reporting_document": "PMC12106552",
+   "reported_label": "differences in changes in postprandial metabolite patterns at 3 h after intake of the study meals",
+   "reported_instrument": "1 H NMR",
+   "reported_role": "primary",
+   "role_evidence_quote": "The main outcome in the current report was differences in changes in postprandial metabolite patterns at 3 h after intake of the study meals, between red meat versus fatty fish and soy protein meals.",
+   "result_quote": "Postprandial models comparing 3 h samples to 0 h (fasting) samples in OPLS-EP models showed significant changes for all three meals (Table 3 , model 4, 5, 6)."
+  },
+  {
+   "rid": "PMC12106552#1",
+   "reporting_document": "PMC12106552",
+   "reported_label": "OPLS-EP Red meat 0 h vs. 3 h",
+   "reported_instrument": "1 H-NMR spectra",
+   "reported_role": "primary",
+   "role_evidence_quote": "The main outcome in the current report was differences in changes in postprandial metabolite patterns at 3 h after intake of the study meals, between red meat versus fatty fish and soy protein meals.",
+   "result_quote": "4\n\nOPLS-EP Red meat 0 h vs. 3 h\n0 + 0 + 0\n22"
+  },
+  {
+   "rid": "PMC12106552#2",
+   "reporting_document": "PMC12106552",
+   "reported_label": "OPLS-EP Fatty fish oh vs. 3 h",
+   "reported_instrument": "1 H-NMR spectra",
+   "reported_role": "primary",
+   "role_evidence_quote": "The main outcome in the current report was differences in changes in postprandial metabolite patterns at 3 h after intake of the study meals, between red meat versus fatty fish and soy protein meals.",
+   "result_quote": "5\n\nOPLS-EP Fatty fish oh vs. 3 h\n1 + 2 + 0\n24\n0.751\n0.938\n0.872"
+  },
+  {
+   "rid": "PMC12106552#3",
+   "reporting_document": "PMC12106552",
+   "reported_label": "OPLS-EP Soy protein 0 h vs. 3 h",
+   "reported_instrument": "1 H-NMR spectra",
+   "reported_role": "primary",
+   "role_evidence_quote": "The main outcome in the current report was differences in changes in postprandial metabolite patterns at 3 h after intake of the study meals, between red meat versus fatty fish and soy protein meals.",
+   "result_quote": "6\n\nOPLS-EP Soy protein 0 h vs. 3 h\n1 + 2 + 0\n24\n0.653\n0.945\n0.630"
+  },
+  {
+   "rid": "PMC12106552#4",
+   "reporting_document": "PMC12106552",
+   "reported_label": "PCA-X All meals first visit T0",
+   "reported_instrument": "1 H-NMR spectra",
+   "reported_role": "other",
+   "role_evidence_quote": "A PCA model was used to explore clustering patterns of observations, trends in the data, and outliers for the fasting samples (0 h) from the first meal served.",
+   "result_quote": "1\n\nPCA-X All meals first visit T0\n3\n24\n0.599\n0.300"
+  },
+  {
+   "rid": "PMC12106552#5",
+   "reporting_document": "PMC12106552",
+   "reported_label": "PCA-X All meals AUC min",
+   "reported_instrument": "1 H-NMR spectra",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "2\n\nPCA-X All meals AUC min\n5\n70\n0.707\n0.605"
+  },
+  {
+   "rid": "PMC12106552#6",
+   "reporting_document": "PMC12106552",
+   "reported_label": "OPLS-DA All meals AUC min",
+   "reported_instrument": "1 H-NMR spectra",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "3\n\nOPLS-DA All meals AUC min\n1 + 3 + 0\n70\n0.606\n0.461\n0.310\n0.0000004\n0.71/1.0/0.82\n23/100/83\n-0.223"
+  },
+  {
+   "rid": "PMC12106552#7",
+   "reporting_document": "PMC12106552",
+   "reported_label": "OPLS-DA Red meat vs. Fatty fish  3h",
+   "reported_instrument": "1 H-NMR spectra",
+   "reported_role": "primary",
+   "role_evidence_quote": "The main outcome in the current report was differences in changes in postprandial metabolite patterns at 3 h after intake of the study meals, between red meat versus fatty fish and soy protein meals.",
+   "result_quote": "7\n\nOPLS-DA Red meat vs. Fatty fish  3h\n1 + 4 + 0\n46\n0.672\n0.945\n0.630\n0.0000330\n1.0/1.0\n100/100\n-0.564"
+  },
+  {
+   "rid": "PMC12106552#8",
+   "reporting_document": "PMC12106552",
+   "reported_label": "OPLS-EP Red meat vs. Fatty fish AUC min",
+   "reported_instrument": "1 H-NMR spectra",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "8\n\nOPLS-EP Red meat vs. Fatty fish AUC min\n1 + 3 + 0\n22\n0.730\n0.985\n0.725\n0.0063470"
+  },
+  {
+   "rid": "PMC12106552#9",
+   "reporting_document": "PMC12106552",
+   "reported_label": "OPLS-DA Red meat vs. Fatty fish AUC min",
+   "reported_instrument": "1 H-NMR spectra",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "9\n\nOPLS-DA Red meat vs. Fatty fish AUC min\n1 + 4 + 0\n46\n0.703\n0.960\n0.565\n0.0003772\n1.0/1.0\n100/100\n-0.525"
+  },
+  {
+   "rid": "PMC12106552#10",
+   "reporting_document": "PMC12106552",
+   "reported_label": "quantified metabolites",
+   "reported_instrument": "Bruker IVDr Quantification in Plasma/Serum B.I.Quant-PSTM",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "Seven out of 23 metabolites had differences (Friedman test p  < 0.05) in AUC min between the three meals (Table 4 )."
+  },
+  {
+   "rid": "PMC12106552#11",
+   "reporting_document": "PMC12106552",
+   "reported_label": "Creatine",
+   "reported_instrument": "Bruker IVDr Quantification in Plasma/Serum B.I.Quant-PSTM",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "Creatine\n7.2 x 10 - 10\n0.657\n0.228\n4.1 x 10 - 7\n1.1 x 10 - 8\n7.2 x 10 - 10\n6.3 x 10 - 5"
+  },
+  {
+   "rid": "PMC12106552#12",
+   "reporting_document": "PMC12106552",
+   "reported_label": "TMAO",
+   "reported_instrument": "Bruker IVDr Quantification in Plasma/Serum B.I.Quant-PSTM",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "TMAO\n2.3 x 10 - 6\n0.645\n0.054\n0.104\n2.5 x 10 - 4\n9.0 x 10 - 3\n2.1 x 10 - 5"
+  },
+  {
+   "rid": "PMC12106552#13",
+   "reporting_document": "PMC12106552",
+   "reported_label": "Alanine",
+   "reported_instrument": "Bruker IVDr Quantification in Plasma/Serum B.I.Quant-PSTM",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "Alanine\n4.6 x 10 - 4\n0.438\n0.580\n0.018\n0.014\n0.021\n0.639"
+  },
+  {
+   "rid": "PMC12106552#14",
+   "reporting_document": "PMC12106552",
+   "reported_label": "Puruvic acid",
+   "reported_instrument": "Bruker IVDr Quantification in Plasma/Serum B.I.Quant-PSTM",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "Puruvic acid\n1.8 x 10 - 3\n0.957\n0.183\n0.344\n0.966\n0.043\n0.094"
+  },
+  {
+   "rid": "PMC12106552#15",
+   "reporting_document": "PMC12106552",
+   "reported_label": "Tyrosine",
+   "reported_instrument": "Bruker IVDr Quantification in Plasma/Serum B.I.Quant-PSTM",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "Tyrosine\n3.6 x 10 - 3\n0.497\n0.812\n0.008\n1.3 x 10 - 5\n0.081\n0.015"
+  },
+  {
+   "rid": "PMC12106552#16",
+   "reporting_document": "PMC12106552",
+   "reported_label": "Isoleucine",
+   "reported_instrument": "Bruker IVDr Quantification in Plasma/Serum B.I.Quant-PSTM",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "Isoleucine\n7.4 x 10 - 3\n0.743\n0.709\n0.002\n4.1 x 10 - 5\n0.075\n6.1 x 10 - 4"
+  },
+  {
+   "rid": "PMC12106552#17",
+   "reporting_document": "PMC12106552",
+   "reported_label": "Valine",
+   "reported_instrument": "Bruker IVDr Quantification in Plasma/Serum B.I.Quant-PSTM",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "Valine\n2.2 x 10 - 2\n0.420\n0.048\n0.012\n3.9 x 10 - 5\n0.002\n0.302"
+  },
+  {
+   "rid": "PMC12106552#18",
+   "reporting_document": "PMC12106552",
+   "reported_label": "creatine",
+   "reported_instrument": "Nuclear magnetic resonance (NMR)-analysis",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "Of these, creatine, TMAO and alanine had a significantly ( p  < 0.0005) different AUC min between the three meals."
+  },
+  {
+   "rid": "PMC12106552#19",
+   "reporting_document": "PMC12106552",
+   "reported_label": "TMAO",
+   "reported_instrument": "Nuclear magnetic resonance (NMR)-analysis",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "TMAO only increased after the intake of the fatty fish meal (Fig. 3 B), with the largest differences between fatty fish and the other two meals at 2 h and 5 h ( p  < 0.0005)."
+  },
+  {
+   "rid": "PMC12106552#20",
+   "reporting_document": "PMC12106552",
+   "reported_label": "tyrosine",
+   "reported_instrument": "Nuclear magnetic resonance (NMR)-analysis",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "Tyrosine (Fig. 3 E), isoleucine (Fig. 3 C) and valine (Fig. 3 D) increased faster and to a higher concentration after intake of the fatty fish meal compared to after intake of red meat and soy protein meals, with a significant difference at 2 h postprandial."
+  },
+  {
+   "rid": "PMC12106552#21",
+   "reporting_document": "PMC12106552",
+   "reported_label": "isoleucine",
+   "reported_instrument": "Nuclear magnetic resonance (NMR)-analysis",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "Tyrosine (Fig. 3 E), isoleucine (Fig. 3 C) and valine (Fig. 3 D) increased faster and to a higher concentration after intake of the fatty fish meal compared to after intake of red meat and soy protein meals, with a significant difference at 2 h postprandial."
+  },
+  {
+   "rid": "PMC12106552#22",
+   "reporting_document": "PMC12106552",
+   "reported_label": "valine",
+   "reported_instrument": "Nuclear magnetic resonance (NMR)-analysis",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "Tyrosine (Fig. 3 E), isoleucine (Fig. 3 C) and valine (Fig. 3 D) increased faster and to a higher concentration after intake of the fatty fish meal compared to after intake of red meat and soy protein meals, with a significant difference at 2 h postprandial."
+  },
+  {
+   "rid": "PMC12106552#23",
+   "reporting_document": "PMC12106552",
+   "reported_label": "creatinine",
+   "reported_instrument": "1 H-NMR spectra",
+   "reported_role": "primary",
+   "role_evidence_quote": "The main outcome in the current report was differences in changes in postprandial metabolite patterns at 3 h after intake of the study meals, between red meat versus fatty fish and soy protein meals.",
+   "result_quote": "For fatty fish, creatinine was the only metabolite that fullfilled the selection criteria comparing 0 h (fasting) and 3 h samples (model 5, Table 3 )."
+  },
+  {
+   "rid": "PMC12106552#24",
+   "reporting_document": "PMC12106552",
+   "reported_label": "unidentified lipids",
+   "reported_instrument": "1 H-NMR spectra",
+   "reported_role": "primary",
+   "role_evidence_quote": "The main outcome in the current report was differences in changes in postprandial metabolite patterns at 3 h after intake of the study meals, between red meat versus fatty fish and soy protein meals.",
+   "result_quote": "For the soy protein meal, however, several unidentified lipids and buckets including a mix of metabolites increased significantly over time and fullfilled the selection criteria (model 6, Table 3 )."
+  },
+  {
+   "rid": "PMC12106552#25",
+   "reporting_document": "PMC12106552",
+   "reported_label": "creatine",
+   "reported_instrument": "1 H-NMR spectra",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "In the models comparing changes in buckets between 0 h (fasting) and 3 h and AUC min between red meat and fatty fish, buckets representing creatine, isoleucine, leucine, and some lipids fullfilled the selection criteria and where higher in concentration for fatty fish."
+  },
+  {
+   "rid": "PMC12106552#26",
+   "reporting_document": "PMC12106552",
+   "reported_label": "isoleucine",
+   "reported_instrument": "1 H-NMR spectra",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "In the models comparing changes in buckets between 0 h (fasting) and 3 h and AUC min between red meat and fatty fish, buckets representing creatine, isoleucine, leucine, and some lipids fullfilled the selection criteria and where higher in concentration for fatty fish."
+  },
+  {
+   "rid": "PMC12106552#27",
+   "reporting_document": "PMC12106552",
+   "reported_label": "leucine",
+   "reported_instrument": "1 H-NMR spectra",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "In the models comparing changes in buckets between 0 h (fasting) and 3 h and AUC min between red meat and fatty fish, buckets representing creatine, isoleucine, leucine, and some lipids fullfilled the selection criteria and where higher in concentration for fatty fish."
+  },
+  {
+   "rid": "PMC12106552#28",
+   "reporting_document": "PMC12106552",
+   "reported_label": "lipids",
+   "reported_instrument": "1 H-NMR spectra",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary outcomes were differences in metabolite patterns and concentrations at other postprandial timepoints, as well as differences in incremental area under the curve based on the minimum value (AUC min ) for quantified metabolites.",
+   "result_quote": "In the models comparing changes in buckets between 0 h (fasting) and 3 h and AUC min between red meat and fatty fish, buckets representing creatine, isoleucine, leucine, and some lipids fullfilled the selection criteria and where higher in concentration for fatty fish."
+  }
+ ],
+ "dropped_unusable_units": []
+}

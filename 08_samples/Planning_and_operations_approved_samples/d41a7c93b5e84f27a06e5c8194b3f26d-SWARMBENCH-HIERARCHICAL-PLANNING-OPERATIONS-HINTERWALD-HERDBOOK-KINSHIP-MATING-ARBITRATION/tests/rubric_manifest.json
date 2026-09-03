@@ -1,0 +1,407 @@
+{
+  "task_id": "d41a7c93b5e84f27a06e5c8194b3f26d-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-HINTERWALD-HERDBOOK-KINSHIP-MATING-ARBITRATION",
+  "verifier_type": "executable",
+  "verifier": "tests/verify.py",
+  "verifier_entrypoint": "python3 /tests/verify.py",
+  "reward_contract": "/logs/verifier/reward.json",
+  "scoring_method": "Every declared check returns a score from 0 to 1. Inside a bucket the checks are combined as a plain unweighted arithmetic mean; an entry's manifest weight records which bucket multiplier it carries in the final blend. The final reward is (total_static_check_score + 2 * total_reward_hacking_check_score + 3 * total_partial_oracle_check_score) / 6. Structural checks therefore account for one sixth of the reward and the remaining five sixths come from anti-hacking and grounded-correctness checks. There are no caps, floors, gates, bonuses, penalties, model calls, caps on individual checks, or execution-mode branches, and no randomness, network access or wall-clock read participates in scoring.",
+  "determinism": "The grader ships no answer key for the round. Every expectation about relatedness and feasibility is recomputed at grading time from the packaged herdbook: the tabular kinship matrix and founder shares over all 1,438 records, inbreeding coefficients, mean kinship and its ranking over the 100 living animals, breeding status, allocation feasibility, the movements a round obliges, and every derived certificate, transport, isolation and capacity value. The single frozen input is tests/health_standing.json, the standing of each animal on the round date reconciled from the 362 free-written clinical statements; the correspondence has no fixed grammar, so it is read rather than parsed, and that file sits under tests/ and is never copied into the agent image. The judgment-bearing choices -- which matings to run, which bull to place where, and where to send an animal that must move -- are graded on feasibility, local optimality, grounding and consistency with recomputed facts, so many different rounds earn full credit.",
+  "total_checks": 41,
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Scores the fraction of the six declared deliverables that exist at their exact declared path and exceed 200 bytes. The verifier opens each declared path directly and never searches for, guesses at, or relocates an output.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv",
+        "/logs/agent/mating_allocations.csv",
+        "/logs/agent/movement_plan.csv",
+        "/logs/agent/board_conflicts.csv",
+        "/logs/agent/herd_dashboard.html",
+        "/logs/agent/conservation_plan.md"
+      ],
+      "check_function": "check_required_deliverables",
+      "how_it_prevents_task_authenticity_violation": "Stops a run claiming completion when a deliverable was never written, and denies structural credit to a zero-byte or header-only stub that later checks would otherwise read as an empty but well-formed table."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Reads only the header line of each of the four CSVs and requires it to equal the declared column list exactly, in order, with no extra, missing, renamed or reordered columns.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv",
+        "/logs/agent/mating_allocations.csv",
+        "/logs/agent/movement_plan.csv",
+        "/logs/agent/board_conflicts.csv"
+      ],
+      "check_function": "check_output_schemas",
+      "how_it_prevents_task_authenticity_violation": "Prevents a differently shaped table, a renamed export or a transposed sheet standing in for the deliverable, which would let the value checks read the wrong column."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "Walks every submitted row and tests field by field that inbreeding coefficients and mean kinship parse as finite numbers, that mk_rank is a whole number in range, that breeding_status, age_class, movement_reason and binding_constraint use only the charter's vocabularies, that isolation days and remaining capacity are non-negative, and that holding codes resolve against the holdings register. Because type and vocabulary alone are satisfied by one constant written into every row, the columns that must differ between animals -- mean kinship, rank, inbreeding coefficient and pair kinship -- are additionally scored for varying across rows, and that term is averaged with the field-level one rather than added to it, so a constant-filled table loses half this check however well typed it is.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv",
+        "/logs/agent/mating_allocations.csv",
+        "/logs/agent/movement_plan.csv",
+        "/logs/agent/board_conflicts.csv"
+      ],
+      "check_function": "check_typed_fields",
+      "how_it_prevents_task_authenticity_violation": "Denies typed-record credit to identifier-shaped prose, NaN or infinite values, invented status words and free-text holding names, all of which make a hollow table look populated."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "Counts how many of the 100 living herdbook records appear in kinship_register.csv exactly once, using the living set recomputed from the packaged pedigree rather than the submission's own row count.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv"
+      ],
+      "check_function": "check_living_herd_coverage",
+      "how_it_prevents_task_authenticity_violation": "Stops a partial pass over the herd scoring as a complete one, and stops a duplicated row standing in for an animal that was never assessed."
+    },
+    "static_checks_5": {
+      "detailed_explanation_of_checks": "Parses the dashboard and scores five structural facts: that an svg element exists, that each of the three declared JSON blocks (kinship-data, allocation-data, conflict-data) is present, parses, and holds at least one populated record rather than an empty array, and that at least forty distinct living animals carry a mark inside the svg that renders something and is not suppressed by style, zero size, an off-canvas coordinate or a hiding class. A grouping element counts only once geometry has appeared inside it.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/herd_dashboard.html"
+      ],
+      "check_function": "check_dashboard_basic_shape",
+      "how_it_prevents_task_authenticity_violation": "Establishes that a real figure was produced rather than a text file renamed to .html or an empty svg stub beside a table, and stops the floor being cleared by decoration or by an empty container: forty ornamental shapes carrying no animal identifier, forty empty grouping elements that render nothing, and three script blocks holding an empty array apiece all fail it, because an empty array is valid JSON and parseability alone would have accepted it."
+    },
+    "static_checks_6": {
+      "detailed_explanation_of_checks": "Scores three structural properties of the written plan: that its length falls in the declared 1,800 to 3,200 word band, the fraction of the seven required headings present as real headings, and the fraction of the eight required control-total keys present as rows of a Markdown table.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/conservation_plan.md"
+      ],
+      "check_function": "check_conservation_plan_shape",
+      "how_it_prevents_task_authenticity_violation": "Confirms the reader-facing artifact has the requested shape without awarding anything for what it says, so a correctly shaped plan still earns nothing from the content checks unless its numbers survive comparison with the recomputed round."
+    },
+    "static_checks_7": {
+      "detailed_explanation_of_checks": "Tests every row of all four CSVs for identity integrity: each animal_id must be a living animal in the packaged herdbook; register rows, conflict rows and movements may not repeat an animal; allocation and movement ids must be unique; a cow may not appear in two allocations and a bull may not exceed the sire-contribution limit; and an allocation's two animals must differ. An allocation row must also name a female in the cow position and a male in the bull position, both eligible to breed under the recomputed standing, so a pairing that cannot exist in the herd is not credited as a well-formed identity.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv",
+        "/logs/agent/mating_allocations.csv",
+        "/logs/agent/movement_plan.csv",
+        "/logs/agent/board_conflicts.csv"
+      ],
+      "check_function": "check_no_invented_or_duplicated_ids",
+      "how_it_prevents_task_authenticity_violation": "Defeats padding a table to the expected length with invented ear-tag numbers, and defeats reusing one worked-out animal or mating across many rows to imitate coverage of a herd that was never read."
+    },
+    "static_checks_8": {
+      "detailed_explanation_of_checks": "Parses each founder_share string and requires it to be well formed as label:proportion items, to carry no repeated label, to sum to 1.0 within 0.002, to name at least two founder positions for any animal with parents, and for the labels to be exactly that animal's real founder positions as recomputed from the pedigree, with none missing and none invented; then separately scores how many distinct founder-share strings appear across the herd. A founder position whose record has neither parent recorded may be written either as that record's own identifier or as its two blank positions at half each; both spell the same descent, so the split form is folded onto the base record before comparison rather than counted wrong.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv"
+      ],
+      "check_function": "check_founder_share_not_padded",
+      "how_it_prevents_task_authenticity_violation": "Blocks the three cheapest fakes for a quantity that requires a full pedigree traversal: one founder at 1.0 for every animal, one animal's descent copied down the column, and any two invented labels chosen to sum to one. Cross-checking the labels against the animal's real founder set means the column cannot be filled without walking the pedigree."
+    },
+    "static_checks_9": {
+      "detailed_explanation_of_checks": "Scores eleven facts: that each of the six files is non-empty and under 4 MB, that no placeholder token appears in the prose artifacts, that no two allocation rationales and no two conflict resolution notes are identical, that no two substantial paragraphs of the plan repeat, and that the register rows are not all identical once the identifier column is removed.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv",
+        "/logs/agent/mating_allocations.csv",
+        "/logs/agent/movement_plan.csv",
+        "/logs/agent/board_conflicts.csv",
+        "/logs/agent/herd_dashboard.html",
+        "/logs/agent/conservation_plan.md"
+      ],
+      "check_function": "check_artifacts_bounded_and_not_templated",
+      "how_it_prevents_task_authenticity_violation": "Rejects packages padded to look substantial: a table of one row copied a hundred times, a plan assembled by repeating a paragraph, and boilerplate reused verbatim as though each row had been reasoned about."
+    },
+    "static_checks_10": {
+      "detailed_explanation_of_checks": "Scores six properties: at least five substantial sections, no two section bodies identical, at least a dozen distinct real living animals named, no placeholder tokens, a vocabulary of at least 420 distinct words, and the fraction of its sentences that are distinct from one another.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/conservation_plan.md"
+      ],
+      "check_function": "check_conservation_plan_not_templated",
+      "how_it_prevents_task_authenticity_violation": "Catches length reached by repetition rather than analysis. Novelty is measured over five-word runs rather than whole sentences, so a fixed frame with one figure swapped per sentence is recognised as repetition instead of counting as original."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "Requires the quoted sentence to appear verbatim inside a statement that actually governs one of that animal's own restrictions under the charter's reconciliation rules, matched against the frozen standing rather than against the raw correspondence. The animal's ear tag is stripped from the front of the submitted quotation before comparison, because the visit notes open each statement with it, so quoting the vet's words with the tag and quoting them without it are both accepted; nothing else about the sentence is normalised.",
+      "weight": 2,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv"
+      ],
+      "check_function": "check_evidence_quotes_are_governing",
+      "how_it_prevents_task_authenticity_violation": "Closes the cheapest evidence shortcut: quoting any real sentence from the animal's file. A statement that was superseded by a later visit, that lapsed on its own end date, or that was written at a visit falling after the round opens governs nothing and earns nothing here."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Recomputes which single statement settles each animal's breeding standing and requires the submitted quotation to reproduce that statement in full, allowing only for surrounding whitespace and a trailing full stop. Animals that carry a quotation where nothing in their file bears on breeding standing widen the denominator. The animal's ear tag is stripped from the front of the submitted quotation before comparison, because the visit notes open each statement with it, so quoting the vet's words with the tag and quoting them without it are both accepted; nothing else about the sentence is normalised.",
+      "weight": 2,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv"
+      ],
+      "check_function": "check_evidence_settles_breeding_standing",
+      "how_it_prevents_task_authenticity_violation": "Enforces the exactness the instruction asks for. Containment alone would accept any interior fragment of the governing sentence, which is what ordinary paraphrase and truncation produce, so a partially remembered quote could stand in for the verbatim one the requester asked for. It also enforces the instruction to leave the field empty where nothing bears on the question, so blanket quoting costs rather than gains."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Requires each allocation to name two real living animals and a displaced alternative that was itself a workable option for that mating -- of the right sex, eligible, clearing the kinship ceiling, the mating exclusions, the twice-failed rule and the host rule -- plus a rationale of at least eighteen words that names one of its own animals, refers to its own alternative or host, and quotes a figure from its own row.",
+      "weight": 2,
+      "agent_output_path": [
+        "/logs/agent/mating_allocations.csv"
+      ],
+      "check_function": "check_allocation_rows_not_fabricated",
+      "how_it_prevents_task_authenticity_violation": "Stops the displaced-alternative column being filled with any convenient identifier, and stops a fixed template mail-merging the row's own already-computed fields: a figure belonging to the displaced animal can only be produced by actually evaluating that comparison."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Tests each movement against the state the round actually creates: the animal must be living, the origin must be its real current holding, the destination must exist, the animal must not be under a standing movement restriction, and a sire placement must cite an allocation that survived every constraint while a relief movement must cite none.",
+      "weight": 2,
+      "agent_output_path": [
+        "/logs/agent/movement_plan.csv"
+      ],
+      "check_function": "check_movement_rows_not_padded",
+      "how_it_prevents_task_authenticity_violation": "Prevents inflating the plan with movements no allocation requires, moving animals the veterinary record forbids moving, and back-filling an origin that was never where the animal stood."
+    },
+    "reward_hacking_checks_5": {
+      "detailed_explanation_of_checks": "Joins the deliverables and scores each shared fact against the recomputed herdbook rather than against another field the agent wrote: the ranks an allocation states must equal the recomputed ranks, both animals must be recomputed as eligible, the host must be the cow's real holding, every conflict must name an animal the round did not place and repeat its recomputed rank, every movement's origin must be the animal's real holding, and the register's holding column must match the herdbook.",
+      "weight": 2,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv",
+        "/logs/agent/mating_allocations.csv",
+        "/logs/agent/movement_plan.csv",
+        "/logs/agent/board_conflicts.csv"
+      ],
+      "check_function": "check_cross_artifact_reconciliation",
+      "how_it_prevents_task_authenticity_violation": "Defeats the divide-and-fabricate pattern where each artifact is internally plausible but they describe different herds, and refuses credit for artifacts that merely agree with each other while all being wrong."
+    },
+    "reward_hacking_checks_6": {
+      "detailed_explanation_of_checks": "Collects the marks carrying data-animal-id that sit inside the svg subtree and are real shape elements, discards any suppressed by inline style, a zero dimension, an off-canvas coordinate or a hiding CSS class, then scores coverage of the living herd, a floor of forty surviving marks, that every marked identifier is a real living animal, and that the page carries visible text. That mean is then multiplied by a priority-encoding term: the strongest rank correlation the page achieves on any single visual channel (reading order, horizontal position, vertical position, mark size or fill colour, whichever fits best) against the independently recomputed mean-kinship ranking, scaled so a Spearman rho of 0.75 earns the full multiplier.",
+      "weight": 2,
+      "agent_output_path": [
+        "/logs/agent/herd_dashboard.html",
+        "/logs/agent/kinship_register.csv"
+      ],
+      "check_function": "check_dashboard_not_hidden_or_hollow",
+      "how_it_prevents_task_authenticity_violation": "Stops the mark requirement being met by table cells, by elements outside the drawing, or by shapes that render nothing, stops marks being emitted for invented identifiers, and stops a priority-blind uniform grid standing in for the drawing of conservation priority the instruction asks for. The priority term multiplies rather than averages precisely so the grid cannot keep most of the credit: coverage, count, real identifiers and visible text all describe the same fact, that marks were emitted, and a lattice of identical circles satisfies every one of them, so a page that draws the herd without drawing its priority scores near zero here."
+    },
+    "reward_hacking_checks_7": {
+      "detailed_explanation_of_checks": "Requires each conflict row to state all three board positions and a resolution note of real length, and to be specific to that animal: the genetics position must carry that animal's own recomputed rank, the veterinary position must name a restriction actually standing on it or state that none is, and the movement position or note must name the holding that actually keeps it. The row must also carry that animal's own recomputed mean kinship and set it against a second living animal named in the row, quoting that animal's own recomputed mean kinship correctly. Every other element can be filled from columns the row already holds, so the second animal's figure is what establishes a comparison was actually made.",
+      "weight": 2,
+      "agent_output_path": [
+        "/logs/agent/board_conflicts.csv"
+      ],
+      "check_function": "check_conflict_positions_are_specific",
+      "how_it_prevents_task_authenticity_violation": "Prevents the arbitration record being filled with a generic description of what the three boards do, and defeats a per-conflict template keyed off the constraint code, since neither a category keyword nor a copied rank can produce a correct kinship figure or a genuine comparator."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "Recomputes every living animal's inbreeding coefficient as the kinship of its two parents from the full 1,438-record herdbook and compares within 1.1e-4, scoring the herd-wide match rate together with the rate over the animals that are actually inbred.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv"
+      ],
+      "check_function": "check_inbreeding_coefficients",
+      "how_it_prevents_task_authenticity_violation": "A coefficient of zero is correct for part of this herd, so pairing the herd rate with the rate over the inbred animals stops a column of zeros collecting most of the check without any pedigree traversal."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "Rebuilds the whole tabular kinship matrix from the packaged herdbook and compares each animal's submitted mean kinship, averaged over the living herd including itself, within 1.1e-5.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv"
+      ],
+      "check_function": "check_mean_kinship_values",
+      "how_it_prevents_task_authenticity_violation": "This is the quantity the round turns on and it cannot be estimated from cohort, birth year or ancestor count; an approximation or a plausible constant fails, so the check measures whether the pedigree was actually worked."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "Recomputes the conservation priority ordering from the verifier's own mean-kinship values, breaking ties by ascending animal id as the charter directs, and compares each animal's submitted rank.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv"
+      ],
+      "check_function": "check_mean_kinship_ranks",
+      "how_it_prevents_task_authenticity_violation": "Ranking is where a partial computation shows: a run that works one cohort carefully and orders the rest by a proxy produces locally plausible ranks that do not survive comparison with the recomputed ordering."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "Recomputes the proportion of each living animal's genome descending from each founder position by recursion over the herdbook, and requires the submitted vector to name exactly the same founder set with every proportion within 1.1e-4. A founder position whose record has neither parent recorded may be written either as that record's own identifier or as its two blank positions at half each; both spell the same descent, so the split form is folded onto the base record before comparison rather than counted wrong.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv"
+      ],
+      "check_function": "check_founder_shares_exact",
+      "how_it_prevents_task_authenticity_violation": "Confirms descent was traced to the founder positions rather than truncated at a convenient generation, which a shape-only check on the same column cannot distinguish."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "Requires age class, holding and sex all to be right for the same animal, with age taken from the recorded birth year against the round year, scoring the herd rate together with the rate over the animals that are not of breeding age.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv"
+      ],
+      "check_function": "check_age_class_and_residence",
+      "how_it_prevents_task_authenticity_violation": "Most of this herd is of breeding age, so measuring the discriminating animals separately stops the age column being filled with the modal value while residence is merely transcribed."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "Compares the submitted restriction set for each animal against the standing reconciled from the 362 free-written clinical statements, requiring exact set equality, and scores the herd rate together with the rate over the animals that do carry a restriction.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv"
+      ],
+      "check_function": "check_active_restrictions_reconciled",
+      "how_it_prevents_task_authenticity_violation": "This is the corpus the task is built around and 'none' is correct for many animals; measuring the restricted animals separately stops a blanket 'none' collecting the check and forces the contradictory statements to be read and dated."
+    },
+    "partial_oracle_checks_7": {
+      "detailed_explanation_of_checks": "Applies the charter's four-step precedence -- age, then standing restriction, then the rest rule from the previous seasons, then eligible -- and compares the submitted status, scoring the herd rate together with the rate over the animals the round must exclude.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/kinship_register.csv"
+      ],
+      "check_function": "check_breeding_status_recomputed",
+      "how_it_prevents_task_authenticity_violation": "Status drives every downstream decision and 'ELIGIBLE' is the modal answer; scoring the excluded animals separately stops a permissive default earning credit and catches precedence applied in the wrong order."
+    },
+    "partial_oracle_checks_8": {
+      "detailed_explanation_of_checks": "Recomputes the kinship of each submitted mating's two animals from the herdbook and requires both the reported pair kinship and the reported expected progeny inbreeding to match within 1.1e-5.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/mating_allocations.csv"
+      ],
+      "check_function": "check_pair_kinship_values",
+      "how_it_prevents_task_authenticity_violation": "Blocks an allocation table populated with plausible-looking coefficients, and enforces the identity between parental kinship and progeny inbreeding rather than letting two independently invented numbers stand."
+    },
+    "partial_oracle_checks_9": {
+      "detailed_explanation_of_checks": "Tests every submitted allocation against the full charter constraint set -- both eligible, correct sexes, kinship under the ceiling, no standing mating exclusion, not twice failed, hosted at the cow's own holding, bull able to travel, the sire-contribution limit of two cows at a single holding, place capacity, and one allocation per cow -- and reports which constraint rejected each failure.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/mating_allocations.csv"
+      ],
+      "check_function": "check_allocation_constraints_satisfied",
+      "how_it_prevents_task_authenticity_violation": "This is the core feasibility test and it admits many different rounds; it rewards a defensible round rather than one chosen answer, while refusing credit to a round assembled from matings the record forbids."
+    },
+    "partial_oracle_checks_10": {
+      "detailed_explanation_of_checks": "Scores how many of the fourteen free breeding places the surviving allocations commit, together with whether any holding was booked beyond its own free-place count.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/mating_allocations.csv"
+      ],
+      "check_function": "check_round_fills_the_membership",
+      "how_it_prevents_task_authenticity_violation": "Stops a round scoring well by submitting two safe matings and leaving twelve places idle, and stops the opposite shortcut of over-booking one holding to reach a total the membership cannot house."
+    },
+    "partial_oracle_checks_11": {
+      "detailed_explanation_of_checks": "For each accepted allocation, searches for an available bull that would give a strictly lower kinship while satisfying every constraint and the sire-contribution limit given the rest of the round, and scores the fraction no such swap can improve.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/mating_allocations.csv"
+      ],
+      "check_function": "check_allocations_locally_optimal",
+      "how_it_prevents_task_authenticity_violation": "Measures whether the round was reasoned about rather than taken in file order, without requiring agreement with any single chosen round -- many different locally optimal rounds pass."
+    },
+    "partial_oracle_checks_12": {
+      "detailed_explanation_of_checks": "Derives from the accepted allocations exactly which bull each obliges to move and to where, then requires a matching sire placement with the right origin and destination, counting movements no accepted allocation requires against the same denominator.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/movement_plan.csv",
+        "/logs/agent/mating_allocations.csv"
+      ],
+      "check_function": "check_required_sire_movements",
+      "how_it_prevents_task_authenticity_violation": "Catches a movement plan written independently of the round it implements, in either direction: obligations silently dropped, or movements invented to make the plan look busier than the round."
+    },
+    "partial_oracle_checks_13": {
+      "detailed_explanation_of_checks": "Recomputes the movements the round owes regardless of any mating -- singly-housed animals at holdings whose isolation occupancy exceeds capacity, excluding any that cannot travel -- and requires each to reach a holding with a genuinely free box, counting invented relief movements against the denominator.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/movement_plan.csv"
+      ],
+      "check_function": "check_isolation_relief_movements",
+      "how_it_prevents_task_authenticity_violation": "This obligation is only visible by joining the holdings register to the clinical corpus, so it is the check that fails when the movement and veterinary evidence were never brought together."
+    },
+    "partial_oracle_checks_14": {
+      "detailed_explanation_of_checks": "Scores each movement as a whole on whether the receiving health status, certificate class, transport category and total isolation days are all four correct, with transport category taken from the later of the animal's two weighings and isolation taken from the rule band plus any standing extension.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/movement_plan.csv"
+      ],
+      "check_function": "check_movement_attributes_derived",
+      "how_it_prevents_task_authenticity_violation": "Scored per movement rather than per field so three plausible guesses beside one real lookup earn nothing, and because the isolation figure cannot be produced without joining the movement bands to the clinical record."
+    },
+    "partial_oracle_checks_15": {
+      "detailed_explanation_of_checks": "Recomputes, for each destination, the places or boxes left free once every allocation and every relief arrival in the round is counted, and requires the stated arrival capacity to match and to be non-negative.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/movement_plan.csv"
+      ],
+      "check_function": "check_arrival_capacity_consistent",
+      "how_it_prevents_task_authenticity_violation": "Forces the plan to be globally consistent rather than locally plausible: a movement-by-movement plan that never totals its own arrivals produces a capacity figure that cannot be reconciled with the round it belongs to."
+    },
+    "partial_oracle_checks_16": {
+      "detailed_explanation_of_checks": "For every submitted movement whose animal is under a standing extended-isolation direction, requires the movement to quote at least thirty characters of the governing visit note verbatim, and counts movements citing an extension the animal does not carry against the denominator. The animal's ear tag is stripped from the front of the submitted quotation before comparison, because the visit notes open each statement with it, so quoting the vet's words with the tag and quoting them without it are both accepted; nothing else about the sentence is normalised.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/movement_plan.csv"
+      ],
+      "check_function": "check_extended_isolation_evidenced",
+      "how_it_prevents_task_authenticity_violation": "Ties the longest isolation figures in the plan back to the specific clinical statement that justifies them, so an extension cannot be asserted, inflated or attached to the wrong animal."
+    },
+    "partial_oracle_checks_17": {
+      "detailed_explanation_of_checks": "Recomputes which top-quartile animals by conservation priority the submitted round leaves unplaced -- the set the charter defines as this round's conflicts -- and scores how many are recorded, counting conflict rows describing animals that are not conflicts against the same denominator.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/board_conflicts.csv",
+        "/logs/agent/mating_allocations.csv"
+      ],
+      "check_function": "check_conflict_set_coverage",
+      "how_it_prevents_task_authenticity_violation": "The set depends on the round actually chosen, so it cannot be prepared in advance; it catches both an arbitration record that omits the awkward cases and one padded with animals that were placed."
+    },
+    "partial_oracle_checks_18": {
+      "detailed_explanation_of_checks": "For each true conflict, recomputes which constraint bound first under the charter's order -- age, standing restriction, rest rule, no partner clearing the ceiling and the exclusions, a movement restriction on every workable partner, or place contention -- and compares the submitted code.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/board_conflicts.csv"
+      ],
+      "check_function": "check_conflict_binding_constraint",
+      "how_it_prevents_task_authenticity_violation": "Distinguishing 'no partner exists' from 'a partner exists but cannot travel' from 'the place went elsewhere' requires the three boards' findings held together, so a single modal code written across every row scores poorly."
+    },
+    "partial_oracle_checks_19": {
+      "detailed_explanation_of_checks": "For each true conflict, requires the arbitrated outcome and resolution note to be substantive, to name the constraint that actually bound as a whole word, matched by a per-code family of terms under word-boundary anchoring, and to carry a fact traceable to that animal's own record. The health-block case is matched against the restriction keys actually standing on that animal; the age case wants the age term the animal's own class supports together with its birth year or its age at the round date; the rest case wants its 2009 calving count or a prior mating of its own; the no-partner case wants a rejected candidate of the other sex that is itself eligible, either named or carried by its own recomputed pair kinship, the charter's ceiling constant on its own not being evidence that any candidate was examined; the movement case wants a restriction standing on the animal or one of the partners a movement block actually forbids; the no-place case wants a genuinely workable partner, a holding with no place left after the round, or the allocation that took it. Each conflict animal is credited at most once however many rows name it, and a note whose skeleton, once figures and holding codes are masked, repeats one already credited earns nothing.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/board_conflicts.csv"
+      ],
+      "check_function": "check_conflict_arbitration_outcomes",
+      "how_it_prevents_task_authenticity_violation": "Whole-word anchoring stops ordinary domain vocabulary tripping an unrelated code: 'restriction' no longer satisfies the rest rule because it contains 'rest', and 'average' no longer satisfies the age rule because it contains 'age'. The row-evidence requirement stops the opposite failure, a note that names the right kind of constraint without having read this animal's record at all: every note about a partner problem contains the word kinship whether or not any partner was examined, so a term from the family is not on its own evidence of the reasoning, and reworded boilerplate that slips past the skeleton guard still earns nothing. The skeleton guard stops one explanation being reused down the column as though each animal had been reasoned about separately."
+    },
+    "partial_oracle_checks_20": {
+      "detailed_explanation_of_checks": "Compares each embedded JSON block against independently recomputed facts, never against the submission's own CSV rows: the kinship block against the recomputed rank and status of every living animal, the allocation block against the allocations that survived every constraint, and the conflict block against the recomputed conflict set and its constraint codes. A fourth term, scored alongside those three and never in place of them, is the one place the submission's own table is read: the embedded kinship block must agree with kinship_register.csv on each animal's rank and breeding standing, which is the instruction's requirement that the page and the file not carry two versions of the same number. Agreeing with itself earns nothing on its own.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/herd_dashboard.html"
+      ],
+      "check_function": "check_dashboard_matches_recomputed_facts",
+      "how_it_prevents_task_authenticity_violation": "Stops the visual artifact carrying a second, more flattering version of the round, stops the page earning credit for echoing figures the agent invented, and stops one correct record repeated many times saturating the block without the herd being covered."
+    },
+    "partial_oracle_checks_21": {
+      "detailed_explanation_of_checks": "Recomputes all eight control totals from the herdbook and the validated round -- living animals, eligible animals, allocations that survived every constraint, places committed, movements the round obliges, cross-border movements, animals under a standing restriction and the recomputed conflict count -- and requires each to match the figure in the plan's table.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/conservation_plan.md"
+      ],
+      "check_function": "check_control_totals_against_truth",
+      "how_it_prevents_task_authenticity_violation": "The totals are anchored to recomputed truth rather than to the submission's own row counts, so a plan cannot reconcile with a fabricated round; it must reconcile with the round that actually survives the constraints."
+    },
+    "partial_oracle_checks_22": {
+      "detailed_explanation_of_checks": "Scans the plan for paragraphs naming ear tags and credits an animal only where the same paragraph carries two facts the herdbook independently confirms for that same animal, at least one of them a recomputed position rather than a lookup: its conservation rank, its mean kinship to five decimals, or a restriction actually standing on it, optionally alongside its holding or its breeding standing.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/conservation_plan.md"
+      ],
+      "check_function": "check_plan_grounded_in_animals",
+      "how_it_prevents_task_authenticity_violation": "Rewards discussion anchored in the herd rather than around it, refuses credit where an animal is named beside a fact belonging to a different animal, and refuses to count one sentence frame mail-merged down the herd as many separate observations. Requiring one of the recomputed facts closes the cheap route: holding and breeding standing are single-column lookups and most of the herd shares the same standing, so a frame naming where an animal stands and that it is eligible would otherwise clear the bar for every animal in turn without the pedigree ever being walked or the correspondence read."
+    },
+    "partial_oracle_checks_23": {
+      "detailed_explanation_of_checks": "Locates the 'Provenance and limitations' section and requires each of the four things the instruction names -- the founder convention for unknown parent positions, the herdbook's own registration defects, the 1 March cutoff, and the existence of other rounds satisfying every constraint -- to be discussed in a sentence of its own of at least twelve words, no sentence counting for two topics. Scored alongside a grounding test: the section must also carry a figure or identifier the grader can confirm from the packaged herdbook, being a real living animal id, the living-herd size, the pedigree record count, or the number of founder positions.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/conservation_plan.md"
+      ],
+      "check_function": "check_plan_limitations_disclosed",
+      "how_it_prevents_task_authenticity_violation": "Stops the requirement being met by a single line loosely restating the instruction's own list of things to be straight about, which would otherwise trip all four topic patterns at once while disclosing nothing. Requiring a confirmable herd figure additionally prevents a section that discusses the limitations only in the abstract, without ever touching the population the round was actually run on."
+    },
+    "partial_oracle_checks_24": {
+      "detailed_explanation_of_checks": "For each allocation that survived every constraint, looks for a passage naming both of its animals together and requires it to carry that allocation's own host, its own kinship figure, or the alternative it displaced.",
+      "weight": 3,
+      "agent_output_path": [
+        "/logs/agent/conservation_plan.md",
+        "/logs/agent/mating_allocations.csv"
+      ],
+      "check_function": "check_plan_defends_allocations",
+      "how_it_prevents_task_authenticity_violation": "Ensures the judgment-bearing half of the round is argued rather than tabulated, and that the defence is specific to each allocation instead of one paragraph covering the round in general."
+    }
+  }
+}

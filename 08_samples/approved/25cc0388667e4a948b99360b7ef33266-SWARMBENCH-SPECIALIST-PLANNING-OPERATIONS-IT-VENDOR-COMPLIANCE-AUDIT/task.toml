@@ -1,0 +1,39 @@
+[task]
+name = "swarmbench/25cc0388667e4a948b99360b7ef33266-SWARMBENCH-SPECIALIST-PLANNING-OPERATIONS-IT-VENDOR-COMPLIANCE-AUDIT"
+description = "IT vendor compliance audit: verify SLA, certification, privacy, and incident claims for 25 SaaS vendors across public registries and regulatory sources. Produce a verified compliance matrix, a per-claim evidence log with verbatim source excerpts, and a 2000-3000 word written risk assessment."
+
+[metadata]
+verifier_type = "llm-judge"
+domain = "planning-operations"
+coordination_pattern = "specialist-routing"
+secondary_classification = ["browsing", "long_writing"]
+dag_depth = 3
+dag_width = 5
+human_solving_hours_estimate = 55.0
+human_solving_hours_justification = "25 vendors x 4 verification areas = 100 live verification tasks, each requiring browsing a vendor page plus the relevant certification registry or regulatory source (~20 min each = 33h). Each certification must be cross-checked against 2-3 registries (FedRAMP, CSA STAR, ISO) adding ~8h. Incident history search per vendor requires searching multiple news and disclosure sources (~12 min each = 5h). Evidence log extraction — locating and copying verbatim excerpts from each source page = 4h. Risk report writing — synthesizing findings across 25 vendors into a 2000-3000 word narrative with cross-vendor pattern analysis = 3h. Output assembly and formatting = 1h. QA review and validation = 1h. Total ~55h."
+estimated_sub_agents = 8
+input_token_estimate = 200000
+reference_link = "https://marketplace.fedramp.gov"
+reference_links = [
+  "https://marketplace.fedramp.gov",
+  "https://cloudsecurityalliance.org/star/registry",
+  "https://ico.org.uk/for-organisations",
+  "https://www.ftc.gov/business-guidance/privacy-security",
+  "https://slack.com/trust/compliance",
+  "https://trust.salesforce.com",
+  "https://www.okta.com/trustandcompliance",
+  "https://www.servicenow.com/company/trust.html",
+]
+why_multi_agent = "25 vendors x 5 checking domains = 125 live verification tasks requiring simultaneous application of 5 distinct domain rule frameworks (SLA, security certifications, data privacy, incident history, contract risk) plus extraction of verbatim evidence excerpts from each source page plus synthesis of a 2000-3000 word risk assessment. Single agent must hold all 5 frameworks simultaneously while browsing, causing systematic domain boundary confusion — e.g., a data breach is simultaneously a privacy finding and an incident finding; encryption key management appears in both security certs and privacy compliance. Context degrades severely during browsing of 25 vendors across 4-5 sources each (100-125 total operations) so vendors 18-25 receive degraded treatment compared to vendors 1-8. After exhausting context on browsing, the agent must still produce three deliverables: a structured compliance matrix, a per-claim evidence log with 100+ verbatim excerpts, and a 2000-word risk narrative synthesizing all 25 vendors. SA typically completes the xlsx but drops the evidence log or produces a shallow, generic risk report because its context is saturated from browsing. Five parallel domain specialists each apply only their framework with no cross-domain confusion and extract evidence excerpts during browsing. The evidence-compiler and conflict-resolver work from clean structured data produced by the specialists. The final-assembler synthesizes from complete, validated specialist outputs to produce all three deliverables."
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 600
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600
+network_enabled = true

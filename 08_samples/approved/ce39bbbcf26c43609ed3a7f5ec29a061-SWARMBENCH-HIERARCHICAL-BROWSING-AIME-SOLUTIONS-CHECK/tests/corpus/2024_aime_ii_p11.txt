@@ -1,0 +1,3 @@
+# 2024 AIME II Problem 11
+
+Find the number of triples of nonnegative integers $(a,b,c)$ satisfying $a + b + c = 300$ and \[a^2b + a^2c + b^2a + b^2c + c^2a + c^2b = 6,000,000.\]

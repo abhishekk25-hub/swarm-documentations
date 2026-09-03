@@ -1,0 +1,863 @@
+{
+  "entities": {
+    "Q11288310": {
+      "aliases": {},
+      "claims": {
+        "P1174": [
+          {
+            "id": "Q11288310$e2344d53-4a22-3a69-9f01-6c07906013d2",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+8169000",
+                  "unit": "1"
+                }
+              },
+              "hash": "a12ff1ea8ac03a08242f8f6e5e43dd0d3fd19324",
+              "property": "P1174",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P585": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+2024-00-00T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "daee777a902fd7cd73351aa33ba07e0a22d4fb9b",
+                  "property": "P585",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P585"
+            ],
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "a77d90614e4526fa050a3b8a00dac839b84a6af4",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://aviation.direct/en/wiens-staedtetourismus-rekordzahlen-im-jahr-2024"
+                      },
+                      "hash": "8b74676d7fbd1251ded59bcb91990d2a9b109d73",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P131": [
+          {
+            "id": "Q11288310$D002D6DE-E912-446A-B9A4-FB47D55E4ACC",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q1741",
+                  "numeric-id": 1741
+                }
+              },
+              "hash": "5a1507dfbfbc8d1ecf9a692b146e117e5def762d",
+              "property": "P131",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "9a24f7c0208b05d6be97077d855671d1dfdbc0dd",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q48183",
+                          "numeric-id": 48183
+                        }
+                      },
+                      "hash": "d38375ffe6fe142663ff55cd783aa4df4301d83d",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P1435": [
+          {
+            "id": "Q11288310$8da36f45-4934-1399-8eb3-0f654c224f0b",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q9259",
+                  "numeric-id": 9259
+                }
+              },
+              "hash": "d22546e8bf86b97293821ea8757787befdf35ca8",
+              "property": "P1435",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P1448": [
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "en",
+                      "text": "Historic Centre of Vienna"
+                    }
+                  },
+                  "hash": "7de10a52960af6e5d03bed72d27eff604bcb4307",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "fr",
+                      "text": "Centre historique de Vienne"
+                    }
+                  },
+                  "hash": "4b403c50cd05d970be881eadca76f3e9bb6f7954",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "ar",
+                      "text": "وسط فيينا التاريخي"
+                    }
+                  },
+                  "hash": "5dc10026967d8d247ba599790215e8a253625290",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "zh",
+                      "text": "维也纳历史中心"
+                    }
+                  },
+                  "hash": "bbe2c6855dab6de7178dff34bc8f88bd5a4a91c4",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "ru",
+                      "text": "Исторический центр Вены"
+                    }
+                  },
+                  "hash": "5be3ca96941000628cdf2ec312962e335e3fd992",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "es",
+                      "text": "Centro histórico de Viena"
+                    }
+                  },
+                  "hash": "f11c8c18f2aef0fcb2ecbb895afcc97a85229cc9",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "ja",
+                      "text": "ウィーン歴史地区"
+                    }
+                  },
+                  "hash": "984e38185fcec075f0ab3639d9600d3c957403f2",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "nl",
+                      "text": "Historisch centrum van Wenen"
+                    }
+                  },
+                  "hash": "21adc224f1360765706e1bbeba1f03dc69008e77",
+                  "property": "P1448",
+                  "snaktype": "value"
+                }
+              ],
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+2001-00-00T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "8752b82cdffad4bcee274913d130a05ca27d08b0",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580",
+              "P1448"
+            ],
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "b8d2de3d6d51ddf4c63873e9c8694dc4fd2b81b9",
+                "snaks": {
+                  "P813": [
+                    {
+                      "datatype": "time",
+                      "datavalue": {
+                        "type": "time",
+                        "value": {
+                          "after": 0,
+                          "before": 0,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                          "precision": 11,
+                          "time": "+2022-05-09T00:00:00Z",
+                          "timezone": 0
+                        }
+                      },
+                      "hash": "75189eafb31fc911d1854a8f1c3c7d076e508d62",
+                      "property": "P813",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://whc.unesco.org/en/list/1033"
+                      },
+                      "hash": "638b0c209d5f65d8382be83f58823d8151167a3e",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854",
+                  "P813"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P17": [
+          {
+            "id": "Q11288310$438A8045-71A0-47BD-A87D-5603CDB5ECAC",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q40",
+                  "numeric-id": 40
+                }
+              },
+              "hash": "ccf8f871ebe392004c66ed37b78dd30d341cc949",
+              "property": "P17",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P18": [
+          {
+            "id": "Q11288310$B6B9473E-4C26-4129-A3F5-B680699F428C",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "Wien1-pan.JPG"
+              },
+              "hash": "7b9152b9c9e4f02b9cb80db1c99d81a4971c293c",
+              "property": "P18",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2046": [
+          {
+            "id": "Q11288310$E157FDC1-2069-4CAF-9967-65BD11112EF4",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+371",
+                  "unit": "http://www.wikidata.org/entity/Q35852"
+                }
+              },
+              "hash": "4bdee69ddb6f5595fb0ab39690891bf4fe09baf9",
+              "property": "P2046",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q11288310$339F954B-F49B-4F16-9BD9-BA515F79649D",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+462",
+                  "unit": "http://www.wikidata.org/entity/Q35852"
+                }
+              },
+              "hash": "57e379564c9665c467df5ab380b151528ef19402",
+              "property": "P2046",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P518": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q64364418",
+                      "numeric-id": 64364418
+                    }
+                  },
+                  "hash": "5fcb1f5c115fa5c6b5f2942b01877eb305f49399",
+                  "property": "P518",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P518"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2614": [
+          {
+            "id": "Q11288310$96bfefe2-41df-607d-ebe7-0fe0593a2d6c",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038976",
+                  "numeric-id": 23038976
+                }
+              },
+              "hash": "8a15757be66fb6392e3ea58d408565017dbb7532",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q11288310$e382de4f-4264-e6ca-e527-2f56561706ae",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038978",
+                  "numeric-id": 23038978
+                }
+              },
+              "hash": "16b5f6994a5a2a152170b737b59af7d93b88c8fe",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q11288310$fc337803-4d29-1d79-1539-ee2114e72cde",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038980",
+                  "numeric-id": 23038980
+                }
+              },
+              "hash": "dd017954434fbba369a0b4ad7007bc009d4a121b",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2671": [
+          {
+            "id": "Q11288310$52E59EB5-2540-46D3-ADDF-3B85B61898D3",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "/g/1218cqw5"
+              },
+              "hash": "5b4aa778fcdf2192a88e3ee0fc65f5d7d1567e67",
+              "property": "P2671",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P31": [
+          {
+            "id": "Q11288310$ebfc2179-4812-f157-6fde-b533796b3338",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q676050",
+                  "numeric-id": 676050
+                }
+              },
+              "hash": "81786f79c96c10fe33e17b79b5fb8da4ae99e524",
+              "property": "P31",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P373": [
+          {
+            "id": "Q11288310$382D4F23-B6D4-4237-AA92-935A4DF82B77",
+            "mainsnak": {
+              "datatype": "string",
+              "datavalue": {
+                "type": "string",
+                "value": "Historic centre of Vienna"
+              },
+              "hash": "b290dc598c1a86a56aa6defb4925ac5b8ee1ad52",
+              "property": "P373",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P5008": [
+          {
+            "id": "Q11288310$F8B48315-EDBF-485F-B42B-7F1356479338",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q109929866",
+                  "numeric-id": 109929866
+                }
+              },
+              "hash": "757684534433e0a6a3f9e0b8e741f228fc86173b",
+              "property": "P5008",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q11288310$DCBCE233-30BA-4D4F-9474-BE141B52DA8E",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q107414369",
+                  "numeric-id": 107414369
+                }
+              },
+              "hash": "8a88e1c4c25ebd5c6c809062d163bff87e3cac68",
+              "property": "P5008",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P625": [
+          {
+            "id": "Q11288310$37FFCC09-2144-4DC3-93A8-8CE0FBF25E8E",
+            "mainsnak": {
+              "datatype": "globe-coordinate",
+              "datavalue": {
+                "type": "globecoordinate",
+                "value": {
+                  "altitude": null,
+                  "globe": "http://www.wikidata.org/entity/Q2",
+                  "latitude": 48.2084,
+                  "longitude": 16.3722,
+                  "precision": 0.0001
+                }
+              },
+              "hash": "5c2206f567ccc00cb3f54f9e820481f725dc32ac",
+              "property": "P625",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "9a24f7c0208b05d6be97077d855671d1dfdbc0dd",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q48183",
+                          "numeric-id": 48183
+                        }
+                      },
+                      "hash": "d38375ffe6fe142663ff55cd783aa4df4301d83d",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P757": [
+          {
+            "id": "Q11288310$92e9b295-46bb-b23c-a568-4f058d47e045",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "1033"
+              },
+              "hash": "fc9b4ed63b26e6e983a34f3c99868205b64da737",
+              "property": "P757",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P793": [
+          {
+            "id": "Q11288310$cea7a279-4726-4ef3-dc74-94ce3e4777f0",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q222384",
+                  "numeric-id": 222384
+                }
+              },
+              "hash": "ec342702ae5c6287265ee8af23935efe390aa50c",
+              "property": "P793",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+2017-00-00T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "154b581c43d72b52e77b5c1e92455e4eafe99a97",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P8168": [
+          {
+            "id": "Q11288310$7CB789D9-EE0E-4FE8-BF99-A2D5E9347BB8",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "Q555650"
+              },
+              "hash": "0a4445a12789c50508b31c370ef070135345e8a0",
+              "property": "P8168",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P910": [
+          {
+            "id": "Q11288310$0E80A855-1AB2-49F4-AB02-840BAE1095E3",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q8973841",
+                  "numeric-id": 8973841
+                }
+              },
+              "hash": "2c099c47b44d26d95583e1a1226f9f9595ddbe81",
+              "property": "P910",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "9a24f7c0208b05d6be97077d855671d1dfdbc0dd",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q48183",
+                          "numeric-id": 48183
+                        }
+                      },
+                      "hash": "d38375ffe6fe142663ff55cd783aa4df4301d83d",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ]
+      },
+      "descriptions": {
+        "de": {
+          "language": "de",
+          "value": "Welterbestätte in Wien"
+        },
+        "de-at": {
+          "language": "de-at",
+          "value": "Welterbestätte in Wien"
+        },
+        "en": {
+          "language": "en",
+          "value": "World Heritage Site in Vienna, Austria"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "établissement humain en Autriche"
+        },
+        "hu": {
+          "language": "hu",
+          "value": "bécsi világörökségi helyszín"
+        },
+        "id": {
+          "language": "id",
+          "value": "Warisan Dunia di Austria"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "объект Всемирного Наследия ЮНЕСКО"
+        },
+        "sl": {
+          "language": "sl",
+          "value": "kraj Unescove svetovne dediščine v Avstriji"
+        }
+      },
+      "id": "Q11288310",
+      "labels": {
+        "ar": {
+          "language": "ar",
+          "value": "وسط فيينا التاريخي"
+        },
+        "de": {
+          "language": "de",
+          "value": "Historisches Zentrum von Wien"
+        },
+        "de-at": {
+          "language": "de-at",
+          "value": "Historisches Zentrum von Wien"
+        },
+        "en": {
+          "language": "en",
+          "value": "Historic Centre of Vienna"
+        },
+        "es": {
+          "language": "es",
+          "value": "Centro Histórico de Viena"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "Centre historique de Vienne"
+        },
+        "hu": {
+          "language": "hu",
+          "value": "Bécs történelmi központja"
+        },
+        "it": {
+          "language": "it",
+          "value": "centro storico di Vienna"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "ウィーン歴史地区"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "Historisch centrum van Wenen"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "Исторический центр Вены"
+        },
+        "sl": {
+          "language": "sl",
+          "value": "zgodovinsko središče Dunaja"
+        },
+        "uk": {
+          "language": "uk",
+          "value": "Історичний центр Відня"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "维也纳历史中心"
+        }
+      },
+      "lastrevid": 2469870337,
+      "modified": "2026-03-06T15:26:17Z",
+      "ns": 0,
+      "pageid": 12429030,
+      "sitelinks": {
+        "dewiki": {
+          "badges": [],
+          "site": "dewiki",
+          "title": "Historisches Zentrum von Wien"
+        },
+        "huwiki": {
+          "badges": [],
+          "site": "huwiki",
+          "title": "Bécs történelmi központja"
+        },
+        "jawiki": {
+          "badges": [],
+          "site": "jawiki",
+          "title": "ウィーン歴史地区"
+        },
+        "ukwiki": {
+          "badges": [],
+          "site": "ukwiki",
+          "title": "Історичний центр Відня"
+        }
+      },
+      "title": "Q11288310",
+      "type": "item"
+    }
+  }
+}

@@ -1,0 +1,531 @@
+{
+ "task": "swarmbench/6914b247f9c64329a9539914518d8a26-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-SCHELDT-QUAY-CBAM-H1-2026-EMISSIONS-POSITION-AND-SUPPLIER-REMEDIATION-PROGRAMME",
+ "grader": "tests/verify.py",
+ "reward_output": "/logs/verifier/reward.json",
+ "scoring_formula": "reward = (total_static_check_score * 1 + total_reward_hacking_check_score * 2 + total_partial_oracle_check_score * 3) / 6. Each bucket score is the unweighted mean of its own checks, so no check carries a weight of its own inside its bucket; the weight recorded against a check is the weight its bucket carries in the reward. No caps, clamps, floors, ceilings or mode-specific branches are applied anywhere.",
+ "static_check_count": 13,
+ "reward_hacking_check_count": 17,
+ "partial_oracle_check_count": 42,
+ "total_checks": 72,
+ "checks": {
+  "static_checks_1": {
+   "detailed_explanation_of_checks": "The check multiplies three terms. The first is the share of the required column names present in the file's header row. The second is the share of the rows filed whose key refers to something the packaged corpus actually holds. The third is the share of the load-bearing cells (commodity code, in-scope flag, scope basis, net mass and origin basis) that carry any value at all. A file that declares the right columns but is empty, or is filled with rows that refer to nothing, scores near zero on the product rather than collecting the column term on its own. Row keys are the declaration reference and item number.",
+   "weight": 1,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_static_checks_1",
+   "how_it_prevents_task_authenticity_violation": "Stops the declared shape from paying on its own. Because the column term is multiplied by a referent term and a fill term, a correctly headed file that is blank, padded with invented keys, or filled with empty cells earns almost nothing, so structure cannot substitute for the reading."
+  },
+  "static_checks_2": {
+   "detailed_explanation_of_checks": "The check multiplies three terms. The first is the share of the required column names present in the file's header row. The second is the share of the rows filed whose key refers to something the packaged corpus actually holds. The third is the share of the load-bearing cells (country, commodity code, admissibility, failing condition and activity level) that carry any value at all. A file that declares the right columns but is empty, or is filled with rows that refer to nothing, scores near zero on the product rather than collecting the column term on its own. Row keys are the installation identifier.",
+   "weight": 1,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_static_checks_2",
+   "how_it_prevents_task_authenticity_violation": "Stops the declared shape from paying on its own. Because the column term is multiplied by a referent term and a fill term, a correctly headed file that is blank, padded with invented keys, or filled with empty cells earns almost nothing, so structure cannot substitute for the reading."
+  },
+  "static_checks_3": {
+   "detailed_explanation_of_checks": "The check multiplies three terms. The first is the share of the required column names present in the file's header row. The second is the share of the rows filed whose key refers to something the packaged corpus actually holds. The third is the share of the load-bearing cells (precursor commodity code, consumption per tonne, precursor basis and precursor specific direct emissions) that carry any value at all. A file that declares the right columns but is empty, or is filled with rows that refer to nothing, scores near zero on the product rather than collecting the column term on its own. Row keys are the consuming installation and the precursor installation.",
+   "weight": 1,
+   "agent_output_path": "/logs/agent/precursor_chain.csv",
+   "check_function": "check_static_checks_3",
+   "how_it_prevents_task_authenticity_violation": "Stops the declared shape from paying on its own. Because the column term is multiplied by a referent term and a fill term, a correctly headed file that is blank, padded with invented keys, or filled with empty cells earns almost nothing, so structure cannot substitute for the reading."
+  },
+  "static_checks_4": {
+   "detailed_explanation_of_checks": "The check multiplies three terms. The first is the share of the required column names present in the file's header row. The second is the share of the rows filed whose key refers to something the packaged corpus actually holds. The third is the share of the load-bearing cells (character of the charge, converted amount, admitted flag and rejection condition) that carry any value at all. A file that declares the right columns but is empty, or is filled with rows that refer to nothing, scores near zero on the product rather than collecting the column term on its own. Row keys are the claim reference.",
+   "weight": 1,
+   "agent_output_path": "/logs/agent/carbon_price_schedule.csv",
+   "check_function": "check_static_checks_4",
+   "how_it_prevents_task_authenticity_violation": "Stops the declared shape from paying on its own. Because the column term is multiplied by a referent term and a fill term, a correctly headed file that is blank, padded with invented keys, or filled with empty cells earns almost nothing, so structure cannot substitute for the reading."
+  },
+  "static_checks_5": {
+   "detailed_explanation_of_checks": "The check multiplies three terms. The first is the share of the required column names present in the file's header row. The second is the share of the rows filed whose key refers to something the packaged corpus actually holds. The third is the share of the load-bearing cells (cumulative net mass, threshold status, embedded emissions and certificates due) that carry any value at all. A file that declares the right columns but is empty, or is filled with rows that refer to nothing, scores near zero on the product rather than collecting the column term on its own. Row keys are the importer code.",
+   "weight": 1,
+   "agent_output_path": "/logs/agent/importer_position.csv",
+   "check_function": "check_static_checks_5",
+   "how_it_prevents_task_authenticity_violation": "Stops the declared shape from paying on its own. Because the column term is multiplied by a referent term and a fill term, a correctly headed file that is blank, padded with invented keys, or filled with empty cells earns almost nothing, so structure cannot substitute for the reading."
+  },
+  "static_checks_6": {
+   "detailed_explanation_of_checks": "The check multiplies three terms. The first is the share of the required column names present in the file's header row. The second is the share of the rows filed whose key refers to something the packaged corpus actually holds. The third is the share of the load-bearing cells (failing condition, action type, exposure released and status) that carry any value at all. A file that declares the right columns but is empty, or is filled with rows that refer to nothing, scores near zero on the product rather than collecting the column term on its own. Row keys are the action reference.",
+   "weight": 1,
+   "agent_output_path": "/logs/agent/remediation_programme.csv",
+   "check_function": "check_static_checks_6",
+   "how_it_prevents_task_authenticity_violation": "Stops the declared shape from paying on its own. Because the column term is multiplied by a referent term and a fill term, a correctly headed file that is blank, padded with invented keys, or filled with empty cells earns almost nothing, so structure cannot substitute for the reading."
+  },
+  "static_checks_7": {
+   "detailed_explanation_of_checks": "Prices the memorandum as a proportion rather than as a gate. The file's character count is divided by the 6,000 character floor the instruction states and capped at one, then that proportion is multiplied by the file's own twelve-word shingle distinctness and by the share of its sentences that name something the corpus holds, meaning an installation, importer, declaration, communication, opinion, claim, proof, letter or remediation identifier, or a country that appears in the published default value table. Distinctness is measured after every token carrying a digit has been normalised to a placeholder, so one sentence pattern repeated with the numbers changed counts once rather than once per repetition.",
+   "weight": 1,
+   "agent_output_path": "/logs/agent/position_memo.md",
+   "check_function": "check_static_checks_7",
+   "how_it_prevents_task_authenticity_violation": "Stops a length floor from being reached by repetition or by invention. Prose padded by restating the same sentence pattern collapses the distinctness term even when the figures inside it are varied to make each line look new, and prose that reaches the floor while naming nothing in the corpus collapses the naming term, so only writing that is both varied and about this file earns the length. Measured on this package, genuinely written prose scores 1.00 on the distinctness term and a memorandum generated from one sentence template per row scores 0.71."
+  },
+  "static_checks_8": {
+   "detailed_explanation_of_checks": "The same three-term product as the memorandum check, against the 2,000 character floor the instruction states for the exhibit, with the same digit-normalised distinctness term. Listed lines are read as sentences in their own right so that a ranked exhibit is not penalised for being a list, while table rows are excluded.",
+   "weight": 1,
+   "agent_output_path": "/logs/agent/exposure_exhibit.md",
+   "check_function": "check_static_checks_8",
+   "how_it_prevents_task_authenticity_violation": "Stops a secondary artifact from being a decorative stub. The exhibit has to be as long, as varied and as specific to this portfolio as the instruction asks, rather than a heading with a sentence under it."
+  },
+  "static_checks_9": {
+   "detailed_explanation_of_checks": "An internal consistency test that compares the submission only with itself. For every ledger row marked as inside the mechanism, the reported embedded emissions must equal the reported applied specific emissions multiplied by the reported net mass, within one per cent. The score is the share of in-scope rows that reconcile.",
+   "weight": 1,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_static_checks_9",
+   "how_it_prevents_task_authenticity_violation": "Catches a package whose columns were filled from different places, for instance emissions copied from the desk export while the mass was taken off the declaration. A row that cannot reproduce its own arithmetic is not the product of a single reading."
+  },
+  "static_checks_10": {
+   "detailed_explanation_of_checks": "An internal consistency test on the dossier. For every row, the derived specific direct emissions must equal the reported own direct intensity plus the reported precursor direct component. The score is the share of rows that reconcile.",
+   "weight": 1,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_static_checks_10",
+   "how_it_prevents_task_authenticity_violation": "Catches a dossier where the precursor component was written as decoration rather than actually carried into the derived figure, which is the shortcut a run takes when it lists precursors without walking them."
+  },
+  "static_checks_11": {
+   "detailed_explanation_of_checks": "An internal consistency test across two deliverables. For every importer position row, the reported cumulative net mass must equal the sum of the net masses of that importer's own in-scope ledger rows, and the reported line count must equal the number of those rows. The score is the share of position rows that reconcile.",
+   "weight": 1,
+   "agent_output_path": [
+    "/logs/agent/importer_position.csv",
+    "/logs/agent/consignment_ledger.csv"
+   ],
+   "check_function": "check_static_checks_11",
+   "how_it_prevents_task_authenticity_violation": "Catches a position assembled from a different set of lines than the ledger publishes, which is what happens when the portfolio aggregation is computed inside a shard rather than once across the settled book."
+  },
+  "static_checks_12": {
+   "detailed_explanation_of_checks": "An internal consistency test on the programme. For every wave the submission actually used, the total slots of the actions it placed there must not exceed the capacity the packaged capacity table declares for that wave; and every row must either be scheduled with a wave or not scheduled with no wave. The score is the share of used waves within capacity multiplied by the share of rows whose status and wave agree.",
+   "weight": 1,
+   "agent_output_path": "/logs/agent/remediation_programme.csv",
+   "check_function": "check_static_checks_12",
+   "how_it_prevents_task_authenticity_violation": "Stops a programme that schedules everything by ignoring the capacity it was given, which would make the ranking work unnecessary."
+  },
+  "static_checks_13": {
+   "detailed_explanation_of_checks": "Vocabulary conformance. Every scope basis, origin basis, emissions basis, admissibility, failing condition, precursor basis, threshold status, action type, status and not-scheduled reason cell across the six tables must be one of the terms the desk reference names. The score is the share of those cells that are.",
+   "weight": 1,
+   "agent_output_path": [
+    "/logs/agent/consignment_ledger.csv",
+    "/logs/agent/installation_dossier.csv",
+    "/logs/agent/precursor_chain.csv",
+    "/logs/agent/importer_position.csv",
+    "/logs/agent/remediation_programme.csv"
+   ],
+   "check_function": "check_static_checks_13",
+   "how_it_prevents_task_authenticity_violation": "Stops free-text labels that a reader would have to interpret, and stops a submission from inventing a category to cover a determination it did not make."
+  },
+  "reward_hacking_checks_1": {
+   "detailed_explanation_of_checks": "Prices padding on the ledger, keyed on declaration reference and item number. The score is the share of filed rows whose key refers to something the corpus holds, multiplied by the share of filed rows that are not duplicates of an earlier row.",
+   "weight": 2,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_reward_hacking_checks_1",
+   "how_it_prevents_task_authenticity_violation": "Stops a file being inflated with invented or repeated rows to look complete. Because the two terms multiply, a submission that lists every plausible key it can think of is priced down rather than rewarded for coverage it did not earn."
+  },
+  "reward_hacking_checks_2": {
+   "detailed_explanation_of_checks": "Prices padding on the dossier, keyed on installation identifier. The score is the share of filed rows whose key refers to something the corpus holds, multiplied by the share of filed rows that are not duplicates of an earlier row.",
+   "weight": 2,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_reward_hacking_checks_2",
+   "how_it_prevents_task_authenticity_violation": "Stops a file being inflated with invented or repeated rows to look complete. Because the two terms multiply, a submission that lists every plausible key it can think of is priced down rather than rewarded for coverage it did not earn."
+  },
+  "reward_hacking_checks_3": {
+   "detailed_explanation_of_checks": "Prices padding on the precursor chain, keyed on the consuming and precursor installations. The score is the share of filed rows whose key refers to something the corpus holds, multiplied by the share of filed rows that are not duplicates of an earlier row.",
+   "weight": 2,
+   "agent_output_path": "/logs/agent/precursor_chain.csv",
+   "check_function": "check_reward_hacking_checks_3",
+   "how_it_prevents_task_authenticity_violation": "Stops a file being inflated with invented or repeated rows to look complete. Because the two terms multiply, a submission that lists every plausible key it can think of is priced down rather than rewarded for coverage it did not earn."
+  },
+  "reward_hacking_checks_4": {
+   "detailed_explanation_of_checks": "Prices padding on the carbon price schedule, keyed on claim reference. The score is the share of filed rows whose key refers to something the corpus holds, multiplied by the share of filed rows that are not duplicates of an earlier row.",
+   "weight": 2,
+   "agent_output_path": "/logs/agent/carbon_price_schedule.csv",
+   "check_function": "check_reward_hacking_checks_4",
+   "how_it_prevents_task_authenticity_violation": "Stops a file being inflated with invented or repeated rows to look complete. Because the two terms multiply, a submission that lists every plausible key it can think of is priced down rather than rewarded for coverage it did not earn."
+  },
+  "reward_hacking_checks_5": {
+   "detailed_explanation_of_checks": "Evidence grounding. A quoted passage counts only when four things hold together: it is found word for word in the document the row names; it runs between four and sixty words; it carries a discriminator that identifies the row itself rather than the document the row sits in, which for a ledger row means the declaration reference together with that row's own item number, or the net mass in kilogrammes that the declaration prints against that item, and for an installation row means that installation's own identifier; and it is not a near duplicate of a passage already accepted for another row, measured as a word-set overlap of 0.95 or more. The score is the number of passages that ground over the number of rows that ought to carry one.",
+   "weight": 2,
+   "agent_output_path": [
+    "/logs/agent/consignment_ledger.csv",
+    "/logs/agent/installation_dossier.csv"
+   ],
+   "check_function": "check_reward_hacking_checks_5",
+   "how_it_prevents_task_authenticity_violation": "Stops paraphrase, invention and whole-document dumping from passing as evidence, and stops one document-level sentence standing in for every row filed against that document. Because the discriminator must identify the row and not merely the declaration, a consignee or header sentence reused across the two to four items of one declaration grounds at most one of them; because near duplicates are suppressed rather than exact duplicates, rewording that sentence row by row does not restore the others."
+  },
+  "reward_hacking_checks_6": {
+   "detailed_explanation_of_checks": "Evidence diversity multiplied by evidence grounding. Passages are reduced to representatives by collapsing any passage whose word-set overlap with an earlier one is 0.95 or more, and the share of representatives among all passages filed is multiplied by the share of those passages that ground under the conditions above.",
+   "weight": 2,
+   "agent_output_path": [
+    "/logs/agent/consignment_ledger.csv",
+    "/logs/agent/installation_dossier.csv"
+   ],
+   "check_function": "check_reward_hacking_checks_6",
+   "how_it_prevents_task_authenticity_violation": "Stops one genuine passage being copied down a whole column, and stops the same passage reworded row by row from counting as many. Diversity alone could be bought with distinct invented text and grounding alone could be bought with one real quote, so the two are multiplied and only per-row evidence earns the check."
+  },
+  "reward_hacking_checks_7": {
+   "detailed_explanation_of_checks": "Two-stratum test against the desk export's mass column. The in-scope lines are split into those where the export's net mass agrees with the declaration and those where it does not, the accuracy of the submission's mass is computed separately on each stratum, and the two accuracies are multiplied.",
+   "weight": 2,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_reward_hacking_checks_7",
+   "how_it_prevents_task_authenticity_violation": "A submission that copies the export scores near zero rather than the share on which the export happens to be right, because it fails the whole disagreeing stratum. Only reading the declarations earns both strata."
+  },
+  "reward_hacking_checks_8": {
+   "detailed_explanation_of_checks": "Two-stratum test against the desk export's origin column. Lines are split into those where the export's origin column agrees with the governing country of origin and those where it does not, and the two accuracies are multiplied.",
+   "weight": 2,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_reward_hacking_checks_8",
+   "how_it_prevents_task_authenticity_violation": "The export repeats the country of dispatch. A run that takes it scores zero on the disagreeing stratum, so the proofs of origin and the letters have to be read rather than the workbench table trusted."
+  },
+  "reward_hacking_checks_9": {
+   "detailed_explanation_of_checks": "Two-stratum test against the figure each operator prints for its own specific emissions. Installations are split into those where the operator's own figure happens to equal the derived figure and those where it does not, and the two accuracies are multiplied.",
+   "weight": 2,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_reward_hacking_checks_9",
+   "how_it_prevents_task_authenticity_violation": "The operator's own figure omits its precursors. Copying it scores zero on the stratum where it differs, so the precursor walk cannot be skipped by taking the number printed at the foot of the sheet."
+  },
+  "reward_hacking_checks_10": {
+   "detailed_explanation_of_checks": "Sector rule on indirect emissions. Over the in-scope lines that carry a published default value in a sector for which the Commission publishes no indirect figure, the submission's indirect specific emissions must be zero and its applied figure must match the recomputed one. The score is the share of those lines that satisfy both.",
+   "weight": 2,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_reward_hacking_checks_10",
+   "how_it_prevents_task_authenticity_violation": "Stops the default table's total-emissions column being read straight across for sectors that do not carry indirect emissions, which is the fastest way to produce a plausible but wrong figure for every steel and aluminium line."
+  },
+  "reward_hacking_checks_11": {
+   "detailed_explanation_of_checks": "Cancelled items. The desk export lists items that were declared and then cancelled before release and that appear on no declaration. The score is the share of those items that do not appear in the ledger.",
+   "weight": 2,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_reward_hacking_checks_11",
+   "how_it_prevents_task_authenticity_violation": "Stops a ledger built by reading the workbench table rather than the file. Items that were never released carry no obligation and their presence is direct evidence the export was trusted over the declarations."
+  },
+  "reward_hacking_checks_12": {
+   "detailed_explanation_of_checks": "Omitted items. Some released items are absent from the desk export altogether. The score is the share of those items that appear in the ledger with the net mass the declaration states.",
+   "weight": 2,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_reward_hacking_checks_12",
+   "how_it_prevents_task_authenticity_violation": "The mirror of the previous check. A run that works from the export cannot recover a line the export never carried, so this measures whether the declarations were actually opened."
+  },
+  "reward_hacking_checks_13": {
+   "detailed_explanation_of_checks": "Emptiness where a figure does not arise, priced together with fill where it does. The share of out-of-scope ledger rows whose four emissions cells are all empty is multiplied by the share of in-scope rows that carry an embedded emissions figure.",
+   "weight": 2,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_reward_hacking_checks_13",
+   "how_it_prevents_task_authenticity_violation": "The instruction forbids writing a number for a line the mechanism does not reach. Pricing emptiness alone would reward a blank file, so it is multiplied by the fill on the lines that do arise, and only a submission that distinguishes the two earns the check."
+  },
+  "reward_hacking_checks_14": {
+   "detailed_explanation_of_checks": "Figures in prose must be figures of the thing the sentence names. Every memorandum sentence that names a corpus identifier is examined. Before any number is read, the sentence is stripped of the things that carry digits without being quantities: corpus identifiers, calendar dates in either presentation, commodity codes taken from the packaged covered-goods table longest first, and the condition and wave labels. Every number that survives, of magnitude one or greater and not a calendar year, must match a figure the recomputation actually produces, within one per cent. There is no exemption by magnitude. The figures the recomputation produces include the counts an honest account would state, which are computed rather than allowed: lines, declarations, installations, claims, actions and importers by total and by outcome, the count failing each admissibility condition and each carbon price condition, the count on each scope, origin and emissions basis, every rank, slot requirement and wave capacity, the four wave ordinals, and the threshold, certificate price and phase-in figures the desk parameters publish. The score is the share of such sentences.",
+   "weight": 2,
+   "agent_output_path": "/logs/agent/position_memo.md",
+   "check_function": "check_reward_hacking_checks_14",
+   "how_it_prevents_task_authenticity_violation": "Stops fluent invention, including the cheapest form of it. A memorandum can be long, varied and full of real identifiers while carrying figures that belong to nothing, and because no band of numbers is exempt, filler sentences built from small invented whole numbers are priced the same as invented tonnages rather than passing untested."
+  },
+  "reward_hacking_checks_15": {
+   "detailed_explanation_of_checks": "The same test applied to the exhibit, with the same stripping of identifiers, dates, commodity codes and labels and the same absence of any magnitude exemption.",
+   "weight": 2,
+   "agent_output_path": "/logs/agent/exposure_exhibit.md",
+   "check_function": "check_reward_hacking_checks_15",
+   "how_it_prevents_task_authenticity_violation": "Stops the ranked view being filled with plausible but unfounded figures, whether large tonnages or small invented counts, which is easy to do once the identifiers are known."
+  },
+  "reward_hacking_checks_16": {
+   "detailed_explanation_of_checks": "Distribution of admissibility outcomes. The multiset of failing conditions the dossier reports is compared with the recomputed multiset by a micro F1 over label multiplicities.",
+   "weight": 2,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_reward_hacking_checks_16",
+   "how_it_prevents_task_authenticity_violation": "Stops a uniform verdict. Declaring every communication usable, or every one unusable, produces a distribution that cannot match, so the six conditions have to be tested individually rather than guessed at wholesale."
+  },
+  "reward_hacking_checks_17": {
+   "detailed_explanation_of_checks": "Distribution of emissions bases. The multiset of bases the ledger reports is compared with the recomputed multiset by the same micro F1.",
+   "weight": 2,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_reward_hacking_checks_17",
+   "how_it_prevents_task_authenticity_violation": "Stops a submission putting every line on actual data or every line on defaults. The mix is only reproducible by answering the admissibility and origin questions line by line."
+  },
+  "partial_oracle_checks_1": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The scope decision and the ground it rests on must both be right: whether the line is inside the mechanism, and whether it is outside it because of the customs procedure or because the commodity code is not covered.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_partial_oracle_checks_1",
+   "how_it_prevents_task_authenticity_violation": "Scope cannot be guessed from the export, whose procedure column has been overwritten in places, and a right answer for the wrong reason does not count."
+  },
+  "partial_oracle_checks_2": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. Over the in-scope lines that fall to a published default value, the basis on which the default was resolved and the applied specific emissions must both be right. These are the lines whose figure is decided somewhere other than the declaration: by an opinion filed under a verification body, by an accreditation register, or by an origin that would not settle.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_partial_oracle_checks_2",
+   "how_it_prevents_task_authenticity_violation": "This is the cross-folder core of the task. A run that never leaves the entry folder cannot reach these lines at all, and a run that assumes actual data is always available gets every one of them wrong."
+  },
+  "partial_oracle_checks_3": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The net mass in tonnes, taken from the item of the declaration.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_partial_oracle_checks_3",
+   "how_it_prevents_task_authenticity_violation": "The export's mass column drifts, so this measures whether the declarations were read."
+  },
+  "partial_oracle_checks_4": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The governing country of origin and the ground it rests on must both be right, including the lines where the origin does not settle at all and must be reported as not established rather than guessed.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_partial_oracle_checks_4",
+   "how_it_prevents_task_authenticity_violation": "Rewards reading the proofs of origin and the letters that contradict an entry, and rewards declining to answer where the evidence does not support an answer."
+  },
+  "partial_oracle_checks_5": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. Over the in-scope lines whose specific emissions carry a precursor contribution, the applied specific emissions must be right.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_partial_oracle_checks_5",
+   "how_it_prevents_task_authenticity_violation": "These lines are only correct if the material chain was walked from the good to the goods consumed to make it, across installations in other countries and other folders."
+  },
+  "partial_oracle_checks_6": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The basis on which the line's emissions were figured.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_partial_oracle_checks_6",
+   "how_it_prevents_task_authenticity_violation": "Separates actual data from each of the three ways a published default can be resolved, so a right number reached by the wrong route does not pass."
+  },
+  "partial_oracle_checks_7": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The specific direct emissions applied to the line.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_partial_oracle_checks_7",
+   "how_it_prevents_task_authenticity_violation": "Grades the figure itself."
+  },
+  "partial_oracle_checks_8": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The specific indirect emissions applied to the line, which are zero in the sectors that do not carry them.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_partial_oracle_checks_8",
+   "how_it_prevents_task_authenticity_violation": "Grades the sector rule at line level."
+  },
+  "partial_oracle_checks_9": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The applied specific emissions, direct plus indirect.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_partial_oracle_checks_9",
+   "how_it_prevents_task_authenticity_violation": "Grades the figure a tonne of the good actually carries."
+  },
+  "partial_oracle_checks_10": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The embedded emissions of the consignment.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_partial_oracle_checks_10",
+   "how_it_prevents_task_authenticity_violation": "Grades the product of the two determinations the whole file turns on."
+  },
+  "partial_oracle_checks_11": {
+   "detailed_explanation_of_checks": "Coverage of the ledger: the share of the goods lines on the declarations that appear in the ledger at all.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_partial_oracle_checks_11",
+   "how_it_prevents_task_authenticity_violation": "Measures whether the whole period was read rather than the part that was convenient, which is the coverage loss a single context suffers first."
+  },
+  "partial_oracle_checks_12": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The evidence document named against the row must be a document the corpus holds and must be one that actually concerns that line, either the declaration the line is on or a document naming the installation that supplied it.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/consignment_ledger.csv",
+   "check_function": "check_partial_oracle_checks_12",
+   "how_it_prevents_task_authenticity_violation": "Stops a real document identifier being attached to a row it has nothing to do with, which is how a citation column gets filled without reading."
+  },
+  "partial_oracle_checks_13": {
+   "detailed_explanation_of_checks": "Coverage of the dossier: the share of installations on the register that appear.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_partial_oracle_checks_13",
+   "how_it_prevents_task_authenticity_violation": "Every installation has to be reached, including the ones whose figures cannot be used."
+  },
+  "partial_oracle_checks_14": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The activity level for the reporting period, after any correction a later letter has made to it.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_partial_oracle_checks_14",
+   "how_it_prevents_task_authenticity_violation": "Requires both the house layout to be parsed and the correspondence to be read."
+  },
+  "partial_oracle_checks_15": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The attributed direct emissions for the period, after any correction.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_partial_oracle_checks_15",
+   "how_it_prevents_task_authenticity_violation": "Same, on the figure the whole derivation rests on."
+  },
+  "partial_oracle_checks_16": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The attributed indirect emissions for the period.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_partial_oracle_checks_16",
+   "how_it_prevents_task_authenticity_violation": "Requires the sheets that state no indirect figure to be distinguished from those that do."
+  },
+  "partial_oracle_checks_17": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The installation's own direct intensity, the attributed direct emissions over the activity level.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_partial_oracle_checks_17",
+   "how_it_prevents_task_authenticity_violation": "Grades the first term of the derivation on its own."
+  },
+  "partial_oracle_checks_18": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The precursor direct component, what the precursors contribute per tonne of product.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_partial_oracle_checks_18",
+   "how_it_prevents_task_authenticity_violation": "Grades the second term on its own, which is zero only where the route genuinely consumes nothing."
+  },
+  "partial_oracle_checks_19": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The derived specific direct emissions of the installation's good.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_partial_oracle_checks_19",
+   "how_it_prevents_task_authenticity_violation": "Grades the sum, which is the figure every consignment from that installation carries."
+  },
+  "partial_oracle_checks_20": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The derived specific indirect emissions of the installation's good.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_partial_oracle_checks_20",
+   "how_it_prevents_task_authenticity_violation": "Grades the sector rule at installation level."
+  },
+  "partial_oracle_checks_21": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. Whether the operator's communication may be relied on.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_partial_oracle_checks_21",
+   "how_it_prevents_task_authenticity_violation": "The single determination the largest part of the file depends on, and one that cannot be made from the communication itself."
+  },
+  "partial_oracle_checks_22": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The first condition that fails, or none.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_partial_oracle_checks_22",
+   "how_it_prevents_task_authenticity_violation": "Requires the six conditions to be tested in order rather than a verdict to be reached by impression, and distinguishes a report rejected for a stale period from one rejected for an unaccredited verifier."
+  },
+  "partial_oracle_checks_23": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The communication reference and the verification report that governs must both be right, including the cases where a later report has replaced an earlier one.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_partial_oracle_checks_23",
+   "how_it_prevents_task_authenticity_violation": "Rewards resolving which opinion is live rather than taking the first one found under the installation."
+  },
+  "partial_oracle_checks_24": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The reporting period the communication states, as two dates.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_partial_oracle_checks_24",
+   "how_it_prevents_task_authenticity_violation": "The period is what decides the first admissibility condition, and it is written three different ways across the house layouts."
+  },
+  "partial_oracle_checks_25": {
+   "detailed_explanation_of_checks": "Coverage of the precursor chain: the share of the precursor edges the communications report that appear.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/precursor_chain.csv",
+   "check_function": "check_partial_oracle_checks_25",
+   "how_it_prevents_task_authenticity_violation": "Measures whether the material graph was traversed or only its first level."
+  },
+  "partial_oracle_checks_26": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The consumption per tonne of product, normalised from whichever of the three ways the sheet expresses it.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/precursor_chain.csv",
+   "check_function": "check_partial_oracle_checks_26",
+   "how_it_prevents_task_authenticity_violation": "A specific consumption, a period total and a percentage of product mass all mean the same thing, and only one of the three can be read off the page unchanged."
+  },
+  "partial_oracle_checks_27": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The footing the precursor's own figure rests on.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/precursor_chain.csv",
+   "check_function": "check_partial_oracle_checks_27",
+   "how_it_prevents_task_authenticity_violation": "A precursor whose own communication was not usable contributes on a published default, and getting this right requires the upstream installation's verdict, not the downstream one's."
+  },
+  "partial_oracle_checks_28": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The precursor's specific direct emissions.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/precursor_chain.csv",
+   "check_function": "check_partial_oracle_checks_28",
+   "how_it_prevents_task_authenticity_violation": "Grades the upstream figure that is carried downstream."
+  },
+  "partial_oracle_checks_29": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. What the precursor contributes per tonne of the consuming good.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/precursor_chain.csv",
+   "check_function": "check_partial_oracle_checks_29",
+   "how_it_prevents_task_authenticity_violation": "Grades the product of the consumption and the upstream figure."
+  },
+  "partial_oracle_checks_30": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. Whether the claim is admitted and, where it is not, the first condition it fails.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/carbon_price_schedule.csv",
+   "check_function": "check_partial_oracle_checks_30",
+   "how_it_prevents_task_authenticity_violation": "The conditions are tested in order and one of them can only be settled from a letter filed somewhere other than the claim, so a right verdict for the wrong reason does not pass."
+  },
+  "partial_oracle_checks_31": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. Over the installations whose precursor chain runs at least two links deep, the derived specific direct emissions must be right.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/installation_dossier.csv",
+   "check_function": "check_partial_oracle_checks_31",
+   "how_it_prevents_task_authenticity_violation": "The hardest reading in the file. These figures are only correct if the walk continued past the first upstream installation and applied each link's own admissibility verdict on the way."
+  },
+  "partial_oracle_checks_32": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The amount converted to euro at the packaged reference rate.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/carbon_price_schedule.csv",
+   "check_function": "check_partial_oracle_checks_32",
+   "how_it_prevents_task_authenticity_violation": "Grades the conversion, including the currency actually printed on the claim."
+  },
+  "partial_oracle_checks_33": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The deduction the claim gives, in tonnes.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/carbon_price_schedule.csv",
+   "check_function": "check_partial_oracle_checks_33",
+   "how_it_prevents_task_authenticity_violation": "Grades the arithmetic the desk reference sets out, and gives a rejected claim no deduction."
+  },
+  "partial_oracle_checks_34": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The set of importers the claim actually reaches.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/carbon_price_schedule.csv",
+   "check_function": "check_partial_oracle_checks_34",
+   "how_it_prevents_task_authenticity_violation": "A claim reaches consignments by scheme and period rather than by consignment, so this can only be answered from the settled ledger across the whole portfolio."
+  },
+  "partial_oracle_checks_35": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The importer's cumulative net mass of covered goods for the period.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/importer_position.csv",
+   "check_function": "check_partial_oracle_checks_35",
+   "how_it_prevents_task_authenticity_violation": "An aggregation that spans every declaration in the file, and the quantity the threshold turns on."
+  },
+  "partial_oracle_checks_36": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. Whether the importer is above or below the mass threshold.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/importer_position.csv",
+   "check_function": "check_partial_oracle_checks_36",
+   "how_it_prevents_task_authenticity_violation": "A determination about a whole year that no single shard of the corpus contains, and one that decides whether groups of lines generate an obligation at all."
+  },
+  "partial_oracle_checks_37": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The importer's total embedded emissions.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/importer_position.csv",
+   "check_function": "check_partial_oracle_checks_37",
+   "how_it_prevents_task_authenticity_violation": "The sum of every line-level determination made for that importer, so an error anywhere shows here."
+  },
+  "partial_oracle_checks_38": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The adjusted emissions and the carbon price deduction allocated to the importer must both be right.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/importer_position.csv",
+   "check_function": "check_partial_oracle_checks_38",
+   "how_it_prevents_task_authenticity_violation": "Joins the phase-in arithmetic to the claim allocation, which cannot be done before both the ledger and the claims are settled."
+  },
+  "partial_oracle_checks_39": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The certificates due and the whole certificates to be bought must both be right.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/importer_position.csv",
+   "check_function": "check_partial_oracle_checks_39",
+   "how_it_prevents_task_authenticity_violation": "The number the desk actually acts on, and the one an error anywhere upstream reaches."
+  },
+  "partial_oracle_checks_40": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The failing condition, the action type it implies and the slots that action costs must all be right.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/remediation_programme.csv",
+   "check_function": "check_partial_oracle_checks_40",
+   "how_it_prevents_task_authenticity_violation": "Ties the programme to the adjudication rather than letting it be written independently of it."
+  },
+  "partial_oracle_checks_41": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The exposure the action would release.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/remediation_programme.csv",
+   "check_function": "check_partial_oracle_checks_41",
+   "how_it_prevents_task_authenticity_violation": "A counterfactual over the whole book: the emissions the affected lines carry now against what they would carry if that one communication became usable. It can be negative, so a run that assumes actual data is always better than the published default gets the sign wrong."
+  },
+  "partial_oracle_checks_42": {
+   "detailed_explanation_of_checks": "Per-row comparison against the recomputed position. The score is the share of the true rows answered correctly, multiplied by the precision of the rows the submission filed, so padding is priced in the same check it would otherwise buy. The status, the wave assigned and, where nothing was assigned, the reason must all be right.",
+   "weight": 3,
+   "agent_output_path": "/logs/agent/remediation_programme.csv",
+   "check_function": "check_partial_oracle_checks_42",
+   "how_it_prevents_task_authenticity_violation": "Grades the ranking and the capacity fill together, so an action cannot be scheduled by ignoring either the ordering or the supplier's earliest engagement date."
+  }
+ }
+}

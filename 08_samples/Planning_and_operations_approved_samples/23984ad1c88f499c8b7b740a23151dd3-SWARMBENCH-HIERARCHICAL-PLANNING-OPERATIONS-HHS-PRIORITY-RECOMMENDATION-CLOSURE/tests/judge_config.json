@@ -1,0 +1,118 @@
+{
+  "timeout_sec": 90,
+  "max_retries": 3,
+  "criteria": [
+    {
+      "id": "recommendation_to_gap",
+      "weight": 1,
+      "input_group": "recommendation_to_gap",
+      "batch_size": 6,
+      "text_paths": ["/logs/agent/recommendation_dossiers.jsonl"],
+      "scoring_rule": "Score each unit independently. Full credit requires an explicit and accurate report finding -> selected recommendation -> current action -> remaining gap chain in the submitted narrative; do not infer a missing link from canonical context.",
+      "expected_signals": [
+        "The submitted current gap accurately distinguishes the originating finding, selected recommendation, completed or ongoing HHS actions, and work that remains.",
+        "The reasoning is present in the submitted field and is not reconstructed from the canonical context.",
+        "Credit is the arithmetic mean across every supplied recommendation record, including explicit missing records."
+      ],
+      "prompt": "Assess whether each submitted current-gap narrative faithfully reconciles its selected recommendation with the bounded originating-report and May 2025 status context."
+    },
+    {
+      "id": "closure_criterion_adequacy",
+      "weight": 1,
+      "input_group": "closure_criterion_adequacy",
+      "batch_size": 6,
+      "text_paths": ["/logs/agent/recommendation_dossiers.jsonl"],
+      "scoring_rule": "Score each unit independently. Full credit requires a recommendation-complete observable end state, not generic approval, document completion, or availability for review.",
+      "expected_signals": [
+        "The closure criterion describes observable evidence that would resolve the recommendation's substantive control failure.",
+        "A planned meeting, draft, or document does not receive full credit unless the source makes that activity the required outcome.",
+        "Do not supply a better criterion on the author's behalf."
+      ],
+      "prompt": "Assess the adequacy of each submitted closure criterion against its submitted current gap and bounded canonical context."
+    },
+    {
+      "id": "closure_evidence_sufficiency",
+      "weight": 1,
+      "input_group": "closure_evidence_sufficiency",
+      "batch_size": 6,
+      "text_paths": ["/logs/agent/closure_evidence_plan.csv", "/logs/agent/recommendation_dossiers.jsonl"],
+      "scoring_rule": "Treat every evidence row as a prospective request. Score each unit on whether the three requested artifacts and their tests, if later satisfied, would collectively prove its criterion; do not require the May 2025 status to say those future artifacts already exist.",
+      "expected_signals": [
+        "The design, operating, and outcome evidence requests collectively demonstrate the submitted closure criterion.",
+        "Acceptance tests are observable and recommendation-specific rather than ceremonial document requests.",
+        "Omitted or duplicated expected evidence records fail their own unit instead of disappearing from the denominator."
+      ],
+      "prompt": "Assess whether each unit's three submitted evidence items would collectively substantiate its closure criterion."
+    },
+    {
+      "id": "action_to_gap",
+      "weight": 1,
+      "input_group": "action_to_gap",
+      "batch_size": 6,
+      "text_paths": ["/logs/agent/closure_actions.csv", "/logs/agent/recommendation_dossiers.jsonl"],
+      "scoring_rule": "Score each unit independently. Inspect all five actions and their submitted rationales; forced category coverage or a generic action suffix does not establish executability or relation to the unresolved control failure.",
+      "expected_signals": [
+        "The five submitted actions address the unit's actual unresolved gap across governance, process, data, workforce, and validation.",
+        "Generic project-management actions receive low credit when their rationale does not establish the relation to the gap.",
+        "Do not infer an unstated implementation rationale from the source context."
+      ],
+      "prompt": "Assess whether each unit's complete submitted action set substantively addresses its submitted current gap."
+    },
+    {
+      "id": "cross_unit_pattern_support",
+      "weight": 1,
+      "input_group": "cross_unit_pattern_support",
+      "batch_size": 3,
+      "text_paths": ["/logs/agent/traceability_graph.json"],
+      "scoring_rule": "Score each pattern independently and proportionally to the cited units whose local anchors support the exact claimed relationship; a shared noun or adjacent topic is not support.",
+      "expected_signals": [
+        "Every cited unit's local report anchor supports the same claimed control-failure relationship, not merely a shared noun or program label.",
+        "The explanation identifies genuine commonality and the material differences among the cited units.",
+        "Missing pattern records and unsupported cited units reduce credit proportionally."
+      ],
+      "prompt": "Assess whether each submitted cross-unit pattern is semantically supported by all of its cited unit-local report anchors."
+    },
+    {
+      "id": "arbitration_pair_faithfulness",
+      "weight": 1,
+      "input_group": "arbitration_pair_faithfulness",
+      "batch_size": 8,
+      "text_paths": ["/logs/agent/priority_arbitration.csv", "/logs/agent/recommendation_dossiers.jsonl", "/logs/agent/dependency_register.csv", "/logs/agent/implementation_wave_plan.csv"],
+      "scoring_rule": "Score every assigned pair independently. Full credit requires a real two-unit comparison under the assigned lens, a defensible earlier-attention choice, and reasoning authored in the submitted row that engages both source pairs and both plans.",
+      "expected_signals": [
+        "The advance rationale compares the two assigned recommendations under the named lens rather than describing them separately.",
+        "The selected advance unit follows from source-grounded readiness, leverage, or evidence burden; identifier order, wave number alone, or a reusable template is not a reason.",
+        "A contradiction between the decision and either unit's status, dependency, or evidence plan reduces that pair's credit."
+      ],
+      "prompt": "Assess whether each priority-arbitration row makes a faithful, recommendation-specific two-unit decision under its assigned comparison lens."
+    },
+    {
+      "id": "arbitration_deferral_consequence",
+      "weight": 1,
+      "input_group": "arbitration_deferral_consequence",
+      "batch_size": 8,
+      "text_paths": ["/logs/agent/priority_arbitration.csv", "/logs/agent/recommendation_dossiers.jsonl", "/logs/agent/dependency_register.csv", "/logs/agent/implementation_wave_plan.csv"],
+      "scoring_rule": "Score every pair independently. Full credit requires a source-grounded consequence specific to the deferred recommendation and a dependency-effect explanation that accurately interprets both submitted plans without inventing a prerequisite.",
+      "expected_signals": [
+        "The deferral consequence explains a concrete unresolved control, evidence, or operational exposure for the deferred unit.",
+        "The dependency effect distinguishes a genuine prerequisite from thematic similarity and agrees with both units' submitted dependency and wave records.",
+        "Restating the advance rationale, generic delay language, or unsupported downstream effects receive at most 0.25 for that record."
+      ],
+      "prompt": "Assess whether each submitted deferral consequence and dependency effect are specific, source-supported, and operationally credible."
+    },
+    {
+      "id": "portfolio_priority_coherence",
+      "weight": 1,
+      "input_group": "portfolio_priority_coherence",
+      "batch_size": 6,
+      "text_paths": ["/logs/agent/priority_arbitration.csv", "/logs/agent/implementation_wave_plan.csv", "/logs/agent/dependency_register.csv", "/logs/agent/executive_decision_memo.md"],
+      "scoring_rule": "Score each unit independently from all pair decisions that involve it. Full credit requires its aggregate advance/defer pattern, wave, dependency posture, and memo treatment to tell one defensible leadership story; acknowledged lens tradeoffs are coherent, silent contradictions are not.",
+      "expected_signals": [
+        "The unit's pairwise outcomes are consistent with its source-grounded readiness and submitted prerequisites across the three lenses.",
+        "The memo does not elevate, defer, or characterize the unit in a way that contradicts its arbitration rows and wave plan.",
+        "Cross-lens disagreement is explicitly interpreted as a leadership tradeoff rather than hidden or resolved by unsupported majority voting."
+      ],
+      "prompt": "Assess whether each unit's arbitration outcomes, dependency posture, wave placement, and memo treatment form a coherent portfolio-priority decision."
+    }
+  ]
+}

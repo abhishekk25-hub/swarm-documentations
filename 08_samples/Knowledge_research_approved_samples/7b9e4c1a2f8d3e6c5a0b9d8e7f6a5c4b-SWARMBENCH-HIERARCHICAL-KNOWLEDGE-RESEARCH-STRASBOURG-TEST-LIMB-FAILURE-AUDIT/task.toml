@@ -1,0 +1,68 @@
+[task]
+name = "swarmbench/7b9e4c1a2f8d3e6c5a0b9d8e7f6a5c4b-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-STRASBOURG-TEST-LIMB-FAILURE-AUDIT"
+description = "Code every merits finding in 40 recent European Court of Human Rights judgments to the limb of the test it turned on: a findings file per judgment, a cross-corpus limb matrix, a per-State profile and an adviser brief."
+
+[metadata]
+verifier_type = "hybrid"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_horizon"]
+dag_depth = 5
+dag_width = 20
+human_solving_hours_estimate = 95.0
+human_solving_hours_justification = """
+The staged corpus holds 546,348 words across the 40 judgment files, about 13,700 words each, plus
+the coding standard, the respondent-State table and the provenance note. Reading all of it once at
+130 words per minute - the rate this unit uses for judgment text, which is slower going than prose -
+is 546,348 / 130 = 4,203 minutes, or 70.0 hours. The operative provisions of the 40 judgments carry
+55 merits findings, and coding one takes 18 minutes: locating the Court's assessment of that
+complaint, giving every limb in the article's family a verdict of failed, satisfied or not examined,
+settling which limb the finding actually turned on, transcribing a quotation of at least fifteen
+words from the paragraph that states that outcome, and writing the turning point. That is
+55 x 18 = 990 minutes, or 16.5 hours. Compiling the cross-corpus limb matrix from the delivered
+findings takes 1.5 hours. The ten State profiles take 12 minutes each, because the recurring-pattern
+field has to be checked against that State's four judgments rather than asserted, which is 120
+minutes or 2 hours. The brief takes 2 hours. A consistency pass over the coded findings by article
+family - the substantive and procedural limbs of Articles 2 and 3, and whether each Article 8 case
+was analysed as an interference or as a positive obligation - takes 3 hours, because it is the pass
+that catches a limb coded from the vocabulary rather than from the holding. Total:
+70.0 + 16.5 + 1.5 + 2 + 2 + 3 = 95.0 hours.
+"""
+estimated_sub_agents = 34
+input_token_estimate = 730000
+reference_link = "https://hudoc.echr.coe.int/"
+why_multi_agent = """
+The single agent has to both read each judgment's own assessment closely enough to settle a limb
+verdict and hold a synthesis across all forty judgments at once; the corpus is 546,348 words, about
+730,000 tokens, so no context window holds both halves. In the recorded run it collapsed the first
+half: every findings file was written as a bare JSON array instead of the required
+{case_id, respondent_state, findings} object, so no finding parsed and the run scored 0.0630
+(static 0.2278, reward_hacking 0.0000, partial_oracle 0.0500) - a genuine content-format failure,
+not an infrastructure one.
+
+The hierarchy instead bounds each agent's scope to what it can actually verify. Five desk leads
+dispatch four coders each - 20 coders, one judgment pair apiece, the widest tier - so a whole
+judgment sits inside the window of the agent coding it. Five reviewers then re-check the coded
+limb against the Court's own assessment by article family rather than by State, since that is the
+axis coding errors run along (interference vs positive obligation, substantive vs procedural). Two
+compilers roll up the matrix and the State profiles independently from the reviewed findings, and
+one editor recomputes the brief from the findings files rather than trusting the matrix, so the
+roll-ups cannot validate one another. decomposition.yaml declares 33 sub-tasks over five dependency
+levels (lead -> coder -> reviewer -> compiler -> editor); the confirmed run opened one further
+session beyond that plan on a retry.
+
+The multi run scored 0.8108 (static 0.9490, reward_hacking 0.8212, partial_oracle 0.7578) on the
+same verifier and timeout, a 0.7478-point gap over single.
+"""
+network_enabled = true
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 900

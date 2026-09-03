@@ -1,0 +1,100 @@
+version: "1.0"
+coordination_pattern: hierarchical
+
+sub_tasks:
+
+  - id: africa-manager
+    parallel_group: collect
+    depends_on: []
+    description: >-
+      You're handling the 35 African countries from the instruction (NGA through MRT).
+      Spin up seven workers in parallel — five countries each. Each worker hits the
+      three World Bank endpoints and the WHO profile page for its batch, then saves
+      /logs/agent/countries/{ISO3}.json per country.
+
+      Once all seven finish, confirm all 35 files exist under /logs/agent/countries/
+      and write /logs/agent/regions/africa.json with "complete" and "missing" lists.
+
+  - id: asia-manager
+    parallel_group: collect
+    depends_on: []
+    description: >-
+      You're handling the 25 Asian countries from the instruction (IND through GEO).
+      Spin up five workers in parallel — five countries each. Same drill — World Bank
+      + WHO per country, save /logs/agent/countries/{ISO3}.json.
+
+      When done, confirm all 25 files and write /logs/agent/regions/asia.json.
+
+  - id: americas-manager
+    parallel_group: collect
+    depends_on: []
+    description: >-
+      You're handling the 20 Americas countries from the instruction (HTI through SUR).
+      Four workers, five countries each. World Bank + WHO data saved to
+      /logs/agent/countries/{ISO3}.json per country.
+
+      After all four finish, verify all 20 files and write
+      /logs/agent/regions/americas.json.
+
+  - id: europe-manager
+    parallel_group: collect
+    depends_on: []
+    description: >-
+      You're handling the 20 Europe & Oceania countries: Sweden (SWE), United Kingdom
+      (GBR), France (FRA), Germany (DEU), Russia (RUS), Ukraine (UKR), Romania (ROU),
+      Greece (GRC), Turkey (TUR), Australia (AUS), Poland (POL), Italy (ITA), Spain
+      (ESP), Portugal (PRT), Netherlands (NLD), Hungary (HUN), Bulgaria (BGR), Albania
+      (ALB), New Zealand (NZL), Norway (NOR). Four workers, five countries each.
+      Save /logs/agent/countries/{ISO3}.json per country.
+
+      Once done, verify all 20 files and write /logs/agent/regions/europe_oceania.json.
+
+  - id: data-aggregator
+    parallel_group: aggregate
+    depends_on:
+      - africa-manager
+      - asia-manager
+      - americas-manager
+      - europe-manager
+    description: >-
+      All 100 country files should be ready under
+      /logs/agent/countries/ and the four regional summaries under /logs/agent/regions/.
+
+      Pull everything together and write two files to /logs/agent/maternal-health-board/:
+      data.csv with one row per country (keep the exact order from the instruction) and
+      mmr_trend.csv with the multi-year MMR values the World Bank returned.
+      Leave cells empty where data is missing.
+
+  - id: audit-writer
+    parallel_group: aggregate
+    depends_on:
+      - africa-manager
+      - asia-manager
+      - americas-manager
+      - europe-manager
+    description: >-
+      Read the 100 country files from /logs/agent/countries/
+      and the regional summaries from /logs/agent/regions/.
+
+      Write source_audit.csv to /logs/agent/maternal-health-board/ listing every
+      URL that was fetched and whether data was found.
+
+  - id: deck-producer
+    parallel_group: present
+    depends_on:
+      - data-aggregator
+    description: >-
+      Read data.csv and mmr_trend.csv from
+      /logs/agent/maternal-health-board/ and build dashboard.pptx in the same folder.
+      Six slides as described in the instruction — four regional tables then bar chart
+      and scatter plot, with the required region colours.
+
+  - id: report-writer
+    parallel_group: present
+    depends_on:
+      - data-aggregator
+    description: >-
+      Read data.csv from /logs/agent/maternal-health-board/
+      and write summary.docx covering everything the instruction asks for — average MMR,
+      top 3 highest/lowest, regional gaps, missing data, low skilled-birth countries,
+      fifteen investment candidates with priority scores, and trend direction.

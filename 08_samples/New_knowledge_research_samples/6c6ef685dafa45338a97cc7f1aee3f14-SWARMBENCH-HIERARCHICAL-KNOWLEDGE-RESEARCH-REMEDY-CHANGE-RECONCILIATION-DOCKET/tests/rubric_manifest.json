@@ -1,0 +1,233 @@
+{
+  "task_id": "6c6ef685dafa45338a97cc7f1aee3f14",
+  "verifier_type": "hybrid",
+  "total_checks": 31,
+  "reward_aggregation": "total_static_check_score is the mean of the static_checks_* entries (currently 1). total_reward_hacking_check_score is the mean of all 21 reward_hacking_checks_* entries (10 register site-pair judges, 10 crosswalk site-pair judges, 1 memo judge) -- each entry counts once toward this bucket regardless of how many sites or rows it covers. total_partial_oracle_check_score is the mean of all 9 partial_oracle_checks_* entries (2 register samples, 7 crosswalk samples) -- each hand-verified sample counts once. The final reward is NOT a flat per-check average across all 31 checks: reward = (1 * total_static_check_score + 2 * total_reward_hacking_check_score + 3 * total_partial_oracle_check_score) / 6, i.e. the three already-averaged bucket means are blended with fixed weights 1/2/3 (static/reward-hacking/partial-oracle). Content (reward-hacking + partial-oracle combined) therefore always contributes 5/6 (~83.3%) of the final reward, independent of how many checks populate each bucket.",
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "check_output_contract opens the three exact requested outputs and the manifest, then scores the mean of 10 independent structural subtests: (1) remedy_change_register.csv has the exact expected header, (2) cleanup_level_crosswalk.csv has the exact expected header, (3) the memo is at least 80 characters after stripping whitespace, (4) the register contains exactly one row per (site_id, document_id) pair for every one of the 65 manifest documents across all 20 sites, (5) every register row's signature_date matches that same document's canonical signature_date from docket_manifest.csv, (6) every register row's affected_medium/change_class/signature_date/stated_basis/evidence_anchor are non-empty and drawn from the fixed enums, (7) no two register rows share the same (site_id, document_id, affected_medium) key, (8) the crosswalk covers all 20 sites, (9) every crosswalk row's medium/normalized_unit/controlling_document_id/superseded_by reference valid enums or real manifest document_ids and no crosswalk field is blank, (10) no two crosswalk rows are byte-identical across every column. A missing or malformed artifact fails the affected subtests and cannot be replaced by a file at another path.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/remedy_change_register.csv",
+        "/logs/agent/cleanup_level_crosswalk.csv",
+        "/logs/agent/review_readiness_memo.md"
+      ],
+      "check_function": "check_output_contract",
+      "how_it_prevents_task_authenticity_violation": "Gives only structure credit while blocking shape tricks that omit manifest documents, duplicate document-medium rows, invent IDs, swap dates between documents, use invalid enums, omit whole sites, leave fields blank, or place outputs at undeclared paths. It does not treat schema success as source correctness."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "check_register_pair_1 sends a bounded external judge the decision-document guidance excerpts and the full source text of every canonical document for SITE-01 and SITE-02, plus the agent's submitted register rows for those two sites. The judge scores, across this fixed 2-site denominator, whether every canonical document is represented, whether the affected medium and primary operative change_class (not filing category) are source-derived using the task's exact change_class definitions, whether superseded_requirement and stated_basis are source-supported and concise, and whether evidence_anchor is plausibly tied to the cited passage. Missing documents, fabricated or default-filled rows, and unsupported confident claims score zero for the affected part.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/remedy_change_register.csv",
+      "check_function": "check_register_pair_1",
+      "how_it_prevents_task_authenticity_violation": "Defeats category-to-class shortcuts, wrong-document fact swaps, and internally consistent fabrication by giving the judge the actual source excerpt for each canonical document in this fixed two-site scope."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "check_register_pair_2 applies the identical source-grounded register review to SITE-03 and SITE-04, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/remedy_change_register.csv",
+      "check_function": "check_register_pair_2",
+      "how_it_prevents_task_authenticity_violation": "Prevents a partial-corpus submission from looking complete by independently requiring document-specific evidence for this cohort rather than trusting cross-cohort consistency."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "check_register_pair_3 applies the identical source-grounded register review to SITE-05 and SITE-06, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/remedy_change_register.csv",
+      "check_function": "check_register_pair_3",
+      "how_it_prevents_task_authenticity_violation": "Blocks repeated generic narratives and swapped facts by judging each submitted determination against excerpts from the document it claims to describe."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "check_register_pair_4 applies the identical source-grounded register review to SITE-07 and SITE-08, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/remedy_change_register.csv",
+      "check_function": "check_register_pair_4",
+      "how_it_prevents_task_authenticity_violation": "Closes an easy-prefix exploit by independently reviewing a middle cohort against its own source documents rather than assuming quality carries over from earlier sites."
+    },
+    "reward_hacking_checks_5": {
+      "detailed_explanation_of_checks": "check_register_pair_5 applies the identical source-grounded register review to SITE-09 and SITE-10, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/remedy_change_register.csv",
+      "check_function": "check_register_pair_5",
+      "how_it_prevents_task_authenticity_violation": "Requires source-derived determinations specific to this cohort, preventing global keyword or category matching from substituting for real document review."
+    },
+    "reward_hacking_checks_6": {
+      "detailed_explanation_of_checks": "check_register_pair_6 applies the identical source-grounded register review to SITE-11 and SITE-12, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/remedy_change_register.csv",
+      "check_function": "check_register_pair_6",
+      "how_it_prevents_task_authenticity_violation": "Independently inspects this cohort's documents so a polished earlier subset cannot earn full register credit by extrapolation."
+    },
+    "reward_hacking_checks_7": {
+      "detailed_explanation_of_checks": "check_register_pair_7 applies the identical source-grounded register review to SITE-13 and SITE-14, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/remedy_change_register.csv",
+      "check_function": "check_register_pair_7",
+      "how_it_prevents_task_authenticity_violation": "Catches wrong-but-present values and unsupported certainty specific to this cohort's documents rather than crediting internal self-consistency."
+    },
+    "reward_hacking_checks_8": {
+      "detailed_explanation_of_checks": "check_register_pair_8 applies the identical source-grounded register review to SITE-15 and SITE-16, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/remedy_change_register.csv",
+      "check_function": "check_register_pair_8",
+      "how_it_prevents_task_authenticity_violation": "Prevents partial-corpus extrapolation by requiring this cohort's rows to be individually grounded in its own source documents."
+    },
+    "reward_hacking_checks_9": {
+      "detailed_explanation_of_checks": "check_register_pair_9 applies the identical source-grounded register review to SITE-17 and SITE-18, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/remedy_change_register.csv",
+      "check_function": "check_register_pair_9",
+      "how_it_prevents_task_authenticity_violation": "Independently reviews this late cohort so an agent cannot front-load effort on early sites and coast on the remainder."
+    },
+    "reward_hacking_checks_10": {
+      "detailed_explanation_of_checks": "check_register_pair_10 applies the identical source-grounded register review to SITE-19 and SITE-20, the final cohort, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/remedy_change_register.csv",
+      "check_function": "check_register_pair_10",
+      "how_it_prevents_task_authenticity_violation": "Closes the final-cohort easy-exit exploit by independently reviewing the last two sites against their own source documents."
+    },
+    "reward_hacking_checks_11": {
+      "detailed_explanation_of_checks": "check_crosswalk_pair_1 sends a bounded external judge the full source text of every canonical document for SITE-01 and SITE-02 plus the agent's submitted crosswalk rows for those two sites. The judge scores, across this fixed 2-site denominator, whether only adopted numeric cleanup/remediation levels are present (excluding detected concentrations, screening values, background figures, cost figures, and merely-quoted standards), whether source value/unit match the decision's own wording, whether normalization to the required unit at three significant figures is correct, whether controlling-document and superseded-by lineage are source-supported, and whether basis_family/basis_citation_as_written and conflict_note are grounded rather than decorative. Missing adopted levels, padded numeric shells, and fabricated control history lose proportional credit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_pair_1",
+      "how_it_prevents_task_authenticity_violation": "Requires source-derived cleanup-level semantics rather than parseable numeric rows, global number matching, or self-consistency among fabricated records for this fixed two-site scope."
+    },
+    "reward_hacking_checks_12": {
+      "detailed_explanation_of_checks": "check_crosswalk_pair_2 applies the identical source-grounded crosswalk review to SITE-03 and SITE-04, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_pair_2",
+      "how_it_prevents_task_authenticity_violation": "Blocks partial-corpus extrapolation and wrong-record number reuse by tying each level and its history to this cohort's actual decision evidence."
+    },
+    "reward_hacking_checks_13": {
+      "detailed_explanation_of_checks": "check_crosswalk_pair_3 applies the identical source-grounded crosswalk review to SITE-05 and SITE-06, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_pair_3",
+      "how_it_prevents_task_authenticity_violation": "Detects hollow numeric shells and repeated placeholder series by comparing submitted levels with excerpts from this cohort's actual source documents."
+    },
+    "reward_hacking_checks_14": {
+      "detailed_explanation_of_checks": "check_crosswalk_pair_4 applies the identical source-grounded crosswalk review to SITE-07 and SITE-08, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_pair_4",
+      "how_it_prevents_task_authenticity_violation": "Independently inspects this middle cohort so a polished earlier subset cannot earn full crosswalk credit by extrapolation."
+    },
+    "reward_hacking_checks_15": {
+      "detailed_explanation_of_checks": "check_crosswalk_pair_5 applies the identical source-grounded crosswalk review to SITE-09 and SITE-10, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_pair_5",
+      "how_it_prevents_task_authenticity_violation": "Requires source-derived adopted-level history for this cohort, preventing detection/screening values from masquerading as cleanup levels."
+    },
+    "reward_hacking_checks_16": {
+      "detailed_explanation_of_checks": "check_crosswalk_pair_6 applies the identical source-grounded crosswalk review to SITE-11 and SITE-12, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_pair_6",
+      "how_it_prevents_task_authenticity_violation": "Blocks bad unit conversions and fabricated control history by checking this cohort's rows against its own decision documents."
+    },
+    "reward_hacking_checks_17": {
+      "detailed_explanation_of_checks": "check_crosswalk_pair_7 applies the identical source-grounded crosswalk review to SITE-13 and SITE-14, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_pair_7",
+      "how_it_prevents_task_authenticity_violation": "Prevents repeated default basis text and unsupported conflict claims from passing without this cohort's own source support."
+    },
+    "reward_hacking_checks_18": {
+      "detailed_explanation_of_checks": "check_crosswalk_pair_8 applies the identical source-grounded crosswalk review to SITE-15 and SITE-16, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_pair_8",
+      "how_it_prevents_task_authenticity_violation": "Independently inspects this cohort so padded or wrong-but-present numbers cannot borrow credit from a stronger earlier cohort."
+    },
+    "reward_hacking_checks_19": {
+      "detailed_explanation_of_checks": "check_crosswalk_pair_9 applies the identical source-grounded crosswalk review to SITE-17 and SITE-18, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_pair_9",
+      "how_it_prevents_task_authenticity_violation": "Independently reviews this late cohort so an agent cannot front-load crosswalk effort on early sites and coast on the remainder."
+    },
+    "reward_hacking_checks_20": {
+      "detailed_explanation_of_checks": "check_crosswalk_pair_10 applies the identical source-grounded crosswalk review to SITE-19 and SITE-20, the final cohort, with those two sites held as the fixed denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_pair_10",
+      "how_it_prevents_task_authenticity_violation": "Closes the final-cohort easy-exit exploit by independently inspecting the last two sites' crosswalk rows against their own source documents."
+    },
+    "reward_hacking_checks_21": {
+      "detailed_explanation_of_checks": "check_readiness_memo gives a bounded external judge the full memo, both complete submitted CSVs, and the independent pinned cited-standards register. It scores whether the memo identifies only documented inconsistencies between the current operative remedy and the standards cited for it, points to concrete register/crosswalk rows the issue rests on, explains where the same basis_family is cited under materially different wording across the docket and what that does to cross-site comparisons, and closes with genuinely unsettled docket issues. Generic prose, unsupported site claims, or agreement with fabricated detail data receives no substantive credit.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/remedy_change_register.csv",
+        "/logs/agent/cleanup_level_crosswalk.csv",
+        "/logs/agent/review_readiness_memo.md"
+      ],
+      "check_function": "check_readiness_memo",
+      "how_it_prevents_task_authenticity_violation": "Blocks keyword-stuffed memo shells and fabricated cross-artifact narratives by requiring row-level support plus independent comparison against the pinned standards evidence, and by not letting the memo's own agreement with an unsupported detail row stand in as proof."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "check_register_oracle_1 evaluates the first hand-verified register sample in tests/partial_oracle.json against the agent's unique (site_id, document_id, affected_medium) row for that record. Every field named in the sample must match exactly (case/whitespace-normalized); a missing row, a duplicate-key row, or any one mismatched field scores this sample zero.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/remedy_change_register.csv",
+      "check_function": "check_register_oracle_1",
+      "how_it_prevents_task_authenticity_violation": "Independently catches global keyword/category matching, default padding, and source-to-record swaps on a manually verified remedy-change record without exposing or diffing a full expected register."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "check_register_oracle_2 evaluates the second hand-verified register sample in tests/partial_oracle.json against the agent's unique (site_id, document_id, affected_medium) row for that record, on the specific fields recorded for this sample. A missing row, a duplicate-key row, or any recorded field mismatch scores this sample zero.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/remedy_change_register.csv",
+      "check_function": "check_register_oracle_2",
+      "how_it_prevents_task_authenticity_violation": "Provides a second, independent manually verified data point covering a different site/document/change_class combination, so fabrication that happens to satisfy the first sample cannot generalize."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "check_crosswalk_oracle_1 evaluates the first hand-verified crosswalk sample in tests/partial_oracle.json, identified by (site_id, medium, contaminant, value_as_written), against the single matching agent row. unit_as_written, normalized_value (numeric, tight tolerance), normalized_unit, controlling_document_id, and superseded_by must all match; zero or more than one matching row, or any field mismatch, scores this sample zero.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_oracle_1",
+      "how_it_prevents_task_authenticity_violation": "Anchors current/retired cleanup-level lineage for this specific manually verified record to reality, so a self-consistent fabricated or wrong-but-present number cannot receive this credit."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "check_crosswalk_oracle_2 applies the identical single-sample crosswalk oracle check to the second hand-verified crosswalk sample in tests/partial_oracle.json.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_oracle_2",
+      "how_it_prevents_task_authenticity_violation": "Extends the reality check to another manually verified adopted level and its supersession lineage, closing off fabrication that only happens to satisfy one sampled record."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "check_crosswalk_oracle_3 applies the identical single-sample crosswalk oracle check to the third hand-verified crosswalk sample in tests/partial_oracle.json.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_oracle_3",
+      "how_it_prevents_task_authenticity_violation": "Covers a different contaminant/medium combination so fabricated rows cannot pass by getting lucky on a narrow set of sampled fields."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "check_crosswalk_oracle_4 applies the identical single-sample crosswalk oracle check to the fourth hand-verified crosswalk sample in tests/partial_oracle.json.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_oracle_4",
+      "how_it_prevents_task_authenticity_violation": "Adds further manually verified coverage so the partial-oracle bucket cannot be satisfied by matching only one or two easy records."
+    },
+    "partial_oracle_checks_7": {
+      "detailed_explanation_of_checks": "check_crosswalk_oracle_5 applies the identical single-sample crosswalk oracle check to the fifth hand-verified crosswalk sample in tests/partial_oracle.json.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_oracle_5",
+      "how_it_prevents_task_authenticity_violation": "Rounds out full manually verified coverage of the SITE-09 soil-level history before the oracle checks move to a different site, preventing site-scoped guessing."
+    },
+    "partial_oracle_checks_8": {
+      "detailed_explanation_of_checks": "check_crosswalk_oracle_6 applies the identical single-sample crosswalk oracle check to the sixth hand-verified crosswalk sample in tests/partial_oracle.json, covering a different site than the preceding samples.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_oracle_6",
+      "how_it_prevents_task_authenticity_violation": "Confirms the oracle's reality check isn't confined to a single site by manually verifying a record from a second site's crosswalk."
+    },
+    "partial_oracle_checks_9": {
+      "detailed_explanation_of_checks": "check_crosswalk_oracle_7 applies the identical single-sample crosswalk oracle check to the seventh hand-verified crosswalk sample in tests/partial_oracle.json.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/cleanup_level_crosswalk.csv",
+      "check_function": "check_crosswalk_oracle_7",
+      "how_it_prevents_task_authenticity_violation": "Completes the partial-oracle crosswalk coverage across two distinct sites so a coherently fabricated crosswalk cannot average out to a high score against manually verified ground truth."
+    }
+  }
+}

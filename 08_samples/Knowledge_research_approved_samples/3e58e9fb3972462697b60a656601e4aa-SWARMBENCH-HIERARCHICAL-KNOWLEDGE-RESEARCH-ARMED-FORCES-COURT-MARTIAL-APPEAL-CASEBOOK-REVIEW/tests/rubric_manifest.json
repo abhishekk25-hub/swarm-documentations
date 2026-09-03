@@ -1,0 +1,132 @@
+{
+  "task": "swarmbench/ARMED-FORCES-COURT-MARTIAL-APPEAL-CASEBOOK",
+  "grader": "tests/verify.py",
+  "reward_contract": "/logs/verifier/reward.txt",
+  "scoring": "Reward is the simple mean of the static, reward-hacking, and partial-oracle group means: (static + reward_hacking + partial_oracle) / 3. Content/structural classification does not weight or multiply the reward. Eleven of 17 checks (64.7%) are content checks that require source-specific non-header evidence, analytical grounding, source-derived outcomes, or judged coverage, faithfulness, and synthesis; six are structural. Authorship gating and fixed 72-record denominators prevent hollow or partial output from banking easy credit.",
+  "total_checks": 17,
+  "check_classification": {
+    "structural": ["static_checks_1", "static_checks_2", "reward_hacking_checks_1", "reward_hacking_checks_2", "reward_hacking_checks_3", "partial_oracle_checks_1"],
+    "content": ["static_checks_3", "static_checks_4", "static_checks_5", "static_checks_6", "reward_hacking_checks_4", "partial_oracle_checks_2", "partial_oracle_checks_3", "partial_oracle_checks_4", "partial_oracle_checks_5", "partial_oracle_checks_6", "partial_oracle_checks_7"]
+  },
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Counts how many of the 72 required per-opinion briefs (case_files/m01.md..m72.md) exist and clear a minimal substance gate of at least 40 words, as a fraction of 72, so a bare stub (one character or a few words) does not count as present. Confirms the core deliverable was produced across the whole slate rather than only an early stretch.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_files/mNN.md",
+      "check_function": "check_all_notes_present",
+      "how_it_prevents_task_authenticity_violation": "A partial submission that writes only the first several briefs, or fills the rest with one-character placeholder files, cannot earn full delivery credit."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Checks case_tracker.csv parses, has the required columns (report, accused, docket, issue_type, disposition, sentence_relief, note_status), covers all 72 report ids, that each row's accused matches the roster for that id (roster-name matches counted once per canonical id so repeated rows cannot inflate coverage), that BOTH the issue_type and disposition columns are actually populated with meaningful, varied values (fraction of canonical rows whose value is non-empty and non-generic, scaled down when fewer than three distinct values appear across the roster), AND that the disposition column uses the stipulated closed vocabulary (affirmed / affirmed_in_part / reversed / set_aside / remanded / dismissed): the sixth sub-part is the fraction of canonical rows whose disposition is one of those enum values, so arbitrary free-text disposition labels cannot earn full credit. Scored as the mean of the six sub-parts.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_tracker.csv",
+      "check_function": "check_tracker_wellformed",
+      "how_it_prevents_task_authenticity_violation": "A tracker that is missing rows, invents report ids, mislabels the accused, or leaves the required issue_type / disposition coding blank or constant cannot be treated as complete, well-formed coverage."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "Confirms the cross-case survey term_survey.md exists, is at least 300 words, clears a distinct-token (vocabulary-richness) ratio floor, is not dominated by a single repeated sentence, AND actually reads across opinions: it requires at least three sentences that reference two or more distinct opinion ids together AND name a concrete shared theme in the same sentence (a granted issue such as sufficiency or providence, a controlling standard of review, findings-versus-sentence relief, or a disposition class), where the FULL named theme phrase is source-verified - it must actually appear in at least two of the cited opinions' own INDEPENDENT source text (never the agent's own note) and near-universal disposition/sentence words are excluded from the eligible theme set - so a fabricated filler sentence that merely juxtaposes two ids plus a stock word the opinions do not genuinely share earns no credit, and neither does bare id co-occurrence or a degenerate one-templated-sentence-per-opinion listing. The review must also span the whole slate (at least 12 distinct opinion ids cited including at least three from the later m49-m72 range) so a review that fades out after the first several opinions cannot earn synthesis credit. The deterministic source-link and whole-roster conditions are necessary but not sufficient: the cached LLM synthesis score must also be at least 0.5, so grep-style co-occurrence lists do not pass as genuine cross-record reasoning.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/term_survey.md",
+      "check_function": "check_review_present",
+      "how_it_prevents_task_authenticity_violation": "Skipping the required whole-slate review, leaving a one-line stub, or emitting a per-opinion list with no cross-opinion linkage cannot earn synthesis credit."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "Fraction of the 72 briefs that reach at least 220 words AND clear a distinct-token (vocabulary-richness) ratio floor AND are largely the agent's own prose rather than verbatim source (8-gram overlap with the opinion below 50%) AND contain a length-scaled minimum of opinion-specific grounded details (UCMJ article numbers, confinement terms, dollar/percentage figures, docket/appeal numbers, or years) that actually appear in that opinion and are used within surrounding opinion-specific context (not a bare pasted list) - at least three such grounded details, rising with length (roughly one more per 250 words), AND spanning at least two different kinds of detail (e.g. an article number plus a docket number, not the same kind of token twice) unless the brief is unusually detail-dense, so length padding, repeated text, pasted source, generic paraphrased boilerplate, or a brief that sprinkles only two same-kind tokens cannot earn depth credit. Denominator is 72 so thin or missing briefs lower the score. A roster/header identity such as a docket, document number, or publication year cannot satisfy depth alone; at least one grounded non-identity core value from the source body is required. Qualifying body-derived specifics also include Rules for Courts-Martial or Military Rules of Evidence citations; these are not roster or filename metadata.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_files/mNN.md",
+      "check_function": "check_note_depth",
+      "how_it_prevents_task_authenticity_violation": "Padding coverage with one-paragraph stubs that satisfy presence but not substance cannot earn depth credit."
+    },
+    "static_checks_5": {
+      "detailed_explanation_of_checks": "Mean fraction over all briefs of the six required sections (accused and forum, offenses and sentence, granted issue, standard and analysis, holding and disposition, sentence relief). A section is credited only when its topic appears with substantive surrounding content (not a bare header) AND that content references the opinion's own identifiers (an accused-name token or its docket number), so a generic boilerplate paragraph reused under every header cannot earn format credit. Topic words and the record identity are not enough by themselves: each credited section window must also contain a source-shared non-identity core token, preventing empty headings or roster-decorated boilerplate from earning format credit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_files/mNN.md",
+      "check_function": "check_format_sections",
+      "how_it_prevents_task_authenticity_violation": "Free-form briefs that omit required sections (e.g. granted issue or holding and disposition) cannot earn format credit."
+    },
+    "static_checks_6": {
+      "detailed_explanation_of_checks": "LLM-judged quality of the cross-case survey against six synthesis criteria (>=3 recurring threads such as assigned errors that succeed or fail, a controlling standard of review, findings-versus-sentence relief, or a disposition pattern; opinion-level attribution by id/accused/docket number; a genuine convergence; a genuine divergence; an open question about how the court is trending; and cross-reading rather than opinion-by-opinion summaries), graded through structured JSON judge responses. Implemented by check_llm_review, which reads the cached combined LLM grader result. The judge returns a short evidence justification with its structured scores; the verifier retains it in judge_justification.txt and prints it for audit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/term_survey.md",
+      "check_function": "check_llm_review",
+      "how_it_prevents_task_authenticity_violation": "A review that merely re-lists per-opinion summaries or asserts themes without grounding them in specific opinions cannot earn synthesis-quality credit."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "Detects near-duplicate briefs by comparing every pair on two signals: raw 6-word shingle Jaccard (>= 0.5) and a number-masked 6-word shingle Jaccard (>= 0.8) that catches mad-lib templates where only accused names, numbers, and dates are swapped. Scores the fraction of briefs NOT involved in a flagged pair.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_files/mNN.md",
+      "check_function": "check_no_duplicate_notes",
+      "how_it_prevents_task_authenticity_violation": "Copying one researched brief across many report ids to fake full 72-opinion coverage is caught and not credited."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Fraction of briefs free of both stub/deferral markers (TODO/TBD/placeholder/lorem ipsum and paraphrased deferrals such as 'to be written', 'deferred to a later pass', 'section incomplete', 'more to follow', 'working draft', 'more detail may be added when time permits', 'expand this later', plus self-referential admissions of thinness phrased in prose such as 'not captured above', 'reflects only the readily apparent points', or 'surface-level') and technical auto-generation/offload fingerprints (code fences, import openai, requests.post/get, chat/completions, api key, max_tokens, 'as an AI'). The offload pattern is restricted to scripting/API artifacts so legitimate quoted opinion prose is never flagged.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_files/mNN.md",
+      "check_function": "check_no_stub_or_offload_artifacts",
+      "how_it_prevents_task_authenticity_violation": "Passing off unfinished stubs, or output produced by scripting the briefs through an external model, as genuine analysis is caught and not credited."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Compares note_status against the actual brief per canonical opinion id (deduplicated to one row per id, denominator fixed at 72 so repeated or padded rows cannot inflate or dilute). An id is credited only when the label agrees with reality by equivalence: a complete-family status (complete/completed/done/finished/final/written) must correspond to a genuinely substantial brief (>=220 words, sufficient vocabulary richness, largely original prose rather than pasted source, and grounded in the opinion's specific details), and any non-complete-family status is credited only when the brief is in fact not substantial. Marking a thin brief with any complete-family label (or a substantial one with a non-complete label) is not credited, so status synonyms cannot bypass the check in either direction and no status value earns credit unconditionally. Scored as the fraction of canonical ids consistent.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_tracker.csv",
+      "check_function": "check_status_matches_reality",
+      "how_it_prevents_task_authenticity_violation": "Marking missing or thin briefs as 'complete' to inflate apparent coverage is caught and not credited."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Fraction of briefs that ground their own opinion's identity in the body: they must mention the distinctive identity (accused-name tokens from the roster, or the docket number) AND additionally carry at least one non-identity grounded specific - a UCMJ article number, a confinement term, or a dollar/percentage figure that actually appears in THIS opinion, used in context. The year and the docket number are deliberately NOT accepted as grounding here, because both are obtainable from case_roster.csv without reading the opinion (matching the kind set used by check_grounded_figures). Because the brief header is required to carry the accused and docket (both available from the roster without reading the opinion), identity alone cannot prove grounding; requiring a non-header, non-roster specific means a fabricated brief that merely echoes its own mandated header or restates roster metadata earns no credit. The match is required in the body past any leading metadata/heading block, and a near-verbatim copy of the source (8-gram overlap >= 0.6) earns no credit. Qualifying body-derived specifics also include Rules for Courts-Martial or Military Rules of Evidence citations; these are not roster or filename metadata.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_files/mNN.md",
+      "check_function": "check_notes_grounded_in_own_source",
+      "how_it_prevents_task_authenticity_violation": "Generic interchangeable briefs, or wholesale copies of the opinion, cannot earn grounded-content credit."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "For every one of the 72 opinions, checks that the brief cites the correct docket number (trusted fact from case_roster.csv, present in the opinion) matching on the distinctive tail of the docket string to tolerate formatting drift. Credit is only given when the corresponding record clears the full authorship gate: at least 220 words of substantive own-words analysis, low direct/gapped-copy density, and grounded non-identity evidence from its own source. Scored as the fraction correct over all rostered docket numbers.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_files/mNN.md",
+      "check_function": "check_docket_numbers",
+      "how_it_prevents_task_authenticity_violation": "Briefs not tied to the correct real appeal, or a bare metadata splice with no analysis, cannot earn grounded-identity credit."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "For every opinion, checks the brief cites at least one opinion-specific figure - a UCMJ article number, a confinement term, or a dollar/percentage figure - that actually appears in that opinion within surrounding analytical prose (a >=12-word window carrying opinion context). Fraction correct over all opinions with a brief. Identity proximity alone does not qualify: the figure window must contain an analytical connective tying the value to the source's reasoning, finding, or decision. Qualifying body-derived specifics also include Rules for Courts-Martial or Military Rules of Evidence citations; these are not roster or filename metadata.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_files/mNN.md",
+      "check_function": "check_grounded_figures",
+      "how_it_prevents_task_authenticity_violation": "Briefs that name plausible-sounding figures not actually in the opinion cannot earn grounded-figure credit."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "For every opinion where the court's treatment of the sentence is derivable from its own conclusion language, checks the tracker row's sentence_relief value against what the court actually did: a relief description is credited only when the opinion in fact disturbs the sentence (sets it aside, reassesses or reduces it, or orders a sentence rehearing), and 'none'/'sentence affirmed'/'intact' is credited only when the opinion affirms the sentence and gives no sentence relief. The score is the MACRO-AVERAGE of two true classes (sentence-disturbed vs. sentence-left-intact) rather than a raw hit rate, so a tracker that writes the same value ('none' or a relief phrase) for every row is capped near 0.5 rather than riding the corpus base rate, while a tracker that reads each opinion earns near 1.0 on both classes. The truth is read from the opinion, not from the roster.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_tracker.csv",
+      "check_function": "check_relief_matches_source",
+      "how_it_prevents_task_authenticity_violation": "A sentence_relief value that contradicts the opinion - claiming relief where the sentence was affirmed, or 'none' where the court set the sentence aside or reassessed it - cannot earn accuracy credit."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "LLM-judged mean aspect-coverage over ALL 72 briefs: for each of the six required aspects (accused and forum, offenses and sentence, granted issue, standard and analysis, holding and disposition, sentence relief), whether the brief genuinely and correctly covers it for that specific opinion, judged against that opinion's real source text. graded through structured JSON judge responses; implemented by check_llm_coverage reading the cached combined LLM grader result. Only authorship-eligible records reach the judge; missing or ineligible records remain zero under the fixed denominator of 72. Each structured judge result includes a retained and printed short evidence justification.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_files/mNN.md",
+      "check_function": "check_llm_coverage",
+      "how_it_prevents_task_authenticity_violation": "Well-shaped briefs that omit or fake the substantive analysis cannot earn content credit."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "LLM-judged mean faithfulness+specificity over ALL 72 briefs: whether each brief is accurate to its own source, in its own words with nothing fabricated, nothing imported from other appeals, and nothing about the case or accused drawn from outside knowledge not stated in that opinion, and grounded in the opinion's real accused, offenses and articles, granted issue, standard of review, and disposition. graded through structured JSON judge responses; implemented by check_llm_faithful reading the cached combined LLM grader result. Only authorship-eligible records reach the judge; missing or ineligible records remain zero under the fixed denominator of 72. Each structured judge result includes a retained and printed short evidence justification.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_files/mNN.md",
+      "check_function": "check_llm_faithful",
+      "how_it_prevents_task_authenticity_violation": "Fabricated or cross-contaminated content, and generic boilerplate, cannot be scored as faithful analysis."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "For every opinion whose disposition is unambiguous in its own conclusion language, derives the ground-truth disposition from the opinion text (affirmed / affirmed_in_part / reversed / set_aside / remanded / dismissed) and checks the tracker row's disposition column matches it. A partial outcome reported as one of its halves earns half credit, and reversed/set-aside are merged into one true class and accepted interchangeably. The score is the MACRO-AVERAGE of the true disposition classes present (not a raw hit rate), so a tracker that stamps the single modal disposition on every row is capped near 1/num_classes rather than earning the corpus base rate, while a tracker that reads each opinion earns near 1.0 across all classes. The truth is read from the opinion, not from the roster.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_tracker.csv",
+      "check_function": "check_disposition_matches_source",
+      "how_it_prevents_task_authenticity_violation": "A disposition value that is fabricated, constant, or contradicts the court's actual ruling in the opinion cannot earn accuracy credit, and constant modal guessing is capped by macro-averaging."
+    },
+    "partial_oracle_checks_7": {
+      "detailed_explanation_of_checks": "For every opinion whose granted-issue family is derivable from its own text, checks the tracker row's issue_type tag against the source: the tag is mapped to one or more court-martial issue families (factual/legal sufficiency, instructional error, ineffective assistance, unlawful command influence, search/seizure/suppression, confession/self-incrimination, speedy trial, providence/guilty-plea, or sentence appropriateness/reassessment) and credited only when a family it names is actually discussed in that case's own opinion. Scored over the opinions with a derivable issue family, so a round-robin of canned issue tags stamped across rows without reading - or a generic tag ('misc', 'procedural', 'other') that maps to no family - earns no credit. The truth is read from the opinion, not from the roster.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/case_tracker.csv",
+      "check_function": "check_issue_type_matches_source",
+      "how_it_prevents_task_authenticity_violation": "An issue_type coding that is fabricated, generic, or rotated without regard to the opinion's actual granted issue cannot earn accuracy credit, closing the gap where issue_type was previously scored only for non-emptiness and variety."
+    }
+  }
+}

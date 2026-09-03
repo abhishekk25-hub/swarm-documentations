@@ -1,0 +1,215 @@
+﻿Client Requirements vs Kimi-CLI Reality
+1. "Orchestrator cannot debate with sub-agents since sub-agents are not persistent" (Issue)
+Debate/consensus is blocked because sub-agents are not persistent.
+Reality: Correct, but the root cause is deeper than just persistence.
+There are two separate blockers:
+Blocker A — Sub-agents cannot call back to the orchestrator
+# tools/agent/__init__.py:121
+if self._runtime.role != "root":
+    return ToolError(
+        message="Subagents cannot launch other subagents.",
+        brief="Agent unavailable",
+    )
+Every sub-agent gets role="subagent" hardcoded via copy_for_subagent():
+# soul/agent.py:368
+role="subagent",
+Blocker B — No Mid-run Communication Channel
+The foreground runner is a blocking await.
+The orchestrator is frozen until the sub-agent completes.
+There is no wire, queue, or callback that lets the orchestrator send new instructions while a sub-agent is running.
+Verdict
+Debate is architecturally impossible.
+
+
+________________
+
+
+2. "Kimi CLI limits coordination pattern — only fan-out, no hierarchical" (Issue)
+Hierarchical nesting (orchestrator → agent → sub-agent) is possible but limited.
+Reality: Maximum DAG depth is 1.
+The role check is binary, not a configurable depth.
+# soul/agent.py:194
+role: Literal["root", "subagent"] = "root"
+There is no MAX_NESTING_DEPTH constant anywhere in the codebase.
+The check is a boolean gate.
+A sub-agent calling Agent(...) gets a ToolError back, not a depth-exceeded error.
+No numeric limit exists to bump.
+Workaround for dag_depth ≥ 2
+The orchestrator itself must act as the coordinator:
+Orchestrator
+    ↓
+Spawn Agent A
+    ↓
+Receive Result
+    ↓
+Spawn Agent B using Agent A output
+That achieves logical dependency depth at the root level.
+Because of the above limitation, More than 1 Depth DAG type of tasks is also not possible
+________________
+
+
+3. "Browsing tasks — sub-agents hit ClinicalTrials.gov, EU CTR, China CTR" (Not an Issue)
+Sub-agents can browse live external databases and return structured data.
+Reality: Partially supported, with a critical gap.
+FetchURL and SearchWeb both exist and are included in the default agent toolset (agent.yaml).
+However:
+FetchURL Strips Structure
+# tools/web/fetch.py:102
+extracted_text = trafilatura.extract(
+    resp_text,
+    include_comments=True,
+    include_tables=True,
+    include_formatting=False,
+    output_format="txt",       # ← plain text only
+    with_metadata=True,
+)
+If a clinical trial registry returns JSON via its API, FetchURL can handle it only if the Content-Type is text/plain or text/markdown.
+For anything else it runs trafilatura which strips structure.
+For ClinicalTrials.gov's REST API (which returns JSON), the agent would need to use:
+curl ...
+through Shell.
+SearchWeb Requires Moonshot Search Service
+# tools/web/search.py:49
+if config.services.moonshot_search is None:
+    raise SkipThisTool()   # ← tool silently disappears if not configured
+If moonshot_search is not in the kimi config, SearchWeb is not registered as a tool at all.
+The harbor harness config (kimi_cli.py:_build_config_json) does not set services.moonshot_search, so SearchWeb is disabled by default in harbor runs.
+Verdict
+Browsing is possible via FetchURL + Shell(curl).
+SearchWeb requires explicit service configuration in the Harbor Harness.
+Structured JSON APIs work only via Shell.
+Client question:
+Should we proceed with FetchURL and Shell(curl), or is it necessary to integrate SearchWeb despite the extra costs involved?
+________________
+
+
+4. "Long writing tasks — 100K+ token outputs" (Not an Issue)
+Agents can produce 100K+ token outputs.
+Reality: Possible via WriteFile, but the model context window is the binding constraint.
+WriteFile has no file size check.
+It calls p.write_text(params.content) directly:
+# tools/file/write.py
+new_text = params.content if params.mode == "overwrite" else (old_text or "") + params.content
+await p.write_text(params.content)
+file_size = (await p.stat()).st_size
+The practical limit is the model's context window.
+The harbor harness sets:
+# harbor/src/harbor/agents/installed/kimi_cli.py:113
+_DEFAULT_MAX_CONTEXT_SIZE: int = 131072
+131K tokens total context — shared between:
+* System prompt
+* Conversation history
+* Tool results
+* Output generation
+A 100K-token output requires the model to hold it in its generation window, which is only possible if input context is kept very small.
+The reserved context size default is 50K tokens:
+# config.py
+reserved_context_size: int = Field(default=50_000, ge=1000)
+This means auto-compaction triggers when approximately 85% of 131K tokens are used.
+A 100K token single-turn output is at the edge of feasibility and likely requires the model to write in chunks using append mode.
+________________
+
+
+5. "Creative visualization — slides, animations, video generation" (Issue - Subjective to client expectation)
+Agents can produce HTML decks, animations, and videos.
+Reality: Only via Shell code execution.
+No native media generation tool exists.
+The full kimi-cli tool list is:
+agent.yaml tools:
+  Agent, AskUserQuestion, SetTodoList, Shell,
+  TaskList, TaskOutput, TaskStop,
+  ReadFile, ReadMediaFile, Glob, Grep, WriteFile, StrReplaceFile,
+  SearchWeb, FetchURL, ExitPlanMode, EnterPlanMode
+No image generation, video generation, or presentation tool.
+Everything must go through Shell.
+Output
+	Path
+	Constraint
+	Reveal.js HTML
+	WriteFile direct
+	No constraint — pure text
+	SVG / animation
+	WriteFile direct
+	No constraint — pure text
+	PNG / matplotlib
+	Shell(python3 ...)
+	matplotlib must be in Dockerfile; 5 min foreground timeout
+	GIF / video
+	Shell(ffmpeg ...)
+	ffmpeg must be in Dockerfile; use run_in_background=True for timeout up to 24h
+	External API video
+	Shell(curl ...)
+	Blocked — if docker environment runs with internet disabled by default
+	________________
+
+
+6. "Parallel sub-agents — scaling to 50+ (Hard tier)" (Not an Issue)
+Client assumed: Hard-tier tasks use 50+ sub-agents in parallel.
+Reality: Default cap is 4 concurrent background agents, not 50.
+# config.py:101
+max_running_tasks: int = Field(default=4, ge=1)
+Enforced in background/manager.py at every spawn point:
+if self._active_task_count() >= self._config.max_running_tasks:
+    raise RuntimeError("Too many background tasks are already running.")
+The harbor harness config never sets background.max_running_tasks.
+To reach 50 parallel agents, one line must be added to _build_config_json in kimi_cli.py:
+"background": {
+    "max_running_tasks": 50,
+}
+
+________________
+
+
+7. "Background sub-agent trajectories" (Issue)
+Client flagged: "Whether to include incomplete sub-agent trajectories."
+Reality: Background sub-agent trajectories are architecturally inaccessible to the harness.
+Foreground sub-agent wire events bubble up to the root via:
+super_wire.soul_side.send(SubagentEvent(...))
+in runner.py:419.
+Background sub-agent wire events do not:
+# background/agent_runner.py:165-168
+async def _ui_loop_fn(wire: Wire) -> None:
+    wire_ui = wire.ui_side(merge=True)
+    while True:
+        msg = await wire_ui.receive()
+        output.write_wire_message(msg)   # ← private session dir only, no relay
+Background wire files are stored at:
+~/.kimi/sessions/<id>/subagents/<agent_id>/wire.jsonl
+inside the container's kimi session directory.
+The harbor harness only reads:
+/logs/agent/kimi-cli.txt
+Background sub-agent steps are invisible to ATIF trajectory collection.
+Verdict
+If 50 parallel agents all run in background, zero of their step-level trajectories appear in the ATIF output.
+Only their summary text (returned via TaskOutput) reaches the orchestrator.
+This directly bears on the client's open question about incomplete trajectories.
+________________
+
+
+8. "Background agent default timeout is 15 minutes" (Issue)
+Client does not mention this but it matters for long-running tasks.
+# config.py:113
+agent_task_timeout_s: int = Field(default=900, ge=60)
+A background sub-agent working on a long writing task or video generation that takes longer than 15 minutes will be killed.
+The harbor harness does not override this.
+Tasks that could run long must pass an explicit timeout= (up to 3600s, the AgentTool max) when spawning.
+________________
+
+
+Summary Table
+Client Requirement
+	Kimi-CLI Reality
+	Debate / persistent sub-agents
+	Blocked — role != "root" guard + no mid-run channel
+	Hierarchical DAG depth ≥ 2
+	Blocked — same role guard
+	Browsing live DBs (ClinicalTrials)
+	FetchURL works; SearchWeb silently disabled without Moonshot key; JSON APIs need Shell(curl)
+	Creative viz / video
+	Shell only; no native tool; video needs ffmpeg in Dockerfile + internet disabled
+	50+ parallel agents (Hard tier)
+	Hard cap at 4 by default
+	Background agent trajectories
+	Invisible to harness — no relay to root wire
+	Background agent timeout
+	15 min default, kills long tasks silently

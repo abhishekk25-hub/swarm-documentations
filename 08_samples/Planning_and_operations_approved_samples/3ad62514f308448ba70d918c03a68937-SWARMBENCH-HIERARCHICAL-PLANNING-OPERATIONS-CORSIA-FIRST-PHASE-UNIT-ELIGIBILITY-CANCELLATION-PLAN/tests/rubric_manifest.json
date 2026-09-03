@@ -1,0 +1,333 @@
+{
+  "task_id": "3ad62514f308448ba70d918c03a68937-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-CORSIA-FIRST-PHASE-UNIT-ELIGIBILITY-CANCELLATION-PLAN",
+  "verifier_type": "executable",
+  "verifier": "tests/verify.py",
+  "verifier_entrypoint": "python3 /tests/verify.py",
+  "reward_contract": "/logs/verifier/reward.json",
+  "scoring_method": "Every declared check returns a score from 0 to 1 and carries weight 1. Each bucket is the unweighted arithmetic mean of its checks and the final reward is the plain mean of the three bucket means, so static checks account for one third of the reward and the remaining two thirds come from anti-shortcut and recomputed-correctness checks. There are no caps, floors, gates, bonuses, penalties, multipliers, model calls or execution-mode branches, and no randomness, network access or wall-clock read participates in scoring.",
+  "determinism": "The grader ships no answer key for the pool. Each block's five test results, its verdict, the cleared and referred sets, the cancellation schedule with its final split, and the seven disposition totals are all recomputed at grading time by applying the Council's rules to the packaged registry record. The only frozen inputs are the pinned public sources themselves, which are the same files the agent reads. Quotations are checked by round-tripping against those files rather than against a stored list of acceptable sentences. Quotations are round-tripped against the pinned source the row attributes them to, reading the identifier with or without the file extension or path that names the same capture in sources.json, and matching either the extracted text exactly or the same word sequence with the text layer's glued footnote markers and punctuation dropped, since the brief offers the same document as a PDF and as text taken from it and a sentence copied correctly out of either has to round-trip. A paraphrase or an invented sentence still fails, because the whole word sequence must be present in order.",
+  "total_checks": 34,
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Scores the fraction of the five declared deliverables that exist at their exact declared path and exceed 200 bytes. The verifier opens each declared path directly and never searches for, guesses at or relocates an output.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv",
+        "/logs/agent/referrals.json",
+        "/logs/agent/cancellation_schedule.csv",
+        "/logs/agent/eligibility_map.html",
+        "/logs/agent/committee_note.md"
+      ],
+      "check_function": "check_required_deliverables",
+      "how_it_prevents_task_authenticity_violation": "Stops a run claiming completion when a deliverable was never written, and denies credit to a zero-byte or header-only stub that later checks would otherwise read as an empty but well-formed file."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Reads the header line of the register and the schedule and requires each to equal its declared column list exactly, in order, with nothing added, renamed or reordered, and requires referrals.json to parse as a JSON array.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv",
+        "/logs/agent/cancellation_schedule.csv",
+        "/logs/agent/referrals.json"
+      ],
+      "check_function": "check_output_schemas",
+      "how_it_prevents_task_authenticity_violation": "Prevents a differently shaped table or a renamed export standing in for the deliverable, which would let the value checks read the wrong column."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "Counts how many of the candidate blocks appear in the register exactly once, using the block list recomputed from the packaged pool rather than the submission's own row count.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv"
+      ],
+      "check_function": "check_pool_coverage",
+      "how_it_prevents_task_authenticity_violation": "Stops a partial pass over the pool scoring as a complete one, and stops a duplicated row standing in for a block that was never assessed."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "Averages three terms. First, that every one of the five test columns carries PASS, FAIL or UNRESOLVED, that every verdict is CLEARED, REFERRED or REFUSED, and that the quantity, sequence and cumulative fields parse as numbers. Second, how many distinct combinations of the five tests and the verdict the register carries against the number of such combinations the recomputed clearance produces over the same pool. Third, that no single combination covers a larger share of the register than the recomputed clearance gives its own most common one, allowing fifteen points of headroom and capping at ninety-five per cent.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv",
+        "/logs/agent/cancellation_schedule.csv"
+      ],
+      "check_function": "check_typed_fields",
+      "how_it_prevents_task_authenticity_violation": "Denies typed-record credit to invented status words and unparseable numbers, and closes the uniform-fill shortcut: a register that writes one legal combination of tests and verdict into all 221 rows is a table of the declared shape carrying no assessment at all, and it now fails the spread and modal-share terms of this check rather than passing it in full and being caught only by the recomputation checks."
+    },
+    "static_checks_5": {
+      "detailed_explanation_of_checks": "Takes the referral objects one per referred block, ignoring repeats and any object naming a block the recomputation did not refer, and requires each to carry all seven declared keys with content and to state a programme position and a Council position that are not the same sentence. The denominator is the recomputed referral set, not the number of objects submitted.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/referrals.json"
+      ],
+      "check_function": "check_referral_object_shape",
+      "how_it_prevents_task_authenticity_violation": "Stops a referral file that is an array of near-empty objects from satisfying the deliverable, and stops a file padded with shape-valid duplicates from lifting the ratio, since extra objects cannot raise a denominator fixed by the recomputation."
+    },
+    "static_checks_6": {
+      "detailed_explanation_of_checks": "Parses the map and scores four structural facts: that an svg element exists, that each of the two declared JSON blocks is present, parses and holds at least one populated record rather than an empty array, and that the number of distinct blocks carrying a mark inside the svg that renders and is not suppressed by style, a zero dimension or a dimension larger than the whole canvas reaches a floor set from the pool itself, being ninety per cent of the blocks the submission was actually given.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/eligibility_map.html"
+      ],
+      "check_function": "check_map_basic_shape",
+      "how_it_prevents_task_authenticity_violation": "Establishes that a real figure was produced rather than a text file renamed to .html, and stops the floor being cleared by an empty container, since an empty array is valid JSON and parseability alone would accept it. Because the floor scales with the pool rather than sitting at a fixed constant, a map that draws a fraction of the blocks and omits the rest cannot score here on a pool of any size."
+    },
+    "static_checks_7": {
+      "detailed_explanation_of_checks": "Scores three structural properties of the note: that its length falls in the declared 1,500 to 2,600 word band, the fraction of the six required headings present as real headings, and the fraction of the seven disposition keys present as rows of a Markdown table.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/committee_note.md"
+      ],
+      "check_function": "check_note_shape",
+      "how_it_prevents_task_authenticity_violation": "Confirms the reader-facing artifact has the requested shape without awarding anything for what it says, so a correctly shaped note still earns nothing from the content checks unless its figures survive comparison with the recomputed pool."
+    },
+    "static_checks_8": {
+      "detailed_explanation_of_checks": "Tests every register row, schedule row and referral object for identity integrity: the block must exist in the packaged pool, and the project id and registry must match that block's real registry record. A scheduled line must additionally carry that block's own vintage year and appear once. Each block is scored once per file, on the first row that claims it, so a repeated row cannot be counted twice.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv",
+        "/logs/agent/referrals.json",
+        "/logs/agent/cancellation_schedule.csv",
+        "/logs/agent/eligibility_map.html",
+        "/logs/agent/committee_note.md"
+      ],
+      "check_function": "check_identifiers_real",
+      "how_it_prevents_task_authenticity_violation": "Stops invented block identifiers, blocks re-attributed to the wrong registry, and a schedule padded by listing the same block more than once. Reading the project, registry and vintage on the scheduled line as well closes the case of a real block identifier carried beside another block's figures, which the committee cannot detect without opening the register beside the schedule. Scoring each block once keeps a repeated passing row from lifting the rate."
+    },
+    "static_checks_9": {
+      "detailed_explanation_of_checks": "Compares every block in the pool, not a sample, against the clearance recomputed from the Council document and the registry record, requiring the programme-approval, dates, scope, authorisation and availability results and the verdict to match on each one.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv"
+      ],
+      "check_function": "check_register_values_recomputed",
+      "how_it_prevents_task_authenticity_violation": "Keeps the structural bucket from being earnable by formatting and copy-fidelity alone: a register with perfect headers, complete coverage and well-typed vocabulary still loses this check unless the values in it are right, and full coverage means no block can be left out of the assessment on the expectation that it will not be looked at."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "Requires each governing quotation of at least forty characters to name the Council document as its source, to appear verbatim, after whitespace and quote characters are normalised, in the section of that document that governs the 2024-2026 compliance period rather than anywhere in the file, and to carry the wording of the clause that decides that particular block. A second term scores how many distinct sentences carry those quotations against the number of distinct deciding clauses in the pool, counting a scope exclusion by its specific clause rather than as one category. Two further conditions hold a sentence to the row it stands behind: it may not be a sentence the Council writes about another programme's own units, and it may not be one sentence carried across two rows that are decided by different rules. The reuse test is scoped to the deciding rule rather than to the verdict, because a condition a programme carries is legitimately the sentence that clears a block whose record shows it met and the sentence that refers a block whose record is silent on it, and a register quoting it for both has quoted correctly.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv"
+      ],
+      "check_function": "check_quotes_round_trip",
+      "how_it_prevents_task_authenticity_violation": "Stops a plausible-sounding sentence being attributed to the Council document; stops a real sentence taken from a different pinned document standing in for the instrument the brief names; stops a real sentence from the document's preamble or from the section governing another compliance period being farmed across the register, since the section that decides one of our blocks is the first-phase one; stops a real sentence about a different rule being attached to a block it does not decide; and stops a handful of category-level sentences round-robined across blocks excluded under different clauses. The rate is taken over the pool rather than over the rows that happen to carry a quotation, and each block is credited once on the first row that claims it, so leaving the column blank is a missing quotation rather than a smaller denominator and a block filed twice cannot be credited twice. Scoping the reuse test to the rule rather than the verdict keeps the check off the correct answer, which has to quote one programme's authorisation condition behind both its cleared and its referred rows."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Scores two things over the quoted sentences. First, that each is at least eight words and carries rule-bearing wording rather than naming a programme, read against the first-phase section where the source cited is the Council document and against the whole file for the other two sources. Second, that the sentence carries the wording of the clause that decides that block, recomputed per row and specific to the exclusion clause where one applies, and that the same sentence is not carried across blocks that are decided by different rules.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv"
+      ],
+      "check_function": "check_quotes_carry_a_rule",
+      "how_it_prevents_task_authenticity_violation": "Stops a row citing a real sentence that merely names the programme, and stops one fixed sentence per verdict class standing in for the rule each row actually turned on. Both rates are taken over the pool and each block is scored once, so a register that quotes one block well and leaves the rest of the column empty is scored as the register it is."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Takes one recommendation per referred block, masks block identifiers, tonnages and years, and compares the five-word runs that remain against those already seen. A recommendation counts only if it both avoids a frame already used and is grounded in its own block, meaning it names the rule that left the block unsettled in the Council's own wording and carries at least two facts the registry record confirms for that same block. The denominator is the recomputed referral set.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/referrals.json"
+      ],
+      "check_function": "check_recommendations_not_mail_merged",
+      "how_it_prevents_task_authenticity_violation": "One sentence with the figures substituted down the referral set is not a recommendation per block, and masking the substituted tokens is what exposes the shared frame, since the raw strings differ on every row. Pairing novelty with the grounding test means neither fresh wording about nothing nor a grounded restatement of the verdict earns the point on its own; no part of the check assesses style or persuasiveness."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Identifies the blocks the recomputation refuses because of what the activity is rather than because of a date or a label, and credits each one only where the note names it in a passage that both carries a run of at least forty characters taken verbatim from that block's own entry in the activity dossiers and names the exclusion clause that description puts the block under, up to the four the brief asks for.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/committee_note.md"
+      ],
+      "check_function": "check_refusals_read_the_activity_record",
+      "how_it_prevents_task_authenticity_violation": "Ties the dossier file the brief calls essential to a score, so a run that never opened it cannot explain the exclusions it is refusing on; because the run must come from that block's own entry, a description lifted from a different activity earns nothing; and because the passage must also reach the clause the description triggers, a copied paragraph that never says why it was copied earns nothing either."
+    },
+    "reward_hacking_checks_5": {
+      "detailed_explanation_of_checks": "For every block the submission cleared, requires the governing source to be the Council's eligibility document, the quotation to round-trip against the first-phase section, and the sentence to carry the vocabulary of the rule that actually clears that block. A second term compares the number of distinct sentences used against the number of distinct rules in play among those rows. The coverage rate is taken over the larger of the blocks the submission cleared and the blocks the recomputation clears, each block scored once, and the two terms are combined as a geometric mean rather than an average.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv"
+      ],
+      "check_function": "check_clearance_cites_the_council",
+      "how_it_prevents_task_authenticity_violation": "This is the central anti-shortcut check: it refuses a clearance justified by the programme's own labelling rather than by the instrument that decides eligibility, and refuses one sentence reused across clearances that turned on different rules. Anchoring the denominator to the recomputed cleared set and multiplying the two terms closes the withholding shortcut, where a submission clears a single block, cites it perfectly and collects full marks on a check about how the pool was cleared. Every block the recomputation clears is cleared by the same rule, so the variety term is satisfiable by one sentence and cannot be left carrying half the check on its own."
+    },
+    "reward_hacking_checks_6": {
+      "detailed_explanation_of_checks": "Recomputes which blocks carry a programme label for the 2021-2023 pilot compliance period and no first-phase label, and computes two rates: the share of those blocks the submission refuses, and the share of the blocks that must not be refused which it leaves standing. The score is the geometric mean of the two, so a register that refuses the entire pool scores one on the first rate, zero on the second and zero overall.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv"
+      ],
+      "check_function": "check_pilot_label_not_read_as_first_phase",
+      "how_it_prevents_task_authenticity_violation": "The pool's own labelling is the trap the corpus sets: much of it is labelled CORSIA for a compliance period that is not the one being offset. Because the two rates multiply, refusing everything measures zero rather than partial credit, so the check pays for telling the pilot label apart from the first-phase one and not for caution."
+    },
+    "reward_hacking_checks_7": {
+      "detailed_explanation_of_checks": "For each referred block, requires the referral object to name a real block, to quote the Council sentence verbatim from the eligibility document, to have that sentence carry the vocabulary of the test that actually left the block unsettled and be about this block's own programme rather than another's units, and not to be a sentence the register is already carrying behind a different deciding rule, to state a programme position and a Council position of at least six words each that are not the same sentence, to quote the programme side verbatim from that block's own labelling record reproducing at least one whole claim of that record and clearing a floor of four words and twenty characters, and to give a recommendation that names a course of action, reaches the test that left the block unsettled and cites one of that block's own figures. Scored over the recomputed referral set so unwritten referrals count against it.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/referrals.json"
+      ],
+      "check_function": "check_referrals_state_both_sides",
+      "how_it_prevents_task_authenticity_violation": "Stops a referral log that restates the verdict in two columns, which looks like reconciliation without recording what either side actually said. The first object filed for a block is the one scored and the block is consumed whether or not it passes, so a file carrying several differently worded objects per block cannot retry until one of them happens to clear the conditions."
+    },
+    "reward_hacking_checks_8": {
+      "detailed_explanation_of_checks": "Scores five properties of the schedule together: no block appears twice, every scheduled block is one the recomputation cleared, no referred block appears, every quantity is positive, and the scheduled total meets the tonnage the cleared pool can actually supply, which is the requirement itself wherever the cleared pool reaches it, without overshooting the requirement.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/cancellation_schedule.csv"
+      ],
+      "check_function": "check_schedule_not_padded",
+      "how_it_prevents_task_authenticity_violation": "Stops the requirement being met by repeating a block, by drawing on referred or refused tonnage, or by overshooting so that the arithmetic never has to be done. Reading the target off the recomputed cleared pool rather than off the constant keeps the condition satisfiable by a correct submission whatever the pool turns out to hold, so no submission can lose this bit on a figure the packaged record could never supply."
+    },
+    "reward_hacking_checks_9": {
+      "detailed_explanation_of_checks": "Collects the marks carrying data-block-id inside the svg and discards any suppressed by style, drawn at a zero dimension or drawn larger than the whole canvas. The marks-were-drawn terms (pool coverage, a mark floor set at ninety per cent of the pool, every identifier real, visible text on the page) are multiplied by an encoding term averaging two things: whether the visual groupings each hold a single verdict, counting only groupings that actually group two or more marks, and the strongest rank correlation between a geometric channel (horizontal position, vertical position or mark size) and a real dimension of the block it stands for, being its unretired tonnage or its vintage. A geometric channel is read only where it is actually drawn on the page: the values of a position channel have to fall inside the svg's own viewBox, or its stated size where it declares none, and a size channel inside half the smaller side of it, so a channel whose marks sit off the canvas carries no encoding however well it correlates.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/eligibility_map.html"
+      ],
+      "check_function": "check_map_not_hollow",
+      "how_it_prevents_task_authenticity_violation": "Stops a lattice of identical marks standing in for the figure, and stops a page that colours the verdicts correctly while placing every mark on a meaningless grid, since neither tells the committee where the pool actually sits. Requiring a grouping to hold two or more distinct blocks before it counts as encoding anything closes the degenerate case of giving every mark its own class, and counting one mark per block towards those groupings closes the case of drawing the same block repeatedly to manufacture a grouping. Bounding the channels to the canvas closes the encoding-by-raw-magnitude case, where a registry tonnage written straight into a radius or a coordinate scores a perfect rank correlation while drawing a page the committee cannot read. Self-containment sits inside the drawn term, which multiplies the encoding score, so a page that fetches its marks or its styling from somewhere the committee cannot reach is penalised as the drawing it is while a page that drew nothing earns nothing for referencing nothing."
+    },
+    "reward_hacking_checks_10": {
+      "detailed_explanation_of_checks": "Scores six properties of the note: at least five substantive sections, no two sections with identical bodies, at least ten real block identifiers named, no placeholder tokens, the fraction of sentences not built on an already-used five-word frame with identifiers, tonnages and years masked first, and the fraction of block dispositions stated in the prose that match the recomputed clearance. That last component is read sentence by sentence: a sentence naming exactly one of cleared, referred or refused is checked against the blocks it names, and blocks a paragraph names outside any such sentence are attributed to the paragraph only where every status-bearing sentence in it claims the same disposition.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/committee_note.md"
+      ],
+      "check_function": "check_note_not_templated",
+      "how_it_prevents_task_authenticity_violation": "Stops a note assembled by repeating one sentence frame down the pool, and stops original prose that is confidently wrong about which blocks were cleared, referred or refused. Reading sentences rather than paragraphs closes the hedge that named two statuses in one paragraph so that no disposition claim in it could be checked, and crediting each block's disposition once across the whole note closes the padding case where one correct claim repeated fifty times drowns out a wrong one stated once."
+    },
+    "reward_hacking_checks_11": {
+      "detailed_explanation_of_checks": "Checks the shared facts across artifacts: every scheduled block is cleared in the register and carries the register's registry, every referral object names a block the register marked referred, the map's embedded register data agrees with the filed register, and the map's embedded schedule data agrees with the filed cancellation schedule on the blocks it carries and their quantities. A final component compares the blocks the schedule and the referrals are built on against the recomputed clearance, so internal agreement alone is not enough.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv",
+        "/logs/agent/referrals.json",
+        "/logs/agent/cancellation_schedule.csv",
+        "/logs/agent/eligibility_map.html",
+        "/logs/agent/committee_note.md"
+      ],
+      "check_function": "check_cross_artifact_agreement",
+      "how_it_prevents_task_authenticity_violation": "Stops a package whose files each look right alone but disagree with one another, and stops a fabricated partition that is perfectly self-consistent and wrong about every block."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "For every block the recomputation refuses, requires the submission to have refused it and to have failed exactly the tests that actually exclude it, so the dates, scope and availability columns must carry the FAIL on the rule that really bites rather than anywhere convenient.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv"
+      ],
+      "check_function": "check_refusal_reason_matches_rule",
+      "how_it_prevents_task_authenticity_violation": "Stops a block being refused for the wrong reason, which looks correct at the verdict level while showing the rules were never applied; a run that writes FAIL across every test column earns nothing here."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "Recomputes the eligible unit dates test for every block, requiring the activity's first crediting period to have started from 2016 and the vintage to fall in the 2021 to 2026 reduction window, and scores the submission's dates column as the geometric mean of the whole-pool rate and the rate over the blocks the dates actually exclude.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv"
+      ],
+      "check_function": "check_dates_test_recomputed",
+      "how_it_prevents_task_authenticity_violation": "The discriminating term means a run that writes PASS into every row scores nothing here, because it gets no credit on the blocks the rule excludes."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "Recomputes the scope test, which asks whether the issuing programme has identified the unit as eligible for this compliance period and whether the activity falls outside the exclusions that programme's own scope of eligibility carries, including the exclusions that turn on what the registry's prose description says the activity is rather than on any categorical field, and scores the submission's scope column with the same whole-pool and excluded-subset geometric mean.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv"
+      ],
+      "check_function": "check_scope_test_recomputed",
+      "how_it_prevents_task_authenticity_violation": "Rewards applying the Council's scope to the record rather than assuming every unit a registry issued is in scope."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "Recomputes the host country authorisation test from the record and scores the submission's authorisation column, with the discriminating subset being the blocks that do carry an authorisation, so a run that marks the whole pool UNRESOLVED earns nothing.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv"
+      ],
+      "check_function": "check_authorisation_test_recomputed",
+      "how_it_prevents_task_authenticity_violation": "Host country authorisation is the condition that actually governs first-phase supply; this check requires it to have been assessed per block rather than assumed absent or assumed present."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "Reads the note section that states what the Council requires, takes every run of at least eight words in it that is verbatim in the Council document, and scores two things: whether there is at least one such run, and how many of the four governing conditions are carried by those quoted sentences rather than named loose in the surrounding prose, the four being the compliance period, the eligible unit dates, the host country authorisation and corresponding adjustment, and the scope under which units are identified and excluded.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/committee_note.md"
+      ],
+      "check_function": "check_note_states_the_governing_condition",
+      "how_it_prevents_task_authenticity_violation": "Stops the note asserting a rule set in its own words without ever touching the instrument, which is what a run that never opened the Council document produces, and stops the four conditions being collected by scattering their vocabulary through a section that quotes nothing, since each condition has to be found inside a sentence the document is confirmed to contain."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "Recomputes each block's verdict from the five tests and compares it with the submission's, scored as the geometric mean of the whole-pool rate and the rate over the blocks that are not simply refused.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv"
+      ],
+      "check_function": "check_verdicts_recomputed",
+      "how_it_prevents_task_authenticity_violation": "The discriminating subset is the cleared and referred blocks, so writing REFUSED across the pool, which would be right for most of it, earns nothing."
+    },
+    "partial_oracle_checks_7": {
+      "detailed_explanation_of_checks": "Compares the set of blocks the submission cleared with the recomputed cleared set as an intersection over union, so both missed clearances and wrong clearances cost.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv"
+      ],
+      "check_function": "check_cleared_set_exact",
+      "how_it_prevents_task_authenticity_violation": "Stops a run banking credit by clearing generously, and stops one banking credit by clearing almost nothing."
+    },
+    "partial_oracle_checks_8": {
+      "detailed_explanation_of_checks": "Compares the set of blocks the submission referred with the recomputed referral set as an intersection over union.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/clearance_register.csv"
+      ],
+      "check_function": "check_referred_set_exact",
+      "how_it_prevents_task_authenticity_violation": "The referral set is the judgement-bearing part of the pool; this check requires it to be identified rather than collapsed into cleared or refused."
+    },
+    "partial_oracle_checks_9": {
+      "detailed_explanation_of_checks": "Recomputes the schedule from the cleared blocks in the required order to the required tonnage, then averages two terms: the set of scheduled blocks as an intersection over union, and the fraction of positions where the submission sequence matches the required ascending vintage then block id order.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/cancellation_schedule.csv"
+      ],
+      "check_function": "check_schedule_blocks_correct",
+      "how_it_prevents_task_authenticity_violation": "Ties the schedule to the recomputed clearance rather than to whatever the submission cleared, and enforces the ordering the brief sets rather than accepting the right blocks in any order."
+    },
+    "partial_oracle_checks_10": {
+      "detailed_explanation_of_checks": "Compares each scheduled quantity against the recomputed quantity for that block within a tonne, including the partial quantity on the final block, crediting each block at most once however many rows name it; a second term checks that each row cumulative figure equals the running total of the quantities filed above it.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/cancellation_schedule.csv"
+      ],
+      "check_function": "check_schedule_quantities_correct",
+      "how_it_prevents_task_authenticity_violation": "The split on the final block is the one place the arithmetic cannot be finessed, and the running total is what the committee reads down the page, so a schedule with correct quantities and an invented cumulative column does not pass."
+    },
+    "partial_oracle_checks_11": {
+      "detailed_explanation_of_checks": "Recomputes the seven disposition totals from the pool and the schedule and requires the note's keyed table to state each of them exactly.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/committee_note.md"
+      ],
+      "check_function": "check_disposition_totals",
+      "how_it_prevents_task_authenticity_violation": "Totals are recomputed from the record rather than from the submission's own row counts, so a note cannot reconcile itself against its own mistakes."
+    },
+    "partial_oracle_checks_12": {
+      "detailed_explanation_of_checks": "Compares the blocks appearing in referrals.json with the recomputed referral set as an intersection over union.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/referrals.json"
+      ],
+      "check_function": "check_referrals_cover_referred_set",
+      "how_it_prevents_task_authenticity_violation": "Stops a referral file that documents one or two easy cases while leaving the rest of the disagreements unrecorded."
+    },
+    "partial_oracle_checks_13": {
+      "detailed_explanation_of_checks": "Credits a referred block only where a paragraph names it alongside at least three facts the record independently confirms for that same block, drawn from its vintage, its unretired tonnage, its registry, its project identifier, its host country and its activity type, and also reaches the vocabulary of the test that left that block unsettled.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/committee_note.md"
+      ],
+      "check_function": "check_note_argues_referrals",
+      "how_it_prevents_task_authenticity_violation": "Rewards argument anchored in the block being argued about, and refuses credit where a block is named beside a fact belonging to a different block."
+    },
+    "partial_oracle_checks_14": {
+      "detailed_explanation_of_checks": "Requires the limitations section to carry three topics each in a sentence of its own, consumed once so a single line cannot trip all three: what the registry record cannot show, what a corresponding adjustment would still have to be confirmed against, and the convention by which the first project vintage stands in for the crediting period start. Two further terms score whether the section names the submission's own referred or refused blocks as the cases each limitation bites on, and whether its sentences are written rather than assembled, measured by five-word runs with identifiers and figures masked first.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/committee_note.md"
+      ],
+      "check_function": "check_note_limitations_disclosed",
+      "how_it_prevents_task_authenticity_violation": "Stops the limitations section restating the brief's own list back at it: naming any real identifier is no longer enough, the cases named have to be ones this submission actually held back or refused, the floor is one named case per limitation topic rather than a fixed two that a section reaching half the topics would clear, and a section assembled by paraphrasing the brief collapses onto its own frames."
+    }
+  }
+}

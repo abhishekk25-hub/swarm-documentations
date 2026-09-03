@@ -1,0 +1,38 @@
+{
+  "as_of": "2026-08-06",
+  "cohort_rule": "unit_id is assigned by position in the Signed Chief's Reports listing under its year-descending sort. CR-03 is listing position 3, CR-04 is listing position 4, CR-06 is position 6, CR-07 is position 7, CR-08 is position 8. If instruction.md is amended to order the cohort by signature date instead of listing position, every key below must be re-derived before this file is used.",
+  "verification": "Each field below was read from the full text of that unit's own signed report. report_date for CR-06 is corroborated by the listing entry for its supplemental report, which states the base report's signature date. report_date for CR-04 is corroborated by the source filename published in the listing. report_date for CR-07 (2025-12-09) is read directly from its own transmittal memorandum date line ('DEC 09 2025'). report_date for CR-03 (2026-06-04, 'JUN 0 4 2026') and CR-08 (2024-07-17, 'JUL 1 7 2024') are read directly from their own transmittal date lines, both with OCR-introduced spacing in the source PDF that this file normalises.",
+  "coverage_note": "5 of 20 units, spanning four project purposes (flood_risk_management CR-04, coastal_storm_risk_management CR-06/CR-07, ecosystem_restoration CR-03, navigation CR-08) and three signature years (2024, 2025, 2026), so the sample is no longer one coastal project repeated.",
+  "units": {
+    "CR-03": {
+      "report_date": "2026-06-04",
+      "project_purpose": "ecosystem_restoration",
+      "nonfederal_sponsor": "City of Sheridan",
+      "cost_price_level": "October 2026"
+    },
+    "CR-04": {
+      "report_date": "2026-06-29",
+      "project_purpose": "flood_risk_management",
+      "nonfederal_sponsor": "Horry County, South Carolina",
+      "cost_price_level": "October 2025"
+    },
+    "CR-06": {
+      "report_date": "2025-07-15",
+      "project_purpose": "coastal_storm_risk_management",
+      "nonfederal_sponsor": "town of Surf City",
+      "cost_price_level": "October 2024"
+    },
+    "CR-07": {
+      "report_date": "2025-12-09",
+      "project_purpose": "coastal_storm_risk_management",
+      "document_relationship": "supplemental",
+      "related_unit_id": "CR-06"
+    },
+    "CR-08": {
+      "report_date": "2024-07-17",
+      "project_purpose": "navigation",
+      "nonfederal_sponsor": "Native Village of Akutan and the Aleutians East Borough",
+      "cost_price_level": "October 2023"
+    }
+  }
+}

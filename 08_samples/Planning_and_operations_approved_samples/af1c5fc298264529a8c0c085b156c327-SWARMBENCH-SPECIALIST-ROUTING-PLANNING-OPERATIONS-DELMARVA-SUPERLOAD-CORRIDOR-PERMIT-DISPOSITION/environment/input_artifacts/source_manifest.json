@@ -1,0 +1,88 @@
+{
+ "docket": "Spring 2026 superload corridor docket",
+ "docket_date": "2026-04-06",
+ "provenance_summary": "Two real pinned FHWA datasets carry every structure fact and every year-over-year movement the docket turns on. The operational layer around them - the caseload, the district restriction file, the applicant correspondence, the roster and the rulebook - is the exercise's own.",
+ "real_source": {
+  "publisher": "Federal Highway Administration, Office of Bridges and Structures",
+  "datasets": [
+   "National Bridge Inventory, 2024 delivery, Delaware state file DE24.txt",
+   "National Bridge Inventory, 2023 delivery, Delaware state file DE23.txt",
+   "National Bridge Inventory, 2022 delivery, Delaware state file DE22.txt"
+  ],
+  "retrieved_from": [
+   "https://www.fhwa.dot.gov/bridge/nbi/2024/DE24.txt",
+   "https://www.fhwa.dot.gov/bridge/nbi/2023/DE23.txt",
+   "https://www.fhwa.dot.gov/bridge/nbi/2022/DE22.txt"
+  ],
+  "record_format": "https://www.fhwa.dot.gov/bridge/nbi/format.cfm",
+  "state_file_sha256_2024": "3cd9755887a6e0aab9e117b8619e269c780be2b4066076d91e05b5274bc04e8a",
+  "state_file_record_count_2024": 872
+ },
+ "files": [
+  {
+   "file": "/input_artifacts/nbi_structure_extract.json",
+   "origin": "REAL - verbatim decode of the FHWA National Bridge Inventory 2024 Delaware state file",
+   "sha256": "ca65bdac21bfedc1d8286eeb6723959a06bbf217b1af607df5447a2316df44b8",
+   "bytes": 127736,
+   "note": "88 structure records, record type 1 with non-zero kilometerpoint, on the six designated heavy-haul corridors. Field positions and units follow FHWA's published NBI record format; no value was altered, only decoded from the fixed-width ASCII record. Sole authority for every current structure fact the docket uses.",
+   "retrieved_from": "https://www.fhwa.dot.gov/bridge/nbi/2024/DE24.txt",
+   "record_count": 88
+  },
+  {
+   "file": "/input_artifacts/nbi_prior_deliveries.json",
+   "origin": "REAL - verbatim decode of the FHWA National Bridge Inventory 2022 and 2023 Delaware state files",
+   "sha256": "09ab3332e1c1b0707f0c280408af5e81e15fc17d50fbb50fe4d479c23dca7970",
+   "bytes": 47306,
+   "note": "The same 88 structures as FHWA published them in the two preceding deliveries: operating and inventory ratings and the four coded condition items. No value was altered. Sole authority for which way a structure has moved.",
+   "retrieved_from": "https://www.fhwa.dot.gov/bridge/nbi/2022/DE22.txt",
+   "record_count": 88
+  },
+  {
+   "file": "/input_artifacts/corridor_definitions.csv",
+   "origin": "DERIVED - corridor bands computed from the real extract",
+   "sha256": "e797d1f5678e5957edc7b099e1006df50dd6e875aa5ed0fae1af891b3efedde9",
+   "bytes": 524,
+   "note": "Six designated heavy-haul corridors. The km extents and structure counts are computed directly from the pinned extract; the corridor ids and the junction table are the naming this exercise uses for them.",
+   "record_count": 6
+  },
+  {
+   "file": "/input_artifacts/permit_applications.csv",
+   "origin": "DOCKET LAYER - the season's caseload, written against the real corridors",
+   "sha256": "273a8df61a56e8ef7824161b40df5cb1bddddff4c2142a5dc82f2bed5176b218",
+   "bytes": 9258,
+   "note": "72 superload permit applications. Applicants, commodities, dimensions, requested dates and declared legs are the caseload this exercise poses; the corridors and kilometre extents they name are the real ones in the extract.",
+   "record_count": 72
+  },
+  {
+   "file": "/input_artifacts/applicant_correspondence.jsonl",
+   "origin": "DOCKET LAYER - the hauliers' correspondence since they filed",
+   "sha256": "ff39b3a829b462290c2cf28f95225e27c85db7e86f6333324751c9f25593b62d",
+   "bytes": 113845,
+   "record_count": 590,
+   "note": "590 letters and emails received against the 72 applications. Most amend what was filed - a re-measured width, a corrected gross, a changed leg, a withdrawal - and most of the rest change nothing while still quoting figures, including figures belonging to another application. Wording, number format and date format vary message to message."
+  },
+  {
+   "file": "/input_artifacts/field_restriction_memos.jsonl",
+   "origin": "DOCKET LAYER - district correspondence rendered from each structure's real NBI condition record",
+   "sha256": "d5cb2085a361ef46b2a8b343c3c5b2635fe3fb357d63209aa5e809ca23f058b5",
+   "bytes": 138745,
+   "note": "331 district field notes filed against the 88 structures. Every technical fact a note states - year built, material, span count, structure length, the feature crossed and the coded deck, superstructure, substructure and culvert ratings - is read out of that structure's own published FHWA record. The covering wording, the correspondence chain and the interim tonnage carried on the file are the operational layer this exercise poses and are not an export from a DelDOT system. There is no fixed template: the notes draw on wide pools of wording for each act, clause order, date format and tonnage format vary note by note, optional fields are absent where a real file would have them absent, and note length runs from 12 to 77 words.",
+   "record_count": 331
+  },
+  {
+   "file": "/input_artifacts/rating_engineers.csv",
+   "origin": "DOCKET LAYER - the section's resourcing for the season",
+   "sha256": "bbe3e1070b2681e3e956d3c48035db28a20f48cd78186e7b20e926b189bdbb8a",
+   "bytes": 464,
+   "note": "Nine load-rating engineers with specialty class, weekly availability and home district.",
+   "record_count": 9
+  },
+  {
+   "file": "/input_artifacts/permit_rules.md",
+   "origin": "DOCKET LAYER - the rulebook in force for this docket",
+   "sha256": "2dc40a99af2c2b30bf7b506819bb35a34288afe1df13b60a8cbeaa600adbc2e3",
+   "bytes": 11181,
+   "note": "The disposition, re-rating, trend and programming rules. Written for this exercise; not a DelDOT or FHWA publication."
+  }
+ ]
+}

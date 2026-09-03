@@ -1,0 +1,279 @@
+{
+ "nct": "NCT04424511",
+ "prespecification_version": 1,
+ "prespecification_date": "2020-06-25",
+ "publications": [
+  "PMC10648361",
+  "PMC13254738",
+  "PMC9809521"
+ ],
+ "prespecified_units": [
+  {
+   "uid": "pri1",
+   "measure": "Mortality",
+   "role": "primary",
+   "timeframe": "3-month time interval (total of 8 intervals per cluster)",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec1",
+   "measure": "Morbidity",
+   "role": "secondary",
+   "timeframe": "3-month time interval (total of 9 intervals per cluster)",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec5",
+   "measure": "Mid-upper arm circumference",
+   "role": "secondary",
+   "timeframe": "3-month time interval (total of 4 intervals per cluster)",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec8",
+   "measure": "Prevalence of phenotypic azithromycin resistance",
+   "role": "secondary",
+   "timeframe": "12-month time interval (total of 3 intervals per cluster)",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec9",
+   "measure": "Prevalence of phenotypic AMR resistance to other \"Access\" group antibiotics",
+   "role": "secondary",
+   "timeframe": "12-month time interval (total of 3 intervals per cluster)",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec10",
+   "measure": "Prevalence of genetic markers of azithromycin and other antibiotic resistance",
+   "role": "secondary",
+   "timeframe": "12-month time interval (total of 3 intervals per cluster)",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec11",
+   "measure": "Blood C-reactive protein concentration",
+   "role": "secondary",
+   "timeframe": "Biological samples taken before and 14 days after MDA round, 9 months after enrollment.",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec12",
+   "measure": "Blood malaria parasitemia and hemoglobin concentration",
+   "role": "secondary",
+   "timeframe": "Biological samples taken before and 14 days after MDA round, 9 months after enrollment.",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec13",
+   "measure": "Fecal calprotectin concentration",
+   "role": "secondary",
+   "timeframe": "Biological samples taken before and 14 days after MDA round, at 9 months after enrollment.",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec14",
+   "measure": "Incidence of Adverse events",
+   "role": "secondary",
+   "timeframe": "3-month time interval (total of 4 intervals per cluster)",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec15",
+   "measure": "Incidence of Serious Adverse events",
+   "role": "secondary",
+   "timeframe": "within 14 days after MDA round.",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec16",
+   "measure": "Mortality in children aged 12-59 month",
+   "role": "secondary",
+   "timeframe": "3-month time interval (total of 8 intervals per cluster)",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec17",
+   "measure": "Percentage of guardians and health care workers reporting MDA acceptable",
+   "role": "secondary",
+   "timeframe": "24 months after enrollment",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec18",
+   "measure": "Percentage of the study population reached with MDA",
+   "role": "secondary",
+   "timeframe": "24 months after enrollment",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec19",
+   "measure": "Cost of treatment delivered to the health system",
+   "role": "secondary",
+   "timeframe": "24 months after enrollment",
+   "reported": false,
+   "change_disclosed": false
+  }
+ ],
+ "additional_units": [
+  {
+   "rid": "PMC13254738#0",
+   "reporting_document": "PMC13254738",
+   "reported_label": "weight",
+   "reported_instrument": "electronic scale (SECA 354; SECA GmbH)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "All outcomes were prespecified secondary end points of the parent mortality trial.",
+   "result_quote": "Weight, mean (95% CI), kg b\n7.8 (7.7 to 7.9)\n7.8 (7.7 to 7.9)\n7.8 (7.7 to 7.9)\n0.03 (-0.1 to 0.2)\n-0.02 (-0.2 to 0.2)\n.77"
+  },
+  {
+   "rid": "PMC13254738#1",
+   "reporting_document": "PMC13254738",
+   "reported_label": "length",
+   "reported_instrument": "commercial length board (ShorrBoard; Weigh and Measure LLC)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "All outcomes were prespecified secondary end points of the parent mortality trial.",
+   "result_quote": "Length, mean (95% CI), cm\n70.2 (69.9 to 70.8)\n70.6 (70.2 to 70.9)\n70.6 (70.1 to 71.0)\n0.2 (-0.3 to 0.8)\n0.2 (-0.4 to 0.9)\n.54"
+  },
+  {
+   "rid": "PMC13254738#5",
+   "reporting_document": "PMC13254738",
+   "reported_label": "MUAC z score",
+   "reported_instrument": "nonstretchable tape (Tricolor Shorr Child MUAC tape)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "All outcomes were prespecified secondary end points of the parent mortality trial.",
+   "result_quote": "MUAC z score, mean (95% CI)\n-0.30 (-0.43 to -0.10)\n-0.24 (-0.37 to -0.12)\n-0.26 (-0.41 to -0.10)\n0.02 (-0.17 to 0.20)\n0.01 (-0.22 to 0.23)\n.98"
+  },
+  {
+   "rid": "PMC13254738#6",
+   "reporting_document": "PMC13254738",
+   "reported_label": "Underweight (WA z score <-2)",
+   "reported_instrument": "2006 WHO Child Growth Standards",
+   "reported_role": "secondary",
+   "role_evidence_quote": "All outcomes were prespecified secondary end points of the parent mortality trial.",
+   "result_quote": "Underweight (WA z score <-2), No. (%)\n50 (16.7)\n76 (18.0)\n44 (14.5)\n1.8 (-3.3 to 6.8)\n-0.3 (-6.3 to 5.6)\n.67"
+  },
+  {
+   "rid": "PMC13254738#7",
+   "reporting_document": "PMC13254738",
+   "reported_label": "Severely underweight (WA z score <-3)",
+   "reported_instrument": "2006 WHO Child Growth Standards",
+   "reported_role": "secondary",
+   "role_evidence_quote": "All outcomes were prespecified secondary end points of the parent mortality trial.",
+   "result_quote": "Severely underweight (WA z score <-3), No.(%)\n10 (3.3)\n19 (4.5)\n10 (3.3)\n0.9 (-2.2 to 4.1)\n-0.3 (-3.9 to 3.3)\n.71"
+  },
+  {
+   "rid": "PMC13254738#9",
+   "reporting_document": "PMC13254738",
+   "reported_label": "Severe stunting (LA z score <-3)",
+   "reported_instrument": "2006 WHO Child Growth Standards",
+   "reported_role": "secondary",
+   "role_evidence_quote": "All outcomes were prespecified secondary end points of the parent mortality trial.",
+   "result_quote": "Severe stunting (LA z score <-3), No. (%)\n4 (1.3)\n6 (1.4)\n8 (2.6)\n0.03 (-1.7 to 1.8)\n1.1 (-1.3 to 3.5)\n.56"
+  },
+  {
+   "rid": "PMC13254738#11",
+   "reporting_document": "PMC13254738",
+   "reported_label": "Severe wasting (WL z score <-3)",
+   "reported_instrument": "2006 WHO Child Growth Standards",
+   "reported_role": "secondary",
+   "role_evidence_quote": "All outcomes were prespecified secondary end points of the parent mortality trial.",
+   "result_quote": "Severe wasting (WL z score <-3), No. (%)\n7 (2.3)\n13 (3.1)\n10 (3.3)\n0.4 (-2.6 to 3.3)\n-0.1 (-3.4 to 3.2)\n.94"
+  },
+  {
+   "rid": "PMC13254738#12",
+   "reporting_document": "PMC13254738",
+   "reported_label": "Underweight (WA z score <-2)",
+   "reported_instrument": "2006 WHO Child Growth Standards",
+   "reported_role": "secondary",
+   "role_evidence_quote": "All outcomes were prespecified secondary end points of the parent mortality trial.",
+   "result_quote": "Underweight (WA z score <-2), No. (%)\n70 (25.3)\n105 (25.1)\n89 (29.5)\n-0.3 (-7.2 to 6.5)\n5.5 (-2.8 to 13.7)\n.25"
+  },
+  {
+   "rid": "PMC13254738#13",
+   "reporting_document": "PMC13254738",
+   "reported_label": "Severely underweight (WA z score <-3)",
+   "reported_instrument": "2006 WHO Child Growth Standards",
+   "reported_role": "secondary",
+   "role_evidence_quote": "All outcomes were prespecified secondary end points of the parent mortality trial.",
+   "result_quote": "Severely underweight (WA z score <-3), No.(%)\n14 (5.1)\n22 (5.3)\n21 (7.0)\n0.5 (-1.9 to 2.9)\n2.6 (-0.5 to 5.7)\n.21"
+  },
+  {
+   "rid": "PMC13254738#14",
+   "reporting_document": "PMC13254738",
+   "reported_label": "Stunting (LA z score <-2)",
+   "reported_instrument": "2006 WHO Child Growth Standards",
+   "reported_role": "secondary",
+   "role_evidence_quote": "All outcomes were prespecified secondary end points of the parent mortality trial.",
+   "result_quote": "Stunting (LA z score <-2), No. (%)\n90 (32.5)\n115 (27.4)\n87 (28.8)\n-5.9 (-13.9 to 2.0)\n-3.8 (-13.1 to 5.5)\n.32"
+  },
+  {
+   "rid": "PMC13254738#15",
+   "reporting_document": "PMC13254738",
+   "reported_label": "Severe stunting (LA z score <-3)",
+   "reported_instrument": "2006 WHO Child Growth Standards",
+   "reported_role": "secondary",
+   "role_evidence_quote": "All outcomes were prespecified secondary end points of the parent mortality trial.",
+   "result_quote": "Severe stunting (LA z score <-3), No. (%)\n25 (9.0)\n32 (7.6)\n22 (7.3)\n-0.9 (-5.3 to 3.4)\n-0.2 (-5.5 to 5.1)\n.89"
+  },
+  {
+   "rid": "PMC13254738#16",
+   "reporting_document": "PMC13254738",
+   "reported_label": "Wasting (WL z score <-2)",
+   "reported_instrument": "2006 WHO Child Growth Standards",
+   "reported_role": "secondary",
+   "role_evidence_quote": "All outcomes were prespecified secondary end points of the parent mortality trial.",
+   "result_quote": "Wasting (WL z score <-2), No. (%)\n40 (14.4)\n69 (16.5)\n59 (19.5)\n1.4 (-4.9 to 7.6)\n6.6 (-1.6 to 14.8)\n.24"
+  },
+  {
+   "rid": "PMC13254738#17",
+   "reporting_document": "PMC13254738",
+   "reported_label": "Severe wasting (WL z score <-3)",
+   "reported_instrument": "2006 WHO Child Growth Standards",
+   "reported_role": "secondary",
+   "role_evidence_quote": "All outcomes were prespecified secondary end points of the parent mortality trial.",
+   "result_quote": "Severe wasting (WL z score <-3), No. (%)\n9 (3.2)\n21 (5.0)\n13 (4.3)\n1.3 (-2.2 to 4.8)\n1.0 (-3.1 to 5.0)\n.76"
+  },
+  {
+   "rid": "PMC13254738#18",
+   "reporting_document": "PMC13254738",
+   "reported_label": "weight gain",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "We conducted an exploratory analysis among children with repeated measurements (ie, those who remained age eligible and were reassessed at subsequent visits). Weight gain and length gain were calculated as the difference between visits, in grams per day and millimeters per day, respectively.",
+   "result_quote": "Among children with repeated measurements, the mean weight gain was 5.1 g/d (95% CI, 4.6-9.4 g/d) in the placebo group, 4.4 g/d (95% CI, 3.9-7.8 g/d) in the twice-yearly azithromycin group, and 4.3 g/d (95% CI, 3.1-7.6 g/d) in the quarterly azithromycin group (eTable 4 in Supplement 2 )."
+  },
+  {
+   "rid": "PMC13254738#19",
+   "reporting_document": "PMC13254738",
+   "reported_label": "length gain",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "We conducted an exploratory analysis among children with repeated measurements (ie, those who remained age eligible and were reassessed at subsequent visits). Weight gain and length gain were calculated as the difference between visits, in grams per day and millimeters per day, respectively.",
+   "result_quote": "The mean length gain was 0.3 mm/d (95% CI, 0.3-0.4 mm/d) in the placebo group, 0.3 mm/d (95% CI, 0.3-0.4 mm/d) in the twice-yearly azithromycin group, and 0.3 mm/d (95% CI, 0.3-0.4 mm/d) in the quarterly azithromycin group; no statistically significant differences were observed across the 3 intervention groups (eTables 4 and 5 in Supplement 2 )."
+  },
+  {
+   "rid": "PMC13254738#20",
+   "reporting_document": "PMC13254738",
+   "reported_label": "acute malnutrition based on MUAC screening",
+   "reported_instrument": "nonstretchable tape (Tricolor Shorr Child MUAC tape)",
+   "reported_role": "other",
+   "role_evidence_quote": "Caregivers of children with edema or acute malnutrition based on MUAC screening were informed and referred to health facilities.",
+   "result_quote": "Based on MUAC screening, acute malnutrition was identified in 36 of 608 measurements in the placebo group (5.9%), 56 of 891 measurements in the twice-yearly azithromycin group (6.3%), and 33 of 633 measurements in the quarterly azithromycin group (5.2%)."
+  }
+ ],
+ "dropped_unusable_units": []
+}

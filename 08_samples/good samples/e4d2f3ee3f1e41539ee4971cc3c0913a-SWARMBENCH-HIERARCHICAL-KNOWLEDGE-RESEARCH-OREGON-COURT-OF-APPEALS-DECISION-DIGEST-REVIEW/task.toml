@@ -1,0 +1,29 @@
+[task]
+name = "swarmbench/e4d2f3ee3f1e41539ee4971cc3c0913a-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-OREGON-COURT-OF-APPEALS-DECISION-DIGEST-REVIEW"
+description = "Build an Oregon Court of Appeals department-folio casebook from 72 opinions: A-number cards on criminal, civil, family, and administrative folios, a clerk folio index, a petition calendar, and ORAP 5.45 homework on assignments of error, PCR, and juvenile review."
+
+[metadata]
+verifier_type = "hybrid"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_writing", "long_horizon"]
+dag_depth = 3
+dag_width = 36
+human_solving_hours_estimate = 97.7
+human_solving_hours_justification = "Reading 349,594 words of opinions at 5,000 words/hour takes 69.9 hours. Drafting and checking 72 cards at 14 minutes each takes 16.8 hours. Calendar reconciliation takes 4.0 hours; ORAP 5.45 homework and fidelity QC take 7.0 hours. Total: 69.9 + 16.8 + 4.0 + 7.0 = 97.7 hours."
+estimated_sub_agents = 46
+input_token_estimate = 524000
+why_multi_agent = "A single agent under the shared timeout abandons close reading for a brittle extraction or templating script, then times out with hollow or copied cards rather than finishing the folio index, petition calendar, and ORAP 5.45 homework. Thirty-six two-opinion specialists keep two slips in working context, nine leads compare eight matters apiece, and a merger files the folios and memo."
+reference_link = "https://storage.courtlistener.com/pdf/2026/08/19/dept._of_human_services_v._j._c._r.-w..pdf"
+network_enabled = false
+
+[agent]
+timeout_sec = 1020
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600

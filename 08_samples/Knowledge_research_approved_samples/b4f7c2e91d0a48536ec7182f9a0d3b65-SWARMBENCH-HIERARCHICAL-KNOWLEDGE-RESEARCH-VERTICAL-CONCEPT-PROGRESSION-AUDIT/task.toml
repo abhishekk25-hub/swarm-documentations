@@ -1,0 +1,137 @@
+[task]
+name = "swarmbench/b4f7c2e91d0a48536ec7182f9a0d3b65-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-VERTICAL-CONCEPT-PROGRESSION-AUDIT"
+description = "Read 60 staged public-domain passages and produce a vertical articulation audit for the Ashfield Regional Education Cooperative: one concept sheet per lesson unit, a reconciled register of 24 cross-band concept dossiers, a recomputed progression index and an articulation report."
+
+[metadata]
+verifier_type = "hybrid"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_horizon"]
+dag_depth = 3
+dag_width = 20
+human_solving_hours_estimate = 83.8
+human_solving_hours_justification = """
+The staged inputs hold 322,146 words across the 60 passage files, about 5,400 words each, plus the
+articulation standard, the unit table and the provenance note. Reading all of it once at 130 words
+per minute is 322,146 / 130 = 2,478 minutes, or 41.3 hours. Authoring the 60 unit concept sheets
+takes 22 minutes each - a 40-to-90 word summary of the passage, three concepts located in it, three
+verbatim quotations of 15 to 60 words transcribed from the place each concept is actually treated,
+three treatment notes, three demand judgements against the five-level scale and three reasons - which
+is 60 x 22 = 1,320 minutes, or 22 hours. Reconciling the roughly 180 provisional concept labels the
+sheets produce into a register of exactly 24 concepts that satisfies the nine constraints of section
+7 takes 4 hours, because the merge and split decisions have to be checked against the passages rather
+than against the labels. Compiling the 24 dossiers takes 25 minutes each - gathering the rungs,
+ordering them by band, and writing an advance_over_previous for each rung by rereading that rung's
+passage against the one below it - which is 600 minutes, or 10 hours. Compiling the progression index
+from the delivered files takes 1.5 hours. The articulation report takes 2 hours. A final consistency
+pass over the 60 sheets, the 24 dossiers and the two roll-ups takes 3 hours. Total:
+41.3 + 22 + 4 + 10 + 1.5 + 2 + 3 = 83.8 hours.
+"""
+estimated_sub_agents = 50
+input_token_estimate = 478000
+reference_link = "https://www.gutenberg.org/"
+why_multi_agent = """
+The binding single-agent failure mode is that the deliverable's central object is global while the
+evidence for it is spread over 60 passages and about 478,000 input tokens. Each observation must be
+grounded in one unit's own passage - a verbatim quotation from the place the concept is treated, a
+treatment note about what that passage does with it, a demand level judged from the passage rather
+than from the unit's band - but which concepts exist at all is a decision about the whole set. The
+standard fixes that decision numerically: 180 observations must fall across exactly 24 concepts, each
+holding 4 to 12 rungs from at least 4 units and 2 bands, with at least 8 reaching three bands, at
+least 7 crossing a cluster boundary and at least 6 led by each cluster. Sixty passages read
+independently produce well over a hundred concept labels with a long tail of one-rung concepts, and
+reconciling that tail is the work rather than an accident to be tidied at the end.
+
+A single serial writer fails this in one of two directions and the verifier separates them. If it
+fixes a concept list early to keep the counts, the later sheets are labelled from the list rather
+than from the passage, and the grounding checks - verbatim quotation in the unit's own passage, the
+grounded-word floors, the judged questions about whether each observation is something the passage
+actually treats - fall away over the second half of the corpus. If it labels each passage honestly as
+it reads, it arrives at the dossier stage with the wrong inventory and must either rewrite sheets it
+can no longer see or file dossiers whose rungs do not match the sheets behind them, which
+check_rungs_match_observations measures directly as a bidirectional projection. The corpus also
+contains a trap that only cross-passage reading resolves: an order in a botany passage is not an
+order in an architecture passage, and the same holds for scale, key, plate, cell, shell and Jupiter.
+Filing two senses under one concept_id manufactures a progression that does not exist, which is the
+precise claim the audit exists to test, and the judged concept_coherent question is asked of every
+dossier with its rung evidence in the prompt.
+
+The hierarchy bounds each reader's scope and makes the global decision an explicit reduction rather
+than a thing carried in working memory. Four band managers each dispatch five readers; each reader
+owns three units, one per subject cluster, which makes 20 the widest tier. One concept registrar then
+consolidates the 180 provisional labels into the binding 24-concept register, doing the merges and
+the sense splits against the passages. Four band reconcilers apply that register to their own band's
+fifteen sheets. Six dossier compilers each write four dossiers, whose rungs are exactly the
+observations that named them and whose derived fields are computed from those rungs. An index
+compiler and a report editor then work from the delivered files, the report editor recomputing rather
+than reading the index, so the two roll-ups cannot validate one another. That is what
+decomposition.yaml lays out as 37 sub-tasks over six dependency levels: 4 band managers + 20 readers
++ 1 registrar + 4 reconcilers + 6 compilers + 1 index compiler + 1 report editor. The
+estimated_sub_agents figure this metadata declares is 50, the session count the observed multi run
+actually opened, rather than that 37-sub-task blueprint. The split addresses
+the named context and shared-state failures through bounded reading scopes and a staged
+reconciliation, not through different tools, prompts or time limits.
+
+The paired runs are now recorded, all three on moonshotai/Kimi-K2.6 under the same instruction and
+the same timeouts, with the judge live and answering every call it was sent. The multi run scores
+0.2617, the single run 0.0167 and the multi_noplan run 0.0000, so the measured multi-minus-single gap
+is 24.5 points and the ordering the design predicts holds in both directions.
+
+The single run reproduces the first predicted failure exactly. It finished in under six minutes on
+1.85M input tokens against a corpus of about 478,000, which is to say it did not read the passages:
+it fixed a concept list up front and filled sixty sheets and twenty-four dossiers from it. The
+release is complete in shape - 60/60 sheets, 24/24 dossiers, a report - and empty underneath. Not one
+sheet cleared the authorship eligibility gate, so eligible was 0/60 and 0/24; every demand_reason and
+every passage_summary came back null; and all sixteen judged checks scored zero across 98 answered
+calls, the judge naming concept after concept the passage does not treat (a candle-manufacturing
+quote filed under stars-and-celestial-bodies, a punctuation manual filed under
+moral-lessons-in-stories). It recovered 0 of the 9 hand-verified verticals and the report failed on
+band counts, break list, cluster counts and span list. Its 0.0167 comes almost entirely from
+check_report_shaped at 0.125 and check_report_truthful at 0.200.
+
+The multi run inverts that profile. Fifty opencode sessions - one build orchestrator, 8 general band
+managers, 40 explore readers and 1 explore registrar - read the corpus over 69 minutes for 33.5M
+input tokens, and 38 of 60 sheets cleared the authorship gate. The run's dependency chain is six
+levels deep and the timings separate them cleanly: the orchestrator opens at 0s; the four band
+managers at 63-76s; their twenty readers at 69-90s, the widest layer, all closed by 417s; the concept
+registrar at 450s once those readers had returned, running to 3230s; four band manager reruns at
+3455-3476s carrying the registrar's binding register back to the bands; and those managers' twenty
+readers at 3465-3482s. The session tree nests only three deep because opencode re-parents each new
+subagent to the orchestrator, so the six levels are dependency levels read off the wave boundaries,
+not tree nesting. The second reader wave is the reconciliation tier of the blueprint arriving as a
+rerun of the first rather than as a distinct roster entry, which is why 50 sessions cover a 37-
+sub-task plan. The judged grounding checks that the single run zeroed score
+0.617 to 0.633 here: observations_grounded 0.617, treatment_notes_faithful 0.617,
+demand_levels_justified 0.617, passage_summary_faithful 0.633, quote_locates_concept 0.633, with
+quote_verbatim_in_own_passage at 0.633 and source_evidence_correct at 0.461. The run ended with the
+reader tier done and the reduction tier unreached: 0 dossiers, no progression index and no report, so
+every dossier-side and roll-up check scored zero and the reward buckets came out static 0.2055,
+reward_hacking 0.3000, partial_oracle 0.2550. The 0.2617 is therefore a floor for this decomposition
+rather than its ceiling - the hierarchy is being credited for the grounded reading it actually did,
+and the checks it left on the table are the ones behind the dossier stage it never started.
+
+The multi_noplan run scores a clean 0.0000: eighteen sessions, 19.9M input tokens, 32 minutes and
+nothing written to /logs/agent at all, which is why its verifier run is recorded as
+invalid_evaluation with zero judge calls sent. Without the plan the swarm spends its budget reading
+and never reduces, which is the same failure as the multi run's unreached dossier stage, arriving
+earlier and taking the sheets with it.
+
+The verifier was also exercised against three synthetic releases with the judge disabled: a
+mechanically compliant, passage-grounded release scores 0.5032; a templated release that reissues one
+sheet shell sixty times, with a well-formed schema, a self-consistent progression index and a
+factually true report, scores 0.0924; and an empty release scores 0.0000. That 0.0924 is the freebie
+floor and it sits under the 0.15 target because the authorship eligibility gate stops a hollow
+artifact banking the structural points its schema would otherwise collect - the same gate that held
+the single run to 0.0167 against a release of identical shape.
+"""
+network_enabled = true
+
+[agent]
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 900

@@ -1,0 +1,42 @@
+{
+  "what_this_is": "Grader-only anchors for tests/verify.py parser self-audit. Nothing here is compared with the submission and no reward is scored against this file. audit_sample() holds the verifier's own re-read of pinned inputs against these facts before scoring; disagreements mark invalid_evaluation as a verifier fault.",
+  "not_shipped_to_the_agent": "This file lives under tests/ only.",
+  "read_on": "2026-07-30",
+  "task_constants": {
+    "n_jurisdictions": 12,
+    "n_provisions": 42,
+    "n_cells": 504,
+    "n_shards": 24,
+    "as_of": "2026-07-30",
+    "workbook_sheets": ["Mapping", "Evidence", "Instruments", "Amendments", "Unresolved", "Summary"]
+  },
+  "scope_counts": {
+    "provisions_registry_rows": 42,
+    "source_manifest_entries": 22
+  },
+  "ratification_facts": [
+    {"iso3": "GBR", "ratification_date": "2013-08-07"},
+    {"iso3": "AUS", "ratification_date": "2011-12-21"},
+    {"iso3": "PHL", "ratification_date": "2012-08-20"}
+  ],
+  "parser_anchors": [
+    {
+      "source_id": "MLC-CONSOLIDATED-2022",
+      "relative_path": "mlc_2006_authoritative.txt",
+      "sha1_12": "c5e6e9b4a0db",
+      "normalized_snippet": "maritime labour convention"
+    },
+    {
+      "source_id": "GBR-UKSI-2014-1613",
+      "relative_path": "domestic_sources/GBR/uksi_2014_1613.txt",
+      "sha1_12": "bcd0deafbd8a",
+      "normalized_snippet": "minimum requirements for seafarers"
+    },
+    {
+      "source_id": "PHL-DO-129-13",
+      "relative_path": "domestic_sources/PHL/department_order_129_13.html",
+      "sha1_12": "ecbcf7d2253f",
+      "normalized_snippet": "department order"
+    }
+  ]
+}

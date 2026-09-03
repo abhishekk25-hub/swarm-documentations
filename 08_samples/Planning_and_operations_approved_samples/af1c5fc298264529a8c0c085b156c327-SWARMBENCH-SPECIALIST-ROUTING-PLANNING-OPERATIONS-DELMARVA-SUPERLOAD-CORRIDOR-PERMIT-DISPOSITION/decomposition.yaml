@@ -1,0 +1,369 @@
+version: "1.0"
+coordination_pattern: "specialist-routing"
+
+sub_tasks:
+  - id: permit-desk-router
+    description: |
+      Scope: the whole packaged input set, for dispatch purposes only.
+      Produces: the twenty-three specialist assignments below, each naming one partition, and the
+      shared identifier, rounding and column conventions the package will use.
+      Coordination: entry point, opened by the run's top-level agent. Dispatches all twenty-three
+      specialists in parallel, then dispatches both integrators once their specialist returns are
+      in, and does no analysis of its own.
+    depends_on: []
+    parallel_group: routing
+
+  - id: record-lane-us13-newcastle
+    description: |
+      Scope: the pinned structure records on corridor HC-13N, both the 2024 delivery and the
+      2022 and 2023 prior deliveries of those same structures.
+      Produces: a per-structure record sheet for that corridor, carrying each structure's current
+      coded condition items and ratings, and the direction those items have moved since the prior
+      deliveries, which is the condition trend the register reports.
+      Coordination: dispatched by the router; consumed by the capacity integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: record-lane-us13-kent
+    description: |
+      Scope: the pinned structure records on corridor HC-13K, both the 2024 delivery and the
+      2022 and 2023 prior deliveries of those same structures.
+      Produces: a per-structure record sheet for that corridor, carrying each structure's current
+      coded condition items and ratings, and the direction those items have moved since the prior
+      deliveries, which is the condition trend the register reports.
+      Coordination: dispatched by the router; consumed by the capacity integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: record-lane-us13-sussex
+    description: |
+      Scope: the pinned structure records on corridor HC-13S, both the 2024 delivery and the
+      2022 and 2023 prior deliveries of those same structures.
+      Produces: a per-structure record sheet for that corridor, carrying each structure's current
+      coded condition items and ratings, and the direction those items have moved since the prior
+      deliveries, which is the condition trend the register reports.
+      Coordination: dispatched by the router; consumed by the capacity integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: record-lane-us301
+    description: |
+      Scope: the pinned structure records on corridor HC-301, both the 2024 delivery and the
+      2022 and 2023 prior deliveries of those same structures.
+      Produces: a per-structure record sheet for that corridor, carrying each structure's current
+      coded condition items and ratings, and the direction those items have moved since the prior
+      deliveries, which is the condition trend the register reports.
+      Coordination: dispatched by the router; consumed by the capacity integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: record-lane-sr141
+    description: |
+      Scope: the pinned structure records on corridor HC-141, both the 2024 delivery and the
+      2022 and 2023 prior deliveries of those same structures.
+      Produces: a per-structure record sheet for that corridor, carrying each structure's current
+      coded condition items and ratings, and the direction those items have moved since the prior
+      deliveries, which is the condition trend the register reports.
+      Coordination: dispatched by the router; consumed by the capacity integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: record-lane-sr9
+    description: |
+      Scope: the pinned structure records on corridor HC-009, both the 2024 delivery and the
+      2022 and 2023 prior deliveries of those same structures.
+      Produces: a per-structure record sheet for that corridor, carrying each structure's current
+      coded condition items and ratings, and the direction those items have moved since the prior
+      deliveries, which is the condition trend the register reports.
+      Coordination: dispatched by the router; consumed by the capacity integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: restriction-lane-us13-newcastle
+    description: |
+      Scope: the district restriction file for the structures on corridor HC-13N, meaning every
+      memo filed under one of those structure numbers.
+      Produces: for each of those structures, what its own file leaves standing on the docket
+      date and the memo id that carries it.
+      Coordination: dispatched by the router; consumed by the capacity integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: restriction-lane-us13-kent
+    description: |
+      Scope: the district restriction file for the structures on corridor HC-13K.
+      Produces: for each of those structures, what its own file leaves standing on the docket
+      date and the memo id that carries it.
+      Coordination: dispatched by the router; consumed by the capacity integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: restriction-lane-us13-sussex
+    description: |
+      Scope: the district restriction file for the structures on corridor HC-13S.
+      Produces: for each of those structures, what its own file leaves standing on the docket
+      date and the memo id that carries it.
+      Coordination: dispatched by the router; consumed by the capacity integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: restriction-lane-us301
+    description: |
+      Scope: the district restriction file for the structures on corridor HC-301.
+      Produces: for each of those structures, what its own file leaves standing on the docket
+      date and the memo id that carries it.
+      Coordination: dispatched by the router; consumed by the capacity integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: restriction-lane-sr141
+    description: |
+      Scope: the district restriction file for the structures on corridor HC-141.
+      Produces: for each of those structures, what its own file leaves standing on the docket
+      date and the memo id that carries it.
+      Coordination: dispatched by the router; consumed by the capacity integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: restriction-lane-sr9
+    description: |
+      Scope: the district restriction file for the structures on corridor HC-009.
+      Produces: for each of those structures, what its own file leaves standing on the docket
+      date and the memo id that carries it.
+      Coordination: dispatched by the router; consumed by the capacity integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: clearance-and-dimension-lane
+    description: |
+      Scope: the clearance and bypass fields of the pinned records, across all six corridors.
+      Produces: the per-structure width limit, height limit and bypass distance sheet.
+      Coordination: dispatched by the router; consumed by the capacity integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: material-and-effort-lane
+    description: |
+      Scope: the structure type, span and length fields of the pinned records, across all six
+      corridors.
+      Produces: the per-structure material class and re-rating effort sheet.
+      Coordination: dispatched by the router; consumed by the capacity integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: rulebook-lane
+    description: |
+      Scope: the packaged rules file.
+      Produces: a single reference sheet of the thresholds, tables, closed code lists and
+      programme limits the rules file states, with the section each comes from.
+      Coordination: dispatched by the router; consumed by both integrators.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: application-lane-a
+    description: |
+      Scope: applications APP-001 through APP-012, meaning both the filed rows and every piece of
+      correspondence received against them.
+      Produces: for each, the application as it stands on the docket date and the ordered
+      structure set its legs reach.
+      Coordination: dispatched by the router; consumed by the route integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: application-lane-b
+    description: |
+      Scope: applications APP-013 through APP-024, meaning both the filed rows and every piece of
+      correspondence received against them.
+      Produces: for each, the application as it stands on the docket date and the ordered
+      structure set its legs reach.
+      Coordination: dispatched by the router; consumed by the route integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: application-lane-c
+    description: |
+      Scope: applications APP-025 through APP-036, meaning both the filed rows and every piece of
+      correspondence received against them.
+      Produces: for each, the application as it stands on the docket date and the ordered
+      structure set its legs reach.
+      Coordination: dispatched by the router; consumed by the route integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: application-lane-d
+    description: |
+      Scope: applications APP-037 through APP-048, meaning both the filed rows and every piece of
+      correspondence received against them.
+      Produces: for each, the application as it stands on the docket date and the ordered
+      structure set its legs reach.
+      Coordination: dispatched by the router; consumed by the route integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: application-lane-e
+    description: |
+      Scope: applications APP-049 through APP-060, meaning both the filed rows and every piece of
+      correspondence received against them.
+      Produces: for each, the application as it stands on the docket date and the ordered
+      structure set its legs reach.
+      Coordination: dispatched by the router; consumed by the route integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: application-lane-f
+    description: |
+      Scope: applications APP-061 through APP-072, meaning both the filed rows and every piece of
+      correspondence received against them.
+      Produces: for each, the application as it stands on the docket date and the ordered
+      structure set its legs reach.
+      Coordination: dispatched by the router; consumed by the route integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: resource-roster-lane
+    description: |
+      Scope: the load-rating engineer roster.
+      Produces: the roster sheet of who is available, for how many weeks, in which class.
+      Coordination: dispatched by the router; consumed by the route integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: corridor-band-lane
+    description: |
+      Scope: the corridor definition table and the weight bands named in the rules file.
+      Produces: the corridor by band frame the ledger will be written into.
+      Coordination: dispatched by the router; consumed by the route integrator.
+    depends_on: [permit-desk-router]
+    parallel_group: specialists
+
+  - id: capacity-integrator
+    description: |
+      Scope: the returns of the six record lanes, the six restriction lanes, the clearance lane,
+      the material lane and the rulebook lane.
+      Produces: one closed capacity picture covering all eighty-eight structures, carrying each
+      structure's effective capacity, its re-rating eligibility and effort, and the condition trend
+      the record lanes read off the prior deliveries, held as the single version the rest of the
+      docket uses.
+      Coordination: dispatched by the router; consumes those fifteen specialist returns; dispatches
+      the adjudicator once both integrator returns are in, and feeds every writer. Runs in parallel
+      with the route integrator.
+    depends_on: [record-lane-us13-newcastle, record-lane-us13-kent, record-lane-us13-sussex,
+                 record-lane-us301, record-lane-sr141, record-lane-sr9,
+                 restriction-lane-us13-newcastle, restriction-lane-us13-kent,
+                 restriction-lane-us13-sussex, restriction-lane-us301, restriction-lane-sr141,
+                 restriction-lane-sr9, clearance-and-dimension-lane, material-and-effort-lane,
+                 rulebook-lane]
+    parallel_group: integration
+
+  - id: route-integrator
+    description: |
+      Scope: the returns of the six application lanes, the roster lane, the corridor band lane
+      and the rulebook lane.
+      Produces: the seventy-two applications as they stand and their resolved paths, the roster
+      picture and the corridor by band frame, as one set.
+      Coordination: dispatched by the router; consumes those nine specialist returns; returns to
+      the capacity integrator, which carries both returns into adjudication, and feeds every
+      writer. Runs in parallel with the capacity integrator.
+    depends_on: [application-lane-a, application-lane-b, application-lane-c,
+                 application-lane-d, application-lane-e, application-lane-f,
+                 resource-roster-lane, corridor-band-lane, rulebook-lane]
+    parallel_group: integration
+
+  - id: docket-adjudicator
+    description: |
+      Scope: the closed capacity picture and the resolved paths together.
+      Produces: the decision on each of the seventy-two applications, and the re-rating programme
+      the twenty engineer-weeks buy, as one adjudicated docket.
+      Coordination: dispatched by the capacity integrator once both integrator returns are in;
+      consumes both integrators; dispatches all seven writers and is their single upstream.
+    depends_on: [capacity-integrator, route-integrator]
+    parallel_group: adjudication
+
+  - id: capacity-register-writer
+    description: |
+      Scope: the adjudicated docket, for the structure register only.
+      Produces: /logs/agent/structure_capacity_register.csv in the required column order, its
+      condition trend column included.
+      Coordination: dispatched by the adjudicator; hands to the release check.
+    depends_on: [docket-adjudicator]
+    parallel_group: drafting
+
+  - id: dispositions-writer
+    description: |
+      Scope: the adjudicated docket, for the disposition file only.
+      Produces: /logs/agent/permit_dispositions.json with its entries and summary block.
+      Coordination: dispatched by the adjudicator; hands to the release check.
+    depends_on: [docket-adjudicator]
+    parallel_group: drafting
+
+  - id: programme-writer
+    description: |
+      Scope: the adjudicated docket, for the re-rating programme only.
+      Produces: /logs/agent/rerating_programme.csv.
+      Coordination: dispatched by the adjudicator; hands to the release check.
+    depends_on: [docket-adjudicator]
+    parallel_group: drafting
+
+  - id: ledger-writer
+    description: |
+      Scope: the adjudicated docket, for the corridor ledger only.
+      Produces: /logs/agent/corridor_bottleneck_ledger.tsv, thirty rows.
+      Coordination: dispatched by the adjudicator; hands to the release check.
+    depends_on: [docket-adjudicator]
+    parallel_group: drafting
+
+  - id: refusal-register-writer
+    description: |
+      Scope: the adjudicated docket, for the applications it does not issue.
+      Produces: /logs/agent/refusal_register.csv.
+      Coordination: dispatched by the adjudicator; hands to the release check.
+    depends_on: [docket-adjudicator]
+    parallel_group: drafting
+
+  - id: capacity-chart-writer
+    description: |
+      Scope: the adjudicated docket, for the chart only.
+      Produces: /logs/agent/capacity_profile.svg.
+      Coordination: dispatched by the adjudicator; hands to the release check.
+    depends_on: [docket-adjudicator]
+    parallel_group: drafting
+
+  - id: decision-letter-writer
+    description: |
+      Scope: the adjudicated docket, for the written decision letter only.
+      Produces: /logs/agent/permit_decision_letter.md, a docket summary and one section per
+      application.
+      Coordination: dispatched by the adjudicator; hands to the release check.
+    depends_on: [docket-adjudicator]
+    parallel_group: drafting
+
+  - id: arithmetic-audit
+    description: |
+      Scope: the seven drafted files and the packaged records.
+      Produces: a discrepancy list naming the file, the field and both values, wherever a stated
+      figure and the rows beneath it disagree.
+      Coordination: dispatched by the top-level agent over the drafted package; consumes all
+      seven writers; returns its list to the release check. Runs in parallel with the grounding audit.
+    depends_on: [capacity-register-writer, dispositions-writer, programme-writer, ledger-writer,
+                 refusal-register-writer, capacity-chart-writer, decision-letter-writer]
+    parallel_group: assurance
+
+  - id: grounding-audit
+    description: |
+      Scope: the seven drafted files and the packaged records.
+      Produces: the list of identifiers, figures and stated criteria that no packaged record
+      supports, and the list of letter sections that do not carry their own application's facts.
+      Coordination: dispatched by the top-level agent over the drafted package; consumes all
+      seven writers; returns its list to the release check. Runs in parallel with the arithmetic audit.
+    depends_on: [capacity-register-writer, dispositions-writer, programme-writer, ledger-writer,
+                 refusal-register-writer, capacity-chart-writer, decision-letter-writer]
+    parallel_group: assurance
+
+  - id: release-check
+    description: |
+      Scope: the seven drafted files and the two audit returns.
+      Produces: the corrected package at the seven required /logs/agent paths.
+      Coordination: dispatched by the top-level agent; consumes both audits; final node, hands
+      to nobody.
+    depends_on: [arithmetic-audit, grounding-audit]
+    parallel_group: release

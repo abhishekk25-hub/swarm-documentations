@@ -1,0 +1,29 @@
+[task]
+name = "swarmbench/3f1c9e8a7b624d19a5c83f0d2e4916ab-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-CHANGE-HEALTHCARE-TABLETOP"
+description = "Source-grounded cyber crisis tabletop exercise kit based on the 2024 Change Healthcare incident. Agents use 50 pinned local source snapshots and PDFs, interpret source-derived visual exhibits, verify quotes against source snapshots, and produce a CISO-ready exercise package with cross-referenced injects, role packets, observer scorecards, incident map, and after-action template."
+
+[metadata]
+verifier_type = "llm-judge"
+domain = "planning-operations"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_writing", "multi_modal"]
+dag_depth = 3
+dag_width = 42
+human_solving_hours_estimate = 80.0
+human_solving_hours_justification = "50 public sources x 20 minutes to fetch, read, extract, and validate quotes = 16.7h. Incident chronology and evidence reconciliation = 8h. 40+ inject design with source grounding and role targeting = 12h. Six role packets = 12h. Facilitator guide and executive runbook = 12h. Observer scorecards and after-action workflow = 6h. HTML incident map = 5h. Cross-artifact verification and citation cleanup = 8h. Total about 80h for a senior cyber exercise designer."
+estimated_sub_agents = 25
+input_token_estimate = 250000
+scoring_design = "Hybrid rubric. verify.py checks files, schemas, cross-references, source_id/url matching, visual exhibit usage, and quote round-tripping against local source snapshots. judge.py uses an independent LLM to evaluate whether evidence supports claims, whether visual exhibit interpretation is useful, whether artifacts are operationally useful, and whether the package is incident-specific. All checklist items are equal points; no weighted multipliers, score caps, or binary gates."
+why_multi_agent = "Single-agent failure is expected through breadth collapse, attention degradation, visual interpretation drift, and cross-artifact control pressure. The task requires reading and reconciling 50 local source snapshots, interpreting source-derived visual exhibits, extracting exact quotes, creating 40+ injects, maintaining valid IDs across nine deliverables, and producing role-specific materials, observer criteria, an incident map, and after-action workflow. Multi-agent decomposition assigns separate source, chronology, visual-exhibit, inject, role, observer, visualization, and verifier specialists."
+reference_link = "https://www.sec.gov/Archives/edgar/data/731766/000073176624000045/unh-20240221.htm"
+
+[agent]
+timeout_sec = 5400
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600

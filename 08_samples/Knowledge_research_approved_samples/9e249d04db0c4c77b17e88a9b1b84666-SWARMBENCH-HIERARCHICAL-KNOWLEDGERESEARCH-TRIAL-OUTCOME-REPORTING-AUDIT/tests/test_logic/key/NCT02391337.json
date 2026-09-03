@@ -1,0 +1,982 @@
+{
+ "nct": "NCT02391337",
+ "prespecification_version": 1,
+ "prespecification_date": "2016-05-25",
+ "publications": [
+  "PMC11271403",
+  "PMC12015011",
+  "PMC12751528",
+  "PMC5588987"
+ ],
+ "prespecified_units": [
+  {
+   "uid": "sec1",
+   "measure": "Left ventricular ejection fraction",
+   "role": "secondary",
+   "timeframe": "12 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec2",
+   "measure": "Diastolic function",
+   "role": "secondary",
+   "timeframe": "12 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec4",
+   "measure": "Composite functional status measures",
+   "role": "secondary",
+   "timeframe": "12 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec8",
+   "measure": "Change in heart-rate from baseline",
+   "role": "secondary",
+   "timeframe": "12 months",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11271403",
+   "reported_label": "heart rate",
+   "reported_instrument": "wearable sensors",
+   "reported_role": "primary",
+   "role_evidence_quote": "with the primary analysis over a prespecified period of the first 20 weeks of device use",
+   "result_quote": "Heart rate ( n  = 143,379,796) and physical activity ( n  = 23,704,307) intervals were obtained from 53 participants (mean age 75.6 years (s.d."
+  },
+  {
+   "uid": "oth2",
+   "measure": "Drug discontinuation rate",
+   "role": "other",
+   "timeframe": "12 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "oth3",
+   "measure": "Frequency and nature of adverse reactions",
+   "role": "other",
+   "timeframe": "12 months",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12751528",
+   "reported_label": "Adverse events",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Pre-specified primary outcomes for this sub-study were NYHA class, mEHRA score, N-terminal pro-B-type natriuretic peptide (NT-proBNP), and adverse events at 12 months ( n =145).",
+   "result_quote": "A total of 20 patients (28.4%) experienced 29 adverse events with digoxin, compared to 51 patients (70.8%) with 142 events for beta-blockers; OR 0.16 (95% CI 0.07 to 0.34, p  < 0.001)."
+  },
+  {
+   "uid": "oth4",
+   "measure": "Hospital admission rate",
+   "role": "other",
+   "timeframe": "12 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "oth5",
+   "measure": "Retention of participants",
+   "role": "other",
+   "timeframe": "12 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "oth6",
+   "measure": "Preferred outcome measures for this cohort of patients",
+   "role": "other",
+   "timeframe": "12 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "oth7",
+   "measure": "Population-specific standard deviations to enable sample size calculation for a future trial powered to detect a difference in hospital admissions.",
+   "role": "other",
+   "timeframe": "12 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "oth8",
+   "measure": "Population-specific standard deviations to enable sample size calculation for a future trial powered to detect a difference in hospital admissions.",
+   "role": "other",
+   "timeframe": "12 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "oth9",
+   "measure": "Population-specific standard deviations to enable sample size calculation for a future trial powered to detect a difference in hospital admissions.",
+   "role": "other",
+   "timeframe": "12 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "oth10",
+   "measure": "Population-specific standard deviations to enable sample size calculation for a future trial powered to detect a difference in hospital admissions.",
+   "role": "other",
+   "timeframe": "12 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "oth11",
+   "measure": "Population-specific standard deviations to enable sample size calculation for a future trial powered to detect a difference in hospital admissions.",
+   "role": "other",
+   "timeframe": "12 months",
+   "reported": false,
+   "change_disclosed": false
+  }
+ ],
+ "additional_units": [
+  {
+   "rid": "PMC11271403#1",
+   "reporting_document": "PMC11271403",
+   "reported_label": "heart rate",
+   "reported_instrument": "wearable sensors",
+   "reported_role": "primary",
+   "role_evidence_quote": "with the primary analysis over a prespecified period of the first 20 weeks of device use",
+   "result_quote": "0.66 when adjusted for age, gender, diagnosis of heart failure and N-terminal pro-hormone B-natriuretic peptide (NT-proBNP) (95% CI -3.45 to 4.77; P  = 0.75)"
+  },
+  {
+   "rid": "PMC11271403#2",
+   "reporting_document": "PMC11271403",
+   "reported_label": "heart rate",
+   "reported_instrument": "wearable sensors",
+   "reported_role": "primary",
+   "role_evidence_quote": "with the primary analysis over a prespecified period of the first 20 weeks of device use",
+   "result_quote": "Heart rate ( n  = 143,379,796) and physical activity ( n  = 23,704,307) intervals were obtained from 53 participants (mean age 75.6 years (s.d."
+  },
+  {
+   "rid": "PMC11271403#3",
+   "reporting_document": "PMC11271403",
+   "reported_label": "heart rate",
+   "reported_instrument": "wearable sensors",
+   "reported_role": "primary",
+   "role_evidence_quote": "with the primary analysis over a prespecified period of the first 20 weeks of device use",
+   "result_quote": "There remained no difference in heart rate between the digoxin and beta-blocker groups after accounting for physical activity ( P  = 0.74)."
+  },
+  {
+   "rid": "PMC11271403#4",
+   "reporting_document": "PMC11271403",
+   "reported_label": "heart rate",
+   "reported_instrument": "wearable sensors",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Post-hoc adjusted subgroup analysis according to activity levels",
+   "result_quote": "no difference in heart rate between digoxin and beta-blockers in those with low weekly-averaged activity (<15,000 steps per week; 298 weeks from 44 patients; P  = 0.48)"
+  },
+  {
+   "rid": "PMC11271403#5",
+   "reporting_document": "PMC11271403",
+   "reported_label": "heart rate",
+   "reported_instrument": "wearable sensors",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Post-hoc adjusted subgroup analysis according to activity levels",
+   "result_quote": "Heart rate ( n  = 143,379,796) and physical activity ( n  = 23,704,307) intervals were obtained from 53 participants (mean age 75.6 years (s.d."
+  },
+  {
+   "rid": "PMC11271403#6",
+   "reporting_document": "PMC11271403",
+   "reported_label": "heart rate",
+   "reported_instrument": "wearable sensors",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Post-hoc adjusted subgroup analysis according to activity levels",
+   "result_quote": "Heart rate ( n  = 143,379,796) and physical activity ( n  = 23,704,307) intervals were obtained from 53 participants (mean age 75.6 years (s.d."
+  },
+  {
+   "rid": "PMC11271403#7",
+   "reporting_document": "PMC11271403",
+   "reported_label": "New York Heart Association functional class",
+   "reported_instrument": "convolutional neural network",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Exploratory analysis of wearable data to predict NYHA class",
+   "result_quote": "Using a convolutional neural network designed to account for missing data, we found that wearable device data could predict New York Heart Association functional class 5 months after baseline assessment similarly to standard clinical measures of electrocardiographic heart rate and 6-minute walk test (F1 score 0.56 (95% CI 0.41 to 0.70) versus 0.55 (95% CI 0.41 to 0.68);"
+  },
+  {
+   "rid": "PMC11271403#8",
+   "reporting_document": "PMC11271403",
+   "reported_label": "New York Heart Association functional class",
+   "reported_instrument": "ECG heart rate and 6MW test results",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Exploratory analysis of wearable data to predict NYHA class",
+   "result_quote": "a model generated from conventional trial parameters (ECG heart rate and 6MW test results), which returned an F1 score of 0.55 (95% CI 0.41 to 0.68); P  = 0.88 for patient-level comparison with wearables CNN."
+  },
+  {
+   "rid": "PMC11271403#9",
+   "reporting_document": "PMC11271403",
+   "reported_label": "New York Heart Association functional class",
+   "reported_instrument": "wearable data with clinical factors",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Exploratory analysis of wearable data to predict NYHA class",
+   "result_quote": "Using a convolutional neural network designed to account for missing data, we found that wearable device data could predict New York Heart Association functional class 5 months after baseline assessment similarly to standard clinical measures of electrocardiographic heart rate and 6-minute walk test (F1 score 0.56 (95% CI 0.41 to 0.70) versus 0.55 (95% CI 0.41 to 0.68);"
+  },
+  {
+   "rid": "PMC11271403#10",
+   "reporting_document": "PMC11271403",
+   "reported_label": "New York Heart Association functional class",
+   "reported_instrument": "ECG heart rate and 6MW test",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Exploratory analysis of wearable data to predict NYHA class",
+   "result_quote": "The corresponding areas under the receiver operator characteristic curves were 0.73 for ECG heart rate and 6MW test, 0.77 for the wearables CNN and 0.78 for wearables plus clinical factors."
+  },
+  {
+   "rid": "PMC11271403#11",
+   "reporting_document": "PMC11271403",
+   "reported_label": "improved motivation for physical activity",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "when asked at final follow-up, the same proportion in each randomized group indicated improved motivation for physical activity:",
+   "result_quote": "There is a known motivational and behavioral impact from wearables, although when asked at final follow-up, the same proportion in each randomized group indicated improved motivation for physical activity: 16 patients (59.3%) in the digoxin group and 13 (54.2%) in the beta-blocker group ( P for comparison = 0.71)."
+  },
+  {
+   "rid": "PMC11271403#12",
+   "reporting_document": "PMC11271403",
+   "reported_label": "use of the wrist-worn wearable",
+   "reported_instrument": "wrist-worn wearable",
+   "reported_role": "other",
+   "role_evidence_quote": "There was consistent use of the wrist-worn wearable (more so than the smartphone), with 90.4% of participants using this every day for the last 7 days before the interim review (Extended Data Table 2 ).",
+   "result_quote": "There was consistent use of the wrist-worn wearable (more so than the smartphone), with 90.4% of participants using this every day for the last 7 days before the interim review (Extended Data Table 2 )."
+  },
+  {
+   "rid": "PMC12015011#0",
+   "reporting_document": "PMC12015011",
+   "reported_label": "mean saving per patient per year",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "This study aimed to evaluate the cost-effectiveness of digoxin versus beta-blockers for heart rate control in patients with permanent AF and symptoms of heart failure.",
+   "result_quote": "Treatment with digoxin was significantly less costly, with a mean saving of  530.41 per patient per year (95% CI - 848.06 to - 249.38, p=0.001)."
+  },
+  {
+   "rid": "PMC12015011#1",
+   "reporting_document": "PMC12015011",
+   "reported_label": "QALYs",
+   "reported_instrument": "EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire",
+   "reported_role": "primary",
+   "role_evidence_quote": "Patient-reported QoL using the EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire was the primary health outcome measure for the economic analysis.",
+   "result_quote": "There was no significant difference in QALYs (0.013; 95% CI -0.033 to 0.052, p=0.56)."
+  },
+  {
+   "rid": "PMC12015011#2",
+   "reporting_document": "PMC12015011",
+   "reported_label": "probability of digoxin being cost-effective",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The net monetary benefits were generated from these estimates to calculate the probability of digoxin being cost-effective at different threshold values of willingness to pay per additional QALY, with results plotted as a cost-effectiveness acceptability curve.",
+   "result_quote": "At the  20 000 per-QALY willingness to pay threshold, the probability of digoxin being cost-effective compared with beta-blockers was 94%, with potential annual savings to the NHS of  102 million/year (95% CI  48 million to  164 million saving, p=0.001)."
+  },
+  {
+   "rid": "PMC12015011#3",
+   "reporting_document": "PMC12015011",
+   "reported_label": "potential annual savings to the NHS",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Extrapolation from the RATE-AF trial to an annual UK NHS cost for AF was calculated post hoc using published sources of data on AF prevalence, medication usage and the cost of managing AF to the NHS ( online supplemental table 4 ).",
+   "result_quote": "Post hoc extrapolation to current UK NHS prevalence and cost for AF suggests a saving of  102 million/annum (95% CI  48 million to  164 million, p=0.001), equivalent to a 5.9% saving on the annual budget spent on AF in the UK ( online supplemental table 4 )."
+  },
+  {
+   "rid": "PMC12015011#4",
+   "reporting_document": "PMC12015011",
+   "reported_label": "death",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "It was assumed that patients who died of cardiovascular events did not consume any resources after the date of death, therefore missing cost values were replaced with zero.",
+   "result_quote": "It was assumed that patients who died of cardiovascular events did not consume any resources after the date of death, therefore missing cost values were replaced with zero."
+  },
+  {
+   "rid": "PMC12015011#5",
+   "reporting_document": "PMC12015011",
+   "reported_label": "toxicity events",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "All adverse events (as listed in the Summary of Product Characteristics for each drug) were compiled by directly asking participants at each trial visit and review of the electronic medical record.",
+   "result_quote": "There were no toxicity events recorded with the low-dose digoxin approach."
+  },
+  {
+   "rid": "PMC12015011#6",
+   "reporting_document": "PMC12015011",
+   "reported_label": "mean total costs over the trial period",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The within-trial economic analysis estimates the cost-utility of digoxin versus beta-blockers for heart rate control from a UK NHS perspective.",
+   "result_quote": "The mean total costs over the trial period were  46.19 per patient randomised to digoxin and  535.39 per patient for those randomised to beta blockers."
+  },
+  {
+   "rid": "PMC12015011#7",
+   "reporting_document": "PMC12015011",
+   "reported_label": "adjusted bootstrapped difference in total costs",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Differences in mean costs and QALYs between treatment arms were used to calculate the incremental cost-effectiveness ratio, or to determine dominance if a comparator was found to be more effective and less costly,",
+   "result_quote": "The adjusted bootstrapped difference in favour of digoxin was - 530.41 (95% CI - 848.06 to - 249.38, p=0.001)."
+  },
+  {
+   "rid": "PMC12015011#8",
+   "reporting_document": "PMC12015011",
+   "reported_label": "General practitioner contact Face to face per-patient cost difference",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Resource use data were collected prospectively for individual patients, covering primary healthcare, secondary healthcare and medication use.",
+   "result_quote": "Face to face\n0.21 (0.62)\n8.06 (24.43)\n0.72 (0.92)\n28.39 (36.01)\n-19.13 (-28.08 to -10.37)"
+  },
+  {
+   "rid": "PMC12015011#9",
+   "reporting_document": "PMC12015011",
+   "reported_label": "General practitioner contact Home per-patient cost difference",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Resource use data were collected prospectively for individual patients, covering primary healthcare, secondary healthcare and medication use.",
+   "result_quote": "Home\n-\n-\n0.01 (0.11)\n1.32 (11.54)\n-0.73 (-3.15 to 0)"
+  },
+  {
+   "rid": "PMC12015011#10",
+   "reporting_document": "PMC12015011",
+   "reported_label": "Nurse contact Face to face per-patient cost difference",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Resource use data were collected prospectively for individual patients, covering primary healthcare, secondary healthcare and medication use.",
+   "result_quote": "Face to face\n0.03 (0.16)\n0.30 (1.78)\n0.07 (0.30)\n0.71 (3.24)\n-0.40 (-1.23 to 0.28)"
+  },
+  {
+   "rid": "PMC12015011#11",
+   "reporting_document": "PMC12015011",
+   "reported_label": "Nurse contact Home per-patient cost difference",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Resource use data were collected prospectively for individual patients, covering primary healthcare, secondary healthcare and medication use.",
+   "result_quote": "Home\n-\n-\n0.01 (0.11)\n0.23 (2.01)\n-0.16 (-0.61 to 0.00)"
+  },
+  {
+   "rid": "PMC12015011#12",
+   "reporting_document": "PMC12015011",
+   "reported_label": "Total primary care costs",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Resource use data were collected prospectively for individual patients, covering primary healthcare, secondary healthcare and medication use.",
+   "result_quote": "Total primary care costs\n8.36 (24.87)\n30.66 (40.44)\n-22.43 (-31.05 to -10.52); p<0.001"
+  },
+  {
+   "rid": "PMC12015011#13",
+   "reporting_document": "PMC12015011",
+   "reported_label": "mean total primary care cost",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Resource use data were collected prospectively for individual patients, covering primary healthcare, secondary healthcare and medication use.",
+   "result_quote": "Patients randomised to digoxin had less frequent face-to-face GP and nurse visits, and the mean total primary care cost was - 22.43 per patient over the 12-month period compared with those randomised to beta-blockers (95% CI - 30.12 to - 10.20, p<0.001)."
+  },
+  {
+   "rid": "PMC12015011#14",
+   "reporting_document": "PMC12015011",
+   "reported_label": "Heart Failure secondary care per-patient cost difference",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Primary and secondary healthcare resources were considered in the analysis if they were related to AF or other cardiovascular events, in consultation with clinical experts.",
+   "result_quote": "Heart Failure\n-\n0.05 (0.22)\n133.58 (641.88)\n-164.28 (-397.24 to -11.58)"
+  },
+  {
+   "rid": "PMC12015011#15",
+   "reporting_document": "PMC12015011",
+   "reported_label": "Arrhythmia secondary care per-patient cost difference",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Primary and secondary healthcare resources were considered in the analysis if they were related to AF or other cardiovascular events, in consultation with clinical experts.",
+   "result_quote": "Arrhythmia\n0.01 (0.12)\n8.88 (75.84)\n0.01 (0.11)\n44.82 (390.69)\n-24.24 (-111.25 to 17.88)"
+  },
+  {
+   "rid": "PMC12015011#16",
+   "reporting_document": "PMC12015011",
+   "reported_label": "Chest pain secondary care per-patient cost difference",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Primary and secondary healthcare resources were considered in the analysis if they were related to AF or other cardiovascular events, in consultation with clinical experts.",
+   "result_quote": "Chest pain\n-\n-\n0.04 (0.20)\n15.99 (79.39)\n-19.09 (-46.16 to 0.00)"
+  },
+  {
+   "rid": "PMC12015011#17",
+   "reporting_document": "PMC12015011",
+   "reported_label": "Stroke secondary care per-patient cost difference",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Primary and secondary healthcare resources were considered in the analysis if they were related to AF or other cardiovascular events, in consultation with clinical experts.",
+   "result_quote": "Stroke\n-\n-\n0.03 (0.16)\n124.13 (760.08)\n-140.53 (-396.03 to 0.00)"
+  },
+  {
+   "rid": "PMC12015011#18",
+   "reporting_document": "PMC12015011",
+   "reported_label": "Endocarditis secondary care per-patient cost difference",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Primary and secondary healthcare resources were considered in the analysis if they were related to AF or other cardiovascular events, in consultation with clinical experts.",
+   "result_quote": "Endocarditis\n-\n-\n0.01 (0.11)\n21.22 (185.02)\n-15.80 (-63.26 to 0.00)"
+  },
+  {
+   "rid": "PMC12015011#19",
+   "reporting_document": "PMC12015011",
+   "reported_label": "Myocardial Infarction secondary care per-patient cost difference",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Primary and secondary healthcare resources were considered in the analysis if they were related to AF or other cardiovascular events, in consultation with clinical experts.",
+   "result_quote": "Myocardial Infarction\n-\n-\n0.01 (0.11)\n16.43 (143.27)\n-18.58 (-66.83 to 0.00)"
+  },
+  {
+   "rid": "PMC12015011#20",
+   "reporting_document": "PMC12015011",
+   "reported_label": "Syncope secondary care per-patient cost difference",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Primary and secondary healthcare resources were considered in the analysis if they were related to AF or other cardiovascular events, in consultation with clinical experts.",
+   "result_quote": "Syncope\n-\n-\n0.01 (0.11)\n43.24 (376.93)\n-42.67 (-158.14 to 0.00)"
+  },
+  {
+   "rid": "PMC12015011#21",
+   "reporting_document": "PMC12015011",
+   "reported_label": "Pacemaker implantation secondary care per-patient cost difference",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Primary and secondary healthcare resources were considered in the analysis if they were related to AF or other cardiovascular events, in consultation with clinical experts.",
+   "result_quote": "Pacemaker implantation\n-\n-\n0.04 (0.20)\n85.42 (435.09)\n-92.85 (-213.48 to 0.00)"
+  },
+  {
+   "rid": "PMC12015011#22",
+   "reporting_document": "PMC12015011",
+   "reported_label": "Total secondary care costs",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Primary and secondary healthcare resources were considered in the analysis if they were related to AF or other cardiovascular events, in consultation with clinical experts.",
+   "result_quote": "Total secondary care costs\n8.88 (75.84)\n484.83 (1266.02)\n-518.04 (-865.19 to -247.63); p=0.001"
+  },
+  {
+   "rid": "PMC12015011#23",
+   "reporting_document": "PMC12015011",
+   "reported_label": "mean total costs for secondary care",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Primary and secondary healthcare resources were considered in the analysis if they were related to AF or other cardiovascular events, in consultation with clinical experts.",
+   "result_quote": "The mean total costs for secondary care were  8.88 (SD  75.84) per patient over 12 months in the digoxin group and  484.83 (SD  1266.02) per patient in the beta-blocker group, with adjusted bootstrapped difference of - 518.04 per patient in favour of digoxin (95% CI - 865.19 to - 247.63, p=0.001)."
+  },
+  {
+   "rid": "PMC12015011#24",
+   "reporting_document": "PMC12015011",
+   "reported_label": "serious adverse events (SAEs)",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Cardiovascular events and any serious adverse events (SAE) underwent a process of independent clinical adjudication.",
+   "result_quote": "The cost of secondary care services, mainly inpatient care, was significantly lower in the digoxin arm, reflecting that these patients had substantially less SAEs (16 in 13 patients for digoxin vs 37 in 21 patients for beta- blockers)"
+  },
+  {
+   "rid": "PMC12015011#25",
+   "reporting_document": "PMC12015011",
+   "reported_label": "treatment-related adverse events",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The RATE-AF trial was not designed or powered to detect differences in cardiovascular events, although comparing total adverse events with digoxin versus beta blockers was a prespecified secondary outcome.",
+   "result_quote": "and less treatment-related adverse events (29 in 20 patients for digoxin vs 142 in 51 patients for beta-blockers) ( figure 1 and online supplemental table 3 )."
+  },
+  {
+   "rid": "PMC12015011#26",
+   "reporting_document": "PMC12015011",
+   "reported_label": "adverse treatment events",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "*A prespecified statistical analysis was performed for adverse treatment events (p<0.001).",
+   "result_quote": "*A prespecified statistical analysis was performed for adverse treatment events (p<0.001)."
+  },
+  {
+   "rid": "PMC12015011#27",
+   "reporting_document": "PMC12015011",
+   "reported_label": "Trial medication per-patient cost difference",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Costs of trial and additional medications were estimated using the average cost of the daily dose multiplied by the average duration of receiving the treatment.",
+   "result_quote": "Trial medication\n23.49 (11.35)\n18.34 (16.40)\n4.56 (-1.11 to 8.87)"
+  },
+  {
+   "rid": "PMC12015011#28",
+   "reporting_document": "PMC12015011",
+   "reported_label": "Additional/concomitant medication per-patient cost difference",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Costs of trial and additional medications were estimated using the average cost of the daily dose multiplied by the average duration of receiving the treatment.",
+   "result_quote": "Additional/concomitant medication\n5.47 (21.08)\n1.57 (13.67)\n3.50 (-0.99 to 8.48)"
+  },
+  {
+   "rid": "PMC12015011#29",
+   "reporting_document": "PMC12015011",
+   "reported_label": "Total health service cost",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Unit costs were assigned to health service resources to generate total healthcare costs per patient over 12 months of follow-up.",
+   "result_quote": "Total health service cost\n46.19 (87.19)\n535.39 (1261.21)\n-530.41 (-848.06 to -249.38); p=0.001"
+  },
+  {
+   "rid": "PMC12015011#30",
+   "reporting_document": "PMC12015011",
+   "reported_label": "EQ-5D-5L baseline mean index score",
+   "reported_instrument": "EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire",
+   "reported_role": "primary",
+   "role_evidence_quote": "Patient-reported QoL using the EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire was the primary health outcome measure for the economic analysis.",
+   "result_quote": "Mean index score (SD)\n0.665 (0.195)\n0.627 (0.218)\n0.029 (-0.026 to 0.086); p=0.32"
+  },
+  {
+   "rid": "PMC12015011#31",
+   "reporting_document": "PMC12015011",
+   "reported_label": "EQ-5D-5L baseline mean VAS score",
+   "reported_instrument": "EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire",
+   "reported_role": "primary",
+   "role_evidence_quote": "Patient-reported QoL using the EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire was the primary health outcome measure for the economic analysis.",
+   "result_quote": "Mean VAS score (SD)\n63.88 (16.73)\n61.63 (20.34)\n1.88 (-2.77 to 7.79); p=0.50"
+  },
+  {
+   "rid": "PMC12015011#32",
+   "reporting_document": "PMC12015011",
+   "reported_label": "EQ-5D-5L 6 months mean index score",
+   "reported_instrument": "EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire",
+   "reported_role": "primary",
+   "role_evidence_quote": "Patient-reported QoL using the EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire was the primary health outcome measure for the economic analysis.",
+   "result_quote": "Mean index score (SD)\n0.674 (0.246)\n0.655 (0.234)\n0.010 (-0.049 to 0.069); p=0.75"
+  },
+  {
+   "rid": "PMC12015011#33",
+   "reporting_document": "PMC12015011",
+   "reported_label": "EQ-5D-5L 6 months mean VAS score",
+   "reported_instrument": "EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire",
+   "reported_role": "primary",
+   "role_evidence_quote": "Patient-reported QoL using the EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire was the primary health outcome measure for the economic analysis.",
+   "result_quote": "Mean VAS score (SD)\n71.79 (16.29)\n66.72 (20.14)\n5.60 (0.51 to 10.85); p=0.033"
+  },
+  {
+   "rid": "PMC12015011#35",
+   "reporting_document": "PMC12015011",
+   "reported_label": "EQ-5D-5L 12 months mean VAS score",
+   "reported_instrument": "EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire",
+   "reported_role": "primary",
+   "role_evidence_quote": "Patient-reported QoL using the EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire was the primary health outcome measure for the economic analysis.",
+   "result_quote": "a significantly better visual analogue scale (VAS) score in those randomised to digoxin (mean bootstrapped difference 7.96, 95% CI 1.45 to 14.05, p=0.013)."
+  },
+  {
+   "rid": "PMC12015011#36",
+   "reporting_document": "PMC12015011",
+   "reported_label": "QALYs unadjusted mean difference",
+   "reported_instrument": "EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire",
+   "reported_role": "primary",
+   "role_evidence_quote": "Patient-reported QoL using the EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire was the primary health outcome measure for the economic analysis.",
+   "result_quote": "Unadjusted mean (SD)\n0.682 (0.205)\n0.646 (0.203)\n0.036 (-0.032 to 0.102); p=0.30"
+  },
+  {
+   "rid": "PMC12015011#37",
+   "reporting_document": "PMC12015011",
+   "reported_label": "QALYs adjusted mean difference",
+   "reported_instrument": "EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire",
+   "reported_role": "primary",
+   "role_evidence_quote": "Patient-reported QoL using the EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire was the primary health outcome measure for the economic analysis.",
+   "result_quote": "There were no significant differences between treatments in QALYs (0.013, 95% CI -0.033 to 0.052, p=0.56)."
+  },
+  {
+   "rid": "PMC12015011#38",
+   "reporting_document": "PMC12015011",
+   "reported_label": "total cost (base case complete case)",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The complete case data (costs and QALYs) from 149 patients showed that digoxin was associated with a significantly lower total cost:",
+   "result_quote": "The complete case data (costs and QALYs) from 149 patients showed that digoxin was associated with a significantly lower total cost: adjusted difference - 530.41 (95% CI - 848.06 to - 249.38, p=0.001) with no significant difference in QALYs (adjusted difference 0.013, 95% CI -0.033 to 0.052, p=0.056)."
+  },
+  {
+   "rid": "PMC12015011#39",
+   "reporting_document": "PMC12015011",
+   "reported_label": "QALYs (base case complete case adjusted difference)",
+   "reported_instrument": "EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire",
+   "reported_role": "primary",
+   "role_evidence_quote": "Patient-reported QoL using the EuroQol 5-Domain 5-Level (EQ-5D-5L) questionnaire was the primary health outcome measure for the economic analysis.",
+   "result_quote": "Adjusted mean (SD)\n0.013 (-0.033 to 0.052); p=0.56"
+  },
+  {
+   "rid": "PMC12015011#40",
+   "reporting_document": "PMC12015011",
+   "reported_label": "total cost (sensitivity analysis imputed data)",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "A multiple imputation approach was employed to account for the impact of missing data on the results.",
+   "result_quote": "A trial-based cost-utility analysis was performed from a healthcare perspective over 12 months."
+  },
+  {
+   "rid": "PMC12015011#42",
+   "reporting_document": "PMC12015011",
+   "reported_label": "probability of digoxin being cost-effective at  20 000 per QALY gained",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "with NICE thresholds of  20 000 and  30 000 per QALY gained.",
+   "result_quote": "The cost-effectiveness acceptability curve in figure 3 shows that digoxin was 94% and 89% cost-effective at willingness-to-pay thresholds per QALY gained of  20 000 and  30 000, respectively."
+  },
+  {
+   "rid": "PMC12015011#43",
+   "reporting_document": "PMC12015011",
+   "reported_label": "probability of digoxin being cost-effective at  30 000 per QALY gained",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "with NICE thresholds of  20 000 and  30 000 per QALY gained.",
+   "result_quote": "The cost-effectiveness acceptability curve in figure 3 shows that digoxin was 94% and 89% cost-effective at willingness-to-pay thresholds per QALY gained of  20 000 and  30 000, respectively."
+  },
+  {
+   "rid": "PMC12015011#44",
+   "reporting_document": "PMC12015011",
+   "reported_label": "5.9% saving on the annual budget spent on AF in the UK",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Extrapolation from the RATE-AF trial to an annual UK NHS cost for AF was calculated post hoc using published sources of data on AF prevalence, medication usage and the cost of managing AF to the NHS ( online supplemental table 4 ).",
+   "result_quote": "Post hoc extrapolation to current UK NHS prevalence and cost for AF suggests a saving of  102 million/annum (95% CI  48 million to  164 million, p=0.001), equivalent to a 5.9% saving on the annual budget spent on AF in the UK ( online supplemental table 4 )."
+  },
+  {
+   "rid": "PMC12751528#0",
+   "reporting_document": "PMC12751528",
+   "reported_label": "heart failure",
+   "reported_instrument": "New York Heart Association class",
+   "reported_role": "primary",
+   "role_evidence_quote": "Pre-specified primary outcomes for this sub-study were NYHA class, mEHRA score, N-terminal pro-B-type natriuretic peptide (NT-proBNP), and adverse events at 12 months ( n =145).",
+   "result_quote": "Compared to beta-blockers, patients randomised to digoxin had better functional outcomes at 12 months for heart failure (- 0.57 New York Heart Association class, 95% CI - 0.82 to - 0.32; p  < 0.001)"
+  },
+  {
+   "rid": "PMC12751528#1",
+   "reporting_document": "PMC12751528",
+   "reported_label": "NYHA class",
+   "reported_instrument": "New York Heart Association class",
+   "reported_role": "primary",
+   "role_evidence_quote": "Pre-specified primary outcomes for this sub-study were NYHA class, mEHRA score, N-terminal pro-B-type natriuretic peptide (NT-proBNP), and adverse events at 12 months ( n =145).",
+   "result_quote": "The mean difference in NYHA class at 12 months was - 0.57 favouring digoxin after adjustment for baseline values (95% CI - 0.82 to - 0.32, p  < 0.001) (Table 3 and Fig. 3 )."
+  },
+  {
+   "rid": "PMC12751528#2",
+   "reporting_document": "PMC12751528",
+   "reported_label": "atrial fibrillation",
+   "reported_instrument": "modified European Heart Rhythm Association class",
+   "reported_role": "primary",
+   "role_evidence_quote": "Pre-specified primary outcomes for this sub-study were NYHA class, mEHRA score, N-terminal pro-B-type natriuretic peptide (NT-proBNP), and adverse events at 12 months ( n =145).",
+   "result_quote": "Compared to beta-blockers, patients randomised to digoxin had better functional outcomes at 12 months for heart failure (- 0.57 New York Heart Association class, 95% CI - 0.82 to - 0.32; p  < 0.001) and atrial fibrillation (odds ratio 2.24 for a two-class improvement in modified European Heart Rhythm Association class, 95% CI 1.43-3.84; p  < 0.001)"
+  },
+  {
+   "rid": "PMC12751528#3",
+   "reporting_document": "PMC12751528",
+   "reported_label": "mEHRA two or more class improvement",
+   "reported_instrument": "modified European Heart Rhythm Association class",
+   "reported_role": "primary",
+   "role_evidence_quote": "Pre-specified primary outcomes for this sub-study were NYHA class, mEHRA score, N-terminal pro-B-type natriuretic peptide (NT-proBNP), and adverse events at 12 months ( n =145).",
+   "result_quote": "A two or more class mEHRA improvement occurred in 50 patients randomised to digoxin (68.4%) versus 23 for beta-blockers (31.9%); OR 2.24, 95% CI 1.43 to 3.84, p  < 0.001, with no interaction for baseline CTS."
+  },
+  {
+   "rid": "PMC12751528#4",
+   "reporting_document": "PMC12751528",
+   "reported_label": "NT-pro-B-type natriuretic peptide",
+   "reported_instrument": "N-terminal pro-B-type natriuretic peptide (NT-proBNP)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Pre-specified primary outcomes for this sub-study were NYHA class, mEHRA score, N-terminal pro-B-type natriuretic peptide (NT-proBNP), and adverse events at 12 months ( n =145).",
+   "result_quote": "Compared to beta-blockers, patients randomised to digoxin had better functional outcomes at 12 months for heart failure (- 0.57 New York Heart Association class, 95% CI - 0.82 to - 0.32; p  < 0.001) and atrial fibrillation (odds ratio 2.24 for a two-class improvement in modified European Heart Rhythm Association class, 95% CI 1.43-3.84; p  < 0.001), with lower NT-pro-B-type natriuretic peptide (geometric mean ratio 0.78, 95% CI 0.61 to 0.99; p  = 0.006)."
+  },
+  {
+   "rid": "PMC12751528#5",
+   "reporting_document": "PMC12751528",
+   "reported_label": "NT-proBNP",
+   "reported_instrument": "N-terminal pro-B-type natriuretic peptide (NT-proBNP)",
+   "reported_role": "primary",
+   "role_evidence_quote": "Pre-specified primary outcomes for this sub-study were NYHA class, mEHRA score, N-terminal pro-B-type natriuretic peptide (NT-proBNP), and adverse events at 12 months ( n =145).",
+   "result_quote": "Pre-specified primary outcomes for this sub-study were NYHA class, mEHRA score, N-terminal pro-B-type natriuretic peptide (NT-proBNP), and adverse events at 12 months ( n =145)."
+  },
+  {
+   "rid": "PMC12751528#6",
+   "reporting_document": "PMC12751528",
+   "reported_label": "adverse events",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Pre-specified primary outcomes for this sub-study were NYHA class, mEHRA score, N-terminal pro-B-type natriuretic peptide (NT-proBNP), and adverse events at 12 months ( n =145).",
+   "result_quote": "Digoxin was associated with fewer adverse events (odds ratio 0.16, 95% CI 0.07-0.34; p  < 0.001), again without any interaction from circulating CTS."
+  },
+  {
+   "rid": "PMC12751528#8",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Serious adverse events",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "All serious adverse events and incident cardiovascular events underwent a process of independent adjudication, described in more detail previously [ 6 ].",
+   "result_quote": "Serious adverse events were experienced by 13 patients (17.8%; 16 events) for digoxin and 21 patients (29.2%; 37 events) for beta-blockers."
+  },
+  {
+   "rid": "PMC12751528#9",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Digoxin levels by LC-MS/MS were strongly correlated with measurement by a clinical immunoassay",
+   "reported_instrument": "clinical immunoassay",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Pre-specified secondary outcomes at 6-month follow-up were changes in CTS concentration after treatment, correlation of spectrometry-derived digoxin levels with a clinical immunoassay, and analysis of 6-month outcomes (mEHRA score, NYHA class, NT-proBNP, and adverse events).",
+   "result_quote": "Digoxin levels by LC-MS/MS were strongly correlated with measurement by a clinical immunoassay ( r  = 0.87; p  < 0.001), and treatment with digoxin did not affect CTS concentrations at 6-month follow-up."
+  },
+  {
+   "rid": "PMC12751528#10",
+   "reporting_document": "PMC12751528",
+   "reported_label": "correlation of spectrometry-derived digoxin levels with a clinical immunoassay",
+   "reported_instrument": "clinical immunoassay",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Pre-specified secondary outcomes at 6-month follow-up were changes in CTS concentration after treatment, correlation of spectrometry-derived digoxin levels with a clinical immunoassay, and analysis of 6-month outcomes (mEHRA score, NYHA class, NT-proBNP, and adverse events).",
+   "result_quote": "There was a strong correlation and agreement between the immunoassay and mass spectrometry values (Pearson's r  = 0.871, p  < 0.001; Additional file 1: Fig. S3)."
+  },
+  {
+   "rid": "PMC12751528#11",
+   "reporting_document": "PMC12751528",
+   "reported_label": "digoxin level quantified by the clinical immunoassay",
+   "reported_instrument": "clinical immunoassay",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Pre-specified secondary outcomes at 6-month follow-up were changes in CTS concentration after treatment, correlation of spectrometry-derived digoxin levels with a clinical immunoassay, and analysis of 6-month outcomes (mEHRA score, NYHA class, NT-proBNP, and adverse events).",
+   "result_quote": "At 6 months, patients randomised to digoxin had a mean digoxin level of 0.78 ng/mL quantified by the clinical immunoassay (SD 0.31 ng/mL) and 0.89 ng/mL using the novel mass spectrometry assay (SD 0.43 ng/mL)."
+  },
+  {
+   "rid": "PMC12751528#12",
+   "reporting_document": "PMC12751528",
+   "reported_label": "digoxin level using the novel mass spectrometry assay",
+   "reported_instrument": "novel mass spectrometry assay",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Pre-specified secondary outcomes at 6-month follow-up were changes in CTS concentration after treatment, correlation of spectrometry-derived digoxin levels with a clinical immunoassay, and analysis of 6-month outcomes (mEHRA score, NYHA class, NT-proBNP, and adverse events).",
+   "result_quote": "At 6 months, patients randomised to digoxin had a mean digoxin level of 0.78 ng/mL quantified by the clinical immunoassay (SD 0.31 ng/mL) and 0.89 ng/mL using the novel mass spectrometry assay (SD 0.43 ng/mL)."
+  },
+  {
+   "rid": "PMC12751528#13",
+   "reporting_document": "PMC12751528",
+   "reported_label": "endogenous CTS concentrations were detectable but below the lower limit of quantification",
+   "reported_instrument": "ultra-high-performance liquid chromatography tandem mass spectrometry (LC-MS/MS)",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "In a large proportion of samples (> 60%), endogenous CTS concentrations were detectable but below the lower limit of quantification (Table 2 )."
+  },
+  {
+   "rid": "PMC12751528#14",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Digoxigenin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Digoxigenin (median concentration 0.175 nM) and digitoxigenin (median concentration 0.104 nM) were the most abundant CTS at baseline."
+  },
+  {
+   "rid": "PMC12751528#15",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Digitoxigenin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Digoxigenin (median concentration 0.175 nM) and digitoxigenin (median concentration 0.104 nM) were the most abundant CTS at baseline."
+  },
+  {
+   "rid": "PMC12751528#16",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Digitoxigenin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Digitoxigenin\n126 (78.8%)\n34 (21.3%)\n0.104 (0.054)\n0.067"
+  },
+  {
+   "rid": "PMC12751528#17",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Digoxigenin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Digoxigenin\n118 (73.8%)\n60 (37.5%)\n0.175 (0.082)\n0.128"
+  },
+  {
+   "rid": "PMC12751528#18",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Ouabain",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Ouabain\n77 (48.10%)\n7 (4.4%)\n0.068 (0.035)\n0.043"
+  },
+  {
+   "rid": "PMC12751528#19",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Telocinobufagin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Telocinobufagin\n68 (42.5%)\n1 (0.6%)\nn/a\n0.124"
+  },
+  {
+   "rid": "PMC12751528#20",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Cinobufagin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Cinobufagin\n67 (41.9%)\n54 (33.8%)\n0.103 (0.033)\n0.057"
+  },
+  {
+   "rid": "PMC12751528#21",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Marinobufagenin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Marinobufagenin\n49 (30.7%)\n1 (0.6%)\nn/a\n0.063"
+  },
+  {
+   "rid": "PMC12751528#22",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Bufalin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Bufalin\n34 (21.3%)\n0 (0.0%)\nn/a\n0.065"
+  },
+  {
+   "rid": "PMC12751528#23",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Cinobufotalin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Cinobufotalin\n17 (10.6%)\n4 (2.5%)\n0.156 (0.051)\n0.055"
+  },
+  {
+   "rid": "PMC12751528#24",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Dihydroouabain",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Dihydroouabain\n14 (8.8%)\n1 (0.6%)\nn/a\n0.085"
+  },
+  {
+   "rid": "PMC12751528#25",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Ouabagenin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Ouabagenin\n3 (1.9%)\n0 (0.0%)\nn/a\n0.228"
+  },
+  {
+   "rid": "PMC12751528#26",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Digitoxigenin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Digitoxigenin\n124 (82.7%)\n29 (19.4%)\n0.083 (0.069)\n0.067"
+  },
+  {
+   "rid": "PMC12751528#27",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Digoxigenin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Digoxigenin\n111 (74.0%)\n52 (34.7%)\n0.193 (0.074)\n0.128"
+  },
+  {
+   "rid": "PMC12751528#28",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Ouabain",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Ouabain\n80 (53.3%)\n3 (2.0%)\n0.046 (0.010)\n0.043"
+  },
+  {
+   "rid": "PMC12751528#29",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Cinobufagin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Cinobufagin\n70 (46.7%)\n55 (36.7%)\n0.094 (0.026)\n0.057"
+  },
+  {
+   "rid": "PMC12751528#30",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Telocinobufagin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Telocinobufagin\n61 (40.7%)\n1 (0.7%)\nn/a\n0.124"
+  },
+  {
+   "rid": "PMC12751528#31",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Marinobufagenin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Marinobufagenin\n35 (23.3%)\n1 (0.7%)\nn/a\n0.063"
+  },
+  {
+   "rid": "PMC12751528#32",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Bufalin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Bufalin\n27 (18.0%)\n0 (0.0%)\nn/a\n0.065"
+  },
+  {
+   "rid": "PMC12751528#33",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Cinobufotalin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Cinobufotalin\n19 (12.7%)\n6 (4.0%)\n0.125 (0.052)\n0.055"
+  },
+  {
+   "rid": "PMC12751528#34",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Dihydroouabain",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Dihydroouabain\n16 (10.7%)\n1 (0.7%)\nn/a\n0.085"
+  },
+  {
+   "rid": "PMC12751528#35",
+   "reporting_document": "PMC12751528",
+   "reported_label": "Ouabagenin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Detection of circulating cardiotonic steroids",
+   "result_quote": "Ouabagenin\n0 (0.0%)\n0 (0.0%)\nn/a\n0.228"
+  },
+  {
+   "rid": "PMC5588987#0",
+   "reporting_document": "PMC5588987",
+   "reported_label": "hospitalisation",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Why not choose a rhythm control strategy?",
+   "result_quote": "A meta-analysis of major published trials is presented in figure 2 , highlighting a 17% increase in the risk of hospitalisation in the rhythm control group (after exclusion of hospital visits related to cardioversion)."
+  },
+  {
+   "rid": "PMC5588987#1",
+   "reporting_document": "PMC5588987",
+   "reported_label": "composite of adverse clinical outcomes",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "What is the optimal heart rate target in AF?",
+   "result_quote": "lenient rate control was found to be non-inferior with an adjusted HR of 0.80 (90% CI 0.55 to 1.17) for a wide composite of adverse clinical outcomes (12.9%, compared with 14.9% in the strict control arm)."
+  },
+  {
+   "rid": "PMC5588987#2",
+   "reporting_document": "PMC5588987",
+   "reported_label": "LVEF",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Do outcomes vary with different rate control therapies?",
+   "result_quote": "where digoxin increased LVEF by 3%-11% and improved diastolic filling."
+  }
+ ],
+ "dropped_unusable_units": [
+  "PMC12015011#41: NCT02391337/PMC12015011#41 result: quote too short to be evidence",
+  "PMC5588987#3: NCT02391337/PMC5588987#3 role: quote too short to be evidence",
+  "PMC5588987#4: NCT02391337/PMC5588987#4 role: quote too short to be evidence",
+  "PMC5588987#5: NCT02391337/PMC5588987#5 role: quote too short to be evidence"
+ ]
+}

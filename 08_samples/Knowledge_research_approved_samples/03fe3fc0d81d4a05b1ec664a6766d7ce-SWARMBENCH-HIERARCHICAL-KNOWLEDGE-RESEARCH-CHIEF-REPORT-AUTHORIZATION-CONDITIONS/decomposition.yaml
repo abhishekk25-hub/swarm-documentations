@@ -1,0 +1,247 @@
+# ============================================================================
+# EXECUTION PLAN -- parallel_group marks the concurrency stages.
+#
+# This task uses a two-layer hierarchical coordination pattern, but only its
+# TOP layer has its own sub_tasks entry. sub_tasks below lists only what
+# is directly spawned at each dependency edge in this file -- super-manager
+# is the only entry for the whole report-review stage. Everything super-
+# manager itself spawns (four quintet managers, manager-1 through
+# manager-4) and everything each of THOSE spawns in turn (five report-
+# review workers per quintet, twenty total) is written out only in prose
+# inside super-manager's own description, never as separate sub_tasks
+# entries of their own -- the same record-manager rule applied recursively:
+# whatever an agent spawns is described in full, verbatim, inside that
+# spawning agent's OWN description, one level at a time, all the way down.
+# Nothing downstream depends on manager-1..4 or on any individual
+# review-cr-NN by id, so none of them needs an entry of its own; only
+# super-manager, as the thing this file's DAG edges actually reference
+# (check-portfolio depends on it), gets one. Below that stage,
+# portfolio-review, portfolio-normalization and portfolio-synthesis are
+# plain single-agent sub-tasks with no manager indirection -- each is one
+# agent doing its own reconciliation or synthesis, not spawning further
+# sub-agents. portfolio-synthesis is now two independent sub-tasks, not
+# one, so the briefing gets a dedicated writer instead of sharing a turn
+# with workbook assembly -- see the "dedicated briefing writer" rule below.
+# Do not perform any manager's underlying work yourself in place of
+# spawning it, and do not skip a stage's own analysis by deferring it to
+# an upstream or downstream stage.
+#
+#
+#   super-manager  (manager, stage: report-review-supervision)
+#     |
+#     +-- manager-1  (manager, stage: quintet-review-management)
+#     |     +-- review-cr-01..05 worker x 5  (parallel_group: report-review)
+#     +-- manager-2  (manager, stage: quintet-review-management)
+#     |     +-- review-cr-06..10 worker x 5  (parallel_group: report-review)
+#     +-- manager-3  (manager, stage: quintet-review-management)
+#     |     +-- review-cr-11..15 worker x 5  (parallel_group: report-review)
+#     +-- manager-4  (manager, stage: quintet-review-management)
+#           +-- review-cr-16..20 worker x 5  (parallel_group: report-review)
+#         = 1 super-manager spawning 4 quintet managers, each of which
+#           spawns 5 report-review workers, for 20 report-review workers
+#           total, each building the conditions_register and
+#           sponsor_readiness fields for exactly one packaged signed
+#           report from its own document alone.
+#
+# Stage order and size:
+#   report-review-supervision  1 sub-task, the ONLY entry for this whole
+#                               stage -- SUPER-MANAGER, whose description
+#                               spawns 4 quintet managers (manager-1..4,
+#                               one per five-unit block of
+#                               chiefs_reports_manifest.csv), each of which
+#                               spawns 5 report-review workers for its own
+#                               block (CR-01..05, CR-06..10, CR-11..15,
+#                               CR-16..20). Both the manager layer and the
+#                               worker layer are written entirely inside
+#                               super-manager's description, not as their
+#                               own sub_tasks entries.
+#   portfolio-review             1 sub-task, no manager -- check-portfolio
+#                               consolidates all twenty finished report
+#                               records into one memo, resolving
+#                               contradictions and base/supplemental
+#                               relationships across the full cohort
+#   portfolio-normalization      3 sub-tasks, all in parallel, no manager
+#                               -- one normalizing cost basis, one
+#                               normalizing environmental commitments, one
+#                               normalizing sponsor authorization and
+#                               readiness, each over the checked portfolio
+#   portfolio-synthesis          2 sub-tasks, in parallel, no manager --
+#                               build-tracker-workbook writes the xlsx,
+#                               write-legislative-briefing writes the md,
+#                               each independently from the same checked
+#                               portfolio and normalization results
+#
+# report-review-supervision:
+#   super-manager is the only sub_tasks entry for the entire report-review
+#   stage, and its description carries the whole two-level cascade below
+#   it. It spawns exactly four quintet managers in the same batch, one per
+#   five-unit block of /input_artifacts/chiefs_reports_manifest.csv,
+#   passing each manager only its own five unit_ids, the packaged report
+#   filenames for those five units, and the record schema verbatim --
+#   every conditions_register field and every sponsor_readiness field
+#   named in full -- so each manager passes it on unchanged rather than
+#   re-deriving or summarizing it. Each quintet manager then spawns five
+#   report-review workers for its own five units, passing through the
+#   same unit_id, packaged report filename, and full record schema; none
+#   of the five reads another unit's report or another worker's output,
+#   so all five under a given manager must run concurrently. Once all
+#   five of a quintet's workers are in, that manager consolidates the
+#   returned fields and resolves contradictions and base/supplemental
+#   relationships inside its own quintet before handing one checked set
+#   of five rows onward to check-portfolio. If a report-review worker
+#   fails, times out, or returns incomplete or invalid output, the owning
+#   quintet manager retries or replaces it before treating its own
+#   five-unit record set as complete; if a quintet manager itself fails,
+#   times out, or returns incomplete or invalid output, super-manager
+#   retries or replaces it before treating the twenty-unit record set as
+#   complete -- portfolio-normalization downstream must never see a gap.
+#   Do NOT run the four managers sequentially, and do not run the five
+#   workers under any one manager sequentially: elapsed time for this
+#   stage should approach the single slowest worker, not the sum of all
+#   twenty.
+# portfolio-review:
+#   Single task, no spawn -- check-portfolio consolidates the returned
+#   fields for all twenty units, CR-01 through CR-20, into one memo and
+#   resolves contradictions and base/supplemental relationships across the
+#   full cohort, then hands one checked set of twenty rows onward.
+# portfolio-normalization:
+#   Three independent single-agent sub-tasks -- normalize-cost-basis,
+#   normalize-environmental-commitments, normalize-sponsor-authorization --
+#   each read the checked portfolio and compare a different field subset
+#   across all twenty units (cost figures and basis; environmental
+#   commitments and dependencies; sponsor obligations, authorization
+#   matters and readiness). None reads another's output, so all three must
+#   run concurrently.
+# portfolio-synthesis:
+#   Two independent single-agent sub-tasks, not one. build-tracker-workbook
+#   writes /logs/agent/authorization_tracker.xlsx (both sheets) from the
+#   checked portfolio and the three normalization results.
+#   write-legislative-briefing writes /logs/agent/legislative_briefing.md
+#   from the same checked portfolio and normalization results, completely
+#   independently -- it does not wait on or read build-tracker-workbook's
+#   output, since both are derived from the same settled upstream data and
+#   a dependency between them would only add latency without adding
+#   information. Both must map every field back to the exact schema and
+#   wording instruction.md specifies (same unit_id, same project_name
+#   spelling, same readiness_label values) so the workbook and the
+#   briefing agree even though two different agents wrote them. The
+#   briefing's per-project discussion must be reasoning drawn from that
+#   project's own readiness_label and outstanding_dependency, not a list
+#   of those two fields with the project name swapped in -- see the
+#   "dedicated briefing writer" and "no copy-paste briefing" rules below.
+#   Independence of execution is not independence of source: both treat
+#   the checked portfolio memo and the three normalization results as the
+#   one shared source of fact they are each drawing from, so neither one
+#   quietly goes back to /input_artifacts/chiefs_reports/ for a specific
+#   number or phrase the other could not equally have used -- see the
+#   "shared source of fact" rule below.
+#
+# Reusable design rules encoded in the prose above (keep these true):
+#   - One sub_tasks entry per DAG edge, not per spawned agent. Only
+#     super-manager appears in sub_tasks for the report-review stage,
+#     because it is the only thing anything downstream (check-portfolio)
+#     actually depends on by id. The four quintet managers it spawns, and
+#     the twenty workers they spawn in turn, are described completely in
+#     prose inside super-manager's own description -- an agent that is
+#     spawned by something already described in an existing entry does
+#     not get a further entry of its own, no matter how many layers deep
+#     the spawn chain goes.
+#   - Managers dispatch, never do the work. super-manager and each quintet
+#     manager spawn via the task tool and read no signed report themselves.
+#   - Pass paths and the schema, not payloads. super-manager tells each
+#     quintet manager only its own five unit_ids and packaged report
+#     filenames and the record schema verbatim; each quintet manager does
+#     the same for its five report-review workers. Neither drafts any
+#     field's content itself before spawning.
+#   - Name the fixed schema in full. The full conditions_register and
+#     sponsor_readiness field list is passed verbatim at every layer,
+#     never summarized to "the usual fields" -- a worker not given the
+#     full schema invents a subset.
+#   - Layered failure recovery. super-manager retries or replaces any
+#     quintet manager that fails, times out, or returns invalid output;
+#     each quintet manager does the same for its own report-review
+#     workers -- so a gap never reaches check-portfolio.
+#   - Bounded spawn depth. Nothing below the report-review-worker level
+#     spawns further sub-agents.
+#   - Honest gaps over invented ones. Every worker writes not_stated only
+#     after actually checking its own packaged report for that element --
+#     not as a default for skipping the reading, and not as a substitute
+#     for an inferred value.
+#   - Bounded verification, no stalls. instruction.md already says "Where
+#     a signed report does not state a value write exactly not_stated
+#     rather than filling the cell from another project or from general
+#     practice" -- once a worker has genuinely checked and reached that
+#     not_stated conclusion for a field, that instruction.md sentence is
+#     satisfied and the field is done; it is not an invitation to keep
+#     re-checking the same field with additional tool calls to double
+#     confirm an answer already reached. A worker that keeps re-verifying
+#     an already-settled not_stated never returns, which blocks its
+#     manager's own turn (the manager is waiting on that same task call)
+#     and therefore blocks the manager's retry policy from ever running --
+#     a manager cannot retry or replace a worker it is still synchronously
+#     waiting on.
+#   - Dedicated briefing writer. write-legislative-briefing is its own
+#     sub-task, not folded into build-tracker-workbook, because an agent
+#     writing a data-heavy workbook and a leadership briefing in the same
+#     turn tends to treat the briefing as a transcription step tacked onto
+#     workbook assembly rather than its own piece of analysis. Giving the
+#     briefing a standalone agent removes that incentive.
+#   - No copy-paste briefing. write-legislative-briefing must turn each
+#     project's readiness_label and outstanding_dependency into an actual
+#     reasoning sentence, not a bare list entry restating those fields with
+#     the project name swapped -- and must vary that reasoning genuinely
+#     per project rather than reusing one sentence template across units.
+#     The register rows already carry enough per-unit specificity from the
+#     report-review workers to write this; it does not require re-reading
+#     the packaged PDFs at the synthesis stage.
+#   - Shared source of fact. build-tracker-workbook and
+#     write-legislative-briefing run independently and neither reads the
+#     other's output, but "independent" describes their execution, not
+#     their evidence -- both are coordinating on the same twenty units
+#     from the same checked portfolio memo and the same three
+#     normalization results, so any specific number, phrase or named
+#     detail either of them states should be something the other could
+#     equally have stated from that same shared upstream. Splitting a
+#     synthesis stage into independently-executing sub-tasks removes the
+#     incentive to transcribe one artifact into the other, but it also
+#     opens a new way for the two to drift apart: either sub-task going
+#     back to /input_artifacts/chiefs_reports/ on its own can surface a
+#     true, well-sourced detail the other's shared upstream never
+#     recorded, so the two artifacts disagree on facts even though every
+#     individual fact is accurate. instruction.md requires the briefing to
+#     stay consistent with both sheets, so a true fact absent from the
+#     workbook costs the same as a fabricated one -- coordinating on one
+#     shared upstream, not each sub-task's own independent reading, is
+#     what keeps that from happening.
+# ============================================================================
+version: "1.0"
+coordination_pattern: hierarchical
+sub_tasks:
+  - id: super-manager
+    description: You are the super-manager for the report-review stage, and you dispatch and never read a signed report, build a record, or reconcile a record yourself. Using the task tool, spawn one quintet manager for each group of five units -- manager-1 for CR-01 through CR-05, manager-2 for CR-06 through CR-10, manager-3 for CR-11 through CR-15, manager-4 for CR-16 through CR-20. Give each quintet manager this instruction set in full, verbatim, as its own prompt (this is the entire content of what each manager below is -- there is no separate sub_tasks entry for manager-1 through manager-4, and none for any review-cr-NN worker; you spawn managers, and each manager you spawn spawns its own five workers, and that is as far as the spawn chain goes, all described here rather than in further sub_tasks entries) -- "You manage one quintet of the report-review stage, reporting to super-manager. Using the task tool, spawn one report-review worker for each of your five assigned units and give each worker only its own unit_id and packaged report filename (CR-NN.pdf under /input_artifacts/chiefs_reports/) and the record schema verbatim, which is every conditions_register field -- project_name, report_date, project_purpose, nonfederal_sponsor, recommended_plan, estimated_first_cost, cost_price_level, benefit_basis, environmental_commitments, implementation_dependencies, authorization_matters, document_relationship, related_unit_id, citations -- and every sponsor_readiness field -- sponsor_named, sponsor_obligations, outstanding_dependency, readiness_label, readiness_rationale, supporting_citation -- with a page citation for each. Tell every worker to write not_stated where that unit's own signed report does not address one of them instead of inferring a value, and only after actually checking the packaged report for that element. Tell every worker that once it has genuinely checked and reached a not_stated conclusion for a field, that field is done -- not_stated is a complete, compliant answer, not an invitation to keep re-opening the same field with more tool calls to double confirm an answer already reached. If a report-review worker fails, times out, or returns incomplete or invalid output, recover it by retrying or replacing that worker before treating your quintet's record set as complete. Once all five are in, consolidate the returned fields for your five units and resolve contradictions and base and supplemental relationships inside that quintet before handing one checked set of five rows onward to check-portfolio." -- with manager-1's assigned units filled in as CR-01 through CR-05, manager-2's as CR-06 through CR-10, manager-3's as CR-11 through CR-15, and manager-4's as CR-16 through CR-20. If a quintet manager fails, times out, or returns incomplete or invalid output, recover it by retrying or replacing that manager before treating the twenty-unit record set as complete, since portfolio-normalization downstream must never see a gap. Do NOT spawn the four managers sequentially -- elapsed time for this stage should approach the single slowest quintet, not the sum of all four.
+    depends_on: []
+    parallel_group: report-review-supervision
+  - id: check-portfolio
+    description: Consolidate the returned fields for all twenty units, CR-01 through CR-20, into one memo and resolve contradictions and base and supplemental relationships across the full cohort before handing one checked set of twenty rows onward
+    depends_on: [super-manager]
+    parallel_group: portfolio-review
+  - id: normalize-cost-basis
+    description: Take the checked portfolio and compare estimated_first_cost and cost_price_level and benefit_basis across all twenty units and record where the reports do not support a comparison
+    depends_on: [check-portfolio]
+    parallel_group: portfolio-normalization
+  - id: normalize-environmental-commitments
+    description: Take the checked portfolio and compare environmental_commitments and implementation_dependencies across all twenty units and mark which commitments the signed reports state and which they leave open
+    depends_on: [check-portfolio]
+    parallel_group: portfolio-normalization
+  - id: normalize-sponsor-authorization
+    description: Take the checked portfolio and compare nonfederal_sponsor and sponsor_obligations and authorization_matters across all twenty units and settle readiness_label and readiness_rationale for every unit
+    depends_on: [check-portfolio]
+    parallel_group: portfolio-normalization
+  - id: build-tracker-workbook
+    description: Write /logs/agent/authorization_tracker.xlsx with a sheet named exactly conditions_register (columns in order -- unit_id, project_name, report_date, project_purpose, nonfederal_sponsor, recommended_plan, estimated_first_cost, cost_price_level, benefit_basis, environmental_commitments, implementation_dependencies, authorization_matters, document_relationship, related_unit_id, citations) and a sheet named exactly sponsor_readiness (columns in order -- unit_id, sponsor_named, sponsor_obligations, outstanding_dependency, readiness_label, readiness_rationale, supporting_citation) from the checked portfolio memo and the three normalization results, taking unit_id, project_name, report_date, project_purpose, document_relationship, related_unit_id, citations, sponsor_named and supporting_citation from the checked portfolio directly since none of the three normalizers cover them, and resolving any remaining disagreement between the cost and environmental and sponsor findings for the same unit. Every citations and supporting_citation cell uses the unit_id, the word page, and the page number, e.g. CR-07 page 4, with multiple citations in one cell separated by the pipe character. This is a workbook-only sub-task -- do not write legislative_briefing.md here; write-legislative-briefing does that independently from the same upstream inputs. You and write-legislative-briefing are coordinating on the same twenty units from the same shared upstream, not working from independent readings of the packaged reports, so treat the checked portfolio memo and the three normalization results as the single shared source of fact between you both -- draw every specific number, phrase and named item in this workbook from that shared upstream, not from a fresh pass over /input_artifacts/chiefs_reports/, so that anything you state here is something write-legislative-briefing could equally have stated from the same inputs, and vice versa.
+    depends_on: [check-portfolio, normalize-cost-basis, normalize-environmental-commitments, normalize-sponsor-authorization]
+    parallel_group: portfolio-synthesis
+  - id: write-legislative-briefing
+    description: Write /logs/agent/legislative_briefing.md from the checked portfolio memo and the three normalization results, independently of build-tracker-workbook -- do not wait on or read its output, since both of you are working from the same settled upstream data. The briefing must answer which of the twenty projects need action from a local sponsor before the next authorization cycle, which need technical clarification back from the Corps district, which need us to push federally, and what obligations keep showing up across the portfolio, naming every project by its unit_id and project_name exactly as they appear in the checked portfolio so the briefing stays consistent with the workbook build-tracker-workbook produces from the same source. Say plainly where the twenty reports do not settle a question rather than closing the gap with a reasonable sounding guess. For every project you discuss under the sponsor-action, technical-clarification, federal-advocacy and recurring-obligations questions, explain in a real sentence why that project falls there, using what is already specific to that unit in the checked portfolio and readiness rows -- its own sponsor, its own dependency, its own label rationale. A one-line "unit_id -- project_name -- outstanding_dependency" list restates data without answering why, which is what this briefing is actually for. Projects differ in what is holding each of them up, so write each project's reasoning from what is specific to it rather than reusing one sentence shape across projects with only the name changed -- the source material to do this already exists in your inputs; it does not require re-reading the packaged PDFs. You and build-tracker-workbook are coordinating on the same twenty units from the same shared upstream, not working from independent readings of the packaged reports, so treat the checked portfolio memo and the three normalization results as the single shared source of fact between you both -- a specific number, phrase or named detail belongs in this briefing only once it is already part of that shared upstream, not pulled fresh from /input_artifacts/chiefs_reports/, so that anything you state here is something build-tracker-workbook could equally have stated from the same inputs, and vice versa. This is what keeps the workbook and the briefing in agreement even though two different agents wrote them from the same source rather than from each other.
+    depends_on: [check-portfolio, normalize-cost-basis, normalize-environmental-commitments, normalize-sponsor-authorization]
+    parallel_group: portfolio-synthesis

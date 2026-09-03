@@ -1,0 +1,1177 @@
+version: '1.0'
+coordination_pattern: hierarchical
+sub_tasks:
+- id: orchestrator
+  description: >-
+    Own the whole assignment end to end. /input_artifacts/claims.csv lists every claim and the
+    meeting it belongs to, and there is one lane for each of the eight meetings. The finished
+    records are written to /logs/agent/claim_records/ by the lanes, so you never carry a record in a
+    message. Your own deliverable is /logs/agent/attribution_matrix.csv, one row per claim and one
+    column per participant named anywhere in the finished records, built by reading those records
+    back from disk so the marks agree with them exactly. Every claim id in claims.csv must have a
+    record file when you finish, and where a lane has left one missing the material to write it is
+    on disk under /workspace/parts/. Return only the number of record files present and the matrix
+    path.
+  depends_on: []
+  parallel_group: root
+
+- id: lane_20200129
+  description: >-
+    Own the 2020-01-29 meeting and the 37 claims that carry that meeting date in
+    /input_artifacts/claims.csv. The transcript is
+    /input_artifacts/transcripts/fomc-transcript-2020-01-29.txt and the minutes are
+    /input_artifacts/minutes/fomc-minutes-2020-01-29.txt, whose attendance list separates the
+    participants from the staff. Your eight readers each own a few named participants of this
+    meeting and write what they find to /workspace/parts/20200129/ , one file per reader, so their
+    findings reach you on disk rather than in a message. Your deliverable is the finished record for
+    every one of your 37 claims, written to /logs/agent/claim_records/ and named for the claim id,
+    each carrying claim_id, meeting_date, roster and counterpoints, where roster and counterpoints
+    hold every entry your readers recorded for that claim across all eight part files with the
+    speaker and quotation exactly as the reader wrote them. A claim that no reader supported takes
+    an empty list, which is a real answer. Return only the number of records you wrote.
+  depends_on: [orchestrator]
+  parallel_group: meeting_lanes
+
+- id: reader_20200129_g1
+  description: >-
+    You cover BARKIN, GEORGE, WILLIAMS at the 2020-01-29 meeting, and nobody else covers them. Read
+    their own turns in /input_artifacts/transcripts/fomc-transcript-2020-01-29.txt. Every one of the
+    37 claims in /input_artifacts/claims.csv carrying the meeting date 2020-01-29 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200129/reader_g1.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200129]
+  parallel_group: meeting_readers
+
+- id: reader_20200129_g2
+  description: >-
+    You cover BOSTIC, HARKER at the 2020-01-29 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-01-29.txt. Every one of the 37 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-01-29 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200129/reader_g2.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200129]
+  parallel_group: meeting_readers
+
+- id: reader_20200129_g3
+  description: >-
+    You cover BOWMAN, KAPLAN at the 2020-01-29 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-01-29.txt. Every one of the 37 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-01-29 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200129/reader_g3.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200129]
+  parallel_group: meeting_readers
+
+- id: reader_20200129_g4
+  description: >-
+    You cover BRAINARD, KASHKARI at the 2020-01-29 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-01-29.txt. Every one of the 37
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-01-29 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200129/reader_g4.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200129]
+  parallel_group: meeting_readers
+
+- id: reader_20200129_g5
+  description: >-
+    You cover BULLARD, MESTER at the 2020-01-29 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-01-29.txt. Every one of the 37 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-01-29 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200129/reader_g5.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200129]
+  parallel_group: meeting_readers
+
+- id: reader_20200129_g6
+  description: >-
+    You cover CLARIDA, POWELL at the 2020-01-29 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-01-29.txt. Every one of the 37 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-01-29 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200129/reader_g6.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200129]
+  parallel_group: meeting_readers
+
+- id: reader_20200129_g7
+  description: >-
+    You cover DALY, QUARLES at the 2020-01-29 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-01-29.txt. Every one of the 37 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-01-29 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200129/reader_g7.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200129]
+  parallel_group: meeting_readers
+
+- id: reader_20200129_g8
+  description: >-
+    You cover EVANS, ROSENGREN at the 2020-01-29 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-01-29.txt. Every one of the 37
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-01-29 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200129/reader_g8.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200129]
+  parallel_group: meeting_readers
+
+- id: lane_20200315
+  description: >-
+    Own the 2020-03-15 meeting and the 15 claims that carry that meeting date in
+    /input_artifacts/claims.csv. The transcript is
+    /input_artifacts/transcripts/fomc-transcript-2020-03-15.txt and the minutes are
+    /input_artifacts/minutes/fomc-minutes-2020-03-15.txt, whose attendance list separates the
+    participants from the staff. Your eight readers each own a few named participants of this
+    meeting and write what they find to /workspace/parts/20200315/ , one file per reader, so their
+    findings reach you on disk rather than in a message. Your deliverable is the finished record for
+    every one of your 15 claims, written to /logs/agent/claim_records/ and named for the claim id,
+    each carrying claim_id, meeting_date, roster and counterpoints, where roster and counterpoints
+    hold every entry your readers recorded for that claim across all eight part files with the
+    speaker and quotation exactly as the reader wrote them. A claim that no reader supported takes
+    an empty list, which is a real answer. Return only the number of records you wrote.
+  depends_on: [orchestrator]
+  parallel_group: meeting_lanes
+
+- id: reader_20200315_g1
+  description: >-
+    You cover BARKIN, GEORGE, WILLIAMS at the 2020-03-15 meeting, and nobody else covers them. Read
+    their own turns in /input_artifacts/transcripts/fomc-transcript-2020-03-15.txt. Every one of the
+    15 claims in /input_artifacts/claims.csv carrying the meeting date 2020-03-15 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200315/reader_g1.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200315]
+  parallel_group: meeting_readers
+
+- id: reader_20200315_g2
+  description: >-
+    You cover BOSTIC, HARKER at the 2020-03-15 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-03-15.txt. Every one of the 15 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-03-15 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200315/reader_g2.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200315]
+  parallel_group: meeting_readers
+
+- id: reader_20200315_g3
+  description: >-
+    You cover BOWMAN, KAPLAN at the 2020-03-15 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-03-15.txt. Every one of the 15 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-03-15 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200315/reader_g3.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200315]
+  parallel_group: meeting_readers
+
+- id: reader_20200315_g4
+  description: >-
+    You cover BRAINARD, KASHKARI at the 2020-03-15 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-03-15.txt. Every one of the 15
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-03-15 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200315/reader_g4.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200315]
+  parallel_group: meeting_readers
+
+- id: reader_20200315_g5
+  description: >-
+    You cover BULLARD, MESTER at the 2020-03-15 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-03-15.txt. Every one of the 15 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-03-15 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200315/reader_g5.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200315]
+  parallel_group: meeting_readers
+
+- id: reader_20200315_g6
+  description: >-
+    You cover CLARIDA, POWELL at the 2020-03-15 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-03-15.txt. Every one of the 15 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-03-15 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200315/reader_g6.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200315]
+  parallel_group: meeting_readers
+
+- id: reader_20200315_g7
+  description: >-
+    You cover DALY, QUARLES at the 2020-03-15 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-03-15.txt. Every one of the 15 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-03-15 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200315/reader_g7.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200315]
+  parallel_group: meeting_readers
+
+- id: reader_20200315_g8
+  description: >-
+    You cover EVANS, ROSENGREN at the 2020-03-15 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-03-15.txt. Every one of the 15
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-03-15 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200315/reader_g8.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200315]
+  parallel_group: meeting_readers
+
+- id: lane_20200429
+  description: >-
+    Own the 2020-04-29 meeting and the 12 claims that carry that meeting date in
+    /input_artifacts/claims.csv. The transcript is
+    /input_artifacts/transcripts/fomc-transcript-2020-04-29.txt and the minutes are
+    /input_artifacts/minutes/fomc-minutes-2020-04-29.txt, whose attendance list separates the
+    participants from the staff. Your eight readers each own a few named participants of this
+    meeting and write what they find to /workspace/parts/20200429/ , one file per reader, so their
+    findings reach you on disk rather than in a message. Your deliverable is the finished record for
+    every one of your 12 claims, written to /logs/agent/claim_records/ and named for the claim id,
+    each carrying claim_id, meeting_date, roster and counterpoints, where roster and counterpoints
+    hold every entry your readers recorded for that claim across all eight part files with the
+    speaker and quotation exactly as the reader wrote them. A claim that no reader supported takes
+    an empty list, which is a real answer. Return only the number of records you wrote.
+  depends_on: [orchestrator]
+  parallel_group: meeting_lanes
+
+- id: reader_20200429_g1
+  description: >-
+    You cover BARKIN, GEORGE, WILLIAMS at the 2020-04-29 meeting, and nobody else covers them. Read
+    their own turns in /input_artifacts/transcripts/fomc-transcript-2020-04-29.txt. Every one of the
+    12 claims in /input_artifacts/claims.csv carrying the meeting date 2020-04-29 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200429/reader_g1.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200429]
+  parallel_group: meeting_readers
+
+- id: reader_20200429_g2
+  description: >-
+    You cover BOSTIC, HARKER at the 2020-04-29 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-04-29.txt. Every one of the 12 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-04-29 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200429/reader_g2.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200429]
+  parallel_group: meeting_readers
+
+- id: reader_20200429_g3
+  description: >-
+    You cover BOWMAN, KAPLAN at the 2020-04-29 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-04-29.txt. Every one of the 12 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-04-29 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200429/reader_g3.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200429]
+  parallel_group: meeting_readers
+
+- id: reader_20200429_g4
+  description: >-
+    You cover BRAINARD, KASHKARI at the 2020-04-29 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-04-29.txt. Every one of the 12
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-04-29 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200429/reader_g4.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200429]
+  parallel_group: meeting_readers
+
+- id: reader_20200429_g5
+  description: >-
+    You cover BULLARD, MESTER at the 2020-04-29 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-04-29.txt. Every one of the 12 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-04-29 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200429/reader_g5.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200429]
+  parallel_group: meeting_readers
+
+- id: reader_20200429_g6
+  description: >-
+    You cover CLARIDA, POWELL at the 2020-04-29 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-04-29.txt. Every one of the 12 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-04-29 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200429/reader_g6.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200429]
+  parallel_group: meeting_readers
+
+- id: reader_20200429_g7
+  description: >-
+    You cover DALY, QUARLES at the 2020-04-29 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-04-29.txt. Every one of the 12 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-04-29 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200429/reader_g7.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200429]
+  parallel_group: meeting_readers
+
+- id: reader_20200429_g8
+  description: >-
+    You cover EVANS, ROSENGREN at the 2020-04-29 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-04-29.txt. Every one of the 12
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-04-29 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200429/reader_g8.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200429]
+  parallel_group: meeting_readers
+
+- id: lane_20200610
+  description: >-
+    Own the 2020-06-10 meeting and the 20 claims that carry that meeting date in
+    /input_artifacts/claims.csv. The transcript is
+    /input_artifacts/transcripts/fomc-transcript-2020-06-10.txt and the minutes are
+    /input_artifacts/minutes/fomc-minutes-2020-06-10.txt, whose attendance list separates the
+    participants from the staff. Your eight readers each own a few named participants of this
+    meeting and write what they find to /workspace/parts/20200610/ , one file per reader, so their
+    findings reach you on disk rather than in a message. Your deliverable is the finished record for
+    every one of your 20 claims, written to /logs/agent/claim_records/ and named for the claim id,
+    each carrying claim_id, meeting_date, roster and counterpoints, where roster and counterpoints
+    hold every entry your readers recorded for that claim across all eight part files with the
+    speaker and quotation exactly as the reader wrote them. A claim that no reader supported takes
+    an empty list, which is a real answer. Return only the number of records you wrote.
+  depends_on: [orchestrator]
+  parallel_group: meeting_lanes
+
+- id: reader_20200610_g1
+  description: >-
+    You cover BARKIN, GEORGE, WILLIAMS at the 2020-06-10 meeting, and nobody else covers them. Read
+    their own turns in /input_artifacts/transcripts/fomc-transcript-2020-06-10.txt. Every one of the
+    20 claims in /input_artifacts/claims.csv carrying the meeting date 2020-06-10 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200610/reader_g1.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200610]
+  parallel_group: meeting_readers
+
+- id: reader_20200610_g2
+  description: >-
+    You cover BOSTIC, HARKER at the 2020-06-10 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-06-10.txt. Every one of the 20 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-06-10 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200610/reader_g2.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200610]
+  parallel_group: meeting_readers
+
+- id: reader_20200610_g3
+  description: >-
+    You cover BOWMAN, KAPLAN at the 2020-06-10 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-06-10.txt. Every one of the 20 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-06-10 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200610/reader_g3.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200610]
+  parallel_group: meeting_readers
+
+- id: reader_20200610_g4
+  description: >-
+    You cover BRAINARD, KASHKARI at the 2020-06-10 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-06-10.txt. Every one of the 20
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-06-10 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200610/reader_g4.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200610]
+  parallel_group: meeting_readers
+
+- id: reader_20200610_g5
+  description: >-
+    You cover BULLARD, MESTER at the 2020-06-10 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-06-10.txt. Every one of the 20 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-06-10 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200610/reader_g5.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200610]
+  parallel_group: meeting_readers
+
+- id: reader_20200610_g6
+  description: >-
+    You cover CLARIDA, POWELL at the 2020-06-10 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-06-10.txt. Every one of the 20 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-06-10 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200610/reader_g6.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200610]
+  parallel_group: meeting_readers
+
+- id: reader_20200610_g7
+  description: >-
+    You cover DALY, QUARLES at the 2020-06-10 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-06-10.txt. Every one of the 20 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-06-10 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200610/reader_g7.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200610]
+  parallel_group: meeting_readers
+
+- id: reader_20200610_g8
+  description: >-
+    You cover EVANS, ROSENGREN at the 2020-06-10 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-06-10.txt. Every one of the 20
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-06-10 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200610/reader_g8.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200610]
+  parallel_group: meeting_readers
+
+- id: lane_20200729
+  description: >-
+    Own the 2020-07-29 meeting and the 20 claims that carry that meeting date in
+    /input_artifacts/claims.csv. The transcript is
+    /input_artifacts/transcripts/fomc-transcript-2020-07-29.txt and the minutes are
+    /input_artifacts/minutes/fomc-minutes-2020-07-29.txt, whose attendance list separates the
+    participants from the staff. Your eight readers each own a few named participants of this
+    meeting and write what they find to /workspace/parts/20200729/ , one file per reader, so their
+    findings reach you on disk rather than in a message. Your deliverable is the finished record for
+    every one of your 20 claims, written to /logs/agent/claim_records/ and named for the claim id,
+    each carrying claim_id, meeting_date, roster and counterpoints, where roster and counterpoints
+    hold every entry your readers recorded for that claim across all eight part files with the
+    speaker and quotation exactly as the reader wrote them. A claim that no reader supported takes
+    an empty list, which is a real answer. Return only the number of records you wrote.
+  depends_on: [orchestrator]
+  parallel_group: meeting_lanes
+
+- id: reader_20200729_g1
+  description: >-
+    You cover BARKIN, GEORGE, WILLIAMS at the 2020-07-29 meeting, and nobody else covers them. Read
+    their own turns in /input_artifacts/transcripts/fomc-transcript-2020-07-29.txt. Every one of the
+    20 claims in /input_artifacts/claims.csv carrying the meeting date 2020-07-29 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200729/reader_g1.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200729]
+  parallel_group: meeting_readers
+
+- id: reader_20200729_g2
+  description: >-
+    You cover BOSTIC, HARKER at the 2020-07-29 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-07-29.txt. Every one of the 20 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-07-29 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200729/reader_g2.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200729]
+  parallel_group: meeting_readers
+
+- id: reader_20200729_g3
+  description: >-
+    You cover BOWMAN, KAPLAN at the 2020-07-29 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-07-29.txt. Every one of the 20 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-07-29 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200729/reader_g3.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200729]
+  parallel_group: meeting_readers
+
+- id: reader_20200729_g4
+  description: >-
+    You cover BRAINARD, KASHKARI at the 2020-07-29 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-07-29.txt. Every one of the 20
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-07-29 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200729/reader_g4.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200729]
+  parallel_group: meeting_readers
+
+- id: reader_20200729_g5
+  description: >-
+    You cover BULLARD, MESTER at the 2020-07-29 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-07-29.txt. Every one of the 20 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-07-29 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200729/reader_g5.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200729]
+  parallel_group: meeting_readers
+
+- id: reader_20200729_g6
+  description: >-
+    You cover CLARIDA, POWELL at the 2020-07-29 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-07-29.txt. Every one of the 20 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-07-29 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200729/reader_g6.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200729]
+  parallel_group: meeting_readers
+
+- id: reader_20200729_g7
+  description: >-
+    You cover DALY, QUARLES at the 2020-07-29 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-07-29.txt. Every one of the 20 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-07-29 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200729/reader_g7.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200729]
+  parallel_group: meeting_readers
+
+- id: reader_20200729_g8
+  description: >-
+    You cover EVANS, ROSENGREN at the 2020-07-29 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-07-29.txt. Every one of the 20
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-07-29 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200729/reader_g8.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200729]
+  parallel_group: meeting_readers
+
+- id: lane_20200916
+  description: >-
+    Own the 2020-09-16 meeting and the 17 claims that carry that meeting date in
+    /input_artifacts/claims.csv. The transcript is
+    /input_artifacts/transcripts/fomc-transcript-2020-09-16.txt and the minutes are
+    /input_artifacts/minutes/fomc-minutes-2020-09-16.txt, whose attendance list separates the
+    participants from the staff. Your eight readers each own a few named participants of this
+    meeting and write what they find to /workspace/parts/20200916/ , one file per reader, so their
+    findings reach you on disk rather than in a message. Your deliverable is the finished record for
+    every one of your 17 claims, written to /logs/agent/claim_records/ and named for the claim id,
+    each carrying claim_id, meeting_date, roster and counterpoints, where roster and counterpoints
+    hold every entry your readers recorded for that claim across all eight part files with the
+    speaker and quotation exactly as the reader wrote them. A claim that no reader supported takes
+    an empty list, which is a real answer. Return only the number of records you wrote.
+  depends_on: [orchestrator]
+  parallel_group: meeting_lanes
+
+- id: reader_20200916_g1
+  description: >-
+    You cover BARKIN, GEORGE, WILLIAMS at the 2020-09-16 meeting, and nobody else covers them. Read
+    their own turns in /input_artifacts/transcripts/fomc-transcript-2020-09-16.txt. Every one of the
+    17 claims in /input_artifacts/claims.csv carrying the meeting date 2020-09-16 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200916/reader_g1.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200916]
+  parallel_group: meeting_readers
+
+- id: reader_20200916_g2
+  description: >-
+    You cover BOSTIC, HARKER at the 2020-09-16 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-09-16.txt. Every one of the 17 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-09-16 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200916/reader_g2.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200916]
+  parallel_group: meeting_readers
+
+- id: reader_20200916_g3
+  description: >-
+    You cover BOWMAN, KAPLAN at the 2020-09-16 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-09-16.txt. Every one of the 17 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-09-16 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200916/reader_g3.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200916]
+  parallel_group: meeting_readers
+
+- id: reader_20200916_g4
+  description: >-
+    You cover BRAINARD, KASHKARI at the 2020-09-16 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-09-16.txt. Every one of the 17
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-09-16 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200916/reader_g4.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200916]
+  parallel_group: meeting_readers
+
+- id: reader_20200916_g5
+  description: >-
+    You cover BULLARD, MESTER at the 2020-09-16 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-09-16.txt. Every one of the 17 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-09-16 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200916/reader_g5.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200916]
+  parallel_group: meeting_readers
+
+- id: reader_20200916_g6
+  description: >-
+    You cover CLARIDA, POWELL at the 2020-09-16 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-09-16.txt. Every one of the 17 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-09-16 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200916/reader_g6.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200916]
+  parallel_group: meeting_readers
+
+- id: reader_20200916_g7
+  description: >-
+    You cover DALY, QUARLES at the 2020-09-16 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-09-16.txt. Every one of the 17 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-09-16 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20200916/reader_g7.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200916]
+  parallel_group: meeting_readers
+
+- id: reader_20200916_g8
+  description: >-
+    You cover EVANS, ROSENGREN at the 2020-09-16 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-09-16.txt. Every one of the 17
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-09-16 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20200916/reader_g8.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20200916]
+  parallel_group: meeting_readers
+
+- id: lane_20201105
+  description: >-
+    Own the 2020-11-05 meeting and the 40 claims that carry that meeting date in
+    /input_artifacts/claims.csv. The transcript is
+    /input_artifacts/transcripts/fomc-transcript-2020-11-05.txt and the minutes are
+    /input_artifacts/minutes/fomc-minutes-2020-11-05.txt, whose attendance list separates the
+    participants from the staff. Your eight readers each own a few named participants of this
+    meeting and write what they find to /workspace/parts/20201105/ , one file per reader, so their
+    findings reach you on disk rather than in a message. Your deliverable is the finished record for
+    every one of your 40 claims, written to /logs/agent/claim_records/ and named for the claim id,
+    each carrying claim_id, meeting_date, roster and counterpoints, where roster and counterpoints
+    hold every entry your readers recorded for that claim across all eight part files with the
+    speaker and quotation exactly as the reader wrote them. A claim that no reader supported takes
+    an empty list, which is a real answer. Return only the number of records you wrote.
+  depends_on: [orchestrator]
+  parallel_group: meeting_lanes
+
+- id: reader_20201105_g1
+  description: >-
+    You cover BARKIN, FELDMAN, WILLIAMS at the 2020-11-05 meeting, and nobody else covers them. Read
+    their own turns in /input_artifacts/transcripts/fomc-transcript-2020-11-05.txt. Every one of the
+    40 claims in /input_artifacts/claims.csv carrying the meeting date 2020-11-05 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20201105/reader_g1.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201105]
+  parallel_group: meeting_readers
+
+- id: reader_20201105_g2
+  description: >-
+    You cover BOSTIC, GEORGE at the 2020-11-05 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-11-05.txt. Every one of the 40 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-11-05 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20201105/reader_g2.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201105]
+  parallel_group: meeting_readers
+
+- id: reader_20201105_g3
+  description: >-
+    You cover BOWMAN, HARKER at the 2020-11-05 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-11-05.txt. Every one of the 40 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-11-05 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20201105/reader_g3.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201105]
+  parallel_group: meeting_readers
+
+- id: reader_20201105_g4
+  description: >-
+    You cover BRAINARD, KAPLAN at the 2020-11-05 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-11-05.txt. Every one of the 40
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-11-05 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20201105/reader_g4.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201105]
+  parallel_group: meeting_readers
+
+- id: reader_20201105_g5
+  description: >-
+    You cover BULLARD, MESTER at the 2020-11-05 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-11-05.txt. Every one of the 40 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-11-05 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20201105/reader_g5.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201105]
+  parallel_group: meeting_readers
+
+- id: reader_20201105_g6
+  description: >-
+    You cover CLARIDA, POWELL at the 2020-11-05 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-11-05.txt. Every one of the 40 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-11-05 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20201105/reader_g6.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201105]
+  parallel_group: meeting_readers
+
+- id: reader_20201105_g7
+  description: >-
+    You cover DALY, QUARLES at the 2020-11-05 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-11-05.txt. Every one of the 40 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-11-05 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20201105/reader_g7.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201105]
+  parallel_group: meeting_readers
+
+- id: reader_20201105_g8
+  description: >-
+    You cover EVANS, ROSENGREN at the 2020-11-05 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-11-05.txt. Every one of the 40
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-11-05 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20201105/reader_g8.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201105]
+  parallel_group: meeting_readers
+
+- id: lane_20201216
+  description: >-
+    Own the 2020-12-16 meeting and the 22 claims that carry that meeting date in
+    /input_artifacts/claims.csv. The transcript is
+    /input_artifacts/transcripts/fomc-transcript-2020-12-16.txt and the minutes are
+    /input_artifacts/minutes/fomc-minutes-2020-12-16.txt, whose attendance list separates the
+    participants from the staff. Your eight readers each own a few named participants of this
+    meeting and write what they find to /workspace/parts/20201216/ , one file per reader, so their
+    findings reach you on disk rather than in a message. Your deliverable is the finished record for
+    every one of your 22 claims, written to /logs/agent/claim_records/ and named for the claim id,
+    each carrying claim_id, meeting_date, roster and counterpoints, where roster and counterpoints
+    hold every entry your readers recorded for that claim across all eight part files with the
+    speaker and quotation exactly as the reader wrote them. A claim that no reader supported takes
+    an empty list, which is a real answer. Return only the number of records you wrote.
+  depends_on: [orchestrator]
+  parallel_group: meeting_lanes
+
+- id: reader_20201216_g1
+  description: >-
+    You cover BARKIN, GEORGE, WILLIAMS at the 2020-12-16 meeting, and nobody else covers them. Read
+    their own turns in /input_artifacts/transcripts/fomc-transcript-2020-12-16.txt. Every one of the
+    22 claims in /input_artifacts/claims.csv carrying the meeting date 2020-12-16 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20201216/reader_g1.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201216]
+  parallel_group: meeting_readers
+
+- id: reader_20201216_g2
+  description: >-
+    You cover BOSTIC, HARKER at the 2020-12-16 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-12-16.txt. Every one of the 22 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-12-16 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20201216/reader_g2.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201216]
+  parallel_group: meeting_readers
+
+- id: reader_20201216_g3
+  description: >-
+    You cover BOWMAN, KAPLAN at the 2020-12-16 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-12-16.txt. Every one of the 22 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-12-16 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20201216/reader_g3.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201216]
+  parallel_group: meeting_readers
+
+- id: reader_20201216_g4
+  description: >-
+    You cover BRAINARD, KASHKARI at the 2020-12-16 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-12-16.txt. Every one of the 22
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-12-16 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20201216/reader_g4.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201216]
+  parallel_group: meeting_readers
+
+- id: reader_20201216_g5
+  description: >-
+    You cover BULLARD, MESTER at the 2020-12-16 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-12-16.txt. Every one of the 22 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-12-16 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20201216/reader_g5.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201216]
+  parallel_group: meeting_readers
+
+- id: reader_20201216_g6
+  description: >-
+    You cover CLARIDA, POWELL at the 2020-12-16 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-12-16.txt. Every one of the 22 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-12-16 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20201216/reader_g6.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201216]
+  parallel_group: meeting_readers
+
+- id: reader_20201216_g7
+  description: >-
+    You cover DALY, QUARLES at the 2020-12-16 meeting, and nobody else covers them. Read their own
+    turns in /input_artifacts/transcripts/fomc-transcript-2020-12-16.txt. Every one of the 22 claims
+    in /input_artifacts/claims.csv carrying the meeting date 2020-12-16 is yours to judge against
+    those participants and only those: for each claim, which of your participants express the view
+    the claim describes in their own remarks, and which of them argue against it, doubt it, or call
+    the step unnecessary. Write one file, /workspace/parts/20201216/reader_g7.json, holding a list
+    of entries, each entry giving claim_id, the surname as the transcript writes it, whether it
+    belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201216]
+  parallel_group: meeting_readers
+
+- id: reader_20201216_g8
+  description: >-
+    You cover EVANS, ROSENGREN at the 2020-12-16 meeting, and nobody else covers them. Read their
+    own turns in /input_artifacts/transcripts/fomc-transcript-2020-12-16.txt. Every one of the 22
+    claims in /input_artifacts/claims.csv carrying the meeting date 2020-12-16 is yours to judge
+    against those participants and only those: for each claim, which of your participants express
+    the view the claim describes in their own remarks, and which of them argue against it, doubt it,
+    or call the step unnecessary. Write one file, /workspace/parts/20201216/reader_g8.json, holding
+    a list of entries, each entry giving claim_id, the surname as the transcript writes it, whether
+    it belongs on the roster or the counterpoints, and one quotation copied exactly from that
+    participant own remarks at this meeting, applying the standard the brief sets out for what a
+    quotation has to be. A participant of yours who supports no claim simply does not appear. Return
+    only the number of entries you wrote.
+  depends_on: [lane_20201216]
+  parallel_group: meeting_readers
+

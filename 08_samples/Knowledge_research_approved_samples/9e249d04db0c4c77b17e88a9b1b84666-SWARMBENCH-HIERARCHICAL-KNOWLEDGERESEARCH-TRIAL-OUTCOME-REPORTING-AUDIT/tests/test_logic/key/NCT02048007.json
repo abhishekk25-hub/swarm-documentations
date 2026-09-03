@@ -1,0 +1,1745 @@
+{
+ "nct": "NCT02048007",
+ "prespecification_version": 4,
+ "prespecification_date": "2014-10-29",
+ "publications": [
+  "PMC11815404",
+  "PMC12362227",
+  "PMC6258425",
+  "PMC6592520",
+  "PMC8462712",
+  "PMC8719241",
+  "PMC8819720",
+  "PMC8861117",
+  "PMC9399865"
+ ],
+ "prespecified_units": [
+  {
+   "uid": "pri1",
+   "measure": "Presence of malaria parasites on thick blood smear in children 1-60 months",
+   "role": "primary",
+   "timeframe": "24 months",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC6592520",
+   "reported_label": "prevalence of malaria parasitemia",
+   "reported_instrument": "thick blood smear",
+   "reported_role": "primary",
+   "role_evidence_quote": "The prespecified primary malaria outcome was the presence or absence of at least 1 parasite on thick blood smear in children 1 to 59 months of age, assessed as a community-level prevalence.",
+   "result_quote": "Parasitemia prevalence was significantly lower in the azithromycin group at months 12 and 24 after adjusting for baseline parasitemia and the date of sample collection ( P = 0.02; ICC = 0.26; square-root-transformed outcome; prespecified primary outcome)."
+  },
+  {
+   "uid": "pri2",
+   "measure": "Fraction of isolates of pneumococcus exhibiting macrolide resistance by nasopharyngeal swabs in children 1-60 months",
+   "role": "primary",
+   "timeframe": "24 months",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC8819720",
+   "reported_label": "proportion of S pneumoniae isolates exhibiting macrolide resistance at the 24-month follow-up visit",
+   "reported_instrument": "Kirby-Bauer method with ISO-blood agar, 15 ug azithromycin discs",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary prespecified outcome was the proportion of S pneumoniae isolates exhibiting macrolide resistance in children aged 1-59 months at the 12-month follow-up visit (6 months after the second biannual treatment visit) and the 24-month follow-up visit (6 months after the fourth biannual treatment visit).",
+   "result_quote": "At 24 months, macrolide resistance remained higher in the azithromycin group (43 9%, 39 2-48 5) compared with placebo (32 8%, 28 5-37 1; OR 1 66, 1 15-2 40; p=0 0069)."
+  },
+  {
+   "uid": "pri5",
+   "measure": "Evidence of E. coli macrolide resistance in stool specimens in children 1-60 months",
+   "role": "primary",
+   "timeframe": "24 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "pri6",
+   "measure": "Fraction of conjunctival swabs yielding ocular chlamydia in children 1-60 months",
+   "role": "primary",
+   "timeframe": "24 months",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC9399865",
+   "reported_label": "Chlamydia species prevalence from metagenomic deep sequencing of conjunctival swabs",
+   "reported_instrument": "metagenomic deep sequencing",
+   "reported_role": "other",
+   "role_evidence_quote": "Although not the subject of the present report, conjunctival swabs were collected from the random sample of 40 children at each monitoring visit during the trial.",
+   "result_quote": "Not a single Chlamydia species was discovered from the sequencing results at either the baseline or month 24 visit (ie, 0 prevalence across all 30 communities [binomial exact 95% CI, 0-1.2%])."
+  },
+  {
+   "uid": "pri7",
+   "measure": "Height over time in children aged 1-60 months",
+   "role": "primary",
+   "timeframe": "24 months",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC8719241",
+   "reported_label": "height over time",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The 2 prespecified primary outcomes were height over time and weight corrected for height over time, assessed at the 48-month study visit.",
+   "result_quote": "At the 4-year study visit, mean height in the azithromycin group was 0.08 cm (95% CI, -0.12 to 0.28 cm) greater than in the placebo group ( P  = .45 after adjustment for baseline height, prespecified primary outcome)"
+  },
+  {
+   "uid": "sec1",
+   "measure": "Presence of malaria gametocytes, and density of malaria parasites and gametocytes, in children 1-60 months",
+   "role": "secondary",
+   "timeframe": "24 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec2",
+   "measure": "Rates of malaria parasitemia among children 1-59.9 months.",
+   "role": "secondary",
+   "timeframe": "6-24 months after baseline",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC6592520",
+   "reported_label": "prevalence of malaria parasitemia",
+   "reported_instrument": "thick blood smear",
+   "reported_role": "primary",
+   "role_evidence_quote": "The prespecified primary malaria outcome was the presence or absence of at least 1 parasite on thick blood smear in children 1 to 59 months of age, assessed as a community-level prevalence.",
+   "result_quote": "Parasitemia prevalence was significantly lower in the azithromycin group at months 12 and 24 after adjusting for baseline parasitemia and the date of sample collection ( P = 0.02; ICC = 0.26; square-root-transformed outcome; prespecified primary outcome)."
+  },
+  {
+   "uid": "sec3",
+   "measure": "Hemoglobin concentration and presence of anemia (hemoglobin <11 g/dL) in children 1-60 months",
+   "role": "secondary",
+   "timeframe": "24 months",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC6592520",
+   "reported_label": "presence of anemia",
+   "reported_instrument": "hemoglobin < 11 g/dL",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasitemia density, gametocyte density, hemoglobin concentration at the individual level, and presence of anemia (hemoglobin < 11 g/dL) at the community level [ 17 ].",
+   "result_quote": "Similarly, the prevalence of anemia was not significantly different between the 2 groups in the permutation test ( P = 0.06; ICC = 0.08; square-root-transformed outcome; S3 Table ), although the regression model predicted less anemia in the azithromycin-treated communities (absolute difference 6.7%, 95% CI -0.2 to -12.8%, assuming a 75% prevalence of anemia as approximately observed in the placebo-treated communities)."
+  },
+  {
+   "uid": "sec5",
+   "measure": "Nasopharyngeal pneumococcal macrolide resistance in children aged 1-60 months seen in local health clinics for a respiratory complaint",
+   "role": "secondary",
+   "timeframe": "24 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec6",
+   "measure": "Rates of acute respiratory illness among children 1-59.9 months.",
+   "role": "secondary",
+   "timeframe": "6-24 months after baseline",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec10",
+   "measure": "Trachoma infection and antibody status in children (1-60 months)",
+   "role": "secondary",
+   "timeframe": "Baseline and 24 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec14",
+   "measure": "Studies of intestinal permeability and inflammation, microbial translocation, and immune activation assessed through venous sampling of children 6 months",
+   "role": "secondary",
+   "timeframe": "5 x over 24 weeks after baseline",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec15",
+   "measure": "Studies of intestinal permeability and inflammation, microbial translocation, and immune activation assessed through urine samples for L:M ratios of children 6 months",
+   "role": "secondary",
+   "timeframe": "5 x over 24 weeks after baseline",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec16",
+   "measure": "Studies of intestinal permeability and inflammation, microbial translocation, and immune activation assessed through stool (fecal neopterin) of children 6 months",
+   "role": "secondary",
+   "timeframe": "5 x over 24 weeks after baseline",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec17",
+   "measure": "Nasopharyngeal methicillin-resistant Staphylococcus aureus in children 1-60 months",
+   "role": "secondary",
+   "timeframe": "24 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec20",
+   "measure": "Nasopharyngeal pneumococcal resistance to penicillin and clindamycin in children 1-60 months",
+   "role": "secondary",
+   "timeframe": "24 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec21",
+   "measure": "Nasopharyngeal pneumococcal macrolide resistance determinants (ermB and mefA), serotype, and multilocus sequence type in children 1-60 months",
+   "role": "secondary",
+   "timeframe": "Time Frame: 24 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec22",
+   "measure": "Oropharyngeal Streptococcus pyogenes macrolide resistance to penicillin and clindamycin in children 1-60 months",
+   "role": "secondary",
+   "timeframe": "24 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec23",
+   "measure": "Oropharyngeal Streptococcus pyogenes macrolide resistance determinants (mefA, ermB, ermTR) in children 1-60 months",
+   "role": "secondary",
+   "timeframe": "24 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec24",
+   "measure": "Microbial diversity in the conjunctival, nasopharyngeal, nasal, oropharyngeal, ear, and intestinal microbiomes of children aged 1-60 months",
+   "role": "secondary",
+   "timeframe": "24 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec25",
+   "measure": "Serology for exposure to exotic pathogens cross sectional sample of children aged 1-60 months",
+   "role": "secondary",
+   "timeframe": "24 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec27",
+   "measure": "Commensal and diarrheagenic E. coli carriage in stool of children aged 1-60 months",
+   "role": "secondary",
+   "timeframe": "24 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec28",
+   "measure": "Prevalence of carriage of a panel of gastrointestinal parasites (Ancylostoma duodenale, Necator americanus, Ascaris lumbricoides, Trichuris trichiura, Giardia lamblia, Cryptosporidium hominis) of children aged 1-60 months",
+   "role": "secondary",
+   "timeframe": "Baseline",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec29",
+   "measure": "Prevalence of helicobacter pylori of children aged 1-60 months",
+   "role": "secondary",
+   "timeframe": "Baseline",
+   "reported": false,
+   "change_disclosed": false
+  }
+ ],
+ "additional_units": [
+  {
+   "rid": "PMC11815404#0",
+   "reporting_document": "PMC11815404",
+   "reported_label": "S. pneumoniae positive nasopharyngeal swab",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "Across all three time points and 1468 children, 87.1% of swabs were positive for S. pneumoniae (1278/1468)"
+  },
+  {
+   "rid": "PMC11815404#1",
+   "reporting_document": "PMC11815404",
+   "reported_label": "H. influenzae positive nasopharyngeal swab",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "Across all three time points and 1468 children, 87.1% of swabs were positive for S. pneumoniae (1278/1468), 85.6% for H. influenzae (1257/1468)"
+  },
+  {
+   "rid": "PMC11815404#2",
+   "reporting_document": "PMC11815404",
+   "reported_label": "M. catarrhalis positive nasopharyngeal swab",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "85.6% for H. influenzae (1257/1468), 83.9% for M. catarrhalis (1231/1468), 61.1% for CMV (897/1468)"
+  },
+  {
+   "rid": "PMC11815404#3",
+   "reporting_document": "PMC11815404",
+   "reported_label": "CMV positive nasopharyngeal swab",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "83.9% for M. catarrhalis (1231/1468), 61.1% for CMV (897/1468), 40.0% for rhinovirus (587/1467)"
+  },
+  {
+   "rid": "PMC11815404#4",
+   "reporting_document": "PMC11815404",
+   "reported_label": "rhinovirus positive nasopharyngeal swab",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "61.1% for CMV (897/1468), 40.0% for rhinovirus (587/1467) and 22.1% for adenovirus (322/1455)"
+  },
+  {
+   "rid": "PMC11815404#5",
+   "reporting_document": "PMC11815404",
+   "reported_label": "adenovirus positive nasopharyngeal swab",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "40.0% for rhinovirus (587/1467) and 22.1% for adenovirus (322/1455). All other pathogens were detected from less than 15% of swabs"
+  },
+  {
+   "rid": "PMC11815404#6",
+   "reporting_document": "PMC11815404",
+   "reported_label": "All other pathogens positive nasopharyngeal swab",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "All other pathogens were detected from less than 15% of swabs ( figure 1 and online supplemental figure 1 )."
+  },
+  {
+   "rid": "PMC11815404#7",
+   "reporting_document": "PMC11815404",
+   "reported_label": "B. pertussis positive nasopharyngeal swab",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "for B. pertussis (year 0 10.5 vs 20.5, year 1 3.9 vs 12.1 and year 2 7.1 vs 13.6)"
+  },
+  {
+   "rid": "PMC11815404#8",
+   "reporting_document": "PMC11815404",
+   "reported_label": "Hib positive nasopharyngeal swab",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "for Hib (year 0 2.9 vs 7.4, year 1 3.9 vs 6.1 and year 2: 1.2 vs 5.6))"
+  },
+  {
+   "rid": "PMC11815404#9",
+   "reporting_document": "PMC11815404",
+   "reported_label": "Adenovirus",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "Adenovirus\n1.05 (0.83, 1.34)\n0.01 (-0.05, 0.07)\n0.04 (-0.12, 0.20)"
+  },
+  {
+   "rid": "PMC11815404#10",
+   "reporting_document": "PMC11815404",
+   "reported_label": "Bocavirus",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "Bocavirus\n1.06 (0.73, 1.53)\n0.01 (-0.04, 0.05)\n-0.04 (-0.15, 0.07)"
+  },
+  {
+   "rid": "PMC11815404#11",
+   "reporting_document": "PMC11815404",
+   "reported_label": "CMV",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "CMV\n1.13 (1.01, 1.26)\n0.07 (0.00, 0.14)\n0.23 (0.05, 0.41)"
+  },
+  {
+   "rid": "PMC11815404#12",
+   "reporting_document": "PMC11815404",
+   "reported_label": "HMPV",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "HMPV\n0.76 (0.33, 1.75)\n-0.01 (-0.02, 0.01)\n-0.01 (-0.06, 0.05)"
+  },
+  {
+   "rid": "PMC11815404#13",
+   "reporting_document": "PMC11815404",
+   "reported_label": "Influenza A virus",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "Influenza A virus\n1.70 (0.71, 4.08) *\n0.01 (-0.01, 0.04)\n0.02 (-0.07, 0.1)"
+  },
+  {
+   "rid": "PMC11815404#14",
+   "reporting_document": "PMC11815404",
+   "reported_label": "Influenza B virus",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "Influenza B virus\n0.81 (0.39, 1.68)\n-0.01 (-0.03, 0.02)\n-0.03 (-0.10, 0.04)"
+  },
+  {
+   "rid": "PMC11815404#15",
+   "reporting_document": "PMC11815404",
+   "reported_label": "HPIV 1-4",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "HPIV 1-4\n1.23 (0.86, 1.75)\n0.03 (-0.02, 0.08)\n0.03 (-0.11, 0.17)"
+  },
+  {
+   "rid": "PMC11815404#16",
+   "reporting_document": "PMC11815404",
+   "reported_label": "Rhinovirus",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "Rhinovirus\n1.06 (0.90, 1.25)\n0.02 (-0.04, 0.09)\n0.04 (-0.12, 0.20)"
+  },
+  {
+   "rid": "PMC11815404#17",
+   "reporting_document": "PMC11815404",
+   "reported_label": "RSV",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "RSV\n1.56 (1.00, 2.43)\n0.04 (0.00, 0.08)\n0.08 (-0.06, 0.22)"
+  },
+  {
+   "rid": "PMC11815404#18",
+   "reporting_document": "PMC11815404",
+   "reported_label": "B.pertussis",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "B.pertussis\n\n0.51 (0.35, 0.75)\n-0.08 (-0.12, -0.03)\n-0.21 (-0.32, -0.10)"
+  },
+  {
+   "rid": "PMC11815404#19",
+   "reporting_document": "PMC11815404",
+   "reported_label": "H.influenzae",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "H.influenzae\n\n0.98 (0.93, 1.04)\n-0.01 (-0.06, 0.03)\n0.04 (-0.20, 0.28)"
+  },
+  {
+   "rid": "PMC11815404#20",
+   "reporting_document": "PMC11815404",
+   "reported_label": "Hib",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "Hib\n0.35 (0.17, 0.71)\n-0.05 (-0.07, -0.02)\n-0.14 (-0.25, -0.02)"
+  },
+  {
+   "rid": "PMC11815404#21",
+   "reporting_document": "PMC11815404",
+   "reported_label": "M.catarrhalis",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "M.catarrhalis\n\n0.94 (0.89, 1.00)\n-0.05 (-0.10, 0.00)\n-0.23 (-0.45, -0.01)"
+  },
+  {
+   "rid": "PMC11815404#22",
+   "reporting_document": "PMC11815404",
+   "reported_label": "N.meningitidis",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "N.meningitidis\n\n1.14 (0.75, 1.74)\n0.01 (-0.03, 0.05)\n0.05 (-0.06, 0.16)"
+  },
+  {
+   "rid": "PMC11815404#23",
+   "reporting_document": "PMC11815404",
+   "reported_label": "S.aureus",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "S.aureus\n\n0.86 (0.58, 1.27)\n-0.02 (-0.06, 0.03)\n-0.03 (-0.10, 0.04)"
+  },
+  {
+   "rid": "PMC11815404#24",
+   "reporting_document": "PMC11815404",
+   "reported_label": "S.pneumoniae",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "S.pneumoniae\n\n0.97 (0.92, 1.03)\n-0.03 (-0.07, 0.02)\n0.01 (-0.18, 0.20)"
+  },
+  {
+   "rid": "PMC11815404#25",
+   "reporting_document": "PMC11815404",
+   "reported_label": "S.pyogenes",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "S.pyogenes\n\n1.72 (0.83, 3.57)\n0.02 (-0.01, 0.04)\n0.04 (0.00, 0.09)"
+  },
+  {
+   "rid": "PMC11815404#26",
+   "reporting_document": "PMC11815404",
+   "reported_label": "P.jirovecii",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "P.jirovecii\n\n2.31 (0.63, 8.42)\n0.01 (0.00, 0.02)\n0.01 (-0.01, 0.02)"
+  },
+  {
+   "rid": "PMC11815404#27",
+   "reporting_document": "PMC11815404",
+   "reported_label": "Adenovirus",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "Adenovirus\n117 (26.8)\n97 (24.5)\n214 (25.7)\n1.16 (1.00, 1.34)\n0.04\n0.03\n0.04"
+  },
+  {
+   "rid": "PMC11815404#28",
+   "reporting_document": "PMC11815404",
+   "reported_label": "Bocavirus",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "Bocavirus\n57 (12.9)\n46 (11.5)\n103 (12.2)\n1.21 (1.05, 1.39)\n0.02\n0.02\n0.02"
+  },
+  {
+   "rid": "PMC11815404#29",
+   "reporting_document": "PMC11815404",
+   "reported_label": "CMV",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "CMV\n289 (65.2)\n227 (56.8)\n516 (61.2)\n0.83 (0.73, 0.93)\n-\n-\n-"
+  },
+  {
+   "rid": "PMC11815404#30",
+   "reporting_document": "PMC11815404",
+   "reported_label": "HMPV",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "HMPV\n7 (1.6)\n11 (2.8)\n18 (2.1)\n4.58 (3.62, 5.80)\n0.01\n0.02\n0.02"
+  },
+  {
+   "rid": "PMC11815404#31",
+   "reporting_document": "PMC11815404",
+   "reported_label": "Influenza A virus",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "Influenza A virus\n15 (3.4)\n8 (2.0)\n23 (2.7)\n3.30 (2.34, 4.64)\n0.02\n0.01\n0.02"
+  },
+  {
+   "rid": "PMC11815404#32",
+   "reporting_document": "PMC11815404",
+   "reported_label": "Influenza B virus",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "Influenza B virus\n13 (2.9)\n15 (3.8)\n28 (3.3)\n2.76 (1.65, 4.61)\n0.02\n0.02\n0.02"
+  },
+  {
+   "rid": "PMC11815404#33",
+   "reporting_document": "PMC11815404",
+   "reported_label": "HPIV 1-4",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "HPIV 1-4\n74 (16.7)\n56 (14.0)\n130 (15.4)\n2.62 (2.22, 3.10)\n0.10\n0.09\n0.10"
+  },
+  {
+   "rid": "PMC11815404#34",
+   "reporting_document": "PMC11815404",
+   "reported_label": "Rhinovirus",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "Rhinovirus\n190 (43)\n155 (38.8)\n345 (41)\n1.61 (1.43, 1.81)\n0.16\n0.15\n0.16"
+  },
+  {
+   "rid": "PMC11815404#35",
+   "reporting_document": "PMC11815404",
+   "reported_label": "RSV",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "RSV\n48 (10.9)\n27 (6.8)\n75 (8.9)\n12.59 (10.49, 15.12)\n0.10\n0.06\n0.08"
+  },
+  {
+   "rid": "PMC11815404#36",
+   "reporting_document": "PMC11815404",
+   "reported_label": "B.pertussis",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "B.pertussis\n\n34 (7.7)\n65 (16.2)\n99 (11.7)\n3.20 (1.65, 6.18)\n0.05\n0.11\n0.08"
+  },
+  {
+   "rid": "PMC11815404#37",
+   "reporting_document": "PMC11815404",
+   "reported_label": "H.influenzae",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "H.influenzae\n++\n\n330 (74.5)\n282 (70.5)\n612 (72.6)\n1.25 (1.11, 1.41)\n0.15\n0.14\n0.15"
+  },
+  {
+   "rid": "PMC11815404#38",
+   "reporting_document": "PMC11815404",
+   "reported_label": "Hib ++",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "Hib ++\n7 (1.6)\n17 (4.2)\n24 (2.8)\n2.16 (1.23, 3.80)\n0.01\n0.02\n0.02"
+  },
+  {
+   "rid": "PMC11815404#39",
+   "reporting_document": "PMC11815404",
+   "reported_label": "M.catarrhalis",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "M.catarrhalis\n\n359 (81.0)\n347 (86.8)\n706 (83.7)\n0.60 (0.54, 0.67)\n-\n-\n-"
+  },
+  {
+   "rid": "PMC11815404#40",
+   "reporting_document": "PMC11815404",
+   "reported_label": "M.pneumoniae",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "M.pneumoniae\n\n0 (0.0)\n0 (0.0)\n0 (0.0)\n1.10 (0.69, 1.77)\n0.00\n0.00\n0.00"
+  },
+  {
+   "rid": "PMC11815404#41",
+   "reporting_document": "PMC11815404",
+   "reported_label": "S.aureus",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "S.aureus\n\n45 (10.2)\n44 (11.0)\n89 (10.6)\n1.13 (0.98, 1.29)\n0.01\n0.01\n0.01"
+  },
+  {
+   "rid": "PMC11815404#42",
+   "reporting_document": "PMC11815404",
+   "reported_label": "S.pneumoniae",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "S.pneumoniae\n++\n\n73 (16.5)\n67 (16.8)\n140 (16.6)\n1.59 (1.35, 1.88)\n0.06\n0.06\n0.06"
+  },
+  {
+   "rid": "PMC11815404#43",
+   "reporting_document": "PMC11815404",
+   "reported_label": "P.jirovecii",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "P.jirovecii\n++\n\n4 (0.9)\n1 (0.2)\n5 (0.6)\n1.42 (1.07, 1.88)\n0.00\n0.00\n0.00"
+  },
+  {
+   "rid": "PMC11815404#44",
+   "reporting_document": "PMC11815404",
+   "reported_label": "rhinovirus attributable fraction",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "the leading causes of respiratory illness in this substudy were rhinovirus (attributable fraction (AF) 16%), H. influenzae (AF 15%)"
+  },
+  {
+   "rid": "PMC11815404#45",
+   "reporting_document": "PMC11815404",
+   "reported_label": "H. influenzae attributable fraction",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "rhinovirus (attributable fraction (AF) 16%), H. influenzae (AF 15%), human parainfluenza virus 1-4 (AF 10%)"
+  },
+  {
+   "rid": "PMC11815404#46",
+   "reporting_document": "PMC11815404",
+   "reported_label": "human parainfluenza virus 1-4 attributable fraction",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "H. influenzae (AF 15%), human parainfluenza virus 1-4 (AF 10%), B. pertussis (AF 8%), RSV (8%)"
+  },
+  {
+   "rid": "PMC11815404#47",
+   "reporting_document": "PMC11815404",
+   "reported_label": "B. pertussis attributable fraction",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "human parainfluenza virus 1-4 (AF 10%), B. pertussis (AF 8%), RSV (8%) and S. pneumoniae (AF 6%; see table 2 )."
+  },
+  {
+   "rid": "PMC11815404#48",
+   "reporting_document": "PMC11815404",
+   "reported_label": "RSV attributable fraction",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "B. pertussis (AF 8%), RSV (8%) and S. pneumoniae (AF 6%; see table 2 ). Most pathogen attributable fractions were similar"
+  },
+  {
+   "rid": "PMC11815404#49",
+   "reporting_document": "PMC11815404",
+   "reported_label": "S. pneumoniae attributable fraction",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "RSV (8%) and S. pneumoniae (AF 6%; see table 2 ). Most pathogen attributable fractions were similar between the azithromycin and placebo communities"
+  },
+  {
+   "rid": "PMC11815404#50",
+   "reporting_document": "PMC11815404",
+   "reported_label": "B. pertussis attributable fraction",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "except for decreases in B. pertussis (AF 5% vs 11%) and increases in RSV (AF 10% vs 6%) in the azithromycin communities."
+  },
+  {
+   "rid": "PMC11815404#51",
+   "reporting_document": "PMC11815404",
+   "reported_label": "RSV attributable fraction",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In an exploratory analysis, to estimate the burden of illness attributed to each pathogen, we estimated pathogen attributable fractions",
+   "result_quote": "except for decreases in B. pertussis (AF 5% vs 11%) and increases in RSV (AF 10% vs 6%) in the azithromycin communities."
+  },
+  {
+   "rid": "PMC11815404#52",
+   "reporting_document": "PMC11815404",
+   "reported_label": "prevalence of B. pertussis",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "The prevalence was reduced in children from azithromycin communities for just two pathogens: Bordetella pertussis and H."
+  },
+  {
+   "rid": "PMC11815404#53",
+   "reporting_document": "PMC11815404",
+   "reported_label": "prevalence of Hib",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "pertussis and Hib in nasopharyngeal swabs, respectively, compared with children from the control communities (prevalence ratios 0.51, 95% CI 0.35, 0.75;"
+  },
+  {
+   "rid": "PMC11815404#54",
+   "reporting_document": "PMC11815404",
+   "reported_label": "prevalence of B. pertussis",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "These children had a 49% and 65% reduction in the prevalence of B. pertussis and Hib in nasopharyngeal swabs, respectively, compared with children from the control communities (prevalence ratios 0.51, 95% CI 0.35, 0.75; and 0.35, 95% CI 0.17, 0.71)."
+  },
+  {
+   "rid": "PMC11815404#55",
+   "reporting_document": "PMC11815404",
+   "reported_label": "prevalence of Hib",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "These children had a 49% and 65% reduction in the prevalence of B. pertussis and Hib in nasopharyngeal swabs, respectively, compared with children from the control communities (prevalence ratios 0.51, 95% CI 0.35, 0.75; and 0.35, 95% CI 0.17, 0.71)."
+  },
+  {
+   "rid": "PMC11815404#56",
+   "reporting_document": "PMC11815404",
+   "reported_label": "B. pertussis positive nasopharyngeal swab",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "Across all three time points, children from the treatment communities had a 49% (prevalence ratio 0.51; 95% CI 0.35, 0.75) relative reduction of having a B. pertussis positive nasopharyngeal swab compared with children from the control communities, which corresponds to an absolute 8% (prevalence difference -0.08, 95% CI -0.12 to -0.03) reduction in B. pertussis among the treatment communities ( table 1 )."
+  },
+  {
+   "rid": "PMC11815404#57",
+   "reporting_document": "PMC11815404",
+   "reported_label": "Hib positive nasopharyngeal swab",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "Additionally, children in the treatment communities were 65% less likely (prevalence ratio 0.35; 95% CI 0.17, 0.71) to have a swab positive for Hib, corresponding to an absolute 5% reduction in Hib."
+  },
+  {
+   "rid": "PMC11815404#58",
+   "reporting_document": "PMC11815404",
+   "reported_label": "log10 copies of B. pertussis",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "When present, the quantities of these two pathogens were also lower: children from the treatment communities had 0.21 (quantity difference -0.21, 95% CI -0.32 to -0.10) fewer log10 copies of B. pertussis and 0.14 (quantity difference -0.14, 95% CI -0.25 to -0.02) fewer log10 copies of Hib compared with children from control communities."
+  },
+  {
+   "rid": "PMC11815404#59",
+   "reporting_document": "PMC11815404",
+   "reported_label": "log10 copies of Hib",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "children from the treatment communities had 0.21 (quantity difference -0.21, 95% CI -0.32 to -0.10) fewer log10 copies of B. pertussis and 0.14 (quantity difference -0.14, 95% CI -0.25 to -0.02) fewer log10 copies of Hib compared with children from control communities."
+  },
+  {
+   "rid": "PMC11815404#60",
+   "reporting_document": "PMC11815404",
+   "reported_label": "CMV in the nasopharynx",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "There was a modest increase in the prevalence ratio for CMV and RSV in the nasopharynx among children from azithromycin communities (prevalence ratio for CMV 1.13, 95% CI 1.01, 1.26; for RSV 1.56, 95% CI 1.00 to 2.43)"
+  },
+  {
+   "rid": "PMC11815404#61",
+   "reporting_document": "PMC11815404",
+   "reported_label": "RSV in the nasopharynx",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "There was a modest increase in the prevalence ratio for CMV and RSV in the nasopharynx among children from azithromycin communities (prevalence ratio for CMV 1.13, 95% CI 1.01, 1.26; for RSV 1.56, 95% CI 1.00 to 2.43)"
+  },
+  {
+   "rid": "PMC11815404#62",
+   "reporting_document": "PMC11815404",
+   "reported_label": "M. catarrhalis",
+   "reported_instrument": "customised TaqMan Array Card",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This was a secondary data analysis of the Niger site of the MORDOR I Morbidity study, which has been previously described.",
+   "result_quote": "and a slight decrease in the ratio and quantity of M. catarrhalis (prevalence ratio 0.94, 95% CI 0.89, 1.00)."
+  },
+  {
+   "rid": "PMC12362227#0",
+   "reporting_document": "PMC12362227",
+   "reported_label": "prevalence of parasitemia",
+   "reported_instrument": "thick blood smear",
+   "reported_role": "primary",
+   "role_evidence_quote": "The prespecified primary malaria outcome was the prevalence of parasitemia in children aged 1 to 59 months in each community, as assessed from thick blood smear.",
+   "result_quote": "On average, after adjusting for baseline parasitemia and study time point, the prevalence of parasitemia was lower in the azithromycin group during 4 years of treatment, although the difference was not significantly lower (3.3 percentage points [PP]; 95% CI, -5.8 to -0.2 PP, assuming a 10% prevalence in the placebo arm; permutation P  = .05; prespecified primary analysis)."
+  },
+  {
+   "rid": "PMC12362227#1",
+   "reporting_document": "PMC12362227",
+   "reported_label": "prevalence of parasitemia",
+   "reported_instrument": "thick blood smear",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "additional nonprespecified analyses were performed at month 36 (ie, the period before SMC started)",
+   "result_quote": "Analysis restricted to the period before SMC (ie, months 12, 24, and 36) identified a significantly lower prevalence of parasitemia in the azithromycin arm (4.8 PP lower; 95% CI, -7.4 to -1.3 PP), assuming a 10% prevalence in the placebo arm (permutation P  = .02)."
+  },
+  {
+   "rid": "PMC12362227#2",
+   "reporting_document": "PMC12362227",
+   "reported_label": "parasite density",
+   "reported_instrument": "thick blood smear",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasite density, gametocyte density, hemoglobin concentration at the individual level, and prevalence of anemia (hemoglobin <11 g/dL [to convert to grams per liter, multiply by 10]) at the community level.",
+   "result_quote": "Parasite density among children with parasitemia was lower in the azithromycin group at each of the postrandomization visits except for month 48 ( Table 2 ), although differences were not significant in the regression model (log-transformed outcome; density, 7040 parasites/uL lower; 95% CI, -11 310 to 430 parasites/uL, assuming a mean parasite density in the placebo arm of 17 000; P  = .07)."
+  },
+  {
+   "rid": "PMC12362227#3",
+   "reporting_document": "PMC12362227",
+   "reported_label": "Parasite density, parasites/uL",
+   "reported_instrument": "thick blood smear",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasite density, gametocyte density, hemoglobin concentration at the individual level, and prevalence of anemia (hemoglobin <11 g/dL [to convert to grams per liter, multiply by 10]) at the community level.",
+   "result_quote": "95% CI, -11 310 to 430 parasites/uL, assuming a mean parasite density in the placebo arm of 17 000;"
+  },
+  {
+   "rid": "PMC12362227#4",
+   "reporting_document": "PMC12362227",
+   "reported_label": "Parasite density, parasites/uL",
+   "reported_instrument": "thick blood smear",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasite density, gametocyte density, hemoglobin concentration at the individual level, and prevalence of anemia (hemoglobin <11 g/dL [to convert to grams per liter, multiply by 10]) at the community level.",
+   "result_quote": "95% CI, -11 310 to 430 parasites/uL, assuming a mean parasite density in the placebo arm of 17 000;"
+  },
+  {
+   "rid": "PMC12362227#5",
+   "reporting_document": "PMC12362227",
+   "reported_label": "Parasite density, parasites/uL",
+   "reported_instrument": "thick blood smear",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasite density, gametocyte density, hemoglobin concentration at the individual level, and prevalence of anemia (hemoglobin <11 g/dL [to convert to grams per liter, multiply by 10]) at the community level.",
+   "result_quote": "95% CI, -11 310 to 430 parasites/uL, assuming a mean parasite density in the placebo arm of 17 000;"
+  },
+  {
+   "rid": "PMC12362227#6",
+   "reporting_document": "PMC12362227",
+   "reported_label": "Parasite density, parasites/uL",
+   "reported_instrument": "thick blood smear",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasite density, gametocyte density, hemoglobin concentration at the individual level, and prevalence of anemia (hemoglobin <11 g/dL [to convert to grams per liter, multiply by 10]) at the community level.",
+   "result_quote": "95% CI, -11 310 to 430 parasites/uL, assuming a mean parasite density in the placebo arm of 17 000;"
+  },
+  {
+   "rid": "PMC12362227#7",
+   "reporting_document": "PMC12362227",
+   "reported_label": "Parasite density, parasites/uL",
+   "reported_instrument": "thick blood smear",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasite density, gametocyte density, hemoglobin concentration at the individual level, and prevalence of anemia (hemoglobin <11 g/dL [to convert to grams per liter, multiply by 10]) at the community level.",
+   "result_quote": "95% CI, -11 310 to 430 parasites/uL, assuming a mean parasite density in the placebo arm of 17 000;"
+  },
+  {
+   "rid": "PMC12362227#8",
+   "reporting_document": "PMC12362227",
+   "reported_label": "Parasite density, parasites/uL",
+   "reported_instrument": "thick blood smear",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasite density, gametocyte density, hemoglobin concentration at the individual level, and prevalence of anemia (hemoglobin <11 g/dL [to convert to grams per liter, multiply by 10]) at the community level.",
+   "result_quote": "95% CI, -11 310 to 430 parasites/uL, assuming a mean parasite density in the placebo arm of 17 000;"
+  },
+  {
+   "rid": "PMC12362227#9",
+   "reporting_document": "PMC12362227",
+   "reported_label": "hemoglobin concentration",
+   "reported_instrument": "Hb 201 + device [Hemocue]",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasite density, gametocyte density, hemoglobin concentration at the individual level, and prevalence of anemia (hemoglobin <11 g/dL [to convert to grams per liter, multiply by 10]) at the community level.",
+   "result_quote": "After adjusting for the mean hemoglobin level at baseline in each community, the hemoglobin concentration was not significantly different between the 2 arms across the first 4 years of treatment (mean of 0.1 g/dL higher in the azithromycin group; 95% CI, -0.1 to 0.2 g/dL; P  = .44)."
+  },
+  {
+   "rid": "PMC12362227#10",
+   "reporting_document": "PMC12362227",
+   "reported_label": "Hemoglobin, g/dL",
+   "reported_instrument": "Hb 201 + device [Hemocue]",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasite density, gametocyte density, hemoglobin concentration at the individual level, and prevalence of anemia (hemoglobin <11 g/dL [to convert to grams per liter, multiply by 10]) at the community level.",
+   "result_quote": "Using blood from a finger stick, hemoglobin was measured (Hb 201 + device [Hemocue]), and then a thick and thin smear were prepared on a single slide."
+  },
+  {
+   "rid": "PMC12362227#11",
+   "reporting_document": "PMC12362227",
+   "reported_label": "Hemoglobin, g/dL",
+   "reported_instrument": "Hb 201 + device [Hemocue]",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasite density, gametocyte density, hemoglobin concentration at the individual level, and prevalence of anemia (hemoglobin <11 g/dL [to convert to grams per liter, multiply by 10]) at the community level.",
+   "result_quote": "Using blood from a finger stick, hemoglobin was measured (Hb 201 + device [Hemocue]), and then a thick and thin smear were prepared on a single slide."
+  },
+  {
+   "rid": "PMC12362227#12",
+   "reporting_document": "PMC12362227",
+   "reported_label": "Hemoglobin, g/dL",
+   "reported_instrument": "Hb 201 + device [Hemocue]",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasite density, gametocyte density, hemoglobin concentration at the individual level, and prevalence of anemia (hemoglobin <11 g/dL [to convert to grams per liter, multiply by 10]) at the community level.",
+   "result_quote": "Using blood from a finger stick, hemoglobin was measured (Hb 201 + device [Hemocue]), and then a thick and thin smear were prepared on a single slide."
+  },
+  {
+   "rid": "PMC12362227#13",
+   "reporting_document": "PMC12362227",
+   "reported_label": "Hemoglobin, g/dL",
+   "reported_instrument": "Hb 201 + device [Hemocue]",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasite density, gametocyte density, hemoglobin concentration at the individual level, and prevalence of anemia (hemoglobin <11 g/dL [to convert to grams per liter, multiply by 10]) at the community level.",
+   "result_quote": "Using blood from a finger stick, hemoglobin was measured (Hb 201 + device [Hemocue]), and then a thick and thin smear were prepared on a single slide."
+  },
+  {
+   "rid": "PMC12362227#14",
+   "reporting_document": "PMC12362227",
+   "reported_label": "Hemoglobin, g/dL",
+   "reported_instrument": "Hb 201 + device [Hemocue]",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasite density, gametocyte density, hemoglobin concentration at the individual level, and prevalence of anemia (hemoglobin <11 g/dL [to convert to grams per liter, multiply by 10]) at the community level.",
+   "result_quote": "Using blood from a finger stick, hemoglobin was measured (Hb 201 + device [Hemocue]), and then a thick and thin smear were prepared on a single slide."
+  },
+  {
+   "rid": "PMC12362227#15",
+   "reporting_document": "PMC12362227",
+   "reported_label": "Hemoglobin, g/dL",
+   "reported_instrument": "Hb 201 + device [Hemocue]",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasite density, gametocyte density, hemoglobin concentration at the individual level, and prevalence of anemia (hemoglobin <11 g/dL [to convert to grams per liter, multiply by 10]) at the community level.",
+   "result_quote": "Using blood from a finger stick, hemoglobin was measured (Hb 201 + device [Hemocue]), and then a thick and thin smear were prepared on a single slide."
+  },
+  {
+   "rid": "PMC12362227#16",
+   "reporting_document": "PMC12362227",
+   "reported_label": "prevalence of anemia",
+   "reported_instrument": "hemoglobin <11 g/dL",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasite density, gametocyte density, hemoglobin concentration at the individual level, and prevalence of anemia (hemoglobin <11 g/dL [to convert to grams per liter, multiply by 10]) at the community level.",
+   "result_quote": "The prevalence of anemia during the next 4 years was not significantly lower in the azithromycin arm after adjusting for baseline (square-root-transformed outcome; 4.0 PP lower; 95% CI, -8.8 to 0.9 PP, assuming a 75% prevalence of anemia; P  = .12) (eTable 6 in Supplement 1 )."
+  },
+  {
+   "rid": "PMC12362227#17",
+   "reporting_document": "PMC12362227",
+   "reported_label": "study drug distribution",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Study drug was distributed to 85.3% (95% CI, 78.7%-91.6%) of eligible children in the azithromycin group and 87.7% (95% CI, 82.0%-93.0%) of eligible children in the placebo group across the 10 study visits ( Figure 1 ).",
+   "result_quote": "Study drug was distributed to 85.3% (95% CI, 78.7%-91.6%) of eligible children in the azithromycin group and 87.7% (95% CI, 82.0%-93.0%) of eligible children in the placebo group across the 10 study visits ( Figure 1 )."
+  },
+  {
+   "rid": "PMC12362227#18",
+   "reporting_document": "PMC12362227",
+   "reported_label": "hospitalizations or life-threatening illnesses",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Guardians were instructed to report any adverse events to a village representative, who communicated this information to the study coordinator.",
+   "result_quote": "No hospitalizations or life-threatening illnesses were reported in either study group."
+  },
+  {
+   "rid": "PMC6258425#0",
+   "reporting_document": "PMC6258425",
+   "reported_label": "the time between treatment and caregiver survey",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "There was no difference in the time between treatment and caregiver survey between azithromycin and placebo-treated communities ( P = 0.78).",
+   "result_quote": "There was no difference in the time between treatment and caregiver survey between azithromycin and placebo-treated communities ( P = 0.78)."
+  },
+  {
+   "rid": "PMC6258425#1",
+   "reporting_document": "PMC6258425",
+   "reported_label": "Any health problem",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Generalized linear models were used to compare 1) if the child had a health issue within two weeks of treatment and 2) if the caregiver sought medical care for the child within two weeks of treatment between the azithromycin and placebo arms.",
+   "result_quote": "Among infants for whom the caregiver reported receiving study treatment, there was no difference in reports of any health problems in the two-week period following treatment (34.1% azithromycin versus 40.3% placebo, P = 0.24, Table 2 )."
+  },
+  {
+   "rid": "PMC6258425#2",
+   "reporting_document": "PMC6258425",
+   "reported_label": "Had health problem and visited clinic",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Generalized linear models were used to compare 1) if the child had a health issue within two weeks of treatment and 2) if the caregiver sought medical care for the child within two weeks of treatment between the azithromycin and placebo arms.",
+   "result_quote": "Had health problem and visited clinic\n49 (12.8%)\n137 (16.8%)\n0.76 (0.47 to 1.23)\n0.27"
+  },
+  {
+   "rid": "PMC6258425#3",
+   "reporting_document": "PMC6258425",
+   "reported_label": "overall distribution of adverse events",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "A repeated measures model was used to assess whether there was an overall difference in the distribution of adverse events in azithromycin- versus placebo-treated infants, with a random effect for each child and study community.",
+   "result_quote": "There was no difference in the overall distribution of adverse events in children between the two study arms ( P = 0.43, repeated measures model)."
+  },
+  {
+   "rid": "PMC6258425#4",
+   "reporting_document": "PMC6258425",
+   "reported_label": "any adverse event",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "We compared the distribution of adverse events reported after treatment among azithromycin-treated versus placebo-treated infants.",
+   "result_quote": "Overall, caregivers of 32.7% of all infants reported at least one adverse event ( Table 3 )."
+  },
+  {
+   "rid": "PMC6258425#5",
+   "reporting_document": "PMC6258425",
+   "reported_label": "Any adverse event",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "To estimate risk ratios for any adverse event and each adverse event individually in azithromycin-treated infants compared to placebo-treated infants, we used generalized linear models with a binomial distribution and log link, with standard errors clustered by the community of residence of the infant (the unit of randomization).",
+   "result_quote": "There was no difference overall in report of any adverse event (RR 0.86, 95% CI 0.68 to 1.10, P = 0.23)."
+  },
+  {
+   "rid": "PMC6258425#6",
+   "reporting_document": "PMC6258425",
+   "reported_label": "Abdominal pain 1",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "To estimate risk ratios for any adverse event and each adverse event individually in azithromycin-treated infants compared to placebo-treated infants, we used generalized linear models with a binomial distribution and log link, with standard errors clustered by the community of residence of the infant (the unit of randomization).",
+   "result_quote": "Abdominal pain 1\n52 (9.1%)\n116 (10.2%)\n0.90 (0.45 to 1.77)\n0.75"
+  },
+  {
+   "rid": "PMC6258425#7",
+   "reporting_document": "PMC6258425",
+   "reported_label": "Vomiting 1",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "To estimate risk ratios for any adverse event and each adverse event individually in azithromycin-treated infants compared to placebo-treated infants, we used generalized linear models with a binomial distribution and log link, with standard errors clustered by the community of residence of the infant (the unit of randomization).",
+   "result_quote": "Vomiting 1\n91 (15.9%)\n240 (21.0%)\n0.76 (0.56 to 1.02)\n0.07"
+  },
+  {
+   "rid": "PMC6258425#8",
+   "reporting_document": "PMC6258425",
+   "reported_label": "Nausea 1",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "To estimate risk ratios for any adverse event and each adverse event individually in azithromycin-treated infants compared to placebo-treated infants, we used generalized linear models with a binomial distribution and log link, with standard errors clustered by the community of residence of the infant (the unit of randomization).",
+   "result_quote": "Nausea 1\n28 (4.9%)\n55 (4.8%)\n1.02 (0.34 to 3.04)\n0.98"
+  },
+  {
+   "rid": "PMC6258425#9",
+   "reporting_document": "PMC6258425",
+   "reported_label": "Diarrhea 1",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "To estimate risk ratios for any adverse event and each adverse event individually in azithromycin-treated infants compared to placebo-treated infants, we used generalized linear models with a binomial distribution and log link, with standard errors clustered by the community of residence of the infant (the unit of randomization).",
+   "result_quote": "Infants in the azithromycin-treated arm had reduced risk of diarrhea (RR 0.68, 95% CI 0.49 to 0.96, P = 0.03)"
+  },
+  {
+   "rid": "PMC6258425#10",
+   "reporting_document": "PMC6258425",
+   "reported_label": "Dyspepsia 1",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "To estimate risk ratios for any adverse event and each adverse event individually in azithromycin-treated infants compared to placebo-treated infants, we used generalized linear models with a binomial distribution and log link, with standard errors clustered by the community of residence of the infant (the unit of randomization).",
+   "result_quote": "Dyspepsia 1\n17 (3.0%)\n20 (1.8%)\n1.70 (0.25 to 11.45)\n0.59"
+  },
+  {
+   "rid": "PMC6258425#11",
+   "reporting_document": "PMC6258425",
+   "reported_label": "Constipation 1",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "To estimate risk ratios for any adverse event and each adverse event individually in azithromycin-treated infants compared to placebo-treated infants, we used generalized linear models with a binomial distribution and log link, with standard errors clustered by the community of residence of the infant (the unit of randomization).",
+   "result_quote": "Constipation 1\n32 (5.6%)\n66 (5.8%)\n0.97 (0.42 to 2.23)\n0.94"
+  },
+  {
+   "rid": "PMC6258425#12",
+   "reporting_document": "PMC6258425",
+   "reported_label": "Hemorrhoids 1",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "To estimate risk ratios for any adverse event and each adverse event individually in azithromycin-treated infants compared to placebo-treated infants, we used generalized linear models with a binomial distribution and log link, with standard errors clustered by the community of residence of the infant (the unit of randomization).",
+   "result_quote": "Infants in the azithromycin-treated arm had reduced risk of diarrhea (RR 0.68, 95% CI 0.49 to 0.96, P = 0.03) and hemorrhoids (RR 0.27, 95% CI 0.08 to 0.87, P = 0.03)."
+  },
+  {
+   "rid": "PMC6258425#13",
+   "reporting_document": "PMC6258425",
+   "reported_label": "Skin rash 1",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "To estimate risk ratios for any adverse event and each adverse event individually in azithromycin-treated infants compared to placebo-treated infants, we used generalized linear models with a binomial distribution and log link, with standard errors clustered by the community of residence of the infant (the unit of randomization).",
+   "result_quote": "Skin rash 1\n70 (12.3%)\n155 (13.6%)\n0.90 (0.59 to 1.37)\n0.63"
+  },
+  {
+   "rid": "PMC6258425#14",
+   "reporting_document": "PMC6258425",
+   "reported_label": "infantile hypertrophic pyloric stenosis",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Here, we present adverse event data from children aged 1 to 5 months from the Niger site of the trial, to establish the safety of provision of azithromycin to infants under 6 months of age.",
+   "result_quote": "No cases of infantile hypertrophic pyloric stenosis were reported."
+  },
+  {
+   "rid": "PMC6258425#15",
+   "reporting_document": "PMC6258425",
+   "reported_label": "IHPS",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Here, we present adverse event data from children aged 1 to 5 months from the Niger site of the trial, to establish the safety of provision of azithromycin to infants under 6 months of age.",
+   "result_quote": "There were no reported cases of IHPS."
+  },
+  {
+   "rid": "PMC6592520#1",
+   "reporting_document": "PMC6592520",
+   "reported_label": "parasitemia density",
+   "reported_instrument": "thick blood smear",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasitemia density, gametocyte density, hemoglobin concentration at the individual level, and presence of anemia (hemoglobin < 11 g/dL) at the community level [ 17 ].",
+   "result_quote": "Parasite density was lower in the azithromycin group in a mixed-effects linear regression of the 12- and 24-month values adjusted for the date of sample collection, with density estimates 7,540 parasites/ul lower (95% CI -350 to -12,550 parasites/ul) than the placebo arm assuming a mean parasite density in the placebo arm of 17,000 as observed in this study (ICC = 0.02; P = 0.02; square-root-transformed outcome)."
+  },
+  {
+   "rid": "PMC6592520#2",
+   "reporting_document": "PMC6592520",
+   "reported_label": "hemoglobin concentration",
+   "reported_instrument": "Hemocue Hb 201 + device",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes included parasitemia density, gametocyte density, hemoglobin concentration at the individual level, and presence of anemia (hemoglobin < 11 g/dL) at the community level [ 17 ].",
+   "result_quote": "No significant difference was observed between the 2 groups after adjusting for date of sample collection, although the azithromycin group had slightly higher hemoglobin measurements (mean 0.34 g/dL higher than the placebo group, 95% CI -0.06 to 0.75 g/dL; ICC = 0.09; P = 0.10)."
+  },
+  {
+   "rid": "PMC6592520#4",
+   "reporting_document": "PMC6592520",
+   "reported_label": "diarrhea",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Guardians of 1- to 5-month-old children were surveyed about adverse events approximately 1 month after treatment given the paucity of azithromycin safety data in this population.",
+   "result_quote": "diarrhea, which was reported in 110 out of 571 (19.3%) children in the azithromycin group and 321 out of 1,141 (28.1%) children in the placebo group ( P = 0.03)"
+  },
+  {
+   "rid": "PMC6592520#5",
+   "reporting_document": "PMC6592520",
+   "reported_label": "vomiting",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Guardians of 1- to 5-month-old children were surveyed about adverse events approximately 1 month after treatment given the paucity of azithromycin safety data in this population.",
+   "result_quote": "vomiting, reported in 91 out of 571 (15.9%) from the azithromycin group and 240 out of 1,141 (21.0%) from the placebo group ( P = 0.07)"
+  },
+  {
+   "rid": "PMC6592520#6",
+   "reporting_document": "PMC6592520",
+   "reported_label": "rash",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Guardians of 1- to 5-month-old children were surveyed about adverse events approximately 1 month after treatment given the paucity of azithromycin safety data in this population.",
+   "result_quote": "rash, reported in 70 out of 571 (12.3%) from the azithromycin group and 155 out of 1,141 (13.6%) from the placebo group ( P = 0.07)"
+  },
+  {
+   "rid": "PMC8462712#0",
+   "reporting_document": "PMC8462712",
+   "reported_label": "all-cause mortality",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "The number of deaths from baseline to the end of the study were divided by the number of person years of observation to determine the overall mortality rate.",
+   "result_quote": "The MORDOR study, a masked, community-level randomized clinical trial conducted in Niger, Malawi and Tanzania (2015 to 2017), showed that biannual administration of single-dose azithromycin to preschool children reduced all-cause mortality."
+  },
+  {
+   "rid": "PMC8462712#1",
+   "reporting_document": "PMC8462712",
+   "reported_label": "community-level mortality rate",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "The pre-specified primary analysis was conducted using a negative binomial regression of the number of deaths per community, with treatment group as predictor and total person-time at risk as an offset.",
+   "result_quote": "Aggregating at community level, the median (IQR) rates were 0.0 (0.00, 0.99) per 100 person-years of follow-up in the azithromycin arm and 0.0 (0.0, 1.03) in the placebo arm (median two-sample test p = 0.51)."
+  },
+  {
+   "rid": "PMC8462712#2",
+   "reporting_document": "PMC8462712",
+   "reported_label": "malaria",
+   "reported_instrument": "modified version of a published, computer-based algorithm [ 11 ]",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary outcome\nThe distribution of causes of death in children aged 1-59months, where the cause of death was determined using a modified version of a published, computer-based algorithm [ 11 ].",
+   "result_quote": "The leading causes of death in both the azithromycin and placebo arms were malaria (37% vs 34%), pneumonia (19% vs 20%) and diarrhea (15% vs 14%), together accounting for 71% and 68% of deaths in the respective arms ( Fig 3A )."
+  },
+  {
+   "rid": "PMC8462712#3",
+   "reporting_document": "PMC8462712",
+   "reported_label": "pneumonia",
+   "reported_instrument": "modified version of a published, computer-based algorithm [ 11 ]",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary outcome\nThe distribution of causes of death in children aged 1-59months, where the cause of death was determined using a modified version of a published, computer-based algorithm [ 11 ].",
+   "result_quote": "The leading causes of death in both the azithromycin and placebo arms were malaria (37% vs 34%), pneumonia (19% vs 20%) and diarrhea (15% vs 14%), together accounting for 71% and 68% of deaths in the respective arms ( Fig 3A )."
+  },
+  {
+   "rid": "PMC8462712#4",
+   "reporting_document": "PMC8462712",
+   "reported_label": "diarrhea",
+   "reported_instrument": "modified version of a published, computer-based algorithm [ 11 ]",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary outcome\nThe distribution of causes of death in children aged 1-59months, where the cause of death was determined using a modified version of a published, computer-based algorithm [ 11 ].",
+   "result_quote": "The leading causes of death in both the azithromycin and placebo arms were malaria (37% vs 34%), pneumonia (19% vs 20%) and diarrhea (15% vs 14%), together accounting for 71% and 68% of deaths in the respective arms ( Fig 3A )."
+  },
+  {
+   "rid": "PMC8462712#5",
+   "reporting_document": "PMC8462712",
+   "reported_label": "malaria, pneumonia and diarrhea",
+   "reported_instrument": "modified version of a published, computer-based algorithm [ 11 ]",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary outcome\nThe distribution of causes of death in children aged 1-59months, where the cause of death was determined using a modified version of a published, computer-based algorithm [ 11 ].",
+   "result_quote": "Malaria, pneumonia and diarrhea, accounted for 71% and 68% of deaths in the respective arms."
+  },
+  {
+   "rid": "PMC8462712#6",
+   "reporting_document": "PMC8462712",
+   "reported_label": "malnutrition",
+   "reported_instrument": "modified computer-based algorithm [ 11 ]",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary outcome\nThe distribution of causes of death in children aged 1-59months, where the cause of death was determined using a modified version of a published, computer-based algorithm [ 11 ].",
+   "result_quote": "Malnutrition accounted for 9% and 12% of deaths in the azithromycin and placebo arms respectively using the modified computer-based algorithm [ 11 ]."
+  },
+  {
+   "rid": "PMC8462712#7",
+   "reporting_document": "PMC8462712",
+   "reported_label": "malaria, pneumonia and diarrhea",
+   "reported_instrument": "alternative classification of malnutrition deaths",
+   "reported_role": "primary",
+   "role_evidence_quote": "Data are presented as originally categorized as well as according to re-categorization.",
+   "result_quote": "Following reclassification of malnutrition cases, malaria, pneumonia and diarrhea accounted for 78% and 76% of deaths in the azithromycin and placebo arms respectively ( Fig 3B )."
+  },
+  {
+   "rid": "PMC8462712#8",
+   "reporting_document": "PMC8462712",
+   "reported_label": "Mortality all causes",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Mortality all causes by age group and arm.",
+   "result_quote": "The MORDOR study, a masked, community-level randomized clinical trial conducted in Niger, Malawi and Tanzania (2015 to 2017), showed that biannual administration of single-dose azithromycin to preschool children reduced all-cause mortality."
+  },
+  {
+   "rid": "PMC8462712#9",
+   "reporting_document": "PMC8462712",
+   "reported_label": "Mortality all causes",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Mortality all causes by age group and arm.",
+   "result_quote": "The MORDOR study, a masked, community-level randomized clinical trial conducted in Niger, Malawi and Tanzania (2015 to 2017), showed that biannual administration of single-dose azithromycin to preschool children reduced all-cause mortality."
+  },
+  {
+   "rid": "PMC8462712#10",
+   "reporting_document": "PMC8462712",
+   "reported_label": "Mortality all causes",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Mortality all causes by age group and arm.",
+   "result_quote": "The MORDOR study, a masked, community-level randomized clinical trial conducted in Niger, Malawi and Tanzania (2015 to 2017), showed that biannual administration of single-dose azithromycin to preschool children reduced all-cause mortality."
+  },
+  {
+   "rid": "PMC8462712#11",
+   "reporting_document": "PMC8462712",
+   "reported_label": "Mortality all causes",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Mortality all causes by age group and arm.",
+   "result_quote": "The MORDOR study, a masked, community-level randomized clinical trial conducted in Niger, Malawi and Tanzania (2015 to 2017), showed that biannual administration of single-dose azithromycin to preschool children reduced all-cause mortality."
+  },
+  {
+   "rid": "PMC8462712#12",
+   "reporting_document": "PMC8462712",
+   "reported_label": "Mortality due to pneumonia/diarrhea",
+   "reported_instrument": "modified version of a published, computer-based algorithm [ 11 ]",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Given the broad spectrum of action of azithromycin, we were particularly interested in the impact on infectious causes of death. Pneumonia and diarrheal diseases were therefore combined accordingly.",
+   "result_quote": "While we found a 49% lower mortality rate in children aged 1-6 months due to pneumonia and diarrhea, the actual death rates were 9/1,000 person-years for the placebo arm and 4.5/1,000 in the azithromycin arm."
+  },
+  {
+   "rid": "PMC8462712#13",
+   "reporting_document": "PMC8462712",
+   "reported_label": "Mortality due to pneumonia/diarrhea",
+   "reported_instrument": "modified version of a published, computer-based algorithm [ 11 ]",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Given the broad spectrum of action of azithromycin, we were particularly interested in the impact on infectious causes of death. Pneumonia and diarrheal diseases were therefore combined accordingly.",
+   "result_quote": "While we found a 49% lower mortality rate in children aged 1-6 months due to pneumonia and diarrhea, the actual death rates were 9/1,000 person-years for the placebo arm and 4.5/1,000 in the azithromycin arm."
+  },
+  {
+   "rid": "PMC8462712#14",
+   "reporting_document": "PMC8462712",
+   "reported_label": "Mortality due to pneumonia/diarrhea",
+   "reported_instrument": "modified version of a published, computer-based algorithm [ 11 ]",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Given the broad spectrum of action of azithromycin, we were particularly interested in the impact on infectious causes of death. Pneumonia and diarrheal diseases were therefore combined accordingly.",
+   "result_quote": "While we found a 49% lower mortality rate in children aged 1-6 months due to pneumonia and diarrhea, the actual death rates were 9/1,000 person-years for the placebo arm and 4.5/1,000 in the azithromycin arm."
+  },
+  {
+   "rid": "PMC8462712#15",
+   "reporting_document": "PMC8462712",
+   "reported_label": "Mortality due to pneumonia/diarrhea",
+   "reported_instrument": "modified version of a published, computer-based algorithm [ 11 ]",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Given the broad spectrum of action of azithromycin, we were particularly interested in the impact on infectious causes of death. Pneumonia and diarrheal diseases were therefore combined accordingly.",
+   "result_quote": "While we found a 49% lower mortality rate in children aged 1-6 months due to pneumonia and diarrhea, the actual death rates were 9/1,000 person-years for the placebo arm and 4.5/1,000 in the azithromycin arm."
+  },
+  {
+   "rid": "PMC8462712#16",
+   "reporting_document": "PMC8462712",
+   "reported_label": "deaths attributed to diarrhea or pneumonia",
+   "reported_instrument": "WHO abbreviated Verbal Autopsy questionnaire [ 14 ]",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In children aged 1-5 months, 32 deaths occurred in the placebo arm and 25 deaths occurred in the azithromycin arm; 20 (62.5%) deaths in the placebo- and 10 (40%) in the azithromycin arm were attributed to diarrhea or pneumonia.",
+   "result_quote": "Of the total numbers of deaths in this age stratum, 20 of the 32 deaths (62.5%) in the placebo arm and 10 of 25 (40%) in the azithromycin arm were attributed to diarrhea or pneumonia ( Table 2 )."
+  },
+  {
+   "rid": "PMC8719241#1",
+   "reporting_document": "PMC8719241",
+   "reported_label": "weight corrected for height over time",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The 2 prespecified primary outcomes were height over time and weight corrected for height over time, assessed at the 48-month study visit.",
+   "result_quote": "mean weight in the azithromycin group was 0.02 kg (95% CI, -0.10 to 0.06 kg) lower than in the placebo group ( P  = .64 after adjustment for height and baseline weight, prespecified primary outcome)"
+  },
+  {
+   "rid": "PMC8719241#2",
+   "reporting_document": "PMC8719241",
+   "reported_label": "height",
+   "reported_instrument": "A portable stadiometer (Schorr Productions) was used to measure standing height or recumbent length for children unable to stand.",
+   "reported_role": "primary",
+   "role_evidence_quote": "Height and weight were the prespecified primary outcomes.",
+   "result_quote": "At the prespecified 4-year follow-up visit, children in the azithromycin group gained a mean 6.7 cm (95% CI, 6.5 to 6.8 cm) in height and 1.7 kg (95% CI, 1.7 to 1.8 kg) in weight per year and children in the placebo group gained a mean 6.6 cm (95% CI, 6.4 to 6.7 cm) in height and 1.7 kg (95% CI, 1.7 to 1.8 kg) in weight per year."
+  },
+  {
+   "rid": "PMC8719241#3",
+   "reporting_document": "PMC8719241",
+   "reported_label": "weight",
+   "reported_instrument": "A Seca 874 floor scale (Seca GmbH & Co) was used for weight measurements.",
+   "reported_role": "primary",
+   "role_evidence_quote": "Height and weight were the prespecified primary outcomes.",
+   "result_quote": "At the prespecified 4-year follow-up visit, children in the azithromycin group gained a mean 6.7 cm (95% CI, 6.5 to 6.8 cm) in height and 1.7 kg (95% CI, 1.7 to 1.8 kg) in weight per year and children in the placebo group gained a mean 6.6 cm (95% CI, 6.4 to 6.7 cm) in height and 1.7 kg (95% CI, 1.7 to 1.8 kg) in weight per year."
+  },
+  {
+   "rid": "PMC8719241#4",
+   "reporting_document": "PMC8719241",
+   "reported_label": "Height, cm/y",
+   "reported_instrument": "A portable stadiometer (Schorr Productions) was used to measure standing height or recumbent length for children unable to stand.",
+   "reported_role": "primary",
+   "role_evidence_quote": "End points at months 24 and 60 were also prespecified.",
+   "result_quote": "In this placebo-controlled cluster-randomized trial with longitudinal anthropometric monitoring among 2230 children from 30 communities in Niger, mass azithromycin distributions did not have a statistically significant effect on height or weight."
+  },
+  {
+   "rid": "PMC8719241#5",
+   "reporting_document": "PMC8719241",
+   "reported_label": "Height, cm/y",
+   "reported_instrument": "A portable stadiometer (Schorr Productions) was used to measure standing height or recumbent length for children unable to stand.",
+   "reported_role": "primary",
+   "role_evidence_quote": "End points at months 24 and 60 were also prespecified.",
+   "result_quote": "In this placebo-controlled cluster-randomized trial with longitudinal anthropometric monitoring among 2230 children from 30 communities in Niger, mass azithromycin distributions did not have a statistically significant effect on height or weight."
+  },
+  {
+   "rid": "PMC8719241#6",
+   "reporting_document": "PMC8719241",
+   "reported_label": "Height, cm/y",
+   "reported_instrument": "A portable stadiometer (Schorr Productions) was used to measure standing height or recumbent length for children unable to stand.",
+   "reported_role": "primary",
+   "role_evidence_quote": "End points at months 24 and 60 were also prespecified.",
+   "result_quote": "In this placebo-controlled cluster-randomized trial with longitudinal anthropometric monitoring among 2230 children from 30 communities in Niger, mass azithromycin distributions did not have a statistically significant effect on height or weight."
+  },
+  {
+   "rid": "PMC8719241#7",
+   "reporting_document": "PMC8719241",
+   "reported_label": "Weight, kg/y",
+   "reported_instrument": "A Seca 874 floor scale (Seca GmbH & Co) was used for weight measurements.",
+   "reported_role": "primary",
+   "role_evidence_quote": "End points at months 24 and 60 were also prespecified.",
+   "result_quote": "In this placebo-controlled cluster-randomized trial with longitudinal anthropometric monitoring among 2230 children from 30 communities in Niger, mass azithromycin distributions did not have a statistically significant effect on height or weight."
+  },
+  {
+   "rid": "PMC8719241#8",
+   "reporting_document": "PMC8719241",
+   "reported_label": "Weight, kg/y",
+   "reported_instrument": "A Seca 874 floor scale (Seca GmbH & Co) was used for weight measurements.",
+   "reported_role": "primary",
+   "role_evidence_quote": "End points at months 24 and 60 were also prespecified.",
+   "result_quote": "In this placebo-controlled cluster-randomized trial with longitudinal anthropometric monitoring among 2230 children from 30 communities in Niger, mass azithromycin distributions did not have a statistically significant effect on height or weight."
+  },
+  {
+   "rid": "PMC8719241#9",
+   "reporting_document": "PMC8719241",
+   "reported_label": "Weight, kg/y",
+   "reported_instrument": "A Seca 874 floor scale (Seca GmbH & Co) was used for weight measurements.",
+   "reported_role": "primary",
+   "role_evidence_quote": "End points at months 24 and 60 were also prespecified.",
+   "result_quote": "In this placebo-controlled cluster-randomized trial with longitudinal anthropometric monitoring among 2230 children from 30 communities in Niger, mass azithromycin distributions did not have a statistically significant effect on height or weight."
+  },
+  {
+   "rid": "PMC8719241#10",
+   "reporting_document": "PMC8719241",
+   "reported_label": "Height, cm",
+   "reported_instrument": "A portable stadiometer (Schorr Productions) was used to measure standing height or recumbent length for children unable to stand.",
+   "reported_role": "other",
+   "role_evidence_quote": "Subgroup analyses were performed based on height quartiles at baseline, chosen as a proxy for age given imprecision in self-reported age; median community size; and sex.",
+   "result_quote": "among children in the shortest quartile of baseline height, azithromycin was associated with a 0.4 cm (95% CI, 0.1 to 0.7 cm) increase in height compared with placebo."
+  },
+  {
+   "rid": "PMC8719241#11",
+   "reporting_document": "PMC8719241",
+   "reported_label": "Height, cm",
+   "reported_instrument": "A portable stadiometer (Schorr Productions) was used to measure standing height or recumbent length for children unable to stand.",
+   "reported_role": "other",
+   "role_evidence_quote": "Subgroup analyses were performed based on height quartiles at baseline, chosen as a proxy for age given imprecision in self-reported age; median community size; and sex.",
+   "result_quote": "In this placebo-controlled cluster-randomized trial with longitudinal anthropometric monitoring among 2230 children from 30 communities in Niger, mass azithromycin distributions did not have a statistically significant effect on height or weight."
+  },
+  {
+   "rid": "PMC8719241#12",
+   "reporting_document": "PMC8719241",
+   "reported_label": "Height, cm",
+   "reported_instrument": "A portable stadiometer (Schorr Productions) was used to measure standing height or recumbent length for children unable to stand.",
+   "reported_role": "other",
+   "role_evidence_quote": "Subgroup analyses were performed based on height quartiles at baseline, chosen as a proxy for age given imprecision in self-reported age; median community size; and sex.",
+   "result_quote": "In this placebo-controlled cluster-randomized trial with longitudinal anthropometric monitoring among 2230 children from 30 communities in Niger, mass azithromycin distributions did not have a statistically significant effect on height or weight."
+  },
+  {
+   "rid": "PMC8719241#13",
+   "reporting_document": "PMC8719241",
+   "reported_label": "Height, cm",
+   "reported_instrument": "A portable stadiometer (Schorr Productions) was used to measure standing height or recumbent length for children unable to stand.",
+   "reported_role": "other",
+   "role_evidence_quote": "Subgroup analyses were performed based on height quartiles at baseline, chosen as a proxy for age given imprecision in self-reported age; median community size; and sex.",
+   "result_quote": "In this placebo-controlled cluster-randomized trial with longitudinal anthropometric monitoring among 2230 children from 30 communities in Niger, mass azithromycin distributions did not have a statistically significant effect on height or weight."
+  },
+  {
+   "rid": "PMC8719241#14",
+   "reporting_document": "PMC8719241",
+   "reported_label": "Height, cm",
+   "reported_instrument": "A portable stadiometer (Schorr Productions) was used to measure standing height or recumbent length for children unable to stand.",
+   "reported_role": "other",
+   "role_evidence_quote": "Subgroup analyses were performed based on height quartiles at baseline, chosen as a proxy for age given imprecision in self-reported age; median community size; and sex.",
+   "result_quote": "In this placebo-controlled cluster-randomized trial with longitudinal anthropometric monitoring among 2230 children from 30 communities in Niger, mass azithromycin distributions did not have a statistically significant effect on height or weight."
+  },
+  {
+   "rid": "PMC8719241#15",
+   "reporting_document": "PMC8719241",
+   "reported_label": "Height, cm",
+   "reported_instrument": "A portable stadiometer (Schorr Productions) was used to measure standing height or recumbent length for children unable to stand.",
+   "reported_role": "other",
+   "role_evidence_quote": "Subgroup analyses were performed based on height quartiles at baseline, chosen as a proxy for age given imprecision in self-reported age; median community size; and sex.",
+   "result_quote": "In this placebo-controlled cluster-randomized trial with longitudinal anthropometric monitoring among 2230 children from 30 communities in Niger, mass azithromycin distributions did not have a statistically significant effect on height or weight."
+  },
+  {
+   "rid": "PMC8719241#16",
+   "reporting_document": "PMC8719241",
+   "reported_label": "Height, cm",
+   "reported_instrument": "A portable stadiometer (Schorr Productions) was used to measure standing height or recumbent length for children unable to stand.",
+   "reported_role": "other",
+   "role_evidence_quote": "Subgroup analyses were performed based on height quartiles at baseline, chosen as a proxy for age given imprecision in self-reported age; median community size; and sex.",
+   "result_quote": "In this placebo-controlled cluster-randomized trial with longitudinal anthropometric monitoring among 2230 children from 30 communities in Niger, mass azithromycin distributions did not have a statistically significant effect on height or weight."
+  },
+  {
+   "rid": "PMC8719241#17",
+   "reporting_document": "PMC8719241",
+   "reported_label": "Height, cm",
+   "reported_instrument": "A portable stadiometer (Schorr Productions) was used to measure standing height or recumbent length for children unable to stand.",
+   "reported_role": "other",
+   "role_evidence_quote": "Subgroup analyses were performed based on height quartiles at baseline, chosen as a proxy for age given imprecision in self-reported age; median community size; and sex.",
+   "result_quote": "In this placebo-controlled cluster-randomized trial with longitudinal anthropometric monitoring among 2230 children from 30 communities in Niger, mass azithromycin distributions did not have a statistically significant effect on height or weight."
+  },
+  {
+   "rid": "PMC8719241#18",
+   "reporting_document": "PMC8719241",
+   "reported_label": "Height, cm",
+   "reported_instrument": "A portable stadiometer (Schorr Productions) was used to measure standing height or recumbent length for children unable to stand.",
+   "reported_role": "other",
+   "role_evidence_quote": "Subgroup analyses were performed based on height quartiles at baseline, chosen as a proxy for age given imprecision in self-reported age; median community size; and sex.",
+   "result_quote": "In this placebo-controlled cluster-randomized trial with longitudinal anthropometric monitoring among 2230 children from 30 communities in Niger, mass azithromycin distributions did not have a statistically significant effect on height or weight."
+  },
+  {
+   "rid": "PMC8719241#19",
+   "reporting_document": "PMC8719241",
+   "reported_label": "stunting (ie, HAZ < -2)",
+   "reported_instrument": "the 2006 World Health Organization (WHO) child growth standards",
+   "reported_role": "secondary",
+   "role_evidence_quote": "the height-for-age z score (HAZ), weight-for-height z score (WHZ), weight-for-age z score (WAZ), and MUAC z score (MAZ) were calculated according to the 2006 World Health Organization (WHO) child growth standards and analyzed as a secondary outcome in the repeated cross-sectional samples of children.",
+   "result_quote": "Across 4 prespecified follow-up visits, 30.2% (95%CI 25.4 to 34.89%) of children were classified with stunting (ie, HAZ < -2)"
+  },
+  {
+   "rid": "PMC8719241#20",
+   "reporting_document": "PMC8719241",
+   "reported_label": "wasting (ie, WHZ < -2)",
+   "reported_instrument": "the 2006 World Health Organization (WHO) child growth standards",
+   "reported_role": "secondary",
+   "role_evidence_quote": "the height-for-age z score (HAZ), weight-for-height z score (WHZ), weight-for-age z score (WAZ), and MUAC z score (MAZ) were calculated according to the 2006 World Health Organization (WHO) child growth standards and analyzed as a secondary outcome in the repeated cross-sectional samples of children.",
+   "result_quote": "10.7% (95%CI 7.0 to 15.6%) of children with wasting (ie, WHZ < -2)"
+  },
+  {
+   "rid": "PMC8719241#21",
+   "reporting_document": "PMC8719241",
+   "reported_label": "hospitalizations or life-threatening illnesses",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Guardians were instructed to contact a village representative if their child experienced any adverse events within 7 days of receiving the study drug; the representative then informed the study coordinator (A.M.A.).",
+   "result_quote": "No hospitalizations or life-threatening illnesses were reported in either group."
+  },
+  {
+   "rid": "PMC8719241#22",
+   "reporting_document": "PMC8719241",
+   "reported_label": "death during the follow-up period",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Guardians were instructed to contact a village representative if their child experienced any adverse events within 7 days of receiving the study drug; the representative then informed the study coordinator (A.M.A.).",
+   "result_quote": "A total of 71 children in the azithromycin group and 70 children in the placebo group died during the follow-up period"
+  },
+  {
+   "rid": "PMC8719241#23",
+   "reporting_document": "PMC8719241",
+   "reported_label": "MUAC less than 11.5 cm",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Mid-upper arm circumference (MUAC) was measured for referral purposes.",
+   "result_quote": "Across all monitoring visits of the longitudinal sample, 13 children in the azithromycin group and 9 children in the placebo group had a MUAC less than 11.5 cm and were referred to a local health facility for treatment."
+  },
+  {
+   "rid": "PMC8819720#0",
+   "reporting_document": "PMC8819720",
+   "reported_label": "proportion of S pneumoniae isolates exhibiting macrolide resistance at the 12-month follow-up visit",
+   "reported_instrument": "Kirby-Bauer method with ISO-blood agar, 15 ug azithromycin discs",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary prespecified outcome was the proportion of S pneumoniae isolates exhibiting macrolide resistance in children aged 1-59 months at the 12-month follow-up visit (6 months after the second biannual treatment visit) and the 24-month follow-up visit (6 months after the fourth biannual treatment visit).",
+   "result_quote": "At the 12-month follow-up, macrolide resistance was higher in the azithromycin group (36 9%, 95% CI 32 5-41 2) than in the placebo group (21 6%, 17 7-25 4; OR 2 26, 95% CI 1 46-3 49; p=0 0002)."
+  },
+  {
+   "rid": "PMC8819720#2",
+   "reporting_document": "PMC8819720",
+   "reported_label": "carriage rates of S pneumoniae at 12 months",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes were carriage rates of S pneumoniae and the proportion of S pneumoniae isolates resistant to penicillin at 12 months and 24 months.",
+   "result_quote": "Prespecified secondary outcomes were carriage rates of S pneumoniae and the proportion of S pneumoniae isolates resistant to penicillin at 12 months and 24 months."
+  },
+  {
+   "rid": "PMC8819720#3",
+   "reporting_document": "PMC8819720",
+   "reported_label": "carriage rates of S pneumoniae at 24 months",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes were carriage rates of S pneumoniae and the proportion of S pneumoniae isolates resistant to penicillin at 12 months and 24 months.",
+   "result_quote": "Prespecified secondary outcomes were carriage rates of S pneumoniae and the proportion of S pneumoniae isolates resistant to penicillin at 12 months and 24 months."
+  },
+  {
+   "rid": "PMC8819720#4",
+   "reporting_document": "PMC8819720",
+   "reported_label": "carriage rates of S pneumoniae at 12 months",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes were carriage rates of S pneumoniae and the proportion of S pneumoniae isolates resistant to penicillin at 12 months and 24 months.",
+   "result_quote": "Prespecified secondary outcomes were carriage rates of S pneumoniae and the proportion of S pneumoniae isolates resistant to penicillin at 12 months and 24 months."
+  },
+  {
+   "rid": "PMC8819720#5",
+   "reporting_document": "PMC8819720",
+   "reported_label": "carriage rates of S pneumoniae at 24 months",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Prespecified secondary outcomes were carriage rates of S pneumoniae and the proportion of S pneumoniae isolates resistant to penicillin at 12 months and 24 months.",
+   "result_quote": "Prespecified secondary outcomes were carriage rates of S pneumoniae and the proportion of S pneumoniae isolates resistant to penicillin at 12 months and 24 months."
+  },
+  {
+   "rid": "PMC8819720#6",
+   "reporting_document": "PMC8819720",
+   "reported_label": "Treatment coverage over the four rounds of the study",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Treatment coverage over the four rounds of the study was 76 6% in azithromycin communities (12 629 treatments administered to 16 494 eligible children) and 73 5% in placebo communities (11 118 treatments administered to 15 123 eligible children); detailed breakdown by treatment round is shown in figure 1 .",
+   "result_quote": "Treatment coverage over the four rounds of the study was 76 6% in azithromycin communities (12 629 treatments administered to 16 494 eligible children) and 73 5% in placebo communities (11 118 treatments administered to 15 123 eligible children); detailed breakdown by treatment round is shown in figure 1 ."
+  },
+  {
+   "rid": "PMC8861117#0",
+   "reporting_document": "PMC8861117",
+   "reported_label": "P. falciparum IgG seroprevalence",
+   "reported_instrument": "multiplex bead assay",
+   "reported_role": "secondary",
+   "role_evidence_quote": "These were pre-specified, secondary outcomes for the trial ( NCT02048007 ).",
+   "result_quote": "falciparum IgG seroprevalence between ages 12 and 36 months (Fig."
+  },
+  {
+   "rid": "PMC8861117#1",
+   "reporting_document": "PMC8861117",
+   "reported_label": "seroconversion to any of the P. falciparum antigens",
+   "reported_instrument": "multiplex bead assay",
+   "reported_role": "secondary",
+   "role_evidence_quote": "These were pre-specified, secondary outcomes for the trial ( NCT02048007 ).",
+   "result_quote": "This corresponded to a 12% relative reduction in the hazard of seroconversion to any of the P. falciparum antigens (HR = 0.88, 95% CI: 0.62-1.26)."
+  },
+  {
+   "rid": "PMC8861117#2",
+   "reporting_document": "PMC8861117",
+   "reported_label": "IgG seroprevalence among communities with baseline parasitemia <=5%",
+   "reported_instrument": "multiplex bead assay",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "we conducted an exploratory subgroup analysis (suggested during peer review, not pre-specified) that stratified communities by baseline malaria parasitemia <=5% ( n  = 17) versus >5% ( n  = 13).",
+   "result_quote": "There was modest evidence for a larger reduction in IgG seroprevalence among communities with baseline parasitemia <=5% (difference = -11%, 95% CI: -22% to 2%) with no difference between groups among communities with higher baseline parasitemia (Supplementary Fig. 7 )."
+  },
+  {
+   "rid": "PMC8861117#3",
+   "reporting_document": "PMC8861117",
+   "reported_label": "Campylobacter seroprevalence",
+   "reported_instrument": "Campylobacter spp. p18 or p39 antigens",
+   "reported_role": "secondary",
+   "role_evidence_quote": "These were pre-specified, secondary outcomes for the trial ( NCT02048007 ).",
+   "result_quote": "Campylobacter seroprevalence was lower among children who received azithromycin compared with placebo (91% vs. 94%, difference = -3%, 95% CI: -5% to -1%; P  = 0.03) (Fig. 3c )"
+  },
+  {
+   "rid": "PMC8861117#4",
+   "reporting_document": "PMC8861117",
+   "reported_label": "Campylobacter spp. force of infection",
+   "reported_instrument": "Campylobacter spp. p18 or p39 antigens",
+   "reported_role": "secondary",
+   "role_evidence_quote": "These were pre-specified, secondary outcomes for the trial ( NCT02048007 ).",
+   "result_quote": "Mass azithromycin reduces Campylobacter spp. force of infection by 29% (hazard ratio = 0.71, 95% CI: 0.56, 0.89; P  = 0.004)"
+  },
+  {
+   "rid": "PMC8861117#5",
+   "reporting_document": "PMC8861117",
+   "reported_label": "Campylobacter seroconversion rate",
+   "reported_instrument": "Campylobacter spp. p18 or p39 antigens",
+   "reported_role": "secondary",
+   "role_evidence_quote": "These were pre-specified, secondary outcomes for the trial ( NCT02048007 ).",
+   "result_quote": "We estimated 0.54 fewer Campylobacter seroconversions per child-year at risk, a 29% relative reduction (1.30 vs. 1.84 seroconversions per year), based on a semiparametric proportional hazards model (HR = 0.71, 95% CI: 0.56-0.89; P  = 0.004), which remained significant after correction for multiple testing (Fig. 3d )."
+  },
+  {
+   "rid": "PMC8861117#6",
+   "reporting_document": "PMC8861117",
+   "reported_label": "AMA1 seroconversion",
+   "reported_instrument": "P. falciparum AMA1",
+   "reported_role": "other",
+   "role_evidence_quote": "We conducted a supplemental analysis in this opportunistic subgroup to estimate prospective seroconversion and seroreversion rates.",
+   "result_quote": "Longitudinal analyses demonstrated larger reductions in P. falciparum seroconversion rates among children who received azithromycin compared to the primary analysis (e.g., AMA1 seroconversion incidence rate ratio: 0.49, 95% CI: 0.32-0.78), but most comparisons were slightly underpowered given the small size of the longitudinal cohort (Supplementary Table 1 )."
+  },
+  {
+   "rid": "PMC8861117#7",
+   "reporting_document": "PMC8861117",
+   "reported_label": "Campylobacter seroconversion rate",
+   "reported_instrument": "Campylobacter spp. p18 or p39 antigens",
+   "reported_role": "other",
+   "role_evidence_quote": "We conducted a supplemental analysis in this opportunistic subgroup to estimate prospective seroconversion and seroreversion rates.",
+   "result_quote": "For example, the Campylobacter seroconversion rate was 19% lower (IRR: 0.81, 95% CI: 0.63-1.05) in the azithromycin group compared to placebo in the longitudinal analysis (Supplementary Table 1 )."
+  },
+  {
+   "rid": "PMC8861117#8",
+   "reporting_document": "PMC8861117",
+   "reported_label": "community-level malaria parasitemia prevalence and seroprevalence to P. falciparum antigens",
+   "reported_instrument": "thick smear microscopy",
+   "reported_role": "other",
+   "role_evidence_quote": "We compared community-level malaria parasitemia prevalence and seroprevalence to P. falciparum antigens using Spearman rank correlation.",
+   "result_quote": "At the community level, seroprevalence was correlated with thick smear malaria parasitemia (Spearman's    = 0.45, Supplementary Fig. 13 )."
+  },
+  {
+   "rid": "PMC9399865#0",
+   "reporting_document": "PMC9399865",
+   "reported_label": "trachomatous inflammation-follicular",
+   "reported_instrument": "WHO simplified grading system",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Clinical trachoma was a prespecified secondary outcome, defined according to the WHO's simplified grading system as the presence of trachomatous inflammation-follicular (TF) or trachomatous inflammation-intense (TI).",
+   "result_quote": "In this cluster randomized clinical trial of 4726 children in 30 communities in Niger, communities with hypoendemic trachoma in which azithromycin was distributed biannually to children aged 1 to 59 months had a slightly lower prevalence of trachomatous inflammation-follicular and trachomatous inflammation-intense relative to communities treated with biannual placebo, but the difference was not statistically significant."
+  },
+  {
+   "rid": "PMC9399865#1",
+   "reporting_document": "PMC9399865",
+   "reported_label": "trachomatous inflammation-follicular",
+   "reported_instrument": "WHO simplified grading system",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Clinical trachoma was a prespecified secondary outcome, defined according to the WHO's simplified grading system as the presence of trachomatous inflammation-follicular (TF) or trachomatous inflammation-intense (TI).",
+   "result_quote": "In this cluster randomized clinical trial of 4726 children in 30 communities in Niger, communities with hypoendemic trachoma in which azithromycin was distributed biannually to children aged 1 to 59 months had a slightly lower prevalence of trachomatous inflammation-follicular and trachomatous inflammation-intense relative to communities treated with biannual placebo, but the difference was not statistically significant."
+  },
+  {
+   "rid": "PMC9399865#2",
+   "reporting_document": "PMC9399865",
+   "reported_label": "trachomatous inflammation-intense",
+   "reported_instrument": "WHO simplified grading system",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Clinical trachoma was a prespecified secondary outcome, defined according to the WHO's simplified grading system as the presence of trachomatous inflammation-follicular (TF) or trachomatous inflammation-intense (TI).",
+   "result_quote": "In this cluster randomized clinical trial of 4726 children in 30 communities in Niger, communities with hypoendemic trachoma in which azithromycin was distributed biannually to children aged 1 to 59 months had a slightly lower prevalence of trachomatous inflammation-follicular and trachomatous inflammation-intense relative to communities treated with biannual placebo, but the difference was not statistically significant."
+  },
+  {
+   "rid": "PMC9399865#3",
+   "reporting_document": "PMC9399865",
+   "reported_label": "trachomatous inflammation-intense",
+   "reported_instrument": "WHO simplified grading system",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Clinical trachoma was a prespecified secondary outcome, defined according to the WHO's simplified grading system as the presence of trachomatous inflammation-follicular (TF) or trachomatous inflammation-intense (TI).",
+   "result_quote": "In this cluster randomized clinical trial of 4726 children in 30 communities in Niger, communities with hypoendemic trachoma in which azithromycin was distributed biannually to children aged 1 to 59 months had a slightly lower prevalence of trachomatous inflammation-follicular and trachomatous inflammation-intense relative to communities treated with biannual placebo, but the difference was not statistically significant."
+  },
+  {
+   "rid": "PMC9399865#4",
+   "reporting_document": "PMC9399865",
+   "reported_label": "pgp3 seroprevalence",
+   "reported_instrument": "multiplex bead assay performed on the Bio-plex 200 instrument equipped with the Bio-Plex manager software, version 6.0 (Bio-Rad)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "A secondary outcome was the seroprevalence of antibodies to C trachomatis antigens.",
+   "result_quote": "The mean pgp3 seroprevalence among children aged 12 to 59 months at baseline was 0.6% (95% CI, 0-1.3%) in the azithromycin group and 0.6% (95% CI, 0-1.1%) in the placebo group (eTable 3 in Supplement 2 )."
+  },
+  {
+   "rid": "PMC9399865#5",
+   "reporting_document": "PMC9399865",
+   "reported_label": "pgp3 seroprevalence",
+   "reported_instrument": "multiplex bead assay performed on the Bio-plex 200 instrument equipped with the Bio-Plex manager software, version 6.0 (Bio-Rad)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "A secondary outcome was the seroprevalence of antibodies to C trachomatis antigens.",
+   "result_quote": "At month 24, pgp3 seroprevalence was 0.4% (95% CI, 0-1.0%) in the azithromycin group and 0.6% (95% CI, 0-1.3%) in the placebo group (incidence rate ratio adjusted for baseline, 0.71 [95% CI, 0.09-4.30]; permutation P  = .87)."
+  },
+  {
+   "rid": "PMC9399865#6",
+   "reporting_document": "PMC9399865",
+   "reported_label": "coverage of study drug",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Every 6 months, a single dose of either oral azithromycin (20 mg/kg using height-based approximation for children who could stand or weight calculation for small children) or oral placebo was provided to all children aged 1 to 59 months.",
+   "result_quote": "During the 4 biannual treatment visits, the study drug was administered to a mean of 79% (95% CI, 75%-83%) of children in the azithromycin group and 82% (95% CI, 79%-85%) of children in the placebo group ( Figure 1 )."
+  },
+  {
+   "rid": "PMC9399865#7",
+   "reporting_document": "PMC9399865",
+   "reported_label": "hospitalizations or life-threatening illnesses",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Participants were instructed to report adverse events to designated village representatives.",
+   "result_quote": "No hospitalizations or life-threatening illnesses were reported in either group."
+  }
+ ],
+ "dropped_unusable_units": [
+  "PMC8462712#17: NCT02048007/PMC8462712#17 result: quote too short to be evidence"
+ ]
+}

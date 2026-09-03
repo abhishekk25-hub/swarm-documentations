@@ -1,0 +1,30 @@
+[task]
+name = "swarmbench/1ba2ad24143646a08efde195b04331f2-SWARMBENCH-HIERARCHICAL-CREATIVEVIZ-FINANCE-PRINCIPLES-SLIDES"
+description = "Turn a ~630-page, 20-chapter 'Principles of Finance' textbook into a single PowerPoint deck: for every one of the 20 chapters, at most 5 key-point slides (the core concepts, key definitions, formulas, models, and main takeaways) faithful to that chapter, each chapter opened by a 'Chapter N: <title>' slide and assembled into one cohesive .pptx deck covering the whole book."
+
+[metadata]
+verifier_type = "llm-judge"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification= ["multi_modal"]
+human_solving_hours_estimate = 24
+dag_width = 20
+dag_depth = 2
+human_solving_hours_justification = "The input is a ~630-page introductory finance textbook (20 chapters, hundreds of thousands of tokens) and the deliverable is a faithful key-point slide deck for every chapter (<=5 slides each). This is read-AND-distill: a person must read each chapter and then decide its genuinely major points (named models, formulas like time-value-of-money and bond/stock valuation, key definitions, main results) and compress them into a handful of specific, correct, presenter-ready slides without padding or fabricating. Realistic effort: ~55-60 min per chapter to read the chapter and author its <=5 key-point slides (20 x ~58 min = ~19h), plus ~5h to assemble the 20 chapter sets into one cohesive deck with proper 'Chapter N: <title>' marker slides, remove cross-chapter redundancy, and QA every bullet against the book. Total ~= 24h."
+estimated_sub_agents = 21
+input_token_estimate = 400000
+why_multi_agent = "The source is a single ~630-page book whose full text far exceeds any single agent's effective working context, and the deliverable is a faithful key-point deck for all 20 chapters. A single agent reads the front of the book and builds strong slides for the first several chapters, then degrades under the combined read+distill load: it skips chapters, produces thin or generic slides that miss each chapter's specific models and formulas, blurs distinct chapters together, starts inventing 'reasonable-sounding' finance it never read, or stops well before Chapter 20 -- and because the LLM judge scores every chapter's slides independently against that chapter's actual text, those gaps, shallow decks, and fabrications tank the score. A hierarchical decomposition assigns one slide-writer per chapter (each reads ONLY its chapter and authors a deep, faithful <=5-slide set of its key points), then a single deck-assembler stitches all 20 chapter sets into one cohesive deck with proper chapter-title marker slides. This keeps every chapter's slides -- including the last ones -- as complete, specific, and accurate as the first, which is exactly what the strict per-chapter, book-grounded judge rewards."
+
+reference_link = "https://openstax.org/details/books/principles-finance"
+
+[agent]
+timeout_sec = 900
+
+[verifier]
+timeout_sec = 1800
+requires_network = true
+
+[environment]
+cpus = 8
+memory_mb = 6144
+build_timeout_sec = 900

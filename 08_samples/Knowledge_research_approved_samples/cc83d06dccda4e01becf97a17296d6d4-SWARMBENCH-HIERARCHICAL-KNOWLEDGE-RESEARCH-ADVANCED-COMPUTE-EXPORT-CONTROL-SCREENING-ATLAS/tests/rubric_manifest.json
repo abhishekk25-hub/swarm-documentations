@@ -1,0 +1,564 @@
+{
+  "task_id": "cc83d06dccda4e01becf97a17296d6d4",
+  "scoring_formula": "The verifier emits 75 boolean checks, first reports three normalized bucket totals, then computes runtime reward as the canonical equal mean of those already-normalized bucket totals: total_static_check_score, total_reward_hacking_check_score, and total_partial_oracle_check_score. Each check is equal-weight within its own bucket; raw bucket sizes do not change the final reward. verifier_type=hybrid: if the LLM judge is unavailable or unparseable the verifier writes invalid_evaluation=true and does not treat a deterministic-only mean as a comparable reward. An uncaught verifier exception takes the same route.",
+  "verifier_type": "hybrid",
+  "content_share_target": ">=0.60. Under the canonical equal-bucket runtime formula, content is 2 of 3 buckets (deterministic reward_hacking plus partial_oracle LLM), i.e. 66.7%.",
+  "check_weighting_note": "Each check is equal-weight within its bucket; runtime reward is the equal mean of static, deterministic reward_hacking, and partial_oracle bucket scores. The deterministic content bucket includes finished-row quality checks requiring quote grounding, recomputed tightness, substantive notes, grounded paraphrases, and source-window classification footprints.",
+  "freebie_floor_measured": "Historical offline discrimination metadata is retained for reference only; it predates the bucket aggregation and is not a runtime threshold.",
+  "anti_padding": "is_substantive_obligation drops heading/TOC/quote-slice/no-verb paraphrases. Shape alone confers no credit; grounding thresholds count grounded rows.",
+  "grounding_coverage": "Every substantive row is full-quote-checked against its jurisdiction text. A second check requires the quote to sit in the claim's locator/focus neighbourhood and rejects near-duplicate quotes within the same jurisdiction/theme.",
+  "judged_input_coverage": "The judged layer sees pinned instrument excerpts, atlas/briefing/ledger excerpts, and the full required 180-row matrix cohort with per-cell truncation rather than a 120-row sample.",
+  "fail_closed": true,
+  "total_checks": 75,
+  "judge_config": {
+    "provider_resolution": "First key present among GRADER_API_KEY, WANDB_API_KEY, FIREWORKS_API_KEY, OPENAI_API_KEY, MOONSHOT_API_KEY. No key is stored in task files.",
+    "endpoint": "https://api.inference.wandb.ai/v1/chat/completions",
+    "model_id": "Qwen/Qwen3.6-35B-A3B (W&B catalog + trainer vision-verifier template default). Fallbacks: deepseek-ai/DeepSeek-V4-Flash, zai-org/GLM-5.2, openai/gpt-oss-120b, then moonshotai/Kimi-K2.6 / kimi-k2.6.",
+    "request_rules": "Do NOT send temperature. response_format json_object for JSON-based judging. thinking disabled only on bare kimi-* Moonshot fallback ids.",
+    "judge_independence": "Candidate order leads with Qwen so the model under test does not grade its own output; Kimi ids remain as last-resort fallbacks.",
+    "audit": "llm_status.json records grader key, base url, judge model, temperature=omitted, and judged_checks_scored."
+  },
+  "measured_discrimination": "Canonical equal-bucket reward plus finished-row quality checks are intended to separate broad-but-shallow rows from rows whose quote, score, note, and classification evidence agree. Embedded execution evidence should be reverified with this manifest before gap use.",
+  "implementation_functions": {
+    "deterministic_batch": "run_deterministic",
+    "llm_batch": "call_llm_judge",
+    "bucket_aggregation": "_category_scores plus _runtime_weighted_reward",
+    "manifest_deterministic_entry": "_manifest_deterministic_result",
+    "manifest_llm_entry": "_manifest_llm_result",
+    "grounding_helpers": [
+      "quote_round_trips",
+      "paraphrase_near_quote",
+      "field_compatible_with_window",
+      "class_compatible_with_window",
+      "fetched_instrument_evidence"
+    ]
+  },
+  "checks": {
+    "static_checks_1": {
+      "check_function": "score_static_checks_1",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. export_screening_matrix.csv exists with the required columns. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a missing or wrong-header export_screening_matrix.csv so a bare empty file cannot count as a matrix."
+    },
+    "static_checks_2": {
+      "check_function": "score_static_checks_2",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. matrix carries one row per catalog claim with no duplicates. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects partial or padded matrices that omit catalog claims or repeat ids instead of covering the cohort once."
+    },
+    "static_checks_3": {
+      "check_function": "score_static_checks_3",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. row jurisdiction_id matches the catalog assignment for each claim_id. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects rows whose jurisdiction_id was swapped away from the catalog assignment for that claim_id."
+    },
+    "static_checks_4": {
+      "check_function": "score_static_checks_4",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. row control_theme matches the catalog assignment for each claim_id. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects rows whose control_theme was swapped away from the catalog assignment for that claim_id."
+    },
+    "static_checks_5": {
+      "check_function": "score_static_checks_5",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. all four controlled columns use only their closed vocabularies. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects invented control_class / duty_actor / licence_posture / enduse_sensitivity values outside the rulebook lists."
+    },
+    "static_checks_6": {
+      "check_function": "score_static_checks_6",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. all ten jurisdictions resolved for grounding. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects grading that never obtained the ten jurisdiction texts needed for quote grounding."
+    },
+    "static_checks_7": {
+      "check_function": "score_static_checks_7",
+      "agent_output_path": "/logs/agent/exception_conflict_ledger.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. exception_conflict_ledger.csv carries the rulebook columns in order. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects an exception_conflict_ledger.csv that is missing or uses the wrong column order from the rulebook."
+    },
+    "static_checks_8": {
+      "check_function": "score_static_checks_8",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. all deliverable files are present, parse, and are non-trivial. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a submission that never wrote the required deliverable set (matrix, atlas, ledger, charts, briefing)."
+    },
+    "static_checks_9": {
+      "check_function": "score_static_checks_9",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. outputs were written under the canonical /logs/agent directory. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects outputs written only under recovery paths when the canonical /logs/agent mount is present in the grading environment."
+    },
+    "reward_hacking_checks_1": {
+      "check_function": "score_reward_hacking_checks_1",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 80 grounded obligation rows (substantive AND full-quote round-trips). Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a matrix with fewer than 80 rows that both are substantive and have full quotes that round-trip into the fetched instrument."
+    },
+    "reward_hacking_checks_2": {
+      "check_function": "score_reward_hacking_checks_2",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 120 grounded obligation rows. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a matrix with fewer than 120 grounded (substantive + full-quote round-tripping) rows."
+    },
+    "reward_hacking_checks_3": {
+      "check_function": "score_reward_hacking_checks_3",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. grounded_share (grounded/catalog) >= 0.50. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a cohort where grounded rows are under half of the catalog, so sparse reading cannot look complete."
+    },
+    "reward_hacking_checks_4": {
+      "check_function": "score_reward_hacking_checks_4",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. quotes full-cover round-trip on >=50% of substantive rows. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects packages where under half of substantive evidence_quotes appear in full in the fetched instrument text."
+    },
+    "reward_hacking_checks_5": {
+      "check_function": "score_reward_hacking_checks_5",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. quotes full-cover round-trip on >=70% of substantive rows. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects packages where under 70% of substantive evidence_quotes full-cover round-trip into the fetched instrument."
+    },
+    "reward_hacking_checks_6": {
+      "check_function": "score_reward_hacking_checks_6",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. quotes full-cover round-trip on >=85% of substantive rows. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects packages where under 85% of substantive evidence_quotes full-cover round-trip into the fetched instrument."
+    },
+    "reward_hacking_checks_7": {
+      "check_function": "score_reward_hacking_checks_7",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. quotes sit in the passage the claim names, not just somewhere in the instrument. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects quotes that are off the claim's locator/focus neighbourhood or near-duplicate within the same jurisdiction/theme."
+    },
+    "reward_hacking_checks_8": {
+      "check_function": "score_reward_hacking_checks_8",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. paraphrases are grounded near their evidence_quote window on >=70% of grounded rows. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects paraphrases that do not share vocabulary with the instrument passage behind the quote on enough grounded rows."
+    },
+    "reward_hacking_checks_9": {
+      "check_function": "score_reward_hacking_checks_9",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. control_tightness_score recomputes on >=80% of grounded rows. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects control_tightness_score values that do not recompute from the row's own controlled fields on at least 80% of grounded rows."
+    },
+    "reward_hacking_checks_10": {
+      "check_function": "score_reward_hacking_checks_10",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. control_tightness_score recomputes on >=95% of grounded rows. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects control_tightness_score values that do not recompute from the row's own controlled fields on at least 95% of grounded rows."
+    },
+    "reward_hacking_checks_11": {
+      "check_function": "score_reward_hacking_checks_11",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. declared control_class is compatible with the quote window on >=90% of grounded rows. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects control_class labels that fail to leave a value-specific footprint near the evidence_quote in the fetched instrument."
+    },
+    "reward_hacking_checks_12": {
+      "check_function": "score_reward_hacking_checks_12",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. substantive notes appear on >=60% of grounded rows with limited near-duplicates. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects blank, heading-like, or near-duplicate note fields on grounded rows."
+    },
+    "reward_hacking_checks_13": {
+      "check_function": "score_reward_hacking_checks_13",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 8 jurisdictions have >=8 grounded rows each. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects shallow coverage where fewer than eight jurisdictions have at least eight grounded rows."
+    },
+    "reward_hacking_checks_14": {
+      "check_function": "score_reward_hacking_checks_14",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. all 10 jurisdictions have grounded rows in the matrix. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a matrix that leaves any of the ten jurisdictions without grounded rows."
+    },
+    "reward_hacking_checks_15": {
+      "check_function": "score_reward_hacking_checks_15",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 12 multi-jurisdiction crosswalk groups over grounded rows. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a crosswalk that does not form enough multi-jurisdiction groups over grounded rows."
+    },
+    "reward_hacking_checks_16": {
+      "check_function": "score_reward_hacking_checks_16",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. multi-jurisdiction crosswalk groups hold a single control_theme each. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects multi-jurisdiction crosswalk groups that mix unrelated control_theme values."
+    },
+    "reward_hacking_checks_17": {
+      "check_function": "score_reward_hacking_checks_17",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. multi-jurisdiction crosswalk groups carry distinct regime quotes, not theme-label buckets. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects crosswalk groups that are pure control_theme buckets or that reuse one quote across every regime in the group."
+    },
+    "reward_hacking_checks_18": {
+      "check_function": "score_reward_hacking_checks_18",
+      "agent_output_path": "/logs/agent/jurisdiction_control_atlas.json",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. atlas reconciles with the matrix (per-jurisdiction figures and crosswalk groups). Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a jurisdiction_control_atlas.json whose per-jurisdiction counts/arcs or crosswalk groups do not recompute from the matrix."
+    },
+    "reward_hacking_checks_19": {
+      "check_function": "score_reward_hacking_checks_19",
+      "agent_output_path": "/logs/agent/exception_conflict_ledger.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. conflict ledger has >=3 distinct disagreeing claim pairs that trace to the matrix. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a conflict ledger without enough distinct disagreeing claim pairs that trace to the matrix classes."
+    },
+    "reward_hacking_checks_20": {
+      "check_function": "score_reward_hacking_checks_20",
+      "agent_output_path": "/logs/agent/chart_data.json",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. chart_data series equal the matrix (class counts and tightness histogram). Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects chart_data control_class_counts or tightness histogram series that do not equal the matrix."
+    },
+    "reward_hacking_checks_21": {
+      "check_function": "score_reward_hacking_checks_21",
+      "agent_output_path": "/logs/agent/chart_data.json",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. chart_data theme-coverage and conflict-density series equal the matrix. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects chart_data theme-coverage or conflict-density series that do not equal the matrix."
+    },
+    "reward_hacking_checks_22": {
+      "check_function": "score_reward_hacking_checks_22",
+      "agent_output_path": "/logs/agent/chart_data.json",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. the four PNGs are distinct plots whose content correlates with chart_data. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects blank, duplicated, or shape-mismatched PNG plots relative to chart_data series."
+    },
+    "reward_hacking_checks_23": {
+      "check_function": "score_reward_hacking_checks_23",
+      "agent_output_path": "/logs/agent/counsel_briefing.json",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. briefing headline figures reconcile with the matrix (count, class counts, mean score). Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects counsel_briefing.json headline counts/class totals/mean score that do not recompute from the matrix."
+    },
+    "reward_hacking_checks_24": {
+      "check_function": "score_reward_hacking_checks_24",
+      "agent_output_path": "/logs/agent/counsel_briefing.json",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. briefing highest_tightness_themes are real themes that really do score highest. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects highest_tightness_themes that are not real top-scoring themes in the matrix."
+    },
+    "reward_hacking_checks_25": {
+      "check_function": "score_reward_hacking_checks_25",
+      "agent_output_path": "/logs/agent/counsel_briefing.json",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. briefing conflicted jurisdiction pairs are real shared-theme class collisions. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects authenticity failures specific to this grounding or reconciliation check."
+    },
+    "reward_hacking_checks_26": {
+      "check_function": "score_reward_hacking_checks_26",
+      "agent_output_path": "/logs/agent/counsel_briefing.json",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. briefing regime_comparison is 150-300 words and names classes the matrix contains. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a regime_comparison outside the 150-300 word band or that fails to name classes the matrix contains."
+    },
+    "reward_hacking_checks_27": {
+      "check_function": "score_reward_hacking_checks_27",
+      "agent_output_path": "/logs/agent/counsel_briefing.json",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. briefing has 3-5 substantive, non-duplicated recommended_actions. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects fewer than three, more than five, or duplicated recommended_actions."
+    },
+    "reward_hacking_checks_28": {
+      "check_function": "score_reward_hacking_checks_28",
+      "agent_output_path": "/logs/agent/counsel_briefing.json",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. briefing summary exists and is at most 200 words. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a missing summary or one that exceeds the 200-word ceiling."
+    },
+    "reward_hacking_checks_29": {
+      "check_function": "score_reward_hacking_checks_29",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within the reward_hacking bucket. grounded obligation_paraphrase fields are not near-duplicates across grounded rows.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a matrix that pastes one paraphrase across multiple quote-grounded claims instead of recording claim-specific reading."
+    },
+    "reward_hacking_checks_30": {
+      "check_function": "score_reward_hacking_checks_30",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within the reward_hacking bucket. declared licence_posture is compatible with the quote window on >=90% of grounded rows.",
+      "how_it_prevents_task_authenticity_violation": "Rejects arbitrary but vocabulary-valid licence_posture values that do not leave a value-specific footprint near the evidence_quote."
+    },
+    "reward_hacking_checks_31": {
+      "check_function": "score_reward_hacking_checks_31",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within the reward_hacking bucket. declared enduse_sensitivity is compatible with the quote window on >=90% of grounded rows.",
+      "how_it_prevents_task_authenticity_violation": "Rejects arbitrary but vocabulary-valid enduse_sensitivity values that do not leave a value-specific footprint near the evidence_quote."
+    },
+    "reward_hacking_checks_32": {
+      "check_function": "score_reward_hacking_checks_32",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within the reward_hacking bucket. declared duty_actor is compatible with the quote window on >=90% of grounded rows.",
+      "how_it_prevents_task_authenticity_violation": "Rejects arbitrary but vocabulary-valid duty_actor values that do not leave a value-specific footprint near the evidence_quote."
+    },
+    "reward_hacking_checks_33": {
+      "check_function": "score_reward_hacking_checks_33",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 10 grounded rows have recomputable tightness scores.",
+      "how_it_prevents_task_authenticity_violation": "Rejects broad matrices whose quoted rows do not carry the arithmetic discipline needed for a usable control_tightness_score."
+    },
+    "reward_hacking_checks_34": {
+      "check_function": "score_reward_hacking_checks_34",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 25 grounded rows have recomputable tightness scores.",
+      "how_it_prevents_task_authenticity_violation": "Requires recomputation discipline across a meaningful slice of the grounded cohort rather than a few corrected examples."
+    },
+    "reward_hacking_checks_35": {
+      "check_function": "score_reward_hacking_checks_35",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 35 grounded rows have recomputable tightness scores.",
+      "how_it_prevents_task_authenticity_violation": "Rewards only submissions with a substantial set of quote-grounded rows whose tightness values truly recompute from their fields."
+    },
+    "reward_hacking_checks_36": {
+      "check_function": "score_reward_hacking_checks_36",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. recomputable grounded rows span at least 4 jurisdictions.",
+      "how_it_prevents_task_authenticity_violation": "Rejects packages that concentrate recomputable rows in one regime while leaving other jurisdictions numerically unreliable."
+    },
+    "reward_hacking_checks_37": {
+      "check_function": "score_reward_hacking_checks_37",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 10 grounded rows carry substantive row-specific notes.",
+      "how_it_prevents_task_authenticity_violation": "Rejects grounded rows that lack per-row reading notes and therefore cannot be audited by counsel."
+    },
+    "reward_hacking_checks_38": {
+      "check_function": "score_reward_hacking_checks_38",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 20 grounded rows carry substantive row-specific notes.",
+      "how_it_prevents_task_authenticity_violation": "Requires substantive notes across enough grounded rows to show completed analysis rather than isolated annotations."
+    },
+    "reward_hacking_checks_39": {
+      "check_function": "score_reward_hacking_checks_39",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. substantive grounded notes span at least 10 control themes.",
+      "how_it_prevents_task_authenticity_violation": "Rejects note writing that covers only a narrow theme slice while leaving most control themes unexamined."
+    },
+    "reward_hacking_checks_40": {
+      "check_function": "score_reward_hacking_checks_40",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. substantive grounded notes span at least 14 control themes.",
+      "how_it_prevents_task_authenticity_violation": "Requires notes to spread across the atlas themes so topical breadth cannot be replaced by repetition."
+    },
+    "reward_hacking_checks_41": {
+      "check_function": "score_reward_hacking_checks_41",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 10 grounded rows combine recomputable scores with substantive notes.",
+      "how_it_prevents_task_authenticity_violation": "Combines arithmetic and note discipline so a row cannot pass as finished with only one of those qualities."
+    },
+    "reward_hacking_checks_42": {
+      "check_function": "score_reward_hacking_checks_42",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 20 grounded rows combine recomputable scores with substantive notes.",
+      "how_it_prevents_task_authenticity_violation": "Requires a sizeable set of rows that are both numerically consistent and explained in row-specific prose."
+    },
+    "reward_hacking_checks_43": {
+      "check_function": "score_reward_hacking_checks_43",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 15 grounded rows have two source-compatible classification footprints.",
+      "how_it_prevents_task_authenticity_violation": "Rejects vocabulary-valid classifications that do not leave enough source-window evidence behind the quote."
+    },
+    "reward_hacking_checks_44": {
+      "check_function": "score_reward_hacking_checks_44",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 20 grounded rows have two source-compatible classification footprints.",
+      "how_it_prevents_task_authenticity_violation": "Requires source-window classification support across a broad subset of grounded rows."
+    },
+    "reward_hacking_checks_45": {
+      "check_function": "score_reward_hacking_checks_45",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 10 grounded rows have three source-compatible classification footprints.",
+      "how_it_prevents_task_authenticity_violation": "Checks that multiple controlled fields are not arbitrary labels pasted onto otherwise grounded quotes."
+    },
+    "reward_hacking_checks_46": {
+      "check_function": "score_reward_hacking_checks_46",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 13 grounded rows have three source-compatible classification footprints.",
+      "how_it_prevents_task_authenticity_violation": "Raises the bar for multi-field source compatibility so internally coherent rows dominate shallow quoting."
+    },
+    "reward_hacking_checks_47": {
+      "check_function": "score_reward_hacking_checks_47",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 5 quality-grounded rows combine quote, recomputed score, note, and field footprints.",
+      "how_it_prevents_task_authenticity_violation": "Defines a finished row as quote-grounded, recomputed, noted, and source-compatible rather than merely present."
+    },
+    "reward_hacking_checks_48": {
+      "check_function": "score_reward_hacking_checks_48",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 10 quality-grounded rows combine quote, recomputed score, note, and field footprints.",
+      "how_it_prevents_task_authenticity_violation": "Requires enough finished rows for the atlas to be useful beyond a handful of examples."
+    },
+    "reward_hacking_checks_49": {
+      "check_function": "score_reward_hacking_checks_49",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 14 quality-grounded rows combine quote, recomputed score, note, and field footprints.",
+      "how_it_prevents_task_authenticity_violation": "Rewards a substantial finished-row cohort where row evidence, scoring, notes, and classifications align."
+    },
+    "reward_hacking_checks_50": {
+      "check_function": "score_reward_hacking_checks_50",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. quality-grounded rows span at least 4 jurisdictions.",
+      "how_it_prevents_task_authenticity_violation": "Rejects quality rows that are clustered in too few jurisdictions to support cross-regime conclusions."
+    },
+    "reward_hacking_checks_51": {
+      "check_function": "score_reward_hacking_checks_51",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. quality-grounded rows span at least 8 control themes.",
+      "how_it_prevents_task_authenticity_violation": "Rejects quality rows that cover too few themes to support an advanced-compute screening atlas."
+    },
+    "reward_hacking_checks_52": {
+      "check_function": "score_reward_hacking_checks_52",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 3 strongest rows add grounded paraphrases to quality-grounded evidence.",
+      "how_it_prevents_task_authenticity_violation": "Requires the best rows to add grounded paraphrase quality on top of finished-row evidence and scoring."
+    },
+    "reward_hacking_checks_53": {
+      "check_function": "score_reward_hacking_checks_53",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. at least 6 grounded rows combine recomputable scores, substantive notes, and grounded paraphrases.",
+      "how_it_prevents_task_authenticity_violation": "Rejects rows that are quote-grounded but still lack either arithmetic consistency, row-specific explanation, or a grounded paraphrase."
+    },
+    "reward_hacking_checks_54": {
+      "check_function": "score_reward_hacking_checks_54",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. rows combining recomputable scores, substantive notes, and grounded paraphrases span at least 4 jurisdictions.",
+      "how_it_prevents_task_authenticity_violation": "Requires the strongest explanatory row pattern to appear across several jurisdictions rather than one isolated regime."
+    },
+    "reward_hacking_checks_55": {
+      "check_function": "score_reward_hacking_checks_55",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. rows combining recomputable scores, substantive notes, and grounded paraphrases span at least 6 control themes.",
+      "how_it_prevents_task_authenticity_violation": "Requires the strongest explanatory row pattern to cover multiple themes so it cannot be satisfied by one topic cluster."
+    },
+    "reward_hacking_checks_56": {
+      "check_function": "score_reward_hacking_checks_56",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. strongest quality rows span at least 2 jurisdictions.",
+      "how_it_prevents_task_authenticity_violation": "Checks that the strongest finished rows are not all confined to a single jurisdiction."
+    },
+    "reward_hacking_checks_57": {
+      "check_function": "score_reward_hacking_checks_57",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. strongest quality rows span at least 3 control themes.",
+      "how_it_prevents_task_authenticity_violation": "Checks that the strongest finished rows are not all confined to a single control theme."
+    },
+    "reward_hacking_checks_58": {
+      "check_function": "score_reward_hacking_checks_58",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. quality-grounded rows span at least 5 jurisdictions.",
+      "how_it_prevents_task_authenticity_violation": "Raises the jurisdiction spread requirement for quality-grounded rows so cross-regime synthesis rests on multiple regimes."
+    },
+    "partial_oracle_checks_1": {
+      "check_function": "score_partial_oracle_checks_1",
+      "agent_output_path": "/logs/agent/jurisdiction_control_atlas.json",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. Each jurisdiction_arc is specific to that jurisdiction's own rows and not a reused template. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects reused/template jurisdiction_arc prose that is not specific to that jurisdiction's own matrix rows."
+    },
+    "partial_oracle_checks_2": {
+      "check_function": "score_partial_oracle_checks_2",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. Reconciliation notes for multi-jurisdiction crosswalk groups honestly describe class disagreements where they exist.. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects crosswalk reconciliation notes that hide class disagreements present in the linked claims."
+    },
+    "partial_oracle_checks_3": {
+      "check_function": "score_partial_oracle_checks_3",
+      "agent_output_path": "/logs/agent/counsel_briefing.json",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. The briefing regime_comparison is true of the matrix and does not invent control classes.. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a regime_comparison that invents control classes or contradicts the matrix class distribution."
+    },
+    "partial_oracle_checks_4": {
+      "check_function": "score_partial_oracle_checks_4",
+      "agent_output_path": "/logs/agent/counsel_briefing.json",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. recommended_actions are concrete shipment-desk instructions that follow from the matrix rather than generic trade slogans.. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects generic trade slogans that do not follow as shipment-desk actions from the matrix findings."
+    },
+    "partial_oracle_checks_5": {
+      "check_function": "score_partial_oracle_checks_5",
+      "agent_output_path": "/logs/agent/exception_conflict_ledger.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. Conflict ledger rows name real claim_ids and explain a specific cross-regime overclaim risk.. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects an empty or generic conflict ledger that does not name two real claims and a specific overclaim risk."
+    },
+    "partial_oracle_checks_6": {
+      "check_function": "score_partial_oracle_checks_6",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. Notes on substantive rows show regime-specific reading rather than one skeleton with IDs swapped.. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects one-skeleton notes with IDs swapped instead of regime-specific reading."
+    },
+    "partial_oracle_checks_7": {
+      "check_function": "score_partial_oracle_checks_7",
+      "agent_output_path": "/logs/agent/export_screening_matrix.csv",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. The package does not treat an exception path as if it were a prohibition, or a screening duty as if it authorised unrestricted export.. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects packages that treat exception paths as prohibitions or screening duties as unrestricted authorisations."
+    },
+    "partial_oracle_checks_8": {
+      "check_function": "score_partial_oracle_checks_8",
+      "agent_output_path": "/logs/agent/jurisdiction_control_atlas.json",
+      "weight": 1,
+      "detailed_explanation_of_checks": "One equal-weight boolean within its bucket mean. A trade-compliance desk could act on this atlas as delivered: conclusions follow from matrix rows and nothing material is asserted without a row behind it.. Never capped, multiplied, or gated.",
+      "how_it_prevents_task_authenticity_violation": "Rejects a package whose briefing conclusions are not backed by matrix rows the desk could act on."
+    }
+  }
+}
+

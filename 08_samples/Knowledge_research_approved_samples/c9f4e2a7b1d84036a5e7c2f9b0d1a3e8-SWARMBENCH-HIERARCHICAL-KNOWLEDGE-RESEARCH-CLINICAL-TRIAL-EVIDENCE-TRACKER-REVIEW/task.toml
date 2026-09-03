@@ -1,0 +1,29 @@
+[task]
+name = "swarmbench/c9f4e2a7b1d84036a5e7c2f9b0d1a3e8-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-CLINICAL-TRIAL-EVIDENCE-TRACKER-REVIEW"
+description = "Read 72 full clinical-trial results records across many therapeutic areas and turn each into one faithful analyst digest: the trial and population, the pre-specified primary and secondary endpoints, the randomized arms and exposure, the measured primary-endpoint effect and safety, and the verdict on whether the primary endpoint was met. Then build a coded trial-evidence tracker CSV and a cross-batch synthesis memo, graded by a hybrid deterministic-plus-LLM verifier."
+
+[metadata]
+verifier_type = "llm-judge"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_writing", "long_horizon"]
+dag_depth = 3
+dag_width = 36
+human_solving_hours_estimate = 108.0
+human_solving_hours_justification = "72 real posted clinical-trial results records drawn from ClinicalTrials.gov across oncology, cardiology, infectious disease, neurology, psychiatry, surgery, and other areas, totaling 232,643 words of design and masking detail, eligibility criteria, arm definitions, participant flow, baseline tables, primary and secondary outcome measures with their measured values, posted statistical analyses, and serious and other adverse-event tables. Reading each record closely enough to separate the pre-specified primary outcome from the secondaries, pin down the measured effect and its confidence interval or p-value, and judge whether the trial met, missed, came in mixed, or was stopped early (dense clinical and tabular material at ~4,500 words/h) is ~52 h. Writing a worked, own-words digest for each trial (trial and population, question and endpoints, population and exposure, results and safety, and verdict) at ~0.5 h each is ~36 h for 72. Reading back across all 72 digests to write the cross-batch synthesis memo (the effect-size band, recurring endpoints and comparators, the met-versus-missed split, and clusters by phase, condition, and verdict) is ~8 h. Coding the tracker CSV (phase, verdict, primary_result per trial) is ~4 h. A QC pass to confirm each digest is faithful, grounded, and complete is ~8 h. Total 52+36+8+4+8 = 108 h."
+estimated_sub_agents = 55
+input_token_estimate = 400000
+why_multi_agent = "Only a trial roster is given; 232,643 words across 72 real posted results records must each be read closely and turned into a digest faithful and specific to that trial, and then read across as one set. The work has two stages competing for the same budget: 72 records, each with its own primary outcome, a measured effect and its uncertainty, a safety profile, and a met/missed/mixed/terminated verdict that has to be reasoned out of the posted analyses rather than read off a summary line, plus a cross-batch synthesis and a coded tracker that can only be built once the digests exist. A single agent spends its context reading and writing the early digests and, once accumulated source and drafted digests cross the working-context/compaction threshold, it compacts, loses its earlier digests, and stalls or loops before the set is done, so later trials come out thin or missing and it never reaches the cross-batch synthesis or the tracker, the deliverables that most need the whole set in view. Splitting gives each specialist lane a clean budget for its two trials and their full digests, groups those lanes under program managers that reconcile their group's read-outs into a group-level evidence brief, and hands up to a dedicated reducer that reads across all 72 to build the tracker and reconcile the effect-size band, recurring endpoints and comparators, and verdict clusters. The declared graph is 36 specialist lanes, 3 program managers and 1 reducer; counting the orchestrator and the read-back sessions each manager opens over its group's cited records to settle a lane's verdict or headline figure, a run occupies on the order of 55 agent sessions."
+reference_link = "https://clinicaltrials.gov/api/v2/studies?query.term=AREA%5BHasResults%5Dtrue&filter.overallStatus=COMPLETED%7CTERMINATED"
+network_enabled = true
+
+[agent]
+timeout_sec = 1620
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600

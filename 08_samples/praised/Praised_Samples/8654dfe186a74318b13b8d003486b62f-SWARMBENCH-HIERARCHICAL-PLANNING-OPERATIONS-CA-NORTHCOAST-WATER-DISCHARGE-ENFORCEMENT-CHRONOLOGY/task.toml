@@ -1,0 +1,32 @@
+[task]
+name = "swarmbench/8654dfe186a74318b13b8d003486b62f-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-CA-NORTHCOAST-WATER-DISCHARGE-ENFORCEMENT-CHRONOLOGY"
+description = "Fetch and read the Cleanup and Abatement Orders and Administrative Civil Liability actions the California North Coast Regional Water Quality Control Board issued for unauthorized waste and sediment discharges to creeks and rivers, then reconstruct the enforcement chronology and produce a grounded findings ledger, a site dossier, a discharger-to-parcel-to-order crosslink matrix, a contradiction and supersession log, and ledger-derived charts that agree on the same dischargers, sites and counts."
+
+[metadata]
+verifier_type = "llm-judge"
+domain = "planning-operations"
+coordination_pattern = "hierarchical"
+secondary_classification = ["browsing", "long_writing", "multi_modal"]
+dag_depth = 3
+dag_width = 20
+human_solving_hours_estimate = 28.0
+human_solving_hours_justification = "Each Cleanup and Abatement Order runs from a dozen to sixty-plus pages of dense findings: site conditions, the specific discharge or threatened discharge, the named waterway, parcel numbers, the regulatory basis, and the directed cleanup and reporting tasks. Reading one order closely and pulling its substantive findings, each with an exact verbatim quote, the order id, the discharger, the county, the waterway and the parcel, is close to an hour, so getting genuinely through the sixteen-document set (several of them sixty-plus pages with attachments) without thinning out after the first few is about 18h. Building the grounded chronology ledger with one row per finding, de-duplicated and every quote checked against its order, is about 3h. Reconciling the discharger-to-parcel-to-order crosslinks and the supersession and amendment chains into a contradiction log (which orders revise or supersede which, conflicting dates, the same site under multiple orders) is about 2h. Writing the dossier with real per-site analysis plus the cross-cutting themes, outliers and recommendations, and rendering the ledger-derived charts so every artifact agrees, is about 3h. A final consistency pass is about 2h. Total about 28h."
+estimated_sub_agents = 25
+input_token_estimate = 500000
+reference_link = "https://www.waterboards.ca.gov/northcoast/water_issues/programs/enforcement/enforcement.php"
+why_multi_agent = "The load-bearing work is irreducible per-document reading: sixteen separate enforcement documents, each many pages of dense, heterogeneous regulatory prose, fetched live from the North Coast Water Board's adopted-orders and public-hearings pages and each read closely enough to surface its real findings and back each one with a verbatim passage that actually appears in that document. A single context cannot fetch, hold and faithfully read the whole set. It gets through two or three orders, then its coverage collapses: it starts summarizing from memory, reuses the same quote, attributes a discharge to the wrong discharger or waterway, misses that one order amends or supersedes another, or pads the ledger with findings it cannot ground, and the dossier leans on a couple of sites and hand-waves the rest. The judge rewards exactly what fails under that load: distinct dischargers, waterways, counties and topics genuinely covered, substantial and distinct grounded quotes, per-site narratives that differ where the facts differ, a crosslink matrix and contradiction log built from the real supersession and amendment chains, and deliverables that agree on the same dischargers, sites and counts. The work splits into a genuine three-tier hierarchy: twenty readers (sixteen pinned one-per-document plus four cross-cutting specialists for supersession relationships, the enforcement-escalation timeline, compliance deadlines, and discharger or parcel or waterway identifiers) that each read their assigned documents into a grounded shard; three county or watershed consolidators that each take the shards in their group, de-duplicate them, and assemble the per-site evidence cards plus the supersession and amendment relationships within the group; and two parallel final assemblers that both consume the three consolidations, one building the chronology ledger, the crosslink matrix, the contradiction log and the charts and a dedicated author writing the site dossier, so the heaviest narrative deliverable is never dropped. Each tier consumes the prior tier's output, so depth is load-bearing: the consolidation layer is where cross-order supersession and same-site reconciliation actually happen, which a flat fan-out or a single context cannot do across sixteen heavy documents. The advantage is natural reading-and-synthesis capacity across many heavy heterogeneous documents, not fetch speed; there is no hidden information, no single-agent-only limit, and no trap, because a skilled person alone would also struggle to fetch and read all sixteen at depth in the budget, which is the point."
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 900
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600
+
+# Browsing is load-bearing: the agent fetches the enforcement orders live from the
+# North Coast Water Board adopted-orders portal. Nothing is shipped to the agent image.
+network_enabled = true

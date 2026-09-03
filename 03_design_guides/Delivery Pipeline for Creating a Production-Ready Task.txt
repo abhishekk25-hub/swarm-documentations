@@ -1,0 +1,368 @@
+﻿Delivery Pipeline for Creating a Production-Ready Task
+Phase 1: Task Ideation and Task Formulation
+The first issue we identified is that trainers are blindly trusting the prompts available in the Labeling Tool.
+The Labeling Tool prompt is not a golden task. It is not guaranteed to be complex enough to break the single agent, and it is not guaranteed to allow the multi-agent system to perform better.
+The prompts in the Labeling Tool are LLM-generated and are primarily intended to help trainers overcome the creativity bottleneck.
+During Phase 1, we observed that trainers were creating similar task types, using similar failure patterns, and repeatedly producing tasks from the same narrow set of domains and workflows. The prompt-generation pipeline was introduced to provide a wider variety of ideas.
+However, this does not mean that every generated prompt must be claimed and created exactly as written.
+Trainers should use the Labeling Tool for:
+* Inspiration
+* Domain discovery
+* Workflow discovery
+* Identifying possible task directions
+* Avoiding repetitive ideas
+Trainers should not use the Labeling Tool as:
+* A final task specification
+* Proof that a task has sufficient scale
+* Proof that a task will break a single agent
+* Proof that a task will benefit from multi-agent execution
+* A mandatory task that must be completed exactly as written
+Questions that must be answered before proceeding
+Before moving to the next phase, the trainer must ask:
+* Is this task based on a realistic professional workflow?
+* Would someone in the relevant profession actually perform this task?
+* Does the task contain multiple meaningful sub-problems?
+* Can those sub-problems be assigned to independent sub-agents?
+* Will multiple agents genuinely improve the quality or accuracy?
+* Would a single agent struggle because of the task's scale, breadth, coordination needs, or context requirements?
+* Does the task require multiple kinds of reasoning or specialized investigation?
+* Is the task objectively verifiable?
+* Is the expected output large and detailed enough to create meaningful execution pressure?
+* Is the complexity natural, or has it been added artificially?
+A strong multi-agent task usually contains several independent workstreams. A single agent attempting to complete all of them may experience context degradation, miss requirements, make inconsistent decisions, or fail to verify every part of the output.
+The multi-agent system should gain an advantage because each sub-agent can focus on a specific component while the orchestrator coordinates and integrates the results.
+If the trainer cannot confidently answer these questions, the task should not move to execution.
+Phase 2: Scale Validation
+Task scale must be validated before spending iterations.
+The main objective is to determine whether the task is genuinely difficult for the single agent and whether multi-agent decomposition provides a meaningful advantage.
+The trainer should ask:
+* Can a single agent complete this task in one normal session?
+* Is the Task automatable by a simple programming script? 
+* Can one agent produce a strong output without external coordination?
+* Is the task mostly a single reasoning chain?
+* Are the sub-problems independent enough to run in parallel?
+* Does the task require the synthesis of several large outputs?
+* Does the task create enough pressure on context, planning, verification, or tool use?
+* Would adding sub-agents improve performance, or would it only add unnecessary coordination?
+If a single agent can easily complete the task, then the task is not at the required scale.
+For example, if the single agent consistently scores 0.86, the trainer should not simply continue running more iterations and hope the multi-agent score increases.
+The trainer must first determine why the single agent is performing so well.
+Possible reasons include:
+* The task is too small.
+* The workflow is too simple.
+* The prompt contains only one major workstream.
+* The expected output is too limited.
+* The verifier is too weak.
+* The verifier checks only formatting and not task quality.
+* Important prompt requirements are not represented in the verifier.
+* The task allows shallow completion.
+* The task does not create enough context pressure.
+If the task itself is too easy and the verifier is already strong, the task should be dropped or significantly redesigned.
+Iterations should not be used to rescue a fundamentally weak task.
+Phase 3: Verifier and Decomposition Design
+Before running the task, the trainer must ensure that both the verifier and the decomposition are strong.
+Verifier design
+The verifier should cover all meaningful requirements in the prompt.
+Depending on the task, this may include:
+* Structural checks
+* File existence checks
+* Required section checks
+* Content completeness checks
+* Accuracy checks
+* Cross-file consistency checks
+* Calculation checks
+* Citation or evidence checks
+* Reward-hacking checks
+* Partial-oracle checks
+* Edge-case checks
+* Quality and relevance checks
+The trainer should not ask only:
+Does the verifier run successfully?
+The correct question is:
+Does the verifier accurately distinguish between a strong, complete output and a shallow or incomplete output?
+A weak verifier may allow a single agent to score highly even when the generated artifact is not genuinely good.
+If the single agent scores well, the trainer must inspect both the trajectory and the verifier before concluding that the task itself is too easy.
+Decomposition design
+The decomposition must reflect how the task can be broken into meaningful sub-problems.
+The trainer should ask:
+* What does each sub-agent own?
+* Are the assignments independent?
+* Are multiple agents duplicating the same work?
+* Is the decomposition mostly sequential?
+* Does every sub-agent produce something useful?
+* Does the orchestrator correctly use the sub-agent outputs?
+* Are important sub-problems missing from the decomposition?
+* Is there a need for hierarchical coordination?
+* Are there specialist agents for research, validation, calculation, synthesis, or review?
+Adding more sub-agents does not automatically create a strong multi-agent task.
+The decomposition should improve performance by distributing real cognitive work, not by creating unnecessary agent count.
+Phase 4: Draft Review
+Draft Review is mandatory before the first proper execution.
+The expected flow is:
+1. Select or create the task idea.
+2. Formulate the full task.
+3. Create the input artifacts.
+4. Write the verifier.
+5. Create the decomposition.
+6. Validate the scale.
+7. Run Draft Review.
+8. Resolve Draft Review findings.
+9. Start execution.
+Trainers are currently skipping Draft Review and moving directly into iterations. As a result, they later receive a large number of issues from the Quality Gate.
+This creates several problems:
+* Iterations are wasted on tasks that are not ready.
+* Verifier issues are identified too late.
+* Ambiguities are discovered after execution.
+* Task-scale problems remain hidden.
+* Decomposition problems are discovered only after several runs.
+* Quality Gate changes may significantly alter the task after a gap has already been achieved.
+The Draft Review should help validate:
+* Prompt clarity
+* Task scale
+* Input sufficiency
+* Output expectations
+* Verifier coverage
+* Reward-hacking resistance
+* Decomposition quality
+* Quality Dimension alignment
+* Missing requirements
+* Contradictions or ambiguity
+The trainer should not proceed until the Draft Review findings have been addressed or clearly justified.
+Phase 5: Choosing the First Execution
+Execution should be sequential, not parallel.
+Trainers should not immediately run both the single-agent and multi-agent versions at the same time.
+The first execution should depend on the trainer's confidence in task complexity.
+When to run the single agent first
+Run the single agent first when:
+* You are uncertain whether the task is complex enough.
+* You are approximately 50-50 confident about task scale.
+* You suspect the single agent may already perform well.
+* You want to understand how a strong baseline model approaches the task.
+* You need evidence to determine whether the task should be expanded or dropped.
+After the single-agent run, inspect the trajectory before running the multi-agent version.
+When to run the multi-agent first
+Run the multi-agent first only when:
+* The task has passed Draft Review.
+* The task clearly contains multiple large workstreams.
+* The trainer is highly confident that the single agent will struggle.
+* The decomposition is detailed and meaningful.
+* The trainer wants early visibility into multi-agent coordination quality.
+Even in this case, the trainer must inspect the multi-agent trajectory before proceeding.
+When not to run anything
+Do not start execution when:
+* You are not confident that the task is complex.
+* The verifier is incomplete.
+* The decomposition is shallow.
+* Draft Review has not been completed.
+* The task is copied directly from the Labeling Tool without proper reasoning.
+* The expected output is small enough for a single session.
+* The task requirements are still ambiguous.
+If the task is clearly not complex enough, improve or replace it before consuming an iteration.
+Phase 6: Single-Agent Trajectory Analysis
+The single-agent objective is not simply to obtain a score.
+The objective is to understand:
+* What the single agent could complete
+* What it missed
+* Where its reasoning degraded
+* Whether it handled all workstreams
+* Whether it exploited verifier weaknesses
+* Whether the task created enough pressure
+* Whether the verifier accurately evaluated the result
+If the single agent scores highly, the trainer must review the full trajectory.
+Ask:
+* How did the single agent solve the task?
+* Which parts were easy?
+* Did it complete all requirements?
+* Did it use shortcuts?
+* Did the verifier miss important quality problems?
+* Did the single agent genuinely produce a strong artifact?
+* Was the task smaller than expected?
+* Were several requirements highly correlated and therefore easy to complete together?
+* Was the output mostly templated or repetitive?
+If the verifier is weak, improve the verifier and rerun only after understanding the exact gap.
+If the verifier is strong and the single agent genuinely completed the task well, the task is not at the required scale. The trainer should either redesign it significantly or drop it.
+The correct response is not to repeatedly rerun the same task and hope for a lower single-agent score.
+Phase 7: Multi-Agent Trajectory Analysis
+The multi-agent score alone is not enough.
+The trainer must inspect what happened across:
+* The orchestrator
+* Each sub-agent
+* Communication between agents
+* Work allocation
+* Tool usage
+* Failure handling
+* Final integration
+* Verification and review
+The trainer should ask:
+* Did the orchestrator create the correct plan?
+* Were the right sub-agents created?
+* Did each sub-agent understand its responsibility?
+* Did multiple agents perform duplicate work?
+* Were important workstreams not assigned?
+* Did a sub-agent fail because of tooling, context, rate limits, or unclear instructions?
+* Did the orchestrator ignore useful sub-agent outputs?
+* Did the final synthesis introduce errors?
+* Did the agents verify one another's work?
+* Was the hierarchy appropriate for the task?
+Trainers do not have to manually inspect every long trajectory without assistance.
+They can use coding agents or analysis agents to:
+* Read individual sub-agent trajectories
+* Summarize each agent's behavior
+* Identify failure patterns
+* Compare successful and unsuccessful agents
+* Detect duplicated work
+* Identify missing workstreams
+* Recommend decomposition changes
+Agents should be used to accelerate analysis, not to replace the trainer's judgment during task ideation and task design.
+Example of trajectory-driven improvement
+Suppose a multi-agent task fails because sub-agents repeatedly hit GitHub API rate limits.
+A weak response would be:
+The multi-agent failed because of a rate-limit issue.
+A strong response would be:
+The research sub-agents depended only on the GitHub API and repeatedly hit the rate limit. I added a specialist sub-agent responsible for identifying alternative retrieval strategies, including repository cloning, raw-file access, curl, request-based retrieval, and non-API scraping approaches. The orchestrator now passes those fallback strategies to the affected research agents.
+Every failed iteration should lead to a concrete improvement in the decomposition, task, verifier, or execution strategy.
+Phase 8: Gap Analysis
+After reviewing both trajectories, classify the result.
+Case 1: Single agent performs well, multi-agent performs slightly better
+Example:
+* Single agent: 0.86
+* Multi-agent: 0.89
+Likely causes:
+* Task scale is too low.
+* Single agent can complete most work in one session.
+* Verifier is too weak.
+* Workstreams are not sufficiently independent.
+* Multi-agent coordination adds little value.
+Required action:
+* Review the verifier.
+* Review the single-agent trajectory.
+* Increase task scale only if the workflow can support natural additional complexity.
+* Drop the task if it cannot become genuinely multi-agent.
+Case 2: Both single agent and multi-agent perform poorly
+Example:
+* Single agent: 0.38
+* Multi-agent: 0.42
+Likely causes:
+* Task is ambiguous.
+* Inputs are insufficient.
+* Verifier is incorrect.
+* Decomposition is poor.
+* Tooling or environment failures are affecting both systems.
+* The task may be difficult for the wrong reasons.
+Required action:
+* Inspect both trajectories.
+* Validate the task instructions.
+* Validate the verifier.
+* Check environment and tool failures.
+* Improve the decomposition.
+* Do not assume that a low single-agent score means the task is automatically good.
+Case 3: Single agent performs poorly and multi-agent performs well
+Example:
+* Single agent: 0.35
+* Multi-agent: 0.78
+This is the desired direction, but the task is not yet delivery-ready.
+The trainer must still:
+* Confirm that the verifier is valid.
+* Confirm that the multi-agent succeeded for the correct reasons.
+* Run the Quality Gate.
+* Address Quality Dimension issues.
+* Revalidate the gap after meaningful task changes.
+Phase 9: LLM Reviewer and Quality Gate
+The Quality Gate should not be treated as an external blocker or as a reason for task non-completion.
+The Quality Gate is a review mechanism designed to help identify issues before client delivery.
+The correct mindset is:
+The Quality Gate is helping us identify problems that the client could otherwise reject.
+A trainer should not report:
+I could not complete the task because the Quality Gate rejected it.
+The trainer should report:
+The Quality Gate identified three valid issues in verifier coverage and two invalid findings. I resolved the valid issues and added justification for the invalid findings. The task is now being revalidated for the score gap.
+For every Quality Gate issue, the trainer must determine:
+* Is the issue valid?
+* What evidence supports it?
+* Does it affect the prompt?
+* Does it affect the verifier?
+* Does it affect the decomposition?
+* Does it affect task scale?
+* Does it affect client usability?
+* Does fixing it require re-execution?
+If the issue is valid, resolve it.
+If the issue is invalid, provide a clear justification explaining:
+* Why the finding does not apply
+* What task context the reviewer may have missed
+* What existing verifier or prompt section already addresses it
+* Why no change is required
+The Quality Gate is LLM-based and may produce imperfect findings. Trainers must reason about the feedback rather than blindly accepting or rejecting it.
+Phase 10: Understanding Quality Dimensions
+Trainers must understand the Quality Dimensions before task creation, not after Quality Gate rejection.
+The Quality Dimensions should guide:
+* Task ideation
+* Prompt construction
+* Input creation
+* Verifier design
+* Decomposition
+* Output expectations
+* Review criteria
+The trainer should be able to explain how the task satisfies each relevant dimension.
+If the trainer does not understand a Quality Dimension, they should review examples, ask the QA lead, or discuss it before execution.
+Quality Dimensions should not be treated as a final checklist that is reviewed only after the task is otherwise complete.
+They must be embedded into the task from the beginning.
+Phase 11: Revalidating the Gap After Quality Changes
+Some trainers achieve a score gap before Quality Gate changes but lose it afterward.
+This happens because Quality Gate fixes can materially change:
+* The task prompt
+* The verifier
+* The expected output
+* The decomposition
+* The difficulty
+* The scoring behavior
+For example:
+* Clarifying an ambiguous prompt may make the task easier for the single agent.
+* Strengthening the verifier may lower both scores.
+* Adding missing requirements may reduce multi-agent performance.
+* Correcting a verifier bug may remove an artificial score gap.
+* Simplifying an unrealistic workflow may reduce task scale.
+Therefore, after any meaningful change, the trainer must determine whether the existing execution results are still valid.
+A task is not delivery-ready merely because it had a gap before the task was corrected.
+The final version of the task must demonstrate the required behavior.
+Phase 12: Final Review and Delivery
+Before delivery, confirm:
+* The task is based on a realistic workflow.
+* The task is sufficiently large and complex.
+* The single agent struggles for valid reasons.
+* The multi-agent improves performance for valid reasons.
+* The verifier is comprehensive and correct.
+* The decomposition is meaningful.
+* Draft Review findings are resolved.
+* Quality Gate findings are resolved or justified.
+* Quality Dimensions are satisfied.
+* The final task version still preserves the required score behavior.
+* All required task files and metadata are complete.
+* Static checks pass.
+* The final artifacts are packaged consistently.
+Required Mindset Change
+The delivery process must be treated as a gated engineering pipeline, not as repeated trial and error.
+The correct pipeline is:
+Task idea
+→ Task-scale validation
+→ Full task formulation
+→ Verifier design
+→ Decomposition design
+→ Draft Review
+→ First sequential execution
+→ Trajectory analysis
+→ Root-cause analysis
+→ Targeted correction
+→ Quality Gate
+→ Quality Dimension validation
+→ Gap revalidation
+→ Final delivery
+Iterations are expensive and limited.
+Every iteration must test a clear hypothesis.
+Before running, the trainer should be able to state:
+* What am I testing?
+* Why do I expect this run to behave differently?
+* What change did I make?
+* What evidence from the previous trajectory led to this change?
+* What result would confirm or reject my hypothesis?
+If the trainer cannot answer these questions, the next iteration should not be started.
+The goal is not to get lucky and achieve a gap. The goal is to intentionally design a task where the single agent fails for understandable reasons, the multi-agent succeeds because of meaningful coordination, and the verifier reliably measures that difference.

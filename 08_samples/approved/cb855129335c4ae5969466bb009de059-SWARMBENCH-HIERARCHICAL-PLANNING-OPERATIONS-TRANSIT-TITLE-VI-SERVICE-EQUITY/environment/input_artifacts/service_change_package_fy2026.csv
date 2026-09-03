@@ -1,0 +1,21 @@
+route_id,route_name,change_type,affected_day_type,daily_revenue_miles_before,daily_revenue_miles_after,daily_trips_before,daily_trips_after,effective_date,planner_note
+R-101,Monument Blvd Trunk,frequency_reduction,weekday,420,290,96,64,2026-09-13,
+R-102,Market-Galindo Crosstown,frequency_reduction,weekday,360,250,84,56,2026-09-13,
+R-104,Clayton Rd Express,frequency_reduction,weekday,510,360,72,48,2026-09-13,
+R-106,Treat Blvd Connector,frequency_reduction,weekday,300,210,60,40,2026-09-13,
+R-108,Pittsburg-Bay Point Line,frequency_reduction,weekday,480,300,90,56,2026-09-13,
+R-110,Pleasant Hill BART Shuttle,span_reduction,weekday,240,170,70,50,2026-09-13,
+R-112,Concord Industrial Park,span_reduction,weekday,280,196,56,40,2026-09-13,
+R-115,Saturday Shoppers Loop,frequency_reduction,saturday,200,132,48,30,2026-09-13,
+R-118,Ygnacio Valley Realign,realignment,weekday,350,250,64,60,2026-09-13,realignment: post-change walkshed differs from pre-change walkshed
+R-150,Bailey Rd New Service,new_route,weekday,0,200,0,44,2026-09-13,new route: only 'after' people-trips exist; before baseline is zero
+R-120,Oak Grove Feeder,frequency_reduction,weekday,320,264,88,72,2026-09-13,
+R-122,Detroit Ave Feeder,frequency_reduction,weekday,300,249,80,66,2026-09-13,
+R-124,Willow Pass Local,span_reduction,weekday,340,286,72,60,2026-09-13,
+R-126,Meadow Ln Circulator,frequency_reduction,weekday,260,215,64,53,2026-09-13,
+R-128,North Concord Shuttle,frequency_reduction,weekday,280,232,70,58,2026-09-13,
+R-130,Solano Way Line,frequency_reduction,weekday,260,180,58,38,2026-09-13,conflict: GTFS export shows 46 daily trips after; FY2026 proposal says 38 (proposal governs)
+R-132,Port Chicago Hwy Line,frequency_reduction,weekday,240,168,52,34,2026-09-13,conflict: GTFS export shows 41 daily trips after; FY2026 proposal says 34 (proposal governs)
+R-140,Vine Hill Tripper,frequency_reduction,weekday,120,84,24,16,2026-09-13,excluded: <50% ACS block-group overlap in walkshed; demographic shares unreliable
+R-142,Bates Ave Industrial,span_reduction,weekday,130,91,26,18,2026-09-13,excluded: walkshed straddles unpopulated industrial block groups; ACS overlap insufficient
+R-160,Downtown Walnut Creek Loop,none,weekday,300,300,60,60,2026-09-13,no service change proposed; included for context only

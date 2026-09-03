@@ -1,0 +1,78 @@
+{
+  "instruments": [
+    {
+      "jurisdiction_id": "US_ITAR",
+      "url": "https://www.ecfr.gov/api/versioner/v1/full/2024-01-01/title-22.xml",
+      "fallbacks": [
+        "https://www.ecfr.gov/current/title-22/chapter-I/subchapter-M"
+      ],
+      "family": "us_itar_defense_trade"
+    },
+    {
+      "jurisdiction_id": "WASSENAAR",
+      "url": "https://www.wassenaar.org/control-lists/",
+      "fallbacks": [
+        "https://www.wassenaar.org/the-wassenaar-arrangement/"
+      ],
+      "family": "multilateral_dual_use_list"
+    },
+    {
+      "jurisdiction_id": "DE_BAFA",
+      "url": "https://www.bafa.de/EN/Foreign_Trade/Export_Control/export_control_node.html",
+      "fallbacks": [],
+      "family": "eu_member_dual_use_authority"
+    },
+    {
+      "jurisdiction_id": "CA_EIPA",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/E-19/FullText.html",
+      "fallbacks": [
+        "https://laws.justice.gc.ca/eng/acts/E-19/"
+      ],
+      "family": "five_eyes_strategic_goods"
+    },
+    {
+      "jurisdiction_id": "IN_SCOMET",
+      "url": "https://www.dgft.gov.in/CP/?optId=25",
+      "fallbacks": [
+        "https://www.dgft.gov.in/CP/?optId=26",
+        "https://www.dgft.gov.in/CP/"
+      ],
+      "family": "india_scomet"
+    },
+    {
+      "jurisdiction_id": "IE_DUAL",
+      "url": "https://www.irishstatutebook.ie/eli/2009/si/443/made/en/print",
+      "fallbacks": [
+        "https://www.irishstatutebook.ie/eli/2023/act/27/enacted/en/print.html",
+        "https://enterprise.gov.ie/en/what-we-do/trade-investment/export-controls/"
+      ],
+      "family": "eu_member_dual_use_statute"
+    },
+    {
+      "jurisdiction_id": "SE_ISP",
+      "url": "https://isp.se/eng/",
+      "fallbacks": [
+        "https://isp.se/eng/about-the-isp/"
+      ],
+      "family": "eu_member_dual_use_authority"
+    },
+    {
+      "jurisdiction_id": "NZ_SGCA",
+      "url": "https://www.mfat.govt.nz/en/trade/export-controls",
+      "fallbacks": [],
+      "family": "five_eyes_strategic_goods"
+    },
+    {
+      "jurisdiction_id": "IL_EXPORT",
+      "url": "https://exportctrl.mod.gov.il/homepage",
+      "fallbacks": [],
+      "family": "israel_defense_export"
+    },
+    {
+      "jurisdiction_id": "UK_ECJU",
+      "url": "https://www.gov.uk/guidance/export-controls-military-goods-software-and-technology",
+      "fallbacks": [],
+      "family": "uk_strategic_export"
+    }
+  ]
+}

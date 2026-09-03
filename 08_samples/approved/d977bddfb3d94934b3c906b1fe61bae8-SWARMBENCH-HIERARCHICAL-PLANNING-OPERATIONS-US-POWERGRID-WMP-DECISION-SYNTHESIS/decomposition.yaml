@@ -1,0 +1,235 @@
+coordination_pattern: hierarchical
+
+# Genuine 3-tier hierarchy (dag_depth = 3, widest tier = 18):
+#
+#   Tier 1  - 18 Decision readers (one per Decision: a draft and a final for each of
+#             the 9 utilities). Each reader discovers ITS Decision from the Energy
+#             Safety 2025 WMP index page, fetches the e-filing PDF, reads it, and
+#             writes grounded findings to /logs/agent/findings_<utility>_<version>.csv.
+#   Tier 2  - 3 regional consolidators. Each consumes the SIX reader shards in its
+#             region (3 utilities x draft+final), de-duplicates them, notes what
+#             changed between each utility's draft and final Decision, and writes a
+#             regional consolidated file + theme notes. This tier consumes Tier-1
+#             output before anything reaches the synthesizer, which is what makes the
+#             depth real rather than a flat fan-out.
+#   Tier 3  - 1 final-assembler. Consumes the three regional consolidations (and the
+#             raw shards as backup) and produces the four deliverables.
+#
+# Index page (same for every reader):
+# https://energysafety.ca.gov/what-we-do/electrical-infrastructure-safety/wildfire-mitigation-and-safety/wildfire-mitigation-plans/2025-wildfire-mitigation-plans/
+#
+# Every reader writes its findings DIRECTLY to /logs/agent/ (never /workspace) so a
+# partial run still leaves a scorable ledger; the final-assembler merges from the raw
+# shards, so a missing consolidator never loses the underlying findings.
+
+sub_tasks:
+
+  # ---------------- Tier 1: 18 Decision readers ----------------
+  # Each reader: from the 2025 WMP index page, find its utility's 2025 WMP Update
+  # Decision of the given version (the "Energy Safety Decision for ..." for final, the
+  # "... Draft Decision ..." for draft) - NOT the change-order decisions, base-plan
+  # revisions, errata or rejection letters. Follow the link to the e-filing PDF, read
+  # it, and append grounded findings to its own shard with the exact ledger columns
+  # (finding_id,utility,doc_id,topic,regulator_finding,quote,source_url). doc_id = the
+  # e-filing file id; quote = exact verbatim text from the document; regulator_finding =
+  # your own paraphrase, different text from the quote; never invent a finding.
+
+  - id: reader-pge-draft
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the PG&E 2025 WMP Update DRAFT Decision. Discover it from the index page,
+      fetch the e-filing PDF, read it, and write grounded findings (verbatim quotes,
+      one topic each) to /logs/agent/findings_pge_draft.csv in the exact ledger schema.
+
+  - id: reader-pge-final
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the PG&E 2025 WMP Update FINAL Decision. Discover it from the index page,
+      fetch the e-filing PDF, read it, and write grounded findings to
+      /logs/agent/findings_pge_final.csv in the exact ledger schema.
+
+  - id: reader-sce-draft
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the Southern California Edison (SCE) 2025 WMP Update DRAFT Decision; discover
+      from the index, fetch, read, and write findings to /logs/agent/findings_sce_draft.csv.
+
+  - id: reader-sce-final
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the SCE 2025 WMP Update FINAL Decision; discover, fetch, read, and write
+      findings to /logs/agent/findings_sce_final.csv.
+
+  - id: reader-sdge-draft
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the San Diego Gas & Electric (SDG&E) 2025 WMP Update DRAFT Decision; discover,
+      fetch, read, and write findings to /logs/agent/findings_sdge_draft.csv.
+
+  - id: reader-sdge-final
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the SDG&E 2025 WMP Update FINAL Decision; discover, fetch, read, and write
+      findings to /logs/agent/findings_sdge_final.csv.
+
+  - id: reader-bves-draft
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the Bear Valley Electric Service (BVES) 2025 WMP Update DRAFT Decision;
+      discover, fetch, read, and write findings to /logs/agent/findings_bves_draft.csv.
+
+  - id: reader-bves-final
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the BVES 2025 WMP Update FINAL Decision; discover, fetch, read, and write
+      findings to /logs/agent/findings_bves_final.csv.
+
+  - id: reader-liberty-draft
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the Liberty Utilities 2025 WMP Update DRAFT Decision (not the change-order
+      decision or rejection letter); discover, fetch, read, and write findings to
+      /logs/agent/findings_liberty_draft.csv.
+
+  - id: reader-liberty-final
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the Liberty Utilities 2025 WMP Update FINAL Decision; discover, fetch, read,
+      and write findings to /logs/agent/findings_liberty_final.csv.
+
+  - id: reader-pacificorp-draft
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the PacifiCorp 2025 WMP Update DRAFT Decision (not the errata or rejection
+      letter); discover, fetch, read, and write findings to
+      /logs/agent/findings_pacificorp_draft.csv.
+
+  - id: reader-pacificorp-final
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the PacifiCorp 2025 WMP Update FINAL Decision; discover, fetch, read, and
+      write findings to /logs/agent/findings_pacificorp_final.csv.
+
+  - id: reader-hwt-draft
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the Horizon West Transmission (HWT) 2025 WMP Update DRAFT Decision; discover,
+      fetch, read, and write findings to /logs/agent/findings_hwt_draft.csv.
+
+  - id: reader-hwt-final
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the HWT 2025 WMP Update FINAL Decision; discover, fetch, read, and write
+      findings to /logs/agent/findings_hwt_final.csv.
+
+  - id: reader-tbc-draft
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the Trans Bay Cable (TBC) 2025 WMP Update DRAFT Decision; discover, fetch,
+      read, and write findings to /logs/agent/findings_tbc_draft.csv.
+
+  - id: reader-tbc-final
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the TBC 2025 WMP Update FINAL Decision; discover, fetch, read, and write
+      findings to /logs/agent/findings_tbc_final.csv.
+
+  - id: reader-lspower-draft
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the LS Power Grid California 2025 WMP Update DRAFT Decision (not the rejection
+      letter); discover, fetch, read, and write findings to
+      /logs/agent/findings_lspower_draft.csv.
+
+  - id: reader-lspower-final
+    parallel_group: read
+    depends_on: []
+    subagent_type: explore
+    description: >-
+      Read the LS Power Grid California 2025 WMP Update FINAL Decision; discover, fetch,
+      read, and write findings to /logs/agent/findings_lspower_final.csv.
+
+  # ---------------- Tier 2: 3 regional consolidators ----------------
+
+  - id: consolidator-region-a
+    parallel_group: consolidate
+    depends_on: [reader-pge-draft, reader-pge-final, reader-sce-draft, reader-sce-final, reader-sdge-draft, reader-sdge-final]
+    subagent_type: explore
+    description: >-
+      Consolidate the large-IOU region: PG&E, SCE and SDG&E. Read the six reader shards
+      for these three utilities (/logs/agent/findings_{pge,sce,sdge}_{draft,final}.csv),
+      de-duplicate findings, and for each utility note what the FINAL Decision changed
+      relative to its DRAFT (new directives, dropped items, tightened language). Write a
+      regional consolidated file /logs/agent/region_a_consolidated.csv (same ledger
+      columns) plus a short /logs/agent/region_a_themes.md capturing the recurring
+      directives and any outliers across these three utilities. Leave the reader shards
+      in place.
+
+  - id: consolidator-region-b
+    parallel_group: consolidate
+    depends_on: [reader-bves-draft, reader-bves-final, reader-liberty-draft, reader-liberty-final, reader-pacificorp-draft, reader-pacificorp-final]
+    subagent_type: explore
+    description: >-
+      Consolidate the mid-size region: BVES, Liberty and PacifiCorp. Read the six reader
+      shards for these utilities, de-duplicate, note each utility's draft-to-final
+      changes, and write /logs/agent/region_b_consolidated.csv plus
+      /logs/agent/region_b_themes.md (recurring directives and outliers across the three).
+      Leave the reader shards in place.
+
+  - id: consolidator-region-c
+    parallel_group: consolidate
+    depends_on: [reader-hwt-draft, reader-hwt-final, reader-tbc-draft, reader-tbc-final, reader-lspower-draft, reader-lspower-final]
+    subagent_type: explore
+    description: >-
+      Consolidate the transmission-only region: HWT, TBC and LS Power Grid California.
+      Read the six reader shards, de-duplicate, note each utility's draft-to-final
+      changes, and write /logs/agent/region_c_consolidated.csv plus
+      /logs/agent/region_c_themes.md. Leave the reader shards in place.
+
+  # ---------------- Tier 3: final assembler ----------------
+
+  - id: final-assembler
+    parallel_group: assemble
+    depends_on: [consolidator-region-a, consolidator-region-b, consolidator-region-c]
+    subagent_type: explore
+    description: >-
+      Produce the four final deliverables under /logs/agent/ from the three regional
+      consolidations: the merged findings ledger cross_utility_findings.csv (schema
+      finding_id,utility,doc_id,topic,regulator_finding,quote,source_url); the written
+      briefing reliability_briefing.docx; the three charts chart_findings_by_topic.png,
+      chart_findings_by_utility.png and chart_directive_themes.png; and the deck
+      briefing_deck.pptx.

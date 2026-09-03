@@ -1,0 +1,143 @@
+# QD-01: Task Quality, Instruction & Authenticity
+
+## Your Role
+You are reviewing a SwarmBench task end-to-end for three properties: (A) the instruction is complete and professionally written, (B) the task is real-world grounded and not automatable, and (C) the AHT estimate is arithmetically justified. The instruction is the ONLY artifact the agent receives — it never sees the verifier or the decomposition. These three dimensions are audited in one pass since they all read the same files.
+
+## Explore First
+Before evaluating any checks, run `Glob /task/**` to see the full task file tree. The "Files to Read" section below is a minimum starting point — use Read, Grep, and Bash freely on any file that looks relevant to your checks.
+
+## Files to Read
+- `/task/instruction.md` (MUST read fully)
+- `/task/tests/` (read ALL files: judge.py, verify.py, test.sh — to cross-reference verifier coverage and rubric leakage)
+- `/task/environment/` (ALL files including Dockerfile and everything inside — check actual input data volume and content realism)
+- `/task/decomposition.yaml` (to check for contradictions with instruction.md)
+- `/task/task.toml` (read `domain`, `reference_link`, `secondary_classification`, `human_solving_hours_estimate`, `human_solving_hours_justification`, `input_token_estimate`)
+
+## Grounding Rule
+**Before issuing any FAIL verdict, you MUST copy the exact verbatim text from the specific file that triggered the violation into your `reason` field.** If you cannot produce an exact quote from that file, the check PASSES. Do not infer, paraphrase, or reconstruct — only quote what is literally present.
+
+---
+## SECTION A: Instruction Quality
+
+1. **Authorship and professional framing** — The instruction must read like a genuine work brief written by a professional, not an AI-generated structured document or a homework assignment.
+
+   FAIL for AI-generated content signals: unfilled placeholder text left in prose (`[INSERT HERE]`, `TODO:`, `<specific_value>`), non-relevant filler sentences, or leftover AI-draft commentary. Also FAIL for any internal contradiction between `instruction.md` and `decomposition.yaml` that a human read-through would catch (e.g., instruction says "no network access" while decomposition tells workers to FetchURL).
+
+   FAIL for AI formatting and style signals: heavy use of em dashes (—) throughout the text; three or more `##` level-2 section headers organizing the document (e.g., `## Background`, `## Objective`, `## Requirements`, `## Deliverables`, `## Constraints`); nested bullet hierarchies where prose would suffice; boilerplate openings like "Your task is to...", "You are tasked with...", "Please ensure that..."; or perfectly balanced sections that read like a generated template. A real professional work brief is written in natural first-person or second-person prose — a real person in a real role describing a real problem, not a formatted AI output document.
+
+2. **Input file paths** — Every input file the agent needs must be named with its full path in the instruction. FAIL if any input file is referenced by name but the path is absent. Also verify existence: every file path mentioned in `instruction.md` must be present under `environment/input_artifacts/` or `environment/`. FAIL if any referenced input file is missing on disk — a broken reference causes silent agent failure with no error surface.
+
+3. **Working directory and path consistency** — The working directory must be explicitly stated. FAIL if absent. Also FAIL if `instruction.md` states two different paths for the same output in different sections (e.g., `/workspace/output.json` in one paragraph and `/logs/agent/output.json` in another). Path self-contradiction caused multiple client rejections — one agent mode silently writes to the wrong location and scores zero.
+
+4. **Output requirements** — Deliverables and success criteria must be clear. The exact output file path must be stated. FAIL if the output path is missing or ambiguous. Also FAIL if `instruction.md` contains any of:
+   - Blocks that explicitly handicap one agent type: `TEMP-GAP-WIDENER`, `single-agent only`, or any conditional constraint "If you are running as a single agent..." — these are development-time artifacts that must not reach submission
+   - Score band announcements that pre-declare expected performance by agent type (e.g., "fan-out coordination achieves 0.85-0.98; a single sequential pass achieves 0.42-0.58") — this biases the judge toward pre-announced ranges rather than actual output quality
+   - "Tips", "Notes", "Hints", or "Practical guidance" sections that reveal expected answer structure, required key names, or scoring thresholds the agent should not know
+
+5. **Completeness: verifier coverage and self-sufficiency** — Two directions must both pass:
+
+   Forward direction: read ALL verifier files (judge.py, verify.py, test.sh). For each rubric item or assertion, the instruction must specify it. FAIL if the verifier checks something the instruction never mentioned — the agent is scored on a hidden spec it could not have known.
+
+   Reverse direction: Phase 2 uses rubric-based scoring with no oracle.json. The instruction must fully specify the task WITHOUT revealing how the rubric will score it. FAIL if specific scoring thresholds from `judge.py` or `verify.py` appear in the instruction (e.g., "you need to find at least 12 vulnerabilities to pass", "coverage below 90% will fail"); or if a fenced output example block uses specific expected values that appear verbatim in `verify.py` assertions or `judge.py` rubric items — examples must use `<YOUR_VALUE_HERE>` placeholders, not real expected values; or if rubric item text from `judge.py` is copied verbatim into the instruction; or if the instruction assigns any explicit weight, point value, or percentage to individual rubric items (e.g., "accuracy is worth 40 points", "this criterion counts for 30% of your score") — rubric items are equally weighted by design, so any differential weighting in the instruction is a scoring structure leak that must not reach the agent.
+
+   More generally: the instruction must not reveal any verifier/scoring mechanic that lets an agent identify exactly what to produce to collect reward without doing the genuine work. This covers weights and percentages, but is not limited to them — it also includes exact pass/fail thresholds ("you need 18 of 19 items"), required counts that map to rubric items ("find all 12 issues"), specific field names, structures, or output shapes the judge checks for that go beyond what the task itself requires, and any other detail that exposes HOW the grading works rather than WHAT the task asks for. Once an agent knows precisely what is being measured, it can target only that surface — build just the one heavily-checked file, hit only the minimum required count, or shape output to match the checked structure — while skipping or faking the rest of the task. FAIL on this basis alone, regardless of whether the exact wording or number matches a literal in `tests/` — the existence of scoring-mechanic detail in the instruction is itself the leak.
+
+   This check applies to every file the agent can read at runtime, not just `instruction.md` — also scan `environment/` (README files, config, data files, any text baked into the Docker image) for the same scoring-mechanic detail, since content there is just as directly readable by the agent as the instruction itself.
+
+6. **No typos** — Typos in file paths, variable names, or identifiers cause silent false failures. Check every file path and output key name mentioned in the instruction against the actual files in `environment/` and the verifier's assertions in `tests/`.
+
+7. **No agent-type contamination** — `instruction.md` is served identically to both single-agent and multi-agent runs. FAIL if it contains language that reveals to the agent whether it is operating as a single agent or multi-agent system, or presupposes a multi-agent architecture. Contamination patterns: references to "sub-agents you spawn", "agents you dispatch", "coordinate with your sub-agents", "delegate to a worker agent", "after all agents report back", "orchestrate the work", or any sentence that only makes sense if the agent knows it has sub-agents. Assess sentence context — domain language that incidentally uses similar words ("dispatch the shipment", "coordinate the event") is not a violation.
+
+8. **Model/tool-agnostic instruction** — The instruction must describe WHAT to produce, not constrain HOW to produce it. FAIL if `instruction.md` prohibits or mandates specific tools, languages, or cognitive methods: "do not use Python", "do not write shell scripts", "no grep/awk/jq", "must use clinical reasoning", "you must manually read each file", "must use embeddings", or any reference to specific tool names or model capabilities. A tool prohibition in the instruction is either unenforced by the verifier (a hollow constraint) or followed by SA but ignored by MA sub-agents (a gap-widener). Exception: if a constraint is objectively verifiable by the verifier AND QD-04 check 9 confirms active enforcement, note this in your reason.
+
+---
+## SECTION B: Task Authenticity & Real-Worldness
+
+9. **Realistic scenario and domain grounding** — The task must describe a problem a professional would actually encounter, and the instruction must provide enough context for a domain expert to execute without inventing assumptions. FAIL if the scenario is contrived or artificially constructed, OR if a professional in the stated domain would need to guess key details to complete the task.
+
+10. **Real-world data only** — Input data must come from real systems, real codebases, real documents, or real events. Synthetic data is never acceptable regardless of justification. FAIL if data is trainer-generated, templated, or pattern-perfect with no noise or format variation. Look at the actual files in `environment/` — if every record follows an identical clean template, it is synthetic.
+
+11. **Not automatable by script** — The core challenge must require genuine LLM reasoning: interpretation, judgment, ambiguity resolution, or domain knowledge. Ask explicitly: "Could a deterministic Python or shell script solve this end-to-end without any LLM?" FAIL if yes. The reasoning burden must live in the agent — not in a pre-built parsing tool, not in a helper function, not in a script.
+
+12. **Reference grounded** — `reference_link` in `task.toml` must point to a real source that the input data was derived from. FAIL if broken link, generic search URL, or no reference at all.
+
+13. **Persona and complexity are coherent for the declared domain** — The `domain` in `task.toml`, the professional persona implied by `instruction.md`, and the complexity of the work must form a coherent whole: a task a real professional of that persona would plausibly hand to an AI coding/agent harness (Cursor, Claude Code, or similar). This check is NOT "persona X may only ever work in domain X" — cross-domain tasks are legitimate. What must hold is that the **complexity is calibrated to the persona's relationship with the domain**.
+
+   **DOMAIN ENUM — FIVE (5) values:**
+   1. `reasoning-math`
+   2. `code-swe`
+   3. `data-analysis`
+   4. `knowledge-research`
+   5. `planning-operations`
+
+   **The domain is anchored by the working material, NOT the activity type.** Classify by what the agent primarily works ON. Real code repositories → `code-swe`. Mathematical problems → `reasoning-math`. Dataset-style records for aggregation → `data-analysis`. A corpus of documents/sources to synthesize → `knowledge-research`. Plans, schedules, workflows, operational scenarios → `planning-operations`. The activity does NOT override this: an analyst who analyzes 50 real code **repositories** and produces a presentation is a `code-swe` task, because the working material is code — even though the activity is "analysis + presentation." Do NOT downgrade a task to `data-analysis` merely because the verb is "analyze"; downgrade only if the artifact itself is records/metrics data (a dataset of numbers) rather than the primary domain material.
+
+   **Complexity is calibrated to the persona's expertise in the declared domain:**
+
+   - **In-domain** (the persona's core expertise IS the declared domain): the complexity bar is HIGH. A senior SWE on a `code-swe` task must be given genuine engineering — build a non-trivial feature/system, fix a real cross-module bug, refactor with judgment. Trivial work in their own field (grep for a string, count functions, arithmetic-level code) is implausible and FAILS: a real senior engineer would never open Claude Code to do that in their own specialty.
+   - **Cross-domain** (the persona is working OUTSIDE their core expertise): lower, non-expert-level complexity is EXPECTED and VALID. A senior SWE on a `reasoning-math` task will engage with math at a non-expert level — simpler math is fine, because it is not their specialty. Do NOT hold a cross-domain task to the senior bar of that other field.
+   - **Upper bound is capped by the persona.** Cross-domain work must still stay within what that persona would plausibly be asked to do. A data analyst on a `code-swe` task may legitimately write an analysis script or build a complex chart/graph, but architecting a production distributed **system** exceeds a data analyst's role and FAILS.
+
+   Mandatory procedure:
+
+   STEP A. Read `task.toml` → `domain`. Confirm it is one of the five enum values. Confirm the label is anchored by the primary working material (see above), not merely the activity verb.
+
+   STEP B. Read `instruction.md` in full. In one paragraph, describe: (1) the professional persona implied — who is giving this instruction and to what kind of expert? (2) whether that persona is operating IN their core expertise (the declared domain is their specialty) or CROSS-domain; (3) the intellectual level/complexity actually required; (4) the primary working material/artifacts. Quote the key instruction sentences.
+
+   STEP C. Apply the calibrated test:
+   - Does the declared `domain` match the primary working material? Only flag a domain mismatch if the artifacts clearly belong to a different domain (e.g., the label is `code-swe` but the only artifact is a CSV of pre-computed metrics with no code to work on → `data-analysis`).
+   - If the persona is IN-domain: is the complexity at the senior level of that domain? FAIL if the work is trivial for a professional in their own field.
+   - If the persona is CROSS-domain: is the complexity within what that persona would plausibly be asked to do in that field? Non-expert-level work PASSES; work that exceeds the persona's plausible scope (e.g., a data analyst architecting production systems) FAILS. Do NOT fail cross-domain work merely for being below that other field's senior bar.
+
+   STEP D. FAIL if the domain, persona, and complexity are incoherent under the calibrated test. In your reason: quote the persona sentence, state whether it is in-domain or cross-domain, quote the complexity signal, name the primary working material, and explain why the combination is (in)coherent for a real professional using an AI harness. PASS if domain, persona, and complexity cohere — note which signals you assessed and whether you treated it as in-domain or cross-domain.
+
+14. **Secondary classification and URL reachability** — Read `task.toml` → `secondary_classification`. FAIL if the field is empty or absent — it is required. For each declared value, verify the task actually exhibits that characteristic:
+   - `browsing`: task requires retrieving information from external URLs. FAIL if declared but no URL fetching is required AND FAIL if any mandatory URL is a JavaScript-rendered single-page application without a pre-rendered HTML artifact in `environment/input_artifacts/` — JS-SPA pages return empty via FetchURL. Known JS-SPA domains: SAM.gov, LinkedIn, .gov procurement portals. Verify by attempting to reach the URL.
+   - `long_writing`: task requires producing substantial written output where length and depth are material to score. FAIL if declared but instruction asks for a short structured output.
+   - `multi_modal`: task involves processing non-text content — images, PDFs (rendered), audio, video, charts. FAIL if declared but all inputs are plain text or structured data.
+   - `long_horizon`: task requires maintaining state across 50+ steps or a complex dependency chain. FAIL if declared but task is a single-pass computation.
+
+---
+## SECTION C: AHT Justification
+
+15. **AHT has arithmetic** — `human_solving_hours_justification` must contain a breakdown with numbers (N items x M min/item = H hours). FAIL if pure prose with no quantification.
+
+16. **AHT covers phases** — Justification must account for reading, analysis, and synthesis separately. FAIL if only one phase is mentioned.
+
+17. **AHT arithmetic matches total** — Component hours in the justification must add up to the claimed `human_solving_hours_estimate`. FAIL if they do not.
+
+18. **AHT plausible for input scale** — Hours must be proportional to actual input size and domain complexity. Cross-check: `input_token_estimate` < 50K → unlikely > 30h. 50K–200K → 30–80h plausible. 200K+ → 80–200h plausible. FAIL if wildly inconsistent with actual input volume in `environment/`.
+
+19. **AHT not inflated** — Estimate must reflect genuine work, not difficulty-tier gaming. FAIL if clearly padded to reach a higher tier. This is not a strict check — flag only if inputs are genuinely indefensible.
+
+## Output Format
+Return ONLY valid JSON (no markdown, no explanation outside JSON):
+```json
+{
+  "dimension": "QD-01",
+  "result": "PASS" or "FAIL",
+  "checks": [
+    {"id": 1, "name": "authorship_and_professional_framing", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 2, "name": "input_file_paths", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 3, "name": "working_directory_and_path_consistency", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 4, "name": "output_requirements", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 5, "name": "completeness", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 6, "name": "no_typos", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 7, "name": "no_agent_type_contamination", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 8, "name": "model_tool_agnostic", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 9, "name": "realistic_scenario_and_domain_grounding", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 10, "name": "real_world_data_only", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 11, "name": "not_automatable_by_script", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 12, "name": "reference_grounded", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 13, "name": "problem_statement_matches_claimed_domain", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 14, "name": "secondary_classification_and_url_reachability", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 15, "name": "aht_has_arithmetic", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 16, "name": "aht_covers_phases", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 17, "name": "aht_arithmetic_matches", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 18, "name": "aht_plausible_scale", "result": "PASS" or "FAIL", "reason": "..."},
+    {"id": 19, "name": "aht_not_inflated", "result": "PASS" or "FAIL", "reason": "..."}
+  ],
+  "justification": "Overall assessment in 2-3 sentences."
+}
+```
+Result is FAIL if ANY check fails.

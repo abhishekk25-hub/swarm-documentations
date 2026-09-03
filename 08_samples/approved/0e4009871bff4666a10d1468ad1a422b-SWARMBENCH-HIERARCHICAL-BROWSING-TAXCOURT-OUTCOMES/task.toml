@@ -1,0 +1,30 @@
+[task]
+name = "swarmbench/0e4009871bff4666a10d1468ad1a422b-SWARMBENCH-HIERARCHICAL-BROWSING-TAXCOURT-OUTCOMES"
+description = "Retrieve 48 real U.S. Tax Court memorandum opinions over the network from a published index, read each one in full to determine the taxpayer relief level and the penalty outcome from the court's reasoning (not the boilerplate disposition line), the principal issue, a verbatim dispositive sentence, the authoring judge, the tax years, and the amount at issue, and assemble an outcome workbook and a brief."
+
+[metadata]
+verifier_type = "llm-judge"
+domain = "data-analysis"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_horizon"]
+dag_depth = 3
+dag_width = 48
+human_solving_hours_estimate = 80.0
+human_solving_hours_justification = "An analyst must fetch the manifest, then for each of 48 memorandum opinions retrieve and read the full text (7,000-20,000 words of dense legal prose) to determine the taxpayer relief level and the penalty outcome from the reasoning across every contested issue (the disposition line states neither), the principal issue, a verbatim dispositive sentence, the authoring judge, the tax years, and the amount at issue. Careful reading and field extraction on opinions this long runs about 90 min each, so 48 opinions is roughly 72h. Reconciling the per-opinion records into the workbook and drafting the brief adds about 8h, for 80h total."
+estimated_sub_agents = 56
+input_token_estimate = 700000
+reference_link = "https://github.com/olayis/taxcourt-outcomes-corpus"
+why_multi_agent = "Determining the outcome of a Tax Court memorandum opinion requires reading the full opinion: the boilerplate disposition line ('Decision will be entered under Rule 155', 'An appropriate order and decision will be entered') states neither who won nor how the penalties came out, and an opinion can end identically whether the taxpayer won, lost, or split, and whether penalties stuck. The relief level and penalty outcome must be inferred from the analysis across every contested issue, the dispositive sentence located by comprehension, and seven fields recovered per opinion. A single agent reading the whole cohort of 48 dense opinions (7K-20K words each) saturates its context and begins guessing relief and penalty levels, carrying an outcome from an earlier case, citing a non-holding sentence, or skipping opinions entirely. A hierarchy avoids this: an orchestrator partitions the cohort, each batch manager spawns one leaf worker per opinion so every opinion is read end-to-end in a clean context and judged on its own reasoning, and a reducer assembles the workbook and brief. The dependent fetch -> per-opinion comprehension -> reconciliation stages make this a long-horizon hierarchical workflow."
+network_enabled = true
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600
+network_enabled = true

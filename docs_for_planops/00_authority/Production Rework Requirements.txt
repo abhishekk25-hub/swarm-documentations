@@ -1,0 +1,67 @@
+Production Rework Requirements
+Immediate action
+
+1. Update the trainer CLI before running anything
+The multi_noplan mode is only available after a forced reinstall. A normal git pull is not enough because pipx and pip may retain the old local package version.
+
+
+git clone https://github.com/MathavanSG14/swarmbench-harness.git
+cd swarmbench-harness
+git pull
+cd mascloud_client
+pipx install --force .
+mascloud run --help
+
+For a plain pip installation inside a virtual environment, use:
+
+
+pip install --force-reinstall --no-deps .
+mascloud run --help
+
+The help output must list single, multi, and multi_noplan. If it does not, stop and fix the local installation before starting a run. Check which mascloud to make sure the command resolves to the environment just reinstalled.
+2. Capture three execution logs for every reworked task
+Run the same final package in all three modes, one at a time:
+
+
+mascloud run <task_folder> --mode single
+mascloud run <task_folder> --mode multi
+mascloud run <task_folder> --mode multi_noplan
+
+* single: the single-agent baseline.
+* multi: the multi-agent run with decomposition.yaml available to the swarm.
+* multi_noplan: the same multi-agent swarm without the pre-authored decomposition.yaml injected. It tests whether the supplied decomposition is materially useful.
+
+
+Keep the three downloaded result ZIPs. Delivery now requires all three fresh execution-log packages. multi_noplan has no target reward or gap requirement, but it must finish cleanly enough to produce usable logs; an unrecovered crash or rate-limit failure is not acceptable evidence.
+3. Replace detailed task prompts with concise user requests(by replace we don’t have to remove the old instruction.md or delete it we are creating a new file)
+Create a required high_level_prompt.md for each task. Read it alongside instruction.md before submission.
+
+
+* Length: target approximately 250 words. It must not be under about 100 words or over about 450 words. Record the actual word count.
+* Voice and focus: write it as a direct, terse request from a busy requester. It must state only what needs to be completed and what deliverables are required.
+* Keep background and method out: do not include persona/company background, motivation or rationale, step ordering, methodology, tool guidance, worker assignments, verifier logic, score targets, or decomposition details. Those belong in instruction.md or decomposition.yaml, not the high-level prompt.
+* Independent restatement: do not copy section headers or paragraphs from instruction.md. The file must be a genuinely shorter restatement.
+* Consistent deliverables: every deliverable named in high_level_prompt.md must exist in instruction.md, and it must not omit any major deliverable required by instruction.md.
+
+
+The task instruction can still specify legitimate output paths, artifact schemas, and acceptance requirements. The decomposition remains the coordination artifact; it should not be copied into the user-facing request.
+4. Rework verifier scoring around real task completion
+Every verifier must report distinct score components in /logs/verifier/reward.json:
+
+
+* static_checks: schema, path, format, and other structural validation.
+* partial_oracle_checks: limited verified real-value checks or another defensible task-correctness source.
+* reward_hacking_checks: checks designed to catch hollow, fabricated, copied, self-consistent, or otherwise gameable output.
+
+
+Structural checks may contribute at most 40% of the available reward. At least 60% must come from content-based checks. Each task needs at least three to five content-based rubrics, selected for the task rather than copied mechanically.
+
+
+Use multiplicative scoring for the content-quality signal: a submission should not be able to compensate for failed grounding or anti-gaming checks merely by collecting points from easy formatting checks. The exact formula may vary by task, but the reward JSON must expose the component scores and the final score clearly.
+5. Re-validate the benchmark outcome
+The final single and planned multi runs must retain a minimum 20 percentage point performance gap under the same task package, environment, verifier, and time budget. Do not tune the verifier to create a gap. Improve task design, coverage, coordination, and content-grounded evaluation instead.
+6. Run final validation and submit the new report
+Before resubmitting, run the final static checker and confirm all required deliverables, schemas, paths, and log packages are present and correctly shaped. Then run the LLM Quality Gate review and include its new report with the task.
+
+
+Address every valid LLM-review finding. Findings that are genuinely only optional improvements may be documented without changing the task, but the LLM review must still be run and the resulting report must be submitted. Do not submit a task based only on a static-check pass.

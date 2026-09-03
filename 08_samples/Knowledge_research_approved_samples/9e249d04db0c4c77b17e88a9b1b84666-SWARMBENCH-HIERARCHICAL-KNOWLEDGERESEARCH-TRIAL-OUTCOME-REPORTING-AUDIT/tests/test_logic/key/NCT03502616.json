@@ -1,0 +1,713 @@
+{
+ "nct": "NCT03502616",
+ "prespecification_version": 0,
+ "prespecification_date": "2018-04-11",
+ "publications": [
+  "PMC11127290",
+  "PMC12583238",
+  "PMC9500130"
+ ],
+ "prespecified_units": [
+  {
+   "uid": "pri1",
+   "measure": "Assessment in Ankylosing Spondylitis (ASAS) 20 response",
+   "role": "primary",
+   "timeframe": "Week 16",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec1",
+   "measure": "Assessment in Ankylosing Spondylitis (ASAS) 40 response",
+   "role": "secondary",
+   "timeframe": "Weeks 2,4, 8, 12, 16, 24, 32, 40 and 48",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec2",
+   "measure": "Assessment in Ankylosing Spondylitis (ASAS) 20 response",
+   "role": "secondary",
+   "timeframe": "Weeks 2, 4, 8, 12, 24, 32, 40 and 48",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec3",
+   "measure": "Assessment in Ankylosing Spondylitis (ASAS) 5/6 response",
+   "role": "secondary",
+   "timeframe": "Weeks 2, 4, 8, 12, 16, 24, 32, 40 and 48",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec6",
+   "measure": "Ankylosing Spondylitis Disease Activity Score (ASDAS) clinically important improvement",
+   "role": "secondary",
+   "timeframe": "Weeks 2, 4, 8, 12, 16, 24, 32, 40 and 48",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11127290",
+   "reported_label": "ASDAS improvement >= 1.1 points (proportion of patients at week 16)",
+   "reported_instrument": "ASDAS measured using C-reactive protein",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At week 16, the proportion of patients with an improvement event of >= 1.1 points was 61% with tofacitinib (placebo-to-tofacitinib: 20%) (Fig. 3 a)."
+  },
+  {
+   "uid": "sec9",
+   "measure": "Change in Bath Ankylosing Spondylitis Functional Index",
+   "role": "secondary",
+   "timeframe": "Weeks 2, 4, 8, 12, 16, 24, 32, 40 and 48",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec10",
+   "measure": "Change in Bath Ankylosing Spondylitis Metrology Index and its 5 components",
+   "role": "secondary",
+   "timeframe": "Weeks 2, 4, 8, 12, 16, 24, 32, 40 and 48",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec11",
+   "measure": "Change in Maastricht Ankylosing Spondylitis Enthesitis Score",
+   "role": "secondary",
+   "timeframe": "Weeks 2, 4, 8, 12, 16, 24, 32, 40 and 48",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec12",
+   "measure": "Change in Swollen Joint Count (44)",
+   "role": "secondary",
+   "timeframe": "Weeks 2, 4, 8, 12, 16, 24, 32, 40 and 48",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec13",
+   "measure": "Change in Spinal Mobility: Chest Expansion",
+   "role": "secondary",
+   "timeframe": "Weeks 2, 4, 8, 12, 16, 24, 32, 40 and 48",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec14",
+   "measure": "ASAS partial remission response at all time points",
+   "role": "secondary",
+   "timeframe": "Weeks 2, 4, 8, 12, 16, 24, 32, 40 and 48",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec15",
+   "measure": "Incidence and severity of Adverse Events",
+   "role": "secondary",
+   "timeframe": "Weeks 2, 4, 8, 12, 16, 24, 32, 40 and 48",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec16",
+   "measure": "Change in Short-Form-36 Healthy Survey Version 2 Acute",
+   "role": "secondary",
+   "timeframe": "Weeks 16 and 48",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec17",
+   "measure": "Change in EuroQol EQ-5D Health State Profile",
+   "role": "secondary",
+   "timeframe": "Weeks 16 and 48",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec19",
+   "measure": "Change in Ankylosing Spondylitis Quality of Life",
+   "role": "secondary",
+   "timeframe": "Weeks 16 and 48",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec20",
+   "measure": "Change in Work Productivity and Activity Impairment Questionnaire Spondyloarthritis",
+   "role": "secondary",
+   "timeframe": "Weeks 16 and 48",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec21",
+   "measure": "Ankylosing Spondylitis Healthcare Resource Utilization Questionnaire",
+   "role": "secondary",
+   "timeframe": "Weeks 16 and 48",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec22",
+   "measure": "Ankylosing Spondylitis Disease Activity Score (ASDAS) major improvement response",
+   "role": "secondary",
+   "timeframe": "Weeks 2, 4, 8, 12, 16, 24, 32, 40 and 48",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11127290",
+   "reported_label": "ASDAS improvement >= 2.0 points (proportion of patients at week 2)",
+   "reported_instrument": "ASDAS measured using C-reactive protein",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "For ASDAS, the proportions of patients who experienced improvement events of >= 1.1 points and >= 2.0 points at week 2 were 40% and 8%, respectively, for tofacitinib (placebo-to-tofacitinib: 7% and 0%) (Fig. 3 a, b)."
+  }
+ ],
+ "additional_units": [
+  {
+   "rid": "PMC11127290#0",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 30% improvement in total back pain (median time to initial improvement event)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Total back pain b\n4 (2-16)\n24 (4-40)\n< 0.0001"
+  },
+  {
+   "rid": "PMC11127290#1",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 30% improvement in nocturnal pain (median time to initial improvement event)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Nocturnal pain b\n4 (2-24)\n24 (8-32)\n0.0003"
+  },
+  {
+   "rid": "PMC11127290#2",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in total back pain (median time to initial improvement event)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Total back pain b\n8 (4-48)\n32 (16-NE)\n0.0001"
+  },
+  {
+   "rid": "PMC11127290#3",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in nocturnal pain (median time to initial improvement event)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Nocturnal pain b\n8 (4-40)\n24 (16-NE)\n< 0.0001"
+  },
+  {
+   "rid": "PMC11127290#4",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in fatigue (BASDAI Q1) (median time to initial improvement event)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Fatigue (Q1)\n24 (4-NE)\n32 (12-NE)\n0.0895"
+  },
+  {
+   "rid": "PMC11127290#5",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in spinal pain (BASDAI Q2) (median time to initial improvement event)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Spinal pain (Q2)\n8 (4-NE)\n32 (12-NE)\n< 0.0001"
+  },
+  {
+   "rid": "PMC11127290#6",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in peripheral joint pain/swelling (BASDAI Q3) (median time to initial improvement event)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Peripheral joint pain/swelling (Q3)\n10 (2-NE)\n24 (4-NE)\n0.2070"
+  },
+  {
+   "rid": "PMC11127290#7",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in enthesitis (BASDAI Q4) (median time to initial improvement event)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Enthesitis (Q4)\n8 (4-48)\n24 (8-NE)\n0.0250"
+  },
+  {
+   "rid": "PMC11127290#8",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in morning stiffness (BASDAI Q5 and Q6) (median time to initial improvement event)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Morning stiffness (Q5 and Q6) c\n12 (4-NE)\n32 (24-NE)\n0.0091"
+  },
+  {
+   "rid": "PMC11127290#9",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in BASDAI total score (median time to initial improvement event)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "BASDAI total score\n12 (4-NE)\n32 (16-NE)\n0.0002"
+  },
+  {
+   "rid": "PMC11127290#10",
+   "reporting_document": "PMC11127290",
+   "reported_label": "ASDAS improvement >= 1.1 points (median time to initial improvement event)",
+   "reported_instrument": "ASDAS measured using C-reactive protein",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Improvement events were defined as initial (first post-baseline observation) and continued (sustained for 2 consecutive visits) >= 30% and >= 50% improvement in back/nocturnal pain or BASDAI questions/total scores, or ASDAS improvement >= 1.1 and >= 2.0 points."
+  },
+  {
+   "rid": "PMC11127290#11",
+   "reporting_document": "PMC11127290",
+   "reported_label": "ASDAS improvement >= 2.0 points (median time to initial improvement event)",
+   "reported_instrument": "ASDAS measured using C-reactive protein",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Improvement events were defined as initial (first post-baseline observation) and continued (sustained for 2 consecutive visits) >= 30% and >= 50% improvement in back/nocturnal pain or BASDAI questions/total scores, or ASDAS improvement >= 1.1 and >= 2.0 points."
+  },
+  {
+   "rid": "PMC11127290#12",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 30% improvement in total back pain (median time to continued improvement event)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Total back pain b\n8 (2-32)\n24 (16-NE)\n< 0.0001"
+  },
+  {
+   "rid": "PMC11127290#13",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 30% improvement in nocturnal pain (median time to continued improvement event)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Nocturnal pain b\n4 (2-40)\n24 (16-NE)\n< 0.0001"
+  },
+  {
+   "rid": "PMC11127290#14",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in total back pain (median time to continued improvement event)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Total back pain b\n24 (4-NE)\nNE\n0.0003"
+  },
+  {
+   "rid": "PMC11127290#15",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in nocturnal pain (median time to continued improvement event)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Nocturnal pain b\n12 (4-NE)\n40 (24-NE)\n< 0.0001"
+  },
+  {
+   "rid": "PMC11127290#16",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in fatigue (BASDAI Q1) (median time to continued improvement event)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Fatigue (Q1)\n40 (8-NE)\nNE\n0.0212"
+  },
+  {
+   "rid": "PMC11127290#17",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in spinal pain (BASDAI Q2) (median time to continued improvement event)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Spinal pain (Q2)\n24 (4-NE)\nNE\n< 0.0001"
+  },
+  {
+   "rid": "PMC11127290#18",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in peripheral joint pain/swelling (BASDAI Q3) (median time to continued improvement event)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Peripheral joint pain/swelling (Q3)\n16 (4-NE)\n32 (12-NE)\n0.0711"
+  },
+  {
+   "rid": "PMC11127290#19",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in enthesitis (BASDAI Q4) (median time to continued improvement event)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Enthesitis (Q4)\n14 (4-NE)\n40 (16-NE)\n0.0017"
+  },
+  {
+   "rid": "PMC11127290#20",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in morning stiffness (BASDAI Q5 and Q6) (median time to continued improvement event)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Morning stiffness (Q5 and Q6) c\n24 (4-NE)\nNE\n0.0037"
+  },
+  {
+   "rid": "PMC11127290#21",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in BASDAI total score (median time to continued improvement event)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "BASDAI total score\n24 (8-NE)\nNE\n0.0016"
+  },
+  {
+   "rid": "PMC11127290#22",
+   "reporting_document": "PMC11127290",
+   "reported_label": "ASDAS improvement >= 1.1 points (median time to continued improvement event)",
+   "reported_instrument": "ASDAS measured using C-reactive protein",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Improvement events were defined as initial (first post-baseline observation) and continued (sustained for 2 consecutive visits) >= 30% and >= 50% improvement in back/nocturnal pain or BASDAI questions/total scores, or ASDAS improvement >= 1.1 and >= 2.0 points."
+  },
+  {
+   "rid": "PMC11127290#23",
+   "reporting_document": "PMC11127290",
+   "reported_label": "ASDAS improvement >= 2.0 points (median time to continued improvement event)",
+   "reported_instrument": "ASDAS measured using C-reactive protein",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Improvement events were defined as initial (first post-baseline observation) and continued (sustained for 2 consecutive visits) >= 30% and >= 50% improvement in back/nocturnal pain or BASDAI questions/total scores, or ASDAS improvement >= 1.1 and >= 2.0 points."
+  },
+  {
+   "rid": "PMC11127290#24",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 30% improvement in nocturnal pain (proportion of patients at week 2)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "For nocturnal pain, 31% and 18% of patients experienced improvement events of >= 30% and >= 50%, respectively, at week 2 with tofacitinib (placebo-to-tofacitinib: 11% and 7%) (Fig. 1 b, d)."
+  },
+  {
+   "rid": "PMC11127290#25",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in nocturnal pain (proportion of patients at week 2)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "For nocturnal pain, 31% and 18% of patients experienced improvement events of >= 30% and >= 50%, respectively, at week 2 with tofacitinib (placebo-to-tofacitinib: 11% and 7%) (Fig. 1 b, d)."
+  },
+  {
+   "rid": "PMC11127290#26",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 30% improvement in total back pain (proportion of patients at week 4)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At week 4, over half of patients experienced an improvement event of >= 30% in both total back pain and nocturnal pain with tofacitinib (placebo-to-tofacitinib: 21% and 19%), with the proportions continuing to increase to week 48 (Fig. 1 a, b)."
+  },
+  {
+   "rid": "PMC11127290#27",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 30% improvement in nocturnal pain (proportion of patients at week 4)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At week 4, over half of patients experienced an improvement event of >= 30% in both total back pain and nocturnal pain with tofacitinib (placebo-to-tofacitinib: 21% and 19%), with the proportions continuing to increase to week 48 (Fig. 1 a, b)."
+  },
+  {
+   "rid": "PMC11127290#28",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 30% improvement in total back pain (proportion of patients at week 16)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At the end of the double-blind period at week 16, improvements of >= 30% in total back pain and nocturnal pain were experienced by 59% and 64% of patients in the tofacitinib group, respectively (placebo-to-tofacitinib: 28% and 26%, respectively; Fig. 1 a, b), while improvements of >= 50% in total back pain, nocturnal pain, and spinal pain (BASDAI Q2) were experienced by 43-51%, and 17-20%, of patients in the tofacitinib and placebo-tofacitinib groups, respectively (Fig. 1 c, d, e)."
+  },
+  {
+   "rid": "PMC11127290#29",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 30% improvement in nocturnal pain (proportion of patients at week 16)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At the end of the double-blind period at week 16, improvements of >= 30% in total back pain and nocturnal pain were experienced by 59% and 64% of patients in the tofacitinib group, respectively (placebo-to-tofacitinib: 28% and 26%, respectively; Fig. 1 a, b), while improvements of >= 50% in total back pain, nocturnal pain, and spinal pain (BASDAI Q2) were experienced by 43-51%, and 17-20%, of patients in the tofacitinib and placebo-tofacitinib groups, respectively (Fig. 1 c, d, e)."
+  },
+  {
+   "rid": "PMC11127290#30",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in total back pain (proportion of patients at week 16)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At the end of the double-blind period at week 16, improvements of >= 30% in total back pain and nocturnal pain were experienced by 59% and 64% of patients in the tofacitinib group, respectively (placebo-to-tofacitinib: 28% and 26%, respectively; Fig. 1 a, b), while improvements of >= 50% in total back pain, nocturnal pain, and spinal pain (BASDAI Q2) were experienced by 43-51%, and 17-20%, of patients in the tofacitinib and placebo-tofacitinib groups, respectively (Fig. 1 c, d, e)."
+  },
+  {
+   "rid": "PMC11127290#31",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in nocturnal pain (proportion of patients at week 16)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At the end of the double-blind period at week 16, improvements of >= 30% in total back pain and nocturnal pain were experienced by 59% and 64% of patients in the tofacitinib group, respectively (placebo-to-tofacitinib: 28% and 26%, respectively; Fig. 1 a, b), while improvements of >= 50% in total back pain, nocturnal pain, and spinal pain (BASDAI Q2) were experienced by 43-51%, and 17-20%, of patients in the tofacitinib and placebo-tofacitinib groups, respectively (Fig. 1 c, d, e)."
+  },
+  {
+   "rid": "PMC11127290#32",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in spinal pain (BASDAI Q2) (proportion of patients at week 16)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At the end of the double-blind period at week 16, improvements of >= 30% in total back pain and nocturnal pain were experienced by 59% and 64% of patients in the tofacitinib group, respectively (placebo-to-tofacitinib: 28% and 26%, respectively; Fig. 1 a, b), while improvements of >= 50% in total back pain, nocturnal pain, and spinal pain (BASDAI Q2) were experienced by 43-51%, and 17-20%, of patients in the tofacitinib and placebo-tofacitinib groups, respectively (Fig. 1 c, d, e)."
+  },
+  {
+   "rid": "PMC11127290#33",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in total back pain (proportion of patients at week 24)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "By week 24, at least half of patients in the tofacitinib group had experienced an improvement event of >= 50% in total back pain, nocturnal pain, and spinal pain, whereas in the placebo-to-tofacitinib (8 weeks since switch to tofacitinib) group, 42%, 46%, and 38% of patients had experienced an improvement event of >= 50% in these symptoms, respectively (Fig. 1 c, d, e)."
+  },
+  {
+   "rid": "PMC11127290#34",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in nocturnal pain (proportion of patients at week 24)",
+   "reported_instrument": "numerical rating scale ranging from 0 [no pain] to 10 [most severe pain]",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "By week 24, at least half of patients in the tofacitinib group had experienced an improvement event of >= 50% in total back pain, nocturnal pain, and spinal pain, whereas in the placebo-to-tofacitinib (8 weeks since switch to tofacitinib) group, 42%, 46%, and 38% of patients had experienced an improvement event of >= 50% in these symptoms, respectively (Fig. 1 c, d, e)."
+  },
+  {
+   "rid": "PMC11127290#35",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in spinal pain (BASDAI Q2) (proportion of patients at week 24)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "By week 24, at least half of patients in the tofacitinib group had experienced an improvement event of >= 50% in total back pain, nocturnal pain, and spinal pain, whereas in the placebo-to-tofacitinib (8 weeks since switch to tofacitinib) group, 42%, 46%, and 38% of patients had experienced an improvement event of >= 50% in these symptoms, respectively (Fig. 1 c, d, e)."
+  },
+  {
+   "rid": "PMC11127290#36",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in fatigue (BASDAI Q1) (proportion of patients at week 2)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At week 2, the proportions of patients with improvement events of >= 50% in fatigue (BASDAI Q1), peripheral joint pain/swelling (BASDAI Q3), enthesitis (BASDAI Q4), and morning stiffness (mean of BASDAI Q5 and Q6) ranged from 13 to 27% with tofacitinib (placebo-to-tofacitinib: 5-18%) (Fig. 2 )."
+  },
+  {
+   "rid": "PMC11127290#37",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in peripheral joint pain/swelling (BASDAI Q3) (proportion of patients at week 2)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At week 2, the proportions of patients with improvement events of >= 50% in fatigue (BASDAI Q1), peripheral joint pain/swelling (BASDAI Q3), enthesitis (BASDAI Q4), and morning stiffness (mean of BASDAI Q5 and Q6) ranged from 13 to 27% with tofacitinib (placebo-to-tofacitinib: 5-18%) (Fig. 2 )."
+  },
+  {
+   "rid": "PMC11127290#38",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in enthesitis (BASDAI Q4) (proportion of patients at week 2)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At week 2, the proportions of patients with improvement events of >= 50% in fatigue (BASDAI Q1), peripheral joint pain/swelling (BASDAI Q3), enthesitis (BASDAI Q4), and morning stiffness (mean of BASDAI Q5 and Q6) ranged from 13 to 27% with tofacitinib (placebo-to-tofacitinib: 5-18%) (Fig. 2 )."
+  },
+  {
+   "rid": "PMC11127290#39",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in morning stiffness (mean of BASDAI Q5 and Q6) (proportion of patients at week 2)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At week 2, the proportions of patients with improvement events of >= 50% in fatigue (BASDAI Q1), peripheral joint pain/swelling (BASDAI Q3), enthesitis (BASDAI Q4), and morning stiffness (mean of BASDAI Q5 and Q6) ranged from 13 to 27% with tofacitinib (placebo-to-tofacitinib: 5-18%) (Fig. 2 )."
+  },
+  {
+   "rid": "PMC11127290#40",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in peripheral joint pain/swelling (BASDAI Q3) (proportion of patients at week 16)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At week 16, the proportions of patients with an improvement event of >= 50% in peripheral joint pain/swelling, enthesitis, morning stiffness, and fatigue with tofacitinib ranged from 41-52% (placebo-to-tofacitinib: 15-34%) (Fig. 2 )."
+  },
+  {
+   "rid": "PMC11127290#41",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in enthesitis (BASDAI Q4) (proportion of patients at week 16)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At week 16, the proportions of patients with an improvement event of >= 50% in peripheral joint pain/swelling, enthesitis, morning stiffness, and fatigue with tofacitinib ranged from 41-52% (placebo-to-tofacitinib: 15-34%) (Fig. 2 )."
+  },
+  {
+   "rid": "PMC11127290#42",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in morning stiffness (mean of BASDAI Q5 and Q6) (proportion of patients at week 16)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At week 16, the proportions of patients with an improvement event of >= 50% in peripheral joint pain/swelling, enthesitis, morning stiffness, and fatigue with tofacitinib ranged from 41-52% (placebo-to-tofacitinib: 15-34%) (Fig. 2 )."
+  },
+  {
+   "rid": "PMC11127290#43",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in fatigue (BASDAI Q1) (proportion of patients at week 16)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "At week 16, the proportions of patients with an improvement event of >= 50% in peripheral joint pain/swelling, enthesitis, morning stiffness, and fatigue with tofacitinib ranged from 41-52% (placebo-to-tofacitinib: 15-34%) (Fig. 2 )."
+  },
+  {
+   "rid": "PMC11127290#44",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in peripheral joint pain/swelling (BASDAI Q3) (proportion of patients at week 24)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "By week 24, at least half of patients in both the tofacitinib and placebo-to-tofacitinib treatment groups (8 weeks after switching) had experienced an improvement event of >= 50% in peripheral joint pain/swelling (BASDAI Q3) and enthesitis (BASDAI Q4) (Fig. 2 b, c)."
+  },
+  {
+   "rid": "PMC11127290#45",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in enthesitis (BASDAI Q4) (proportion of patients at week 24)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "By week 24, at least half of patients in both the tofacitinib and placebo-to-tofacitinib treatment groups (8 weeks after switching) had experienced an improvement event of >= 50% in peripheral joint pain/swelling (BASDAI Q3) and enthesitis (BASDAI Q4) (Fig. 2 b, c)."
+  },
+  {
+   "rid": "PMC11127290#46",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in morning stiffness (mean of BASDAI Q5 and Q6) (proportion of patients at week 24)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "For morning stiffness (mean of BASDAI Q5 and Q6), half of patients in the tofacitinib group experienced an improvement of >= 50% by week 24, while approximately half of the patients in the placebo-to-tofacitinib group experienced an improvement of >= 50% by week 40 (Fig. 2 d)."
+  },
+  {
+   "rid": "PMC11127290#47",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in morning stiffness (mean of BASDAI Q5 and Q6) (proportion of patients at week 40)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "For morning stiffness (mean of BASDAI Q5 and Q6), half of patients in the tofacitinib group experienced an improvement of >= 50% by week 24, while approximately half of the patients in the placebo-to-tofacitinib group experienced an improvement of >= 50% by week 40 (Fig. 2 d)."
+  },
+  {
+   "rid": "PMC11127290#48",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in fatigue (BASDAI Q1) (proportion of patients at week 32)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "For fatigue (BASDAI Q1), half of patients receiving tofacitinib had experienced an improvement event of >= 50% by week 32, while less than half of patients who switched from placebo improved by >= 50% at any study visit (Fig. 2 a)."
+  },
+  {
+   "rid": "PMC11127290#49",
+   "reporting_document": "PMC11127290",
+   "reported_label": "ASDAS improvement >= 1.1 points (proportion of patients at week 2)",
+   "reported_instrument": "ASDAS measured using C-reactive protein",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "For ASDAS, the proportions of patients who experienced improvement events of >= 1.1 points and >= 2.0 points at week 2 were 40% and 8%, respectively, for tofacitinib (placebo-to-tofacitinib: 7% and 0%) (Fig. 3 a, b)."
+  },
+  {
+   "rid": "PMC11127290#52",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in BASDAI total score (proportion of patients at week 2)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Improvement events of >= 50% for BASDAI total score were experienced by 12% and 4% of patients receiving tofacitinib and placebo-to-tofacitinib, respectively, at week 2 (Fig. 3 c)."
+  },
+  {
+   "rid": "PMC11127290#54",
+   "reporting_document": "PMC11127290",
+   "reported_label": ">= 50% improvement in BASDAI total score (proportion of patients at week 24)",
+   "reported_instrument": "Bath AS Disease Activity Index (BASDAI)",
+   "reported_role": "other",
+   "role_evidence_quote": "The following outcomes were evaluated:",
+   "result_quote": "Less than half of patients in the placebo-to-tofacitinib group experienced an improvement event of >= 50% at any study visit, although the proportion with improvement events increased from 19% at week 16 (tofacitinib: 44%) to 38% at week 24 (8 weeks after switching to tofacitinib) (Fig. 3 c)."
+  },
+  {
+   "rid": "PMC9500130#0",
+   "reporting_document": "PMC9500130",
+   "reported_label": "Bentler's comparative fit index",
+   "reported_instrument": "Functional Assessment of Chronic Illness Therapy-Fatigue (FACIT-F) scale",
+   "reported_role": "other",
+   "role_evidence_quote": "Measurement properties of the FACIT-F scale were evaluated using data from tofacitinib phase 2/3 ( NCT01786668 / NCT03502616 ) studies in adult patients with active AS.",
+   "result_quote": "Second-order confirmatory factor modeling supported the measurement structure of the FACIT-F scale (Bentler's comparative fit index >= 0.91),"
+  },
+  {
+   "rid": "PMC9500130#4",
+   "reporting_document": "PMC9500130",
+   "reported_label": "FACIT-F total score meaningful within-patient change",
+   "reported_instrument": "Functional Assessment of Chronic Illness Therapy-Fatigue (FACIT-F) scale",
+   "reported_role": "other",
+   "role_evidence_quote": "Defining meaningful within-patient change",
+   "result_quote": "Meaningful within-patient change was estimated as 3.1-6.3 for FACIT-F total score,"
+  },
+  {
+   "rid": "PMC9500130#5",
+   "reporting_document": "PMC9500130",
+   "reported_label": "FACIT-F Experience domain score meaningful within-patient change",
+   "reported_instrument": "Functional Assessment of Chronic Illness Therapy-Fatigue (FACIT-F) scale",
+   "reported_role": "other",
+   "role_evidence_quote": "Defining meaningful within-patient change",
+   "result_quote": "and 1.4-2.8 and 1.7-3.6 for FACIT-F Experience and Impact domain scores, respectively."
+  },
+  {
+   "rid": "PMC9500130#6",
+   "reporting_document": "PMC9500130",
+   "reported_label": "FACIT-F Impact domain score meaningful within-patient change",
+   "reported_instrument": "Functional Assessment of Chronic Illness Therapy-Fatigue (FACIT-F) scale",
+   "reported_role": "other",
+   "role_evidence_quote": "Defining meaningful within-patient change",
+   "result_quote": "and 1.4-2.8 and 1.7-3.6 for FACIT-F Experience and Impact domain scores, respectively."
+  }
+ ],
+ "dropped_unusable_units": [
+  "PMC9500130#1: NCT03502616/PMC9500130#1 role: quote too short to be evidence",
+  "PMC9500130#2: NCT03502616/PMC9500130#2 role: quote too short to be evidence",
+  "PMC9500130#3: NCT03502616/PMC9500130#3 role: quote too short to be evidence",
+  "PMC9500130#7: NCT03502616/PMC9500130#7 role: quote too short to be evidence",
+  "PMC9500130#8: NCT03502616/PMC9500130#8 result: quote too short to be evidence",
+  "PMC9500130#9: NCT03502616/PMC9500130#9 result: quote too short to be evidence",
+  "PMC9500130#10: NCT03502616/PMC9500130#10 role: quote too short to be evidence",
+  "PMC9500130#11: NCT03502616/PMC9500130#11 role: quote too short to be evidence",
+  "PMC9500130#12: NCT03502616/PMC9500130#12 role: quote too short to be evidence",
+  "PMC9500130#13: NCT03502616/PMC9500130#13 role: quote too short to be evidence",
+  "PMC9500130#14: NCT03502616/PMC9500130#14 role: quote too short to be evidence",
+  "PMC9500130#15: NCT03502616/PMC9500130#15 role: quote too short to be evidence",
+  "PMC9500130#16: NCT03502616/PMC9500130#16 role: quote too short to be evidence",
+  "PMC9500130#17: NCT03502616/PMC9500130#17 role: quote too short to be evidence",
+  "PMC9500130#18: NCT03502616/PMC9500130#18 result: quote too short to be evidence",
+  "PMC9500130#19: NCT03502616/PMC9500130#19 result: quote too short to be evidence",
+  "PMC9500130#20: NCT03502616/PMC9500130#20 role: quote too short to be evidence",
+  "PMC9500130#21: NCT03502616/PMC9500130#21 role: quote too short to be evidence",
+  "PMC9500130#22: NCT03502616/PMC9500130#22 role: quote too short to be evidence",
+  "PMC9500130#23: NCT03502616/PMC9500130#23 role: quote too short to be evidence",
+  "PMC9500130#24: NCT03502616/PMC9500130#24 role: quote too short to be evidence",
+  "PMC9500130#25: NCT03502616/PMC9500130#25 role: quote too short to be evidence",
+  "PMC9500130#26: NCT03502616/PMC9500130#26 role: quote too short to be evidence",
+  "PMC9500130#27: NCT03502616/PMC9500130#27 role: quote too short to be evidence",
+  "PMC9500130#28: NCT03502616/PMC9500130#28 role: quote too short to be evidence",
+  "PMC9500130#29: NCT03502616/PMC9500130#29 role: quote too short to be evidence",
+  "PMC9500130#30: NCT03502616/PMC9500130#30 role: quote too short to be evidence",
+  "PMC9500130#31: NCT03502616/PMC9500130#31 role: quote too short to be evidence",
+  "PMC9500130#32: NCT03502616/PMC9500130#32 role: quote too short to be evidence",
+  "PMC9500130#33: NCT03502616/PMC9500130#33 role: quote too short to be evidence",
+  "PMC9500130#34: NCT03502616/PMC9500130#34 role: quote too short to be evidence",
+  "PMC9500130#35: NCT03502616/PMC9500130#35 role: quote too short to be evidence",
+  "PMC9500130#36: NCT03502616/PMC9500130#36 role: quote too short to be evidence",
+  "PMC9500130#37: NCT03502616/PMC9500130#37 role: quote too short to be evidence",
+  "PMC9500130#38: NCT03502616/PMC9500130#38 role: quote too short to be evidence",
+  "PMC9500130#39: NCT03502616/PMC9500130#39 role: quote too short to be evidence",
+  "PMC9500130#40: NCT03502616/PMC9500130#40 role: quote too short to be evidence"
+ ]
+}

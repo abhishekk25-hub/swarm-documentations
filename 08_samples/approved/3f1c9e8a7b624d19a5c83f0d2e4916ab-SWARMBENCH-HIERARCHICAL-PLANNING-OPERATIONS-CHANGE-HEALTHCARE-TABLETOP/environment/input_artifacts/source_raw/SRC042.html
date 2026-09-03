@@ -1,0 +1,2175 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="utf-8" />
+<meta name="description" content="Learn how the ASPR serves as the sector risk management agency for healthcare and public health, #StopRansomwareadvisory, tactics, techniques, and procedures to mitigate the risk of Black Basta attacks." />
+<meta name="abstract" content="The Healthcare and Public Health (HPH) sector continues to experience increasingly sophisticated cyberattacks that exploit complex, interconnected IT systems at hospitals and health care facilities. Nationwide, health care and public health IT infrastructures suffer from many common vulnerabilities: underfunded cybersecurity programs, vulnerable legacy systems, a growing need for skilled cybersecurity professionals, and network-connected medical technologies, including medical devices.These cyberattacks against the HPH sector are growing both in numbers and severity, with the frequency of cyberattacks on hospitals and health systems more than doubling from 2016 to 2021. The HPH sector experienced a 42 percent increase in ransomware attacks in 2022 compared to 2021. The cost of an average health care data breach has reached $10.93 million, according to a report from IBM Security. That&#039;s an 8% jump from a year ago, when the average cost topped $10 million for the first time. In health care, cyber risks are patient risks - unlike other more typical industries impacted by cybersecurity threats (e.g., energy, finance), disruptions in health care could cost lives.ASPR has worked with our partners in HHS, across the federal government, and with industry to develop resources to help hospitals and health care facilities protect themselves and their patient&#039;s from cyber attacks." />
+<meta name="keywords" content="Cybersecurity, ransomware, Black Basta, CISA, FBI, MS-ISAC, Advisory, tactics, techniques, procedures, TTPs, IOCs, RaaS, HPH, cyberattacks, exploit, federal government, Subscribe, Bulletins, Defense." />
+<link rel="canonical" href="https://www.aspr.gov/readiness-response/response-operations/healthcare-public-health-cybersecurity" />
+<meta property="og:description" content="Stay informed with the latest updates from the ASPR, including vital resources for H5N1 bird flu preparedness, COVID-19 therapeutics, and BARDA&#039;s pandemic influenza initiatives and project Nextgen." />
+<meta name="facebook-domain-verification" content="3yr5dfpltk6cm014r6admo2mesw2jc" />
+<meta name="google-site-verification" content="G_EJGszFSIkBuGK01onukRsC62mZnCNopv_SwzjSZQA" />
+<meta name="Generator" content="Drupal 11 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/themes/custom/aspr_uswds/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="alternate" hreflang="en" href="https://www.aspr.gov/readiness-response/response-operations/healthcare-public-health-cybersecurity" />
+
+  <title>Healthcare and Public Health Cybersecurity | ASPR</title>
+  <link rel="stylesheet" media="all" href="/sites/default/files/css/css_1DEdYHGlyI_-v8JKcKGmvDS0x-q9v-Ms0jEaK3mrEag.css?delta=0&amp;language=en&amp;theme=aspr_uswds&amp;include=eJxlkOtyxCAIhV_IrI_kYCTWhkgGcHft0ze3zjTtH-V8h4sIukqIxOMcRq5TyV6tjHM_mYPD7sE-MNS2RBT1d3mmTMyG4vd4OONBrRPe7fM6UW6GdWuQfalUKm5lsoDp8Cz4-ptCRe1q-Mtv-krqM3EEOtxSs4to24yA75UVU5gK2f7ojBUFyEWCr-6JIR3JhxKwwm5kQZ-krUAP-IT3DaQCxNnh27Yh8w-9pCPo3CykoiM_UbrniiOT066Gi4-g6CyGBTMsWNt_cP3VsVDYXT_J5rxYZrfvq_44HwunRnhDgrpy1fLEIUtJ38SDttk" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_3TJD5DxUHbE9JR6P9fxcEN3BWKNJZxoF_sjPIzBsky0.css?delta=1&amp;language=en&amp;theme=aspr_uswds&amp;include=eJxlkOtyxCAIhV_IrI_kYCTWhkgGcHft0ze3zjTtH-V8h4sIukqIxOMcRq5TyV6tjHM_mYPD7sE-MNS2RBT1d3mmTMyG4vd4OONBrRPe7fM6UW6GdWuQfalUKm5lsoDp8Cz4-ptCRe1q-Mtv-krqM3EEOtxSs4to24yA75UVU5gK2f7ojBUFyEWCr-6JIR3JhxKwwm5kQZ-krUAP-IT3DaQCxNnh27Yh8w-9pCPo3CykoiM_UbrniiOT066Gi4-g6CyGBTMsWNt_cP3VsVDYXT_J5rxYZrfvq_44HwunRnhDgrpy1fLEIUtJ38SDttk" />
+<link rel="stylesheet" media="all" href="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.9.0/dist/css/uswds.min.css" />
+
+  <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","pathPrefix":"","currentPath":"node\/29524","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"eJx1UluS4yAMvJATjkTJILNaC-RCYhLv6Rc_MuVkan6EuluIFgC6VD-yhNkHKRMlp0ZhXg9ugF1evf1BX1oesap7h0fJJGJY3ZbfjvymtjK-y8dyUKkZlt4gOSpMBfu2msH09kX4-CxhUjsbXvSmj6i9aTG9EollBN7LqaSromRIeanyhTcowGsfVYcRrbvy-FxEMfqJ2LYxoZl4bWMm-60kYcEK_Jvcj5-1H40e_sJzGBn-rW6EMKcqrcQXQXK_6ls888Cgus1-YhZ47VqE134Ov2CVTIonqjB9Z0Zy5g8clwGfttlysbYF-H7CIYkkRm-QXOrhEx8GGVZp5iNp6DdYVycFg_CgqxrmPlk3YKPPmCBjaT-J80vsj-E31U21Kw-p80mGGSOZVE_FMO3uizskCEFq7Pg-1f7k2C9w-wrq9ng4vBJZYmN8oyrqIkWpP3-qFId-I9uvc-d6jwQs6T8wYza6","theme":"aspr_uswds","theme_token":null},"ajaxTrustedUrl":{"form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM":true,"\/news-updates\/action":true},"gtag":{"tagId":"G-0C4HFN4GKE","consentMode":false,"otherIds":[],"events":[],"additionalConfigInfo":[]},"asprGutenbergCard":{"cardLayouts":[]},"webform":{"dialog":{"options":{"narrow":{"title":"Narrow","width":600},"normal":{"title":"Normal","width":800},"wide":{"title":"Wide","width":1000}},"entity_type":"node","entity_id":"29524"}},"data":{"extlink":{"extTarget":true,"extTargetAppendNewWindowDisplay":false,"extTargetAppendNewWindowLabel":"(opens in a new window)","extTargetNoOverride":true,"extNofollow":false,"extTitleNoOverride":true,"extNoreferrer":true,"extFollowNoOverride":false,"extClass":"0","extLabel":"(link is external)","extImgClass":false,"extSubdomains":true,"extExclude":"(www\\.)?aspr\\.gov|aspr\\.hhs\\.gov|asprgov\\.cloud\\.hhs\\.gov|pantheonsite\\.io|lndo\\.site","extInclude":"\\.pdf|asprtracie\\.hhs\\.gov|netec\\.org|google\\.com|donavanwilliams\\.com|https?:\\\/\\\/(?!(?:aspr\\.hhs\\.gov|(?:dev|stg|prod)-asprgov\\.cloud\\.hhs\\.gov))(?:[a-z0-9-]+\\.)+hhs\\.gov","extCssExclude":"","extCssInclude":"","extCssExplicit":"","extAlert":false,"extAlertText":"This link will take you to an external web site. We are not responsible for their content.","extHideIcons":false,"mailtoClass":"0","telClass":"0","mailtoLabel":"(link sends email)","telLabel":"(link is a phone number)","extUseFontAwesome":false,"extIconPlacement":"append","extPreventOrphan":false,"extFaLinkClasses":"fa fa-external-link","extFaMailtoClasses":"fa fa-envelope-o","extAdditionalLinkClasses":"","extAdditionalMailtoClasses":"","extAdditionalTelClasses":"","extFaTelClasses":"fa fa-phone","allowedDomains":["aspr-gov-pantheon.lndo.site","aspr-gov-reference.lndo.site","dev-trevital-aspr.pantheonsite.io","test-trevital-aspr.pantheonsite.io","dev-asprgov.cloud.hhs.gov","stg-asprgov.cloud.hhs.gov","prod-asprgov.cloud.hhs.gov","aspr.hhs.gov"],"extExcludeNoreferrer":""}},"asprGutenberg":{"widgetDefaults":{"card":{"show_border":false,"border_color":"#dfe1e2","border_width":"1px","border_radius":"0","button_width":"auto","card_height":"auto","spacing_top":"0","spacing_bottom":"0"},"image":{"size":"large","alignment":"none","image_width":"auto","image_height":"auto","object_fit":"cover","show_border":false,"border_color":"#dfe1e2","border_width":"0","border_radius":"0","spacing_top":"0","spacing_bottom":"0"},"divider":{"show_rule":true,"rule_color":"#dfe1e2","rule_width":"1px","rule_style":"solid","padding_top":"1rem","padding_bottom":"1rem"},"accordion":{"multiselect":false,"bordered":false,"show_border":false,"border_color":"#dfe1e2","border_width":"1px","border_radius":"0","bg_color":"#D7E3F8","header_bg_color":"#D7E3F8","icon_style":"plus-minus","icon_decoration":"none","icon_decoration_color":"#1b1b1b","icon_decoration_width":"1px","icon_color":"#1b1b1b","icon_decoration_bg_color":"transparent","spacing_top":"0","spacing_bottom":"0"},"alert":{"type":"info","no_icon":false,"slim":false,"spacing_top":"0","spacing_bottom":"0"},"grid":{"columns":"2","column_widths":"","tablet_columns":"0","mobile_columns":"1","gap":"default","row_height":"","cell_aspect_ratio":"","bg_color":"","bg_width":"","bg_padding":"","heading_align":"content-left","heading_offset":"","heading_padding_top":"","heading_padding_bottom":"0.75rem","heading_level":"h2","heading_color":"","show_border":false,"border_color":"#dfe1e2","border_width":"1px","border_radius":"0","spacing_top":"0","spacing_bottom":"0"},"modal":{"large":false,"modal_size":"default","button_unstyled":false,"spacing_top":"0","spacing_bottom":"0"},"process_list":{"list_style":"decimal","border_color":"#000000","connector_thickness":"0.5rem","connector_color":"#d9e8f6","connector_align":"center","icon_position":"left","icon_v_position":"top","icon_bg_color":"#ffffff","icon_border_color":"#1b1b1b","icon_border_width":"0.25rem","icon_border_style":"solid","icon_shape":"circle","icon_size":"2.5","heading_font_size":"","heading_font_weight":"700","heading_color":"","heading_bg_color":"","item_max_width":"","item_content_gap":"0.75rem","item_body_inset":"1.2rem","spacing_top":"0","spacing_bottom":"0"},"summary_box":{"heading_level":"h3","show_border":false,"border_color":"#1b1b1b","border_width":"2px","border_radius":"0","spacing_top":"0","spacing_bottom":"0","background_color":""},"table":{"default_rows":2,"default_cols":3,"bordered":true,"striped":true,"stacked":false,"text_color":"","header_bg_color":"","bg_color":"","stripe_color":"","border_color":"","border_width":"","border_radius":"0","spacing_top":"0","spacing_bottom":"0"},"carousel":{"slides_to_show":"1","tablet_slides":"0","mobile_slides":"1","autoplay":false,"autoplay_speed":"5000","show_arrows":true,"arrow_style":"circle","arrow_icon":"chevron","arrow_size":"md","arrow_color":"#1b1b1b","arrow_bg_color":"#ffffff","arrow_dimmed":false,"arrow_sidebar":false,"arrow_sidebar_bg":"rgba(0,0,0,0.4)","arrow_sidebar_width":"4rem","arrow_sidebar_height":"content","arrow_position":"overlay","arrow_vertical_position":"center","show_dots":true,"max_dots":"0","dot_style":"filled","dot_color":"#a9aeb1","dot_active_color":"#005ea2","gap":"default","infinite":false,"peek_amount":"0","slide_height":"auto","spacing_top":"0","spacing_bottom":"0","show_border":false,"border_color":"#dfe1e2","border_width":"1px","border_radius":"0","bg_color":""},"container":{"show_border":false,"border_color":"#dfe1e2","border_width":"1px","border_radius":"0","bg_color":"","padding":"0","spacing_top":"0","spacing_bottom":"0"},"heading":{"level":"h2","text_color":"","text_align":"left","padding":"0","show_border":false,"border_color":"#dfe1e2","border_width":"1px","border_radius":"0","bg_color":"","spacing_top":"0","spacing_bottom":"0"},"media":{"max_width":"none","padding":"0","show_border":false,"border_color":"#dfe1e2","border_width":"1px","border_radius":"0","bg_color":"","spacing_top":"0","spacing_bottom":"0"},"box_card":{"bg_color":"#F6E8DD","border_color":"#943814","border_radius":"8px","text_color":"#943814","accent_color":"#943814","icon_size":"48px","icon_shape":"circle","icon_bg_color":"#ffffff","icon_frame_border":"","icon_frame_border_color":"","icon_frame_size":"8","label_font_size":"0.75rem","label_font_weight":"700","label_line_height":"1.3","hover_bg_color":"","hover_text_color":"","hover_border_color":"","hover_shadow":"0 2px 12px rgba(0,0,0,0.2)","gradient_enabled":false,"gradient_start":"","gradient_end":"","gradient_direction":"180","gradient_midpoint":50,"content_v_align":"flex-start","content_h_align":"center","card_height":"auto"},"nav_card":{"card_height":"300px","button_text":"Learn More","title_v_align":"top","title_h_align":"left","title_padding_y":"","title_padding_x":"","title_font_size":"","title_font_weight":"","title_font_style":"","title_text_transform":"","title_line_height":"","title_letter_spacing":"","title_color":"#ffffff","title_text_shadow":true,"title_shadow_color":"rgba(0, 0, 0, 0.5)","spacing_top":"0","spacing_bottom":"0"},"image_link_card":{"card_height":"height-card-lg","gradient_start":"rgba(0,0,0,0.1)","gradient_end":"rgba(0,0,0,0.75)","text_v_align":"bottom","text_h_align":"left","spacing_top":"0","spacing_bottom":"0"}},"layoutWidths":{"contentSize":"720px","wideSize":"96rem"},"colorPalette":[{"name":"Primary Blue","color":"#155197"},{"name":"Primary Dark Blue","color":"#062E61"},{"name":"Secondary Light Blue","color":"#AFC8F1"},{"name":"Jordy Blue","color":"#A5C9F3"},{"name":"Accordion Light Blue","color":"#D7E3F8"},{"name":"Secondary Orange","color":"#D38A55"},{"name":"Coral","color":"#E7824F"},{"name":"Tertiary Red","color":"#943814"},{"name":"Rufous","color":"#A72608"},{"name":"Claret","color":"#7D1D3F"},{"name":"Tertiary Green","color":"#546D5E"},{"name":"Cream","color":"#F6E8DD"},{"name":"Periwinkle","color":"#E4ECF8"},{"name":"Body Text","color":"#354E5E"},{"name":"Charcoal","color":"#284F5F"},{"name":"Secondary Gray","color":"#B5B5B5"},{"name":"Neutral Background","color":"#F6F4F5"},{"name":"White","color":"#FFFDFD"},{"name":"Black","color":"#000000"},{"name":"Base Lighter","color":"#DFE1E2"},{"name":"Base Lightest","color":"#F0F0F0"},{"name":"Success","color":"#00A91C"},{"name":"Transparent","color":"transparent"}],"blockStyles":{"uswds\/image":[],"uswds\/process-list":[],"uswds\/summary-box":[]}},"blazy":{"loadInvisible":false,"offset":null,"saveViewportOffsetDelay":null,"validateDelay":null,"container":"","loader":true,"unblazy":false,"visibleClass":false,"compat":true},"blazyIo":{"disconnect":false,"rootMargin":"0px","threshold":[0,0.25,0.5,0.75,1]},"TBMegaMenu":{"TBElementsCounter":{"column":null},"theme":"aspr_uswds","3d759896-d7ac-469e-822c-1f74a645c0f3":{"arrows":""}},"better_exposed_filters":{"autosubmit_exclude_textfield":false},"views":{"ajax_path":"\/views\/ajax","ajaxViews":{"views_dom_id:c629857f8192f4728c24ba44d19bfa1cd66637dbc277a914b256587c60e72b75":{"view_name":"aspr_news_media","view_display_id":"aspr_cybersecurity_list_block","view_args":"","view_path":"\/node\/29524","view_base_path":"news-updates\/action","view_dom_id":"c629857f8192f4728c24ba44d19bfa1cd66637dbc277a914b256587c60e72b75","pager_element":0}}},"user":{"uid":0,"permissionsHash":"6fb369186390e165c9ae0c87adeeb4c23b5719d953f0962a3214f4f4f7af8433"}}</script>
+<script src="/sites/default/files/js/js_lWPEy5RnTnfh3p8HbbBwzKJll5B4MiJvYQ8OA9jLh10.js?scope=header&amp;delta=0&amp;language=en&amp;theme=aspr_uswds&amp;include=eJx1kFGOwyAMRC-UhiMhAw7yxsGR7bTNnn5Jk0rVSv0xPA94BsBWjYklzzFLm6gGc8rzfvYGOOTNHsVCZUnAN_OdqdVPxciRllXljjdowHufYENCd9SIz1UMS5yIO1qAzSXalhbyb0cqNlTgb3K3n61bY4QfeA6J4XcPCfJcVbZW3g2S8VM_6rXPDGZM5hezwPvWKrx3H36jykKGFylM1-6BaR3w6UeUUHRbgccLhypSGaNDDbWX_3yG8hQXrLBg23r07vD6yZhnLOSikZpjVXCSFk4JchYtncdJpav9oXfCh4VXPaf2WJPoEq51LAQs9Q8a4b5Q"></script>
+<script src="/modules/contrib/google_tag/js/gtag.js?thefko"></script>
+
+
+<script>(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"rua.upush":"false","rua.cpush":"true","rua.upre":"false","rua.cpre":"false","rua.uprl":"false","rua.cprl":"false","rua.cprf":"false","rua.trans":"SJ-7fb9b0d2-5821-4b05-96b2-b168c4d2c2ab","rua.cook":"false","rua.ims":"false","rua.ufprl":"false","rua.cfprl":"false","rua.isuxp":"false","rua.texp":"norulematch","rua.ceh":"false","rua.ueh":"false","rua.ieh.st":"0"}]);</script>
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="KT28U-XL65M-W3WJH-9KT8J-JVJZN",function(){function e(){if(!i){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",o.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"KT28U-XL65M-W3WJH-9KT8J-JVJZN";var o=document.currentScript||document.getElementsByTagName("script")[0],i=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!i)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n="true"=="true"?1:0,t="",a="mzmhbi5ykzt562sdsdvq-f-3e47954f4-clientnsv4-s.akamaihd.net",o="false"=="true"?2:1,i={"ak.v":"41","ak.cp":"1955650","ak.ai":parseInt("1312427",10),"ak.ol":"0","ak.cr":166,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"bebfb","ak.r":38936,"ak.a2":n,"ak.m":"dsca","ak.n":"essl","ak.cport":42186,"ak.gh":"184.86.102.217","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1782812907","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==8Ecoov1M3pTwTIxbGO629/OKhCKy4t0mCkpL7rlEndWWXfHY23ppgklMX5LabbhStWp9SB7TuTN7rcdfOO9B/WUyzhRHele7URu2DDRUSSauz6W9+0cPLUUrS2FllJLxvzXYYiByKdBisViV88iDTLnpwzaM4zLTrUo7Rev1NZNPVr5JG4Bt+KBY2hZlB8/LStOsvbgreLXN9IsMRfkY9YsoT//12aWLBfnWItacgeVjm9f7v/zyyB2NcVoRuH0m9hVDqeCZ8vNr7fvs9l9ryxa+HYzMh5OeqiJ9qDoqzlK83b4i5pScILahvAVnau+RK4FCuVn5RgEMinFVJkCbvLdK2hyjEMxQgL2834iBuCD/28WAG2yvNEuzQb3XTgKeGTCU6f/74tFpHuAicBhi1XGRdnLtr19GpGBRopzfRxc=","ak.pv":"5","ak.dpoabenc":"","ak.tf":o};if(""!==t)i["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body class="path-readiness-response-response-operations-healthcare-public-health-cybersecurity node-type-page">
+<a class="usa-skipnav" href="#main-content" tabindex="0">Skip to main content</a>
+
+  <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+          <section class="usa-banner" aria-label="Official website of the United States government">
+      
+<div class="usa-banner">
+  <div class="usa-accordion">
+    <header class="usa-banner__header">
+      <div class="usa-banner__inner">
+        <div class="grid-col-auto">
+          <img class="usa-banner__header-flag" aria-hidden="true" src="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.9.0/dist/img/us_flag_small.png" alt="">
+        </div>
+        <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+          <p class="usa-banner__header-text">An official website of the United States government</p>
+          <p class="usa-banner__header-action" aria-hidden="true">Here's how you know</p>
+        </div>
+        <button type="button" class="usa-accordion__button usa-banner__button" aria-expanded="false"
+          aria-controls="gov-banner">
+          <span class="usa-banner__button-text">Here's how you know</span>
+        </button>
+
+        <div class="grid-col-auto hhs-banner__header" aria-hidden="true">
+          <a class="external-link d-none d-lg-block" href="https://www.hhs.gov/" target="_blank">U.S. Department of Health &amp; Human Services</a>
+        </div>
+      </div>
+    </header>
+    <div class="usa-banner__content usa-accordion__content" id="gov-banner" hidden="">
+      <div class="grid-row grid-gap-lg">
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img class="usa-banner__icon usa-media-block__img" src="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.9.0/dist/img/icon-dot-gov.svg" alt="Dot gov">
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Official websites use .gov</strong>
+              <br>
+              A <strong>.gov</strong> website belongs to an official government organization in the United
+              States.
+            </p>
+          </div>
+        </div>
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img class="usa-banner__icon usa-media-block__img" src="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.9.0/dist/img/icon-https.svg" alt="Https">
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Secure .gov websites use HTTPS</strong>
+              <br>
+              A <strong>lock</strong> ( <span class="icon-lock">
+  <svg xmlns="http://www.w3.org/2000/svg" width="52" height="64" viewBox="0 0 52 64" class="usa-banner__lock-image"
+    role="img" aria-labelledby="banner-lock-description" focusable="false">
+    <title id="banner-lock-title">Lock</title>
+    <desc id="banner-lock-description">Locked padlock</desc>
+    <path fill="#000000" fill-rule="evenodd"
+      d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+  </svg>
+</span>
+ ) or <strong>https://</strong> means you’ve safely
+              connected to the .gov website. Share sensitive information only on official, secure websites.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </section>
+  
+<div class="usa-overlay"></div>
+
+  <header class="usa-header usa-header--extended" id="header" role="banner">
+
+  
+  
+        <div class="mobile-only">
+      <div class="mobile-header-wrapper">
+  <div class="usa-navbar">
+    <div class="usa-logo" id="mobile-logo">
+      <em class="usa-logo__text">
+        <a href="/" title="Home" aria-label="Home">
+          <img src="/themes/custom/aspr_uswds/images/aspr_header.png" alt="ASPR" class="site-logo__img">
+        </a>
+      </em>
+    </div>
+    <button type="button" class="usa-menu-btn">Menu</button>
+  </div>
+</div>
+    </div>
+
+        <div class="desktop-only">
+      <div class="region region-header usa-navbar">
+    <div class="search-api-page-block-form-aspr-public-search search-api-page-block-form search-form search-block-form container-inline usa-search usa-form block-aspr-uswds-searchapipagesearchblockform block block-search-api-page block-search-api-page-form-block" data-drupal-selector="search-api-page-block-form-aspr-public-search" id="block-aspr-uswds-searchapipagesearchblockform">
+	
+		
+      <div class="content">
+      <form action="/readiness-response/response-operations/healthcare-public-health-cybersecurity" method="post" id="search-api-page-block-form-aspr-public-search" accept-charset="UTF-8" class="usa-form">
+  <div class="form-item js-form-item form-type-search js-form-type-search form-item-keys js-form-item-keys form-no-label">
+      <label for="edit-keys" class="usa-label control-label usa-sr-only">Search</label>
+          
+
+  <input title="Enter the terms you wish to search for." data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128" class="form-search usa-input" />
+
+
+
+
+
+        
+  
+  </div>
+
+
+  <input autocomplete="off" data-drupal-selector="form-kzpsrwtuxefka9b7psj1jsnrl-os9d6h6rfr4g8iw-8" type="hidden" name="form_build_id" value="form-kZpsrWtuXefKa9b7PsJ1JsNrL_OS9d6h6RfR4G8iw_8" class="usa-input" />
+
+
+
+
+
+
+  <input data-drupal-selector="edit-search-api-page-block-form-aspr-public-search" type="hidden" name="form_id" value="search_api_page_block_form_aspr_public_search" class="usa-input" />
+
+
+
+
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
+
+  <input class="search-form__submit usa-button button js-form-submit form-submit" data-drupal-selector="edit-submit" type="submit" id="edit-submit" name="op" value="Search" />
+
+
+
+
+</div>
+
+</form>
+
+    </div>
+  </div>
+
+<div class="usa-logo site-logo" id="logo">
+
+  <em class="usa-logo__text">
+      <a class="logo-img" href="/" accesskey="1" aria-label="Home">
+      <img src="/themes/custom/aspr_uswds/images/aspr_header.png" alt="Home" />
+    </a>
+  
+    </em>
+
+</div>
+<button class="usa-menu-btn" type="button">Menu</button>
+<div class="views-element-container block-aspr-uswds-views-block-social-icons-block-1 block block-views block-views-block:social-icons-block-1" id="block-aspr-uswds-views-block-social-icons-block-1">
+	
+		
+      <div class="content">
+      <div><div class="social-icons js-view-dom-id-56c19e37dc3a9bb4da6a6bd7f5ab9a66612a5ee2a73a73b0ef02fbe4d20bb318">
+  
+  
+  
+
+  
+  
+  
+
+  
+
+
+
+
+<div class="views-view-responsive-grid views-view-responsive-grid--horizontal" style="--views-responsive-grid--column-count:3;--views-responsive-grid--cell-min-width:80px;--views-responsive-grid--layout-gap:2px;">
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://www.linkedin.com/company/aspr/"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-10/LinkedIn-icon.png?itok=vMqXPbKw" width="40" height="40" alt="LinkedIn Icon" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://x.com/ASPRgov"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-10/X-icon.png?itok=7Dbn1Xho" width="40" height="40" alt="X icon" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://www.instagram.com/asprgov/"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-10/Instagram-icon.png?itok=GohqCUKC" width="40" height="40" alt="Instagram Icon" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://www.facebook.com/ASPRgov/"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-09/Facebook.png?itok=KUtp_Sy8" width="29" height="26" alt="FB" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://www.threads.net/@asprgov"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-09/image%204.png?itok=Z17KSJYq" width="26" height="26" alt="Thread" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://bsky.app/profile/asprgov.bsky.social"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-09/Group%20196.png?itok=7rTPUxoj" width="29" height="26" alt="BS" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://www.flickr.com/photos/asprgov"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-09/Flicker.png?itok=om6VMlIU" width="29" height="26" alt="Flicker" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://www.youtube.com/c/ASPRgov"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-09/Group%20195.png?itok=241NNkaA" width="29" height="26" alt="YT" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://cloud.connect.hhs.gov/ASPR"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-10/Email.png?itok=bERs8Vi5" width="32" height="27" alt="Email" /></a></div></div></div>
+    </div>
+  </div>
+
+    
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+    </div>
+  </div>
+
+
+</div>
+
+    </div>
+
+    <nav class="usa-nav" role="navigation">
+            <div class="usa-nav__inner">
+        
+        <button type="button" class="usa-nav__close">
+          <img src="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.9.0/dist/img/usa-icons/close.svg" alt="close"/>
+        </button>
+
+                <div class="mobile-search mobile-only">
+          <section aria-label="Search component">
+            <form class="usa-search usa-search--small" role="search" action="/search" method="post" onsubmit="this.action = '/search/' + encodeURIComponent(this.querySelector('input[name=keys]').value);">
+              <label class="usa-sr-only" for="mobile-search">Search</label>
+              <input class="usa-input" id="mobile-search" type="search" name="keys" />
+              <button class="usa-button" type="submit">
+                <span class="usa-search__submit-text">Search </span>
+                <img src="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.9.0/dist/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Search" />
+              </button>
+            </form>
+          </section>
+        </div>
+
+                              <div class="tb-megamenu-responsive">
+              <div id="block-aspr-uswds-megamenucomponents-13" class="block-aspr-uswds-megamenucomponents-13 block block-tb-megamenu block-tb-megamenu-menu-block:mega-menu-components">
+	
+		
+      <div class="content">
+      <nav  class="tbm tbm-mega-menu-components tbm-no-arrows" id="3d759896-d7ac-469e-822c-1f74a645c0f3" data-breakpoint="1024" aria-label="mega-menu-components navigation">
+      <button class="tbm-button" type="button" aria-label="Toggle Menu Button">
+      <span class="tbm-button-container">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+        <div class="tbm-collapse always-hide">
+    <ul  class="tbm-nav level-0 items-4" >
+        <li  class="tbm-item level-1 tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+            <a href="/about"  class="tbm-link level-1 tbm-toggle" aria-expanded="false">
+                About ASPR
+          </a>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    <div  class="tbm-submenu tbm-item-child tbm-has-width" style="width: 750px;">
+      <div  class="tbm-row">
+      <div  class="tbm-column span6">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 no-link tbm-group-title" tabindex="0" aria-expanded="false">
+                About Us
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-8">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about/strategic-plan"  class="tbm-link level-3">
+                ASPR Strategic Plan
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about/centers"  class="tbm-link level-3">
+                Centers
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about/leadership"  class="tbm-link level-3">
+                Leadership
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about/organizational-chart"  class="tbm-link level-3">
+                Organizational Chart
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about/budget"  class="tbm-link level-3">
+                Budget
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about/business-center"  class="tbm-link level-3">
+                Business Center
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about/law-policy-strategy"  class="tbm-link level-3">
+                Law, Policy, and Strategy
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about/contact-us"  class="tbm-link level-3">
+                Contact Us
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span6">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 no-link tbm-group-title" tabindex="0" aria-expanded="false">
+                Join and Connect
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-3">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about/careers"  class="tbm-link level-3">
+                Careers
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about/boards-committees"  class="tbm-link level-3">
+                National Advisory Committees
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about/partnering"  class="tbm-link level-3">
+                Partnering with ASPR
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+        <li  class="tbm-item level-1 tbm-item--has-dropdown active active-trail" aria-level="1" >
+      <div class="tbm-link-container">
+            <a href="/readiness"  class="tbm-link level-1 tbm-toggle active-trail" aria-expanded="false">
+                Readiness &amp; Response
+          </a>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    <div  class="tbm-submenu tbm-item-child tbm-has-width" style="width: 950px;">
+      <div  class="tbm-row">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-2">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 no-link tbm-group-title" tabindex="0" aria-expanded="false">
+                Join. Train. Respond.
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-4">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/join-train-respond"  class="tbm-link level-3">
+                Overview 
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/response-operations/join-train-respond/mrc"  class="tbm-link level-3">
+                MRC: Medical Reserve Corps
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/response-operations/join-train-respond/ndms"  class="tbm-link level-3">
+                NDMS: National Disaster Medical System
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/response-operations/join-train-respond/esar-vhp"  class="tbm-link level-3">
+                ESAR-VHP: Emergency System for the Advance Registration of Volunteer Health Professionals
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+          <li  class="tbm-item level-2 tbm-group active active-trail" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 no-link tbm-group-title active-trail" tabindex="0" aria-expanded="false">
+                Response Operations
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-7">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/response-operations"  class="tbm-link level-3">
+                Overview
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/response-operations/regional-operations/regional-emergency-coordinators"  class="tbm-link level-3">
+                RECs: Regional Emergency Coordinators
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/response-operations/epap"  class="tbm-link level-3">
+                EPAP: Emergency Prescription Assistance Program
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3 active active-trail" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/response-operations/healthcare-public-health-cybersecurity"  class="tbm-link level-3 active-trail">
+                Cybersecurity: Healthcare and Public Health
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/response-operations/telemedicine-program"  class="tbm-link level-3">
+                ASPR Disaster Telemedicine Program
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/response-operations/risk-individuals"  class="tbm-link level-3">
+                At-Risk Individuals
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/response-operations/disaster-behavioral-health"  class="tbm-link level-3">
+                Disaster Behavioral Health
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 no-link tbm-group-title" tabindex="0" aria-expanded="false">
+                Health Care Readiness
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-11">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/healthcare-readiness"  class="tbm-link level-3">
+                Overview
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/healthcare-readiness/cip"  class="tbm-link level-3">
+                CIP: Critical Infrastructure Protection
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/healthcare-readiness/healthcare-readiness-action"  class="tbm-link level-3">
+                Healthcare Readiness in Action
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/healthcare-readiness/healthcare-readiness-near-you"  class="tbm-link level-3">
+                Health Care Readiness Near You
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/healthcare-readiness/hpp"  class="tbm-link level-3">
+                HPP: Hospital Preparedness Program
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/healthcare-readiness/rdhrs"  class="tbm-link level-3">
+                RDHRS: Regional Disaster Health Response System
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://netec.org/nsps/"  class="tbm-link level-3">
+                NSPS: National Special Pathogen System
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/healthcare-readiness/workforce-capacity-capability"  class="tbm-link level-3">
+                Workforce Capacity and Capability
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/healthcare-readiness/funding"  class="tbm-link level-3">
+                Funding
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/healthcare-readiness/performance-measures-guidance-reports"  class="tbm-link level-3">
+                Performance Measures, Guidance, and Reports
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/healthcare-readiness/recovery"  class="tbm-link level-3">
+                Recovery
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 no-link tbm-group-title" tabindex="0" aria-expanded="false">
+                Medical Countermeasures &amp; Biodefense
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-8">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/medical-countermeasures-biodefense"  class="tbm-link level-3">
+                Overview
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://www.medicalcountermeasures.gov/Request-BARDA-TechWatch-Meeting/"  class="tbm-link level-3">
+                TechWatch
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/medical-countermeasures-biodefense/ibmsc/ibx-connect"  class="tbm-link level-3">
+                IBx Connect
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about/centers/ibmsc"  class="tbm-link level-3">
+                IBMSC: Industrial Base Management and Supply Chain
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about/centers/barda"  class="tbm-link level-3">
+                BARDA: Biomedical Advanced Research and Development Authority
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/about/centers/sns"  class="tbm-link level-3">
+                SNS: Strategic National Stockpile
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/medical-countermeasures-biodefense/s3"  class="tbm-link level-3">
+                S3: Science, Safety, and Security
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/medical-countermeasures-biodefense/phemce"  class="tbm-link level-3">
+                PHEMCE: Public Health Emergency Medical Countermeasures Enterprise
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+        <li  class="tbm-item level-1 tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+            <a href="/news-updates"  class="tbm-link level-1 tbm-toggle" aria-expanded="false">
+                News &amp; Updates
+          </a>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    <div  class="tbm-submenu tbm-item-child tbm-has-width" style="width: 400px;">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-4">
+        <li  class="tbm-item level-2" aria-level="2" >
+      <div class="tbm-link-container">
+            <a href="/news-updates/newsroom"  class="tbm-link level-2">
+                Newsroom
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-2" aria-level="2" >
+      <div class="tbm-link-container">
+            <a href="/news-updates/blog"  class="tbm-link level-2">
+                Blog
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-2" aria-level="2" >
+      <div class="tbm-link-container">
+            <a href="/news-updates/action"  class="tbm-link level-2">
+                ASPR in Action
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-2" aria-level="2" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/responses"  class="tbm-link level-2">
+                Current Response and Recovery
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+        <li  class="tbm-item level-1 tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+            <a href="/health-tools"  class="tbm-link level-1 tbm-toggle" aria-expanded="false">
+                Health Resources &amp; Tools
+          </a>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    <div  class="tbm-submenu tbm-item-child tbm-has-width" style="width: 950px;">
+      <div  class="tbm-row">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 no-link tbm-group-title" tabindex="0" aria-expanded="false">
+                Technical Assistance &amp; Information Management
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-4">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://asprtracie.hhs.gov/"  class="tbm-link level-3">
+                ASPR TRACIE: Technical Resources, Assistance Center, and Information Exchange
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://netec.org/"  class="tbm-link level-3">
+                NETEC: National Emerging Special Pathogens and Education Center
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/response-operations/regional-operations/regional-emergency-coordinators"  class="tbm-link level-3">
+                RECs: Regional Emergency Coordinators
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://asprready.hhs.gov/#/home"  class="tbm-link level-3">
+                ASPR Ready
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-1">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 no-link tbm-group-title" tabindex="0" aria-expanded="false">
+                Training
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-4">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/medical-countermeasures-biodefense/sns/training-preparedness-support/strategic-national-stockpile-course-listing"  class="tbm-link level-3">
+                Strategic National Stockpile Course Listing
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://www.train.org/main/course/1083714/"  class="tbm-link level-3">
+                HHS emPOWER Program Web-Based Training
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/response-operations/risk-individuals/older-adults-people-disabilities/hhsaspr-access-functional-needs-afn-web-based"  class="tbm-link level-3">
+                Access and Functional Needs Web-Based Training
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/readiness-response/response-operations/risk-individuals/older-adults-people-disabilities"  class="tbm-link level-3">
+                Addressing the Needs of Older Adults in Disasters Web-Based Training
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-3">
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 no-link tbm-group-title" tabindex="0" aria-expanded="false">
+                Cross-Functional Tools
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-1">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="/health-resources-tools/risc-toolkit-20"  class="tbm-link level-3">
+                RISC 2.0
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 no-link tbm-group-title" tabindex="0" aria-expanded="false">
+                Threat-Specific Tools
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-2">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://chemm.hhs.gov/"  class="tbm-link level-3">
+                CHEMM: Chemical Hazards Emergency Medical Management
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://remm.hhs.gov/index.html"  class="tbm-link level-3">
+                REMM: Radiation Emergency Medical Management
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+          <li  class="tbm-item level-2 tbm-group" aria-level="2" >
+      <div class="tbm-link-container">
+            <span class="tbm-link level-2 no-link tbm-group-title" tabindex="0" aria-expanded="false">
+                GIS Based Tools
+          </span>
+            </div>
+    <div  class="tbm-group-container tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span12">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-2 items-3">
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://empowerprogram.hhs.gov/"  class="tbm-link level-3">
+                HHS emPOWER Program
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://gis.hhs.gov/"  class="tbm-link level-3">
+                Geospatial Health Systems
+          </a>
+            </div>
+    
+</li>
+
+        <li  class="tbm-item level-3" aria-level="3" >
+      <div class="tbm-link-container">
+            <a href="https://treatments.hhs.gov/"  class="tbm-link level-3">
+                HHS Treatment Locator
+          </a>
+            </div>
+    
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+  </nav>
+
+<script>
+if (window.matchMedia("(max-width: 1024px)").matches) {
+  document.getElementById("3d759896-d7ac-469e-822c-1f74a645c0f3").classList.add('tbm--mobile');
+}
+
+  document.getElementById('3d759896-d7ac-469e-822c-1f74a645c0f3').classList.add('tbm--mobile-hide');
+
+</script>
+
+    </div>
+  </div>
+
+
+
+            </div>
+                  
+        
+        
+                <div class="usa-nav-social mobile-only">
+          <div class="views-element-container"><div class="social-icons js-view-dom-id-da30e5389cf04b4ca53035403c6be2aeea9e919565e6de959f7765ab2859c74a">
+  
+  
+  
+
+  
+  
+  
+
+  
+
+
+
+
+<div class="views-view-responsive-grid views-view-responsive-grid--horizontal" style="--views-responsive-grid--column-count:3;--views-responsive-grid--cell-min-width:80px;--views-responsive-grid--layout-gap:2px;">
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://www.linkedin.com/company/aspr/"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-10/LinkedIn-icon.png?itok=vMqXPbKw" width="40" height="40" alt="LinkedIn Icon" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://x.com/ASPRgov"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-10/X-icon.png?itok=7Dbn1Xho" width="40" height="40" alt="X icon" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://www.instagram.com/asprgov/"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-10/Instagram-icon.png?itok=GohqCUKC" width="40" height="40" alt="Instagram Icon" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://www.facebook.com/ASPRgov/"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-09/Facebook.png?itok=KUtp_Sy8" width="29" height="26" alt="FB" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://www.threads.net/@asprgov"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-09/image%204.png?itok=Z17KSJYq" width="26" height="26" alt="Thread" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://bsky.app/profile/asprgov.bsky.social"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-09/Group%20196.png?itok=7rTPUxoj" width="29" height="26" alt="BS" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://www.flickr.com/photos/asprgov"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-09/Flicker.png?itok=om6VMlIU" width="29" height="26" alt="Flicker" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://www.youtube.com/c/ASPRgov"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-09/Group%20195.png?itok=241NNkaA" width="29" height="26" alt="YT" /></a></div></div></div>
+    </div>
+      <div class="views-view-responsive-grid__item">
+      <div class="views-view-responsive-grid__item-inner"><div class="views-field views-field-field-icon"><div class="field-content"><a href="https://cloud.connect.hhs.gov/ASPR"><img loading="lazy" src="/sites/default/files/styles/social_nav_icon/public/2025-10/Email.png?itok=bERs8Vi5" width="32" height="27" alt="Email" /></a></div></div></div>
+    </div>
+  </div>
+
+    
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+        </div>
+
+              </div>
+          </nav>
+
+    
+</header>
+
+
+  <main class="main-content usa-layout-docs usa-section " role="main"
+        id="main-content" tabindex="-1">
+
+        <!-- ASPR Beginning of Banner Graphic Section -->
+            
+      <div class="banner-graphic-section">
+                  <div>
+  
+  
+
+            <div class="blazy is-b-bg blazy--field blazy--field-media-image blazy--field-media-image--default field field--name-field-media-image field--type-image field--label-hidden field__item" data-blazy="">    <div data-b-thumb="/sites/default/files/styles/thumbnail/public/media/banners/2025-08/Rectangle%20169%20%281%29.png.webp?itok=VpZj3S-e" class="media media--blazy b-lazy b-bg media--image media--responsive media--ratio media--ratio--fluid is-b-loading" data-src="/sites/default/files/styles/banner_block_mobile/public/media/banners/2025-08/Rectangle%20169%20%281%29.png?h=0a65d870&amp;itok=q81HxCC2" data-b-bg="{&quot;700&quot;:{&quot;src&quot;:&quot;\/sites\/default\/files\/styles\/banner_block_mobile\/public\/media\/banners\/2025-08\/Rectangle%20169%20%281%29.png?h=0a65d870\u0026itok=q81HxCC2&quot;,&quot;ratio&quot;:64},&quot;1200&quot;:{&quot;src&quot;:&quot;\/sites\/default\/files\/styles\/banner_block_tablet\/public\/media\/banners\/2025-08\/Rectangle%20169%20%281%29.png?h=0a65d870\u0026itok=r6TnMlj9&quot;,&quot;ratio&quot;:37.33},&quot;2000&quot;:{&quot;src&quot;:&quot;\/sites\/default\/files\/styles\/banner_block_desktop\/public\/media\/banners\/2025-08\/Rectangle%20169%20%281%29.png?h=0a65d870\u0026itok=HB18nvmG&quot;,&quot;ratio&quot;:22.4},&quot;2232&quot;:{&quot;src&quot;:&quot;\/sites\/default\/files\/styles\/banner_block_image\/public\/media\/banners\/2025-08\/Rectangle%20169%20%281%29.png?h=0a65d870\u0026itok=ArsnIDzo&quot;,&quot;ratio&quot;:22.4}}" data-b-ratios="{&quot;700&quot;:64,&quot;1200&quot;:37.33,&quot;2000&quot;:22.4,&quot;2232&quot;:22.4}" style="padding-bottom: 22.4%;" data-b-ratio="22.4" data-b-token="b-4cb0cad7abc">        </div>
+  </div>
+      
+</div>
+
+                      </div>
+    <!-- ASPR End of Banner Graphic Section -->
+    
+    <div class="grid-container">
+
+      
+      <div class="grid-row grid-gap grid-gap-0 desktop:grid-gap-4">
+        
+                  <div class="usa-layout-docs__main desktop:grid-col-9 tablet:grid-col-12 mobile-lg:grid-col-12">
+                                          <div class="grid-row">
+                    <div>
+    <div id="block-aspr-uswds-breadcrumbs" class="block-aspr-uswds-breadcrumbs block block-system block-system-breadcrumb-block">
+	
+		
+      <div class="content">
+          <nav class="usa-breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+        <h2 id="system-breadcrumb" class="usa-sr-only">Breadcrumb</h2>
+        <ol class="usa-breadcrumb__list">
+                            <li class="usa-breadcrumb__list-item">
+                                            <a href="/" class="usa-breadcrumb__link"><span>Home</span></a>
+                                    </li>
+                            <li class="usa-breadcrumb__list-item">
+                                            <a href="/readiness" class="usa-breadcrumb__link"><span>Readiness &amp; Response</span></a>
+                                    </li>
+                            <li class="usa-breadcrumb__list-item">
+                                            <a href="/readiness-response/response-operations" class="usa-breadcrumb__link"><span>Response Operations</span></a>
+                                    </li>
+                            <li class="usa-breadcrumb__list-item">
+                                            <span>Healthcare and Public Health Cybersecurity</span>
+                                    </li>
+                    </ol>
+    </nav>
+
+    </div>
+  </div>
+
+
+  </div>
+
+                </div>
+              
+                              <div class="">
+                  <div data-drupal-messages-fallback class="hidden"></div>
+
+
+                </div>
+                          
+              <div class="region region-content">
+    <div id="block-aspr-uswds-content" class="block-aspr-uswds-content block block-system block-system-main-block">
+	
+		
+      <div class="content">
+      <article class="node--type-page node--view-mode-full">
+
+  
+    
+
+  
+  <div>
+      <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      <div class="_none block block-layout-builder block-field-block:node:page:title">
+	
+		
+      <div class="content">
+      
+<h1 class="page-title desktop:margin-y-4 mobile-lg:margin-top-0 text-primary-dark font-sans-xl text-bold">
+
+<span>Healthcare and Public Health Cybersecurity</span>
+</h1>
+
+    </div>
+  </div>
+
+<div class="_none aspr-subtitle block block-layout-builder block-field-block:node:page:field-sub-title">
+	
+		
+      <div class="content">
+      
+
+            <div class="field field--name-field-sub-title field--type-string field--label-hidden field__item">ASPR Serves as the Sector Risk Management Agency for the Health Care and  Public Health Sector to Protect Patient Health and Safety</div>
+      
+    </div>
+  </div>
+
+
+    </div>
+  </div>
+  <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      <div class="block block-layout-builder block-field-block:node:page:body">
+	
+		
+      <div class="content">
+      
+
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field__item"><p><meta charset="utf-8"></p><p><span style="white-space:pre-wrap;">The Healthcare and Public Health (HPH) sector continues to experience increasingly sophisticated cyberattacks that exploit complex, interconnected IT systems at hospitals and health care facilities. Nationwide, health care and public health IT infrastructures suffer from many common vulnerabilities: underfunded cybersecurity programs, vulnerable legacy systems, a growing need for skilled cybersecurity professionals, and network-connected medical technologies, including medical devices.</span></p><p><span style="white-space:pre-wrap;">These cyberattacks against the HPH sector are growing both in numbers and severity, with the frequency of cyberattacks on hospitals and health systems more than doubling from 2016 to 2021. The HPH sector experienced a 42 percent increase in ransomware attacks in 2022 compared to 2021. The cost of an average health care data breach has reached $10.93 million, according to a report from IBM Security. That's an 8% jump from a year ago, when the average cost topped $10 million for the first time. In health care, cyber risks are patient risks - unlike other more typical industries impacted by cybersecurity threats (e.g., energy, finance), disruptions in health care could cost lives.</span></p><p><span style="white-space:pre-wrap;">ASPR has worked with our partners in HHS, across the federal government, and with industry to develop resources to help hospitals and health care facilities protect themselves and their patient's from cyber attacks.</span></p></div>
+      
+    </div>
+  </div>
+
+
+    </div>
+  </div>
+
+  </div>
+
+</article>
+
+    </div>
+  </div>
+
+
+  </div>
+
+          </div>        
+                              <div
+              class="usa-layout-docs__sidenav desktop:grid-col-3 tablet:grid-col-12 mobile-lg:grid-col-12 layout-sidebar-second">
+                
+
+
+
+<div id="block-aspr-uswds-mainnavigation" class="block-sticky block-aspr-uswds-mainnavigation block block-menu-block block-menu-block:main" data-sticky="true">
+	
+		
+			<div class="content">
+			
+
+<div  class="menu-sticky usa-nav__primary usa-accordion menu" data-sticky="true">
+  
+  
+    
+      <ul class="is_sticky usa-sidenav">
+              
+                
+        
+                          
+        
+                          
+                          
+        <li class="usa-sidenav__item expanded dropdown active active-trail first last">
+          <a href="/readiness-response/response-operations" class="link usa-current" data-drupal-link-system-path="node/29265">Response Operations</a>
+                        
+      <ul class="is_sticky usa-sidenav__sublist">
+              
+                
+        
+                          
+        
+        
+                          
+        <li class="usa-sidenav__item first">
+          <a href="/readiness-response/response-operations/epap" title="Emergency Prescription Assistance Program" class="link" data-drupal-link-system-path="node/29525">EPAP: Emergency Prescription Assistance Program</a>
+                  </li>
+              
+                
+        
+                          
+        
+                          
+                          
+        <li class="usa-sidenav__item active active-trail">
+          <a href="/readiness-response/response-operations/healthcare-public-health-cybersecurity" class="link usa-current is-active" data-drupal-link-system-path="node/29524" aria-current="page">Healthcare and Public Health Cybersecurity</a>
+                  </li>
+              
+                
+        
+                          
+        
+        
+                          
+        <li class="usa-sidenav__item">
+          <a href="/readiness-response/response-operations/telemedicine-program" class="link" data-drupal-link-system-path="node/29536">Telemedicine Program</a>
+                  </li>
+              
+                
+        
+                          
+        
+        
+                          
+        <li class="usa-sidenav__item">
+          <a href="/readiness-response/response-operations/disaster-behavioral-health" class="link" data-drupal-link-system-path="node/29535">Disaster Behavioral Health</a>
+                  </li>
+              
+                
+        
+                          
+        
+        
+                          
+        <li class="usa-sidenav__item">
+          <a href="/readiness-response/response-operations/risk-individuals" class="link" data-drupal-link-system-path="node/29534">At-Risk Individuals</a>
+                  </li>
+              
+                
+        
+                          
+        
+        
+                          
+        <li class="usa-sidenav__item last">
+          <a href="/readiness-response/response-operations/regional-operations" class="link" data-drupal-link-system-path="node/29522">Regional Operations</a>
+                  </li>
+          </ul>
+  
+                  </li>
+          </ul>
+  
+</div>
+
+
+		</div>
+	</div>
+
+
+
+            </div>
+                          </div>
+    </div>
+  </main>
+
+	                                
+
+		<div class="aspr-content-row aspr-content-row-1 aspr-block-blue-background">
+			<div class="grid-container">
+				<div class="grid-row grid-gap">
+					<div class="usa-layout-docs__main desktop:grid-col-fill">
+                                                <p class="text-center text-white font-sans-lg"><strong>ASPR leads the HHS divisions</strong> and works with our public and private partners to provide guidance and support to help enhance cybersecurity for the health care and public health sectors.</p><p class="text-center"><a class="usa-button usa-button--accent-warm" href="#">Learn more about ASPR's role in cybersecurity</a></p>
+                        					</div>
+				</div>
+			</div>
+		</div>
+	
+																	
+
+		<div class="aspr-content-row aspr-content-row-2 aspr-container-width">
+			<div class="grid-container">
+				<div class="grid-row grid-gap">
+					<div class="usa-layout-docs__main desktop:grid-col-fill">
+                                                                          
+                                          
+    
+    
+
+
+<div  class="block block-block-content block-block-content:563d6cd2-13b0-41cd-a30e-acf16b595863 key-initiatives-block height-mobile-xl">
+    
+            
+                <div  class="content grid-container padding-x-0" >
+            <div class="gradient-block-inner flex-align-center grid-row white_gradient_bg">
+                                   <!-- Left content section -->
+                    <div class="col-left card-content tablet:grid-col-8">
+                        <h2 class="fw-bold">
+
+            <div class="field field--name-field-block-title field--type-string field--label-hidden field__item">Subscribe to ASPR’s Cybersecurity Bulletins</div>
+      </h2>
+                        
+
+            <div class="field field--name-field-block-text field--type-text-long field--label-hidden field__item"><p>Get information on cyber incidents, news, resources, engagement opportunities, and security updates sent right to your inbox.</p></div>
+      
+                                                    
+
+
+
+
+
+<div class="field field--name-field-cta field--type-link field--label-hidden field__item">
+      <a href="/about/contact-us/bulletin-registration" class="usa-button usa-button--big">Stay Informed. Subscribe Today.</a>
+  </div>
+
+                                            </div>
+
+                    <!-- Right image section -->
+                                                                    <div class="col-right card-img tablet:grid-col-fill mobile-lg:grid-col-12 flex-align-self-start" style="background-image: url('/sites/default/files/styles/cta_image/public/2026-02/2c0ac5b035d697f0547b680486e60b8b60112cf4.jpg?itok=AaxEHkM4')"></div>
+                                                </div>
+        </div>
+        </div>
+
+                                      					</div>
+				</div>
+			</div>
+		</div>
+	
+																	
+
+		<div class="aspr-content-row aspr-content-row-3 aspr-block-grey-background">
+			<div class="grid-container">
+				<div class="grid-row grid-gap">
+					<div class="usa-layout-docs__main desktop:grid-col-fill">
+                                                                          
+                                        <div>
+    <div class="views-exposed-form bef-exposed-form usa-form block-aspr-uswds-exposedform-aspr-cybersecurity-list-block block block-views block-views-exposed-filter-block:aspr-news-media-aspr-cybersecurity-list-block" data-bef-auto-submit="" data-bef-auto-submit-delay="500" data-bef-auto-submit-minimum-length="3" data-bef-auto-submit-full-form="" data-drupal-selector="views-exposed-form-aspr-news-media-aspr-cybersecurity-list-block" id="block-aspr-uswds-exposedform-aspr-cybersecurity-list-block">
+	
+		
+      <div class="content">
+      <form action="/news-updates/action" method="get" id="views-exposed-form-aspr-news-media-aspr-cybersecurity-list-block" accept-charset="UTF-8" class="usa-form">
+  <div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-combine js-form-item-combine form-no-label">
+      <label for="edit-combine--2" class="usa-label control-label usa-sr-only">Search</label>
+          
+
+  <input data-drupal-selector="edit-combine" type="text" id="edit-combine--2" name="combine" value="" size="30" maxlength="128" placeholder="Search" class="form-text usa-input" />
+
+
+
+
+
+        
+  
+  </div>
+<div class="form-item js-form-item form-type-select js-form-type-select form-item-field-resource-category-target-id js-form-item-field-resource-category-target-id form-no-label">
+      <label for="edit-field-resource-category-target-id--2" class="usa-label control-label usa-sr-only">Resource Category</label>
+            <input type="hidden" name="field_resource_category_target_id" value="All" id="edit-field_resource_category_target_id" />
+<div class="bef-links-use-ajax bef-links" data-drupal-selector="edit-field-resource-category-target-id" id="edit-field-resource-category-target-id--2" data-name="field_resource_category_target_id">
+                  <ul>
+
+<li><a href="https://www.aspr.gov/news-updates/action" class="bef-link edit-field-resource-category-target-id--3 bef-link--selected" id="edit-field-resource-category-target-id-all" name="field_resource_category_target_id[All]">All</a>
+
+                    
+<li><a href="https://www.aspr.gov/news-updates/action?field_resource_category_target_id=205" class="bef-link edit-field-resource-category-target-id--4" id="edit-field-resource-category-target-id-205" name="field_resource_category_target_id[205]">Top Resource</a>
+
+                    
+<li><a href="https://www.aspr.gov/news-updates/action?field_resource_category_target_id=206" class="bef-link edit-field-resource-category-target-id--5" id="edit-field-resource-category-target-id-206" name="field_resource_category_target_id[206]">Cross Cutting</a>
+
+                    
+<li><a href="https://www.aspr.gov/news-updates/action?field_resource_category_target_id=207" class="bef-link edit-field-resource-category-target-id--6" id="edit-field-resource-category-target-id-207" name="field_resource_category_target_id[207]">Tools</a>
+
+                    
+<li><a href="https://www.aspr.gov/news-updates/action?field_resource_category_target_id=208" class="bef-link edit-field-resource-category-target-id--7" id="edit-field-resource-category-target-id-208" name="field_resource_category_target_id[208]">Risk Assessment</a>
+
+                    
+<li><a href="https://www.aspr.gov/news-updates/action?field_resource_category_target_id=209" class="bef-link edit-field-resource-category-target-id--8" id="edit-field-resource-category-target-id-209" name="field_resource_category_target_id[209]">Response</a>
+
+                    
+<li><a href="https://www.aspr.gov/news-updates/action?field_resource_category_target_id=210" class="bef-link edit-field-resource-category-target-id--9" id="edit-field-resource-category-target-id-210" name="field_resource_category_target_id[210]">Supply Chain</a>
+
+                    
+<li><a href="https://www.aspr.gov/news-updates/action?field_resource_category_target_id=211" class="bef-link edit-field-resource-category-target-id--10" id="edit-field-resource-category-target-id-211" name="field_resource_category_target_id[211]">Hospitals and Healthcare Facilities</a>
+
+        </li></ul>
+        </div>
+
+        
+  
+  </div>
+<div class="js-hide form-actions js-form-wrapper form-wrapper" data-drupal-selector="edit-actions" id="edit-actions--3">
+
+  <input data-bef-auto-submit-click="" data-drupal-selector="edit-submit-aspr-news-media-2" type="submit" id="edit-submit-aspr-news-media--2" value="Apply" class="button js-form-submit form-submit usa-button" />
+
+
+
+
+</div>
+
+
+</form>
+
+    </div>
+  </div>
+
+
+  </div>
+
+            					</div>
+				</div>
+			</div>
+		</div>
+	
+																	
+
+		<div class="aspr-content-row aspr-content-row-4 background-color-1">
+			<div class="grid-container">
+				<div class="grid-row grid-gap">
+					<div class="usa-layout-docs__main desktop:grid-col-fill">
+                                                                          
+                                        <div>
+    <div class="views-element-container block-aspr-uswds-views-block-aspr-cybersecurity-list-block block block-views block-views-block:aspr-news-media-aspr-cybersecurity-list-block" id="block-aspr-uswds-views-block-aspr-cybersecurity-list-block">
+	
+		
+      <div class="content">
+      <div><div class="aspr-news-media-list js-view-dom-id-c629857f8192f4728c24ba44d19bfa1cd66637dbc277a914b256587c60e72b75">
+  
+  
+  
+
+  
+  
+  
+
+      <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">CISA CyberSecurity Advisory #StopRansomware: Black Basta</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">This joint CSA to provides information on Black Basta, a ransomware variant whose actors have encrypted and stolen data from at least 12 out of 16 critical infrastructure sectors, including the Healthcare and Public Health (HPH) Sector.</div>
+      <div class="font-sans-xs text-base news-created"><a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-131a" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">CISA Alert: CISA and Partners Release Advisory on Black BASTA Ransomware</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">CISA, in partnership with the FBI, HHS, and the Multi-State Information Sharing and Analysis Center (MS-ISAC) released joint Cybersecurity Advisory (CSA) #StopRansomware: Black Basta to provide cybersecurity defenders tactics, techniques, and procedures (TTPs) and indicators of compromise (IOCs) used by known Black Basta ransomware affiliates and identified through FBI investigations and third-party reporting.</div>
+      <div class="font-sans-xs text-base news-created"><a href="/sites/default/files/2026-02/joint-csa-stopransomware-black-basta-508.pdf" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">Plan: Version 2 of the National Cybersecurity Strategy Implementation Plan</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">Version 2 of the National Cybersecurity Strategy Implementation Plan (NCSIP)outlines actions the Federal Government is taking to improve U.S. National Cybersecurity posture. This updated roadmap describes 100 high-impact Federal initiatives, each intended to substantively increase our collective digital security and systemic resilience.</div>
+      <div class="font-sans-xs text-base news-created"><a href="https://bidenwhitehouse.archives.gov/wp-content/uploads/2024/05/National-Cybersecurity-Strategy-Implementation-Plan-Version-2.pdf" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">Fact Sheet: Version 2 of the National Cybersecurity Strategy Implementation Plan</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">This next phase of the NCSIP follows the progress to date and displays the Administration's commitment to transparency and accountability as the National Cybersecurity Strategy is implemented.Highlights of the Version 2 of the National Cybersecurity Strategy Implementation Plan (NCSIP) are included in this fact sheet.</div>
+      <div class="font-sans-xs text-base news-created"><a href="https://hphcyber.hhs.gov/performance-goals.html" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">HPH Cybersecurity Performance Goals (CPG)</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">These CPGs are a voluntary subset of cybersecurity practices that healthcare organizations, and healthcare delivery organizations in particular, can prioritize to strengthen cyber preparedness, improve cyber resiliency, and ultimately protect patient health information and safety.</div>
+      <div class="font-sans-xs text-base news-created"><a href="https://hphcyber.hhs.gov/performance-goals.html" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">Health Care and Public Health sector cybersecurity framework implementation guide</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">Developed to help organizations establish a strong cybersecurity program or validate the effectiveness of an existing program, this guide helps organizations map their existing program to the NIST Cybersecurity Framework, identify improvements, and communicate results. This guide was developed to incorporate and align with processes and tools currently in use or under consideration.</div>
+      <div class="font-sans-xs text-base news-created"><a href="/readiness-response/healthcare-readiness/cip/resources/hph-cybersecurity-framework-implementation-guide" target="_blank" hreflang="en">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">Health care Sector Cybersecurity: Introduction to the Strategy of the U.S. Department of Health And Human Services</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">Overview of HHS recommendations to help the health care and public health sector address cyber threats.</div>
+      <div class="font-sans-xs text-base news-created"><a href="/sites/default/files/2026-02/Health-Care-Sector-Cybersecurity-Dec2023-508.pdf" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">National Cybersecurity Strategy Implementation Plan (2023)</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">This plan outlines a path for achieving two significant changes: the need for more capable actors in cybersecurity and the need to increase incentive to make investments in long-term resilience.</div>
+      <div class="font-sans-xs text-base news-created"><a href="/sites/default/files/2026-02/National-Cybersecurity-Strategy-Implementation-Plan-WH.gov_.pdf" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">Health industry cybersecurity practices: Managing threats and protecting patients (hicp 2023 ed.)</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">Featuring recommendations and best practices to prepare for and fight against cybersecurity threats that can impact patient safety, this document outlines the top threats facing the HPH Sector. It has been developed with all stakeholders in mind; organizations from small to large can benefit from the resources and best practices provided in the main document and additional two technical volumes.</div>
+      <div class="font-sans-xs text-base news-created"><a href="https://405d.hhs.gov/cornerstone" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">health care system cybersecurity: readiness and response considerations</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">Focuses on the effects of a cyber incident on the health care operational environment; one that impacts the ability to effectively care for patients and maintain business practices and readiness during such an event. It covers many strategies and principles relevant to a range of cybersecurity incidents and health care facilities included disruptions associated with a large-scale cyberattack.</div>
+      <div class="font-sans-xs text-base news-created"><a href="/sites/default/files/2026-02/aspr-tracie-healthcare-system-cybersercurity-readiness-response.pdf" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">Health industry cybersecurity protection of innovation capital</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">With a focus on Innovation Capital protection, this resource can help security and risk practitioners protect their systems at any stage of their information protection program's maturity.</div>
+      <div class="font-sans-xs text-base news-created"><a href="/sites/default/files/2026-02/HEALTHCARE-INDUSTRY-CYBERSECURITY-PROTECTION-OF-INNOVATION-CAPITAL-MAY-2020-1.pdf" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">Hospital Cyber Resiliency Landscape Analysis</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">This resource highlights findings and issues affecting the cybersecurity resiliency of U.S. hospitals to better identify the biggest threats facing hospitals and assess their cybersecurity capabilities relative to commonly accepted cybersecurity practices.</div>
+      <div class="font-sans-xs text-base news-created"><a href="https://www.aha.org/guidesreports/2023-04-18-hospital-cyber-resiliency-initiative-landscape-analysis" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">Health industry cybersecurity tactical crisis response guide</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">With a focus on Innovation Capital protection, this resource can help security and risk practitioners protect their systems at any stage of their information protection program's maturity.</div>
+      <div class="font-sans-xs text-base news-created"><a href="https://healthsectorcouncil.org/hic-tcr/" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">health industry cybersecurity information sharing best practices</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">Provides HPH Sector organizations interested in information sharing with a set of guidelines and best practices for efficient and effective information sharing.</div>
+      <div class="font-sans-xs text-base news-created"><a href="/media/769" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">security risk assessment tool</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">This risk assessment toolhelps your organization ensure it is compliant with HIPAA's administrative, physical, and technical safeguards. It also helps reveal areas where your organization's protected health information could be at risk. Designed for medium and small providers.</div>
+      <div class="font-sans-xs text-base news-created"><a href="https://healthit.gov/privacy-security/security-risk-assessment-tool/" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">risc toolkit 2.0: the risk identification and site criticality toolkit</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">An objective, data-driven all-hazards risk assessment for use by public and private organizations within the HPH sector to inform emergency preparedness planning, risk management activities, and resource investments. This tool enables the user to estimate the human, property, and business impacts to a facility that may result from 67 internal and external threats, including cyber threats.</div>
+      <div class="font-sans-xs text-base news-created"><a href="/health-resources-tools/risc-toolkit-20" target="_blank" hreflang="en">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">ASPR TRACIE: Health Care Cybersecurity</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">Updated in 2022, this collection of resources can help stakeholders (including practitioners, facility executives, information technology professionals, and emergency managers) better protect against, mitigate, respond to, and recover from cyberattacks to ensure patient safety and operational continuity.</div>
+      <div class="font-sans-xs text-base news-created"><a href="https://asprtracie.hhs.gov/cybersecurity" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">Tailored top reads from 405(D)</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">The 405(d) program has developed a tailored list of must-read resources for health care practitioners and IT professionals at health care organizations of all sizes. Just indicate your role and the size of your organization, and the 405(d) program will provide you with a customized list of resources to help you improve your organization's cybersecurity posture.</div>
+      <div class="font-sans-xs text-base news-created"><a href="/sites/default/files/2026-02/Top_10_Tips_for_Cybersecurity.pdf" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">Health Industry Cybersecurity Supply Chain Risk Management Guide v2.0</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">This tool for smaller to mid-sized health organizations is focused on supply chain cybersecurity risk management.</div>
+      <div class="font-sans-xs text-base news-created"><a href="https://healthit.gov/privacy-security/hipaa-basics/" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">Top 10 Myths of Security Risk Analysis</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">This checklist from the HHS Office of the National Coordinator for Health Information Technology (HHS/ONC/IT) helps separate fact from fiction.</div>
+      <div class="font-sans-xs text-base news-created"><a href="https://healthit.gov/privacy-security/hipaa-basics/" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+    <div class="views-row"><div><span><div class="grid-container padding-y-2 margin-y-2 border-bottom border-base-light">
+  <div class="grid-row grid-gap">
+    <div class="grid-col-2 text-right">  <img loading="lazy" src="/sites/default/files/styles/thumbnail/public/2026-03/icon-top_resource-white.png.webp?itok=WyQzjsAq" width="80" height="80" alt="Top Resource Icon" />
+
+
+</div>
+    <div class="grid-col-fill">
+      <div class="font-sans-lg margin-top-05 margin-bottom-05 news-title">Top 10 Tips for cybersecurity in Healthcare</div>
+      <div class="font-sans-sm margin-bottom-1 news-body line-height-sans-3 text-base-dark">HHS/ONC/IT provides its top ten tips for strengthening cybersecurity and provides information to help you get started on implementation.</div>
+      <div class="font-sans-xs text-base news-created"><a href="/sites/default/files/2026-02/Top_10_Tips_for_Cybersecurity%20%281%29.pdf" target="_blank">Learn More</a></div>
+    </div>
+  </div>
+</div></span></div></div>
+
+    
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+    </div>
+  </div>
+
+
+  </div>
+
+            					</div>
+				</div>
+			</div>
+		</div>
+	
+	
+
+  
+	
+          <div>
+    <div id="block-aspr-footer" class="block-aspr-footer block">
+	
+		
+      <div class="content">
+      
+
+
+<footer
+	class="aspr-footer-2tier" role="contentinfo">
+	<!-- Top Section (Blue #155197) -->
+	<div class="footer-top">
+		<div class="grid-container">
+			<div
+				class="grid-row grid-gap">
+				<!-- Column 1: ASPR Logo + Social Icons -->
+				<div class="footer-top-col-1 grid-col-12 tablet:grid-col-4">
+					<div class="aspr-circle-logo">
+						<img src="/modules/custom/aspr/modules/aspr_footer/images/aspr_circle_320x_white_border.png" alt="ASPR" class="aspr-logo-circle">
+					</div>
+					<div class="follow-content">
+						<h3 class="follow-header">Follow @ASPRGov</h3>
+						<div class="social-icons-bar">
+															<a href="https://twitter.com/ASPRgov" class="social-icon social-icon--x" target="_blank" rel="noopener">
+									<span class="visually-hidden">Follow us on X</span>
+								</a>
+															<a href="https://www.facebook.com/ASPRgov" class="social-icon social-icon--facebook2" target="_blank" rel="noopener">
+									<span class="visually-hidden">Follow us on Facebook</span>
+								</a>
+															<a href="https://www.linkedin.com/company/hhs-aspr" class="social-icon social-icon--linkedin" target="_blank" rel="noopener">
+									<span class="visually-hidden">Connect on LinkedIn</span>
+								</a>
+															<a href="https://www.youtube.com/c/ASPRgov" class="social-icon social-icon--youtube" target="_blank" rel="noopener">
+									<span class="visually-hidden">Watch on YouTube</span>
+								</a>
+															<a href="https://www.instagram.com/asprgov/" class="social-icon social-icon--instagram" target="_blank" rel="noopener">
+									<span class="visually-hidden">Follow us on Instagram</span>
+								</a>
+															<a href="https://www.flickr.com/photos/asprgov/" class="social-icon social-icon--flickr" target="_blank" rel="noopener">
+									<span class="visually-hidden">View photos on Flickr</span>
+								</a>
+															<a href="mailto:ASPR@hhs.gov" class="social-icon social-icon--mail" target="_blank" rel="noopener">
+									<span class="visually-hidden">Contact Us via Email</span>
+								</a>
+													</div>
+					</div>
+				</div>
+
+				<!-- Column 2: HHS Twitter Feed -->
+				<div class="footer-top-col-2 grid-col-12 tablet:grid-col-4">
+					<div class="hhs-circle-logo">
+						<img src="/modules/custom/aspr/modules/aspr_footer/images/circle_profile_image_320p.png" alt="HHS ASPR Profile" class="profile-circle">
+					</div>
+					<div class="follow-content">
+						<h3 class="follow-header">Follow @HHS_ASPR</h3>
+						<div class="social-icons-bar">
+							<a href="https://twitter.com/HHS_ASPR" class="social-icon social-icon--x" target="_blank" rel="noopener" tabindex="0">
+								<span class="visually-hidden">Follow HHS ASPR on X</span>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Column 3: Email Signup -->
+				<div class="footer-top-col-3 grid-col-12 tablet:grid-col-4">
+					<h3 class="signup-header">Sign-up for email updates from ASPR</h3>
+					<div class="email-signup">
+						<a href="#" class="subscribe-button">Subscribe</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Middle Section: ASPR Logo + Slogan -->
+	<div class="footer-middle">
+		<div class="grid-container">
+			<div class="footer-logo-section">
+				<img src="/modules/custom/aspr/modules/aspr_footer/images/aspr_footer_logo_slogan.svg" alt="ASPR Logo with Slogan" class="aspr-footer-logo">
+			</div>
+		</div>
+		<hr class="footer-divider">
+	</div>
+
+	<!-- Bottom Section (Dark Blue #0f2145) -->
+	<div class="footer-bottom">
+		<div class="grid-container">
+			<div
+				class="grid-row grid-gap">
+				<!-- Left Side: ASPR Address -->
+				<div class="footer-bottom-left grid-col-12 tablet:grid-col-6">
+					<div class="aspr-address-section">
+						<div class="address-text">
+							<div>Administration for Strategic Preparedness and Response</div>
+							<div>U.S. Department of Health and Human Services</div>
+							<div>200 Independence Ave.</div>
+							<div>Washington, D.C. 20201</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Right Side: 3-Column Footer Menu -->
+				<div class="footer-bottom-right grid-col-12 tablet:grid-col-6">
+																																																																																																																																																																																																																																																																																																							
+																				<div class="footer-menu-columns">
+													<div class="footer-menu-col-1">
+								<ul class="footer-menu-list">
+																																								<li>
+																								<a href="/about/contact-us" target="_blank">
+													Contact Us
+												</a>
+											</li>
+																																																		<li>
+																								<a href="https://public4.pagefreezer.com/browse/aspr/ASPR%20HHS/latest/https://aspr.hhs.gov/Pages/Home.aspx">
+													ASPR Archive
+												</a>
+											</li>
+																																																		<li>
+																								<a href="/accessibility">
+													Accessibility
+												</a>
+											</li>
+																																																		<li>
+																								<a href="/privacy-policies">
+													Privacy Policies
+												</a>
+											</li>
+																											</ul>
+							</div>
+													<div class="footer-menu-col-2">
+								<ul class="footer-menu-list">
+																																								<li>
+																								<a href="/disclaimer">
+													Disclaimer
+												</a>
+											</li>
+																																																		<li>
+																								<a href="https://www.hhs.gov/web/policies-and-standards/hhs-web-policies/plugins/index.html" target="_blank">
+													HHS Viewers &amp; Players
+												</a>
+											</li>
+																																																		<li>
+																								<a href="https://www.hhs.gov/open/plain-writing/index.html" target="_blank">
+													HHS Plain Language
+												</a>
+											</li>
+																																																		<li>
+																								<a href="https://www.hhs.gov/foia/index.html" target="_blank">
+													FOIA
+												</a>
+											</li>
+																											</ul>
+							</div>
+													<div class="footer-menu-col-3">
+								<ul class="footer-menu-list">
+																																								<li>
+																								<a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" target="_blank">
+													Vulnerability Disclosure Policy
+												</a>
+											</li>
+																																																		<li>
+																								<a href="https://www.hhs.gov/about/agencies/asa/eeo/no-fear-act/index.html" target="_blank">
+													EEO/No Fear Act
+												</a>
+											</li>
+																																																		<li>
+																								<a href="/website-feedback?referring_page_url=%5Bcurrent-page%3Aurl%3Aabsolute%5D&amp;amp%3Baffected_page_url=%5Bcurrent-page%3Aurl%3Aabsolute%5D" class="webform-dialog webform-dialog-normal">
+													Share Your Feedback
+												</a>
+											</li>
+																																																								</ul>
+							</div>
+											</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+    </div>
+  </div>
+
+
+  </div>
+
+  
+  </div>
+
+
+<script src="/sites/default/files/js/js_CGHkNEkRLJxDtGYzADxWBZPe99u4jK7fYitRmCB57js.js?scope=footer&amp;delta=0&amp;language=en&amp;theme=aspr_uswds&amp;include=eJx1kFGOwyAMRC-UhiMhAw7yxsGR7bTNnn5Jk0rVSv0xPA94BsBWjYklzzFLm6gGc8rzfvYGOOTNHsVCZUnAN_OdqdVPxciRllXljjdowHufYENCd9SIz1UMS5yIO1qAzSXalhbyb0cqNlTgb3K3n61bY4QfeA6J4XcPCfJcVbZW3g2S8VM_6rXPDGZM5hezwPvWKrx3H36jykKGFylM1-6BaR3w6UeUUHRbgccLhypSGaNDDbWX_3yG8hQXrLBg23r07vD6yZhnLOSikZpjVXCSFk4JchYtncdJpav9oXfCh4VXPaf2WJPoEq51LAQs9Q8a4b5Q"></script>
+<script src="/core/assets/vendor/jquery/jquery.min.js?v=4.0.0"></script>
+<script src="/sites/default/files/js/js_Z_BT9pUEVt7niullUa1yO3upEWnL17RgpXcEwETVvbE.js?scope=footer&amp;delta=2&amp;language=en&amp;theme=aspr_uswds&amp;include=eJx1kFGOwyAMRC-UhiMhAw7yxsGR7bTNnn5Jk0rVSv0xPA94BsBWjYklzzFLm6gGc8rzfvYGOOTNHsVCZUnAN_OdqdVPxciRllXljjdowHufYENCd9SIz1UMS5yIO1qAzSXalhbyb0cqNlTgb3K3n61bY4QfeA6J4XcPCfJcVbZW3g2S8VM_6rXPDGZM5hezwPvWKrx3H36jykKGFylM1-6BaR3w6UeUUHRbgccLhypSGaNDDbWX_3yG8hQXrLBg23r07vD6yZhnLOSikZpjVXCSFk4JchYtncdJpav9oXfCh4VXPaf2WJPoEq51LAQs9Q8a4b5Q"></script>
+<script src="https://siteimproveanalytics.com/js/siteanalyze_6282609.js" async></script>
+<script src="/sites/default/files/js/js_AbgBxHmr_VFjUZF5wqbmICRkuIvK5CmuqFm4tGQaL1c.js?scope=footer&amp;delta=4&amp;language=en&amp;theme=aspr_uswds&amp;include=eJx1kFGOwyAMRC-UhiMhAw7yxsGR7bTNnn5Jk0rVSv0xPA94BsBWjYklzzFLm6gGc8rzfvYGOOTNHsVCZUnAN_OdqdVPxciRllXljjdowHufYENCd9SIz1UMS5yIO1qAzSXalhbyb0cqNlTgb3K3n61bY4QfeA6J4XcPCfJcVbZW3g2S8VM_6rXPDGZM5hezwPvWKrx3H36jykKGFylM1-6BaR3w6UeUUHRbgccLhypSGaNDDbWX_3yG8hQXrLBg23r07vD6yZhnLOSikZpjVXCSFk4JchYtncdJpav9oXfCh4VXPaf2WJPoEq51LAQs9Q8a4b5Q"></script>
+<script src="/modules/contrib/uswds_ckeditor_integration/js/aftermarket/uswds_accordion.js?thefko"></script>
+<script src="/sites/default/files/js/js_7Ai7KojJU7Mz-LeeLsEsS_XojqjT-i0yvwkjDTAEKc0.js?scope=footer&amp;delta=6&amp;language=en&amp;theme=aspr_uswds&amp;include=eJx1kFGOwyAMRC-UhiMhAw7yxsGR7bTNnn5Jk0rVSv0xPA94BsBWjYklzzFLm6gGc8rzfvYGOOTNHsVCZUnAN_OdqdVPxciRllXljjdowHufYENCd9SIz1UMS5yIO1qAzSXalhbyb0cqNlTgb3K3n61bY4QfeA6J4XcPCfJcVbZW3g2S8VM_6rXPDGZM5hezwPvWKrx3H36jykKGFylM1-6BaR3w6UeUUHRbgccLhypSGaNDDbWX_3yG8hQXrLBg23r07vD6yZhnLOSikZpjVXCSFk4JchYtncdJpav9oXfCh4VXPaf2WJPoEq51LAQs9Q8a4b5Q"></script>
+
+</body>
+</html>

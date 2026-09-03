@@ -1,0 +1,400 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+
+# How this plan is organised
+#
+# Not by folder, and not by deliverable. By gate.
+#
+# Nothing on this file can be priced before it has been admitted, and admission happens three
+# times, on three different questions, each of which is answered somewhere other than where the
+# thing being admitted is filed.
+#
+#   Gate one, scope.      Is this line inside the mechanism, and which country does it come from?
+#                         Answered from the declarations, the proofs presented against them and
+#                         the letters that contradict them.
+#   Gate two, assurance.  May this operator's own figures be used at all? Answered from the
+#                         opinion, which is filed under the body that signed it, and from the
+#                         register that says whether that body's accreditation was live and in
+#                         scope. Never from the communication itself.
+#   Gate three, chain.    What does a tonne of this good carry once the goods consumed to make it
+#                         have been carried into it? Answered by walking from the good to its
+#                         precursors and from those to theirs, and each link passes gate two on
+#                         its own account before it contributes.
+#
+# Above the three gates sits a portfolio floor: two quantities that are not properties of any line
+# at all, the mass an importer accumulated across the whole period and the reach of a carbon price
+# claim across schemes and importers. Neither can be settled inside a shard, and a run that
+# computes them shard by shard has computed something else.
+#
+# Every node below is written on three lines.
+#
+#   POST    what the seat is and what gate it serves.
+#   INTAKE  the evidence it is given, by path or by identifier range. It reads nothing else,
+#           except /input_artifacts/cbam_desk_reference.md, which every seat reads for itself.
+#   RETURN  the one file it writes and the question that file has answered.
+#
+# Dispatch. Every seat is opened by the run's top-level agent, which is the only seat that
+# dispatches. depends_on is a data dependency and nothing more: it fixes the order the top-level
+# agent opens seats in, because a seat cannot answer its question before the seat whose answer it
+# consumes has returned. Seats sharing a parallel_group are opened together and none of them reads
+# a file written by another member of its own group. A seat that finds nothing in its range writes
+# an empty return and the seats above it proceed rather than waiting.
+#
+# Scale. Do not pull document text up into the top-level context. The reading seats read their own
+# evidence and return findings keyed by declaration item or by installation identifier; every seat
+# above them works from those keys. A run in which the top-level agent read the case folders
+# itself has not executed this plan.
+#
+# Publication. The final artifacts are written as soon as the seat that owns them has its answer,
+# not at the end. The ledger bench publishes three of the eight, the portfolio bench two and the
+# programme bench one, so a run that loses time in drafting still leaves six settled files behind.
+# Scratch goes under /logs/agent/work/.
+
+sub_tasks:
+
+  - id: standing-brief
+    description: |
+      POST: standing brief. Serves all three gates by fixing what everything else is written to,
+        before any evidence is read.
+      INTAKE: /input_artifacts/cbam_desk_reference.md in full, /input_artifacts/source_manifest.json,
+        and the header rows only of the eleven tables in /input_artifacts/reference/. Not the case
+        folders.
+      RETURN: /logs/agent/work/standing_brief.md, carrying the identifier forms, the controlled
+        vocabularies, the date and decimal conventions, the column order of each of the eight
+        deliverables, and which identifier range goes to which reading seat. Every seat below
+        writes to this brief rather than to its own habit.
+    depends_on: []
+    parallel_group: standing
+
+  - id: entry-bench-a
+    description: |
+      POST: entry bench for the first quarter of the declaration series. Gate one, the reading half.
+      INTAKE: /input_artifacts/customs_entries/ for E-2026-001 to E-2026-014.
+      RETURN: /logs/agent/work/entries_a.json, one record per item on those declarations, carrying
+        the declaration reference and item number, the commodity code, the consignee, the requested
+        procedure, the origin declared and the country of dispatch as separate fields, the net mass
+        as printed and in tonnes, the installation the consignor quoted, the date of release, any
+        proof of origin named against the item, and a passage copied word for word that names the
+        item. It records what the declaration says and does not decide whether the line is in scope.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: entry-bench-b
+    description: |
+      POST: entry bench for the second quarter of the declaration series. Gate one, the reading half.
+      INTAKE: /input_artifacts/customs_entries/ for E-2026-015 to E-2026-028.
+      RETURN: /logs/agent/work/entries_b.json, on the same record shape as entries_a.json.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: entry-bench-c
+    description: |
+      POST: entry bench for the third quarter of the declaration series. Gate one, the reading half.
+      INTAKE: /input_artifacts/customs_entries/ for E-2026-029 to E-2026-042.
+      RETURN: /logs/agent/work/entries_c.json, on the same record shape as entries_a.json.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: entry-bench-d
+    description: |
+      POST: entry bench for the fourth quarter of the declaration series. Gate one, the reading half.
+      INTAKE: /input_artifacts/customs_entries/ for E-2026-043 to E-2026-056.
+      RETURN: /logs/agent/work/entries_d.json, on the same record shape as entries_a.json.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: origin-seat
+    description: |
+      POST: origin seat. Gate one. The only seat that reads the proofs.
+      INTAKE: /input_artifacts/proofs_of_origin/ in full.
+      RETURN: /logs/agent/work/proofs.json, one record per proof, carrying its reference, the
+        declaration and item it is presented against, the country it certifies, whether the desk
+        has recorded a defect on its face and what that defect is, and a passage copied word for
+        word. It does not decide which origin governs; it records what each proof is and whether
+        it is capable of settling anything.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: operator-seat-steel-a
+    description: |
+      POST: operator seat for the first steel group. Gate three, the reading half.
+      INTAKE: /input_artifacts/operator_reports/ for installations INST-101 to INST-105.
+      RETURN: /logs/agent/work/operators_steel_a.json, one record per installation, carrying the
+        communication reference, the reporting period as two dates, the route the operator declares,
+        the processes it lists inside its boundary, the activity level, the attributed direct and
+        indirect figures, the figure the operator states for its own intensity, and one record per
+        precursor with the precursor code, the installation that made it and the consumption
+        normalised to tonnes per tonne of product whichever of the three ways the sheet writes it.
+        It also returns a passage copied word for word that names the installation. It does not
+        decide whether the communication may be relied on.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: operator-seat-steel-b
+    description: |
+      POST: operator seat for the second steel group. Gate three, the reading half.
+      INTAKE: /input_artifacts/operator_reports/ for installations INST-106 to INST-110.
+      RETURN: /logs/agent/work/operators_steel_b.json, on the same record shape.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: operator-seat-steel-c
+    description: |
+      POST: operator seat for the third steel group. Gate three, the reading half.
+      INTAKE: /input_artifacts/operator_reports/ for installations INST-111 to INST-115.
+      RETURN: /logs/agent/work/operators_steel_c.json, on the same record shape.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: operator-seat-alu-a
+    description: |
+      POST: operator seat for the first aluminium group. Gate three, the reading half.
+      INTAKE: /input_artifacts/operator_reports/ for installations INST-116 to INST-120.
+      RETURN: /logs/agent/work/operators_alu_a.json, on the same record shape.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: operator-seat-alu-b
+    description: |
+      POST: operator seat for the second aluminium group. Gate three, the reading half.
+      INTAKE: /input_artifacts/operator_reports/ for installations INST-121 to INST-124.
+      RETURN: /logs/agent/work/operators_alu_b.json, on the same record shape.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: operator-seat-cement
+    description: |
+      POST: operator seat for the cement group. Gate three, the reading half.
+      INTAKE: /input_artifacts/operator_reports/ for installations INST-125 to INST-129.
+      RETURN: /logs/agent/work/operators_cement.json, on the same record shape.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: operator-seat-fert-a
+    description: |
+      POST: operator seat for the first fertiliser group. Gate three, the reading half.
+      INTAKE: /input_artifacts/operator_reports/ for installations INST-130 to INST-133.
+      RETURN: /logs/agent/work/operators_fert_a.json, on the same record shape.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: operator-seat-fert-b
+    description: |
+      POST: operator seat for the second fertiliser group. Gate three, the reading half.
+      INTAKE: /input_artifacts/operator_reports/ for installations INST-134 to INST-136.
+      RETURN: /logs/agent/work/operators_fert_b.json, on the same record shape.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: assurance-seat-a
+    description: |
+      POST: assurance seat for the first block of opinions. Gate two, the reading half. It sits
+        apart from the operator seats on purpose: the opinion is filed under the body that signed
+        it, so the seat that reads a communication is never the seat that reads its opinion.
+      INTAKE: /input_artifacts/verification_reports/ for VER-2026-001 to VER-2026-013.
+      RETURN: /logs/agent/work/opinions_a.json, one record per report, carrying its reference, the
+        installation and the communication it verifies, the verification body and its accreditation
+        reference, the period covered, the opinion exactly as printed, whether any material
+        misstatement is recorded as outstanding, the date the opinion was signed, and whether the
+        report states that it has been reissued and by which later report.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: assurance-seat-b
+    description: |
+      POST: assurance seat for the second block of opinions. Gate two, the reading half.
+      INTAKE: /input_artifacts/verification_reports/ for VER-2026-014 to VER-2026-026.
+      RETURN: /logs/agent/work/opinions_b.json, on the same record shape.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: assurance-seat-c
+    description: |
+      POST: assurance seat for the third block of opinions. Gate two, the reading half.
+      INTAKE: /input_artifacts/verification_reports/ for VER-2026-027 to VER-2026-037.
+      RETURN: /logs/agent/work/opinions_c.json, on the same record shape.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: pricing-seat-a
+    description: |
+      POST: pricing seat for the first block of claims. Serves the portfolio floor.
+      INTAKE: /input_artifacts/carbon_price_claims/ for CPC-2026-01 to CPC-2026-12.
+      RETURN: /logs/agent/work/claims_a.json, one record per claim, carrying its reference, the
+        scheme and the character of the charge as the form states it, the jurisdiction, the period
+        the payment relates to, the installations named, the amount and its currency, and whether
+        an attestation is on file. It records what the claim asserts and does not test it.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: pricing-seat-b
+    description: |
+      POST: pricing seat for the second block of claims. Serves the portfolio floor.
+      INTAKE: /input_artifacts/carbon_price_claims/ for CPC-2026-13 to CPC-2026-24.
+      RETURN: /logs/agent/work/claims_b.json, on the same record shape.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: correspondence-seat-a
+    description: |
+      POST: correspondence seat for the first block of letters. It cuts across all three gates,
+        because a letter can move a figure on a communication, remove a claim, put a date on an
+        engagement or unsettle the origin of an item on a declaration nobody has read yet.
+      INTAKE: /input_artifacts/supplier_correspondence/ for SL-2026-001 to SL-2026-017.
+      RETURN: /logs/agent/work/letters_a.json, one record per letter, classified by what it acts
+        on, and carrying the identifier it acts on, the figure or date or fact it asserts, and a
+        passage copied word for word. Letters that act on nothing are recorded as such rather than
+        dropped.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: correspondence-seat-b
+    description: |
+      POST: correspondence seat for the second block of letters. Cuts across all three gates.
+      INTAKE: /input_artifacts/supplier_correspondence/ for SL-2026-018 to SL-2026-033.
+      RETURN: /logs/agent/work/letters_b.json, on the same record shape.
+    depends_on: [standing-brief]
+    parallel_group: reading
+
+  - id: scope-bench
+    description: |
+      POST: scope bench. Gate one, the deciding half.
+      INTAKE: the four entry returns, the origin seat's return, both correspondence returns,
+        /input_artifacts/reference/covered_goods.csv.
+      RETURN: /logs/agent/work/scope.json, one record per goods line, carrying whether the line is
+        inside the mechanism and on which ground, the net mass in tonnes, the country of origin that
+        governs and the ground it rests on, and, for each line whose origin does not settle, the
+        document that unsettled it. This is the only seat entitled to decide scope or origin, and
+        every seat above it takes those two answers as given.
+    depends_on: [entry-bench-a, entry-bench-b, entry-bench-c, entry-bench-d, origin-seat,
+                 correspondence-seat-a, correspondence-seat-b]
+    parallel_group: adjudication
+
+  - id: assurance-bench
+    description: |
+      POST: assurance bench. Gate two, the deciding half. It is the seat the whole file turns on,
+        and it is the only seat that holds the three things the decision needs at once: what the
+        communication says, what the opinion says, and what the accreditation register says.
+      INTAKE: the eight operator returns, the three assurance returns, both correspondence returns,
+        /input_artifacts/reference/accreditation_register.csv,
+        /input_artifacts/reference/production_routes.csv,
+        /input_artifacts/reference/installation_register.csv.
+      RETURN: /logs/agent/work/admissibility.json, one record per installation, carrying which
+        opinion governs it, whether its communication may be relied on, the first condition that
+        fails where one does, the governing activity level and attributed figures after any
+        correction a letter has made to them, and the evidence behind each verdict. No seat above
+        it revisits a verdict.
+    depends_on: [operator-seat-steel-a, operator-seat-steel-b, operator-seat-steel-c,
+                 operator-seat-alu-a, operator-seat-alu-b, operator-seat-cement,
+                 operator-seat-fert-a, operator-seat-fert-b, assurance-seat-a, assurance-seat-b,
+                 assurance-seat-c, correspondence-seat-a, correspondence-seat-b]
+    parallel_group: adjudication
+
+  - id: precursor-walker
+    description: |
+      POST: precursor walker. Gate three, the deciding half. The only seat that sees the whole
+        material graph at once, which is what the walk needs: a link that did not pass gate two
+        contributes on a different footing from one that did, and a chain can cross three
+        installations in three countries.
+      INTAKE: /logs/agent/work/admissibility.json, the eight operator returns,
+        /input_artifacts/reference/installation_register.csv, and the two published default value
+        tables in /input_artifacts/reference/.
+      RETURN: /logs/agent/work/chain.json, one record per precursor edge with the consumption per
+        tonne, the footing the precursor's own figure rests on, that figure and what it contributes,
+        and one record per installation with its own component, its precursor component and their
+        sum, for every installation on the register including those that did not pass gate two.
+    depends_on: [assurance-bench, operator-seat-steel-a, operator-seat-steel-b,
+                 operator-seat-steel-c, operator-seat-alu-a, operator-seat-alu-b,
+                 operator-seat-cement, operator-seat-fert-a, operator-seat-fert-b]
+    parallel_group: resolution
+
+  - id: default-desk
+    description: |
+      POST: default desk. Serves gates one and three where the published figure is what a line
+        carries.
+      INTAKE: /logs/agent/work/scope.json and the two published default value tables in
+        /input_artifacts/reference/.
+      RETURN: /logs/agent/work/defaults.json, one record per commodity code and country pair that
+        appears in the period, carrying the published direct and indirect figures that apply, the
+        footing on which they were resolved, and the row of the published table they came from.
+    depends_on: [scope-bench]
+    parallel_group: resolution
+
+  - id: pricing-bench
+    description: |
+      POST: pricing bench. Serves the portfolio floor, first half. It tests each claim on
+        everything that can be decided without knowing the position, and converts it.
+      INTAKE: both pricing returns, both correspondence returns,
+        /input_artifacts/reference/fx_reference_rates.csv,
+        /input_artifacts/reference/desk_parameters.csv.
+      RETURN: /logs/agent/work/claims_tested.json, one record per claim carrying the converted
+        amount, the deduction it would give, and either the first condition it fails on the
+        evidence available here or a note that its remaining condition can only be settled once the
+        position is known.
+    depends_on: [pricing-seat-a, pricing-seat-b, correspondence-seat-a, correspondence-seat-b]
+    parallel_group: resolution
+
+  - id: ledger-bench
+    description: |
+      POST: ledger bench. The first publishing seat. It joins the three gates into one book.
+      INTAKE: /logs/agent/work/scope.json, /logs/agent/work/admissibility.json,
+        /logs/agent/work/chain.json, /logs/agent/work/defaults.json, and the entry returns for the
+        evidence passages.
+      RETURN: three of the eight deliverables, written the moment they are settled rather than at
+        the end of the run: /logs/agent/consignment_ledger.csv, /logs/agent/installation_dossier.csv
+        and /logs/agent/precursor_chain.csv, in the column order the standing brief fixed.
+    depends_on: [precursor-walker, default-desk, scope-bench, assurance-bench,
+                 entry-bench-a, entry-bench-b, entry-bench-c, entry-bench-d]
+    parallel_group: ledger
+
+  - id: portfolio-bench
+    description: |
+      POST: portfolio bench. The portfolio floor, and the second publishing seat. Nothing it
+        computes is a property of a line, and nothing it computes can be computed inside a shard.
+      INTAKE: /logs/agent/consignment_ledger.csv, /logs/agent/work/claims_tested.json,
+        /input_artifacts/reference/importer_register.csv,
+        /input_artifacts/reference/desk_parameters.csv.
+      RETURN: /logs/agent/carbon_price_schedule.csv and /logs/agent/importer_position.csv. It
+        settles the condition the pricing bench had to leave open, allocates each admitted claim
+        across the importers it actually reaches, runs the mass test importer by importer across
+        the whole period, and closes each certificate position.
+    depends_on: [ledger-bench, pricing-bench]
+    parallel_group: portfolio
+
+  - id: programme-bench
+    description: |
+      POST: programme bench. The third publishing seat. It prices what fixing a supplier file would
+        be worth and spends a fixed capacity on the ones worth most per slot.
+      INTAKE: /logs/agent/work/admissibility.json, /logs/agent/consignment_ledger.csv,
+        /logs/agent/importer_position.csv, both correspondence returns,
+        /input_artifacts/reference/remediation_effort.csv,
+        /input_artifacts/reference/remediation_capacity.csv.
+      RETURN: /logs/agent/remediation_programme.csv, with each action's exposure measured against
+        the same book the ledger published, the earliest month the supplier has said it can engage,
+        and the wave the capacity actually reached.
+    depends_on: [portfolio-bench, ledger-bench, assurance-bench, correspondence-seat-a,
+                 correspondence-seat-b]
+    parallel_group: programme
+
+  - id: memo-author
+    description: |
+      POST: memo author. Writes the long deliverable and nothing else, so that the heaviest piece of
+        prose is never squeezed by a seat that is also doing arithmetic.
+      INTAKE: the six deliverables the three publishing seats have already written.
+      RETURN: /logs/agent/position_memo.md, explaining where the exposure sits and why, which
+        importers carry an obligation and what that turns on, every installation whose figures could
+        not be used with the condition it failed and what that costs, the claims lost and the lines
+        whose origin would not settle, and what the capacity running out means for the queue. Every
+        figure in it is a figure one of the six files already carries.
+    depends_on: [ledger-bench, portfolio-bench, programme-bench]
+    parallel_group: drafting
+
+  - id: exhibit-author
+    description: |
+      POST: exhibit author. Writes the ranked view alongside the memo rather than after it.
+      INTAKE: /logs/agent/importer_position.csv and /logs/agent/remediation_programme.csv.
+      RETURN: /logs/agent/exposure_exhibit.md, ranking the importers by embedded emissions with the
+        certificate position each closes at, and setting out the remediation queue in rank order
+        with the exposure each action releases and the point at which the capacity stops.
+    depends_on: [ledger-bench, portfolio-bench, programme-bench]
+    parallel_group: drafting

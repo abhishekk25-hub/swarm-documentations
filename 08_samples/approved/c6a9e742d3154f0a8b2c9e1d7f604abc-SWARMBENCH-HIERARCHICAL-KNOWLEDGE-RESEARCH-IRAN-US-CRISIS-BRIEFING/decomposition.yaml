@@ -1,0 +1,259 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+
+sub_tasks:
+
+- id: source-intake-manager
+  parallel_group: tier0-intake
+  depends_on: []
+  description: |
+    Coordinate the full source intake. Read /input_artifacts/source_manifest.csv
+    and /input_artifacts/briefing_style_guide.md. Create /workspace/intermediate/
+    and assign the 100 source IDs to the source workers. Define the shared note
+    schema: source_id, access_status, direct quotes, extracted evidence IDs,
+    claims, limitations, usable citations, and deliverables supported.
+
+- id: official-igo-source-worker
+  parallel_group: tier1-source-workers
+  depends_on: [source-intake-manager]
+  description: |
+    Audit sources S001-S020. Focus on U.S. official sources, international
+    organizations, the IAEA, the UN, E3/EU materials, and regional government
+    statements. Produce /workspace/intermediate/official_igo_sources.json with
+    one record per source and 40-70 quote-backed evidence snippets about legal
+    framing, nuclear safety, official positions, and diplomatic context.
+
+- id: wire-source-worker-a
+  parallel_group: tier1-source-workers
+  depends_on: [source-intake-manager]
+  description: |
+    Audit sources S021-S030. Focus on Reuters coverage. Extract event timing,
+    damage assessment disputes, Al Udeid retaliation, UN Security Council
+    context, and regional escalation claims. Include 30-45 quote-backed
+    evidence snippets. Save
+    /workspace/intermediate/wire_sources_a.json.
+
+- id: wire-source-worker-b
+  parallel_group: tier1-source-workers
+  depends_on: [source-intake-manager]
+  description: |
+    Audit sources S031-S050. Focus on AP, BBC, NPR, CBS, and PBS seeds.
+    Extract corroborated facts, conflicting details, casualty/missile count
+    claims, ceasefire sequence, and limitations. Include 45-70 quote-backed
+    evidence snippets. Save
+    /workspace/intermediate/wire_sources_b.json.
+
+- id: regional-source-worker
+  parallel_group: tier1-source-workers
+  depends_on: [source-intake-manager]
+  description: |
+    Audit sources S051-S065. Focus on Al Jazeera, regional outlets, Iran-facing
+    sources, Israel-facing sources, Qatar-facing sources, and Gulf reactions.
+    Track stance, attribution, and source limitations carefully. Include 35-55
+    quote-backed evidence snippets. Save
+    /workspace/intermediate/regional_sources.json.
+
+- id: think-tank-source-worker
+  parallel_group: tier1-source-workers
+  depends_on: [source-intake-manager]
+  description: |
+    Audit sources S066-S080. Focus on CSIS, Brookings, USIP, CFR, Chatham House,
+    IISS, Atlantic Council, Wilson, Stimson, Carnegie, and RAND seeds. Extract
+    analytic judgments, nuclear program implications, stockpile uncertainties,
+    and competing expert assessments. Include 40-60 quote-backed evidence
+    snippets. Save
+    /workspace/intermediate/think_tank_sources.json.
+
+- id: market-reference-source-worker
+  parallel_group: tier1-source-workers
+  depends_on: [source-intake-manager]
+  description: |
+    Audit sources S081-S100. Focus on energy, shipping, aviation, market, and
+    reference/background sources. Extract impacts involving the Strait of Hormuz,
+    oil/gas prices, shipping risk, airspace disruption, and reference facts about
+    facilities or institutions. Include 40-60 quote-backed evidence snippets.
+    Save /workspace/intermediate/market_reference_sources.json.
+
+- id: evidence-ledger-manager
+  parallel_group: tier2-evidence
+  depends_on: [official-igo-source-worker, wire-source-worker-a, wire-source-worker-b, regional-source-worker, think-tank-source-worker, market-reference-source-worker]
+  description: |
+    Merge source-worker outputs into /logs/agent/source_evidence_ledger.csv.
+    Produce 250-350 evidence rows from at least 70 distinct seed source IDs,
+    including direct quoted evidence from at least 45 distinct seed source IDs.
+    Each quoted row must include evidence_id, source_id, direct_quote,
+    extracted_claim, topic_area, linked claim/event IDs where known,
+    confidence, and limitations. Do not treat manifest metadata as evidence.
+
+- id: timeline-manager
+  parallel_group: tier3-synthesis
+  depends_on: [evidence-ledger-manager]
+  description: |
+    Build /logs/agent/event_timeline.csv with at least 35 events. Reconcile
+    event order across official, wire, regional, and analysis sources. Mark
+    confidence, evidence_ids, and conflicting source IDs. Include pre-strike
+    context, the U.S. operation, immediate reactions, Iran's Al Udeid
+    retaliation, ceasefire sequence, and post-strike assessment disputes.
+
+- id: claim-matrix-manager
+  parallel_group: tier3-synthesis
+  depends_on: [evidence-ledger-manager]
+  description: |
+    Build /logs/agent/claim_matrix.csv with at least 50 claims. Include confirmed,
+    disputed, unsupported, and unclear claims about facility damage, uranium
+    stockpile status, warning/advance notice, missile counts, casualties,
+    radiation risk, ceasefire timing, regional reactions, and economic/shipping
+    effects. Every row must include evidence_ids.
+
+- id: contradiction-ledger-manager
+  parallel_group: tier4-contradictions
+  depends_on: [evidence-ledger-manager, claim-matrix-manager]
+  description: |
+    Build /logs/agent/contradiction_ledger.csv with at least 25 contradictions.
+    Include damage assessment, uranium stockpile, missile counts, advance
+    warning timing, ceasefire sequence, radiation/safety implications, casualty
+    figures, regional reactions, energy/shipping effects, and inspection access.
+    Every contradiction must link claim_a_evidence_ids and claim_b_evidence_ids.
+
+- id: actor-position-manager
+  parallel_group: tier3-synthesis
+  depends_on: [evidence-ledger-manager]
+  description: |
+    Build /logs/agent/actor_positions.csv covering at least 20 actors. Include
+    the United States, Iran, Israel, Qatar, Saudi Arabia, UAE, Oman, Russia,
+    China, UK, France, Germany, UN, IAEA, EU, and at least four other actors.
+    Classify stances and note changes over time.
+
+- id: impact-register-manager
+  parallel_group: tier3-synthesis
+  depends_on: [evidence-ledger-manager]
+  description: |
+    Build /logs/agent/impact_register.csv with at least 30 impacts. Cover
+    diplomatic, legal, nuclear_safety, energy_market, shipping, aviation,
+    humanitarian, domestic_politics, regional_security, and
+    information_environment domains at least once.
+
+- id: uncertainty-manager
+  parallel_group: tier5-uncertainties
+  depends_on: [evidence-ledger-manager, contradiction-ledger-manager]
+  description: |
+    Build /logs/agent/uncertainty_register.csv with at least 15 open questions.
+    Include extent of underground damage, uranium stockpile location/status,
+    missile count discrepancies, ceasefire sequencing, radiation/safety
+    implications, and future inspection access.
+
+- id: citation-index-manager
+  parallel_group: tier6-citation
+  depends_on: [evidence-ledger-manager, timeline-manager, claim-matrix-manager, contradiction-ledger-manager]
+  description: |
+    Maintain a running source-use ledger. Create a draft
+    /workspace/intermediate/citation_index_draft.csv that maps source IDs to
+    claims, findings, and deliverable sections. Ensure at least 70 distinct seed
+    source IDs are used before final writing begins.
+
+- id: executive-briefing-writer
+  parallel_group: tier3-deliverables
+  depends_on: [timeline-manager, claim-matrix-manager, contradiction-ledger-manager, actor-position-manager, impact-register-manager, uncertainty-manager, citation-index-manager]
+  description: |
+    Write /logs/agent/executive_briefing.md as a 2-4 page leadership briefing.
+    Include executive summary, what happened, confirmed facts, disputed or
+    uncertain facts, main implications, and near-term non-operational indicators.
+    Use source IDs and confidence labels.
+
+- id: report-context-strike-writer
+  parallel_group: tier3-report-sections
+  depends_on: [timeline-manager, claim-matrix-manager, citation-index-manager]
+  description: |
+    Draft the full report sections for scope/method, source base, pre-strike
+    context, and U.S. strike timeline/rationale. Save to
+    /workspace/intermediate/report_part_a.md with source IDs and confidence labels.
+
+- id: report-retaliation-diplomacy-writer
+  parallel_group: tier3-report-sections
+  depends_on: [timeline-manager, claim-matrix-manager, contradiction-ledger-manager, actor-position-manager, uncertainty-manager, citation-index-manager]
+  description: |
+    Draft full report sections for Iranian response, Al Udeid retaliation,
+    ceasefire sequence, damage assessment disputes, IAEA/UN context, and regional
+    reactions. Save to /workspace/intermediate/report_part_b.md.
+
+- id: report-impacts-info-writer
+  parallel_group: tier3-report-sections
+  depends_on: [impact-register-manager, uncertainty-manager, contradiction-ledger-manager, citation-index-manager]
+  description: |
+    Draft full report sections for energy, shipping, aviation, market effects,
+    humanitarian/civilian implications, information environment, key
+    uncertainties, and the non-operational monitoring plan. Save to
+    /workspace/intermediate/report_part_c.md.
+
+- id: full-report-assembler
+  parallel_group: tier4-report-assembly
+  depends_on: [report-context-strike-writer, report-retaliation-diplomacy-writer, report-impacts-info-writer]
+  description: |
+    Assemble /logs/agent/full_analytical_report.md from report parts. Ensure it
+    is 6,000-10,000 words, has all required sections, cites source IDs for major
+    claims, and does not present disputed claims as settled facts.
+
+- id: slide-deck-writer
+  parallel_group: tier3-deliverables
+  depends_on: [timeline-manager, claim-matrix-manager, actor-position-manager, impact-register-manager, uncertainty-manager, citation-index-manager]
+  description: |
+    Write /logs/agent/stakeholder_briefing_slides.md with 12-18 slide-style
+    sections. Include timeline, actor positions, disputed claims, impacts,
+    uncertainties, and monitoring indicators. Use concise bullets and source IDs.
+
+- id: talking-points-writer
+  parallel_group: tier4-communications
+  depends_on: [executive-briefing-writer, claim-matrix-manager, uncertainty-manager, citation-index-manager]
+  description: |
+    Write /logs/agent/one_page_talking_points.md with neutral talking points,
+    avoid-saying notes, and Q&A pairs. Cite source IDs for factual points and
+    prevent overclaiming disputed facts.
+
+- id: monitoring-plan-writer
+  parallel_group: tier3-deliverables
+  depends_on: [impact-register-manager, uncertainty-manager, actor-position-manager, citation-index-manager]
+  description: |
+    Write /logs/agent/monitoring_plan.md as a 7-14 day public-source monitoring
+    plan. Include indicators, stakeholder categories, why each indicator matters,
+    source categories to watch, escalation/de-escalation signals, and an explicit
+    note excluding tactical or operational guidance.
+
+- id: source-audit-finalizer
+  parallel_group: tier4-finalization
+  depends_on: [official-igo-source-worker, wire-source-worker-a, wire-source-worker-b, regional-source-worker, think-tank-source-worker, market-reference-source-worker, evidence-ledger-manager, citation-index-manager]
+  description: |
+    Merge all source worker outputs into /logs/agent/source_audit.csv with exactly
+    one row per seed source ID S001-S100. Mark access_status,
+    used_in_final_package, direct_quote_1, direct_quote_2, extracted evidence
+    IDs, claim IDs, and event IDs. Explain inaccessible, paywalled, duplicate,
+    background-only, or irrelevant sources rather than dropping them.
+
+- id: safety-neutrality-reviewer
+  parallel_group: tier5-review
+  depends_on: [executive-briefing-writer, full-report-assembler, slide-deck-writer, talking-points-writer, monitoring-plan-writer]
+  description: |
+    Review the Markdown deliverables for neutrality and safety. Remove advocacy,
+    inflammatory language, propaganda framing, tactical military advice, targeting
+    guidance, cyber guidance, and operational recommendations. Keep monitoring
+    guidance public-source and non-operational.
+
+- id: consistency-reviewer
+  parallel_group: tier5-review
+  depends_on: [source-audit-finalizer, evidence-ledger-manager, timeline-manager, claim-matrix-manager, contradiction-ledger-manager, actor-position-manager, impact-register-manager, uncertainty-manager, executive-briefing-writer, full-report-assembler, slide-deck-writer, talking-points-writer, monitoring-plan-writer]
+  description: |
+    Check cross-artifact consistency. Disputed claims in claim_matrix.csv must be
+    linked to contradiction_ledger.csv and disputed in the report. Open questions
+    in uncertainty_register.csv must not be treated as resolved in the briefing.
+    Timeline sequences must match across report and slides. Claim IDs, event
+    IDs, contradiction IDs, evidence IDs, and source IDs must resolve across all
+    deliverables.
+
+- id: package-finalizer
+  parallel_group: tier6-final
+  depends_on: [safety-neutrality-reviewer, consistency-reviewer, source-audit-finalizer, evidence-ledger-manager, contradiction-ledger-manager, citation-index-manager]
+  description: |
+    Create /logs/agent/appendix_citation_index.csv from the citation draft and
+    final deliverables. Verify all 14 required deliverables exist under
+    /logs/agent/. Verify at least 70 distinct seed source IDs and at least
+    250 evidence rows are used in the final package. Make final light edits for
+    formatting and completeness.

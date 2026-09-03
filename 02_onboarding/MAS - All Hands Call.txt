@@ -1,0 +1,314 @@
+﻿28th May
+-Agenda – All Hands Call
+1. How We Need To Design SwarmBench Tasks
+Common Patterns:
+1. “Package N text files in input_artifacts/, agent reads them, writes JSON.” 
+2.   This currently covers only ~30% of what the client is actually evaluating us on.
+The client's goal is "parallel-agent capability induction" — training the model to learn when and how to use multi-agent patterns. Their own benchmark covers four distinct orchestration shapes: WildSearch, Batch Download, WideRead, and Long-Form Writing. 
+The model sees the same orchestration pattern both times. "Fan out math problems by contest round, each worker gets their shard, synthesizer does dictionary union." That is one skill, taught twice.
+
+
+The client’s evaluation focus is aligned with the Kimi 2.5 Technical Paper and their internal SwarmBench setup.
+Their in-house SwarmBench focuses on 4 categories:
+The 4 Task Types the Client Wants
+1. WildSearch
+What it is: The agent goes out to the open web itself. It discovers where information lives, navigates multiple sites, follows links, handles paywalls, resolves conflicts between sources. No pre-packaged corpus.
+
+
+Key characteristic: The agent decides which URLs to visit. The orchestration challenge is: how do you coordinate 10 agents searching different parts of the web so they don't duplicate work and cover the full space?
+
+
+2. Batch Download
+What it is: The agent discovers and acquires 100+ artifacts by itself (PDFs, images, files, API responses). The download/collection step is itself part of the task — not pre-done by the task designer.
+
+
+Key characteristic: The agent doesn't receive a neat /input_artifacts/ folder. It must find and pull the corpus first. The orchestration challenge is: how do you parallelize discovery + acquisition + processing without losing track of what's been collected?
+
+
+3. WideRead
+What it is: Comprehension across 100+ documents that may include images, charts, graphs, and video frames — not just text. The total corpus is so large (often 2-5x model context) that no single agent can read it all. Includes visual reasoning — the agent must interpret what it sees in images.
+
+
+Key characteristic: The reading load itself forces distribution. The orchestration challenge is: how do you read 100+ mixed-media documents and still give coherent cross-document answers?
+
+
+4. Long-Form Writing
+What it is: The output is a single coherent document exceeding 100,000 words. Consistency of terminology, tone, and cross-references across the full output is essential — not just section-by-section correctness.
+                
+Key characteristic: The writing challenge is coherence at scale, not just coverage. The orchestration challenge is: how do you have 10 agents write 10,000 words each while maintaining a single consistent voice and internal cross-reference structure?
+
+
+
+
+The Coordination Pattern Problem
+Trainers keep doing this:
+Fan-out-synthesize (the only pattern used so far)
+
+
+Orchestrator
+  ├── Worker 1 (items 1-8)
+  ├── Worker 2 (items 9-16)
+  ├── Worker 3 (items 17-24)
+  └── Synthesizer (dict union)
+The 4 task types above require completely different shapes. Here are the patterns that actually match each type:
+
+
+
+
+Task Type 1: WildSearch — Concrete Examples
+Coordination Pattern: Scout → Deep Dive → Synthesize (Hierarchical)
+This is NOT the same as fan-out. The scout agents decide what the deep-dive agents look at. The spawning is dynamic, not predetermined.
+
+
+
+
+Orchestrator
+  ├── Scout Agent A (searches for topic X on the web, returns list of 5 URLs)
+  ├── Scout Agent B (searches a different angle of topic X, returns 5 different URLs)
+  │
+  │   [orchestrator inspects scout results, decides which URLs need deep reading]
+  │
+  ├── Deep-dive Agent 1 (reads URL-1 and all its internal links)
+  ├── Deep-dive Agent 2 (reads URL-3, goes two levels deep)
+  ├── Deep-dive Agent 3 (reads URL-7, extracts structured data from the page)
+  │
+  └── Synthesizer (reconciles all deep-dive findings into final answer)
+
+
+
+
+WideRead Example 1 — Math Theorem Images (Your Example, Built Out)
+Real-world scenario: A professor uploads 40 exam papers as scanned images. Each image contains 2–4 handwritten or printed theorems, proofs, or problem statements. Some pages show diagrams, geometric constructions, or numbered equation systems.
+
+
+Why this is WideRead, not just "math": The input isn't text — it's images. The agent must read the image, parse mathematical notation from the scan, understand the diagram if present, then reason about the theorem.
+
+
+Prompt:
+
+
+40 scanned exam images are in /input_artifacts/pages/. Each image contains 2–4 mathematical problems spanning linear algebra, combinatorics, and number theory. Problems may appear as:
+
+
+Printed text with LaTeX-style equations
+Handwritten proofs with diagrams
+Geometric figures with labeled sides and angles
+Tables of values with a pattern to identify
+For each problem visible in each image:
+
+
+Transcribe the problem statement (exactly as written)
+Identify the problem type (proof, computation, construction, counting)
+Solve it, showing intermediate steps
+Write the final integer or expression answer
+Output: one entry per problem, sorted by image filename then left-to-right reading order on the page.
+
+
+
+
+Orchestrator
+  │
+  ├── Image Readers (parallel, 4 agents × 10 images each)
+  │     Each agent: opens 10 images, extracts all visible problems with coordinates
+  │     Returns: list of {image_id, problem_number_on_page, transcribed_statement, problem_type}
+  │
+  ├── Solver Agents (spawned after reading, grouped by problem type)
+  │     Algebra Solver: receives all algebra problems from image readers, solves each
+  │     Combinatorics Solver: receives all combinatorics problems, solves each
+  │     Number Theory Solver: receives all number theory problems, solves each
+  │     [grouping by type means each solver has full context for its domain]
+  │
+  └── Synthesizer
+        Matches solutions back to original image + position
+        Checks that problem counts match (no dropped problems)
+        Writes final sorted output
+
+
+
+
+Long-Form Writing Example 1 — Country-by-Country Legal Handbook
+Real-world scenario: A law firm needs a 120,000-word handbook covering data protection law across 40 countries. Must use consistent terminology, cross-reference related chapters, and maintain a unified tone.
+
+
+Prompt:
+
+
+Write a complete data protection law handbook across 40 countries. Each country chapter must be 3,000 words and cover: legal framework, data subject rights, cross-border transfer rules, breach notification timeline, regulator name and contact, and 2 recent enforcement cases.
+
+
+Requirements:
+
+
+Consistent terminology throughout (e.g., always "data subject" not "user" or "individual")
+Where EU GDPR influenced a national law, say so and link back to the EU chapter
+Total output: ~120,000 words to /logs/agent/output.json
+Decomposition shape:
+
+
+
+
+Stage 1 — Outline Agent
+  Creates shared terminology glossary + cross-reference map (which countries have GDPR-derived laws)
+  Defines chapter template (all writers must follow exact same section structure)
+
+
+Stage 2 — Drafting (parallel, grouped by legal family)
+  ├── EU/EEA Writers (10 agents × 4 countries each) — GDPR-derived laws
+  ├── Commonwealth Writers (5 agents × 4 countries each) — UK GDPR + Commonwealth derivatives
+  ├── APAC Writers (4 agents × 4 countries each)
+  └── Americas/Africa Writers (3 agents × 4 countries each)
+  [each writer receives the terminology glossary + their 4 countries' source material]
+
+
+Stage 3 — Consistency Reviewer
+  Reads all 40 draft chapters
+  Flags: terminology violations, missing cross-references to EU chapter, contradictory statements
+  Returns a list of corrections for each chapter
+
+
+Stage 4 — Revision Agents (parallel, one per flagged chapter)
+  Each revision agent receives the original draft + the reviewer's correction notes
+  Rewrites only the flagged passages
+
+
+Stage 5 — Final Integration Agent
+  Stitches all 40 revised chapters into a single document
+  Adds table of contents, index, and cross-reference hyperlinks
+  Writes to /logs/agent/output.json
+________________
+
+
+Kimi-cli Tool Surface We Are Under-Using
+Current usage across the last 10 tasks:
+   * ReadMediaFile (images/videos up to 100MB): 0/10
+   * SearchWeb: 0/10
+   * FetchURL: 0/10
+Currently, we are heavily relying only on:
+   * ReadFile
+   * WriteFile
+That is not representative of real-world orchestration.
+
+
+
+
+________________
+
+
+
+
+Target Mix for Upcoming Task Creation
+Current distribution is heavily skewed toward text-only WideRead.
+We should move toward:
+Category
+	Target
+	WideRead text-only (<50 docs)
+	≤ 40%
+	WideRead with image/chart/video
+	≥ 20%
+	WildSearch
+	≥ 15%
+	Batch Download
+	≥ 10%
+	Long-Form Writing (>50k words)
+	≥ 15%
+	If you are claiming from the inspiration list this week, please prioritize:
+   * WildSearch
+   * Batch Download
+   * Multimodal
+   * Long-form writing tasks
+________________
+
+
+2. Usage Guidelines for LLM Reviewer
+Each trainer currently has a limit of 4 LLM Reviewer usages per 24 hours.
+Please use them strategically based on your experience and productivity level.
+We can broadly classify trainers into 3 categories:
+   * Top Performers
+   * Intermediate Trainers
+   * Beginners / Trial Members
+________________
+
+
+Top Performers
+These are members consistently producing 2–3 tasks per day.
+Expected workflow:
+   1. Run local checks using your agentic coding platform
+   2. Download and verify all QDs locally
+   3. Use only:
+   * 1 Final LLM Reviewer Report per task
+You are already experienced enough to catch most issues yourself.
+Important
+If the final report returns rejections:
+   * Fix all identified issues
+   * Add clear comments explaining:
+   * what was fixed
+   * how it was fixed
+This is mandatory.
+Reviewers may send tasks back to rework if there are no clear correction comments.
+________________
+
+
+Intermediate Trainers
+Members consistently produce 1 task per day.
+Recommended strategy:
+   * Task 1:
+   * 1 Draft Review
+   * 1 Final Review
+Even if some rejections remain:
+   * fix what you can
+   * clearly document your changes
+________________
+
+
+Beginners / Trial Members
+If you are new or on trial:
+You should:
+   * Use reviewer iterations actively
+________________
+Important Submission Rules
+We no longer require “All Pass” in the reviewer report.
+However:
+New Mandatory Rule
+If there are rejections:
+   * valid comments explaining how the issue was resolved MUST be present in the report document.
+________________
+
+
+Draft Review Misuse — No Longer Allowed
+We observed some members:
+   * running only Draft Review
+   * submitting the Draft Review as the Final Report
+   * bypassing the static checker
+This is NOT allowed.
+Common issue:
+   * instructions changed
+   * execution logs were NOT re-run
+   * stale logs were submitted
+This creates major QA issues.
+________________
+
+
+Process Moving Forward
+I have removed the Draft Review Report link from the labeling tool.
+Mandatory:
+   * Run the Final LLM Reviewer Report
+   * Submit the Final Report only
+Draft review is optional and intended only for:
+   * uncertainty
+   * early feedback
+   * guidance
+________________
+
+
+Fresh Execution Logs Are Mandatory
+If instructions change:
+   * execution must be re-run
+   * fresh logs must be generated
+Old logs cannot be reused.
+Tasks with stale logs will:
+   * be rejected
+   * miss delivery batches
+   * impact reviewer bandwidth
+   * affect task revenue generation
+Repeated violations may lead to escalation or offboarding.
+________________

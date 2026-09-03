@@ -1,0 +1,106 @@
+{
+  "task_id": "b406a200bacf478f8fec7da73c5bce63",
+  "verifier_type": "hybrid",
+  "total_checks": 14,
+  "aggregation": "verify.py groups 14 unit-weight checks into 5 static, 6 reward_hacking, and 3 partial_oracle checks. It takes the unweighted mean within each bucket and applies the canonical blend: reward = (total_static_check_score * 1 + total_reward_hacking_check_score * 2 + total_partial_oracle_check_score * 3) / 6. Content (reward_hacking + partial_oracle) therefore supplies 5/6 (83%) of reward and structural 1/6 (17%), inside the 40% structural ceiling. Every check scores independently in [0,1]: no gate, no cap, and no multiplier of one check by another. reward.json reports exactly the four required numeric fields - reward, total_static_check_score, total_reward_hacking_check_score, total_partial_oracle_check_score - and the per-check breakdown of name, score, notes, and bucket is printed to stdout and the test log rather than into reward.json. LLM judge calls use W&B Inference (WANDB_API_KEY, moonshotai/Kimi-K2.6) and print per-company graded booleans, justification, and LLM_JUDGE_STATUS lines; missing key or total call failure is labelled LLM_JUDGE_STATUS=skipped and scores 1.0 (canonical county-service skip contract), while per-company content failures still score 0.",
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Scores the share of expected ticker files that have a non-empty brief under /logs/agent/briefs/<ticker>.md.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/briefs/",
+      "check_function": "check_brief_coverage",
+      "how_it_prevents_task_authenticity_violation": "Blocks a tiny completed subset from looking like a finished book."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "For each of the six required section headings, requires the heading to appear as a markdown line and to be followed by at least 25 words of body text before the next heading.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/briefs/",
+      "check_function": "check_required_sections",
+      "how_it_prevents_task_authenticity_violation": "Blocks heading-string stuffing without organized section content."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "Requires the first non-blank line of the brief to be a level-1 heading that names the ticker (and company identity after accent folding).",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/briefs/",
+      "check_function": "check_heading_format",
+      "how_it_prevents_task_authenticity_violation": "Blocks untitled, late, or buried headings that do not open the document."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "Requires at least 250 words and a unique-word ratio of at least 0.28 so repeated filler cannot pad past the floor.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/briefs/",
+      "check_function": "check_brief_length_floor",
+      "how_it_prevents_task_authenticity_violation": "Blocks stub files and boilerplate padding."
+    },
+    "static_checks_5": {
+      "detailed_explanation_of_checks": "Confirms briefs live under /logs/agent/briefs/ and that /input_artifacts/ was not modified or polluted with extra agent files.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/briefs/",
+      "check_function": "check_deliverable_paths",
+      "how_it_prevents_task_authenticity_violation": "Enforces the instruction's deliverable-path and input-immutability requirements."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "Requires company name, ticker, filing year, and at least one governance/compensation-bearing (topical) multi-word span drawn from the proxy body after the short header, not header echo or arbitrary copied text.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/briefs/",
+      "check_function": "check_ticker_identity",
+      "how_it_prevents_task_authenticity_violation": "Blocks header-only identity restatement without reading the filing body."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Averages (a) presence of at least two governance/compensation-bearing verbatim 6-word spans from the proxy body with (b) an anti-copy score that is zero when total 6-gram verbatim overlap exceeds 15% of the brief.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/briefs/",
+      "check_function": "check_proxy_phrase_grounding",
+      "how_it_prevents_task_authenticity_violation": "Blocks both reputation-only briefs and bulk verbatim dumps that satisfy span checks as a side effect."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Averages a full-document (untruncated) cross-brief bigram-overlap template score with the share of briefs that carry a topical governance/compensation span from their own proxy, so distinct-but-ungrounded briefs cannot pass on cross-brief distinctness alone.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/briefs/",
+      "check_function": "check_no_templated_briefs",
+      "how_it_prevents_task_authenticity_violation": "Blocks a memo copied across the book and blocks briefs that ignore their own filing."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Scores paraphrase discipline (verbatim overlap under the copy cap), reasoning applied to a governance/compensation claim in the same sentence within the board and voting-takeaway sections, and presence of a body-specific token not present in the proxy header.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/briefs/",
+      "check_function": "check_brief_synthesis",
+      "how_it_prevents_task_authenticity_violation": "Requires synthesis beyond mechanical reproduction of handed header/body text."
+    },
+    "reward_hacking_checks_5": {
+      "detailed_explanation_of_checks": "Independent non-agent-family LLM (W&B Inference, moonshotai/Kimi-K2.6, keyed by WANDB_API_KEY) grades identity, governance, compensation, and say-on-pay/related-party grounding per company against frozen proxy excerpts, returning booleans plus a short justification printed per ticker. Missing WANDB_API_KEY or a total call failure is labelled LLM_JUDGE_STATUS=skipped and the check is excluded from penalty (score 1.0), matching the canonical county-service verifier contract.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/briefs/",
+      "check_function": "check_llm_grounding",
+      "how_it_prevents_task_authenticity_violation": "Blocks keyword-stuffed or wrong-company briefs that deterministic span checks alone cannot fully assess."
+    },
+    "reward_hacking_checks_6": {
+      "detailed_explanation_of_checks": "Independent non-agent-family LLM (W&B Inference, moonshotai/Kimi-K2.6, keyed by WANDB_API_KEY) grades company-specific depth across board independence, pay design, pay-for-performance, say-on-pay, related-party treatment, voting takeaway, specificity, and contradiction avoidance, returning booleans plus a short justification printed per ticker. Missing WANDB_API_KEY or a total call failure is labelled LLM_JUDGE_STATUS=skipped and the check is excluded from penalty (score 1.0), matching the canonical county-service verifier contract.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/briefs/",
+      "check_function": "check_llm_depth",
+      "how_it_prevents_task_authenticity_violation": "Blocks thin restatements that never reach a company-specific voting reading."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "For the held-out subset, requires company/ticker/filing-year identification plus body-level content (distinctive phrase hit or body span), not header echo alone.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/briefs/",
+      "check_function": "check_oracle_identity",
+      "how_it_prevents_task_authenticity_violation": "Blocks misidentified or header-only briefs on the held-out set."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "Scores the hit rate of hand-verified distinctive phrases for the held-out subset, discounted when the brief is a bulk verbatim dump of the proxy body.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/briefs/",
+      "check_function": "check_oracle_distinctive_phrases",
+      "how_it_prevents_task_authenticity_violation": "Blocks briefs that never absorb company-specific proxy content, and discounts copy-paste dumps."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "For the held-out subset, requires complete six-section bodies, length plus lexical diversity, at least two distinct governance terms inside the board section and two distinct compensation terms inside the executive-compensation section, PLUS company-specific grounding (a hand-verified distinctive phrase or a topical span from this proxy's body) so generic vocabulary alone does not pass.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/briefs/",
+      "check_function": "check_oracle_coverage_completeness",
+      "how_it_prevents_task_authenticity_violation": "Blocks heading shells and generic keyword stuffing outside the relevant sections."
+    }
+  }
+}

@@ -1,0 +1,1437 @@
+{
+  "entities": {
+    "Q2915285": {
+      "aliases": {
+        "cs": [
+          {
+            "language": "cs",
+            "value": "Batir"
+          }
+        ],
+        "en": [
+          {
+            "language": "en",
+            "value": "Bittir"
+          }
+        ],
+        "fr": [
+          {
+            "language": "fr",
+            "value": "Bittir"
+          }
+        ],
+        "ja": [
+          {
+            "language": "ja",
+            "value": "バッティール"
+          },
+          {
+            "language": "ja",
+            "value": "バティア"
+          }
+        ],
+        "mt": [
+          {
+            "language": "mt",
+            "value": "Bittir"
+          }
+        ]
+      },
+      "claims": {
+        "P131": [
+          {
+            "id": "Q2915285$e3acfaf9-4552-6bc2-cfad-5ffd7d764b09",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q247037",
+                  "numeric-id": 247037
+                }
+              },
+              "hash": "c8cd662196d6821a64c6847f8f447adb14489b54",
+              "property": "P131",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P138": [
+          {
+            "id": "Q2915285$782240c1-4b0d-e96d-bd87-b5ef6a46dd0f",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q637954",
+                  "numeric-id": 637954
+                }
+              },
+              "hash": "a746faaa69c0acdfda3aae49a967cec9ad0ca632",
+              "property": "P138",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P1448": [
+          {
+            "id": "Q2915285$b3fb259b-4cb2-3aad-a538-b06a981301f5",
+            "mainsnak": {
+              "datatype": "monolingualtext",
+              "datavalue": {
+                "type": "monolingualtext",
+                "value": {
+                  "language": "he",
+                  "text": "בתיר"
+                }
+              },
+              "hash": "038f29ed5d2b4d1a868f2a14301b30e3538beb6b",
+              "property": "P1448",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "b91914edd5aaf1c589f5ef820932985202e7b2be",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q206855",
+                          "numeric-id": 206855
+                        }
+                      },
+                      "hash": "6a164248fc96bfa583bbb495cb63ae6401ec203c",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P4656": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://ru.wikipedia.org/?oldid=99463481"
+                      },
+                      "hash": "492c9b4ec6af31b271e49212f6a5ba7a5c39cc3f",
+                      "property": "P4656",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143",
+                  "P4656"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q2915285$a17a1ffa-470b-3be7-5027-8b33901253cc",
+            "mainsnak": {
+              "datatype": "monolingualtext",
+              "datavalue": {
+                "type": "monolingualtext",
+                "value": {
+                  "language": "ar",
+                  "text": "بتير"
+                }
+              },
+              "hash": "7e86291dc3ef80829ac42d4baa6d4e29f1878982",
+              "property": "P1448",
+              "snaktype": "value"
+            },
+            "rank": "preferred",
+            "references": [
+              {
+                "hash": "b91914edd5aaf1c589f5ef820932985202e7b2be",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q206855",
+                          "numeric-id": 206855
+                        }
+                      },
+                      "hash": "6a164248fc96bfa583bbb495cb63ae6401ec203c",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P4656": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://ru.wikipedia.org/?oldid=99463481"
+                      },
+                      "hash": "492c9b4ec6af31b271e49212f6a5ba7a5c39cc3f",
+                      "property": "P4656",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143",
+                  "P4656"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P14489": [
+          {
+            "id": "Q2915285$74cc75bf-4627-c306-4f68-42bc1c4a3130",
+            "mainsnak": {
+              "datatype": "string",
+              "datavalue": {
+                "type": "string",
+                "value": "452175"
+              },
+              "hash": "c8b376bc02ef1f75645773ecea1cad625450ccb5",
+              "property": "P14489",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "e5f29892f0ac7df136e178c98162e60a393ded04",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://www.pcbs.gov.ps/Downloads/book2498.pdf"
+                      },
+                      "hash": "f344e2f851275cc34e125831c27316faebf1ce20",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P1566": [
+          {
+            "id": "Q2915285$CB1880E3-627A-4CAD-AE90-15DEF23E17FD",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "284376"
+              },
+              "hash": "6cd27fd420a775af440e47f49527f859082bf798",
+              "property": "P1566",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "88694a0f4d1486770c269f7db16a1982f74da69d",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q830106",
+                          "numeric-id": 830106
+                        }
+                      },
+                      "hash": "1b3ef912a2bd61e18dd43abd184337eb010b2e96",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P17": [
+          {
+            "id": "Q2915285$40AF8375-86EC-4627-9AC0-043DBE95252A",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q219060",
+                  "numeric-id": 219060
+                }
+              },
+              "hash": "e3ccffa40914b56c72b1fa480bb54f8be7b48c74",
+              "property": "P17",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "d5847b9b6032aa8b13dae3c2dfd9ed5d114d21b3",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q11920",
+                          "numeric-id": 11920
+                        }
+                      },
+                      "hash": "5a343e7e758a4282a01316d3e959b6e653b767fc",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P1705": [
+          {
+            "id": "Q2915285$9b334a10-45ec-60f1-c93b-93e8ca7ce50e",
+            "mainsnak": {
+              "datatype": "monolingualtext",
+              "datavalue": {
+                "type": "monolingualtext",
+                "value": {
+                  "language": "he",
+                  "text": "בתיר"
+                }
+              },
+              "hash": "67b18d4610315def213c270cdc78ea6de64b82c2",
+              "property": "P1705",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "b822576c52b6012754ce8e5ca807016c9b3a0689",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q206855",
+                          "numeric-id": 206855
+                        }
+                      },
+                      "hash": "6a164248fc96bfa583bbb495cb63ae6401ec203c",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P4656": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://ru.wikipedia.org/?oldid=98314929"
+                      },
+                      "hash": "e5e1816a1c6ede83663004494b182d70b6e03c12",
+                      "property": "P4656",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143",
+                  "P4656"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q2915285$f9e78355-4501-d8e2-102a-2a045da96584",
+            "mainsnak": {
+              "datatype": "monolingualtext",
+              "datavalue": {
+                "type": "monolingualtext",
+                "value": {
+                  "language": "ar",
+                  "text": "بتير"
+                }
+              },
+              "hash": "6f2d777ce52fea7625c804a2fd6201805d9825ad",
+              "property": "P1705",
+              "snaktype": "value"
+            },
+            "rank": "preferred",
+            "references": [
+              {
+                "hash": "b822576c52b6012754ce8e5ca807016c9b3a0689",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q206855",
+                          "numeric-id": 206855
+                        }
+                      },
+                      "hash": "6a164248fc96bfa583bbb495cb63ae6401ec203c",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P4656": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://ru.wikipedia.org/?oldid=98314929"
+                      },
+                      "hash": "e5e1816a1c6ede83663004494b182d70b6e03c12",
+                      "property": "P4656",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143",
+                  "P4656"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P18": [
+          {
+            "id": "Q2915285$5fc52a71-4cbb-bc7b-e8c3-c85da71b96d0",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "Battir-Land-of-Olives-and-Vines.jpg"
+              },
+              "hash": "5ee22df38459d8a27ec254f45ba9edb33c827f8a",
+              "property": "P18",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2044": [
+          {
+            "id": "Q2915285$8BF22931-2087-4A58-8116-81EF57099DF7",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+720",
+                  "unit": "http://www.wikidata.org/entity/Q11573"
+                }
+              },
+              "hash": "e67feaea9735ff8799479e62e058a8f4a9d95ddf",
+              "property": "P2044",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "c456dc5cd2117249948c288206ff3f8b1bf574f0",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q8449",
+                          "numeric-id": 8449
+                        }
+                      },
+                      "hash": "e17507043402fe54ae6c4d65cc51f46cec987de9",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P2046": [
+          {
+            "id": "Q2915285$8B6E1D46-A325-4221-92FF-30FAF5E3B4D4",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+7.40",
+                  "unit": "http://www.wikidata.org/entity/Q712226"
+                }
+              },
+              "hash": "1e3804c55b5be8c6f897e6a8a9ff43da724f104a",
+              "property": "P2046",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "ed8bd3f9343e9a35e58b67284f26a67859f1808d",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q199913",
+                          "numeric-id": 199913
+                        }
+                      },
+                      "hash": "07596fc82d3ed4d248b85e5543852cc31e37dc8c",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P214": [
+          {
+            "id": "Q2915285$b16a1d5c-48d4-8bb6-8baa-47adcbb9c05c",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "316602270"
+              },
+              "hash": "748bdabe195b73defc365a6797958a1dd40cd19c",
+              "property": "P214",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2326": [
+          {
+            "id": "Q2915285$6FB4861E-0EA0-4823-9660-874841EEAD95",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "-793793"
+              },
+              "hash": "c81a6793ebbbee5138fac0159536f73dd4ac1ddc",
+              "property": "P2326",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P31": [
+          {
+            "id": "Q2915285$47FBAA80-FEF7-4234-A8E1-C10F7837E8D7",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q3957",
+                  "numeric-id": 3957
+                }
+              },
+              "hash": "3182606d2784054db8c1692d857493b8a8412500",
+              "property": "P31",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P373": [
+          {
+            "id": "q2915285$02CBE936-A04F-4508-AC3A-E9A1C8416131",
+            "mainsnak": {
+              "datatype": "string",
+              "datavalue": {
+                "type": "string",
+                "value": "Battir"
+              },
+              "hash": "d17f00c4711792d30fc0ec6c1347543bdb07532b",
+              "property": "P373",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P3941": [
+          {
+            "id": "Q2915285$F568A72F-36DC-4EB1-959D-0B400BADDA34",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "4235"
+              },
+              "hash": "4d851e76a788224e15378a014bdcb5b416f29762",
+              "property": "P3941",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P421": [
+          {
+            "id": "Q2915285$d7ac31eb-4451-995b-acb2-fb9b2c5883a9",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q6723",
+                  "numeric-id": 6723
+                }
+              },
+              "hash": "2f5d88b20f122f125387179df70f54990074d5a8",
+              "property": "P421",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P1264": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q1777301",
+                      "numeric-id": 1777301
+                    }
+                  },
+                  "hash": "5a71e6a321809311ea1a1998db98d29c34b5226d",
+                  "property": "P1264",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P1264"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q2915285$b98bb755-473c-b27c-620b-b1138138139a",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q6760",
+                  "numeric-id": 6760
+                }
+              },
+              "hash": "d631cd62e4425501fa4cada4a3546f6716e3f09b",
+              "property": "P421",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P1264": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q36669",
+                      "numeric-id": 36669
+                    }
+                  },
+                  "hash": "bbce95c43e978fcfb784754a6507030a95cf31f3",
+                  "property": "P1264",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P1264"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P625": [
+          {
+            "id": "q2915285$F3CBE376-122A-49F4-AD73-901FF0A2FA45",
+            "mainsnak": {
+              "datatype": "globe-coordinate",
+              "datavalue": {
+                "type": "globecoordinate",
+                "value": {
+                  "altitude": null,
+                  "globe": "http://www.wikidata.org/entity/Q2",
+                  "latitude": 31.724722222222,
+                  "longitude": 35.136666666667,
+                  "precision": 0.00027777777777778
+                }
+              },
+              "hash": "b36163373e1968a147d5470425bcf23ccd7d928b",
+              "property": "P625",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P646": [
+          {
+            "id": "Q2915285$6A9C09DE-F7B3-44B0-8118-4766FF018DB4",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "/m/071tkp"
+              },
+              "hash": "84c3c6c4f15e741719f3105e08324c010cf5c8e0",
+              "property": "P646",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "2b00cb481cddcac7623114367489b5c194901c4a",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q15241312",
+                          "numeric-id": 15241312
+                        }
+                      },
+                      "hash": "a94b740202b097dd33355e0e6c00e54b9395e5e0",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P577": [
+                    {
+                      "datatype": "time",
+                      "datavalue": {
+                        "type": "time",
+                        "value": {
+                          "after": 0,
+                          "before": 0,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                          "precision": 11,
+                          "time": "+2013-10-28T00:00:00Z",
+                          "timezone": 0
+                        }
+                      },
+                      "hash": "fde79ecb015112d2f29229ccc1ec514ed3e71fa2",
+                      "property": "P577",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248",
+                  "P577"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P6766": [
+          {
+            "id": "Q2915285$26BD54E6-E80A-4E28-B054-831648151085",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "101922401"
+              },
+              "hash": "8db83791de5517b8db1825e8f3a623280bfa85e2",
+              "property": "P6766",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P793": [
+          {
+            "id": "Q2915285$0ca94ef8-4799-38a0-dcf7-04fc6b271251",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q222384",
+                  "numeric-id": 222384
+                }
+              },
+              "hash": "ec342702ae5c6287265ee8af23935efe390aa50c",
+              "property": "P793",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+2014-00-00T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "bee3cd83ff5f413745df62b88072f2e7cb5fe5d2",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580"
+            ],
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P8189": [
+          {
+            "id": "Q2915285$5FF72F9B-8D40-466C-9CEA-8B51A12C350D",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "987007475207905171"
+              },
+              "hash": "9238fb5e2f42b5b3413f24828c3820d9fe733ffa",
+              "property": "P8189",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P949": [
+          {
+            "id": "Q2915285$8e7ce652-401f-97c6-cbc5-9b3dae8dcb29",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "001414970"
+              },
+              "hash": "6ff177fea0d96562052177391c4a49e9af9e0fec",
+              "property": "P949",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ]
+      },
+      "descriptions": {
+        "ar": {
+          "language": "ar",
+          "value": "بلدة في محافظة بيت لحم"
+        },
+        "arz": {
+          "language": "arz",
+          "value": "بلده فى محافظه بيت لحم"
+        },
+        "de": {
+          "language": "de",
+          "value": "palästinensisches Dorf"
+        },
+        "en": {
+          "language": "en",
+          "value": "Palestinian village in the West Bank"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "village palestinien en Cisjordanie occupée"
+        },
+        "he": {
+          "language": "he",
+          "value": "עיירה בנפת בית לחם, הרשות הפלסטינית"
+        },
+        "it": {
+          "language": "it",
+          "value": "villaggio palestinese"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "パレスチナの都市（世界遺産）"
+        },
+        "ka": {
+          "language": "ka",
+          "value": "სოფელი პალესტინაში, დასავლეთ სანაპიროზე"
+        },
+        "mt": {
+          "language": "mt",
+          "value": "villaġġ Palestinjan fix-Xatt tal-Punent"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "stad in Palestina"
+        },
+        "pl": {
+          "language": "pl",
+          "value": "wieś w Palestynie"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "деревня в Государстве Палестина, на Западном берегу реки Иордан"
+        },
+        "tr": {
+          "language": "tr",
+          "value": "Filistin köyü"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "巴勒斯坦约旦河西安地区村庄"
+        }
+      },
+      "id": "Q2915285",
+      "labels": {
+        "ar": {
+          "language": "ar",
+          "value": "بتير"
+        },
+        "arz": {
+          "language": "arz",
+          "value": "بتير"
+        },
+        "ast": {
+          "language": "ast",
+          "value": "Battir"
+        },
+        "bn": {
+          "language": "bn",
+          "value": "বাত্তির"
+        },
+        "ca": {
+          "language": "ca",
+          "value": "Battir"
+        },
+        "ceb": {
+          "language": "ceb",
+          "value": "Battīr"
+        },
+        "cs": {
+          "language": "cs",
+          "value": "Battir"
+        },
+        "dag": {
+          "language": "dag",
+          "value": "Battir"
+        },
+        "de": {
+          "language": "de",
+          "value": "Battir"
+        },
+        "en": {
+          "language": "en",
+          "value": "Battir"
+        },
+        "es": {
+          "language": "es",
+          "value": "Battir"
+        },
+        "eu": {
+          "language": "eu",
+          "value": "Battir"
+        },
+        "fa": {
+          "language": "fa",
+          "value": "بتیر"
+        },
+        "fat": {
+          "language": "fat",
+          "value": "Battir"
+        },
+        "fi": {
+          "language": "fi",
+          "value": "Battir"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "Battir"
+        },
+        "gur": {
+          "language": "gur",
+          "value": "Battir"
+        },
+        "he": {
+          "language": "he",
+          "value": "בתיר"
+        },
+        "hr": {
+          "language": "hr",
+          "value": "Battir"
+        },
+        "hy": {
+          "language": "hy",
+          "value": "Բատիր"
+        },
+        "id": {
+          "language": "id",
+          "value": "Battir"
+        },
+        "it": {
+          "language": "it",
+          "value": "Battir"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "バティール"
+        },
+        "ka": {
+          "language": "ka",
+          "value": "ბატირი"
+        },
+        "ml": {
+          "language": "ml",
+          "value": "ബാട്ടിർ"
+        },
+        "mos": {
+          "language": "mos",
+          "value": "Battir"
+        },
+        "mt": {
+          "language": "mt",
+          "value": "Battir"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "Battir"
+        },
+        "nn": {
+          "language": "nn",
+          "value": "Battir"
+        },
+        "pl": {
+          "language": "pl",
+          "value": "Battir"
+        },
+        "pt": {
+          "language": "pt",
+          "value": "Battir"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "Баттир"
+        },
+        "sh": {
+          "language": "sh",
+          "value": "Battir"
+        },
+        "tr": {
+          "language": "tr",
+          "value": "Battir"
+        },
+        "tw": {
+          "language": "tw",
+          "value": "Battir na ɔkyerɛwee"
+        },
+        "uk": {
+          "language": "uk",
+          "value": "Баттір"
+        },
+        "ur": {
+          "language": "ur",
+          "value": "بتیر"
+        },
+        "vi": {
+          "language": "vi",
+          "value": "Battir"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "巴地尔"
+        }
+      },
+      "lastrevid": 2506250219,
+      "modified": "2026-06-15T10:53:00Z",
+      "ns": 0,
+      "pageid": 2789773,
+      "sitelinks": {
+        "arwiki": {
+          "badges": [],
+          "site": "arwiki",
+          "title": "بتير"
+        },
+        "arzwiki": {
+          "badges": [],
+          "site": "arzwiki",
+          "title": "بتير"
+        },
+        "bnwiki": {
+          "badges": [],
+          "site": "bnwiki",
+          "title": "বাত্তির"
+        },
+        "cawiki": {
+          "badges": [],
+          "site": "cawiki",
+          "title": "Battir"
+        },
+        "cebwiki": {
+          "badges": [],
+          "site": "cebwiki",
+          "title": "Battīr"
+        },
+        "commonswiki": {
+          "badges": [],
+          "site": "commonswiki",
+          "title": "Category:Battir"
+        },
+        "cswiki": {
+          "badges": [],
+          "site": "cswiki",
+          "title": "Battir"
+        },
+        "dagwiki": {
+          "badges": [],
+          "site": "dagwiki",
+          "title": "Battir"
+        },
+        "dewiki": {
+          "badges": [],
+          "site": "dewiki",
+          "title": "Battir"
+        },
+        "enwiki": {
+          "badges": [],
+          "site": "enwiki",
+          "title": "Battir"
+        },
+        "eswiki": {
+          "badges": [],
+          "site": "eswiki",
+          "title": "Battir"
+        },
+        "euwiki": {
+          "badges": [],
+          "site": "euwiki",
+          "title": "Battir"
+        },
+        "fatwiki": {
+          "badges": [],
+          "site": "fatwiki",
+          "title": "Battir"
+        },
+        "fawiki": {
+          "badges": [],
+          "site": "fawiki",
+          "title": "بتیر"
+        },
+        "fiwiki": {
+          "badges": [],
+          "site": "fiwiki",
+          "title": "Battir"
+        },
+        "frwiki": {
+          "badges": [],
+          "site": "frwiki",
+          "title": "Battir"
+        },
+        "gurwiki": {
+          "badges": [],
+          "site": "gurwiki",
+          "title": "Battir"
+        },
+        "hewiki": {
+          "badges": [],
+          "site": "hewiki",
+          "title": "בתיר"
+        },
+        "hrwiki": {
+          "badges": [],
+          "site": "hrwiki",
+          "title": "Battir"
+        },
+        "hywiki": {
+          "badges": [],
+          "site": "hywiki",
+          "title": "Բատիր"
+        },
+        "idwiki": {
+          "badges": [],
+          "site": "idwiki",
+          "title": "Battir"
+        },
+        "itwiki": {
+          "badges": [],
+          "site": "itwiki",
+          "title": "Battir"
+        },
+        "jawiki": {
+          "badges": [],
+          "site": "jawiki",
+          "title": "バティール"
+        },
+        "kawiki": {
+          "badges": [],
+          "site": "kawiki",
+          "title": "ბატირი"
+        },
+        "mlwiki": {
+          "badges": [],
+          "site": "mlwiki",
+          "title": "ബാട്ടിർ"
+        },
+        "moswiki": {
+          "badges": [],
+          "site": "moswiki",
+          "title": "Battir"
+        },
+        "mtwiki": {
+          "badges": [],
+          "site": "mtwiki",
+          "title": "Battir"
+        },
+        "nlwiki": {
+          "badges": [],
+          "site": "nlwiki",
+          "title": "Battir"
+        },
+        "nnwiki": {
+          "badges": [],
+          "site": "nnwiki",
+          "title": "Battir"
+        },
+        "plwiki": {
+          "badges": [],
+          "site": "plwiki",
+          "title": "Battir"
+        },
+        "ptwiki": {
+          "badges": [],
+          "site": "ptwiki",
+          "title": "Battir"
+        },
+        "ruwiki": {
+          "badges": [],
+          "site": "ruwiki",
+          "title": "Баттир"
+        },
+        "shwiki": {
+          "badges": [],
+          "site": "shwiki",
+          "title": "Battir"
+        },
+        "trwiki": {
+          "badges": [],
+          "site": "trwiki",
+          "title": "Battir"
+        },
+        "twwiki": {
+          "badges": [],
+          "site": "twwiki",
+          "title": "Battir na ɔkyerɛwee"
+        },
+        "ukwiki": {
+          "badges": [],
+          "site": "ukwiki",
+          "title": "Баттір"
+        },
+        "urwiki": {
+          "badges": [],
+          "site": "urwiki",
+          "title": "بتیر"
+        },
+        "viwiki": {
+          "badges": [],
+          "site": "viwiki",
+          "title": "Battir"
+        },
+        "zhwiki": {
+          "badges": [],
+          "site": "zhwiki",
+          "title": "巴地尔"
+        }
+      },
+      "title": "Q2915285",
+      "type": "item"
+    }
+  }
+}

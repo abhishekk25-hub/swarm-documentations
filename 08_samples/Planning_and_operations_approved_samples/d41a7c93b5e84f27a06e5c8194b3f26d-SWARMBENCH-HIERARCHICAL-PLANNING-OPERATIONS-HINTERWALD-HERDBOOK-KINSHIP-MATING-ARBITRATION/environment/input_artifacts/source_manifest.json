@@ -1,0 +1,61 @@
+{
+  "package": "Hinterwälder conservation herdbook — 2010 mating round working set",
+  "compiled": "2010-02-25",
+  "round_date": "2010-03-01",
+  "provenance_statement": "The pedigree genealogy is real. herdbook_pedigree.csv is a connected subset of the Hinterwaelder cattle pedigree distributed as PedigWithErrors in the optiSel R package on CRAN. Hinterwaelder is a real endangered German breed under active conservation management, listed by the Gesellschaft zur Erhaltung alter und gefaehrdeter Haustierrassen, and the animal identifiers are real ear-tag numbers with the herdbook's real sire and dam links, sexes, birth years and breed labels. Two things in that file are not attested records and the package documentation says so plainly: it describes the dataset as the pedigree 'with some artificially introduced errors and simulated breeding values'. The data-quality defects you will meet were therefore seeded by the package authors to exercise pedigree-checking tools; they are realistic in kind, they were not introduced for this exercise, but they are not documented errors from the German herdbook. The breeding_value column is simulated and carries no constraint in the charter. The movement bands follow the real documentary regime for cattle consignments in the EU, a national movement document domestically and an intra-union certificate raised in TRACES across a border, with transport categories on the weight-banded space-allowance scheme of Regulation (EC) No 1/2005; the isolation day counts are this programme's own bands. The member holdings sit in the southern Black Forest districts where the breed is genuinely kept, with one member across the Swiss border. The herd's own operational record for this round - the holdings' names and capacities, the herd health correspondence, the weighings and the previous seasons - is a reconstruction of one round's paperwork and is not the file of an identifiable farm, veterinary practice or animal health event. Work the round from the packaged files alone and do not substitute a figure found elsewhere for one recorded here.",
+  "authoritative_rules": "environment/input_artifacts/mating_charter.md is the sole authority for this round's conventions. Where general practice or an external standard would say something different, the charter governs.",
+  "known_data_defects": "The pedigree subset carries the irregularities the optiSel authors seeded into the source file, counted here against the shipped extract so you can reconcile your own reading against them. 563 parent fields are blank. Two records, 276000802420240 and 276000802420230, both name sire 276000800000608, which has no record of its own anywhere in the file. One animal, 276000810087663, is recorded as female and is nonetheless used in the sire position of four records. 73 records carry a breed label other than Hinterwaelder, including the unknown-breed placeholder the source file uses for animals of unrecorded origin. 24 records, all of them historic ancestors rather than living animals, carry no birth year at all. No record in this extract is its own ancestor and no parent is recorded as born after its own offspring. None of these was introduced by this exercise, and none of them should be tidied away: the charter states how each is to be handled and the handling changes who is related to whom.",
+  "artifacts": [
+    {
+      "path": "/input_artifacts/mating_charter.md",
+      "description": "Programme conventions for the 2010 round: the unknown-founder rule, the tabular kinship method, mean kinship and its denominator, founder-share reporting, age classes, how a visit note is read to a standing on the round date, the eligibility order, the allocation constraints including the sire-contribution limit, how a movement's certificate, transport category and isolation follow, and the conflict vocabulary.",
+      "records": 1
+    },
+    {
+      "path": "/input_artifacts/herdbook_pedigree.csv",
+      "description": "Every herdbook record in the working subset, in an order that places both parents before their offspring. Columns: animal_id, sex, sire_id, dam_id, birth_year, breed, breeding_value, status, holding. status is LIVING for the animals present at this round and HISTORIC for ancestors. holding is populated only for living animals.",
+      "records": 1438,
+      "living_records": 100,
+      "source": "optiSel::PedigWithErrors, CRAN package optiSel 2.0.9"
+    },
+    {
+      "path": "/input_artifacts/member_holdings.csv",
+      "description": "The eighteen member holdings, with region, country, health status, and breeding-place and isolation-box counts against current occupancy. Fourteen breeding places are free across the membership. Three holdings are over-committed on isolation boxes. One member is in Switzerland, so a consignment to or from it crosses a national border.",
+      "records": 18
+    },
+    {
+      "path": "/input_artifacts/herd_health_notes/index.md",
+      "description": "Index of the herd health correspondence, listing one file per member holding and the number of animals discussed in each.",
+      "records": 1
+    },
+    {
+      "path": "/input_artifacts/herd_health_notes/<HOLDING_CODE>.md",
+      "description": "One file of veterinary visit notes per holding, filed in visit order, 362 statements across the corpus. These are ordinary clinical notes in the vet's own words with no fixed wording or format: a restriction may be placed, lifted, placed again, given an end date that has since passed, or written at a visit that falls after the round opens. An animal's standing on the round date is what survives the charter's reconciliation rules, not what any single sentence says.",
+      "files": 18,
+      "statements": 362
+    },
+    {
+      "path": "/input_artifacts/weight_records.csv",
+      "description": "Two dated liveweight and condition records for each living animal, 200 rows. The later of the two is the current one, and the transport category follows from it.",
+      "records": 200
+    },
+    {
+      "path": "/input_artifacts/previous_matings.csv",
+      "description": "Matings recorded in the 2008 and 2009 seasons with calvings, calves reared and outcome. Establishes which cows are due a rest season and which cow-and-bull combinations have already failed twice.",
+      "records": 83
+    },
+    {
+      "path": "/input_artifacts/movement_rules.csv",
+      "description": "The programme's receiving-isolation bands by border status and holding health status, the certificate classes, and the transport categories by liveweight.",
+      "records": 11
+    }
+  ],
+  "reference_context": [
+    "https://cran.r-project.org/package=optiSel",
+    "https://www.g-e-h.de/",
+    "https://www.fao.org/dad-is/en/",
+    "https://eur-lex.europa.eu/eli/reg/2005/1/oj",
+    "https://food.ec.europa.eu/animals/traces_en"
+  ],
+  "reference_context_note": "The first link is the package the pedigree comes from. The rest are background on how breeds of this kind are conserved and how cattle movements are documented in the EU. None of them contains the husbandry records in this package, and none should be used to correct or override a value in it."
+}

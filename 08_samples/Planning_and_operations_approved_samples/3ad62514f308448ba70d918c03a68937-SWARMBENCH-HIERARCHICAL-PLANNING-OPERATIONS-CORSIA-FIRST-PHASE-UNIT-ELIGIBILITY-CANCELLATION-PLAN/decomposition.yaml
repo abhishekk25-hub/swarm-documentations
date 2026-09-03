@@ -1,0 +1,876 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+realized_subagent_target: 64
+dispatch_tiers: 3
+dependency_levels: 8
+
+tier_model: >-
+  Three tiers, because three is what the runner dispatches. The orchestrator sits at the top
+  and is the clearing-router node below. It dispatches the eleven desk managers as general
+  agents, and each desk manager dispatches its own leaf workers as explore agents, which
+  execute directly and cannot dispatch further. Nothing in this plan asks for a fourth tier
+  and nothing in it is written to be worked down by one reader. task.toml's dag_depth is this
+  tier count. The dependency_levels figure above is a different quantity: it counts the
+  ordering constraints among the 64 nodes, which sit inside the three tiers rather than
+  adding to them, and it is what a reader gets by levelling the depends_on graph below.
+
+  depends_on below is read as the runner reads it: a node is not dispatched until everything
+  its depends_on names has returned. A leaf worker therefore names the desk that dispatches
+  it, a desk names whatever it needs in hand before it can start, and the desk_register above
+  is where a desk's own workers are listed. The two together are the whole graph: the
+  register is who dispatches whom, depends_on is what has to be back first.
+
+routing_model: >-
+  The pool splits by programme first because the Council document does. Under each approved
+  programme the Council writes that programme's own eligibility timeframe, its own eligible
+  unit dates line, its own scope of eligibility and its own list of exclusions, and the list
+  that governs a Gold Standard block says nothing at all about a Verified Carbon Standard
+  one. So there is one desk per programme, and that desk owns every block its programme
+  issued: it reads its programme's entry once and applies it to the blocks that entry
+  governs, rather than six desks each re-reading the same document for a different question.
+
+  Under a desk the split is by question. A programme desk dispatches one leaf worker per
+  eligibility test - approval, dates, scope, labelling, authorisation, availability - so no
+  worker holds more than one question about the blocks it sees, and the desk is where those
+  six answers are put together into that programme's rows. A worker is named for one question
+  under one programme; the desk is named for the programme.
+
+  Four desks are not per programme, because the work they own is not written per programme.
+  The council-rules-desk owns what the Council decided for the 2024 to 2026 compliance period
+  as a whole and hands one rule set to every other desk before the programme desks start, so
+  no two desks work from a different reading. The evidence-desk owns the quotations and the
+  source ids they are attributed to. The clearance-assembly owns the register and is the only
+  node that settles a verdict. The issue-desk owns the four remaining artifacts and holds
+  them to the register.
+
+  The desks are the source of the answers rather than a review of somebody else's. The
+  orchestrator's own job is dispatch, ordering and the final reconciliation report; the
+  verdicts, tonnages, schedule and totals are what the desks return, and a run in which they
+  are computed before the desks are dispatched has inverted the plan rather than executed it.
+  Nothing is written to /logs/agent until the desks whose answers it carries have returned,
+  and the issue-desk's workers are the only nodes that write there.
+
+  There are 64 nodes and a correctly executed run dispatches one worker per node. A run that
+  has to re-dispatch a worker whose answer came back incomplete is still executing this plan,
+  so the count is read with a tolerance of a fifth either way rather than as an exact figure.
+
+referral_rules: >-
+  A desk answers its own question or it refers, and it never does both. A desk refers when the
+  answer it would have to give is not in the material it owns, and when the answer it holds
+  contradicts an answer another desk has already returned for the same block. The referral
+  panel does not overturn a desk: it records what each side said in that side's own words and
+  recommends. A block under referral is not cleared and nothing under referral reaches the
+  schedule.
+
+handoff_contract: >-
+  A leaf worker returns two things for every block it was asked about: the answer in its own
+  column, and which rule it applied to reach it. It does not quote. The verbatim sentence for
+  each rule, and the source_id of the capture it was read out of, come from the evidence desk,
+  which is the only node that copies text out of a source document, and clearance-assembly
+  joins the two so that each row carries the sentence for the rule that actually decided that
+  block. That sentence comes out of the section of the Council document governing the 2024 to
+  2026 compliance period. A desk that returns an answer naming no rule has returned an opinion
+  and the assembly sends it back. Desks return UNRESOLVED where the material genuinely does
+  not answer, and UNRESOLVED is a finding rather than a gap.
+
+desk_register:
+  clearing-router:
+    - council-rules-desk
+    - programme-desk-acr
+    - programme-desk-art
+    - programme-desk-car
+    - programme-desk-gold
+    - programme-desk-iso
+    - programme-desk-vcs
+    - evidence-desk
+    - clearance-assembly
+    - referral-panel
+    - issue-desk
+  council-rules-desk:
+    - rules-reader-approvals
+    - rules-reader-dates
+    - rules-reader-exclusions
+    - rules-reader-summary-table
+    - rules-reader-criteria
+  programme-desk-acr:
+    - approval-worker-acr
+    - dates-worker-acr
+    - scope-worker-acr
+    - labelling-worker-acr
+    - authorisation-worker-acr
+    - availability-worker-acr
+  programme-desk-art:
+    - approval-worker-art
+    - dates-worker-art
+    - scope-worker-art
+    - labelling-worker-art
+    - authorisation-worker-art
+    - availability-worker-art
+  programme-desk-car:
+    - approval-worker-car
+    - dates-worker-car
+    - scope-worker-car
+    - labelling-worker-car
+    - authorisation-worker-car
+    - availability-worker-car
+  programme-desk-gold:
+    - approval-worker-gold
+    - dates-worker-gold
+    - scope-worker-gold
+    - labelling-worker-gold
+    - authorisation-worker-gold
+    - availability-worker-gold
+  programme-desk-iso:
+    - approval-worker-iso
+    - dates-worker-iso
+    - scope-worker-iso
+    - labelling-worker-iso
+    - authorisation-worker-iso
+    - availability-worker-iso
+  programme-desk-vcs:
+    - approval-worker-vcs
+    - dates-worker-vcs
+    - scope-worker-vcs
+    - labelling-worker-vcs
+    - authorisation-worker-vcs
+    - availability-worker-vcs
+  evidence-desk:
+    - evidence-worker-dates
+    - evidence-worker-identification
+    - evidence-worker-exclusions
+    - evidence-worker-authorisation
+    - evidence-worker-attribution
+  clearance-assembly: []
+  referral-panel:
+    - referral-analyst-labelling-conflict
+    - referral-analyst-record-silence
+  issue-desk:
+    - schedule-builder
+    - map-builder
+    - note-writer
+    - release-check
+
+sub_tasks:
+  - id: clearing-router
+    description: >-
+      Dispatch the eleven desk managers and hold the order between them. Send
+      council-rules-desk first and wait for its rule set, then the six programme desks and the
+      evidence desk together, then clearance-assembly, then the referral panel, then the issue
+      desk. Do not read /input_artifacts/candidate_pool.csv,
+      /input_artifacts/programme_labelling_extract.csv or the dossiers, do not write or run a
+      script over them, and do not form a verdict, a tonnage, a schedule or a total for any
+      block: those are the desks' answers and this node has none of its own. Report which
+      desks returned complete, which blocks came back UNRESOLVED from more than one desk, and
+      what the panel was left holding.
+    depends_on: []
+    parallel_group: routing
+
+  - id: rules-reader-approvals
+    description: >-
+      Read /input_artifacts/sources/ICAO-CEEU-2026-04.txt and return the emissions unit
+      programmes the Council has approved to supply units for the 2024 to 2026 compliance
+      period, each with the sentence naming its approval and the eligibility timeframe stated
+      against it. Note where a programme is approved for one compliance period and not
+      another. Return the list to council-rules-desk.
+    depends_on: [council-rules-desk]
+    parallel_group: rule-reading
+
+  - id: rules-reader-dates
+    description: >-
+      Read /input_artifacts/sources/ICAO-CEEU-2026-04.txt and return the eligible unit dates
+      that apply in the 2024 to 2026 compliance period: the date from which an activity's
+      first crediting period must have started and the window the emissions reductions
+      themselves must fall in, each with the sentence carrying it. Return them to
+      council-rules-desk.
+    depends_on: [council-rules-desk]
+    parallel_group: rule-reading
+
+  - id: rules-reader-exclusions
+    description: >-
+      Read /input_artifacts/sources/ICAO-CEEU-2026-04.txt and return, per approved programme,
+      that programme's Scope of Eligibility and every exclusion listed under it, keeping the
+      wording of each exclusion rather than paraphrasing it, as a list a desk can apply to a
+      row without opening the document again. Return it to council-rules-desk.
+    depends_on: [council-rules-desk]
+    parallel_group: rule-reading
+
+  - id: rules-reader-summary-table
+    description: >-
+      Read /input_artifacts/sources/ICAO-TAB-SUMMARY-2026-04.txt and report every programme
+      the advisory body's summary table and the Council document place differently, saying
+      which way each of them has it. Report the difference; do not resolve it. Return the list
+      to council-rules-desk.
+    depends_on: [council-rules-desk]
+    parallel_group: rule-reading
+
+  - id: rules-reader-criteria
+    description: >-
+      Read /input_artifacts/sources/ICAO-EUC-DOC09.txt and return the criteria the Council
+      assesses an emissions unit programme against, with the sentence carrying each. This is
+      the material the referral panel argues a recommendation from. Return it to
+      council-rules-desk.
+    depends_on: [council-rules-desk]
+    parallel_group: rule-reading
+
+  - id: council-rules-desk
+    description: >-
+      Own the rule set for the 2024 to 2026 compliance period. Dispatch the five leaf readers
+      named for this desk, merge what they return into one rule set - approved programmes and
+      their eligibility timeframes, the eligible unit dates, the per-programme scope of
+      eligibility with its exclusions, the summary-table discrepancies and the assessment
+      criteria - and hand that one rule set to every other desk before any programme desk
+      starts, so no two desks work from a different reading. Mark every item with where in the
+      document it was found and which compliance period's section it came out of. Answer
+      nothing about any individual block.
+    depends_on: [clearing-router]
+    parallel_group: rule-set
+
+  - id: approval-worker-acr
+    description: >-
+      Answer the approval question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that the American Carbon Registry issued: whether
+      the Council has approved that programme to supply units for the 2024 to 2026 compliance
+      period and the block sits inside the eligibility timeframe stated against it. Work from
+      that programme's entry in the rule set council-rules-desk returned. Return PASS, FAIL or
+      UNRESOLVED per block, naming the rule applied, to programme-desk-acr. The verbatim
+      sentence behind that rule is evidence-desk's to supply and is not this worker's to
+      quote.
+    depends_on: [programme-desk-acr]
+    parallel_group: programme-work
+
+  - id: dates-worker-acr
+    description: >-
+      Answer the dates question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that the American Carbon Registry issued: whether
+      the activity's first crediting period and the block's vintage year sit inside the
+      eligible unit dates the rule set carries for this compliance period, naming the field of
+      the record each was read from. Return PASS, FAIL or UNRESOLVED per block, naming the
+      rule applied, to programme-desk-acr. The verbatim sentence behind that rule is
+      evidence-desk's to supply.
+    depends_on: [programme-desk-acr]
+    parallel_group: programme-work
+
+  - id: scope-worker-acr
+    description: >-
+      Answer the scope question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that the American Carbon Registry issued: whether
+      the activity falls outside the exclusions that programme's own Scope of Eligibility
+      carries. Where the record's category fields do not settle what an activity is, read that
+      activity's entry in /input_artifacts/activity_dossiers.md. Return PASS, FAIL or
+      UNRESOLVED per block, naming which exclusion catches it and what in the record or the
+      dossier put it there, to programme-desk-acr. The verbatim excluding sentence is
+      evidence-desk's to supply.
+    depends_on: [programme-desk-acr]
+    parallel_group: programme-work
+
+  - id: labelling-worker-acr
+    description: >-
+      Read /input_artifacts/programme_labelling_extract.csv for the blocks the American Carbon
+      Registry issued and return, per block, the compliance period label the programme carries
+      for that activity or that it carries none, and every other entry against that activity
+      as its own separate field. Do not judge whether any label holds; that is not this
+      worker's question. Return the two fields to programme-desk-acr.
+    depends_on: [programme-desk-acr]
+    parallel_group: programme-work
+
+  - id: authorisation-worker-acr
+    description: >-
+      Answer the host country question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that the American Carbon Registry issued: the
+      condition the Council attaches to that programme on host country authorisation and the
+      avoidance of double-claiming, and whether the record shows it met, unmet or unevidenced.
+      Return PASS, FAIL or UNRESOLVED per block, naming the condition applied and the field of
+      the record read for it, to programme-desk-acr. The verbatim sentence is evidence-desk's
+      to supply.
+    depends_on: [programme-desk-acr]
+    parallel_group: programme-work
+
+  - id: availability-worker-acr
+    description: >-
+      Answer the availability question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that the American Carbon Registry issued: the
+      tonnage the record shows still unretired on that vintage, and whether it is greater than
+      zero. Name the blocks the record gives no usable figure for. This is the only place that
+      tonnage is read. Return PASS, FAIL or UNRESOLVED and the figure per block to
+      programme-desk-acr.
+    depends_on: [programme-desk-acr]
+    parallel_group: programme-work
+
+  - id: approval-worker-art
+    description: >-
+      Answer the approval question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that Architecture for REDD+ Transactions issued:
+      whether the Council has approved that programme to supply units for the 2024 to 2026
+      compliance period and the block sits inside the eligibility timeframe stated against it.
+      Work from that programme's entry in the rule set council-rules-desk returned. Return
+      PASS, FAIL or UNRESOLVED per block, naming the rule applied, to programme-desk-art. The
+      verbatim sentence behind that rule is evidence-desk's to supply and is not this worker's
+      to quote.
+    depends_on: [programme-desk-art]
+    parallel_group: programme-work
+
+  - id: dates-worker-art
+    description: >-
+      Answer the dates question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that Architecture for REDD+ Transactions issued:
+      whether the activity's first crediting period and the block's vintage year sit inside
+      the eligible unit dates the rule set carries for this compliance period, naming the
+      field of the record each was read from. Return PASS, FAIL or UNRESOLVED per block,
+      naming the rule applied, to programme-desk-art. The verbatim sentence behind that rule
+      is evidence-desk's to supply.
+    depends_on: [programme-desk-art]
+    parallel_group: programme-work
+
+  - id: scope-worker-art
+    description: >-
+      Answer the scope question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that Architecture for REDD+ Transactions issued:
+      whether the activity falls outside the exclusions that programme's own Scope of
+      Eligibility carries. Where the record's category fields do not settle what an activity
+      is, read that activity's entry in /input_artifacts/activity_dossiers.md. Return PASS,
+      FAIL or UNRESOLVED per block, naming which exclusion catches it and what in the record
+      or the dossier put it there, to programme-desk-art. The verbatim excluding sentence is
+      evidence-desk's to supply.
+    depends_on: [programme-desk-art]
+    parallel_group: programme-work
+
+  - id: labelling-worker-art
+    description: >-
+      Read /input_artifacts/programme_labelling_extract.csv for the blocks Architecture for
+      REDD+ Transactions issued and return, per block, the compliance period label the
+      programme carries for that activity or that it carries none, and every other entry
+      against that activity as its own separate field. Do not judge whether any label holds;
+      that is not this worker's question. Return the two fields to programme-desk-art.
+    depends_on: [programme-desk-art]
+    parallel_group: programme-work
+
+  - id: authorisation-worker-art
+    description: >-
+      Answer the host country question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that Architecture for REDD+ Transactions issued: the
+      condition the Council attaches to that programme on host country authorisation and the
+      avoidance of double-claiming, and whether the record shows it met, unmet or unevidenced.
+      Return PASS, FAIL or UNRESOLVED per block, naming the condition applied and the field of
+      the record read for it, to programme-desk-art. The verbatim sentence is evidence-desk's
+      to supply.
+    depends_on: [programme-desk-art]
+    parallel_group: programme-work
+
+  - id: availability-worker-art
+    description: >-
+      Answer the availability question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that Architecture for REDD+ Transactions issued: the
+      tonnage the record shows still unretired on that vintage, and whether it is greater than
+      zero. Name the blocks the record gives no usable figure for. This is the only place that
+      tonnage is read. Return PASS, FAIL or UNRESOLVED and the figure per block to
+      programme-desk-art.
+    depends_on: [programme-desk-art]
+    parallel_group: programme-work
+
+  - id: approval-worker-car
+    description: >-
+      Answer the approval question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that the Climate Action Reserve issued: whether the
+      Council has approved that programme to supply units for the 2024 to 2026 compliance
+      period and the block sits inside the eligibility timeframe stated against it. Work from
+      that programme's entry in the rule set council-rules-desk returned. Return PASS, FAIL or
+      UNRESOLVED per block, naming the rule applied, to programme-desk-car. The verbatim
+      sentence behind that rule is evidence-desk's to supply and is not this worker's to
+      quote.
+    depends_on: [programme-desk-car]
+    parallel_group: programme-work
+
+  - id: dates-worker-car
+    description: >-
+      Answer the dates question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that the Climate Action Reserve issued: whether the
+      activity's first crediting period and the block's vintage year sit inside the eligible
+      unit dates the rule set carries for this compliance period, naming the field of the
+      record each was read from. Return PASS, FAIL or UNRESOLVED per block, naming the rule
+      applied, to programme-desk-car. The verbatim sentence behind that rule is
+      evidence-desk's to supply.
+    depends_on: [programme-desk-car]
+    parallel_group: programme-work
+
+  - id: scope-worker-car
+    description: >-
+      Answer the scope question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that the Climate Action Reserve issued: whether the
+      activity falls outside the exclusions that programme's own Scope of Eligibility carries.
+      Where the record's category fields do not settle what an activity is, read that
+      activity's entry in /input_artifacts/activity_dossiers.md. Return PASS, FAIL or
+      UNRESOLVED per block, naming which exclusion catches it and what in the record or the
+      dossier put it there, to programme-desk-car. The verbatim excluding sentence is
+      evidence-desk's to supply.
+    depends_on: [programme-desk-car]
+    parallel_group: programme-work
+
+  - id: labelling-worker-car
+    description: >-
+      Read /input_artifacts/programme_labelling_extract.csv for the blocks the Climate Action
+      Reserve issued and return, per block, the compliance period label the programme carries
+      for that activity or that it carries none, and every other entry against that activity
+      as its own separate field. Do not judge whether any label holds; that is not this
+      worker's question. Return the two fields to programme-desk-car.
+    depends_on: [programme-desk-car]
+    parallel_group: programme-work
+
+  - id: authorisation-worker-car
+    description: >-
+      Answer the host country question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that the Climate Action Reserve issued: the
+      condition the Council attaches to that programme on host country authorisation and the
+      avoidance of double-claiming, and whether the record shows it met, unmet or unevidenced.
+      Return PASS, FAIL or UNRESOLVED per block, naming the condition applied and the field of
+      the record read for it, to programme-desk-car. The verbatim sentence is evidence-desk's
+      to supply.
+    depends_on: [programme-desk-car]
+    parallel_group: programme-work
+
+  - id: availability-worker-car
+    description: >-
+      Answer the availability question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that the Climate Action Reserve issued: the tonnage
+      the record shows still unretired on that vintage, and whether it is greater than zero.
+      Name the blocks the record gives no usable figure for. This is the only place that
+      tonnage is read. Return PASS, FAIL or UNRESOLVED and the figure per block to
+      programme-desk-car.
+    depends_on: [programme-desk-car]
+    parallel_group: programme-work
+
+  - id: approval-worker-gold
+    description: >-
+      Answer the approval question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that Gold Standard issued: whether the Council has
+      approved that programme to supply units for the 2024 to 2026 compliance period and the
+      block sits inside the eligibility timeframe stated against it. Work from that
+      programme's entry in the rule set council-rules-desk returned. Return PASS, FAIL or
+      UNRESOLVED per block, naming the rule applied, to programme-desk-gold. The verbatim
+      sentence behind that rule is evidence-desk's to supply and is not this worker's to
+      quote.
+    depends_on: [programme-desk-gold]
+    parallel_group: programme-work
+
+  - id: dates-worker-gold
+    description: >-
+      Answer the dates question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that Gold Standard issued: whether the activity's
+      first crediting period and the block's vintage year sit inside the eligible unit dates
+      the rule set carries for this compliance period, naming the field of the record each was
+      read from. Return PASS, FAIL or UNRESOLVED per block, naming the rule applied, to
+      programme-desk-gold. The verbatim sentence behind that rule is evidence-desk's to
+      supply.
+    depends_on: [programme-desk-gold]
+    parallel_group: programme-work
+
+  - id: scope-worker-gold
+    description: >-
+      Answer the scope question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that Gold Standard issued: whether the activity
+      falls outside the exclusions that programme's own Scope of Eligibility carries. Where
+      the record's category fields do not settle what an activity is, read that activity's
+      entry in /input_artifacts/activity_dossiers.md. Return PASS, FAIL or UNRESOLVED per
+      block, naming which exclusion catches it and what in the record or the dossier put it
+      there, to programme-desk-gold. The verbatim excluding sentence is evidence-desk's to
+      supply.
+    depends_on: [programme-desk-gold]
+    parallel_group: programme-work
+
+  - id: labelling-worker-gold
+    description: >-
+      Read /input_artifacts/programme_labelling_extract.csv for the blocks Gold Standard
+      issued and return, per block, the compliance period label the programme carries for that
+      activity or that it carries none, and every other entry against that activity as its own
+      separate field. Do not judge whether any label holds; that is not this worker's
+      question. Return the two fields to programme-desk-gold.
+    depends_on: [programme-desk-gold]
+    parallel_group: programme-work
+
+  - id: authorisation-worker-gold
+    description: >-
+      Answer the host country question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that Gold Standard issued: the condition the Council
+      attaches to that programme on host country authorisation and the avoidance of
+      double-claiming, and whether the record shows it met, unmet or unevidenced. Return PASS,
+      FAIL or UNRESOLVED per block, naming the condition applied and the field of the record
+      read for it, to programme-desk-gold. The verbatim sentence is evidence-desk's to supply.
+    depends_on: [programme-desk-gold]
+    parallel_group: programme-work
+
+  - id: availability-worker-gold
+    description: >-
+      Answer the availability question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that Gold Standard issued: the tonnage the record
+      shows still unretired on that vintage, and whether it is greater than zero. Name the
+      blocks the record gives no usable figure for. This is the only place that tonnage is
+      read. Return PASS, FAIL or UNRESOLVED and the figure per block to programme-desk-gold.
+    depends_on: [programme-desk-gold]
+    parallel_group: programme-work
+
+  - id: approval-worker-iso
+    description: >-
+      Answer the approval question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that Isometric issued: whether the Council has
+      approved that programme to supply units for the 2024 to 2026 compliance period and the
+      block sits inside the eligibility timeframe stated against it. Work from that
+      programme's entry in the rule set council-rules-desk returned. Return PASS, FAIL or
+      UNRESOLVED per block, naming the rule applied, to programme-desk-iso. The verbatim
+      sentence behind that rule is evidence-desk's to supply and is not this worker's to
+      quote.
+    depends_on: [programme-desk-iso]
+    parallel_group: programme-work
+
+  - id: dates-worker-iso
+    description: >-
+      Answer the dates question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that Isometric issued: whether the activity's first
+      crediting period and the block's vintage year sit inside the eligible unit dates the
+      rule set carries for this compliance period, naming the field of the record each was
+      read from. Return PASS, FAIL or UNRESOLVED per block, naming the rule applied, to
+      programme-desk-iso. The verbatim sentence behind that rule is evidence-desk's to supply.
+    depends_on: [programme-desk-iso]
+    parallel_group: programme-work
+
+  - id: scope-worker-iso
+    description: >-
+      Answer the scope question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that Isometric issued: whether the activity falls
+      outside the exclusions that programme's own Scope of Eligibility carries. Where the
+      record's category fields do not settle what an activity is, read that activity's entry
+      in /input_artifacts/activity_dossiers.md. Return PASS, FAIL or UNRESOLVED per block,
+      naming which exclusion catches it and what in the record or the dossier put it there, to
+      programme-desk-iso. The verbatim excluding sentence is evidence-desk's to supply.
+    depends_on: [programme-desk-iso]
+    parallel_group: programme-work
+
+  - id: labelling-worker-iso
+    description: >-
+      Read /input_artifacts/programme_labelling_extract.csv for the blocks Isometric issued
+      and return, per block, the compliance period label the programme carries for that
+      activity or that it carries none, and every other entry against that activity as its own
+      separate field. Do not judge whether any label holds; that is not this worker's
+      question. Return the two fields to programme-desk-iso.
+    depends_on: [programme-desk-iso]
+    parallel_group: programme-work
+
+  - id: authorisation-worker-iso
+    description: >-
+      Answer the host country question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that Isometric issued: the condition the Council
+      attaches to that programme on host country authorisation and the avoidance of
+      double-claiming, and whether the record shows it met, unmet or unevidenced. Return PASS,
+      FAIL or UNRESOLVED per block, naming the condition applied and the field of the record
+      read for it, to programme-desk-iso. The verbatim sentence is evidence-desk's to supply.
+    depends_on: [programme-desk-iso]
+    parallel_group: programme-work
+
+  - id: availability-worker-iso
+    description: >-
+      Answer the availability question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that Isometric issued: the tonnage the record shows
+      still unretired on that vintage, and whether it is greater than zero. Name the blocks
+      the record gives no usable figure for. This is the only place that tonnage is read.
+      Return PASS, FAIL or UNRESOLVED and the figure per block to programme-desk-iso.
+    depends_on: [programme-desk-iso]
+    parallel_group: programme-work
+
+  - id: approval-worker-vcs
+    description: >-
+      Answer the approval question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that the Verified Carbon Standard issued: whether
+      the Council has approved that programme to supply units for the 2024 to 2026 compliance
+      period and the block sits inside the eligibility timeframe stated against it. Work from
+      that programme's entry in the rule set council-rules-desk returned. Return PASS, FAIL or
+      UNRESOLVED per block, naming the rule applied, to programme-desk-vcs. The verbatim
+      sentence behind that rule is evidence-desk's to supply and is not this worker's to
+      quote.
+    depends_on: [programme-desk-vcs]
+    parallel_group: programme-work
+
+  - id: dates-worker-vcs
+    description: >-
+      Answer the dates question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that the Verified Carbon Standard issued: whether
+      the activity's first crediting period and the block's vintage year sit inside the
+      eligible unit dates the rule set carries for this compliance period, naming the field of
+      the record each was read from. Return PASS, FAIL or UNRESOLVED per block, naming the
+      rule applied, to programme-desk-vcs. The verbatim sentence behind that rule is
+      evidence-desk's to supply.
+    depends_on: [programme-desk-vcs]
+    parallel_group: programme-work
+
+  - id: scope-worker-vcs
+    description: >-
+      Answer the scope question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that the Verified Carbon Standard issued: whether
+      the activity falls outside the exclusions that programme's own Scope of Eligibility
+      carries. Where the record's category fields do not settle what an activity is, read that
+      activity's entry in /input_artifacts/activity_dossiers.md. Return PASS, FAIL or
+      UNRESOLVED per block, naming which exclusion catches it and what in the record or the
+      dossier put it there, to programme-desk-vcs. The verbatim excluding sentence is
+      evidence-desk's to supply.
+    depends_on: [programme-desk-vcs]
+    parallel_group: programme-work
+
+  - id: labelling-worker-vcs
+    description: >-
+      Read /input_artifacts/programme_labelling_extract.csv for the blocks the Verified Carbon
+      Standard issued and return, per block, the compliance period label the programme carries
+      for that activity or that it carries none, and every other entry against that activity
+      as its own separate field. Do not judge whether any label holds; that is not this
+      worker's question. Return the two fields to programme-desk-vcs.
+    depends_on: [programme-desk-vcs]
+    parallel_group: programme-work
+
+  - id: authorisation-worker-vcs
+    description: >-
+      Answer the host country question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that the Verified Carbon Standard issued: the
+      condition the Council attaches to that programme on host country authorisation and the
+      avoidance of double-claiming, and whether the record shows it met, unmet or unevidenced.
+      Return PASS, FAIL or UNRESOLVED per block, naming the condition applied and the field of
+      the record read for it, to programme-desk-vcs. The verbatim sentence is evidence-desk's
+      to supply.
+    depends_on: [programme-desk-vcs]
+    parallel_group: programme-work
+
+  - id: availability-worker-vcs
+    description: >-
+      Answer the availability question, and only that question, for every block in
+      /input_artifacts/candidate_pool.csv that the Verified Carbon Standard issued: the
+      tonnage the record shows still unretired on that vintage, and whether it is greater than
+      zero. Name the blocks the record gives no usable figure for. This is the only place that
+      tonnage is read. Return PASS, FAIL or UNRESOLVED and the figure per block to
+      programme-desk-vcs.
+    depends_on: [programme-desk-vcs]
+    parallel_group: programme-work
+
+  - id: programme-desk-acr
+    description: >-
+      Own every block in the pool that the American Carbon Registry issued. Dispatch the six
+      leaf workers named for this desk in desk_register, one per eligibility test, and merge
+      what they return into this programme's rows: the five test columns, the tonnage, the two
+      labelling fields, and per block which rule decided it, so evidence-desk's sentence for
+      that rule can be joined to the row at assembly. Where two workers contradict each other
+      about a block, return both and mark the block disagreed rather than choosing between
+      them. Settle no verdict and write no file; hand the rows to clearance-assembly.
+    depends_on: [council-rules-desk]
+    parallel_group: programme-desks
+
+  - id: programme-desk-art
+    description: >-
+      Own every block in the pool that Architecture for REDD+ Transactions issued. Dispatch
+      the six leaf workers named for this desk in desk_register, one per eligibility test, and
+      merge what they return into this programme's rows: the five test columns, the tonnage,
+      the two labelling fields, and per block which rule decided it, so evidence-desk's
+      sentence for that rule can be joined to the row at assembly. Where two workers
+      contradict each other about a block, return both and mark the block disagreed rather
+      than choosing between them. Settle no verdict and write no file; hand the rows to
+      clearance-assembly.
+    depends_on: [council-rules-desk]
+    parallel_group: programme-desks
+
+  - id: programme-desk-car
+    description: >-
+      Own every block in the pool that the Climate Action Reserve issued. Dispatch the six
+      leaf workers named for this desk in desk_register, one per eligibility test, and merge
+      what they return into this programme's rows: the five test columns, the tonnage, the two
+      labelling fields, and per block which rule decided it, so evidence-desk's sentence for
+      that rule can be joined to the row at assembly. Where two workers contradict each other
+      about a block, return both and mark the block disagreed rather than choosing between
+      them. Settle no verdict and write no file; hand the rows to clearance-assembly.
+    depends_on: [council-rules-desk]
+    parallel_group: programme-desks
+
+  - id: programme-desk-gold
+    description: >-
+      Own every block in the pool that Gold Standard issued. Dispatch the six leaf workers
+      named for this desk in desk_register, one per eligibility test, and merge what they
+      return into this programme's rows: the five test columns, the tonnage, the two labelling
+      fields, and per block which rule decided it, so evidence-desk's sentence for that rule
+      can be joined to the row at assembly. Where two workers contradict each other about a
+      block, return both and mark the block disagreed rather than choosing between them.
+      Settle no verdict and write no file; hand the rows to clearance-assembly.
+    depends_on: [council-rules-desk]
+    parallel_group: programme-desks
+
+  - id: programme-desk-iso
+    description: >-
+      Own every block in the pool that Isometric issued. Dispatch the six leaf workers named
+      for this desk in desk_register, one per eligibility test, and merge what they return
+      into this programme's rows: the five test columns, the tonnage, the two labelling
+      fields, and per block which rule decided it, so evidence-desk's sentence for that rule
+      can be joined to the row at assembly. Where two workers contradict each other about a
+      block, return both and mark the block disagreed rather than choosing between them.
+      Settle no verdict and write no file; hand the rows to clearance-assembly.
+    depends_on: [council-rules-desk]
+    parallel_group: programme-desks
+
+  - id: programme-desk-vcs
+    description: >-
+      Own every block in the pool that the Verified Carbon Standard issued. Dispatch the six
+      leaf workers named for this desk in desk_register, one per eligibility test, and merge
+      what they return into this programme's rows: the five test columns, the tonnage, the two
+      labelling fields, and per block which rule decided it, so evidence-desk's sentence for
+      that rule can be joined to the row at assembly. Where two workers contradict each other
+      about a block, return both and mark the block disagreed rather than choosing between
+      them. Settle no verdict and write no file; hand the rows to clearance-assembly.
+    depends_on: [council-rules-desk]
+    parallel_group: programme-desks
+
+  - id: evidence-worker-dates
+    description: >-
+      Supply the exact sentences carrying the eligible unit dates for the 2024 to 2026
+      compliance period, copied word for word from the section of
+      /input_artifacts/sources/ICAO-CEEU-2026-04.txt that governs that period. Return them to
+      evidence-desk.
+    depends_on: [evidence-desk]
+    parallel_group: evidence-work
+
+  - id: evidence-worker-identification
+    description: >-
+      Supply, per approved programme, the exact sentence in which the Council makes that
+      programme's units eligible for cancellation toward the 2024 to 2026 compliance period,
+      copied word for word from the section of /input_artifacts/sources/ICAO-CEEU-2026-04.txt
+      that governs that period. Return them to evidence-desk.
+    depends_on: [evidence-desk]
+    parallel_group: evidence-work
+
+  - id: evidence-worker-exclusions
+    description: >-
+      Supply the exact excluding sentence for every exclusion clause listed under any approved
+      programme's Scope of Eligibility, copied word for word from the section of
+      /input_artifacts/sources/ICAO-CEEU-2026-04.txt that governs the 2024 to 2026 compliance
+      period, and say which programme each one sits under. Return them to evidence-desk.
+    depends_on: [evidence-desk]
+    parallel_group: evidence-work
+
+  - id: evidence-worker-authorisation
+    description: >-
+      Supply the exact sentence making host country authorisation and the avoidance of
+      double-claiming a condition under each approved programme, copied word for word from the
+      section of /input_artifacts/sources/ICAO-CEEU-2026-04.txt that governs the 2024 to 2026
+      compliance period, and say which programme each one sits under. Return them to
+      evidence-desk.
+    depends_on: [evidence-desk]
+    parallel_group: evidence-work
+
+  - id: evidence-worker-attribution
+    description: >-
+      For every sentence the other evidence workers supply, return the source_id
+      /input_artifacts/sources.json gives the capture it was read out of, read out of that
+      file rather than written from memory of a filename, so a sentence and its attribution
+      cannot come apart downstream. Return the pairing to evidence-desk.
+    depends_on: [evidence-desk]
+    parallel_group: evidence-work
+
+  - id: evidence-desk
+    description: >-
+      Own the quotations. Dispatch the five leaf workers named for this desk, then hold every
+      sentence they return to two conditions before it leaves: it appears verbatim in the
+      section of the file it is attributed to that governs the 2024 to 2026 compliance period,
+      and it carries the rule it is offered for rather than merely naming a programme. Send
+      back any sentence that fails either. Return the checked sentence set, each paired with
+      its source_id, to clearance-assembly.
+    depends_on: [council-rules-desk]
+    parallel_group: evidence
+
+  - id: clearance-assembly
+    description: >-
+      Settle the verdict each block's own desk answers support, in the vocabulary
+      instruction.md sets, and write /logs/agent/clearance_register.csv in the declared column
+      order with one row per block in the pool - each row carrying the five test columns as
+      the desks returned them, the verdict, and the governing sentence with its source id from
+      evidence-desk. Do not re-answer a desk's question and do not let a programme's own label
+      stand in for an answer no desk gave. Hand the referred set to referral-panel and the
+      cleared set to issue-desk.
+    depends_on:
+      - programme-desk-acr
+      - programme-desk-art
+      - programme-desk-car
+      - programme-desk-gold
+      - programme-desk-iso
+      - programme-desk-vcs
+      - evidence-desk
+    parallel_group: assembly
+
+  - id: referral-analyst-labelling-conflict
+    description: >-
+      Work the referred blocks where a programme has labelled the activity for the 2024 to
+      2026 compliance period and a desk has found the Council's scope unsatisfied. For each,
+      return what the programme claimed and what the Council requires, each in its own
+      source's words with that source's id, and what would settle it. Return them to
+      referral-panel.
+    depends_on: [referral-panel]
+    parallel_group: panel-work
+
+  - id: referral-analyst-record-silence
+    description: >-
+      Work the referred blocks a desk returned UNRESOLVED because the record is silent rather
+      than contrary. For each, return both positions in their own source's words and say what
+      would have to be produced to settle it, naming the document and the figures of that
+      block it applies to, against the assessment criteria council-rules-desk returned. Return
+      them to referral-panel.
+    depends_on: [referral-panel]
+    parallel_group: panel-work
+
+  - id: referral-panel
+    description: >-
+      Own the referral file. Dispatch the two leaf analysts named for this desk, then write
+      /logs/agent/referrals.json as a JSON array, one object per referred block, in the
+      declared key order, carrying both positions in their own source's words and a
+      recommendation argued from that block's own figures. Overturn no desk and decide nothing
+      on the schedule. Report the referred set to issue-desk.
+    depends_on: [clearance-assembly]
+    parallel_group: panel
+
+  - id: schedule-builder
+    description: >-
+      Write /logs/agent/cancellation_schedule.csv in the declared column order from cleared
+      blocks only, in the order and to the tonnage instruction.md sets, splitting the final
+      block for the outstanding balance rather than overshooting it, and carrying the running
+      total in the file. Take the cleared set and the tonnages from the register rather than
+      recomputing them. Report the filed set to issue-desk.
+    depends_on: [issue-desk]
+    parallel_group: issue-work
+
+  - id: map-builder
+    description: >-
+      Write /logs/agent/eligibility_map.html as one self-contained page meeting the
+      requirements instruction.md sets for it, with the register and the schedule embedded as
+      JSON under the declared script ids so the page and the files cannot drift. Take every
+      block id, verdict and tonnage from the register and the schedule rather than recomputing
+      them. Report to issue-desk.
+    depends_on: [issue-desk]
+    parallel_group: issue-work
+
+  - id: note-writer
+    description: >-
+      Write /logs/agent/committee_note.md to the headings, length and disposition table
+      instruction.md declares. This node writes in its own context, so carry the heading names
+      and the table keys into it rather than assuming they are remembered. Every figure comes
+      from the register, the referral file and the schedule and none is recomputed here, and
+      each block is described only as the register describes it, in a sentence naming one
+      disposition. Report to issue-desk.
+    depends_on: [issue-desk]
+    parallel_group: issue-work
+
+  - id: release-check
+    description: >-
+      Read the four issued files back against /logs/agent/clearance_register.csv and report
+      every disagreement: a block id in one and not another, a verdict that moved, a tonnage
+      that does not add up, a heading or column that is not the declared one, a quotation that
+      is not verbatim in the first-phase section of the file it is attributed to. Report to
+      issue-desk; do not rewrite any file.
+    depends_on: [schedule-builder, map-builder, note-writer]
+    parallel_group: issue-check
+
+  - id: issue-desk
+    description: >-
+      Own the four artifacts beside the register. Dispatch schedule-builder, map-builder and
+      note-writer, then release-check once they have returned, and hold what they filed to one
+      another: nothing leaves with a block id, a verdict or a tonnage that disagrees with the
+      register. Report what was issued and what did not reconcile to clearing-router.
+    depends_on: [clearance-assembly, referral-panel]
+    parallel_group: issue
+

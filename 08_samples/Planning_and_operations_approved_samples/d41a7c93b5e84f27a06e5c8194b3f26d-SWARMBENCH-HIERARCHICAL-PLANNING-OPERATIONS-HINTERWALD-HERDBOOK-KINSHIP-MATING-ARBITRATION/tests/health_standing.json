@@ -1,0 +1,2033 @@
+{
+ "round_date": "2010-03-01",
+ "note": "Reconciled standing of every living animal on the round date, frozen from the herd health correspondence. The correspondence is ordinary veterinary prose with no fixed grammar, so this is the one value the grader cannot recompute from the shipped files. It lives under tests/ and is never copied into the agent image.",
+ "animals": {
+  "276000802947937": {
+   "binding": {
+    "ISOLATION_ONLY": {
+     "evidence": "has to be boxed on her own. She is repeatedly driven off the feed face and has lost condition in the group.",
+     "visit_date": "2010-02-17",
+     "days": null
+    }
+   },
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2010-02-17",
+     "evidence": "has to be boxed on her own. She is repeatedly driven off the feed face and has lost condition in the group.",
+     "days": null,
+     "ends": null
+    },
+    "BREEDING_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2010-02-17",
+     "evidence": "is cleared for breeding again. Two clean milk samples in a row, so the restriction is lifted.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000810063778": {
+   "binding": {},
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "LIFT",
+     "visit_date": "2010-01-21",
+     "evidence": "can go on the normal isolation period now; the extension I asked for is no longer needed.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000810331698": {
+   "binding": {
+    "MOVEMENT_BLOCK": {
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put him on a lorry.",
+     "visit_date": "2010-02-17",
+     "days": null
+    }
+   },
+   "governing": {
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2010-02-17",
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put him on a lorry.",
+     "days": null,
+     "ends": null
+    },
+    "BREEDING_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2010-01-21",
+     "evidence": "can go back to work. His foot has healed and I am discharging the breeding restriction.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000810332265": {
+   "binding": {
+    "MOVEMENT_BLOCK": {
+     "evidence": "must not be loaded. Her hock is still swollen and she cannot brace herself in a moving vehicle.",
+     "visit_date": "2009-12-15",
+     "days": null
+    },
+    "EXTENDED_ISOLATION": {
+     "evidence": "should be given an extra 14 days of isolation wherever she goes. She was in the same airspace as the index case in the neighbouring unit.",
+     "visit_date": "2010-02-17",
+     "days": 14
+    }
+   },
+   "governing": {
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-12-15",
+     "evidence": "must not be loaded. Her hock is still swollen and she cannot brace herself in a moving vehicle.",
+     "days": null,
+     "ends": null
+    },
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2010-02-17",
+     "evidence": "should be given an extra 14 days of isolation wherever she goes. She was in the same airspace as the index case in the neighbouring unit.",
+     "days": 14,
+     "ends": null
+    }
+   }
+  },
+  "276000810332266": {
+   "binding": {},
+   "governing": {}
+  },
+  "276000810713973": {
+   "binding": {
+    "EXTENDED_ISOLATION": {
+     "evidence": "needs 14 additional days beyond the standard isolation period on arrival; her vaccination interval was not complete when she was sampled.",
+     "visit_date": "2010-01-21",
+     "days": 14
+    }
+   },
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2010-01-21",
+     "evidence": "needs 14 additional days beyond the standard isolation period on arrival; her vaccination interval was not complete when she was sampled.",
+     "days": 14,
+     "ends": null
+    }
+   }
+  },
+  "276000810748278": {
+   "binding": {
+    "EXTENDED_ISOLATION": {
+     "evidence": "needs 14 additional days beyond the standard isolation period on arrival; her vaccination interval was not complete when she was sampled.",
+     "visit_date": "2009-08-06",
+     "days": 14
+    }
+   },
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-08-06",
+     "evidence": "needs 14 additional days beyond the standard isolation period on arrival; her vaccination interval was not complete when she was sampled.",
+     "days": 14,
+     "ends": null
+    },
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "has to be boxed on her own. She is repeatedly driven off the feed face and has lost condition in the group, until the 20th of December 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000810816182": {
+   "binding": {},
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "should be housed alone until further notice. Two of the heifers have been injured by her in as many weeks, and I will review it no earlier than December 20, 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000811082009": {
+   "binding": {
+    "EXTENDED_ISOLATION": {
+     "evidence": "requires the receiving isolation extended by 7 days. She is still shedding at a low level and I would not shorten it.",
+     "visit_date": "2010-02-17",
+     "days": 7
+    }
+   },
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2010-02-17",
+     "evidence": "requires the receiving isolation extended by 7 days. She is still shedding at a low level and I would not shorten it.",
+     "days": 7,
+     "ends": null
+    },
+    "ISOLATION_ONLY": {
+     "action": "LIFT",
+     "visit_date": "2009-12-15",
+     "evidence": "can go back into the group. She has held her place at the feed face for a full month and the single-housing direction is withdrawn.",
+     "days": null,
+     "ends": null
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2009-12-15",
+     "evidence": "is cleared for transport. The hock has settled completely and she is sound at the walk.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000811815586": {
+   "binding": {
+    "EXTENDED_ISOLATION": {
+     "evidence": "requires the receiving isolation extended by 5 days. He is still shedding at a low level and I would not shorten it, and I will review it no earlier than the 28th of July 2010.",
+     "visit_date": "2009-09-24",
+     "days": 5
+    },
+    "MATING_EXCLUSION:276000891618439": {
+     "evidence": "and 276000891618439 should be kept apart in the mating plan; that pairing was a failure on welfare grounds.",
+     "visit_date": "2009-11-12",
+     "days": null
+    }
+   },
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "requires the receiving isolation extended by 5 days. He is still shedding at a low level and I would not shorten it, and I will review it no earlier than the 28th of July 2010.",
+     "days": 5,
+     "ends": "2010-07-28"
+    },
+    "MATING_EXCLUSION:276000891618439": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "and 276000891618439 should be kept apart in the mating plan; that pairing was a failure on welfare grounds.",
+     "days": null,
+     "ends": null
+    },
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-08-06",
+     "evidence": "is blocked from breeding. He has become unmanageable with the stockman and I will not have him running with cows, through to 20.12.2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    },
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "must be kept in a separate pen. He cannot be run with the other bulls without injury on both sides, until 20.12.2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000811823366": {
+   "binding": {
+    "MATING_EXCLUSION:276000813533577": {
+     "evidence": "is not to be served by 276000813533577 under any circumstances after what happened at the last attempt, and I will review it no earlier than the 7th of August 2010.",
+     "visit_date": "2010-01-21",
+     "days": null
+    }
+   },
+   "governing": {
+    "MATING_EXCLUSION:276000813533577": {
+     "action": "PLACE",
+     "visit_date": "2010-01-21",
+     "evidence": "is not to be served by 276000813533577 under any circumstances after what happened at the last attempt, and I will review it no earlier than the 7th of August 2010.",
+     "days": null,
+     "ends": "2010-08-07"
+    },
+    "EXTENDED_ISOLATION": {
+     "action": "LIFT",
+     "visit_date": "2009-12-15",
+     "evidence": "no longer needs the extended isolation. Three consecutive clear screens, so the standard period is sufficient.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000811902918": {
+   "binding": {},
+   "governing": {}
+  },
+  "276000812081697": {
+   "binding": {
+    "EXTENDED_ISOLATION": {
+     "evidence": "requires the receiving isolation extended by 7 days. She is still shedding at a low level and I would not shorten it, through to May 12, 2010.",
+     "visit_date": "2009-06-18",
+     "days": 7
+    },
+    "MATING_EXCLUSION:276000813838643": {
+     "evidence": "and 276000813838643 should be kept apart in the mating plan; that pairing was a failure on welfare grounds.",
+     "visit_date": "2009-09-24",
+     "days": null
+    }
+   },
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "requires the receiving isolation extended by 7 days. She is still shedding at a low level and I would not shorten it, through to May 12, 2010.",
+     "days": 7,
+     "ends": "2010-05-12"
+    },
+    "MATING_EXCLUSION:276000813838643": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "and 276000813838643 should be kept apart in the mating plan; that pairing was a failure on welfare grounds.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000812140647": {
+   "binding": {},
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "LIFT",
+     "visit_date": "2009-09-24",
+     "evidence": "may be rehoused with the others; the isolation direction I gave earlier is lifted.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000812201874": {
+   "binding": {},
+   "governing": {}
+  },
+  "276000812201924": {
+   "binding": {},
+   "governing": {}
+  },
+  "276000812202049": {
+   "binding": {
+    "EXTENDED_ISOLATION": {
+     "evidence": "requires the receiving isolation extended by 14 days. She is still shedding at a low level and I would not shorten it.",
+     "visit_date": "2009-11-12",
+     "days": 14
+    }
+   },
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "requires the receiving isolation extended by 14 days. She is still shedding at a low level and I would not shorten it.",
+     "days": 14,
+     "ends": null
+    }
+   }
+  },
+  "276000812202054": {
+   "binding": {},
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "should not be bred. The lameness in her off hind has not responded to two rounds of treatment, and I will review it no earlier than the 20th of December 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000812346916": {
+   "binding": {
+    "MOVEMENT_BLOCK": {
+     "evidence": "must not be loaded. Her hock is still swollen and she cannot brace herself in a moving vehicle.",
+     "visit_date": "2010-01-21",
+     "days": null
+    }
+   },
+   "governing": {
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2010-01-21",
+     "evidence": "must not be loaded. Her hock is still swollen and she cannot brace herself in a moving vehicle.",
+     "days": null,
+     "ends": null
+    },
+    "BREEDING_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2010-01-21",
+     "evidence": "is released from the breeding restriction. She has held condition through the winter without further trouble.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000812347135": {
+   "binding": {},
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "has to be boxed on her own. She is repeatedly driven off the feed face and has lost condition in the group, through to December 20, 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000812347220": {
+   "binding": {},
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-08-06",
+     "evidence": "must be kept in a separate box. She has become genuinely dangerous to handle in the loose housing, until 20 December 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    },
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "should be given an extra 5 days of isolation wherever she goes. She was in the same airspace as the index case in the neighbouring unit, and I will review it no earlier than the 20th of December 2009.",
+     "days": 5,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000812433061": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "is blocked from breeding on welfare grounds after the second displaced abomasum in eighteen months, until 2.08.2010.",
+     "visit_date": "2009-09-24",
+     "days": null
+    },
+    "MATING_EXCLUSION:276000892238051": {
+     "evidence": "should not be put to 276000892238051 again. That mating went badly last season and neither animal settled.",
+     "visit_date": "2009-09-24",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "is blocked from breeding on welfare grounds after the second displaced abomasum in eighteen months, until 2.08.2010.",
+     "days": null,
+     "ends": "2010-08-02"
+    },
+    "MATING_EXCLUSION:276000892238051": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "should not be put to 276000892238051 again. That mating went badly last season and neither animal settled.",
+     "days": null,
+     "ends": null
+    },
+    "EXTENDED_ISOLATION": {
+     "action": "LIFT",
+     "visit_date": "2009-11-12",
+     "evidence": "no longer needs the extended isolation. Three consecutive clear screens, so the standard period is sufficient.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000812433080": {
+   "binding": {
+    "MATING_EXCLUSION:276000812496746": {
+     "evidence": "is not to be served by 276000812496746 under any circumstances after what happened at the last attempt.",
+     "visit_date": "2009-06-18",
+     "days": null
+    }
+   },
+   "governing": {
+    "MATING_EXCLUSION:276000812496746": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "is not to be served by 276000812496746 under any circumstances after what happened at the last attempt.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000812496746": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "is withheld on welfare grounds after the back injury; he is not sound enough to serve.",
+     "visit_date": "2009-09-24",
+     "days": null
+    },
+    "MATING_EXCLUSION:276000812939258": {
+     "evidence": "should not be put back to 276000812939258. That mating went badly last season and neither animal settled, and I will review it no earlier than 28 July 2010.",
+     "visit_date": "2009-06-18",
+     "days": null
+    },
+    "MATING_EXCLUSION:276000812433080": {
+     "evidence": "should not be put back to 276000812433080. That mating went badly last season and neither animal settled, and I will review it no earlier than the 26th of June 2010.",
+     "visit_date": "2009-08-06",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "is withheld on welfare grounds after the back injury; he is not sound enough to serve.",
+     "days": null,
+     "ends": null
+    },
+    "MATING_EXCLUSION:276000812939258": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "should not be put back to 276000812939258. That mating went badly last season and neither animal settled, and I will review it no earlier than 28 July 2010.",
+     "days": null,
+     "ends": "2010-07-28"
+    },
+    "MATING_EXCLUSION:276000812433080": {
+     "action": "PLACE",
+     "visit_date": "2009-08-06",
+     "evidence": "should not be put back to 276000812433080. That mating went badly last season and neither animal settled, and I will review it no earlier than the 26th of June 2010.",
+     "days": null,
+     "ends": "2010-06-26"
+    },
+    "EXTENDED_ISOLATION": {
+     "action": "LIFT",
+     "visit_date": "2009-12-15",
+     "evidence": "can travel on the normal isolation period now, the extension is no longer warranted.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000812496867": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "should not be bred. The lameness in her off hind has not responded to two rounds of treatment.",
+     "visit_date": "2009-09-24",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "should not be bred. The lameness in her off hind has not responded to two rounds of treatment.",
+     "days": null,
+     "ends": null
+    },
+    "ISOLATION_ONLY": {
+     "action": "LIFT",
+     "visit_date": "2009-11-12",
+     "evidence": "no longer needs a separate box. The scour resolved and she has been clean on three consecutive samples.",
+     "days": null,
+     "ends": null
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2009-11-12",
+     "evidence": "is cleared for transport. The hock has settled completely and she is sound at the walk.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000812496887": {
+   "binding": {},
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2009-12-15",
+     "evidence": "is sound again. The foot healed cleanly at the recheck and the breeding restriction I placed earlier comes off.",
+     "days": null,
+     "ends": null
+    },
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "needs 7 additional days beyond the standard isolation period on arrival; her vaccination interval was not complete when she was sampled, with the restriction running to December 20, 2009.",
+     "days": 7,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000812496917": {
+   "binding": {
+    "MATING_EXCLUSION:276000812939303": {
+     "evidence": "must not be mated with 276000812939303. The combination produced a dead calf and I would not repeat it.",
+     "visit_date": "2009-11-12",
+     "days": null
+    }
+   },
+   "governing": {
+    "MATING_EXCLUSION:276000812939303": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "must not be mated with 276000812939303. The combination produced a dead calf and I would not repeat it.",
+     "days": null,
+     "ends": null
+    },
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-08-06",
+     "evidence": "should be withdrawn from service. The lameness in his near hind is unresolved and he cannot work a group of cows, until 20.12.2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000812497309": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "is not to go to the bull this season; the interdigital lesion on her near hind is still open and she needs the summer off.",
+     "visit_date": "2010-02-17",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2010-02-17",
+     "evidence": "is not to go to the bull this season; the interdigital lesion on her near hind is still open and she needs the summer off.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000812688840": {
+   "binding": {},
+   "governing": {}
+  },
+  "276000812689042": {
+   "binding": {},
+   "governing": {}
+  },
+  "276000812689145": {
+   "binding": {},
+   "governing": {}
+  },
+  "276000812698734": {
+   "binding": {},
+   "governing": {
+    "MOVEMENT_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2009-11-12",
+     "evidence": "is fit to travel again. He loads and stands quietly and the restriction on moving him comes off.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000812698735": {
+   "binding": {},
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "should be given an extra 5 days of isolation wherever she goes. She was in the same airspace as the index case in the neighbouring unit, with the restriction running to 20.12.2009.",
+     "days": 5,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000812749583": {
+   "binding": {
+    "EXTENDED_ISOLATION": {
+     "evidence": "requires the receiving isolation extended by 5 days. He is still shedding at a low level and I would not shorten it.",
+     "visit_date": "2009-06-18",
+     "days": 5
+    }
+   },
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "requires the receiving isolation extended by 5 days. He is still shedding at a low level and I would not shorten it.",
+     "days": 5,
+     "ends": null
+    }
+   }
+  },
+  "276000812749664": {
+   "binding": {},
+   "governing": {}
+  },
+  "276000812750039": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "is not to be used this season. His semen assessment came back poor on both samples and I would not risk the round on him.",
+     "visit_date": "2009-09-24",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "is not to be used this season. His semen assessment came back poor on both samples and I would not risk the round on him.",
+     "days": null,
+     "ends": null
+    },
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "must be kept in a separate pen. He cannot be run with the other bulls without injury on both sides, with the restriction running to December 20, 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000812750057": {
+   "binding": {},
+   "governing": {}
+  },
+  "276000812806015": {
+   "binding": {
+    "MOVEMENT_BLOCK": {
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put her on a lorry, with the restriction running to 31.08.2010.",
+     "visit_date": "2010-01-21",
+     "days": null
+    }
+   },
+   "governing": {
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2010-01-21",
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put her on a lorry, with the restriction running to 31.08.2010.",
+     "days": null,
+     "ends": "2010-08-31"
+    }
+   }
+  },
+  "276000812898234": {
+   "binding": {
+    "EXTENDED_ISOLATION": {
+     "evidence": "will need 7 days on top of the normal isolation at any receiving holding. Her faecal screen came back atypical and I want the extra margin, with the restriction running to 31 May 2010.",
+     "visit_date": "2009-06-18",
+     "days": 7
+    }
+   },
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "will need 7 days on top of the normal isolation at any receiving holding. Her faecal screen came back atypical and I want the extra margin, with the restriction running to 31 May 2010.",
+     "days": 7,
+     "ends": "2010-05-31"
+    },
+    "ISOLATION_ONLY": {
+     "action": "LIFT",
+     "visit_date": "2010-02-17",
+     "evidence": "may be rehoused with the others; the isolation direction I gave earlier is lifted.",
+     "days": null,
+     "ends": null
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "is unfit for transport. Her respiratory rate rises sharply under any handling, and I will review it no earlier than 20.12.2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000812922633": {
+   "binding": {
+    "ISOLATION_ONLY": {
+     "evidence": "needs single housing. The persistent scour has not cleared and I do not want her back in the group yet.",
+     "visit_date": "2009-11-12",
+     "days": null
+    }
+   },
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "needs single housing. The persistent scour has not cleared and I do not want her back in the group yet.",
+     "days": null,
+     "ends": null
+    },
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "is withheld from breeding. Repeat sampling still shows a raised somatic cell count and I want that settled first, with the restriction running to December 20, 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000812939258": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "is not to go to the bull this season; the interdigital lesion on her near hind is still open and she needs the summer off.",
+     "visit_date": "2009-12-15",
+     "days": null
+    },
+    "MATING_EXCLUSION:276000812496746": {
+     "evidence": "should not be put to 276000812496746 again. That mating went badly last season and neither animal settled, with the restriction running to the 27th of August 2010.",
+     "visit_date": "2009-11-12",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-12-15",
+     "evidence": "is not to go to the bull this season; the interdigital lesion on her near hind is still open and she needs the summer off.",
+     "days": null,
+     "ends": null
+    },
+    "MATING_EXCLUSION:276000812496746": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "should not be put to 276000812496746 again. That mating went badly last season and neither animal settled, with the restriction running to the 27th of August 2010.",
+     "days": null,
+     "ends": "2010-08-27"
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2009-12-15",
+     "evidence": "may now be transported; the earlier restriction on moving her is lifted.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000812939303": {
+   "binding": {
+    "MATING_EXCLUSION:276000812496917": {
+     "evidence": "is not to be served by 276000812496917 under any circumstances after what happened at the last attempt, until 2 May 2010.",
+     "visit_date": "2009-12-15",
+     "days": null
+    }
+   },
+   "governing": {
+    "MATING_EXCLUSION:276000812496917": {
+     "action": "PLACE",
+     "visit_date": "2009-12-15",
+     "evidence": "is not to be served by 276000812496917 under any circumstances after what happened at the last attempt, until 2 May 2010.",
+     "days": null,
+     "ends": "2010-05-02"
+    }
+   }
+  },
+  "276000813001636": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "must stay out of the breeding group. The chronic mastitis in the right fore quarter has flared again.",
+     "visit_date": "2010-02-17",
+     "days": null
+    },
+    "MATING_EXCLUSION:276000892238051": {
+     "evidence": "should not be put to 276000892238051 again. That mating went badly last season and neither animal settled.",
+     "visit_date": "2009-11-12",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2010-02-17",
+     "evidence": "must stay out of the breeding group. The chronic mastitis in the right fore quarter has flared again.",
+     "days": null,
+     "ends": null
+    },
+    "MATING_EXCLUSION:276000892238051": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "should not be put to 276000892238051 again. That mating went badly last season and neither animal settled.",
+     "days": null,
+     "ends": null
+    },
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "has to be boxed on her own. She is repeatedly driven off the feed face and has lost condition in the group, until 20.12.2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-08-06",
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put her on a lorry, and I will review it no earlier than 20 December 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    },
+    "EXTENDED_ISOLATION": {
+     "action": "LIFT",
+     "visit_date": "2009-09-24",
+     "evidence": "can go on the normal isolation period now; the extension I asked for is no longer needed.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813007328": {
+   "binding": {},
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2010-01-21",
+     "evidence": "may be used at stud again. His condition has come back up and the earlier restriction is lifted.",
+     "days": null,
+     "ends": null
+    },
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "needs single housing. The ringworm is still active and I do not want him back in the group yet, through to December 20, 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000813024702": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "cannot be entered for service. Her claw lesions are extensive and she is not sound enough to carry a pregnancy.",
+     "visit_date": "2009-08-06",
+     "days": null
+    },
+    "MOVEMENT_BLOCK": {
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put her on a lorry.",
+     "visit_date": "2009-11-12",
+     "days": null
+    },
+    "EXTENDED_ISOLATION": {
+     "evidence": "should be given an extra 14 days of isolation wherever she goes. She was in the same airspace as the index case in the neighbouring unit.",
+     "visit_date": "2010-02-17",
+     "days": 14
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-08-06",
+     "evidence": "cannot be entered for service. Her claw lesions are extensive and she is not sound enough to carry a pregnancy.",
+     "days": null,
+     "ends": null
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put her on a lorry.",
+     "days": null,
+     "ends": null
+    },
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2010-02-17",
+     "evidence": "should be given an extra 14 days of isolation wherever she goes. She was in the same airspace as the index case in the neighbouring unit.",
+     "days": 14,
+     "ends": null
+    }
+   }
+  },
+  "276000813024705": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "is not to go to the bull this season; the interdigital lesion on her near hind is still open and she needs the summer off, and I will review it no earlier than 29.05.2010.",
+     "visit_date": "2010-02-17",
+     "days": null
+    },
+    "MOVEMENT_BLOCK": {
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put her on a lorry.",
+     "visit_date": "2010-01-21",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2010-02-17",
+     "evidence": "is not to go to the bull this season; the interdigital lesion on her near hind is still open and she needs the summer off, and I will review it no earlier than 29.05.2010.",
+     "days": null,
+     "ends": "2010-05-29"
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2010-01-21",
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put her on a lorry.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813025007": {
+   "binding": {
+    "ISOLATION_ONLY": {
+     "evidence": "should be housed alone for now. He is far too rough with the younger stock.",
+     "visit_date": "2009-11-12",
+     "days": null
+    },
+    "MOVEMENT_BLOCK": {
+     "evidence": "is unfit for transport. His respiratory rate rises sharply under any handling.",
+     "visit_date": "2009-06-18",
+     "days": null
+    }
+   },
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "should be housed alone for now. He is far too rough with the younger stock.",
+     "days": null,
+     "ends": null
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "is unfit for transport. His respiratory rate rises sharply under any handling.",
+     "days": null,
+     "ends": null
+    },
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "is withheld from use. His libido has been consistently poor since the move and he is not covering, with the restriction running to 20.12.2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000813025187": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "should be withheld from service. Her body condition has not recovered from the last calving and I will not sign her off for breeding.",
+     "visit_date": "2009-08-06",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-08-06",
+     "evidence": "should be withheld from service. Her body condition has not recovered from the last calving and I will not sign her off for breeding.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813121710": {
+   "binding": {},
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "needs 5 additional days beyond the standard isolation period on arrival; her vaccination interval was not complete when she was sampled, until 20 December 2009.",
+     "days": 5,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000813155752": {
+   "binding": {},
+   "governing": {}
+  },
+  "276000813155753": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "is withheld from breeding. Repeat sampling still shows a raised somatic cell count and I want that settled first.",
+     "visit_date": "2010-01-21",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2010-01-21",
+     "evidence": "is withheld from breeding. Repeat sampling still shows a raised somatic cell count and I want that settled first.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813155770": {
+   "binding": {},
+   "governing": {}
+  },
+  "276000813212240": {
+   "binding": {
+    "ISOLATION_ONLY": {
+     "evidence": "is to be isolated. Her skin lesions are still shedding and I am not prepared to have her in the main shed.",
+     "visit_date": "2009-12-15",
+     "days": null
+    }
+   },
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-12-15",
+     "evidence": "is to be isolated. Her skin lesions are still shedding and I am not prepared to have her in the main shed.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813255939": {
+   "binding": {
+    "MOVEMENT_BLOCK": {
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put her on a lorry, with the restriction running to August 3, 2010.",
+     "visit_date": "2009-11-12",
+     "days": null
+    }
+   },
+   "governing": {
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put her on a lorry, with the restriction running to August 3, 2010.",
+     "days": null,
+     "ends": "2010-08-03"
+    }
+   }
+  },
+  "276000813255954": {
+   "binding": {},
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "must be kept in a separate pen. He cannot be run with the other bulls without injury on both sides, with the restriction running to 20 December 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000813256327": {
+   "binding": {},
+   "governing": {}
+  },
+  "276000813264775": {
+   "binding": {},
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2009-11-12",
+     "evidence": "no longer needs to be held back. The uterus checked clean and she may be served.",
+     "days": null,
+     "ends": null
+    },
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "should be housed alone until further notice. Two of the heifers have been injured by her in as many weeks, until the 20th of December 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000813270863": {
+   "binding": {},
+   "governing": {
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "should not be transported. He goes down on a moving floor and has injured himself twice doing it, through to 20 December 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000813270922": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "is withheld from breeding. Repeat sampling still shows a raised somatic cell count and I want that settled first, with the restriction running to the 19th of August 2010.",
+     "visit_date": "2009-12-15",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-12-15",
+     "evidence": "is withheld from breeding. Repeat sampling still shows a raised somatic cell count and I want that settled first, with the restriction running to the 19th of August 2010.",
+     "days": null,
+     "ends": "2010-08-19"
+    },
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "requires the receiving isolation extended by 10 days. She is still shedding at a low level and I would not shorten it, with the restriction running to 20.12.2009.",
+     "days": 10,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000813270939": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "is not to go to the bull this season; the interdigital lesion on her near hind is still open and she needs the summer off.",
+     "visit_date": "2009-09-24",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "is not to go to the bull this season; the interdigital lesion on her near hind is still open and she needs the summer off.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813284910": {
+   "binding": {},
+   "governing": {
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "cannot be moved at present. The old pelvic injury still leaves her unsteady when the floor shifts, through to December 20, 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000813368967": {
+   "binding": {},
+   "governing": {
+    "MOVEMENT_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2009-12-15",
+     "evidence": "is cleared for transport. The hock has settled completely and she is sound at the walk.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813368975": {
+   "binding": {},
+   "governing": {}
+  },
+  "276000813369001": {
+   "binding": {},
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "LIFT",
+     "visit_date": "2009-12-15",
+     "evidence": "no longer needs a separate box. The scour resolved and she has been clean on three consecutive samples.",
+     "days": null,
+     "ends": null
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "must not be loaded. Her hock is still swollen and she cannot brace herself in a moving vehicle, through to 20 December 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000813369054": {
+   "binding": {
+    "ISOLATION_ONLY": {
+     "evidence": "is to be isolated. Her skin lesions are still shedding and I am not prepared to have her in the main shed, until 24.08.2010.",
+     "visit_date": "2009-09-24",
+     "days": null
+    }
+   },
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "is to be isolated. Her skin lesions are still shedding and I am not prepared to have her in the main shed, until 24.08.2010.",
+     "days": null,
+     "ends": "2010-08-24"
+    }
+   }
+  },
+  "276000813369075": {
+   "binding": {},
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2009-12-15",
+     "evidence": "has recovered well and I am lifting the withholding on her; she can go forward for service.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813369197": {
+   "binding": {
+    "EXTENDED_ISOLATION": {
+     "evidence": "needs 5 additional days beyond the standard isolation period on arrival; his vaccination interval was not complete when he was sampled.",
+     "visit_date": "2009-08-06",
+     "days": 5
+    }
+   },
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-08-06",
+     "evidence": "needs 5 additional days beyond the standard isolation period on arrival; his vaccination interval was not complete when he was sampled.",
+     "days": 5,
+     "ends": null
+    }
+   }
+  },
+  "276000813466985": {
+   "binding": {},
+   "governing": {}
+  },
+  "276000813481085": {
+   "binding": {
+    "MOVEMENT_BLOCK": {
+     "evidence": "must not be loaded. Her hock is still swollen and she cannot brace herself in a moving vehicle.",
+     "visit_date": "2009-11-12",
+     "days": null
+    }
+   },
+   "governing": {
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "must not be loaded. Her hock is still swollen and she cannot brace herself in a moving vehicle.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813481302": {
+   "binding": {
+    "MOVEMENT_BLOCK": {
+     "evidence": "is unfit for transport. Her respiratory rate rises sharply under any handling.",
+     "visit_date": "2009-09-24",
+     "days": null
+    }
+   },
+   "governing": {
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "is unfit for transport. Her respiratory rate rises sharply under any handling.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813533577": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "should be withdrawn from service. The lameness in his near hind is unresolved and he cannot work a group of cows.",
+     "visit_date": "2009-11-12",
+     "days": null
+    },
+    "EXTENDED_ISOLATION": {
+     "evidence": "needs 5 additional days beyond the standard isolation period on arrival; his vaccination interval was not complete when he was sampled.",
+     "visit_date": "2010-01-21",
+     "days": 5
+    },
+    "MATING_EXCLUSION:276000811823366": {
+     "evidence": "is not to be used on 276000811823366 under any circumstances after what happened at the last attempt.",
+     "visit_date": "2010-01-21",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "should be withdrawn from service. The lameness in his near hind is unresolved and he cannot work a group of cows.",
+     "days": null,
+     "ends": null
+    },
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2010-01-21",
+     "evidence": "needs 5 additional days beyond the standard isolation period on arrival; his vaccination interval was not complete when he was sampled.",
+     "days": 5,
+     "ends": null
+    },
+    "MATING_EXCLUSION:276000811823366": {
+     "action": "PLACE",
+     "visit_date": "2010-01-21",
+     "evidence": "is not to be used on 276000811823366 under any circumstances after what happened at the last attempt.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813533673": {
+   "binding": {
+    "MATING_EXCLUSION:276000892238056": {
+     "evidence": "and 276000892238056 should be kept apart in the mating plan; that pairing was a failure on welfare grounds.",
+     "visit_date": "2009-11-12",
+     "days": null
+    }
+   },
+   "governing": {
+    "MATING_EXCLUSION:276000892238056": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "and 276000892238056 should be kept apart in the mating plan; that pairing was a failure on welfare grounds.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813590674": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "is blocked from breeding on welfare grounds after the second displaced abomasum in eighteen months.",
+     "visit_date": "2009-09-24",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "is blocked from breeding on welfare grounds after the second displaced abomasum in eighteen months.",
+     "days": null,
+     "ends": null
+    },
+    "ISOLATION_ONLY": {
+     "action": "LIFT",
+     "visit_date": "2010-02-17",
+     "evidence": "no longer needs a separate box. The scour resolved and she has been clean on three consecutive samples.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813590680": {
+   "binding": {
+    "MOVEMENT_BLOCK": {
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put her on a lorry.",
+     "visit_date": "2009-06-18",
+     "days": null
+    }
+   },
+   "governing": {
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put her on a lorry.",
+     "days": null,
+     "ends": null
+    },
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "must be kept in a separate box. She has become genuinely dangerous to handle in the loose housing, and I will review it no earlier than 20.12.2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000813609169": {
+   "binding": {},
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "is not to go to the bull this season; the interdigital lesion on her near hind is still open and she needs the summer off, until 20.12.2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    },
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "should be given an extra 10 days of isolation wherever she goes. She was in the same airspace as the index case in the neighbouring unit, through to 20 December 2009.",
+     "days": 10,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000813609307": {
+   "binding": {
+    "EXTENDED_ISOLATION": {
+     "evidence": "should be given an extra 7 days of isolation wherever she goes. She was in the same airspace as the index case in the neighbouring unit, with the restriction running to the 22nd of August 2010.",
+     "visit_date": "2010-02-17",
+     "days": 7
+    }
+   },
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2010-02-17",
+     "evidence": "should be given an extra 7 days of isolation wherever she goes. She was in the same airspace as the index case in the neighbouring unit, with the restriction running to the 22nd of August 2010.",
+     "days": 7,
+     "ends": "2010-08-22"
+    },
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "needs single housing. The persistent scour has not cleared and I do not want her back in the group yet, until 20 December 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000813617959": {
+   "binding": {
+    "ISOLATION_ONLY": {
+     "evidence": "is to be isolated. Her skin lesions are still shedding and I am not prepared to have her in the main shed.",
+     "visit_date": "2010-02-17",
+     "days": null
+    },
+    "MOVEMENT_BLOCK": {
+     "evidence": "must not be loaded. Her hock is still swollen and she cannot brace herself in a moving vehicle, until 15 July 2010.",
+     "visit_date": "2010-01-21",
+     "days": null
+    }
+   },
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2010-02-17",
+     "evidence": "is to be isolated. Her skin lesions are still shedding and I am not prepared to have her in the main shed.",
+     "days": null,
+     "ends": null
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2010-01-21",
+     "evidence": "must not be loaded. Her hock is still swollen and she cannot brace herself in a moving vehicle, until 15 July 2010.",
+     "days": null,
+     "ends": "2010-07-15"
+    }
+   }
+  },
+  "276000813677661": {
+   "binding": {
+    "EXTENDED_ISOLATION": {
+     "evidence": "needs 7 additional days beyond the standard isolation period on arrival; his vaccination interval was not complete when he was sampled, and I will review it no earlier than 17.09.2010.",
+     "visit_date": "2009-08-06",
+     "days": 7
+    }
+   },
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-08-06",
+     "evidence": "needs 7 additional days beyond the standard isolation period on arrival; his vaccination interval was not complete when he was sampled, and I will review it no earlier than 17.09.2010.",
+     "days": 7,
+     "ends": "2010-09-17"
+    }
+   }
+  },
+  "276000813677724": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "cannot be entered for service. Her claw lesions are extensive and she is not sound enough to carry a pregnancy.",
+     "visit_date": "2010-02-17",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2010-02-17",
+     "evidence": "cannot be entered for service. Her claw lesions are extensive and she is not sound enough to carry a pregnancy.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813766171": {
+   "binding": {
+    "ISOLATION_ONLY": {
+     "evidence": "should be housed alone until further notice. Two of the heifers have been injured by her in as many weeks.",
+     "visit_date": "2010-02-17",
+     "days": null
+    },
+    "MOVEMENT_BLOCK": {
+     "evidence": "cannot be moved at present. The old pelvic injury still leaves her unsteady when the floor shifts, until 9 July 2010.",
+     "visit_date": "2010-01-21",
+     "days": null
+    },
+    "MATING_EXCLUSION:276000813838643": {
+     "evidence": "and 276000813838643 should be kept apart in the mating plan; that pairing was a failure on welfare grounds.",
+     "visit_date": "2010-01-21",
+     "days": null
+    }
+   },
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2010-02-17",
+     "evidence": "should be housed alone until further notice. Two of the heifers have been injured by her in as many weeks.",
+     "days": null,
+     "ends": null
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2010-01-21",
+     "evidence": "cannot be moved at present. The old pelvic injury still leaves her unsteady when the floor shifts, until 9 July 2010.",
+     "days": null,
+     "ends": "2010-07-09"
+    },
+    "MATING_EXCLUSION:276000813838643": {
+     "action": "PLACE",
+     "visit_date": "2010-01-21",
+     "evidence": "and 276000813838643 should be kept apart in the mating plan; that pairing was a failure on welfare grounds.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813788183": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "is not cleared to be served. She retained the afterbirth in the autumn and the uterus is not clean.",
+     "visit_date": "2009-11-12",
+     "days": null
+    },
+    "EXTENDED_ISOLATION": {
+     "evidence": "needs 7 additional days beyond the standard isolation period on arrival; her vaccination interval was not complete when she was sampled, through to August 6, 2010.",
+     "visit_date": "2009-11-12",
+     "days": 7
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "is not cleared to be served. She retained the afterbirth in the autumn and the uterus is not clean.",
+     "days": null,
+     "ends": null
+    },
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "needs 7 additional days beyond the standard isolation period on arrival; her vaccination interval was not complete when she was sampled, through to August 6, 2010.",
+     "days": 7,
+     "ends": "2010-08-06"
+    }
+   }
+  },
+  "276000813798266": {
+   "binding": {
+    "ISOLATION_ONLY": {
+     "evidence": "must be kept in a separate box. She has become genuinely dangerous to handle in the loose housing.",
+     "visit_date": "2009-06-18",
+     "days": null
+    }
+   },
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "must be kept in a separate box. She has become genuinely dangerous to handle in the loose housing.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813838584": {
+   "binding": {},
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2010-02-17",
+     "evidence": "is fit for service again. The repeat semen assessment was well within range and the restriction comes off.",
+     "days": null,
+     "ends": null
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2010-01-21",
+     "evidence": "is fit to travel again. He loads and stands quietly and the restriction on moving him comes off.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000813838643": {
+   "binding": {
+    "MOVEMENT_BLOCK": {
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put him on a lorry.",
+     "visit_date": "2009-12-15",
+     "days": null
+    },
+    "MATING_EXCLUSION:276000813766171": {
+     "evidence": "and 276000813766171 should be kept apart in the mating plan; that pairing was a failure on welfare grounds.",
+     "visit_date": "2009-11-12",
+     "days": null
+    },
+    "MATING_EXCLUSION:276000812081697": {
+     "evidence": "is not to be used on 276000812081697 under any circumstances after what happened at the last attempt, through to the 24th of May 2010.",
+     "visit_date": "2009-11-12",
+     "days": null
+    }
+   },
+   "governing": {
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-12-15",
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put him on a lorry.",
+     "days": null,
+     "ends": null
+    },
+    "MATING_EXCLUSION:276000813766171": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "and 276000813766171 should be kept apart in the mating plan; that pairing was a failure on welfare grounds.",
+     "days": null,
+     "ends": null
+    },
+    "MATING_EXCLUSION:276000812081697": {
+     "action": "PLACE",
+     "visit_date": "2009-11-12",
+     "evidence": "is not to be used on 276000812081697 under any circumstances after what happened at the last attempt, through to the 24th of May 2010.",
+     "days": null,
+     "ends": "2010-05-24"
+    },
+    "BREEDING_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2009-11-12",
+     "evidence": "is fit for service again. The repeat semen assessment was well within range and the restriction comes off.",
+     "days": null,
+     "ends": null
+    },
+    "ISOLATION_ONLY": {
+     "action": "LIFT",
+     "visit_date": "2010-01-21",
+     "evidence": "no longer needs his own box; the lesions have cleared and he may be rehoused.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000814047526": {
+   "binding": {},
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2009-08-06",
+     "evidence": "is to be isolated. Her skin lesions are still shedding and I am not prepared to have her in the main shed, and I will review it no earlier than the 20th of December 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    },
+    "EXTENDED_ISOLATION": {
+     "action": "LIFT",
+     "visit_date": "2009-12-15",
+     "evidence": "can go on the normal isolation period now; the extension I asked for is no longer needed.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000814117016": {
+   "binding": {},
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "will need 5 days on top of the normal isolation at any receiving holding. Her faecal screen came back atypical and I want the extra margin, through to 20.12.2009.",
+     "days": 5,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000814308524": {
+   "binding": {},
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "needs 7 additional days beyond the standard isolation period on arrival; her vaccination interval was not complete when she was sampled, through to the 20th of December 2009.",
+     "days": 7,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000814357243": {
+   "binding": {},
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "LIFT",
+     "visit_date": "2009-09-24",
+     "evidence": "can go back into the group. She has held her place at the feed face for a full month and the single-housing direction is withdrawn.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000891609477": {
+   "binding": {
+    "ISOLATION_ONLY": {
+     "evidence": "has to be boxed on her own. She is repeatedly driven off the feed face and has lost condition in the group.",
+     "visit_date": "2010-01-21",
+     "days": null
+    }
+   },
+   "governing": {
+    "ISOLATION_ONLY": {
+     "action": "PLACE",
+     "visit_date": "2010-01-21",
+     "evidence": "has to be boxed on her own. She is repeatedly driven off the feed face and has lost condition in the group.",
+     "days": null,
+     "ends": null
+    },
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "cannot be entered for service. Her claw lesions are extensive and she is not sound enough to carry a pregnancy, until December 20, 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000891609485": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "I am withholding from service this round following the difficult calving; she needs a full season to recover.",
+     "visit_date": "2009-09-24",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "I am withholding from service this round following the difficult calving; she needs a full season to recover.",
+     "days": null,
+     "ends": null
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2010-01-21",
+     "evidence": "is fit to travel again. Two clear cardiac examinations and she loads without distress.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000891618439": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "is not cleared to be served. She retained the afterbirth in the autumn and the uterus is not clean.",
+     "visit_date": "2009-06-18",
+     "days": null
+    },
+    "MATING_EXCLUSION:276000811815586": {
+     "evidence": "is not to be served by 276000811815586 under any circumstances after what happened at the last attempt.",
+     "visit_date": "2010-01-21",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "is not cleared to be served. She retained the afterbirth in the autumn and the uterus is not clean.",
+     "days": null,
+     "ends": null
+    },
+    "MATING_EXCLUSION:276000811815586": {
+     "action": "PLACE",
+     "visit_date": "2010-01-21",
+     "evidence": "is not to be served by 276000811815586 under any circumstances after what happened at the last attempt.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000891618446": {
+   "binding": {
+    "EXTENDED_ISOLATION": {
+     "evidence": "should be given an extra 10 days of isolation wherever she goes. She was in the same airspace as the index case in the neighbouring unit.",
+     "visit_date": "2009-12-15",
+     "days": 10
+    }
+   },
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-12-15",
+     "evidence": "should be given an extra 10 days of isolation wherever she goes. She was in the same airspace as the index case in the neighbouring unit.",
+     "days": 10,
+     "ends": null
+    }
+   }
+  },
+  "276000891885837": {
+   "binding": {},
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2010-02-17",
+     "evidence": "no longer needs to be held back. The uterus checked clean and she may be served.",
+     "days": null,
+     "ends": null
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2009-11-12",
+     "evidence": "is cleared for transport. The hock has settled completely and she is sound at the walk.",
+     "days": null,
+     "ends": null
+    },
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "needs 7 additional days beyond the standard isolation period on arrival; her vaccination interval was not complete when she was sampled, through to 20 December 2009.",
+     "days": 7,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000892238051": {
+   "binding": {
+    "BREEDING_BLOCK": {
+     "evidence": "is withheld on welfare grounds after the back injury; he is not sound enough to serve.",
+     "visit_date": "2010-02-17",
+     "days": null
+    },
+    "MATING_EXCLUSION:276000812433061": {
+     "evidence": "should not be put back to 276000812433061. That mating went badly last season and neither animal settled.",
+     "visit_date": "2009-12-15",
+     "days": null
+    },
+    "MATING_EXCLUSION:276000813001636": {
+     "evidence": "is not to be used on 276000813001636 under any circumstances after what happened at the last attempt.",
+     "visit_date": "2010-01-21",
+     "days": null
+    }
+   },
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2010-02-17",
+     "evidence": "is withheld on welfare grounds after the back injury; he is not sound enough to serve.",
+     "days": null,
+     "ends": null
+    },
+    "MATING_EXCLUSION:276000812433061": {
+     "action": "PLACE",
+     "visit_date": "2009-12-15",
+     "evidence": "should not be put back to 276000812433061. That mating went badly last season and neither animal settled.",
+     "days": null,
+     "ends": null
+    },
+    "MATING_EXCLUSION:276000813001636": {
+     "action": "PLACE",
+     "visit_date": "2010-01-21",
+     "evidence": "is not to be used on 276000813001636 under any circumstances after what happened at the last attempt.",
+     "days": null,
+     "ends": null
+    },
+    "EXTENDED_ISOLATION": {
+     "action": "LIFT",
+     "visit_date": "2010-01-21",
+     "evidence": "no longer needs the extended isolation; three clear screens in a row and the standard period will do.",
+     "days": null,
+     "ends": null
+    }
+   }
+  },
+  "276000892238056": {
+   "binding": {
+    "MATING_EXCLUSION:276000813533673": {
+     "evidence": "should not be put to 276000813533673 again. That mating went badly last season and neither animal settled, until the 31st of May 2010.",
+     "visit_date": "2009-06-18",
+     "days": null
+    }
+   },
+   "governing": {
+    "MATING_EXCLUSION:276000813533673": {
+     "action": "PLACE",
+     "visit_date": "2009-06-18",
+     "evidence": "should not be put to 276000813533673 again. That mating went badly last season and neither animal settled, until the 31st of May 2010.",
+     "days": null,
+     "ends": "2010-05-31"
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-08-06",
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put her on a lorry, and I will review it no earlier than the 20th of December 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000892494994": {
+   "binding": {},
+   "governing": {
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "is not fit to travel. The murmur I noted in the autumn is still there and I would not put him on a lorry, until the 20th of December 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000892533334": {
+   "binding": {},
+   "governing": {
+    "BREEDING_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "is not cleared to be served. She retained the afterbirth in the autumn and the uterus is not clean, until 20.12.2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000892533335": {
+   "binding": {
+    "EXTENDED_ISOLATION": {
+     "evidence": "will need 14 days on top of the normal isolation at any receiving holding. Her faecal screen came back atypical and I want the extra margin.",
+     "visit_date": "2009-12-15",
+     "days": 14
+    }
+   },
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-12-15",
+     "evidence": "will need 14 days on top of the normal isolation at any receiving holding. Her faecal screen came back atypical and I want the extra margin.",
+     "days": 14,
+     "ends": null
+    }
+   }
+  },
+  "276000892585285": {
+   "binding": {
+    "EXTENDED_ISOLATION": {
+     "evidence": "will need 10 days on top of the normal isolation at any receiving holding. Her faecal screen came back atypical and I want the extra margin.",
+     "visit_date": "2009-12-15",
+     "days": 10
+    }
+   },
+   "governing": {
+    "EXTENDED_ISOLATION": {
+     "action": "PLACE",
+     "visit_date": "2009-12-15",
+     "evidence": "will need 10 days on top of the normal isolation at any receiving holding. Her faecal screen came back atypical and I want the extra margin.",
+     "days": 10,
+     "ends": null
+    },
+    "ISOLATION_ONLY": {
+     "action": "LIFT",
+     "visit_date": "2010-02-17",
+     "evidence": "may be rehoused with the others; the isolation direction I gave earlier is lifted.",
+     "days": null,
+     "ends": null
+    },
+    "MOVEMENT_BLOCK": {
+     "action": "PLACE",
+     "visit_date": "2009-09-24",
+     "evidence": "must not be loaded. Her hock is still swollen and she cannot brace herself in a moving vehicle, through to December 20, 2009.",
+     "days": null,
+     "ends": "2009-12-20"
+    }
+   }
+  },
+  "276000892601081": {
+   "binding": {},
+   "governing": {
+    "MOVEMENT_BLOCK": {
+     "action": "LIFT",
+     "visit_date": "2010-01-21",
+     "evidence": "is cleared for transport. The hock has settled completely and she is sound at the walk.",
+     "days": null,
+     "ends": null
+    }
+   }
+  }
+ }
+}

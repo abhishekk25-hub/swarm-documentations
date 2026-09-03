@@ -1,0 +1,4560 @@
+{
+  "entities": {
+    "Q35045": {
+      "aliases": {
+        "ang": [
+          {
+            "language": "ang",
+            "value": "Potosi"
+          }
+        ],
+        "el": [
+          {
+            "language": "el",
+            "value": "Ποτόσι"
+          }
+        ],
+        "en": [
+          {
+            "language": "en",
+            "value": "Potosi"
+          },
+          {
+            "language": "en",
+            "value": "Villa Imperial de Potosí"
+          },
+          {
+            "language": "en",
+            "value": "Villa Imperial de Potosi"
+          }
+        ],
+        "en-gb": [
+          {
+            "language": "en-gb",
+            "value": "Villa Imperial de Potosí"
+          }
+        ],
+        "es": [
+          {
+            "language": "es",
+            "value": "Potosi"
+          },
+          {
+            "language": "es",
+            "value": "Villa Imperial de Potosí"
+          },
+          {
+            "language": "es",
+            "value": "Vale un Potosí"
+          }
+        ],
+        "eu": [
+          {
+            "language": "eu",
+            "value": "Potosi"
+          }
+        ],
+        "fi": [
+          {
+            "language": "fi",
+            "value": "Potosi"
+          }
+        ],
+        "fr": [
+          {
+            "language": "fr",
+            "value": "Potosi"
+          }
+        ],
+        "hr": [
+          {
+            "language": "hr",
+            "value": "Potosi"
+          }
+        ],
+        "it": [
+          {
+            "language": "it",
+            "value": "Potosì"
+          }
+        ],
+        "ja": [
+          {
+            "language": "ja",
+            "value": "ポトシ銀山"
+          }
+        ],
+        "ko": [
+          {
+            "language": "ko",
+            "value": "포토시 광산도시"
+          }
+        ],
+        "mos": [
+          {
+            "language": "mos",
+            "value": "Potosi"
+          },
+          {
+            "language": "mos",
+            "value": "Villa Imperial de Potosí"
+          }
+        ],
+        "mt": [
+          {
+            "language": "mt",
+            "value": "Potosi"
+          }
+        ],
+        "nb": [
+          {
+            "language": "nb",
+            "value": "Potosi"
+          }
+        ],
+        "nl": [
+          {
+            "language": "nl",
+            "value": "Potosi (stad)"
+          }
+        ],
+        "pl": [
+          {
+            "language": "pl",
+            "value": "Potosi"
+          }
+        ],
+        "pt": [
+          {
+            "language": "pt",
+            "value": "Villa Imperial de Potosí"
+          }
+        ],
+        "qu": [
+          {
+            "language": "qu",
+            "value": "Potosi"
+          },
+          {
+            "language": "qu",
+            "value": "Putusi"
+          },
+          {
+            "language": "qu",
+            "value": "Putuqsi"
+          },
+          {
+            "language": "qu",
+            "value": "Potosí"
+          }
+        ],
+        "ro": [
+          {
+            "language": "ro",
+            "value": "Potosi"
+          }
+        ],
+        "sv": [
+          {
+            "language": "sv",
+            "value": "Potosi"
+          }
+        ],
+        "tr": [
+          {
+            "language": "tr",
+            "value": "Potosi"
+          }
+        ]
+      },
+      "claims": {
+        "P10397": [
+          {
+            "id": "Q35045$075C382F-C0FC-4988-AC32-B502E83B9AF7",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "BRIL000067"
+              },
+              "hash": "10dcde2f6114e7901ee9c3d9870fcb209c8a3f27",
+              "property": "P10397",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1082": [
+          {
+            "id": "Q35045$09D5E31C-B1C4-48F6-9C5F-3DC7E21D9D1F",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+189652",
+                  "unit": "1"
+                }
+              },
+              "hash": "d6212bb5acf8c70396ebdc988f76e36ae549413c",
+              "property": "P1082",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P585": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+2012-01-01T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "dc8690c920c0b9fca2701bffbeae7924037e1933",
+                  "property": "P585",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P585"
+            ],
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "875bea0ee4d70b02091a06154bfb70abe64b4cd1",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q16823223",
+                          "numeric-id": 16823223
+                        }
+                      },
+                      "hash": "4d5ae451fc0f43187815556909b7a14db710b45e",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P10832": [
+          {
+            "id": "Q35045$AF51E32D-02B5-4263-B7CB-ABED4218C1E7",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "E39PBJdM9jfjTrFwbqDfWD4H4q"
+              },
+              "hash": "283fd9776a9deef13061dbc1285d586ec5a83eb7",
+              "property": "P10832",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "f77011ce325f69618dffb3e0074f94a01e1881c5",
+                "snaks": {
+                  "P11797": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q13219454",
+                          "numeric-id": 13219454
+                        }
+                      },
+                      "hash": "ebc61ebee105944aa63ee48264c820fab36c5571",
+                      "property": "P11797",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P244": [
+                    {
+                      "datatype": "external-id",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "n80070847"
+                      },
+                      "hash": "a09fe2cbecac5a157a8958ae5ef1e2beda778ac3",
+                      "property": "P244",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P813": [
+                    {
+                      "datatype": "time",
+                      "datavalue": {
+                        "type": "time",
+                        "value": {
+                          "after": 0,
+                          "before": 0,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                          "precision": 11,
+                          "time": "+2024-04-25T00:00:00Z",
+                          "timezone": 0
+                        }
+                      },
+                      "hash": "7af60df801d26749ee503d3bbc7956a76159db12",
+                      "property": "P813",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P11797",
+                  "P244",
+                  "P813"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P11693": [
+          {
+            "id": "Q35045$FDE0871B-24EC-45C8-9213-6764944D8B1D",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "277381654"
+              },
+              "hash": "f55c3372e6bd8af7370289a2d075a8581ca1019a",
+              "property": "P11693",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P12385": [
+          {
+            "id": "Q35045$04b4f2b3-e034-44a7-9231-8a168a5f8b48",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "potosi-1"
+              },
+              "hash": "11a1e4aedb680c967ed4464047bacae6c9126508",
+              "property": "P12385",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P12749": [
+          {
+            "id": "Q35045$B6F70112-1218-4EE9-A511-D5599A4BAE83",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "Q3180"
+              },
+              "hash": "afb044ee84040ad1ebf39c9ee89c14dc050c417b",
+              "property": "P12749",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1296": [
+          {
+            "id": "Q35045$402A8EF5-BA60-4577-AC69-261E4DED42C8",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "0052419"
+              },
+              "hash": "9f3af89991474304736741d0e760b32f0a7f0899",
+              "property": "P1296",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P131": [
+          {
+            "id": "Q35045$088F606B-6D4C-4A44-9768-3BC7FFB60EC4",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q1335276",
+                  "numeric-id": 1335276
+                }
+              },
+              "hash": "ec733f06059ef605126129afb506f2c5c911f732",
+              "property": "P131",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P13204": [
+          {
+            "id": "Q35045$3992D579-A338-473C-B184-CD650607CB76",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "tgx969j7"
+              },
+              "hash": "c777c3fce89e4d0c06b7d17d983c896161f42d3c",
+              "property": "P13204",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1343": [
+          {
+            "id": "Q35045$0a4dc7d4-a033-4a6f-b7b2-7aed19ce1cbf",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q602358",
+                  "numeric-id": 602358
+                }
+              },
+              "hash": "88389772f86dcd7d415ddd029f601412e5cc894a",
+              "property": "P1343",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P805": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q24490863",
+                      "numeric-id": 24490863
+                    }
+                  },
+                  "hash": "6e40d3f61b8b97acc9c2cf2a0c431190e751520b",
+                  "property": "P805",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P805"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$30207b91-427d-4bb5-9468-bcbab4cdf744",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q4532138",
+                  "numeric-id": 4532138
+                }
+              },
+              "hash": "9d0d1c63dc98d865b8382e988f529b9243bdab73",
+              "property": "P1343",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P805": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q87334518",
+                      "numeric-id": 87334518
+                    }
+                  },
+                  "hash": "f08265f3771d1e67401a9a49b3097fe7523da1c4",
+                  "property": "P805",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P805"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$885a746e-4841-d895-03b9-ae3aa781fbbe",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q3181656",
+                  "numeric-id": 3181656
+                }
+              },
+              "hash": "4cfd4eb1fe49d401455df557a7d9b1154f22a725",
+              "property": "P1343",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P1810": [
+                {
+                  "datatype": "string",
+                  "datavalue": {
+                    "type": "string",
+                    "value": "Potosi"
+                  },
+                  "hash": "f8f210165c9ff29c8764fa47dc5640e1a6920d67",
+                  "property": "P1810",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P1810"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$93592A49-0788-4AB5-8660-8CBF2FF440FD",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q867541",
+                  "numeric-id": 867541
+                }
+              },
+              "hash": "1e87e0f7d2db06ab0ef5ccabd7c6275641f36553",
+              "property": "P1343",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P805": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q120360282",
+                      "numeric-id": 120360282
+                    }
+                  },
+                  "hash": "33e6df9c708182b0291e33873397d8626196765a",
+                  "property": "P805",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P805"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P13591": [
+          {
+            "id": "Q35045$5B0F1AF5-2198-4899-986F-7B42178A3801",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "place/7e9835bf-02a9-406e-8f58-4eb163dc14b7"
+              },
+              "hash": "9e0494059751d9197534df76a114431a094effae",
+              "property": "P13591",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1368": [
+          {
+            "id": "Q35045$b08d4ea2-48c5-970f-3218-eec762efa7d2",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "000320852"
+              },
+              "hash": "7f394ec47a4c32b151a2e0dd0f38a552d35c05be",
+              "property": "P1368",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1376": [
+          {
+            "id": "Q35045$B3289FB7-093B-4071-9178-70B1C2970ED9",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q238079",
+                  "numeric-id": 238079
+                }
+              },
+              "hash": "40329a64e034057a066cb6a8a0017eaf51f15e24",
+              "property": "P1376",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1417": [
+          {
+            "id": "Q35045$FCD56D8F-6791-4824-A6FB-A67D2A30040D",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "place/Potosi-Bolivia"
+              },
+              "hash": "712ed708bcadf01eb97a9c7a4723c93306024e33",
+              "property": "P1417",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P1810": [
+                {
+                  "datatype": "string",
+                  "datavalue": {
+                    "type": "string",
+                    "value": "Potosí"
+                  },
+                  "hash": "60490ff0ea9f328c5a7808842839a3ddfb8f616f",
+                  "property": "P1810",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P1810"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1435": [
+          {
+            "id": "Q35045$2401321A-D6E6-40BE-8EB3-3CD96C9CBDA8",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q9259",
+                  "numeric-id": 9259
+                }
+              },
+              "hash": "d22546e8bf86b97293821ea8757787befdf35ca8",
+              "property": "P1435",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P1448": [
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "en",
+                      "text": "City of Potosí"
+                    }
+                  },
+                  "hash": "19136f134b6b0f2e91e24f3950fe39b2f4ced55e",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "fr",
+                      "text": "Ville de Potosí"
+                    }
+                  },
+                  "hash": "beadf58fa399ac94408bfd93387a65a8dacff589",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "ar",
+                      "text": "مدينة بوتوسي"
+                    }
+                  },
+                  "hash": "04ef98ca65d7059ad27430439b470320215e4541",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "zh",
+                      "text": "波托西城"
+                    }
+                  },
+                  "hash": "dd86beadb84cb9ae2787d52d4827c8b400b64805",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "ru",
+                      "text": "Горнозаводской город Потоси"
+                    }
+                  },
+                  "hash": "d3b242767108270362ad72cc83464c06c9332253",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "es",
+                      "text": "Ciudad de Potosí­"
+                    }
+                  },
+                  "hash": "f8bedea3a95c15f3bc428b956a1839bca36f5cc6",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "ja",
+                      "text": "ポトシ市街"
+                    }
+                  },
+                  "hash": "1b358ca128bb4b020036c2affbc2e0775e184219",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "nl",
+                      "text": "Potosí (stad)"
+                    }
+                  },
+                  "hash": "16c29423819954c6e823cd861952a7fff92579a9",
+                  "property": "P1448",
+                  "snaktype": "value"
+                }
+              ],
+              "P2614": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038976",
+                      "numeric-id": 23038976
+                    }
+                  },
+                  "hash": "8a15757be66fb6392e3ea58d408565017dbb7532",
+                  "property": "P2614",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038978",
+                      "numeric-id": 23038978
+                    }
+                  },
+                  "hash": "16b5f6994a5a2a152170b737b59af7d93b88c8fe",
+                  "property": "P2614",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038980",
+                      "numeric-id": 23038980
+                    }
+                  },
+                  "hash": "dd017954434fbba369a0b4ad7007bc009d4a121b",
+                  "property": "P2614",
+                  "snaktype": "value"
+                }
+              ],
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+1987-01-01T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "cde4b091f7e46247f112afae1f93de201e51deb9",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580",
+              "P1448",
+              "P2614"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1448": [
+          {
+            "id": "Q35045$b88064e8-4bfe-93f5-485f-386d72541f4c",
+            "mainsnak": {
+              "datatype": "monolingualtext",
+              "datavalue": {
+                "type": "monolingualtext",
+                "value": {
+                  "language": "es",
+                  "text": "Potosí"
+                }
+              },
+              "hash": "cf33135c1d2ec7f7318c329f7347707cb5d25281",
+              "property": "P1448",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "01d09116e72b847835a9ad4aaef1128991f1565f",
+                "snaks": {
+                  "P4656": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://en.wikipedia.org/wiki/Potos%C3%AD"
+                      },
+                      "hash": "7979f9bb7d42ce9cc5e6d9980540e7b193d29ae5",
+                      "property": "P4656",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P4656"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P1464": [
+          {
+            "id": "Q35045$8B8CF26A-38B0-434E-B9CF-789282597C0F",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q18753604",
+                  "numeric-id": 18753604
+                }
+              },
+              "hash": "2b8d17acd4fface780a225b16cfe70c9b664c154",
+              "property": "P1464",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "d5847b9b6032aa8b13dae3c2dfd9ed5d114d21b3",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q11920",
+                          "numeric-id": 11920
+                        }
+                      },
+                      "hash": "5a343e7e758a4282a01316d3e959b6e653b767fc",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P1465": [
+          {
+            "id": "Q35045$B9F336FE-8253-498A-8D48-AF1CB8534B9D",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q18761287",
+                  "numeric-id": 18761287
+                }
+              },
+              "hash": "040824589ee5d4cdc73605867150f15be915741a",
+              "property": "P1465",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "d5847b9b6032aa8b13dae3c2dfd9ed5d114d21b3",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q11920",
+                          "numeric-id": 11920
+                        }
+                      },
+                      "hash": "5a343e7e758a4282a01316d3e959b6e653b767fc",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P1566": [
+          {
+            "id": "Q35045$9BB42360-F11F-4EB1-9739-D25FBAD93BD0",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "3907584"
+              },
+              "hash": "89a8bcde8a800362be85b52f998d8cbcd966ece8",
+              "property": "P1566",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "88694a0f4d1486770c269f7db16a1982f74da69d",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q830106",
+                          "numeric-id": 830106
+                        }
+                      },
+                      "hash": "1b3ef912a2bd61e18dd43abd184337eb010b2e96",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P1617": [
+          {
+            "id": "Q35045$6979c4b0-8760-4575-804f-2162001be473",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "c9f44137-e69a-4ac0-9ff5-64531fdbb91e"
+              },
+              "hash": "31c0956bf7ea3c4eaa57cd38083f01020d58acf4",
+              "property": "P1617",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "8582d8416671f1f2567247201bac753552435ca5",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q18336371",
+                          "numeric-id": 18336371
+                        }
+                      },
+                      "hash": "ea55dc6ac5c3ab77c77d4ae7979e3276d0d4cd20",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P17": [
+          {
+            "id": "q35045$35934730-F21D-4CFB-9DF7-BDF852A39769",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q750",
+                  "numeric-id": 750
+                }
+              },
+              "hash": "7a3a9afc3ff3a180dd8ec86254ad7f58fd2475fe",
+              "property": "P17",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "732ec1c90a6f0694c7db9a71bf09fe7f2b674172",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q10000",
+                          "numeric-id": 10000
+                        }
+                      },
+                      "hash": "9123b0de1cc9c3954366ba797d598e4e1ea4146f",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P1705": [
+          {
+            "id": "Q35045$1559b419-4856-c14e-b2ba-bdb032924119",
+            "mainsnak": {
+              "datatype": "monolingualtext",
+              "datavalue": {
+                "type": "monolingualtext",
+                "value": {
+                  "language": "es",
+                  "text": "Potosí"
+                }
+              },
+              "hash": "90f61a515abd6ab0db197d7ad3a90a21817ab5e7",
+              "property": "P1705",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1792": [
+          {
+            "id": "Q35045$6696ee9e-4b95-2d98-c2db-c55aea637a81",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q8746257",
+                  "numeric-id": 8746257
+                }
+              },
+              "hash": "9409a77212df6a91214e52c0eddb70d423ca256d",
+              "property": "P1792",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P18": [
+          {
+            "id": "q35045$5425D0F2-08F8-4DA3-B3BA-430925025B43",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "Vista de la Villa Imperial de Potosí.jpg"
+              },
+              "hash": "37aa06f8cc0de2f1f45b263b4653f5b1795d2b9d",
+              "property": "P18",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1889": [
+          {
+            "id": "Q35045$A3FB5824-8EDA-4B86-A51B-5269D118D9E4",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q20125026",
+                  "numeric-id": 20125026
+                }
+              },
+              "hash": "1a678420231f0f9a17825771899e3e1782d2eacb",
+              "property": "P1889",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "f0d26f3e1804d918ccc4771424a939ce250c1c42",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q1551807",
+                          "numeric-id": 1551807
+                        }
+                      },
+                      "hash": "39224a9c2e8ce5424defbd16603d25771956c7fc",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P4656": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://pl.wikipedia.org/w/index.php?title=Potosí&oldid=64141813"
+                      },
+                      "hash": "0969a7923c336b30a6404825f986af607f32e7f8",
+                      "property": "P4656",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143",
+                  "P4656"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P190": [
+          {
+            "id": "Q35045$6209a565-4240-7844-c46a-779ce7307c94",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q204271",
+                  "numeric-id": 204271
+                }
+              },
+              "hash": "9fbd7dd7d86e8461a5082e00cc5b2f44380889b7",
+              "property": "P190",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$dbae94f2-4436-2bf7-d101-f1962dd1a786",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q3685",
+                  "numeric-id": 3685
+                }
+              },
+              "hash": "4e861a856997c6399624f564a1d66f887041adef",
+              "property": "P190",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$5B640394-C2FD-4484-944C-1FC8FBBEE8FA",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q5582862",
+                  "numeric-id": 5582862
+                }
+              },
+              "hash": "6bf9aeb83f042ef7dda5872315a4f95740de2eab",
+              "property": "P190",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 11,
+                      "time": "+1998-06-22T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "0299c4e3c07c38f2e1e3abc91b5d26150e42a384",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580"
+            ],
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "df28607dc1f89e5f2c490c9be779f3dd492dabe4",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "http://www.aatccusco.com/ciudades_hermanas.php"
+                      },
+                      "hash": "cd47dd727272798d73d881c8ea6b892ec44c6f2c",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P1937": [
+          {
+            "id": "Q35045$729fad06-7022-45e3-9212-92d3b31a303e",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "BOPOI"
+              },
+              "hash": "951ebaf4bab1b611f24f1f8503251c6914b182d5",
+              "property": "P1937",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "1241a4d74f98dbb00acc920f0451d44998c6fc2a",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://service.unece.org/trade/locode/bo.htm"
+                      },
+                      "hash": "be0a9045bd7fb95dd7717d832665c8cadc9f8c5d",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P1997": [
+          {
+            "id": "Q35045$fd873dba-4f23-a5cd-a03b-9eddcfb3e61a",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "106318406070572"
+              },
+              "hash": "49cddc43024164d98622e24805d9a7da3ec17883",
+              "property": "P1997",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2044": [
+          {
+            "id": "Q35045$E1876A64-ED4F-4506-92F0-CFC130A68F2F",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+4070",
+                  "unit": "http://www.wikidata.org/entity/Q11573"
+                }
+              },
+              "hash": "b6f3e5be4799d8e9ea04e32eadfb4a0aa837c513",
+              "property": "P2044",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "d4bd87b862b12d99d26e86472d44f26858dee639",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q8447",
+                          "numeric-id": 8447
+                        }
+                      },
+                      "hash": "f30cbd35620c4ea6d0633aaf0210a8916130469b",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P2046": [
+          {
+            "id": "Q35045$0B02639B-EA4D-4450-83E2-3FCCFD9E6486",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+118.218",
+                  "unit": "http://www.wikidata.org/entity/Q712226"
+                }
+              },
+              "hash": "8f2edfa0b5fa9b0c8f1478e48aa5f1d5b368fbfb",
+              "property": "P2046",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "8f08ac3e0839bdbc4c6eb8d671e772deb12ba423",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q465",
+                          "numeric-id": 465
+                        }
+                      },
+                      "hash": "250b03083f7971a02473af3e43115ef521b1440d",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P214": [
+          {
+            "id": "Q35045$E1FBE94A-26B7-4420-924F-307AC85D276B",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "157738981"
+              },
+              "hash": "31bd4ae037b3e464117991645452fb2a03373086",
+              "property": "P214",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P227": [
+          {
+            "id": "Q35045$8DC5B8AF-882A-412A-80CE-046E0ECEB489",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "4103247-0"
+              },
+              "hash": "5c59a03814b2052aa20150be6dee81a6cd6ba75b",
+              "property": "P227",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "28bd614bb74cdc231865606d3daa04cd61ba63e2",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q48183",
+                          "numeric-id": 48183
+                        }
+                      },
+                      "hash": "d38375ffe6fe142663ff55cd783aa4df4301d83d",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P4656": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://de.wikipedia.org/w/index.php?title=Potosí&oldid=193677988"
+                      },
+                      "hash": "d91bf4cff1357e823b372933f54292e8a7ffe236",
+                      "property": "P4656",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143",
+                  "P4656"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P2326": [
+          {
+            "id": "Q35045$5B7160AC-12E5-432A-AC4C-1E53206EAB6D",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "-697971"
+              },
+              "hash": "c2d4cefc4e8f09ebaf4a4518e351d7d892ef3dc0",
+              "property": "P2326",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P242": [
+          {
+            "id": "Q35045$4621ee92-4505-6cd4-e262-ceb61ff7a450",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "50101 Potosí Municipio.png"
+              },
+              "hash": "60c1841cafc0b7d0f0a4774d43de06e4518baf31",
+              "property": "P242",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P244": [
+          {
+            "id": "Q35045$BFFC7048-0EFD-472A-AC27-96EBF939BABE",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "n80070847"
+              },
+              "hash": "a09fe2cbecac5a157a8958ae5ef1e2beda778ac3",
+              "property": "P244",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "14fa5898ac764e0660517aa07ea0bbba505f262b",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q54919",
+                          "numeric-id": 54919
+                        }
+                      },
+                      "hash": "6b7d4330c4aac4caec4ede9de0311ce273f88ecd",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P813": [
+                    {
+                      "datatype": "time",
+                      "datavalue": {
+                        "type": "time",
+                        "value": {
+                          "after": 0,
+                          "before": 0,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                          "precision": 11,
+                          "time": "+2019-03-06T00:00:00Z",
+                          "timezone": 0
+                        }
+                      },
+                      "hash": "e0d08f96012770600b942d5e8563b2a3499cba8e",
+                      "property": "P813",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248",
+                  "P813"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P2614": [
+          {
+            "id": "Q35045$D73CE643-920D-4B79-93D5-B786586668F4",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038976",
+                  "numeric-id": 23038976
+                }
+              },
+              "hash": "8a15757be66fb6392e3ea58d408565017dbb7532",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "1770978c322093d8c03e1cae9de3f312b6bc32b1",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "http://whc.unesco.org/en/list/420"
+                      },
+                      "hash": "c7e403ea1aca93bbcd344462c86a7410fe96778e",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$13E9CE6B-6659-4AEF-BBDC-5F3D2FD506F9",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038978",
+                  "numeric-id": 23038978
+                }
+              },
+              "hash": "16b5f6994a5a2a152170b737b59af7d93b88c8fe",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "1770978c322093d8c03e1cae9de3f312b6bc32b1",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "http://whc.unesco.org/en/list/420"
+                      },
+                      "hash": "c7e403ea1aca93bbcd344462c86a7410fe96778e",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$AD88DE0A-B0E8-4714-8904-74DE7F1D20FB",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038980",
+                  "numeric-id": 23038980
+                }
+              },
+              "hash": "dd017954434fbba369a0b4ad7007bc009d4a121b",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "1770978c322093d8c03e1cae9de3f312b6bc32b1",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "http://whc.unesco.org/en/list/420"
+                      },
+                      "hash": "c7e403ea1aca93bbcd344462c86a7410fe96778e",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P269": [
+          {
+            "id": "Q35045$766F2A30-1C13-4B58-8F94-B716836F66F7",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "027558002"
+              },
+              "hash": "e2366277ec5b6e40a1715c8727a0b7cba0deec02",
+              "property": "P269",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P1810": [
+                {
+                  "datatype": "string",
+                  "datavalue": {
+                    "type": "string",
+                    "value": "Potosí (Bolivie)"
+                  },
+                  "hash": "dac6ee93f4ce57d646028359a13c534339cbc60f",
+                  "property": "P1810",
+                  "snaktype": "value"
+                }
+              ],
+              "P3831": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q136204045",
+                      "numeric-id": 136204045
+                    }
+                  },
+                  "hash": "174b9c1ffb90fb55e6eaf2b653d414fa571dbaa9",
+                  "property": "P3831",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P1810",
+              "P3831"
+            ],
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "cff5ab53f46ecd4b8a7a29754ed82c873ee9553c",
+                "snaks": {
+                  "P214": [
+                    {
+                      "datatype": "external-id",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "157738981"
+                      },
+                      "hash": "31bd4ae037b3e464117991645452fb2a03373086",
+                      "property": "P214",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q54919",
+                          "numeric-id": 54919
+                        }
+                      },
+                      "hash": "6b7d4330c4aac4caec4ede9de0311ce273f88ecd",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P813": [
+                    {
+                      "datatype": "time",
+                      "datavalue": {
+                        "type": "time",
+                        "value": {
+                          "after": 0,
+                          "before": 0,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                          "precision": 11,
+                          "time": "+2022-07-06T00:00:00Z",
+                          "timezone": 0
+                        }
+                      },
+                      "hash": "9c07da73b84889803ebd6601ba04b4579c39577d",
+                      "property": "P813",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248",
+                  "P813",
+                  "P214"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P281": [
+          {
+            "id": "Q35045$4963ce1a-452f-b6f0-e3da-77065d237fa1",
+            "mainsnak": {
+              "datatype": "string",
+              "datavalue": {
+                "type": "string",
+                "value": "0501"
+              },
+              "hash": "54ab2c3eda1fed3375606d4b74ed4589ece5aa27",
+              "property": "P281",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "51ac231a6e22d592366f08d860a028f479fb4cbc",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://www.azcodigopostal.com/bolivia/place-potosi-potosi-0501"
+                      },
+                      "hash": "5c49346a87dbd48c56a0907668a6df86fec0b615",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P2924": [
+          {
+            "id": "Q35045$CC968A90-D5C5-49D6-A506-685FA6C363F5",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "3163454"
+              },
+              "hash": "ab99e81d15bfef5c0c53e1a7aeba58c82d868f87",
+              "property": "P2924",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P1810": [
+                {
+                  "datatype": "string",
+                  "datavalue": {
+                    "type": "string",
+                    "value": "ПОТОСИ"
+                  },
+                  "hash": "323e6a2ae63a346c62e576b1aa560155ea988de0",
+                  "property": "P1810",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P1810"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P31": [
+          {
+            "id": "Q35045$9884419F-D0FD-48C2-BC71-6667CBA327FA",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q515",
+                  "numeric-id": 515
+                }
+              },
+              "hash": "1d2d976b06b7bb208fadcff54975cc04295b93c0",
+              "property": "P31",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$BA99E304-4FC8-474D-95F6-5C6F2AEB5395",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q1549591",
+                  "numeric-id": 1549591
+                }
+              },
+              "hash": "1af62c39c83b583e317a43f838058583f06f38aa",
+              "property": "P31",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$e6d5c31f-4d37-d487-11d7-c870402a6440",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q702492",
+                  "numeric-id": 702492
+                }
+              },
+              "hash": "ff0b3d3b2d89c961a302f75df932ff2f36d07a1d",
+              "property": "P31",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P3134": [
+          {
+            "id": "Q35045$d6bf5af9-4116-479a-52ae-796baa5b430b",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "295431"
+              },
+              "hash": "416fcf8b0d6466732e3bf24e523226bbeccb762d",
+              "property": "P3134",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P3219": [
+          {
+            "id": "Q35045$0BA905DE-27BA-41F8-A899-09B4FCDF171F",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "potosi"
+              },
+              "hash": "9654625d1eb24f626f4309e0e847b927d463f855",
+              "property": "P3219",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P3222": [
+          {
+            "id": "Q35045$5E6E9D55-42A0-42DF-B297-0DEBE0BBA325",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "potosi"
+              },
+              "hash": "df4f75f926f40b6d4bdb77dd0ef2efc3c65f9f21",
+              "property": "P3222",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P3417": [
+          {
+            "id": "Q35045$7c1a31bb-4ca8-d3d1-23ce-2e6344098e0d",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "Potosí-Bolivia"
+              },
+              "hash": "08e42e6e618dce07fd34fb137fee7ae2ce7db780",
+              "property": "P3417",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P3451": [
+          {
+            "id": "Q35045$95623679-46ac-fbdf-788e-fd120d4b35c5",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "Iglesia San Bernardo Potosí-Bolivia.jpg"
+              },
+              "hash": "b0f03e76a71cd130541ab86f2490f6cd8474a6f7",
+              "property": "P3451",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P361": [
+          {
+            "id": "Q35045$60942190-E639-4D46-8066-D359D1E416BA",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q238079",
+                  "numeric-id": 238079
+                }
+              },
+              "hash": "cb73726f36fedba892156d31dd89b1508593bfa7",
+              "property": "P361",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "9b6033a0a0fc3d0000b1c77fe93c161cbcbad1a6",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q19826574",
+                          "numeric-id": 19826574
+                        }
+                      },
+                      "hash": "342852c6ea3be834528dad2b0808c542dc83626d",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P37": [
+          {
+            "id": "Q35045$5fcb9f69-4908-3707-d0e7-2a69ebfedc4e",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q1321",
+                  "numeric-id": 1321
+                }
+              },
+              "hash": "10145b9fd4d6716f9c64ab16cf397d92eec78376",
+              "property": "P37",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$55C428DD-620E-484E-A607-38BCD19E663E",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q4627",
+                  "numeric-id": 4627
+                }
+              },
+              "hash": "7a344d754a5e7bd3fdecf72fe6e3fc373e672bd4",
+              "property": "P37",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$BAC0B547-810C-476E-9A2E-90B7CC8D8433",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q5218",
+                  "numeric-id": 5218
+                }
+              },
+              "hash": "b69e4f76fccebf9cd498e3f19b22435c14469d41",
+              "property": "P37",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$7A39F731-25B2-47C7-A4EB-5A7044D74394",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q35876",
+                  "numeric-id": 35876
+                }
+              },
+              "hash": "8face7d219399578c94030cddf55367424070bf0",
+              "property": "P37",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P373": [
+          {
+            "id": "q35045$BE841C4B-89A5-4B6E-BEFD-DB7CDBE7E420",
+            "mainsnak": {
+              "datatype": "string",
+              "datavalue": {
+                "type": "string",
+                "value": "Potosí"
+              },
+              "hash": "0f58bb20adeeb4b64a3a32d0b0419e0b2f97b43a",
+              "property": "P373",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P402": [
+          {
+            "id": "Q35045$35f9c937-4908-b8b3-d2b4-d2bb78f7d7b8",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "4127118"
+              },
+              "hash": "6564f7049c9dab7c0244f3f8ad789e790ac8f475",
+              "property": "P402",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P41": [
+          {
+            "id": "Q35045$10460864-FABF-4BF6-BC2E-FF29F615697A",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "Bandera de la Villa Imperial de Potosí.jpg"
+              },
+              "hash": "72568a319c3ad73961e4fdf8a45d38817f6f61f1",
+              "property": "P41",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P417": [
+          {
+            "id": "Q35045$5f954394-4548-01d2-c2a7-290acfc50461",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q27559021",
+                  "numeric-id": 27559021
+                }
+              },
+              "hash": "3c6c13a3fa6b8431f8425268e50c4b2e0d2a94cc",
+              "property": "P417",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P421": [
+          {
+            "id": "Q35045$e7973076-42ad-0c80-d2cb-b5dba160dbd1",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q5762",
+                  "numeric-id": 5762
+                }
+              },
+              "hash": "29a30ac1701b6cfd6c9b9faa746f7d113431bfb9",
+              "property": "P421",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P4342": [
+          {
+            "id": "Q35045$1555B9F9-830B-4C7E-9EA1-46AC6173D3C4",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "Potosí"
+              },
+              "hash": "1081d1ffed71a81a1ef8c4a8c0a86b18358ced35",
+              "property": "P4342",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P463": [
+          {
+            "id": "Q35045$AA9AB28B-0E4E-455E-8C58-FAA5C09A75DF",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q734958",
+                  "numeric-id": 734958
+                }
+              },
+              "hash": "3b4bb250c597143b007f7f84f12fdc3a129e96fd",
+              "property": "P463",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "8cde831cbddc1c876529d8ffec6d52c4c3d874ea",
+                "snaks": {
+                  "P1065": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://web.archive.org/web/20240528143447/https://www.ovpm.org/members/cities/"
+                      },
+                      "hash": "3dbc2b1d407fca75f89df1193a50b3758e70cd61",
+                      "property": "P1065",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P813": [
+                    {
+                      "datatype": "time",
+                      "datavalue": {
+                        "type": "time",
+                        "value": {
+                          "after": 0,
+                          "before": 0,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                          "precision": 11,
+                          "time": "+2023-12-31T00:00:00Z",
+                          "timezone": 0
+                        }
+                      },
+                      "hash": "8334de9e25d0fadb7848449e794b778e62ca67d0",
+                      "property": "P813",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://www.ovpm.org/wp-content/uploads/2024/03/liste-villes-en-regle-pour-page-web12-03-2024.pdf"
+                      },
+                      "hash": "e6bbec4d4f393333842c6ce50cb226192520bafc",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854",
+                  "P813",
+                  "P1065"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P4672": [
+          {
+            "id": "Q35045$22B14EBF-5D30-4D8C-9527-485BE1BDD449",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "e7bcc031-a604-4e8e-91a9-528407c05034"
+              },
+              "hash": "c2bc7836f28cf267a93ebfebbdb10d9970025d20",
+              "property": "P4672",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P473": [
+          {
+            "id": "Q35045$4C145AB5-141C-4794-81EC-F86C171ED590",
+            "mainsnak": {
+              "datatype": "string",
+              "datavalue": {
+                "type": "string",
+                "value": "02"
+              },
+              "hash": "493ee109d8fdf31e8fc669602d7b238aeae92617",
+              "property": "P473",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "d5847b9b6032aa8b13dae3c2dfd9ed5d114d21b3",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q11920",
+                          "numeric-id": 11920
+                        }
+                      },
+                      "hash": "5a343e7e758a4282a01316d3e959b6e653b767fc",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P5008": [
+          {
+            "id": "Q35045$A89985DB-58E1-42C0-9BD2-9FB3004307E1",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q109929866",
+                  "numeric-id": 109929866
+                }
+              },
+              "hash": "757684534433e0a6a3f9e0b8e741f228fc86173b",
+              "property": "P5008",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$8D722C1B-FA21-47DF-9C9B-01ED5745D1AB",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q107414369",
+                  "numeric-id": 107414369
+                }
+              },
+              "hash": "8a88e1c4c25ebd5c6c809062d163bff87e3cac68",
+              "property": "P5008",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P5573": [
+          {
+            "id": "Q35045$A0852D48-4A06-4945-BBFB-1D3DF966825F",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "6464"
+              },
+              "hash": "5d268312203b038bc2c58f461be99d29ac309963",
+              "property": "P5573",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "21494d78c86d729112257391ca4131a84f73b44b",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q265049",
+                          "numeric-id": 265049
+                        }
+                      },
+                      "hash": "c619cc6e0e5fe3733a8c4a47939343e5970e0e9d",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P813": [
+                    {
+                      "datatype": "time",
+                      "datavalue": {
+                        "type": "time",
+                        "value": {
+                          "after": 0,
+                          "before": 0,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                          "precision": 11,
+                          "time": "+2018-08-05T00:00:00Z",
+                          "timezone": 0
+                        }
+                      },
+                      "hash": "83237a37d47a18cacfe2acba0b8c6667601a1f38",
+                      "property": "P813",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://www.archinform.net/service/wd_aiort.php"
+                      },
+                      "hash": "d845f4eb775982fb2055473e0463f4a17a2cfa54",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854",
+                  "P248",
+                  "P813"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P571": [
+          {
+            "id": "Q35045$9ac672ff-4759-b2fc-5e97-21f24bd8edca",
+            "mainsnak": {
+              "datatype": "time",
+              "datavalue": {
+                "type": "time",
+                "value": {
+                  "after": 0,
+                  "before": 0,
+                  "calendarmodel": "http://www.wikidata.org/entity/Q1985786",
+                  "precision": 9,
+                  "time": "+1545-00-00T00:00:00Z",
+                  "timezone": 0
+                }
+              },
+              "hash": "8cb3a7b24bc7baa8838658f6cab152ff919aee6d",
+              "property": "P571",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P6": [
+          {
+            "id": "Q35045$fe767c0e-4b58-ee0b-0e50-f16af1f21f29",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q134178612",
+                  "numeric-id": 134178612
+                }
+              },
+              "hash": "4123f06dfdfea72fe6a3bcd4ea3e600e786f72dd",
+              "property": "P6",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+2021-00-00T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "912e4e7b73654a7762d744e145473067d305ae2a",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P6104": [
+          {
+            "id": "Q35045$134554af-4090-9010-dfd6-b2d4b7fae594",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q15060232",
+                  "numeric-id": 15060232
+                }
+              },
+              "hash": "1f29ee95c0c153560c72317c22c9c91ec42f84a4",
+              "property": "P6104",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$ac7b6ae8-4fce-75ed-d3fc-653e7ce74a40",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q5497514",
+                  "numeric-id": 5497514
+                }
+              },
+              "hash": "56ba0bee3f4d0599ac238732c418fe446dc7ac7a",
+              "property": "P6104",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$a1819370-4582-54fd-246d-b584c24e9384",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q6907702",
+                  "numeric-id": 6907702
+                }
+              },
+              "hash": "49b7d52a3182bc54eca5a38ec28ce885b3a9aa79",
+              "property": "P6104",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q35045$2739f70a-4504-9dae-e971-db52743edf0a",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q18621297",
+                  "numeric-id": 18621297
+                }
+              },
+              "hash": "c752a1796b7dfd27aa7b750536acd8d41394cab6",
+              "property": "P6104",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P625": [
+          {
+            "id": "q35045$58A00FB5-A549-4EEA-B9C5-BBF2DE5AF4C9",
+            "mainsnak": {
+              "datatype": "globe-coordinate",
+              "datavalue": {
+                "type": "globecoordinate",
+                "value": {
+                  "altitude": null,
+                  "globe": "http://www.wikidata.org/entity/Q2",
+                  "latitude": -19.589166666666667,
+                  "longitude": -65.75333333333333,
+                  "precision": 0.0002777777777777778
+                }
+              },
+              "hash": "0cf1c6112c08f32f86d818f26096f8f491d7632d",
+              "property": "P625",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P6404": [
+          {
+            "id": "Q35045$DF298B23-E8CD-4582-A956-0FEB1F7722C9",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "potosi"
+              },
+              "hash": "4def5f066e6ecfa1c2c99edc0b69af9b43ad0602",
+              "property": "P6404",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P1810": [
+                {
+                  "datatype": "string",
+                  "datavalue": {
+                    "type": "string",
+                    "value": "Potosí"
+                  },
+                  "hash": "60490ff0ea9f328c5a7808842839a3ddfb8f616f",
+                  "property": "P1810",
+                  "snaktype": "value"
+                }
+              ],
+              "P577": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+2011-01-01T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "d2a40d22655021267a9386d3086e000722b5a2d3",
+                  "property": "P577",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P1810",
+              "P577"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P646": [
+          {
+            "id": "Q35045$52EA7BEB-484A-4257-9450-45BFDEA6A7F2",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "/m/02_plq"
+              },
+              "hash": "81506ce33206754b98faba3e87d0fb6b7607ea70",
+              "property": "P646",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "2b00cb481cddcac7623114367489b5c194901c4a",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q15241312",
+                          "numeric-id": 15241312
+                        }
+                      },
+                      "hash": "a94b740202b097dd33355e0e6c00e54b9395e5e0",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P577": [
+                    {
+                      "datatype": "time",
+                      "datavalue": {
+                        "type": "time",
+                        "value": {
+                          "after": 0,
+                          "before": 0,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                          "precision": 11,
+                          "time": "+2013-10-28T00:00:00Z",
+                          "timezone": 0
+                        }
+                      },
+                      "hash": "fde79ecb015112d2f29229ccc1ec514ed3e71fa2",
+                      "property": "P577",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248",
+                  "P577"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P6766": [
+          {
+            "id": "Q35045$6692DDE6-1D4D-43B0-88D1-7FCF9EE321C4",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "890442177"
+              },
+              "hash": "636ac0cbe901a8414c40baf2a7483345b2174d2f",
+              "property": "P6766",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P691": [
+          {
+            "id": "Q35045$B4A41869-50C2-4D0E-A8F6-8C0B2E0D0E23",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "ge1051882"
+              },
+              "hash": "9c7ed972f89b39f28c552279f5f5e1cea7429f5a",
+              "property": "P691",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P1810": [
+                {
+                  "datatype": "string",
+                  "datavalue": {
+                    "type": "string",
+                    "value": "Potosí (Bolívie)"
+                  },
+                  "hash": "9adab7e0480e93b16f70ab59b91dc8119ca842d7",
+                  "property": "P1810",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P1810"
+            ],
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "ecef240bd5a758139f5c43b625c25f5449c6d3c4",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q13550863",
+                          "numeric-id": 13550863
+                        }
+                      },
+                      "hash": "80047f9d5b0d2daf06989e71bd5f4ba15b215fd6",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P691": [
+                    {
+                      "datatype": "external-id",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "ge1051882"
+                      },
+                      "hash": "9c7ed972f89b39f28c552279f5f5e1cea7429f5a",
+                      "property": "P691",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P813": [
+                    {
+                      "datatype": "time",
+                      "datavalue": {
+                        "type": "time",
+                        "value": {
+                          "after": 0,
+                          "before": 0,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                          "precision": 11,
+                          "time": "+2020-03-19T00:00:00Z",
+                          "timezone": 0
+                        }
+                      },
+                      "hash": "8333d6f03ed241395395f518369e020b59c61ee5",
+                      "property": "P813",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248",
+                  "P813",
+                  "P691"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P7197": [
+          {
+            "id": "Q35045$25c9efa0-489b-8b04-0aa4-bf8fde45ecb1",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "3907584"
+              },
+              "hash": "91bd5d06ecb1b01b24cffc13106fc86881e2d551",
+              "property": "P7197",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P7305": [
+          {
+            "id": "Q35045$0046D25C-98E2-4657-BD17-78AACE1453D3",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "3961110"
+              },
+              "hash": "30d0b577316cb13797f5f8d0cde2fc9fb2d2191e",
+              "property": "P7305",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P757": [
+          {
+            "id": "q35045$8FCA8A30-D646-48DA-99EA-4D040FECBB59",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "420"
+              },
+              "hash": "76bd73d12932bfd1f7d3977a3e3a79d8d0bc4ee4",
+              "property": "P757",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "c456dc5cd2117249948c288206ff3f8b1bf574f0",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q8449",
+                          "numeric-id": 8449
+                        }
+                      },
+                      "hash": "e17507043402fe54ae6c4d65cc51f46cec987de9",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P8189": [
+          {
+            "id": "Q35045$FC585CBF-3E34-42FE-9197-446310B788D5",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "987007550211905171"
+              },
+              "hash": "410842d584777ad4bc5e0053188e7ba22dbcd04f",
+              "property": "P8189",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P8406": [
+          {
+            "id": "Q35045$40A5A6CA-4EFF-4196-9B7C-145D0217CB7D",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "T069024"
+              },
+              "hash": "5b9f176f1dc1c87365ed7a5efa6e575be6c60e04",
+              "property": "P8406",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P856": [
+          {
+            "id": "Q35045$962B49E4-75C2-4D03-9A3A-D018C6A56ACC",
+            "mainsnak": {
+              "datatype": "url",
+              "datavalue": {
+                "type": "string",
+                "value": "http://www.potosi.bo/"
+              },
+              "hash": "fdc762c1c9e214e236a5ddf5ae298337bcdbb136",
+              "property": "P856",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P407": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q1321",
+                      "numeric-id": 1321
+                    }
+                  },
+                  "hash": "ffe70325d10cfc55f0dca807ed80ca0b5b97c472",
+                  "property": "P407",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P407"
+            ],
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P8592": [
+          {
+            "id": "Q35045$78b1c81f-44ef-8674-618b-db291709b1dd",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "Potosi Zentrum.JPG"
+              },
+              "hash": "7066464a16e1f8146e4be4d373c53834b632e01a",
+              "property": "P8592",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P9037": [
+          {
+            "id": "Q35045$9534DA47-54F0-43EC-B3D8-A72D91D5C586",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "a1b641a9-2425-456a-b385-8bbee18bf03b"
+              },
+              "hash": "62034810233a4550c333bec0f851ebb46bcda230",
+              "property": "P9037",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "772096308dfb2b470d23c81c1917708479ffdd2a",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q63411600",
+                          "numeric-id": 63411600
+                        }
+                      },
+                      "hash": "36652acb3b591d852e55294ce860131f9cd71787",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P813": [
+                    {
+                      "datatype": "time",
+                      "datavalue": {
+                        "type": "time",
+                        "value": {
+                          "after": 0,
+                          "before": 0,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                          "precision": 11,
+                          "time": "+2023-04-19T00:00:00Z",
+                          "timezone": 0
+                        }
+                      },
+                      "hash": "4bd2409eb34a4ec16dcc2fdab49e24a103c55f03",
+                      "property": "P813",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://biblio.hiu.cas.cz/records/a1b641a9-2425-456a-b385-8bbee18bf03b"
+                      },
+                      "hash": "e39f8da6376d7c40d31093b27ecb63eceb80a66a",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P9037": [
+                    {
+                      "datatype": "external-id",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "a1b641a9-2425-456a-b385-8bbee18bf03b"
+                      },
+                      "hash": "62034810233a4550c333bec0f851ebb46bcda230",
+                      "property": "P9037",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P958": [
+                    {
+                      "datatype": "string",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "856u"
+                      },
+                      "hash": "eed436971bb30477c9384ccd3fd1a8b6a95103ce",
+                      "property": "P958",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248",
+                  "P813",
+                  "P958",
+                  "P9037",
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P910": [
+          {
+            "id": "Q35045$536A9061-BB42-4623-8108-ADC9136C93E1",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q6301788",
+                  "numeric-id": 6301788
+                }
+              },
+              "hash": "8364cc4265ba99ea697a6eecbe6e11b624d15c7c",
+              "property": "P910",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P935": [
+          {
+            "id": "Q35045$AD703E52-A007-48A1-B406-9FEF78D8D1DB",
+            "mainsnak": {
+              "datatype": "string",
+              "datavalue": {
+                "type": "string",
+                "value": "Potosí"
+              },
+              "hash": "33c25bc80d33c4889414f27ce33ca37109c5738f",
+              "property": "P935",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P94": [
+          {
+            "id": "Q35045$0FB80E6D-0581-43BF-B90A-D2AF53E2869E",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "Third Coat of Arms of Potosi.svg"
+              },
+              "hash": "c584f9d0e41f6a2affd7034ef6c4fe04361509c9",
+              "property": "P94",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P948": [
+          {
+            "id": "Q35045$438971f0-4ab9-5bba-cbb3-364f6a4cca98",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "Potosi banner.jpg"
+              },
+              "hash": "097ffb1e98a740d3c7bbc09b9a610c9d28f54fff",
+              "property": "P948",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P950": [
+          {
+            "id": "Q35045$e16b436e-4335-f936-38e2-7eb5cf1efa1a",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "XX452137"
+              },
+              "hash": "c1a59a9f330a86ac7247d48bc1d45049bc811563",
+              "property": "P950",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P9957": [
+          {
+            "id": "Q35045$AD0D2D41-584A-4692-A4CC-36CB60164931",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "11524"
+              },
+              "hash": "360d199c95f25620f2c068de3d3cc216889f7589",
+              "property": "P9957",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "190527dca615f4510213808b0e1cb81522b247f6",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q1360745",
+                          "numeric-id": 1360745
+                        }
+                      },
+                      "hash": "9d638c2b86f0a48538336421421d81e676e6a966",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ]
+      },
+      "descriptions": {
+        "ang": {
+          "language": "ang",
+          "value": "byrig on Bolivian"
+        },
+        "ary": {
+          "language": "ary",
+          "value": "مدينة جات ف بوليڤيا"
+        },
+        "arz": {
+          "language": "arz",
+          "value": "مدينه فى پوتوسى مونيسيپاليتى"
+        },
+        "ceb": {
+          "language": "ceb",
+          "value": "kapital sa departamento"
+        },
+        "cs": {
+          "language": "cs",
+          "value": "sídlo v kraji Potosí v Bolívii"
+        },
+        "cy": {
+          "language": "cy",
+          "value": "dinas ym Molifia"
+        },
+        "de": {
+          "language": "de",
+          "value": "Großstadt in Bolivien"
+        },
+        "el": {
+          "language": "el",
+          "value": "πόλη στη Βολιβία"
+        },
+        "en": {
+          "language": "en",
+          "value": "city ​​in Bolivia"
+        },
+        "en-gb": {
+          "language": "en-gb",
+          "value": "city in Bolivia"
+        },
+        "es": {
+          "language": "es",
+          "value": "ciudad y municipio de Bolivia, capital del departamento de Potosí"
+        },
+        "et": {
+          "language": "et",
+          "value": "linn Boliivias"
+        },
+        "eu": {
+          "language": "eu",
+          "value": "Boliviako hiria"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "ville en Bolivie"
+        },
+        "ga": {
+          "language": "ga",
+          "value": "cathair sa Bholaiv"
+        },
+        "he": {
+          "language": "he",
+          "value": "עיר בבוליביה"
+        },
+        "id": {
+          "language": "id",
+          "value": "kawasan perkotaan di Bolivia"
+        },
+        "it": {
+          "language": "it",
+          "value": "comune boliviano"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "ボリビアの都市"
+        },
+        "kn": {
+          "language": "kn",
+          "value": "ಬೊಲಿವಿಯಾ ದೇಶದ ಒಂದು ನಗರ"
+        },
+        "ko": {
+          "language": "ko",
+          "value": "볼리비아의 포토시 주의 주도"
+        },
+        "la": {
+          "language": "la",
+          "value": "urbs Boliviae"
+        },
+        "lv": {
+          "language": "lv",
+          "value": "pilsēta Bolīvijā"
+        },
+        "mos": {
+          "language": "mos",
+          "value": "na-tênga m'be Bolivia"
+        },
+        "mt": {
+          "language": "mt",
+          "value": "belt fil-Bolivja"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "stad"
+        },
+        "pl": {
+          "language": "pl",
+          "value": "miasto w Boliwii"
+        },
+        "pt": {
+          "language": "pt",
+          "value": "capital do departamento de Potosí, Bolívia"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "город в Боливии, административный центр одноимённого департамента"
+        },
+        "sv": {
+          "language": "sv",
+          "value": "huvudstad i departementet Potosí, Bolivia"
+        },
+        "vi": {
+          "language": "vi",
+          "value": "thành phố ở Bolivia"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "玻利维亚城市"
+        },
+        "zh-hans": {
+          "language": "zh-hans",
+          "value": "玻利维亚波托西省的首府"
+        }
+      },
+      "id": "Q35045",
+      "labels": {
+        "af": {
+          "language": "af",
+          "value": "Potosí"
+        },
+        "an": {
+          "language": "an",
+          "value": "Potosí"
+        },
+        "ang": {
+          "language": "ang",
+          "value": "Potosí"
+        },
+        "ar": {
+          "language": "ar",
+          "value": "بوتوسي"
+        },
+        "arz": {
+          "language": "arz",
+          "value": "بوتوسى"
+        },
+        "ast": {
+          "language": "ast",
+          "value": "Potosí"
+        },
+        "ay": {
+          "language": "ay",
+          "value": "Putusi"
+        },
+        "az": {
+          "language": "az",
+          "value": "Potosi"
+        },
+        "bar": {
+          "language": "bar",
+          "value": "Potosí"
+        },
+        "be": {
+          "language": "be",
+          "value": "Патасі"
+        },
+        "bg": {
+          "language": "bg",
+          "value": "Потоси"
+        },
+        "bn": {
+          "language": "bn",
+          "value": "পটোসি"
+        },
+        "br": {
+          "language": "br",
+          "value": "Potosí"
+        },
+        "ca": {
+          "language": "ca",
+          "value": "Potosí"
+        },
+        "ceb": {
+          "language": "ceb",
+          "value": "Potosí"
+        },
+        "co": {
+          "language": "co",
+          "value": "Potosí"
+        },
+        "cs": {
+          "language": "cs",
+          "value": "Potosí"
+        },
+        "cy": {
+          "language": "cy",
+          "value": "Potosí"
+        },
+        "da": {
+          "language": "da",
+          "value": "Potosí"
+        },
+        "dag": {
+          "language": "dag",
+          "value": "Potosi"
+        },
+        "de": {
+          "language": "de",
+          "value": "Potosí"
+        },
+        "de-at": {
+          "language": "de-at",
+          "value": "Potosí"
+        },
+        "de-ch": {
+          "language": "de-ch",
+          "value": "Potosí"
+        },
+        "el": {
+          "language": "el",
+          "value": "Ποτοσί"
+        },
+        "en": {
+          "language": "en",
+          "value": "Potosí"
+        },
+        "en-ca": {
+          "language": "en-ca",
+          "value": "Potosí"
+        },
+        "en-gb": {
+          "language": "en-gb",
+          "value": "Potosí"
+        },
+        "eo": {
+          "language": "eo",
+          "value": "Potosí (urbo)"
+        },
+        "es": {
+          "language": "es",
+          "value": "Potosí"
+        },
+        "et": {
+          "language": "et",
+          "value": "Potosí"
+        },
+        "eu": {
+          "language": "eu",
+          "value": "Potosí"
+        },
+        "fa": {
+          "language": "fa",
+          "value": "پوتوسی"
+        },
+        "fi": {
+          "language": "fi",
+          "value": "Potosí"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "Potosí"
+        },
+        "frp": {
+          "language": "frp",
+          "value": "Potosí"
+        },
+        "frr": {
+          "language": "frr",
+          "value": "Potosí"
+        },
+        "fur": {
+          "language": "fur",
+          "value": "Potosí"
+        },
+        "ga": {
+          "language": "ga",
+          "value": "Potosí"
+        },
+        "gd": {
+          "language": "gd",
+          "value": "Potosí"
+        },
+        "gl": {
+          "language": "gl",
+          "value": "Potosí"
+        },
+        "gn": {
+          "language": "gn",
+          "value": "Potosi"
+        },
+        "gsw": {
+          "language": "gsw",
+          "value": "Potosí"
+        },
+        "gu": {
+          "language": "gu",
+          "value": "પોટોસી"
+        },
+        "gur": {
+          "language": "gur",
+          "value": "Potosi"
+        },
+        "he": {
+          "language": "he",
+          "value": "פוטוסי"
+        },
+        "hi": {
+          "language": "hi",
+          "value": "पोतोसी"
+        },
+        "hr": {
+          "language": "hr",
+          "value": "Potosí"
+        },
+        "hu": {
+          "language": "hu",
+          "value": "Potosí"
+        },
+        "hy": {
+          "language": "hy",
+          "value": "Պոտոսի"
+        },
+        "ia": {
+          "language": "ia",
+          "value": "Potosí"
+        },
+        "id": {
+          "language": "id",
+          "value": "Potosí"
+        },
+        "ie": {
+          "language": "ie",
+          "value": "Potosí"
+        },
+        "io": {
+          "language": "io",
+          "value": "Potosí"
+        },
+        "is": {
+          "language": "is",
+          "value": "Potosí"
+        },
+        "it": {
+          "language": "it",
+          "value": "Potosí"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "ポトシ"
+        },
+        "ka": {
+          "language": "ka",
+          "value": "პოტოსი"
+        },
+        "kg": {
+          "language": "kg",
+          "value": "Potosí"
+        },
+        "kk": {
+          "language": "kk",
+          "value": "Потоси"
+        },
+        "kn": {
+          "language": "kn",
+          "value": "ಪೊಟೊಸಿ"
+        },
+        "ko": {
+          "language": "ko",
+          "value": "포토시"
+        },
+        "la": {
+          "language": "la",
+          "value": "Potosium"
+        },
+        "lad": {
+          "language": "lad",
+          "value": "Potosí"
+        },
+        "lb": {
+          "language": "lb",
+          "value": "Potosí"
+        },
+        "li": {
+          "language": "li",
+          "value": "Potosí"
+        },
+        "lij": {
+          "language": "lij",
+          "value": "Potosí"
+        },
+        "lt": {
+          "language": "lt",
+          "value": "Potosi"
+        },
+        "lv": {
+          "language": "lv",
+          "value": "Potosi"
+        },
+        "mg": {
+          "language": "mg",
+          "value": "Potosí"
+        },
+        "min": {
+          "language": "min",
+          "value": "Potosí"
+        },
+        "mk": {
+          "language": "mk",
+          "value": "Потоси"
+        },
+        "mos": {
+          "language": "mos",
+          "value": "Potosí"
+        },
+        "mr": {
+          "language": "mr",
+          "value": "पोतोसी"
+        },
+        "ms": {
+          "language": "ms",
+          "value": "Potosi"
+        },
+        "mt": {
+          "language": "mt",
+          "value": "Potosí"
+        },
+        "mul": {
+          "language": "mul",
+          "value": "Potosí"
+        },
+        "nah": {
+          "language": "nah",
+          "value": "Potosí"
+        },
+        "nap": {
+          "language": "nap",
+          "value": "Potosí"
+        },
+        "nb": {
+          "language": "nb",
+          "value": "Potosí"
+        },
+        "nds": {
+          "language": "nds",
+          "value": "Potosí"
+        },
+        "nds-nl": {
+          "language": "nds-nl",
+          "value": "Potosí"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "Potosí"
+        },
+        "nn": {
+          "language": "nn",
+          "value": "Potosí"
+        },
+        "nrm": {
+          "language": "nrm",
+          "value": "Potosí"
+        },
+        "nys": {
+          "language": "nys",
+          "value": "Potosí"
+        },
+        "oc": {
+          "language": "oc",
+          "value": "Potosí"
+        },
+        "os": {
+          "language": "os",
+          "value": "Потоси"
+        },
+        "pcd": {
+          "language": "pcd",
+          "value": "Potosí"
+        },
+        "pl": {
+          "language": "pl",
+          "value": "Potosí"
+        },
+        "pms": {
+          "language": "pms",
+          "value": "Potosí"
+        },
+        "pt": {
+          "language": "pt",
+          "value": "Potosí"
+        },
+        "pt-br": {
+          "language": "pt-br",
+          "value": "Potosí"
+        },
+        "qu": {
+          "language": "qu",
+          "value": "P'utuqsi"
+        },
+        "rm": {
+          "language": "rm",
+          "value": "Potosí"
+        },
+        "ro": {
+          "language": "ro",
+          "value": "Potosí"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "Потоси"
+        },
+        "sc": {
+          "language": "sc",
+          "value": "Potosí"
+        },
+        "scn": {
+          "language": "scn",
+          "value": "Potosí"
+        },
+        "sco": {
+          "language": "sco",
+          "value": "Potosí"
+        },
+        "sh": {
+          "language": "sh",
+          "value": "Potosí"
+        },
+        "si": {
+          "language": "si",
+          "value": "පොටෝසි"
+        },
+        "sk": {
+          "language": "sk",
+          "value": "Potosí"
+        },
+        "sl": {
+          "language": "sl",
+          "value": "Potosi"
+        },
+        "sr": {
+          "language": "sr",
+          "value": "Потоси (Боливија)"
+        },
+        "sr-el": {
+          "language": "sr-el",
+          "value": "Potosí"
+        },
+        "sv": {
+          "language": "sv",
+          "value": "Potosí"
+        },
+        "sw": {
+          "language": "sw",
+          "value": "Potosí"
+        },
+        "ta": {
+          "language": "ta",
+          "value": "போடுசி"
+        },
+        "te": {
+          "language": "te",
+          "value": "పోటోసీ"
+        },
+        "th": {
+          "language": "th",
+          "value": "โปโตซี"
+        },
+        "tr": {
+          "language": "tr",
+          "value": "Potosí"
+        },
+        "tt": {
+          "language": "tt",
+          "value": "Потоси"
+        },
+        "tw": {
+          "language": "tw",
+          "value": "Potosí na wɔte saa"
+        },
+        "uk": {
+          "language": "uk",
+          "value": "Потосі"
+        },
+        "ur": {
+          "language": "ur",
+          "value": "پوتوسی"
+        },
+        "vec": {
+          "language": "vec",
+          "value": "Potosí"
+        },
+        "vi": {
+          "language": "vi",
+          "value": "Potosí"
+        },
+        "vls": {
+          "language": "vls",
+          "value": "Potosí"
+        },
+        "vo": {
+          "language": "vo",
+          "value": "Potosí"
+        },
+        "wa": {
+          "language": "wa",
+          "value": "Potosí"
+        },
+        "war": {
+          "language": "war",
+          "value": "Potosí"
+        },
+        "wo": {
+          "language": "wo",
+          "value": "Potosí"
+        },
+        "wuu": {
+          "language": "wuu",
+          "value": "波托西"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "波托西"
+        },
+        "zh-cn": {
+          "language": "zh-cn",
+          "value": "波托西"
+        },
+        "zh-hant": {
+          "language": "zh-hant",
+          "value": "波托西"
+        },
+        "zu": {
+          "language": "zu",
+          "value": "Potosí"
+        }
+      },
+      "lastrevid": 2497455484,
+      "modified": "2026-05-25T19:53:34Z",
+      "ns": 0,
+      "pageid": 37743,
+      "sitelinks": {
+        "afwiki": {
+          "badges": [],
+          "site": "afwiki",
+          "title": "Potosí"
+        },
+        "arwiki": {
+          "badges": [],
+          "site": "arwiki",
+          "title": "بوتوسي"
+        },
+        "arzwiki": {
+          "badges": [],
+          "site": "arzwiki",
+          "title": "بوتوسى (مدينه فى پوتوسى مونيسيپاليتى)"
+        },
+        "astwiki": {
+          "badges": [],
+          "site": "astwiki",
+          "title": "Potosí"
+        },
+        "aywiki": {
+          "badges": [],
+          "site": "aywiki",
+          "title": "Putusi"
+        },
+        "azwiki": {
+          "badges": [],
+          "site": "azwiki",
+          "title": "Potosi"
+        },
+        "bewiki": {
+          "badges": [],
+          "site": "bewiki",
+          "title": "Патасі"
+        },
+        "bgwiki": {
+          "badges": [],
+          "site": "bgwiki",
+          "title": "Потоси"
+        },
+        "brwiki": {
+          "badges": [],
+          "site": "brwiki",
+          "title": "Potosí"
+        },
+        "cawiki": {
+          "badges": [],
+          "site": "cawiki",
+          "title": "Potosí"
+        },
+        "cebwiki": {
+          "badges": [],
+          "site": "cebwiki",
+          "title": "Potosí (kapital sa departamento)"
+        },
+        "commonswiki": {
+          "badges": [],
+          "site": "commonswiki",
+          "title": "Potosí"
+        },
+        "cswiki": {
+          "badges": [],
+          "site": "cswiki",
+          "title": "Potosí"
+        },
+        "cywiki": {
+          "badges": [],
+          "site": "cywiki",
+          "title": "Potosí"
+        },
+        "dagwiki": {
+          "badges": [],
+          "site": "dagwiki",
+          "title": "Potosi"
+        },
+        "dawiki": {
+          "badges": [],
+          "site": "dawiki",
+          "title": "Potosí"
+        },
+        "dewiki": {
+          "badges": [],
+          "site": "dewiki",
+          "title": "Potosí"
+        },
+        "dewikivoyage": {
+          "badges": [],
+          "site": "dewikivoyage",
+          "title": "Potosí"
+        },
+        "elwiki": {
+          "badges": [],
+          "site": "elwiki",
+          "title": "Ποτοσί"
+        },
+        "enwiki": {
+          "badges": [],
+          "site": "enwiki",
+          "title": "Potosí"
+        },
+        "enwikivoyage": {
+          "badges": [],
+          "site": "enwikivoyage",
+          "title": "Potosí"
+        },
+        "eowiki": {
+          "badges": [],
+          "site": "eowiki",
+          "title": "Potosí (urbo)"
+        },
+        "eswiki": {
+          "badges": [],
+          "site": "eswiki",
+          "title": "Potosí"
+        },
+        "eswikivoyage": {
+          "badges": [],
+          "site": "eswikivoyage",
+          "title": "Potosí"
+        },
+        "euwiki": {
+          "badges": [],
+          "site": "euwiki",
+          "title": "Potosí"
+        },
+        "fawiki": {
+          "badges": [],
+          "site": "fawiki",
+          "title": "پوتوسی"
+        },
+        "fawikivoyage": {
+          "badges": [],
+          "site": "fawikivoyage",
+          "title": "پوتوسی"
+        },
+        "fiwiki": {
+          "badges": [],
+          "site": "fiwiki",
+          "title": "Potosí"
+        },
+        "frwiki": {
+          "badges": [],
+          "site": "frwiki",
+          "title": "Potosí"
+        },
+        "frwikivoyage": {
+          "badges": [],
+          "site": "frwikivoyage",
+          "title": "Potosí"
+        },
+        "glwiki": {
+          "badges": [],
+          "site": "glwiki",
+          "title": "Potosí"
+        },
+        "gnwiki": {
+          "badges": [],
+          "site": "gnwiki",
+          "title": "Potosi"
+        },
+        "gurwiki": {
+          "badges": [],
+          "site": "gurwiki",
+          "title": "Potosi"
+        },
+        "hewiki": {
+          "badges": [],
+          "site": "hewiki",
+          "title": "פוטוסי"
+        },
+        "hiwiki": {
+          "badges": [],
+          "site": "hiwiki",
+          "title": "पोतोसी"
+        },
+        "hrwiki": {
+          "badges": [],
+          "site": "hrwiki",
+          "title": "Potosí"
+        },
+        "hywiki": {
+          "badges": [],
+          "site": "hywiki",
+          "title": "Պոտոսի"
+        },
+        "idwiki": {
+          "badges": [],
+          "site": "idwiki",
+          "title": "Potosí"
+        },
+        "iowiki": {
+          "badges": [],
+          "site": "iowiki",
+          "title": "Potosí"
+        },
+        "itwiki": {
+          "badges": [],
+          "site": "itwiki",
+          "title": "Potosí"
+        },
+        "itwikivoyage": {
+          "badges": [],
+          "site": "itwikivoyage",
+          "title": "Potosí"
+        },
+        "jawiki": {
+          "badges": [],
+          "site": "jawiki",
+          "title": "ポトシ"
+        },
+        "kawiki": {
+          "badges": [],
+          "site": "kawiki",
+          "title": "პოტოსი"
+        },
+        "kkwiki": {
+          "badges": [],
+          "site": "kkwiki",
+          "title": "Потоси"
+        },
+        "kowiki": {
+          "badges": [],
+          "site": "kowiki",
+          "title": "포토시"
+        },
+        "ladwiki": {
+          "badges": [],
+          "site": "ladwiki",
+          "title": "Potosí (Bolivia)"
+        },
+        "lawiki": {
+          "badges": [],
+          "site": "lawiki",
+          "title": "Potosium"
+        },
+        "ltwiki": {
+          "badges": [],
+          "site": "ltwiki",
+          "title": "Potosi"
+        },
+        "lvwiki": {
+          "badges": [],
+          "site": "lvwiki",
+          "title": "Potosi"
+        },
+        "mgwiki": {
+          "badges": [],
+          "site": "mgwiki",
+          "title": "Potosi"
+        },
+        "mkwiki": {
+          "badges": [],
+          "site": "mkwiki",
+          "title": "Потоси"
+        },
+        "moswiki": {
+          "badges": [],
+          "site": "moswiki",
+          "title": "Potosi"
+        },
+        "mtwiki": {
+          "badges": [],
+          "site": "mtwiki",
+          "title": "Potosí"
+        },
+        "nlwiki": {
+          "badges": [],
+          "site": "nlwiki",
+          "title": "Potosí (stad)"
+        },
+        "nowiki": {
+          "badges": [],
+          "site": "nowiki",
+          "title": "Potosí"
+        },
+        "ocwiki": {
+          "badges": [],
+          "site": "ocwiki",
+          "title": "Potosí"
+        },
+        "oswiki": {
+          "badges": [],
+          "site": "oswiki",
+          "title": "Потоси"
+        },
+        "plwiki": {
+          "badges": [],
+          "site": "plwiki",
+          "title": "Potosí"
+        },
+        "plwikivoyage": {
+          "badges": [],
+          "site": "plwikivoyage",
+          "title": "Potosí"
+        },
+        "ptwiki": {
+          "badges": [],
+          "site": "ptwiki",
+          "title": "Potosí"
+        },
+        "ptwikivoyage": {
+          "badges": [
+            "Q17559452"
+          ],
+          "site": "ptwikivoyage",
+          "title": "Potosí"
+        },
+        "quwiki": {
+          "badges": [],
+          "site": "quwiki",
+          "title": "Putusi"
+        },
+        "rowiki": {
+          "badges": [],
+          "site": "rowiki",
+          "title": "Potosí"
+        },
+        "ruwiki": {
+          "badges": [],
+          "site": "ruwiki",
+          "title": "Потоси"
+        },
+        "ruwikinews": {
+          "badges": [],
+          "site": "ruwikinews",
+          "title": "Категория:Потоси (город)"
+        },
+        "scowiki": {
+          "badges": [],
+          "site": "scowiki",
+          "title": "Potosí"
+        },
+        "shwiki": {
+          "badges": [],
+          "site": "shwiki",
+          "title": "Potosí"
+        },
+        "simplewiki": {
+          "badges": [],
+          "site": "simplewiki",
+          "title": "Potosí"
+        },
+        "siwiki": {
+          "badges": [],
+          "site": "siwiki",
+          "title": "පොටොසි, බොලිවියාව"
+        },
+        "skwiki": {
+          "badges": [],
+          "site": "skwiki",
+          "title": "Potosí"
+        },
+        "slwiki": {
+          "badges": [],
+          "site": "slwiki",
+          "title": "Potosi"
+        },
+        "srwiki": {
+          "badges": [],
+          "site": "srwiki",
+          "title": "Потоси (Боливија)"
+        },
+        "svwiki": {
+          "badges": [],
+          "site": "svwiki",
+          "title": "Potosí"
+        },
+        "thwiki": {
+          "badges": [],
+          "site": "thwiki",
+          "title": "โปโตซี"
+        },
+        "trwiki": {
+          "badges": [],
+          "site": "trwiki",
+          "title": "Potosí"
+        },
+        "ttwiki": {
+          "badges": [],
+          "site": "ttwiki",
+          "title": "Потоси"
+        },
+        "twwiki": {
+          "badges": [],
+          "site": "twwiki",
+          "title": "Potosí"
+        },
+        "ukwiki": {
+          "badges": [],
+          "site": "ukwiki",
+          "title": "Потосі"
+        },
+        "urwiki": {
+          "badges": [],
+          "site": "urwiki",
+          "title": "پوتوسی"
+        },
+        "viwiki": {
+          "badges": [],
+          "site": "viwiki",
+          "title": "Potosí"
+        },
+        "vowiki": {
+          "badges": [],
+          "site": "vowiki",
+          "title": "Potosí"
+        },
+        "warwiki": {
+          "badges": [],
+          "site": "warwiki",
+          "title": "Potosí"
+        },
+        "wuuwiki": {
+          "badges": [],
+          "site": "wuuwiki",
+          "title": "波托西"
+        },
+        "zhwiki": {
+          "badges": [],
+          "site": "zhwiki",
+          "title": "波托西"
+        }
+      },
+      "title": "Q35045",
+      "type": "item"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+[task]
+name = "swarmbench/9e249d04db0c4c77b17e88a9b1b84666-SWARMBENCH-HIERARCHICAL-KNOWLEDGERESEARCH-TRIAL-OUTCOME-REPORTING-AUDIT"
+description = "Audit 23 registered clinical trials for outcome reporting: for every pre-specified outcome decide whether the trial's publications report it and how, and identify every reported outcome that was never registered."
+
+[metadata]
+verifier_type = "executable"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_horizon"]
+dag_depth = 2
+dag_width = 90
+human_solving_hours_estimate = 202.5
+human_solving_hours_justification = "23 trials, 90 publications and 1,094,770 tokens of source text, giving 345 pre-specified outcomes plus 1585 additional outcomes, 1930 graded units. Phase 1, establishing each trial's pre-specification baseline from its registry snapshots: 25 minutes per trial across 23 trials is 9.6 hours. Phase 2, reading and locating, finding where each outcome is reported across that trial's publication set or confirming it is reported nowhere: 2 minutes per unit across 1930 units is 64.3 hours. Phase 3, analysis and reconciliation, judging whether a reported outcome corresponds to a registered one and how it differs in instrument, role or time frame: 2 minutes per unit is 64.3 hours. Phase 4, synthesis and output, capturing the two verbatim quotes per unit and writing the ledger rows: 2 minutes per unit is 64.3 hours. Total 9.6 + 64.3 + 64.3 + 64.3 = 202.5 hours."
+estimated_sub_agents = 120
+input_token_estimate = 1094770
+why_multi_agent = "One agent cannot hold this task. The corpus is 1,091,687 tokens across 90 publications and 23 registry pairs, and the deciding judgement is not answerable inside any single document: concluding that a registered outcome was reported NOWHERE requires having read every publication for that trial, and finding an outcome that was reported but never registered requires holding the pre-specification and the whole publication set together. A complete answer is 1,930 rows carrying two verbatim quotes each. The shipped runs measure that pressure rather than assert it. The single agent scored 0.1894. It wrote 519 rows against 1,930 and produced ZERO rows for outcomes the publications report but the registry never listed, which is 1,585 of the units: it covered the registry inventory it was handed, which is copyable, and did none of the side that has to be read for. Only 206 of its 337 evidence quotes were verbatim in the publication it named. The planned swarm scored 0.5118 across 120 realised sessions, a lead of 0.3224 over the single, and the lead sits in the content buckets rather than in presentation: partial-oracle 0.3820 against 0.0958, and reward-hacking 0.5284 against 0.1267. It reached 40 percent of the held-out additional-outcome surface against the single's zero, and 96 percent of its quotes were verbatim. The same swarm without the decomposition scored 0.3417, so the plan is worth 0.1701 of reward on an identical instruction. What the plan supplies is the unit of work: one reader per publication rather than one auditor per trial. That is not cosmetic: it is the difference between a worker facing one publication and a worker asked to enumerate every reported outcome across a whole trial at once. Grading note: the verifier compares against a key derived at authoring time from the same registry records and publications the agent is given, withheld from the runtime image. It sets the denominator for coverage and gates no score; every check is a ratio bounded by construction."
+reference_link = "https://clinicaltrials.gov/"
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 4
+memory_mb = 16384
+build_timeout_sec = 900
+

@@ -1,0 +1,283 @@
+﻿Task Design Learning Note: Scaling and Reward-Hacking Hardening
+This note explains the method used to improve the datasheet-spec task and how the same pattern can be reused for future SwarmBench tasks.
+1. Start From a Real Task, Not a Benchmark Trick
+The base task was a normal procurement assignment: read real semiconductor datasheets, extract the values a buyer would actually care about, normalize them, and create an approved-parts catalog.
+
+
+The important design choice was to keep the agent-facing instruction natural. We did not tell the agent, "this is a long-horizon task" or "this is designed to beat a single agent." The instruction reads like a real stakeholder request from a procurement team. That matters because the difficulty should come from the work itself, not from benchmark language.
+2. Increase Scale Through Independent Work Units
+The original task already had real scale because it required reading 31 datasheets. Each datasheet is an independent extraction unit, which makes it suitable for multi-agent execution.
+
+
+The scalable pattern is:
+
+
+1. Split the corpus into independent shards.
+2. Require one durable shard output per input unit.
+3. Require a final reducer to merge the shards.
+4. Require cross-shard summary statistics that can only be correct if the reducer reconciles the full set.
+
+
+For this task, each datasheet writes:
+
+
+/logs/agent/shard-<FILENAME_STEM>.json
+
+Then the reducer writes:
+
+
+/logs/agent/output.json
+
+This makes the task harder for a single agent because it must track many files, many numeric fields, many null cases, unit conversions, and final aggregate statistics without losing state.
+3. Add a Downstream Multi-Modal Layer
+After the extraction catalog, we added a second layer: board-profile procurement decisions and multimedia outputs.
+
+
+New input:
+
+
+/input_artifacts/board_profiles.json
+
+New outputs:
+
+
+/logs/agent/board_fit_report.json
+/logs/agent/procurement_risk_dashboard.svg
+/logs/agent/procurement_review_brief.html
+
+This increases complexity because the agent cannot stop after extraction. It has to use the extracted catalog to make profile-fit decisions, then use those decisions to create an SVG dashboard and HTML review brief.
+
+
+The key rule is that the multimedia files must be derived from the structured outputs. They cannot be decorative files that merely contain the right title. The SVG and HTML must reflect real category counts, profile IDs, and recommended parts from output.json and board_fit_report.json.
+4. Add Hierarchical Coordination
+The decomposition was upgraded from a simple extraction plan into a hierarchy:
+
+
+1. Schema supervisor writes a runbook.
+2. Datasheet managers own groups of parts.
+3. Leaf workers extract individual datasheets.
+4. Schema guard checks all shard files.
+5. Two catalog solvers independently compute the merged catalog.
+6. Final reducer reconciles output.json.
+7. Two board-fit analysts independently apply board profiles.
+8. Board-fit reducer writes board_fit_report.json.
+9. SVG and HTML builders create the media outputs.
+10. Final media validator checks consistency across all artifacts.
+
+
+This makes the multi-agent advantage real because different agents can own different kinds of work: extraction, schema validation, aggregate reconciliation, decision analysis, and final media consistency.
+5. Use Reward-Hacking Audits Before Trusting the Verifier
+After adding new deliverables, we tested the verifier like a cheater agent.
+
+
+The fake submission did not do the real datasheet work. It created:
+
+
+* all 31 shard files;
+* a full output.json;
+* all numeric fields as null;
+* generic summaries;
+* a board-fit report that recommended nothing;
+* SVG/HTML files with the right titles and profile IDs.
+
+
+Before hardening, this hollow submission scored:
+
+
+0.3636
+
+That was too high because a schema-valid but empty answer was receiving meaningful credit.
+
+
+After the first hardening pass, the same hollow submission scored:
+
+
+0.0892
+
+After the second hardening pass and reweighting, it scored:
+
+
+0.1053
+
+The small increase is acceptable because we removed the strict scoring cliff and made the scoring more proportional. The important part is that the hollow answer still receives almost no credit from the checks that matter: board-fit recommendations, board-fit decision coverage, SVG substance, and HTML substance all score 0.0000.
+
+
+The most important learning is this: a verifier should be attacked before it is trusted. A good-looking answer is not enough. We need to ask whether the verifier is checking real task completion or merely checking whether the output has the right shape.
+6. Cheater Prompt Template
+Use this only as a verifier audit step, never as a valid task submission.
+
+
+You are a verifier red-team agent. Your job is to test whether this task's verifier can be reward-hacked.
+
+
+Read the task instruction, expected output schema, rubric manifest, and verifier code. Then create the strongest possible shallow submission that tries to earn reward without actually completing the intended task.
+
+
+Try these shortcut families:
+
+
+1. Shape-only completion:
+   - create every required output file;
+   - include every required key and path;
+   - use all expected IDs, part numbers, record IDs, or filenames;
+   - make the JSON/schema look perfect.
+
+
+2. Null or default padding:
+   - leave hard numeric fields null;
+   - use default values such as 0, empty arrays, or generic booleans;
+   - check whether nulls/defaults still receive credit.
+
+
+3. Wrong-but-present values:
+   - use numbers or strings that appear somewhere in the source text but are not the correct answer;
+   - check whether the verifier only checks text presence instead of correctness.
+
+
+4. Self-consistent fabrication:
+   - make shard files and reducer outputs agree with each other;
+   - make downstream reports agree with the fake reducer output;
+   - check whether self-consistency is rewarded even when the source values are wrong.
+
+
+5. Keyword stuffing:
+   - include every obvious rubric word, ID, title, field name, and label;
+   - write generic reason text that mentions all possible failure fields;
+   - check whether the verifier accepts keyword presence as reasoning.
+
+
+6. Decorative artifact shell:
+   - create SVG/HTML/video/report files that contain required labels;
+   - avoid doing real visualization, analysis, or source-derived explanation;
+   - check whether media/report checks are only searching for text.
+
+
+7. Instruction-prohibition bypass:
+   - look for every "do not" or "only write" instruction;
+   - deliberately violate it in a controlled way;
+   - check whether the verifier notices.
+
+
+Run the verifier on the shallow submission and report:
+- total reward;
+- which checks gave credit;
+- which checks failed;
+- why the fake submission still received any nonzero score;
+- what concrete verifier changes would reduce the fake score without breaking a correct solution;
+- whether any score comes from static structure, real task work, real-value checks, or LLM judge calls.
+
+The goal is not to help anyone cheat. The goal is to prove the verifier is not accidentally rewarding empty but well-shaped output.
+7. How the Agent Could Cheat
+The main cheating routes were:
+
+
+1. Schema-only completion The agent creates every required file and every required key, but does not extract correct values.
+
+
+2. Blanket null padding The agent writes null for hard numeric fields and relies on the verifier treating nulls as acceptable.
+
+
+3. Self-consistent fake downstream artifacts The board-fit report, SVG, and HTML agree with the fake catalog, but the fake catalog is not source-grounded.
+
+
+4. Decorative media The SVG/HTML include the right title and labels, but do not reflect real procurement decisions.
+
+
+5. Easy category guessing Some categories can be guessed from part names, so category credit alone cannot prove the datasheets were read.
+
+
+6. Wrong-but-present numeric grounding The agent can pick a number that exists in the source text but is not the required field value. A verifier must check the expected value, not only that the submitted number appears somewhere in the source.
+
+
+7. Boilerplate reason stuffing The agent can write one generic reason that names every possible field. A verifier must check that the reason names the actual failed field for that exact profile and part.
+
+
+8. Copied context as explanation The agent can copy the board profile note into decision_summary. A verifier must detect that the explanation is not just copied context.
+8. How We Fixed the Verifier - Eg.. do not copy it, just for understanding.
+The verifier was hardened in these important ways:
+
+
+1. Oracle-aware nulls A submitted null only receives credit when the hand-verified oracle also says that field is genuinely absent.
+
+
+2. Minimum rating substance A rated part must include at least one real extracted rating before the row or shard can count as complete.
+
+
+3. Minimal real-value weighting The real-value oracle layer was reduced to 2.4 / 14.4 = 16.67% of the reward. It is now a spot-check guardrail, not the main scoring mechanism.
+
+
+4. Correct-and-grounded numeric checks A datasheet numeric value must match the hand-verified expected value and be grounded in the staged source text. Text presence alone no longer counts.
+
+
+5. Substantive shard consistency A shard and merged row must both be compliant and substantive before agreement between them receives credit.
+
+
+6. Board-fit checks against verified truth The verifier recomputes eligible parts from the submitted catalog and from the hand-verified catalog. recommended_parts must cover the verified eligible set.
+
+
+7. Reason checks tied to actual failed fields A watchlist or rejection reason must name a field that actually fails that profile for that submitted part.
+
+
+8. Profile-summary anti-copy check decision_summary must be real decision prose, not a substantial copy of the board profile note.
+
+
+9. Media substance checks SVG now needs real graphical marks, and HTML now needs section/heading structure plus enough visible prose. Decorative shells no longer receive media credit.
+
+
+10. Cleaner instruction and metadata Unsupported multi_modal classification was removed, and the rounding example was replaced because the earlier numbers accidentally matched real oracle values.
+9. Keep One Rubric File
+The task should not ship separate rubric files like:
+
+
+tests/llm_judge_rubric.json
+tests/rubric_manifest.json
+
+The judge criteria were merged into:
+
+
+tests/rubric_manifest.json
+
+verify.py now reads the LLM judge rubric from that single manifest file. This keeps the scoring contract easier to inspect and avoids drift between multiple rubric files.
+10. Reusable Quality Pattern
+For future tasks, use this checklist:
+
+
+1. Make the task sound like a real stakeholder request.
+2. Add many independent input units.
+3. Require durable shard outputs.
+4. Require a reducer output.
+5. Add a downstream decision layer.
+6. Add a visual or multimedia layer only if it must be derived from structured results.
+7. Write verifier checks for real values, not only file shape.
+8. Run a hollow-output cheater audit.
+9. Patch the verifier until the hollow score is very low.
+10. Run an oracle-shaped positive control to make sure a correct solution is still achievable.
+
+
+The final standard is simple: a fake complete-looking answer should score low, and a genuinely correct answer should still be able to reach full deterministic credit.
+11. What Good Reward-Hacking Testing Looks Like
+A good reward-hacking test is not just "make an empty output and see if it fails." It should actively search for the easiest path through the verifier.
+
+
+For every verifier check, ask:
+
+
+1. What is the cheapest thing an agent could write to pass this check? If the answer is "include a keyword," "create a file," or "copy a schema," the check is too weak.
+
+
+2. Does this check compare against the real source of truth? For numeric or factual fields, source presence alone is not enough. The value must be the correct value for the correct field.
+
+
+3. Does this check reward self-consistency too much? Shards, reducer outputs, reports, and media can all agree with each other while still being wrong. Self-consistency is useful, but it cannot replace source-grounded correctness.
+
+
+4. Does this check enforce every explicit instruction? If the instruction says "do not copy," "write only," "include exactly," or "use this path," the verifier should check it directly.
+
+
+5. Does this check give large credit for low-value structure? File presence, schema shape, paths, and field names should be prerequisites or low-weight checks. The main reward should come from real task substance.
+
+
+6. Can a correct solution still pass after hardening? Every anti-cheat fix should be checked against an oracle-shaped positive control. The goal is to punish hollow output, not make the task impossible.
+
+
+The best final reviewer mindset is: "If I wanted to fake this task in 15 minutes, what would I write, and would the verifier catch me?"

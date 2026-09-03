@@ -1,0 +1,130 @@
+{
+ "as_of_date": "2026-07-06",
+ "failure_modes": [
+  "Ingestion or Choking",
+  "Electrical Shock or Arcing",
+  "Thermal or Fire",
+  "Mechanical Entrapment or Pinch",
+  "Laceration or Sharp Edge",
+  "Structural Collapse or Breakage",
+  "Chemical Exposure or Contamination",
+  "Loss of Protective Function",
+  "Other or Undetermined"
+ ],
+ "residual_failure_mode": "Other or Undetermined",
+ "harm_levels": [
+  "H0",
+  "H1",
+  "H2",
+  "H3"
+ ],
+ "coded_severity_band": {
+  "No Incident, No Injury": "H0",
+  "Incident, No Injury": "H0",
+  "Injury, No First Aid or Medical Attention Received": "H1",
+  "Injury, First Aid Received by Non-Medical Professional": "H1",
+  "Injury, Seen by Medical Professional": "H2",
+  "Injury, Emergency Department Treatment Received": "H3",
+  "Injury, Hospital Admission": "H3",
+  "Death": "H3"
+ },
+ "company_postures": [
+  "Recall or Corrective Action Cited",
+  "Remedy Offered",
+  "Disputes or Deflects",
+  "Standards Assurance Only",
+  "Acknowledged Under Review",
+  "None"
+ ],
+ "corroborating_postures": [
+  "Recall or Corrective Action Cited",
+  "Remedy Offered"
+ ],
+ "contesting_postures": [
+  "Disputes or Deflects"
+ ],
+ "evidence_grades": [
+  "Corroborated",
+  "Contested",
+  "Uncontested",
+  "Insufficient"
+ ],
+ "countable_grades": [
+  "Corroborated",
+  "Uncontested"
+ ],
+ "trigger_rule_a": {
+  "min_countable": 3,
+  "window_days": 365
+ },
+ "trigger_rule_b": {
+  "min_countable_h2_plus": 2,
+  "window_days": 540
+ },
+ "trigger_rule_c": {
+  "min_countable_h3": 1,
+  "min_countable_total": 2
+ },
+ "filing_deadline_days": 10,
+ "board_slots_per_business_day": 2,
+ "board_business_days": 10,
+ "board_capacity": 20,
+ "dispositions": [
+  "Board Docketed",
+  "Board Backlog",
+  "Monitor",
+  "Close No Action"
+ ],
+ "brand_register": {
+  "Apple": "Apple",
+  "Ashley": "Ashley Furniture",
+  "Ashley Furniture": "Ashley Furniture",
+  "Bissell": "Bissell",
+  "Bosch": "Bosch",
+  "Breville": "Breville",
+  "Conair": "Conair",
+  "Cuisinart": "Cuisinart",
+  "Delta": "Delta",
+  "Eufy": "Anker",
+  "Fisher Price": "Fisher-Price",
+  "Fisher price": "Fisher-Price",
+  "Fisher-Price": "Fisher-Price",
+  "Frigidaire": "Frigidaire",
+  "Frigidaire Gallery": "Frigidaire",
+  "GE": "GE Appliances",
+  "GE APPLIANCES": "GE Appliances",
+  "GE Appliances": "GE Appliances",
+  "GE Cafe": "GE Appliances",
+  "Ge": "GE Appliances",
+  "General Electric": "GE Appliances",
+  "Google": "Google / Fitbit",
+  "Google Pixel": "Google / Fitbit",
+  "Graco": "Graco",
+  "Hamilton Beach": "Hamilton Beach",
+  "Hamilton beach": "Hamilton Beach",
+  "IKEA": "IKEA",
+  "KENMORE ELITE": "Kenmore",
+  "Kenmore": "Kenmore",
+  "Kenmore Elite": "Kenmore",
+  "Kidde": "Kidde",
+  "Kitchen Aid": "KitchenAid",
+  "KitchenAid": "KitchenAid",
+  "LG": "LG Electronics",
+  "LG electronics": "LG Electronics",
+  "MIDEA": "Midea",
+  "Mattel": "Fisher-Price",
+  "Midea": "Midea",
+  "NINJA": "Ninja / SharkNinja",
+  "Ninja": "Ninja / SharkNinja",
+  "PYREX": "Instant Brands",
+  "Pyrex": "Instant Brands",
+  "Ryobi": "Ryobi",
+  "Samsung": "Samsung",
+  "Shark": "Ninja / SharkNinja",
+  "WHIRLPOOL": "Whirlpool",
+  "Whirlpool": "Whirlpool",
+  "lg": "LG Electronics",
+  "samsung": "Samsung",
+  "shark": "Ninja / SharkNinja"
+ }
+}

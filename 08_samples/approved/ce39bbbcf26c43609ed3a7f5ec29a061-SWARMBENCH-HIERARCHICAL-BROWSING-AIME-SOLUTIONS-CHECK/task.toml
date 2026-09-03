@@ -1,0 +1,30 @@
+[task]
+name = "swarmbench/ce39bbbcf26c43609ed3a7f5ec29a061-SWARMBENCH-HIERARCHICAL-BROWSING-AIME-SOLUTIONS-CHECK"
+description = "Retrieve 60 real AIME competition problem statements over the network from a published index that carries no solutions and no answer key, independently derive the integer answer to each problem, name the principal method and the pivotal relation that yields it, and classify the topic, then assemble a problems workbook and a brief."
+
+[metadata]
+verifier_type = "llm-judge"
+domain = "reasoning-math"
+coordination_pattern = "hierarchical"
+secondary_classification = ["browsing", "long_horizon"]
+dag_depth = 3
+dag_width = 60
+human_solving_hours_estimate = 48.0
+human_solving_hours_justification = "A solver must fetch the index, then for each of 60 AIME problems retrieve the statement and work it independently to its integer answer. These are contest problems built to punish a rushed setup or a dropped case, and each is a multi-step derivation in algebra, number theory, geometry, or counting, plus naming the decisive method and the pivotal relation that yields the answer; that runs about 40 min per problem, so 60 problems is roughly 40h. Reconciling the per-problem records into the workbook and drafting the brief adds about 8h, for 48h total."
+estimated_sub_agents = 68
+input_token_estimate = 120000
+reference_link = "https://github.com/vinodbaste/swarmbench-competition-math-corpus"
+why_multi_agent = "The index hands over problem statements only, with no solutions and no answer key, so every answer has to be derived from scratch; this is genuine multi-step reasoning, not retrieval. A single agent that works the whole set of 60 contest problems in one context exhausts its reasoning budget: it rushes the later and harder problems, carries an arithmetic slip, drops a case, or settles for a guess once it is saturated. A hierarchy avoids this: an orchestrator partitions the set, each batch manager assigns one leaf worker per problem so every problem is reasoned out end to end in a clean context with its own budget, and a reducer collates the per-problem records into the workbook and brief. The retrieve, per-problem derivation, and reconciliation stages make this a long-horizon hierarchical workflow whose advantage is per-problem reasoning budget and specialization, not context size."
+network_enabled = true
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600
+network_enabled = true

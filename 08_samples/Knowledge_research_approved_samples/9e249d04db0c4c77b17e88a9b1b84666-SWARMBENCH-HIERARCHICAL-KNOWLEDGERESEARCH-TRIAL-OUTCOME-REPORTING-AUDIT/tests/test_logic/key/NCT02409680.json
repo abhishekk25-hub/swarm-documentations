@@ -1,0 +1,628 @@
+{
+ "nct": "NCT02409680",
+ "prespecification_version": 2,
+ "prespecification_date": "2016-03-23",
+ "publications": [
+  "PMC13150641",
+  "PMC5415791",
+  "PMC9993805"
+ ],
+ "prespecified_units": [
+  {
+   "uid": "pri1",
+   "measure": "Preterm Birth",
+   "role": "primary",
+   "timeframe": "At delivery",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC13150641",
+   "reported_label": "preterm birth",
+   "reported_instrument": "enrollment ultrasonography",
+   "reported_role": "primary",
+   "role_evidence_quote": "The main outcome was preterm birth (delivery between 20 and <37 weeks' gestation) with gestational age confirmed by enrollment ultrasonography.",
+   "result_quote": "In mixed-effects pooled logistic regression, each 1  degrees C increase in mean daily maximum shaded wet-bulb globe temperature across gestation was associated with a 5% increased odds of preterm birth (adjusted odds ratio, 1.05; 95% CI, 1.01-1.10)."
+  },
+  {
+   "uid": "sec2",
+   "measure": "Small for gestational age (SGA)",
+   "role": "secondary",
+   "timeframe": "At delivery or at Day 42 after delivery",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC13150641",
+   "reported_label": "small for gestational age",
+   "reported_instrument": "INTERGROWTH-21st (International Fetal and Newborn Growth Consortium for the 21st Century) standards",
+   "reported_role": "secondary",
+   "role_evidence_quote": "We also examined several secondary outcomes against long-term heat exposure only, including hypertensive disorders of pregnancy (HDPs), small for gestational age (SGA), and perinatal mortality.",
+   "result_quote": "Small for gestational age e\n0.99 (0.95-1.04)\n1.04 (0.97-1.11)\n0.96 (0.90-1.03)"
+  },
+  {
+   "uid": "sec3",
+   "measure": "Perinatal mortality",
+   "role": "secondary",
+   "timeframe": "At delivery or at Day 42 after delivery",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC13150641",
+   "reported_label": "perinatal mortality",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "We also examined several secondary outcomes against long-term heat exposure only, including hypertensive disorders of pregnancy (HDPs), small for gestational age (SGA), and perinatal mortality.",
+   "result_quote": "Perinatal mortality occurred in 327 of 11 558 participants (2.9%) and was associated with a higher mean maximum daily WBGT across gestation (AOR, 1.08; 95% CI, 1.01-1.16) ( Table 2 )."
+  },
+  {
+   "uid": "oth12",
+   "measure": "Fetal Outcome 6- Medical termination of pregnancy",
+   "role": "other",
+   "timeframe": "At delivery",
+   "reported": false,
+   "change_disclosed": false
+  }
+ ],
+ "additional_units": [
+  {
+   "rid": "PMC13150641#1",
+   "reporting_document": "PMC13150641",
+   "reported_label": "hypertensive disorders of pregnancy",
+   "reported_instrument": "blood pressure higher than 140/90 mm Hg",
+   "reported_role": "secondary",
+   "role_evidence_quote": "We also examined several secondary outcomes against long-term heat exposure only, including hypertensive disorders of pregnancy (HDPs), small for gestational age (SGA), and perinatal mortality.",
+   "result_quote": "Hypertensive disorders of pregnancy e\n1.03 (0.95-1.12)\n1.04 (0.93-1.16)\n1.01 (0.90-1.13)"
+  },
+  {
+   "rid": "PMC5415791#0",
+   "reporting_document": "PMC5415791",
+   "reported_label": "preterm birth",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Aspirin and preterm birth",
+   "result_quote": "found a 19% reduction in the overall rate of preterm birth (RR 0.81, 95% CI 0.71 to 0.92) [ 14 ]."
+  },
+  {
+   "rid": "PMC5415791#1",
+   "reporting_document": "PMC5415791",
+   "reported_label": "preterm birth",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Aspirin and preterm birth",
+   "result_quote": "The risk of preterm birth is highest in low-middle income countries where an estimated 12% of births are preterm compared to 5-7% in high-income countries [ 8 ]."
+  },
+  {
+   "rid": "PMC5415791#2",
+   "reporting_document": "PMC5415791",
+   "reported_label": "preterm birth",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Aspirin and preterm birth",
+   "result_quote": "If only the original cohort (women with just one prior loss or less) is examined, there is a 55% reduction in preterm birth (RR 0.45; p-value of 0.087; CI 0.19 to 1.08)."
+  },
+  {
+   "rid": "PMC5415791#3",
+   "reporting_document": "PMC5415791",
+   "reported_label": "preterm birth",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Aspirin and preterm birth",
+   "result_quote": "The risk of preterm birth is highest in low-middle income countries where an estimated 12% of births are preterm compared to 5-7% in high-income countries [ 8 ]."
+  },
+  {
+   "rid": "PMC5415791#4",
+   "reporting_document": "PMC5415791",
+   "reported_label": "preterm birth",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Aspirin and preterm birth",
+   "result_quote": "The risk of preterm birth is highest in low-middle income countries where an estimated 12% of births are preterm compared to 5-7% in high-income countries [ 8 ]."
+  },
+  {
+   "rid": "PMC5415791#8",
+   "reporting_document": "PMC5415791",
+   "reported_label": "small for gestational age",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Aspirin and growth restriction (small for gestational Age)",
+   "result_quote": "Population: Nulliparous women between the ages of 14 and 40, with a singleton pregnancy between 6 0/7 weeks and 13 6/7 weeks gestational age (GA) confirmed by ultrasound prior to enrollment, no more than two previous first trimester pregnancy losses, and no contraindications to aspirin."
+  },
+  {
+   "rid": "PMC5415791#9",
+   "reporting_document": "PMC5415791",
+   "reported_label": "fetal growth restriction",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Aspirin and growth restriction (small for gestational Age)",
+   "result_quote": "A meta-analysis reported a 14% reduction in fetal growth restriction among women treated with LDA (RR 0.86, 95% CI 0.75-99); however when only women who initiated therapy at or before 16 weeks were examined the effect size was 54% (RR 0.46, 95% CI 0.33-0.66) [ 14 ]."
+  },
+  {
+   "rid": "PMC5415791#10",
+   "reporting_document": "PMC5415791",
+   "reported_label": "combined fetal, neonatal, and infant mortality",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Aspirin and growth restriction (small for gestational Age)",
+   "result_quote": "The review by Duley and colleagues noted a 16% reduction in combined fetal, neonatal, and infant mortality in women taking antiplatelet therapy (RR 0.84, 95% CI 0.74-0.96) [ 24 ]."
+  },
+  {
+   "rid": "PMC5415791#12",
+   "reporting_document": "PMC5415791",
+   "reported_label": "preeclampsia",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Study intervention and comparison",
+   "result_quote": "In fact, Duley et als meta-analysis showed a greater risk reduction for the development of preeclampsia associated with proteinuria in women treated with doses greater than 75 mg/day (RR 0.49, 95% CI 0.38-0.65) compared to lower doses (RR 0.86, 95% CI 0.79-0.93). 23"
+  },
+  {
+   "rid": "PMC5415791#27",
+   "reporting_document": "PMC5415791",
+   "reported_label": "spontaneous abortion",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Fetal and Neonatal outcomes:",
+   "result_quote": "To account for the loss of evaluable subjects due to spontaneous abortion, which are anticipated to occur in approximately 5% of participants) and loss to follow-up (assumed to be in the 1% to 2% range), sample sizes were increased by 8% to obtain a final sample size of 11,920 (or 5,960 per treatment arm)."
+  },
+  {
+   "rid": "PMC5415791#28",
+   "reporting_document": "PMC5415791",
+   "reported_label": "loss to follow-up",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Sample size and power estimates",
+   "result_quote": "To account for the loss of evaluable subjects due to spontaneous abortion, which are anticipated to occur in approximately 5% of participants) and loss to follow-up (assumed to be in the 1% to 2% range), sample sizes were increased by 8% to obtain a final sample size of 11,920 (or 5,960 per treatment arm)."
+  },
+  {
+   "rid": "PMC5415791#31",
+   "reporting_document": "PMC5415791",
+   "reported_label": "low birth weight",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Birth weight <2500 g and <1500 g",
+   "result_quote": "Based on 2013 MNH Registry data, the prevalence of low birth weight among all Global Network deliveries was 16.3% and the perinatal mortality rates were 20.5 per 1000 deliveries among normal birth weight infants and 162.3 per 1000 deliveries among low birth weight infants; these values yield a weighted average perinatal mortality rate of 43.6 per 1000 deliveries."
+  },
+  {
+   "rid": "PMC9993805#0",
+   "reporting_document": "PMC9993805",
+   "reported_label": "infants included in the final data set",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Therefore, 1291 infants were included in the final data set.",
+   "result_quote": "Therefore, 1291 infants were included in the final data set."
+  },
+  {
+   "rid": "PMC9993805#1",
+   "reporting_document": "PMC9993805",
+   "reported_label": "infants without a measured birth weight",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Ninety-three infants did not have a measured birth weight.",
+   "result_quote": "Ninety-three infants did not have a measured birth weight."
+  },
+  {
+   "rid": "PMC9993805#2",
+   "reporting_document": "PMC9993805",
+   "reported_label": "miscarriage among subjects with missing measured birth weight",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "The majority of these were due to miscarriage ( n  = 49) or stillbirth ( n  = 27).",
+   "result_quote": "The majority of these were due to miscarriage ( n  = 49) or stillbirth ( n  = 27)."
+  },
+  {
+   "rid": "PMC9993805#3",
+   "reporting_document": "PMC9993805",
+   "reported_label": "stillbirth among subjects with missing measured birth weight",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "The majority of these were due to miscarriage ( n  = 49) or stillbirth ( n  = 27).",
+   "result_quote": "The majority of these were due to miscarriage ( n  = 49) or stillbirth ( n  = 27)."
+  },
+  {
+   "rid": "PMC9993805#4",
+   "reporting_document": "PMC9993805",
+   "reported_label": "birthweight by treatment arm (Kenya population)",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Within the Kenya population, mean birthweight and gestational age were comparable by treatment arm.",
+   "result_quote": "The analysis of variance was statistically significant for birthweight ( p  = 0.0167), but the difference of means was not clinically significant (~ 63 g)."
+  },
+  {
+   "rid": "PMC9993805#5",
+   "reporting_document": "PMC9993805",
+   "reported_label": "women randomized",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "The consort diagram is shown in Fig. 2 ; 1408 women were randomized.",
+   "result_quote": "The consort diagram is shown in Fig. 2 ; 1408 women were randomized."
+  },
+  {
+   "rid": "PMC9993805#6",
+   "reporting_document": "PMC9993805",
+   "reported_label": "lost to follow-up before delivery gestational age data",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Twenty-two did not have delivery gestational age data and are considered lost to follow-up (LTFU), and 93 infants did not have a measured birth weight.",
+   "result_quote": "Twenty-two did not have delivery gestational age data and are considered lost to follow-up (LTFU), and 93 infants did not have a measured birth weight."
+  },
+  {
+   "rid": "PMC9993805#7",
+   "reporting_document": "PMC9993805",
+   "reported_label": "miscarriages among subjects without measured birth weight",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Miscarriages accounted for the majority (49) of the subjects with missing measured BW.",
+   "result_quote": "Miscarriages accounted for the majority (49) of the subjects with missing measured BW."
+  },
+  {
+   "rid": "PMC9993805#8",
+   "reporting_document": "PMC9993805",
+   "reported_label": "stillbirths among subjects without measured birth weight",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Twenty-seven stillbirths, 5 infant deaths, and 12 survivors lacked measured birth weights.",
+   "result_quote": "Twenty-seven stillbirths, 5 infant deaths, and 12 survivors lacked measured birth weights."
+  },
+  {
+   "rid": "PMC9993805#9",
+   "reporting_document": "PMC9993805",
+   "reported_label": "infant deaths among subjects without measured birth weight",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Twenty-seven stillbirths, 5 infant deaths, and 12 survivors lacked measured birth weights.",
+   "result_quote": "Twenty-seven stillbirths, 5 infant deaths, and 12 survivors lacked measured birth weights."
+  },
+  {
+   "rid": "PMC9993805#10",
+   "reporting_document": "PMC9993805",
+   "reported_label": "survivors lacking measured birth weights",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Twenty-seven stillbirths, 5 infant deaths, and 12 survivors lacked measured birth weights.",
+   "result_quote": "Twenty-seven stillbirths, 5 infant deaths, and 12 survivors lacked measured birth weights."
+  },
+  {
+   "rid": "PMC9993805#11",
+   "reporting_document": "PMC9993805",
+   "reported_label": "infants excluded for unlikely birth weight/gestational age combinations",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Two additional infants were excluded because of highly unlikely birth weight/gestational age combinations.",
+   "result_quote": "Two additional infants were excluded because of highly unlikely birth weight/gestational age combinations."
+  },
+  {
+   "rid": "PMC9993805#12",
+   "reporting_document": "PMC9993805",
+   "reported_label": "infants in birthweight-by-gestational-age percentile analysis (36-42 weeks)",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "However, for the estimation of birthweight by gestational age percentiles, data were restricted to gestational ages 36-42 weeks, due to small numbers outside these parameters, as well as to compare with the INTEGROWTH21 data.",
+   "result_quote": "A comparison of birthweight percentiles by gestational age estimation, among a sample of infants from rural Kenya, revealed slight differences as compared to those from the global population (INTERGROWTH-21 st )."
+  },
+  {
+   "rid": "PMC9993805#13",
+   "reporting_document": "PMC9993805",
+   "reported_label": "birth weights obtained on day of life 0",
+   "reported_instrument": "platform scales",
+   "reported_role": "other",
+   "role_evidence_quote": "The vast majority of birth weights were obtained on day of life (DOL) 0 (91%); 98% were obtained within DOL 0-3.",
+   "result_quote": "The vast majority of birth weights were obtained on day of life (DOL) 0 (91%); 98% were obtained within DOL 0-3."
+  },
+  {
+   "rid": "PMC9993805#14",
+   "reporting_document": "PMC9993805",
+   "reported_label": "birth weights obtained within day of life 0-3",
+   "reported_instrument": "platform scales",
+   "reported_role": "other",
+   "role_evidence_quote": "The vast majority of birth weights were obtained on day of life (DOL) 0 (91%); 98% were obtained within DOL 0-3.",
+   "result_quote": "The vast majority of birth weights were obtained on day of life (DOL) 0 (91%); 98% were obtained within DOL 0-3."
+  },
+  {
+   "rid": "PMC9993805#15",
+   "reporting_document": "PMC9993805",
+   "reported_label": "Anderson-Darling Goodness of Fit of the normal distribution model for birth weights",
+   "reported_instrument": "Anderson-Darling Goodness of Fit",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The histogram shows evidence of digit preference in the recording of birth weights, which affected the Anderson-Darling Goodness of Fit of the normal distribution model (< 0.001).",
+   "result_quote": "The histogram shows evidence of digit preference in the recording of birth weights, which affected the Anderson-Darling Goodness of Fit of the normal distribution model (< 0.001)."
+  },
+  {
+   "rid": "PMC9993805#16",
+   "reporting_document": "PMC9993805",
+   "reported_label": "deaths (stillbirth or early infant death)",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Deaths ( n  = 32, 2.5%), either stillbirth or early infant death (0-6 days postnatal age), are plotted in red, whereas survivors are plotted in black.",
+   "result_quote": "Deaths ( n  = 32, 2.5%), either stillbirth or early infant death (0-6 days postnatal age), are plotted in red, whereas survivors are plotted in black."
+  },
+  {
+   "rid": "PMC9993805#17",
+   "reporting_document": "PMC9993805",
+   "reported_label": "live born infant deaths",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Causes of death for the live born infants ( n  = 19) were primarily asphyxia ( n  = 10) followed by prematurity ( n  = 3), infection ( n  = 4), congenital anomalies ( n  = 1) and unknown ( n  = 1).",
+   "result_quote": "Causes of death for the live born infants ( n  = 19) were primarily asphyxia ( n  = 10) followed by prematurity ( n  = 3), infection ( n  = 4), congenital anomalies ( n  = 1) and unknown ( n  = 1)."
+  },
+  {
+   "rid": "PMC9993805#18",
+   "reporting_document": "PMC9993805",
+   "reported_label": "asphyxia as cause of death among live born infants",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Causes of death for the live born infants ( n  = 19) were primarily asphyxia ( n  = 10) followed by prematurity ( n  = 3), infection ( n  = 4), congenital anomalies ( n  = 1) and unknown ( n  = 1).",
+   "result_quote": "Causes of death for the live born infants ( n  = 19) were primarily asphyxia ( n  = 10) followed by prematurity ( n  = 3), infection ( n  = 4), congenital anomalies ( n  = 1) and unknown ( n  = 1)."
+  },
+  {
+   "rid": "PMC9993805#19",
+   "reporting_document": "PMC9993805",
+   "reported_label": "prematurity as cause of death among live born infants",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Causes of death for the live born infants ( n  = 19) were primarily asphyxia ( n  = 10) followed by prematurity ( n  = 3), infection ( n  = 4), congenital anomalies ( n  = 1) and unknown ( n  = 1).",
+   "result_quote": "Causes of death for the live born infants ( n  = 19) were primarily asphyxia ( n  = 10) followed by prematurity ( n  = 3), infection ( n  = 4), congenital anomalies ( n  = 1) and unknown ( n  = 1)."
+  },
+  {
+   "rid": "PMC9993805#20",
+   "reporting_document": "PMC9993805",
+   "reported_label": "infection as cause of death among live born infants",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Causes of death for the live born infants ( n  = 19) were primarily asphyxia ( n  = 10) followed by prematurity ( n  = 3), infection ( n  = 4), congenital anomalies ( n  = 1) and unknown ( n  = 1).",
+   "result_quote": "Causes of death for the live born infants ( n  = 19) were primarily asphyxia ( n  = 10) followed by prematurity ( n  = 3), infection ( n  = 4), congenital anomalies ( n  = 1) and unknown ( n  = 1)."
+  },
+  {
+   "rid": "PMC9993805#21",
+   "reporting_document": "PMC9993805",
+   "reported_label": "congenital anomalies as cause of death among live born infants",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Causes of death for the live born infants ( n  = 19) were primarily asphyxia ( n  = 10) followed by prematurity ( n  = 3), infection ( n  = 4), congenital anomalies ( n  = 1) and unknown ( n  = 1).",
+   "result_quote": "Causes of death for the live born infants ( n  = 19) were primarily asphyxia ( n  = 10) followed by prematurity ( n  = 3), infection ( n  = 4), congenital anomalies ( n  = 1) and unknown ( n  = 1)."
+  },
+  {
+   "rid": "PMC9993805#22",
+   "reporting_document": "PMC9993805",
+   "reported_label": "unknown cause of death among live born infants",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Causes of death for the live born infants ( n  = 19) were primarily asphyxia ( n  = 10) followed by prematurity ( n  = 3), infection ( n  = 4), congenital anomalies ( n  = 1) and unknown ( n  = 1).",
+   "result_quote": "Causes of death for the live born infants ( n  = 19) were primarily asphyxia ( n  = 10) followed by prematurity ( n  = 3), infection ( n  = 4), congenital anomalies ( n  = 1) and unknown ( n  = 1)."
+  },
+  {
+   "rid": "PMC9993805#23",
+   "reporting_document": "PMC9993805",
+   "reported_label": "stillbirths",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Stillbirths ( n  = 13) were primarily due to asphyxia ( n  = 10), followed by infection ( n  = 2) and unknown ( n  = 1).",
+   "result_quote": "Stillbirths ( n  = 13) were primarily due to asphyxia ( n  = 10), followed by infection ( n  = 2) and unknown ( n  = 1)."
+  },
+  {
+   "rid": "PMC9993805#24",
+   "reporting_document": "PMC9993805",
+   "reported_label": "asphyxia as cause of stillbirth",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Stillbirths ( n  = 13) were primarily due to asphyxia ( n  = 10), followed by infection ( n  = 2) and unknown ( n  = 1).",
+   "result_quote": "Stillbirths ( n  = 13) were primarily due to asphyxia ( n  = 10), followed by infection ( n  = 2) and unknown ( n  = 1)."
+  },
+  {
+   "rid": "PMC9993805#25",
+   "reporting_document": "PMC9993805",
+   "reported_label": "infection as cause of stillbirth",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Stillbirths ( n  = 13) were primarily due to asphyxia ( n  = 10), followed by infection ( n  = 2) and unknown ( n  = 1).",
+   "result_quote": "Stillbirths ( n  = 13) were primarily due to asphyxia ( n  = 10), followed by infection ( n  = 2) and unknown ( n  = 1)."
+  },
+  {
+   "rid": "PMC9993805#26",
+   "reporting_document": "PMC9993805",
+   "reported_label": "unknown cause of stillbirth",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Stillbirths ( n  = 13) were primarily due to asphyxia ( n  = 10), followed by infection ( n  = 2) and unknown ( n  = 1).",
+   "result_quote": "Stillbirths ( n  = 13) were primarily due to asphyxia ( n  = 10), followed by infection ( n  = 2) and unknown ( n  = 1)."
+  },
+  {
+   "rid": "PMC9993805#27",
+   "reporting_document": "PMC9993805",
+   "reported_label": "10th birth weight percentile at 36 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#28",
+   "reporting_document": "PMC9993805",
+   "reported_label": "25th birth weight percentile at 36 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#29",
+   "reporting_document": "PMC9993805",
+   "reported_label": "median birth weight at 36 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#30",
+   "reporting_document": "PMC9993805",
+   "reported_label": "75th birth weight percentile at 36 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#31",
+   "reporting_document": "PMC9993805",
+   "reported_label": "90th birth weight percentile at 36 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#32",
+   "reporting_document": "PMC9993805",
+   "reported_label": "10th birth weight percentile at 37 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#33",
+   "reporting_document": "PMC9993805",
+   "reported_label": "25th birth weight percentile at 37 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#34",
+   "reporting_document": "PMC9993805",
+   "reported_label": "median birth weight at 37 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#35",
+   "reporting_document": "PMC9993805",
+   "reported_label": "75th birth weight percentile at 37 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#36",
+   "reporting_document": "PMC9993805",
+   "reported_label": "90th birth weight percentile at 37 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#37",
+   "reporting_document": "PMC9993805",
+   "reported_label": "10th birth weight percentile at 38 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#38",
+   "reporting_document": "PMC9993805",
+   "reported_label": "25th birth weight percentile at 38 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#39",
+   "reporting_document": "PMC9993805",
+   "reported_label": "median birth weight at 38 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#40",
+   "reporting_document": "PMC9993805",
+   "reported_label": "75th birth weight percentile at 38 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#41",
+   "reporting_document": "PMC9993805",
+   "reported_label": "90th birth weight percentile at 38 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#42",
+   "reporting_document": "PMC9993805",
+   "reported_label": "10th birth weight percentile at 39 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#43",
+   "reporting_document": "PMC9993805",
+   "reported_label": "25th birth weight percentile at 39 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#44",
+   "reporting_document": "PMC9993805",
+   "reported_label": "median birth weight at 39 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  },
+  {
+   "rid": "PMC9993805#45",
+   "reporting_document": "PMC9993805",
+   "reported_label": "75th birth weight percentile at 39 completed weeks of gestation",
+   "reported_instrument": "platform scales",
+   "reported_role": "primary",
+   "role_evidence_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 .",
+   "result_quote": "Excluding stillborn and early neonatal death infants, the 10 th , 25 th , 50 th , 75 th , and 90 th birth weight percentiles for 36-42 completed weeks of gestation are shown in Table 2 ."
+  }
+ ],
+ "dropped_unusable_units": [
+  "oth4: NCT02409680/oth4 role: quote too short to be evidence",
+  "oth11: NCT02409680/oth11 role: quote too short to be evidence",
+  "PMC13150641#5: NCT02409680/PMC13150641#5 role: quote too short to be evidence",
+  "PMC5415791#5: NCT02409680/PMC5415791#5 role: quote too short to be evidence",
+  "PMC5415791#6: NCT02409680/PMC5415791#6 role: quote too short to be evidence",
+  "PMC5415791#7: NCT02409680/PMC5415791#7 role: quote too short to be evidence",
+  "PMC5415791#11: NCT02409680/PMC5415791#11 role: quote too short to be evidence",
+  "PMC5415791#13: NCT02409680/PMC5415791#13 role: quote too short to be evidence",
+  "PMC5415791#14: NCT02409680/PMC5415791#14 role: quote too short to be evidence",
+  "PMC5415791#15: NCT02409680/PMC5415791#15 role: quote too short to be evidence",
+  "PMC5415791#16: NCT02409680/PMC5415791#16 role: quote too short to be evidence",
+  "PMC5415791#17: NCT02409680/PMC5415791#17 role: quote too short to be evidence",
+  "PMC5415791#18: NCT02409680/PMC5415791#18 role: quote too short to be evidence",
+  "PMC5415791#19: NCT02409680/PMC5415791#19 role: quote too short to be evidence",
+  "PMC5415791#20: NCT02409680/PMC5415791#20 role: quote too short to be evidence",
+  "PMC5415791#21: NCT02409680/PMC5415791#21 role: quote too short to be evidence",
+  "PMC5415791#22: NCT02409680/PMC5415791#22 role: quote too short to be evidence",
+  "PMC5415791#23: NCT02409680/PMC5415791#23 role: quote too short to be evidence",
+  "PMC5415791#24: NCT02409680/PMC5415791#24 role: quote too short to be evidence",
+  "PMC5415791#25: NCT02409680/PMC5415791#25 role: quote too short to be evidence",
+  "PMC5415791#26: NCT02409680/PMC5415791#26 role: quote too short to be evidence",
+  "PMC5415791#29: NCT02409680/PMC5415791#29 role: quote too short to be evidence",
+  "PMC5415791#30: NCT02409680/PMC5415791#30 role: quote too short to be evidence",
+  "PMC5415791#32: NCT02409680/PMC5415791#32 role: quote too short to be evidence",
+  "PMC5415791#33: NCT02409680/PMC5415791#33 role: quote too short to be evidence",
+  "PMC5415791#34: NCT02409680/PMC5415791#34 role: quote too short to be evidence",
+  "PMC5415791#35: NCT02409680/PMC5415791#35 role: quote too short to be evidence",
+  "PMC5415791#36: NCT02409680/PMC5415791#36 role: quote too short to be evidence",
+  "PMC5415791#37: NCT02409680/PMC5415791#37 role: quote too short to be evidence",
+  "PMC5415791#38: NCT02409680/PMC5415791#38 role: quote too short to be evidence",
+  "PMC9993805#46: NCT02409680/PMC9993805#46 role: quote too short to be evidence"
+ ]
+}

@@ -1,0 +1,680 @@
+{
+ "nct": "NCT03574597",
+ "prespecification_version": 1,
+ "prespecification_date": "2018-09-06",
+ "publications": [
+  "PMC11271387",
+  "PMC11271413",
+  "PMC13190271"
+ ],
+ "prespecified_units": [
+  {
+   "uid": "sec2",
+   "measure": "Time to all-cause death",
+   "role": "secondary",
+   "timeframe": "0-59 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec6",
+   "measure": "Time to first occurrence of non-fatal myocardial infarction",
+   "role": "secondary",
+   "timeframe": "0-59 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec7",
+   "measure": "Time to first occurrence of non-fatal stroke",
+   "role": "secondary",
+   "timeframe": "0-59 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec8",
+   "measure": "Time to first occurrence of coronary revascularisation",
+   "role": "secondary",
+   "timeframe": "0-59 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec9",
+   "measure": "Time to first occurrence of unstable angina requiring hospitalisation",
+   "role": "secondary",
+   "timeframe": "0-59 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec10",
+   "measure": "Time to first occurrence of heart failure hospitalisation or urgent heart failure visit",
+   "role": "secondary",
+   "timeframe": "0-59 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec11",
+   "measure": "Time to first occurrence of HbA1c greater than or equal to 48 mmol/mol (6.5%)",
+   "role": "secondary",
+   "timeframe": "0-59 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec12",
+   "measure": "Time to first occurrence of a 5-component composite nephropathy endpoint",
+   "role": "secondary",
+   "timeframe": "0-59 months",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11271413",
+   "reported_label": "main 5-component kidney composite endpoint",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The pre-specified 5-component main kidney endpoint was the first specified death from kidney disease, initiation of chronic kidney replacement therapy (dialysis or transplantation), onset of persistent eGFR <15 ml min -1  1.73 m - 2 , persistent >=50% reduction in eGFR compared to baseline or onset of persistent macroalbuminuria.",
+   "result_quote": "By the end of follow-up, 1.8% of patients randomized to semaglutide experienced this endpoint versus 2.2% of patients randomized to placebo (Fig. 1 ). Randomization to the semaglutide arm was associated with a hazard ratio (HR) of 0.78 (95% confidence interval (CI) 0.63, 0.96; P  = 0.02) for the in-trial analysis."
+  },
+  {
+   "uid": "sec13",
+   "measure": "Time to HbA1c greater than or equal to 39 mmol/mol (5.7%) for subjects with a screening HbA1c less than 39 mmol/mol (5.7%)",
+   "role": "secondary",
+   "timeframe": "0-59 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec14",
+   "measure": "Subjects with HbA1c less than 39 mmol/mol (5.7%) at each visit where HbA1c is assessed for subjects with a screening HbA1c greater than or equal to 39 mmol/mol (5.7%)",
+   "role": "secondary",
+   "timeframe": "0-59 months",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec15",
+   "measure": "Change in systolic blood pressure",
+   "role": "secondary",
+   "timeframe": "Week 0, year 2",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec16",
+   "measure": "Change in diastolic blood pressure",
+   "role": "secondary",
+   "timeframe": "Week 0, year 2",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec17",
+   "measure": "Change in pulse",
+   "role": "secondary",
+   "timeframe": "Week 0, year 2",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec18",
+   "measure": "Change in High sensitivity C-Reactive Protein (hsCRP)",
+   "role": "secondary",
+   "timeframe": "Week 0, year 2",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec19",
+   "measure": "Change in total cholesterol",
+   "role": "secondary",
+   "timeframe": "Week 0, year 2",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec20",
+   "measure": "Change in high density lipoprotein (HDL) cholesterol",
+   "role": "secondary",
+   "timeframe": "Week 0, year 2",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec21",
+   "measure": "Change in low density lipoprotein (LDL) cholesterol",
+   "role": "secondary",
+   "timeframe": "Week 0, year 2",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec22",
+   "measure": "Change in triglycerides",
+   "role": "secondary",
+   "timeframe": "Week 0, year 2",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec23",
+   "measure": "Change in body weight",
+   "role": "secondary",
+   "timeframe": "Week 0, year 2",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11271387",
+   "reported_label": "change in body weight (%)",
+   "reported_instrument": "digital scale",
+   "reported_role": "secondary",
+   "role_evidence_quote": "In the SELECT trial, patients did not enroll for the specific purpose of weight loss and received standard of care covering management of CV risk factors, including medical treatment and healthy lifestyle counseling, but without a specific focus on weight loss.",
+   "result_quote": "For those in the semaglutide group, the weight-loss trajectory continued to week 65 and then was sustained for the study period through week 208 (-10.2% for the semaglutide group, -1.5% for the placebo group; treatment difference -8.7%; 95% CI -9.42 to -7.88; P  < 0.0001)."
+  },
+  {
+   "uid": "sec25",
+   "measure": "Change in EuroQol five dimensions five level (EQ-5D-5L) questionnaire",
+   "role": "secondary",
+   "timeframe": "Week 0, year 2",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec27",
+   "measure": "Change in haemoglobin A1c (HbA1c)",
+   "role": "secondary",
+   "timeframe": "Screening (up to 3 weeks before randomisation at week 0), week 104",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec28",
+   "measure": "Change in HbA1c",
+   "role": "secondary",
+   "timeframe": "Screening (up to 3 weeks before randomisation at week 0), week 104",
+   "reported": false,
+   "change_disclosed": false
+  }
+ ],
+ "additional_units": [
+  {
+   "rid": "PMC11271387#1",
+   "reporting_document": "PMC11271387",
+   "reported_label": "change in body weight (%)",
+   "reported_instrument": "digital scale",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Because some patients in both arms continued to be followed but were off treatment, we also analyzed weight loss by first on-treatment group (observation period until first time being off treatment for >35 days) to assess a more realistic picture of weight loss in those adhering to treatment.",
+   "result_quote": "At week 208, mean weight loss in the semaglutide group analyzed as first on-treatment was -11.7% compared with -1.5% for the placebo group (Fig. 1b ; treatment difference -10.2%; 95% CI -11.0 to -9.42; P  < 0.0001)."
+  },
+  {
+   "rid": "PMC11271387#2",
+   "reporting_document": "PMC11271387",
+   "reported_label": "proportion achieving weight loss >=5%",
+   "reported_instrument": "digital scale",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The following endpoints relevant to this paper were assessed at randomization (week 0) to years 2, 3 and 4: change in body weight (%); proportion achieving weight loss >=5%, >=10%, >=15% and >=20%; change in WC (cm); and percentage change in WHtR (cm cm -1 ).",
+   "result_quote": "Among in-trial (intention-to-treat principle) patients at week 104, weight loss of >=5%, >=10%, >=15%, >=20% and >=25% was achieved by 67.8%, 44.2%, 22.9%, 11.0% and 4.9%, respectively, of those treated with semaglutide compared with 21.3%, 6.9%, 1.7%, 0.6% and 0.1% of those receiving placebo (Fig. 2a )."
+  },
+  {
+   "rid": "PMC11271387#3",
+   "reporting_document": "PMC11271387",
+   "reported_label": "proportion achieving weight loss >=10%",
+   "reported_instrument": "digital scale",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The following endpoints relevant to this paper were assessed at randomization (week 0) to years 2, 3 and 4: change in body weight (%); proportion achieving weight loss >=5%, >=10%, >=15% and >=20%; change in WC (cm); and percentage change in WHtR (cm cm -1 ).",
+   "result_quote": "Among in-trial (intention-to-treat principle) patients at week 104, weight loss of >=5%, >=10%, >=15%, >=20% and >=25% was achieved by 67.8%, 44.2%, 22.9%, 11.0% and 4.9%, respectively, of those treated with semaglutide compared with 21.3%, 6.9%, 1.7%, 0.6% and 0.1% of those receiving placebo (Fig. 2a )."
+  },
+  {
+   "rid": "PMC11271387#4",
+   "reporting_document": "PMC11271387",
+   "reported_label": "proportion achieving weight loss >=15%",
+   "reported_instrument": "digital scale",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The following endpoints relevant to this paper were assessed at randomization (week 0) to years 2, 3 and 4: change in body weight (%); proportion achieving weight loss >=5%, >=10%, >=15% and >=20%; change in WC (cm); and percentage change in WHtR (cm cm -1 ).",
+   "result_quote": "Among in-trial (intention-to-treat principle) patients at week 104, weight loss of >=5%, >=10%, >=15%, >=20% and >=25% was achieved by 67.8%, 44.2%, 22.9%, 11.0% and 4.9%, respectively, of those treated with semaglutide compared with 21.3%, 6.9%, 1.7%, 0.6% and 0.1% of those receiving placebo (Fig. 2a )."
+  },
+  {
+   "rid": "PMC11271387#5",
+   "reporting_document": "PMC11271387",
+   "reported_label": "proportion achieving weight loss >=20%",
+   "reported_instrument": "digital scale",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The following endpoints relevant to this paper were assessed at randomization (week 0) to years 2, 3 and 4: change in body weight (%); proportion achieving weight loss >=5%, >=10%, >=15% and >=20%; change in WC (cm); and percentage change in WHtR (cm cm -1 ).",
+   "result_quote": "Among in-trial (intention-to-treat principle) patients at week 104, weight loss of >=5%, >=10%, >=15%, >=20% and >=25% was achieved by 67.8%, 44.2%, 22.9%, 11.0% and 4.9%, respectively, of those treated with semaglutide compared with 21.3%, 6.9%, 1.7%, 0.6% and 0.1% of those receiving placebo (Fig. 2a )."
+  },
+  {
+   "rid": "PMC11271387#6",
+   "reporting_document": "PMC11271387",
+   "reported_label": "proportion achieving weight loss >=25%",
+   "reported_instrument": "digital scale",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Among in-trial (intention-to-treat principle) patients at week 104, weight loss of >=5%, >=10%, >=15%, >=20% and >=25% was achieved by 67.8%, 44.2%, 22.9%, 11.0% and 4.9%, respectively, of those treated with semaglutide compared with 21.3%, 6.9%, 1.7%, 0.6% and 0.1% of those receiving placebo (Fig. 2a ).",
+   "result_quote": "Among in-trial (intention-to-treat principle) patients at week 104, weight loss of >=5%, >=10%, >=15%, >=20% and >=25% was achieved by 67.8%, 44.2%, 22.9%, 11.0% and 4.9%, respectively, of those treated with semaglutide compared with 21.3%, 6.9%, 1.7%, 0.6% and 0.1% of those receiving placebo (Fig. 2a )."
+  },
+  {
+   "rid": "PMC11271387#8",
+   "reporting_document": "PMC11271387",
+   "reported_label": "sex- and race-specific cutoff points for WC",
+   "reported_instrument": "nonstretchable measuring tape",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The proportions of individuals with BMI <35 or >=35 kg m - 2 who achieved sex- and race-specific cutoff points for WC (indicating increased metabolic risk) were evaluated at week 104.",
+   "result_quote": "At week 104, 41.2% fell below the sex- and race-specific cutoff points for the semaglutide group, compared with only 18.0% for the placebo group (Fig. 3 )."
+  },
+  {
+   "rid": "PMC11271387#9",
+   "reporting_document": "PMC11271387",
+   "reported_label": "percentage change in WHtR",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The following endpoints relevant to this paper were assessed at randomization (week 0) to years 2, 3 and 4: change in body weight (%); proportion achieving weight loss >=5%, >=10%, >=15% and >=20%; change in WC (cm); and percentage change in WHtR (cm cm -1 ).",
+   "result_quote": "At week 208, in the group randomized to semaglutide, there was a relative reduction of 6.9% in WHtR compared with 1.0% in placebo (treatment difference -5.87% points; 95% CI -6.56 to -5.17; P  < 0.0001)."
+  },
+  {
+   "rid": "PMC11271387#10",
+   "reporting_document": "PMC11271387",
+   "reported_label": "Improvement in BMI category",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Improvement in BMI category (defined as being in a lower BMI class) was assessed at week 104 compared with baseline according to BMI classes: healthy (BMI <25 kg m - 2 ), overweight (25 to <30 kg m - 2 ), class I obesity (30 to <35 kg m - 2 ), class II obesity (35 to <40 kg m - 2 ) and class III obesity (>=40 kg m - 2 ).",
+   "result_quote": "At week 104, 52.4% of patients treated with semaglutide achieved improvement in BMI category compared with 15.7% of those receiving placebo."
+  },
+  {
+   "rid": "PMC11271387#11",
+   "reporting_document": "PMC11271387",
+   "reported_label": "BMI <25 kg m - 2",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Improvement in BMI category (defined as being in a lower BMI class) was assessed at week 104 compared with baseline according to BMI classes: healthy (BMI <25 kg m - 2 ), overweight (25 to <30 kg m - 2 ), class I obesity (30 to <35 kg m - 2 ), class II obesity (35 to <40 kg m - 2 ) and class III obesity (>=40 kg m - 2 ).",
+   "result_quote": "In the semaglutide group, 12.0% of patients achieved a BMI <25 kg m - 2 , which is considered the healthy BMI category, compared with 1.2% for placebo; per study inclusion criteria, no patients were in this category at baseline."
+  },
+  {
+   "rid": "PMC11271387#12",
+   "reporting_document": "PMC11271387",
+   "reported_label": "obesity (BMI >=30 kg m - 2 )",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Improvement in BMI category (defined as being in a lower BMI class) was assessed at week 104 compared with baseline according to BMI classes: healthy (BMI <25 kg m - 2 ), overweight (25 to <30 kg m - 2 ), class I obesity (30 to <35 kg m - 2 ), class II obesity (35 to <40 kg m - 2 ) and class III obesity (>=40 kg m - 2 ).",
+   "result_quote": "The proportion of patients with obesity (BMI >=30 kg m - 2 ) fell from 71.0% to 43.3% in the semaglutide group versus 71.9% to 67.9% in the placebo group."
+  },
+  {
+   "rid": "PMC11271387#13",
+   "reporting_document": "PMC11271387",
+   "reported_label": "mean percentage change in body weight from baseline to week 104 by subgroups",
+   "reported_instrument": "digital scale",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The forest plot illustrated in Fig. 5 displays mean body weight percentage change from baseline to week 104 for semaglutide relative to placebo in prespecified subgroups.",
+   "result_quote": "Women had a greater difference in mean weight loss with semaglutide versus placebo (-11.1% (95% CI -11.56 to -10.66) versus -7.5% in men (95% CI -7.78 to -7.23); P  < 0.0001)."
+  },
+  {
+   "rid": "PMC11271387#14",
+   "reporting_document": "PMC11271387",
+   "reported_label": "mean percentage change in body weight from baseline to week 104 by subgroups",
+   "reported_instrument": "digital scale",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The forest plot illustrated in Fig. 5 displays mean body weight percentage change from baseline to week 104 for semaglutide relative to placebo in prespecified subgroups.",
+   "result_quote": "Those with WHtR less than the median experienced slightly lower mean body weight change than those above the median, with estimated treatment differences -8.04% (95% CI -8.37 to -7.70) and -8.99% (95% CI -9.33 to -8.65), respectively ( P  < 0.0001)."
+  },
+  {
+   "rid": "PMC11271387#15",
+   "reporting_document": "PMC11271387",
+   "reported_label": "mean percentage change in body weight from baseline to week 104 by subgroups",
+   "reported_instrument": "digital scale",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The forest plot illustrated in Fig. 5 displays mean body weight percentage change from baseline to week 104 for semaglutide relative to placebo in prespecified subgroups.",
+   "result_quote": "Patients from Asia and of Asian race experienced slightly lower mean weight loss (estimated treatment difference with semaglutide for Asian race -7.27% (95% CI -8.09 to -6.46; P  = 0.0147) and for Asia -7.30 (95% CI -7.97 to -6.62; P  = 0.0016))."
+  },
+  {
+   "rid": "PMC11271387#16",
+   "reporting_document": "PMC11271387",
+   "reported_label": "mean percentage change in body weight from baseline to week 104 by subgroups",
+   "reported_instrument": "digital scale",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The forest plot illustrated in Fig. 5 displays mean body weight percentage change from baseline to week 104 for semaglutide relative to placebo in prespecified subgroups.",
+   "result_quote": "There was no difference in weight loss with semaglutide associated with ethnicity (estimated treatment difference for Hispanic -8.53% (95% CI -9.28 to -7.76) or non-Hispanic -8.52% (95% CI -8.77 to 8.26); P  = 0.9769), glycemic status (estimated treatment difference for prediabetes -8.53% (95% CI -8.83 to -8.24) or normoglycemia -8.48% (95% CI -8.88 to -8.07; P  = 0.8188) or renal function (estimated treatment difference for estimated glomerular filtration rate (eGFR) <60 or >=60 ml min -1  1.73 m - 2 being -8.50% (95% CI -9.23 to -7.76) and -8.52% (95% CI -8.77 to -8.26), respectively ( P  = 0.9519))."
+  },
+  {
+   "rid": "PMC11271387#17",
+   "reporting_document": "PMC11271387",
+   "reported_label": "adverse events (AEs) leading to permanent discontinuation of the trial product",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety and tolerability according to baseline BMI category",
+   "result_quote": "We reported in the primary outcome of the SELECT trial that adverse events (AEs) leading to permanent discontinuation of the trial product occurred in 1,461 patients (16.6%) in the semaglutide group and 718 patients (8.2%) in the placebo group ( P  < 0.001) 21 ."
+  },
+  {
+   "rid": "PMC11271387#18",
+   "reporting_document": "PMC11271387",
+   "reported_label": "serious adverse events (SAEs)",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety and tolerability according to baseline BMI category",
+   "result_quote": "We reported in the primary SELECT analysis that serious adverse events (SAEs) were reported by 2,941 patients (33.4%) in the semaglutide arm and by 3,204 patients (36.4%) in the placebo arm ( P  < 0.001) 21 ."
+  },
+  {
+   "rid": "PMC11271387#19",
+   "reporting_document": "PMC11271387",
+   "reported_label": "SAEs",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "For this study, we analyzed SAE rates by person-years of treatment exposure for BMI classes (<30 kg m - 2 , 30 to <35 kg m - 2 , 35 to <40 kg m - 2 , and >=40 kg m - 2 ) and provide these data in Supplementary Table 2 .",
+   "result_quote": "Rates (events per 100 years of observation) of SAEs were 43.23, 43.54, 51.07 and 47.06 for semaglutide and 50.48, 49.66, 52.73 and 60.85 for placebo, with no evidence of heterogeneity."
+  },
+  {
+   "rid": "PMC11271387#20",
+   "reporting_document": "PMC11271387",
+   "reported_label": "completed the trial",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Overall, 97.1% of the semaglutide group and 96.8% of the placebo group completed the trial.",
+   "result_quote": "Overall, 97.1% of the semaglutide group and 96.8% of the placebo group completed the trial."
+  },
+  {
+   "rid": "PMC11271387#21",
+   "reporting_document": "PMC11271387",
+   "reported_label": "did not complete drug treatment",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "During the study, 30.6% of those assigned to semaglutide did not complete drug treatment, compared with 27.0% for placebo.",
+   "result_quote": "During the study, 30.6% of those assigned to semaglutide did not complete drug treatment, compared with 27.0% for placebo."
+  },
+  {
+   "rid": "PMC11271413#0",
+   "reporting_document": "PMC11271413",
+   "reported_label": "pre-specified main composite kidney endpoint",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "In a pre-specified secondary analysis of the SELECT trial, once-weekly subcutaneous semaglutide 2.4 mg in patients with obesity was associated with a 22% reduction in the main 5-component kidney composite endpoint compared to patients on placebo.",
+   "result_quote": "The incidence of the pre-specified main composite kidney endpoint (death from kidney disease, initiation of chronic kidney replacement therapy, onset of persistent estimated glomerular filtration rate (eGFR) < 15 ml min -1  1.73 m - 2 , persistent >=50% reduction in eGFR or onset of persistent macroalbuminuria) was lower with semaglutide (1.8%) versus placebo (2.2%): hazard ratio (HR) = 0.78; 95% confidence interval (CI) 0.63, 0.96; P  = 0.02."
+  },
+  {
+   "rid": "PMC11271413#2",
+   "reporting_document": "PMC11271413",
+   "reported_label": "main 5-component kidney composite endpoint",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The pre-specified 5-component main kidney endpoint was the first specified death from kidney disease, initiation of chronic kidney replacement therapy (dialysis or transplantation), onset of persistent eGFR <15 ml min -1  1.73 m - 2 , persistent >=50% reduction in eGFR compared to baseline or onset of persistent macroalbuminuria.",
+   "result_quote": "In a pre-specified secondary analysis of the SELECT trial, once-weekly subcutaneous semaglutide 2.4 mg in patients with obesity was associated with a 22% reduction in the main 5-component kidney composite endpoint compared to patients on placebo."
+  },
+  {
+   "rid": "PMC11271413#3",
+   "reporting_document": "PMC11271413",
+   "reported_label": "main 5-component kidney composite endpoint",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "In a post hoc analysis, the HR was 0.74 (95% CI 0.58, 0.94) in those 13,054 patients on an angiotensin-converting enzyme inhibitor (ACEi) or angiotensin receptor blockers (ARBs) and was 0.92 (95% CI 0.60, 1.42) in those 4,550 patients who were not on ACEi/ARB ( P  = 0.39 for the interaction).",
+   "result_quote": "In a pre-specified secondary analysis of the SELECT trial, once-weekly subcutaneous semaglutide 2.4 mg in patients with obesity was associated with a 22% reduction in the main 5-component kidney composite endpoint compared to patients on placebo."
+  },
+  {
+   "rid": "PMC11271413#4",
+   "reporting_document": "PMC11271413",
+   "reported_label": "Change in eGFR at week 104",
+   "reported_instrument": "estimated glomerular filtration rate (eGFR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "These outcomes included other composite kidney endpoints, time to reaching various thresholds of percentage eGFR decline (30%, 40%, 50% and 57%), the annualized rate of change in eGFR (eGFR slope), change in eGFR from baseline to week 104 and change in UACR from baseline to week 104.",
+   "result_quote": "Change in eGFR at week 104, mL min -1  1.73 m -2\n-0.86\n-1.61\n0.75 (0.43, 1.06); P  < 0.001"
+  },
+  {
+   "rid": "PMC11271413#5",
+   "reporting_document": "PMC11271413",
+   "reported_label": "Change in eGFR at week 104",
+   "reported_instrument": "estimated glomerular filtration rate (eGFR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Treatment effects on outcomes were further assessed by baseline eGFR and UACR status.",
+   "result_quote": "The treatment benefit at 104 weeks for eGFR was 0.75 ml min -1  1.73 m - 2 (95% CI 0.43, 1.06; P  < 0.001) overall and 2.19 ml min -1  1.73 m - 2 (95% CI 1.00, 3.38; P  < 0.001) in patients with baseline eGFR <60 ml min -1  1.73 m - 2 ."
+  },
+  {
+   "rid": "PMC11271413#6",
+   "reporting_document": "PMC11271413",
+   "reported_label": "Change in eGFR at week 104",
+   "reported_instrument": "estimated glomerular filtration rate (eGFR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Treatment effects on outcomes were further assessed by baseline eGFR and UACR status.",
+   "result_quote": "The treatment benefit at 104 weeks for eGFR was 0.75 ml min -1  1.73 m - 2 (95% CI 0.43, 1.06;"
+  },
+  {
+   "rid": "PMC11271413#7",
+   "reporting_document": "PMC11271413",
+   "reported_label": "Change in eGFR at week 104",
+   "reported_instrument": "estimated glomerular filtration rate (eGFR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Treatment effects on outcomes were further assessed by baseline eGFR and UACR status.",
+   "result_quote": "In patients with baseline eGFR >=60 ml min -1  1.73 m - 2 at 104 weeks, eGFR had declined less in the semaglutide arm versus the placebo arm, with an estimated treatment difference of 0.57 ml min -1  1.73 m - 2 (95% CI 0.26, 0.89; P  < 0.001; Table 1 and Fig. 5a )."
+  },
+  {
+   "rid": "PMC11271413#8",
+   "reporting_document": "PMC11271413",
+   "reported_label": "Change in eGFR at week 104",
+   "reported_instrument": "estimated glomerular filtration rate (eGFR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Treatment effects on outcomes were further assessed by baseline eGFR and UACR status.",
+   "result_quote": "In the subgroup with eGFR <60 ml min -1  1.73 m - 2 at baseline, there was a rise in eGFR that was greater with semaglutide (5.28 ml min -1  1.73 m - 2 ) versus placebo (3.09 ml min -1  1.73 m - 2 ) at 104 weeks (treatment difference: 2.19 ml min -1  1.73 m - 2 ; 95% CI 1.00, 3.38; P  < 0.001; Table 1 and Fig. 5a )."
+  },
+  {
+   "rid": "PMC11271413#9",
+   "reporting_document": "PMC11271413",
+   "reported_label": "Total eGFR slope",
+   "reported_instrument": "estimated glomerular filtration rate (eGFR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "These outcomes included other composite kidney endpoints, time to reaching various thresholds of percentage eGFR decline (30%, 40%, 50% and 57%), the annualized rate of change in eGFR (eGFR slope), change in eGFR from baseline to week 104 and change in UACR from baseline to week 104.",
+   "result_quote": "Total eGFR slope, ml min -1  m -2 per year\n-0.78\n-1.17\n0.39 (0.30, 0.48); P  < 0.001"
+  },
+  {
+   "rid": "PMC11271413#10",
+   "reporting_document": "PMC11271413",
+   "reported_label": "Chronic eGFR slope",
+   "reported_instrument": "estimated glomerular filtration rate (eGFR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "As was pre-specified, eGFR slope was assessed during the acute (baseline to week 16), chronic (week 20 to end of trial) and total (baseline to end of trial) periods.",
+   "result_quote": "Chronic eGFR slope, ml min -1  m -2 per year\n-0.98\n-1.28\n0.29 (0.18, 0.40); P  < 0.001"
+  },
+  {
+   "rid": "PMC11271413#11",
+   "reporting_document": "PMC11271413",
+   "reported_label": "Acute eGFR slope",
+   "reported_instrument": "estimated glomerular filtration rate (eGFR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "As was pre-specified, eGFR slope was assessed during the acute (baseline to week 16), chronic (week 20 to end of trial) and total (baseline to end of trial) periods.",
+   "result_quote": "Acute eGFR slope, ml min -1  m -2 per year\n-2.41\n-1.08\n-1.33 (-2.68, 0.02); P  = 0.05"
+  },
+  {
+   "rid": "PMC11271413#12",
+   "reporting_document": "PMC11271413",
+   "reported_label": "Change in UACR at week 104, log-transformed, %",
+   "reported_instrument": "urinary albumin-to-creatinine ratio (UACR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "These outcomes included other composite kidney endpoints, time to reaching various thresholds of percentage eGFR decline (30%, 40%, 50% and 57%), the annualized rate of change in eGFR (eGFR slope), change in eGFR from baseline to week 104 and change in UACR from baseline to week 104.",
+   "result_quote": "Change in UACR at week 104, log-transformed, %\n0.3\n12.3\n-10.7 (-13.2, -8.2); P  < 0.001"
+  },
+  {
+   "rid": "PMC11271413#13",
+   "reporting_document": "PMC11271413",
+   "reported_label": "Change in UACR at week 104, log-transformed, %",
+   "reported_instrument": "urinary albumin-to-creatinine ratio (UACR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Treatment effects on outcomes were further assessed by baseline eGFR and UACR status.",
+   "result_quote": "At 104 weeks, the UACR was estimated to have risen less in terms of percentage change from baseline in the semaglutide versus placebo arm, giving a net treatment benefit of -10.7% (95% CI -13.2, -8.2; P  < 0.001) for the overall population."
+  },
+  {
+   "rid": "PMC11271413#14",
+   "reporting_document": "PMC11271413",
+   "reported_label": "Change in UACR at week 104, log-transformed, %",
+   "reported_instrument": "urinary albumin-to-creatinine ratio (UACR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Treatment effects on outcomes were further assessed by baseline eGFR and UACR status.",
+   "result_quote": "Change in UACR at week 104, log-transformed, %"
+  },
+  {
+   "rid": "PMC11271413#15",
+   "reporting_document": "PMC11271413",
+   "reported_label": "Change in UACR at week 104, log-transformed, %",
+   "reported_instrument": "urinary albumin-to-creatinine ratio (UACR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Treatment effects on outcomes were further assessed by baseline eGFR and UACR status.",
+   "result_quote": "Change in UACR at week 104, log-transformed, %"
+  },
+  {
+   "rid": "PMC11271413#16",
+   "reporting_document": "PMC11271413",
+   "reported_label": "Change in UACR at week 104, log-transformed, %",
+   "reported_instrument": "urinary albumin-to-creatinine ratio (UACR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Treatment effects on outcomes were further assessed by baseline eGFR and UACR status.",
+   "result_quote": "Change in UACR at week 104, log-transformed, %"
+  },
+  {
+   "rid": "PMC11271413#17",
+   "reporting_document": "PMC11271413",
+   "reported_label": "Change in UACR at week 104, log-transformed, %",
+   "reported_instrument": "urinary albumin-to-creatinine ratio (UACR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Treatment effects on outcomes were further assessed by baseline eGFR and UACR status.",
+   "result_quote": "Change in UACR at week 104, log-transformed, %"
+  },
+  {
+   "rid": "PMC11271413#18",
+   "reporting_document": "PMC11271413",
+   "reported_label": "Change in UACR at week 104, log-transformed, %",
+   "reported_instrument": "urinary albumin-to-creatinine ratio (UACR)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Treatment effects on outcomes were further assessed by baseline eGFR and UACR status.",
+   "result_quote": "Change in UACR at week 104, log-transformed, %"
+  },
+  {
+   "rid": "PMC11271413#19",
+   "reporting_document": "PMC11271413",
+   "reported_label": "5-component endpoint that differed from the main 5-component endpoint in excluding incident macroalbuminuria but including death from cardiovascular causes",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Supplementary Table 3 summarizes the effect of semaglutide versus placebo on the other composite kidney endpoints and time to specific eGFR fall thresholds.",
+   "result_quote": "For a 5-component endpoint that differed from the main 5-component endpoint in excluding incident macroalbuminuria but including death from cardiovascular causes, the HR was 0.82 (95% CI 0.69, 0.97; P  = 0.02)."
+  },
+  {
+   "rid": "PMC11271413#20",
+   "reporting_document": "PMC11271413",
+   "reported_label": "percent mediation of the change in eGFR at week 104, potentially attributable to change in weight",
+   "reported_instrument": "estimated glomerular filtration rate (eGFR)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Exploratory analyses indicated that there was little correlation between the within-person change in eGFR and the within-person changes in body weight, systolic blood pressure or glycated hemoglobin (HbA 1c ) in the semaglutide or placebo arms (Supplementary Table 2 ).",
+   "result_quote": "However, a mediation analysis suggested that 81% (95% CI 41.30, 120) of the change in eGFR was attributable to change in body weight with considerable imprecision in the estimate."
+  },
+  {
+   "rid": "PMC11271413#21",
+   "reporting_document": "PMC11271413",
+   "reported_label": "adverse events leading to permanent discontinuation",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety was assessed as the number of treatment-emergent adverse events.",
+   "result_quote": "In brief, there were more adverse events leading to permanent discontinuation in patients receiving semaglutide (16.6% of patients randomized) versus placebo (8.2%; P  < 0.001), mostly comprising gastrointestinal effects."
+  },
+  {
+   "rid": "PMC11271413#22",
+   "reporting_document": "PMC11271413",
+   "reported_label": "permanent premature discontinuation",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "As reported previously 13 , permanent premature discontinuation occurred in 2,351 patients (26.7%) in the semaglutide group and in 2,078 patients (23.6%) in the placebo group.",
+   "result_quote": "As reported previously 13 , permanent premature discontinuation occurred in 2,351 patients (26.7%) in the semaglutide group and in 2,078 patients (23.6%) in the placebo group."
+  },
+  {
+   "rid": "PMC13190271#1",
+   "reporting_document": "PMC13190271",
+   "reported_label": "primary MACE endpoint",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Subgroup analyses of the primary MACE (a composite endpoint including cardiovascular death, nonfatal myocardial infarction or nonfatal stroke) outcome used baseline Fibrosis-4 scores >= 1.3, age-specific (>=1.3 (<65 years) or >=2.0 (>=65 years)) and any age with Fibrosis-4 > 2.67.",
+   "result_quote": "In the second subgroup with an FIB-4 score >= 1.3 or aged >=65 years with an FIB-4 score >= 2.0, the primary MACE endpoint occurred in 140 of 1,833 patients (7.6%) in the semaglutide group and in 176 of 1,831 patients (9.6%) in the placebo group (HR 0.79; 95% CI 0.63-0.98; P  = 0.035; Fig. 1b )."
+  },
+  {
+   "rid": "PMC13190271#2",
+   "reporting_document": "PMC13190271",
+   "reported_label": "primary MACE endpoint",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Subgroup analyses of the primary MACE (a composite endpoint including cardiovascular death, nonfatal myocardial infarction or nonfatal stroke) outcome used baseline Fibrosis-4 scores >= 1.3, age-specific (>=1.3 (<65 years) or >=2.0 (>=65 years)) and any age with Fibrosis-4 > 2.67.",
+   "result_quote": "In the third subgroup of 475 patients with suspected substantial fibrosis (FIB-4 score > 2.67 irrespective of age), the primary MACE endpoint occurred in 24 of 246 patients (9.8%) treated with semaglutide compared with 38 of 263 patients treated with placebo (14.4%), yielding an HR of 0.66 (95% CI 0.39-1.10; P  = 0.11; Fig. 1c )."
+  },
+  {
+   "rid": "PMC13190271#3",
+   "reporting_document": "PMC13190271",
+   "reported_label": "primary MACE endpoint",
+   "reported_instrument": "fatty liver index (FLI)",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary MACE endpoint was also assessed using the fatty liver index (FLI) in patients with or without suspected MASLD (FLI >= 60 or <60, respectively) and without fibrosis (FIB-4 < 1.3), with no interaction effect observed between treatment groups in those with an FLI < 60 (HR 0.73; 95% CI 0.44-1.19) compared with those with an FLI >= 60 (HR 0.88; 95% CI 0.74-1.04; P  = 0.48; Extended Data Fig. 1 ).",
+   "result_quote": "The primary MACE endpoint was also assessed using the fatty liver index (FLI) in patients with or without suspected MASLD (FLI >= 60 or <60, respectively) and without fibrosis (FIB-4 < 1.3), with no interaction effect observed between treatment groups in those with an FLI < 60 (HR 0.73; 95% CI 0.44-1.19) compared with those with an FLI >= 60 (HR 0.88; 95% CI 0.74-1.04; P  = 0.48; Extended Data Fig. 1 )."
+  },
+  {
+   "rid": "PMC13190271#4",
+   "reporting_document": "PMC13190271",
+   "reported_label": "ALT levels",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Liver biochemical tests and steatosis risk according to fatty liver index were assessed over 104 weeks.",
+   "result_quote": "The relative decrease from baseline at week 104 with semaglutide versus placebo treatment was 6% (95% CI 0.93-0.95; P  < 0.0001) for ALT, 3% (95% CI 0.96-0.98; P  < 0.0001) for AST and 17% (95% CI 0.82-0.84; P  < 0.0001) for GGT."
+  },
+  {
+   "rid": "PMC13190271#5",
+   "reporting_document": "PMC13190271",
+   "reported_label": "AST levels",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Liver biochemical tests and steatosis risk according to fatty liver index were assessed over 104 weeks.",
+   "result_quote": "The relative decrease from baseline at week 104 with semaglutide versus placebo treatment was 6% (95% CI 0.93-0.95; P  < 0.0001) for ALT, 3% (95% CI 0.96-0.98; P  < 0.0001) for AST and 17% (95% CI 0.82-0.84; P  < 0.0001) for GGT."
+  },
+  {
+   "rid": "PMC13190271#6",
+   "reporting_document": "PMC13190271",
+   "reported_label": "GGT levels",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Liver biochemical tests and steatosis risk according to fatty liver index were assessed over 104 weeks.",
+   "result_quote": "The relative decrease from baseline at week 104 with semaglutide versus placebo treatment was 6% (95% CI 0.93-0.95; P  < 0.0001) for ALT, 3% (95% CI 0.96-0.98; P  < 0.0001) for AST and 17% (95% CI 0.82-0.84; P  < 0.0001) for GGT."
+  },
+  {
+   "rid": "PMC13190271#7",
+   "reporting_document": "PMC13190271",
+   "reported_label": "FLI",
+   "reported_instrument": "fatty liver index (FLI)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Liver biochemical tests and steatosis risk according to fatty liver index were assessed over 104 weeks.",
+   "result_quote": "Mean +/- s.d. FLI decreased by 18.63 +/- 0.21 with semaglutide treatment versus 2.49 +/- 0.19 with placebo (Fig. 3d ), representing a treatment difference of 16.1 (95% CI -16.7 to -15.6; P  < 0.0001), thereby showing a 28% greater decrease in FLI (95% CI 0.71-0.73; P  < 0.0001) with semaglutide versus placebo."
+  },
+  {
+   "rid": "PMC13190271#8",
+   "reporting_document": "PMC13190271",
+   "reported_label": "fatty liver index",
+   "reported_instrument": "fatty liver index",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Liver biochemical tests and steatosis risk according to fatty liver index were assessed over 104 weeks.",
+   "result_quote": "Semaglutide led to a 28% greater decrease in fatty liver index versus placebo (HR 0.72; 95% CI 0.71-0.73; P  < 0.0001)."
+  },
+  {
+   "rid": "PMC13190271#9",
+   "reporting_document": "PMC13190271",
+   "reported_label": "improvement from baseline FLI",
+   "reported_instrument": "fatty liver index (FLI)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "In addition, the aim of this analysis was to assess the impact of semaglutide on liver health in the overall population of patients in SELECT with overweight or obesity and established ASCVD. Liver enzymes, ALT, AST and GGT, as well as FLI, an algorithm based on BMI, waist circumference, triglycerides and GGT predictive of hepatic steatosis 39 , were assessed over 104 weeks.",
+   "result_quote": "A higher proportion of patients treated with semaglutide showed improvement from baseline FLI compared with placebo (26.1% versus 11.6%, respectively), and a lower proportion showed worsening of FLI (3.0% versus 7.8%, respectively)."
+  },
+  {
+   "rid": "PMC13190271#10",
+   "reporting_document": "PMC13190271",
+   "reported_label": "worsening of FLI",
+   "reported_instrument": "fatty liver index (FLI)",
+   "reported_role": "secondary",
+   "role_evidence_quote": "In addition, the aim of this analysis was to assess the impact of semaglutide on liver health in the overall population of patients in SELECT with overweight or obesity and established ASCVD. Liver enzymes, ALT, AST and GGT, as well as FLI, an algorithm based on BMI, waist circumference, triglycerides and GGT predictive of hepatic steatosis 39 , were assessed over 104 weeks.",
+   "result_quote": "A higher proportion of patients treated with semaglutide showed improvement from baseline FLI compared with placebo (26.1% versus 11.6%, respectively), and a lower proportion showed worsening of FLI (3.0% versus 7.8%, respectively)."
+  },
+  {
+   "rid": "PMC13190271#11",
+   "reporting_document": "PMC13190271",
+   "reported_label": "body weight",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "As reported in the primary analysis of SELECT, semaglutide treatment also resulted in a -9.39% mean change in body weight over 104 weeks versus -0.88% with placebo ( P  < 0.0001) 12 .",
+   "result_quote": "As reported in the primary analysis of SELECT, semaglutide treatment also resulted in a -9.39% mean change in body weight over 104 weeks versus -0.88% with placebo ( P  < 0.0001) 12 ."
+  }
+ ],
+ "dropped_unusable_units": []
+}

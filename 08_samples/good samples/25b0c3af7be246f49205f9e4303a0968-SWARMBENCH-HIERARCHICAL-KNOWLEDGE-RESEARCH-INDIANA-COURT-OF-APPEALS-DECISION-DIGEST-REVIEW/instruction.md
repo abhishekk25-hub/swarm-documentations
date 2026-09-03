@@ -1,0 +1,11 @@
+The Indiana Public Defender Council PCR desk on South Meridian in Indianapolis reads Friday's Court of Appeals causes before the transfer list goes upstairs. This is not the State Public Defender's direct-appeal shop. It is not Marion Superior. It is not a successive Post-Conviction Rule 1 filing.
+
+Post-Conviction Rule 1 is the postconviction court's record. Wright stays on the petition that cited Wright. Timberlake stays on the petition that cited Timberlake. A Title 35 direct appeal is a different record. 7(B) sentence claims and Criminal Rule 4 clocks are not PCR. Indiana Code § 35-42 is crimes. Indiana Code § 31-34 is CHINS. Indiana Code § 31-35 is TPR. Dissolution is another Title 31 chapter. An NFP memorandum is not a published N.E.3d opinion.
+
+Marion Superior PCR files keep the trial-court cause on the CCS, often a 49D or 49G stamp. The Court of Appeals cause is the printed 26A-PC number. Do not name the card from the Marion number.
+
+The unit drive is `/workspace`. The z-labelled opinions sit in `/environment/input_artifacts/decisions/`. Caption tag `case_roster.csv`. Provenance `source_manifest.csv`. Six parts `record_format.md`. IPDC already copied those three into `/environment/input_artifacts/` beside the z-files. File CR and Title 35 under `/logs/agent/output/cause_drawers/criminal/` as `<printed-cause-number>.md`. PC on `postconviction`. AD, DC, DR, JT, and CHINS on `family`. Remaining plenary civil on `civil`. Dummy only: `99A-CR-9999.md`. Finder `cause_index.csv` uses `appeal_no,cause,source_file,card_path` in `/logs/agent/output/cause_drawers/`. The crib and the transfer list belong on `/logs/agent/output/` with the drawers.
+
+The crib after the last z-file is `appr46_homework.md` on `/logs/agent/output/`. Cover briefing versus notice (Appellate Rule 46 and Rule 9), a PC cause versus a CR cause, and CHINS or TPR versus dissolution. Name two z-labels or cause numbers plus an Indiana Code or Appellate Rule both slips print. Later z-files have to appear. The sixth part is the transfer or remand the trial clerk will docket, in the panel's nouns, with years, dollars, and Indiana Code findings as printed.
+
+Write `transfer_calendar.csv` on `/logs/agent/output/` with one row per z-label. Column names and closed lists sit at the foot of `record_format.md`. `complete` after that slip is finished and grounded.

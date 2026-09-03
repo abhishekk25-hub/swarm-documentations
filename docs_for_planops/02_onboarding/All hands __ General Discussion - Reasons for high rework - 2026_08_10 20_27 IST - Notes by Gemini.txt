@@ -1,0 +1,381 @@
+﻿✍️ Quick notes
+Please rate the new Quick notes tab by taking a short survey.
+All hands <> General Discussion - Reasons for high rework
+
+
+Aug 10, 2026
+Mohan Gupta Nikhil Meda Abhishek Garg Muhammad Mamdouh Prasanth K Mehedi Hasan Srisabari S Karthick E S G Mathavan Ramesh Kumar K Bhanu Prakash Reddy Nalamadgu Edgar Kibet Estifanos Gashawtena Ruturaj Solanki Atif Shoaib Vivek Verma Abhishek Kathirasan Vinodkumar Baste Yousef el Khawaga Satish Bogala Olusegun Olayinka Bright Amidiagbe Aditya Somani Benaiah Yusuf Kuldeep Singh Tanwar Segun Oni Alex Alex Asma
+
+
+Discussion on agent performance gaps and rework reduction leads to adopting stricter submission validation standards.
+
+
+Analysis of Multi-Agent Performance Gaps
+* Identified cases where multi-agent systems without plans outperform those using decomposition YAML, indicating potential defects or over-constraining in the planning structure (Ruturaj Solanki).
+* Overly specific instructions, such as prohibiting note re-authoring, can unintentionally restrict agents, limiting their ability to self-correct or utilize full capabilities (Ruturaj Solanki).
+* Proposed analyzing trajectory differences and comparing planning logs between structured and no-plan agents to identify the root cause of performance gaps (Ruturaj Solanki).
+* Advised against pursuing minor score gaps due to the non-deterministic nature of LLMs, suggesting focus only on significant performance discrepancies (Ruturaj Solanki).
+* Confirmed developers can adapt findings from 'no-plan' agent runs to improve and optimize existing decomposition YAML strategies (Ruturaj Solanki, Muhammad Mamdouh).
+
+
+Rework Reduction and Submission Standards
+* Identified high rework rates due to trainers submitting tasks without checking logs, specifically regarding API errors and timeout issues (Ruturaj Solanki).
+* Implemented 'verify-only' runs to allow re-running verifiers without re-running models on log files, reducing unnecessary compute usage (Ruturaj Solanki).
+* Mandated four specific fields in reward.json files: total static check score, total reward hacking score, total partial oracle check score, and aggregated reward score (Ruturaj Solanki).
+* Required printing 'thinking' and 'reasoning' for judge evaluations to detect hallucinations and ensure grading accuracy (Ruturaj Solanki).
+* Flagged rubric manifest weight discrepancies compared to verifier py files as a frequent source of scoring errors (Ruturaj Solanki).
+
+
+Quality Gate Updates
+* Confirmed update to quality dimension gap threshold from 0.2 to 0.18 (S G Mathavan, Muhammad Mamdouh).
+
+
+Next steps
+* [The group] Analyze Performance Gaps: Analyze the log files to compare multi-agent systems with and without plans to identify the causes for performance gaps. Focus on checking trajectory differences and evaluating whether the decomposition YAML is defective or overly constraining.
+* [The group] Implement Leakage Prevention: Implement a leakage prevention prompt to scan instruction files and decomposition YAMLs for any leaked answers from source documents. Ensure this check is performed consistently before submitting tasks.
+* [The group] Adopt Submission Checklist: Adopt a pre-submission checklist including metadata validation, leakage detection, rubric weight verification, and justification checking. Utilize this checklist to reduce task rework rates.
+* [Ruturaj Solanki] Distribute Meeting Materials: Share the meeting recording and the presentation document with the team.
+
+
+
+
+
+
+Want to see more? View the full notes
+Tip: You can always access your full notes from the left sidebar.
+
+
+
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+📝 Full notes
+Aug 10, 2026
+All hands <> General Discussion - Reasons for high rework
+Invited Mohan Gupta Nikhil Meda Abhishek Garg Muhammad Mamdouh Prasanth K Mehedi Hasan Srisabari S Karthick E S G Mathavan Ramesh Kumar K Bhanu Prakash Reddy Nalamadgu Edgar Kibet Estifanos Gashawtena Ruturaj Solanki Atif Shoaib Vivek Verma Abhishek Kathirasan Vinodkumar Baste Yousef el Khawaga Satish Bogala Olusegun Olayinka Bright Amidiagbe Aditya Somani Benaiah Yusuf Kuldeep Singh Tanwar Segun Oni Alex Alex Asma
+Attachments All hands <> General Discussion - Reasons for high rework
+Meeting records Transcript Recording 
+
+
+
+
+Summary
+Discussion on agent performance gaps and rework reduction leads to adopting stricter submission validation standards.
+
+Agent performance gap analysis
+No-plan agent success often stems from overly rigid decomposition constraints rather than inherent system flaws. Systems now incorporate manager agents to authorize decomposition adjustments for greater autonomy.
+
+Reducing task rework rates
+Rework frequency decreased by addressing infrastructure failures like missing API keys before task submission. Trainers perform verify-only runs to bypass unnecessary model re-execution for non-logic errors.
+
+Updated task submission standards
+Mismatched rubric weights and answer leakage prompted stricter pre-submission verification protocols. The quality gate threshold underwent a reduction to 0.18 to tighten evaluation standards.
+
+
+
+
+Next steps
+* [The group] Analyze Performance Gaps: Analyze the log files to compare multi-agent systems with and without plans to identify the causes for performance gaps. Focus on checking trajectory differences and evaluating whether the decomposition YAML is defective or overly constraining.
+* [The group] Implement Leakage Prevention: Implement a leakage prevention prompt to scan instruction files and decomposition YAMLs for any leaked answers from source documents. Ensure this check is performed consistently before submitting tasks.
+* [The group] Adopt Submission Checklist: Adopt a pre-submission checklist including metadata validation, leakage detection, rubric weight verification, and justification checking. Utilize this checklist to reduce task rework rates.
+* [Ruturaj Solanki] Distribute Meeting Materials: Share the meeting recording and the presentation document with the team.
+
+
+
+
+Details
+Did the screenshots in this section make your notes better or worse?
+* Meeting Objective and Problem Definition: Ruturaj Solanki convened the meeting to address the high volume of reworks submitted to trainers and to discuss the specific challenge where "no-plan" multi-agent systems are outperforming those utilizing a Decomposition YAML. The goal is to identify why this performance gap occurs, whether the decomposition is overly constraining the agent, and how to improve agent performance while reducing reworks (00:01:34).
+  
+
+* Analyzing Performance Gaps: Participants should not automatically assume a Decomposition YAML is defective when a "no-plan" agent scores higher. Instead, logs must be analyzed to determine if the decomposition contains "decaying" issues—where instructions overly constrain the agent’s capabilities—or if the decomposition simply lacks the flexibility shown by the "no-plan" agent (00:08:18) (00:11:08).
+  
+
+* Investigating Trajectories and Logs: Ruturaj Solanki advised against reviewing entire logs, recommending instead that users examine the trajectories and the specific thinking processes of the agents (00:12:41). By comparing the "no-plan" agent’s approach with the decomposition plan, one can identify where the planned agent was forced to underperform due to overly rigid instructions that restricted necessary actions like re-checking or re-authoring notes (00:13:41) (00:20:36).
+  
+
+* Improving Agent Autonomy: To improve the performance of planned agents, Ruturaj Solanki suggested incorporating a lead or manager agent within the Decomposition YAML. This agent should be authorized to review sub-agent reports and make changes, which allows the system to autonomously improve and adapt rather than being strictly limited by predefined, static instructions (00:14:43).
+* Verification Process for Performance Gaps: Before attempting to address a performance gap, it must be confirmed as a fair comparison using the same model and environment (00:17:14). Analysis should involve breaking down the performance across static checks, reward hacking checks, and partial oracle checks to pinpoint exactly where the no-plan agent diverged from the planned agent's performance (00:18:13).
+  
+
+* Handling Non-Deterministic Variance: Not all performance gaps require remediation; sometimes gaps occur due to the non-deterministic nature of large language models. Participants should avoid "chasing" minor gaps, such as when scores are near-identical (e.g., 0.44 vs 0.45), to avoid wasting credits (00:24:15) (00:26:49). However, if the gap is significant, the manager agent should be authorized to redispatch or modify the decomposition to optimize results (00:25:46).
+  
+
+* Causes of High Rework Rates: A significant portion of the reworks is attributed to trainers submitting tasks without checking logs for infrastructure errors, such as missing Fireworks API keys or timeout issues (00:28:10). Trainers are encouraged to use "verify-only" runs to bypass re-executing the model when infrastructure-related failures occur, rather than submitting flawed tasks (00:29:31).
+  
+
+* Technical Requirements for Task Submission: To reduce reworks, strict adherence to file formats is required. The `reward.json` file must contain four specific fields: total static check score, total reward hacking score, total partial oracle check score, and the aggregated reward score. Additionally, trainers must ensure metadata is accurate and updated if the task is retrained (00:31:37).
+* Rubric and Justification Standards: Mismatched weights between the `verify.py` script and the `rubrics.manifest` file were identified as common sources of error (00:33:05). Furthermore, judge justifications must include the reasoning and thinking process—not just the final status—to help identify hallucinations or skipped evaluations within the 218 checks (00:34:19).
+* Leakage Prevention and Pre-submission Checklist: Some Decomposition YAML files contain leaked answers, which is a prohibited issue (00:34:19). To mitigate this and other submission errors, Ruturaj Solanki recommended a mandatory pre-submission checklist: verifying metadata, checking for answer leakage, confirming rubric weights, and ensuring the reasoning is present in judge justifications (00:35:33).
+* Leveraging No-Plan Runs: Muhammad Mamdouh asked if insights from a "no-plan" agent's execution could be used to improve the planned decomposition. Ruturaj Solanki confirmed that users should take inspiration from successful "no-plan" runs to optimize the Decomposition YAML, and this optimization process does not require rerunning the entire multi-agent process from scratch (00:36:37).
+* Quality Gate Updates: S G Mathavan confirmed that the quality gate dimensions have been updated, specifically changing the gap threshold from 0.2 to 0.18 (00:40:50).
+
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Aug 10, 2026
+All hands <> General Discussion - Reasons for high rework - Transcript
+00:01:34
+
+
+S G Mathavan: Yeah. Hi, Son. I do that.
+Ruturaj Solanki: Hey. Hey guys. Let's wait for like one moment and see if everyone's joins. Okay. Uh let me uh let me start the recording. Okay. Hey guys. So uh for the topic for today's meeting is it's a very important because like we have seen very huge number of reworks that were like uh sent to the trainers. So what we have done is we have like uh classified uh those uh those errors and the reasons behind it and let's discuss um them and like how we can like uh decrease the number of reworks and along with that we have also another topic uh which is very important like uh I have seen such cases where the multi- no plan is basically like scoring more than the multi- aent with have a decomposition yl and the changes So uh basically what we wanted to uh address here is like how we will be able to identify if the uh the score that we are getting and how uh we are getting it is it like legitimate gap in our decomposition yl or was the our decomposition just like constraining the I would say constraining the uh agent multi- aent with no plan and how we can improve it.
+
+
+
+
+00:07:01
+
+
+Ruturaj Solanki: So basically topic is how we can identify the gap uh and the logs analyze them and understand how uh basically this uh gaps are actually validated. So let me quickly share my screen so that I can like show it to you. So we had like two cases where we saw that just a second I did share it. Yeah. Okay. So yeah, we have two cases where we saw that the multi-reion was we actually have more cases but yeah these are the two cases which were like uh very uh accurate to our analysis. So uh we got to see that there are like cases where multi- aent is like scoring more than the uh no uh um multi- aent with no plan is scoring more than the multi- aent with plan. So what are the logic behind it? very very first step is like um uh the understanding what multi- agent with no plan is like basically the agent itself declares a plan for itself and completes the task given to it and with the decomposition yl we have a pre-pl pre-planned map or a road map for the multi- aent to follow to go through the task and complete it.
+
+
+
+
+00:08:18
+
+
+Ruturaj Solanki: So what happened in this scenario? We can see that the single agent was of course like scoring uh scoring very less but the multi- aent plan was like scoring higher than the single agent which is the expected behavior that we want with the decomposition yl present in the task. But what happened in this scenario where the multi- aent with no plan was able to like score more than the decomposition yl that we had injected in our task. So uh we can derive two things from this particular like use cases. Either the decomposition YAML that we created was a defective one or you can say we were like putting the multi- aent on some some constraint that made the score drop. this. Second one is that the uh the de composition yl that we are uh uh we are uh using is not up to par with the planning that the multi- aent with no plan actually did. So how can how and where we can like identify those things. So before we move on let's say let's first understand why does it matter.
+
+
+
+
+00:09:22
+
+
+Ruturaj Solanki: Okay. So basically uh uh if you understand it our quality gate doesn't just uh block this task because we haven't set any uh matrix over there so that it can like uh capture the uh tasks which are having like higher score u no no plan agents are like high having higher score. So what h what happens here is um uh basically it falls up to the uh trainers as well as the leads. Uh so now uh moving to the uh moving to the slide. Uh just a second guys. So sorry my throat is like a bit in. So uh moving to this slide uh the what this particular uh indicates like let's say the gap is very small and the de and the logs that we have analyzed the gap doesn't actually like is very large so that we can easily distinguish between the task. So uh what we uh we need to do here is the Q leads are also like analyzing things and you are also analyzing things. what we have disc uh we have discovered is like let's break this logs that we are getting into a very uh systematic way so that we can identify the process that we are uh identify the logs that we have so what I did was I basically like divided into uh six steps the first step is to see the gap was actually fair or not so how we can analyze it so let's just uh take your uh logs from the single a sorry multi- aent no plan and the mult agent with the PL uh with the plan analyze the logs see what it
+
+
+
+
+00:11:08
+
+
+Ruturaj Solanki: did differently than the other. So if you are confirming that uh your decomposition YAML is having a bit of like let's say it is having some planning issues or it is having some decaying issues. Decaying issues are there where we are like constraining the agent to like uh perform in a manner that we are uh we are uh we uh we are telling it to do. It is for it is actually doing that but the agent itself has more capabilities of doing more than that. So we are only like letting it to do uh perform underperform basically we are telling it to underperform on its own uh criteria. So how we can identify it? So uh our instructions actually matters in de composition yl in in a case where let's say I tell the agent to like read and analyze the whole form or something like that but I also tell it to just read an analyze don't uh write your word anywhere don't do anything to this particular uh analysis that you did then it's a waste of agent so because of this what happens is uh we are under underusing our agents and underusing our decomposition yl I have seen the task where what happened was uh the analysis was correct the agent was able the multi- aents was able to find the defect in the output file itself but the instruction that was given to the multi- agent was simple just analyze the form don't do anything that is necessary and uh uh you are not you are not supposed to like write it down anywhere that's all so what it made the agent do it just
+
+
+
+
+00:12:41
+
+
+Ruturaj Solanki: analyze it it just reported it in its thinking process memories and then we were not able to uh the multi- aent was not able to correct the diff that that happened basically because of the uh constraint that we put onto the multi- aent so yeah that was a very first uh task that I reviewed was uh having this issue. Now the second one was the split. Now what we uh now what we need to do here is once we have both the task just go through the uh just go through the trajectories. I would say uh we don't need to go through the whole logs or open code.txt or anything just the trajectories and the thinking of what they what the plan is. You can ask your agent to like extract don't uh don't ask your agent to like fully extract the logs and everything. Just tell them to go the main trajectory. See what the difference between the planning of uh the multi- aent with plan and multi- aent with no plan. So for the multi- aent with no plan, they will first come up with a plan.
+
+
+
+
+00:13:41
+
+
+Ruturaj Solanki: If you go through the logs, they will first come up with a plan and then execute the task. And for the and uh with the uh basically with the uh plan the decomposition you already have the plan so you don't need to like analyze those logs. What you need to do here is just simply ask a question to your agent agent harness or something where it's uh a very simple question. What was the difference between the plan in the decomposition yaml and the plan in the multi-agent with no plan? You will get your answer to the question uh why the gap was there. why the what plan was uh used by the multi- aent with the no plan and then basically locate the step. So the main problem here is we have multi- aents and the de composition yl has each and every uh I would say steps uh written into return in that decomposition. camel file. There are uh ways where we describe the multi-agent to behave where there are ways also that we told the multi-agent to do this kind of stuff and you need to follow this kind of structure.
+
+
+
+
+00:14:43
+
+
+Ruturaj Solanki: This is the what you need to do here. What happens with no plan is uh it has open nature. So it doesn't basically follow the rules. If it finds something and it will automatically update itself and tell it to the report it to the agent. and their agent will have the authority to uh change the things. So very first step is to have a agent let's say I I'm not like emphasizing to have this in every task but have an agent which is like looking to the sub aents report issues that they are reporting like let's say you have an uh instruction in the de composition yl that whatever the findings are summarize them and give them to the lead basically the manager agent or the one and tell them to analyze it and made the changes according to uh according to the requirements this what this will do is this will like give the capabilities of uh like auto I would say improving to the multi- aents itself they will not be bounded by the uh just the simple instructions that were like written in the decomposition yl this way you will be able to uh improve your performance of the multi- aent with the uh basically with the plan that you already have this is actually what the no plan does but we will be doing it in a very organized way so moving into the traces.
+
+
+
+
+00:16:03
+
+
+Ruturaj Solanki: The traces are the one that like let's say I have 55 sub agents and out of 55 sub agents uh there uh there was uh uh some trajectories that were like having same summaries I would say some uh same summaries or different summaries but what happened was uh when I told my decomposition yl this is the case where I like flagged this is where happened like like I told my in my decomposition is basically just summarize it and uh write uh uh do not make any changes. Basically, what I told to the sub agent was like this. You will have to read the sub uh you will have to read this step. Uh make the necessary uh judgment that you have to make but do not update the file. The file should be having this particular data in it. If you're missing it, do not add the data. So this way we are just constraining our multi- aents and making them underperformer agents which will be like used for only some of the tasks. So yeah that is why our mult multi- aent uh multi- aent decomposition hl is lacking behind with the actual uh actual task uh actual multi- aent with no plans the ability to correct itself.
+
+
+
+
+00:17:14
+
+
+Ruturaj Solanki: So yes that is one major thing that I was able to like figure out from the task. Now coming to the uh very first step I am like just splitting them into steps. Confirm the gap is real before explaining it. like the very first thing always make sure it actually is a fair fight same model same environment this is very first step that you need to check like let's say I am having our I'm just uh letting you know how we will be able to like analyze the uh logs if you are having uh same models the first step is automatically completed so yeah this is the I think the now we have like solved the issues of different models so we won't be able to uh see different models here so that is the first step also A de composition enamel should be of We are only giving the multi- aent de composition jam. So that is one is our step. Now moving to the second step which is the split. Now if you see this uh the static checks, reward hacking checks and par uh partial checks.
+
+
+
+
+00:18:13
+
+
+Ruturaj Solanki: We have three different checks. Now uh we can like if you are analyzing things just do a very basic step ask your agent to see on which scenarios where uh the multi- aent with plan and multi- aent with no plan was scoring differently like let's say in the static check they were scoring uh 0 6 and 65. This will help you to basically understand the where this uh quality problems were there like this will help you understand where the gap actually is and if you if if something comes up like let's say this is the very high gap like I can see the gap between is like 08 so we can like check the oracle see what was the issue in it what was our planning behind the oracle and then uh we will be able to uh move ahead with the analysis Moving uh sorry moving to the next step where we will be like locating the uh things uh let's say comparing every individual uh check between those two runs like one number showed up as the exact same value inside all the three buckets and then in each pl uh I mean in simple plain terms out of like 72 notes the agent had like uh write I'm uh written out like agent had to write how many count how many counted were like as real how many actually did right.
+
+
+
+
+00:19:33
+
+
+Ruturaj Solanki: So we are not checking what how many did right. We are just letting uh telling the agent to write it down and that's making our decomposition like uh a bit weaker than the uh um de uh plan uh with the multien with no plan. So that is one reason uh we have we are lacking behind this particular updates the ability to like as I mentioned again and again the ability to correct itself. Moving to the next uh next stis uh is the how we will be able to like uh find where the traces are. Let's say this is your agent the main orchestrator of your uh uh de composition yl you got like three uh leads which are like uh basically uh managing your whole task. You will be able to uh see how this actually works. This we have a tree structure right. So every node is representing a task. every note is like written. You need you can see this we are having the task where this is like it didn't uh basically wrote the note.
+
+
+
+
+00:20:36
+
+
+Ruturaj Solanki: So these are the steps you can take to analyze the uh where this uh basically where our uh where our plan broke. So make a thorough investigation make each and every step count. Use your agentic harness in efficient way where you will be able to see how you were uh how the how actually the task broke. I was able to find out of 55 sub agents and that D uh this uh this this sub particular two sub agents didn't write that note just uh and what was the reason behind it. So basically we uh the they were having a very simple error there uh or you can say a note there you do not re uh you do not reauthor their notes. Basically we asked the agent to just write simple we he didn't didn't ask to like recheck it confirm it. Then what happened was it took that particular note badge it and just confirmed it and merged and we gave the final output. So basically what happened here is we didn't check the thing uh the agent didn't check the thing changed the thing reauthored them it basically this lead was knowing everything that this two uh two particular nodes have not completed the task and they didn't like complete it but because of this particular rule we underperformed our lead and he just what was the plan basically the lead's uh plan was to just merge them but it didn't like respond the agent to could do it correctly.
+
+
+
+
+00:22:10
+
+
+Ruturaj Solanki: So that was one thing that made our de composition YL a bit weak. So you can add this particular step where uh our leads are also like aware of what is happening and how we how they can like up uh how they can like correct their uh behavior. So now uh basically as I mentioned uh you do not need to like just go through the trajectories as well. You also check the outputs how well and how they are like merging the uh uh how they are merging the artifacts I would say here and we will be able to see uh none of the summaries like let's say uh they had to summarize something uh I was able to see a summary uh I was able to see a task where the agent was like asked to do a summarization but the multi uh what happened a very clear difference in two task in the first multi- aent with no plan and multi-agent with And what happened with with the plan? So with the plan there was like a very clear instruction to summarize the document.
+
+
+
+
+00:23:09
+
+
+Ruturaj Solanki: Do not add anything. Do not uh use your uh do not basically uh come up with something and add it. Uh a very logical uh statement. Now what happened with the multi-agent with no plan here? It was very simple instruction there. Summarize the content. Uh add relevant points. So basically these two have made a whole different uh scenarios. In the first thing what happened with the no plan one it basically like constricted our multi- aent to uh not add anything to from the out from him his understanding or anything. It was just able to like go through the documents whatever it found and only he only that was added to the check. But the verifier itself was checking for the uh depth of the answer. That made our decomposition yaml a bit weak against the verifier. This is a very unique case where what happened was our verifi our decomposition yaml was I would say accordance to the task but the verifier was also very strict that made the de composition very weak.
+
+
+
+
+00:24:15
+
+
+Ruturaj Solanki: So it was vice versa situation where we were able to see like uh a scenario where if uh if we like uh not constraint our decomposition yl what will happen is the verifier will like score it very high. So yes there are cases where we need to understand how we are writing the decomposition yl as well how we are like planning our agent to work on a task how we are like uh giving them the ability to uh improve themsel how we are making them think not just assigning them one uh particular task and that it should only do that particular task. We need to be more uh uh explan uh more uh expressive on what their abilities are. Now moving to the uh and like this is not very I would say moving to the four variants of things that I found here. So there were like four types of situations where let's say uh we got a task which is like near identical. There was a task which was like scoring 044 and other was also scoring 045 which where you see the task was like able to have all the record pass and all the all the architecture or the artifacts were same in that particular scenario we can consider it as it as the nondeterministic nature of the LLM because what happened is like let's say the verifier that we are using is like giving some let's say giving a point of 0.25 and someone is giving a point of 0.2 into four which is a near identical scores but that makes a bit
+
+
+
+
+00:25:46
+
+
+Ruturaj Solanki: of uh big uh makes it a bit of uh different variance in this task. So yeah that is a particular task uh which I was able to find. The second one was where we were able to see like let's say the no plan was actually way way better than the task itself our decomposition y and basically we need to improve the task. Yes, basically as you can see authorize the manager to redispatch add a man uh to just improve the decomposition. In this scenario we were able to see that de composition I would say the plan written by the no plan was better than our uh was better than our uh multi- aent with the composition. Now if there is a very uh if there is a case where the variance is good in this scenario where we were able to see the multi- aent was actually um with no plan actually able to like struggle uh with our without the decomposition. Yeah man. So yeah that is a genuine variance case we we don't need to like change anything on that one.
+
+
+
+
+00:26:49
+
+
+Ruturaj Solanki: Now moving to the final one was like let's say you got a gap basically of like 2.1 in the case with both the multi- aent with no plan as well as with plan then please don't chase after the gap that to see like if my uh multi-agent uh with plan can I can more improve it I can like improve it more don't chase it because uh it would be always like let's say uh let's say in the first one you got the gap of uh one or 01 or 03 and you were like thinking that if I can like improve my decomposition a bit more I will be able to like achieve more gap uh you won't be able uh you you are never sure with the nondeterministic nature as I mentioned it will be always like let's say in the other run you are getting more care so you should not waste your runs you should not face your waste your credits as well on the on reworking the task where you you uh basically the changes are uh very minor now coming to the checklist uh what uh here what we need to do is very first step pull the logs see uh if everything is matches put uh pull the reward AC recategorized the structural checks, reward hacking checks as well as the oracle checks to see in which particular area the both the multi- aent with no plans as well as with plans like uh had different scores.
+
+
+
+
+00:28:10
+
+
+Ruturaj Solanki: Move to the sessions, see what hap what actually happened in the session plans. See uh basically what plan was used by the multi- agent with no plans. Compare it with our plan and then come come up with a uh come up with an analysis I would say. Then once you have done these are the scenarios where the multi- agent is like scoring uh multi- agent with no plan is scoring more than the multi- aent with no plan come up with uh analysis share it with your leads you can see start with the score what happened what were the basically uh what scores were like affected by it I'm just this is a message that you can use to share it with your uh lead to to able he so he will be able to like understand it help you uh help you like solve the solution and yeah if you want to look at those task which were like used for the analysis I can also like share those zips so you will have a better idea on this one now uh before moving forward with uh the questions and answers I would uh quickly go through the rework sections where we are able to see a very high rework and then I will be like taking the questions uh let's start with the reasons of multiple reworks So very first uh reason was trainers are like submitting the task without checking the logs.
+
+
+
+
+00:29:31
+
+
+Ruturaj Solanki: The very very basic here is I can see there is an API error where the fireworks API key is not set. The timeout s timeout error was there where the LM was not able to like respond in time and you are like simply submitting those task. This is not an infrastructure error. This is not an I would say error from uh the API side. You are not actively checking what caused the failure. You cannot submit the task that is like having this kinds of info error. You need to be more cautious while submitting the review. So what happen here is you're also wasting your bandwidth as well as your reviewer's bandwidth and you are having your high rework rate. So this will be causing you issues when you are just making simple mistakes. We also have implemented a verifier with uh basically a verify only run that can let you run the verifier again without running the model on rocks. So if you're facing this LLM failures or you can say this uh infr error or something like you can simply run those uh verify only runs and complete your task.
+
+
+
+
+00:30:34
+
+
+Ruturaj Solanki: The second one was also uh as mentioned as like see uh no single agent quality to so what happened here was it is in partial uh it is an also an infrastructure check what was the infrastructure error what what made the fail add statements and I would say reasoning to the reasoning to the your judge so you will be able to understand what actually happened and how you will be able to like solve it the other one was uh no open code txt and the trajectories JSON files. I think that this issue was already like made known and we uh we have also basically like updated the system prompt for the open code. So we had already added it to the cloud run. So this issue will not be appearing again but in case if it happens please report it to the lead uh uh and we will be able to like look into it what happened. Now moving to the very uh moving the third format was reward.json JSON file the I saw the trainers were not using the exact format of the reward of JSON.
+
+
+
+
+00:31:37
+
+
+Ruturaj Solanki: So let me be very clear. We need these three fields. The total static check score, total reward hacking score, total partial oracle check score. These three fields are very important and the reward uh and the finally the aggregated reward reward score. If you are having this four fields in your uh reward.json, it is good to go. If you are having extra files, it is fine uh sorry extra fields, it is totally fine to submit the task. So make make sure exactly these four fields are present in your uh in your um reward.json file. Uh else if you are having some extra fields, it's fine. Moving towards some another issues, I saw lots of lots of task where metadata was uh uh missing uh mismatch like let's say you submitted a task. Um I I have seen the scenarios where you are submitting a task and once you got uh let's say some draft reviews and you got and you change your task you are retraing your task for like two three times and you simply you are missing your task uh like metadata phase I would suggest a very simple fix here just once before you are submitting a task ask your LM or you say agentic review agent your uh agentic harness to go through the task see if Everything is like up to date with the instruction that the compos position and the metadata fields I'm matching where a very simple step will save you lots and lots of rework.
+
+
+
+
+00:33:05
+
+
+Ruturaj Solanki: Coming to the second rubric uh second point the rubric manifest file. So I saw scenarios where uh trainers are not actually like uh uh I would say pointing out uh writing the rubrics.m manifest uh uh points clearly like let's say you have 50 checks uh in the static checks and 50 something something checks but in the rubric manifest you are although mentioning those checks but the gradings are different like let's say uh in the normal check it is like scoring uh in the verify.py PY uh it is scoring one point or two point but in the rubric uh rubrics you are writing it as 0.2 0.1 uh maybe three but yeah that will also be an issue we need to be uh careful with the weights and everything that are mentioned in the verifier as well as in the rubric should be very uh accurate and same. So yeah that was our second point. Moving to the third where we saw the judge judge justification was present but there was like no reasoning present in it. As I have as we have also mentioned before that this will only help yourself uh and the uh lead to understand what actually happened and why the score was low.
+
+
+
+
+00:34:19
+
+
+Ruturaj Solanki: As you can see the LM judge status is okay. The very first point is like the judge is working. The second one is okay an evaluated 218 after 218 and expected check coverage is two what information can I get which particular evaluation did it do for the 218 checks. So we need to see if the uh if what the justification that LM did was correct or not. So that's the main reason why you should uh print the uh thinking as well as the reasoning of that particular judge to see if it is not hallucinating. Let's say out of those 218 only 118 were like evaluated. How would you be able to like figure out what happened in which particular test cases uh in which particular reasoning files did it hallucinate or something? It will be only helpful for yourself to be able to understand uh if you're putting the thinking there to uh understand the error here. The second issue is the same where the trainers are not updating the weights correctly. And the third one is uh I have seen very less of this since we're like in a very uh like I would say two weeks into under production there should not be even a uh case but yeah uh it still got flagged where the decomposition yl has answers leaked into it.
+
+
+
+
+00:35:33
+
+
+Ruturaj Solanki: So you should not uh you should always check there is a leakage prevention uh you can uh create a yourself a leakage prevention prompt where it just simply scans your instruction MD as well as a decomposition yl to see if any answers from the uh files are uh present in the decomposition yl or not. So yeah, so as I s I would repeat it here. come up with a very uh good checks checklist for yourself before somebody get asked like let's say very first step is to see if my every uh first step the draft review go draft review complete your task you have all the model run logs completed everything is done now before submitting the task what what I would suggest is have a very small checklist first checklist metadata check if everything is up to date or not second check if there is any leakage or not third check do Do I have all the rubrics uh weights corrected? Fourth check, do I have uh the uh uh do I have the important fun justification with thinking? Yes or no?
+
+
+
+
+00:36:37
+
+
+Ruturaj Solanki: Then the fifth check, do I have u any uh mismatches in my uh all of this points. Then if you are done with it, just submit your task. This will also make your reworks very less. And uh here uh by this I would conclude the presentation. If there are any questions, please feel free to ask. And yeah, I will share this document as well with you guys. Yeah. Uh
+Muhammad Mamdouh: So if I got the case that the no plan, the multi plan is scoring higher than the multi user plan and I investigated and
+Ruturaj Solanki: yes.
+Muhammad Mamdouh: uh for example I found that the new plan does something that might improve the the multi user plan. Can can I take inspiration from the this run and uh modify the decomposition to to to mimic what the new gland has done?
+Ruturaj Solanki: Yes. Yes. Absolutely. You can even make it better. Uh you can uh see Yes. You can see where the multi uh no plan was uh having uh good points as well
+
+
+
+
+00:37:54
+
+
+Muhammad Mamdouh: Yeah.
+Ruturaj Solanki: as you can also check where it was struggling and use your uh agent to see if we were uh we can also improve those plan as well. And you can have a very good decomposition yl that outruns both the uh multi- uh no multi with no plan and your earlier decomposition. That is a very good uh com uh idea
+Muhammad Mamdouh: Yeah. And uh if I edit the decomposition,
+Ruturaj Solanki: actually.
+Muhammad Mamdouh: uh I only need to rerun the multi I don't need to rerun the multan again.
+Ruturaj Solanki: Yeah.
+Muhammad Mamdouh: Okay.
+Ruturaj Solanki: Yes.
+Muhammad Mamdouh: Okay.
+Ruturaj Solanki: Any more questions guys? I would say just simply summarize it. If you are scoring multi no plan is scoring more than the multi uh with plan just analyze the logs thoroughly. see what actually was. If the decomposition plan was really better than our plan, implement it, improve, try to improve it. Don't uh go with uh thinking that uh the multi-no plan and uh basically if the gap is very high simple understand that your decoration is somewhere underperforming it.
+
+
+
+
+00:39:27
+
+
+Ruturaj Solanki: One more thing to add is don't constraint your uh digosition or multi- aents. Uh I I saw that we are only giving it uh like say limited instructions like only do this thing. Uh you are supposed to only do this uh add a self uh I would say improver agent uh in your multi- aent files um sorry decomposition yl which basically uh can update the update the requirements as needed. This will also be an helpful for your decomposition in your task. I think you remember the very first idea this I got from Matt's task was like this. He was having an agent that was basically writing many answers for the instruction MD5. You can have a very unique agent that does those similar things. You can have a agent that basically come up comes up with a very um new plans or a very systematic approach to your instructions. Uh yeah, you can have any kinds of agent in the in your decomposition YAML. It's just there how creative you are with your uh team there in the decomposition Y. Any more questions guys on this particular thing?
+
+
+
+
+00:40:50
+
+
+Ruturaj Solanki: If not then we are going to end the call. I will uh share the recording as well as the presentation once it once it's ready.
+S G Mathavan: Great. Uh thank you so much for the session and I hope everyone is aware of these minor mistakes which is been made by each and everyone in this talk. So I request everyone to be aware of this and let's make sure the reworks uh count is decreasing so that it is benefited for both the trainers and also for a project. Thank you team. This
+Muhammad Mamdouh: I have a question m I noticed that the quality gate uh the quality dimensions uh
+S G Mathavan: moment.
+Muhammad Mamdouh: there was an edit uh in the quality dimension 7 and 9 that the gap is now 0.18 not 0.2 two is are the gap is updated or this is a mistake or
+S G Mathavan: Yes. The gap is updated.
+Muhammad Mamdouh: so the new gap is 0.18 right
+S G Mathavan: Yes. Yes.
+Muhammad Mamdouh: Okay.
+S G Mathavan: Any other questions? Okay, it's not we can call for the meeting. Thank you guys.
+Ruturaj Solanki: Yeah. Thank you guys.
+
+
+
+
+Transcription ended after 00:42:13
+
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

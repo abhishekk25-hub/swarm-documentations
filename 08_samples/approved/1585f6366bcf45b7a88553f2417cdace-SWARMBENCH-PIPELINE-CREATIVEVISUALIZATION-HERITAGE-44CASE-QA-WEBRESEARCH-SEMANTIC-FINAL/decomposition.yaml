@@ -1,0 +1,411 @@
+coordination_pattern: pipeline
+
+orchestrator_notes:
+  - Run dependency-ready sub_tasks with the task tool according to this pipeline; do not do retrieval, analysis, QA, repair, or synthesis yourself.
+  - The sub_tasks list is closed. Do not create, request, or spawn any additional sub_tasks beyond the IDs listed here. If a listed stage finds issues, pass those issues to the next listed dependent stage through its output file; do not create an ad hoc repair, audit, retry, or helper subagent.
+  - Keep the workflow staged: candidate planning, bounded source collection, source finalization, retrieval audit, case analysis, QA, bounded repair, then final reduction.
+  - Do not add case facts, hidden answers, themes, or source claims beyond what is available in the main instruction, /input_artifacts/source_manifest.json, /input_artifacts/output_requirements.md, and files created during the run.
+  - Respect the retrieval limits in the main instruction. A documented terminal retrieval failure is better than repeated URL variants or repeated attempts at the same failed source.
+  - Candidate planning proposes possible public sources only. Source collection prepares saved source snapshots. Analysis and QA use saved source snapshots only.
+  - Intermediate files under /logs/agent/_intermediate are coordination aids only; final user-facing outputs must still follow /input_artifacts/output_requirements.md.
+  - When a sub_task says "Same role as ...", expand the referenced role requirements in the spawned subagent prompt together with the listed case range and output path. Do not pass an unresolved reference to a subagent.
+
+sub_tasks:
+  - id: url-candidates-01
+    parallel_group: url_candidates
+    depends_on: []
+    description: >-
+      Read /input_artifacts/source_manifest.json and /input_artifacts/output_requirements.md.
+      For WHR-001, WHR-002, WHR-003, WHR-004, WHR-005, and WHR-006, perform source discovery for candidate URLs or source leads that
+      could answer the public interpretation, conservation, access/restriction, or teaching-context
+      question. Prefer candidate public URLs where possible; clearly label non-URL source leads.
+      Use only the provided files and source knowledge at this planning stage; do not retrieve,
+      open, browse, fetch, or validate sources in this step. Sources must be outside UNESCO and
+      Wikimedia. For each candidate, record case_id, property_name, candidate_url_or_source_lead,
+      source_type_goal, reason_for_candidate, and known_risk_or_uncertainty. Write valid JSON to
+      /logs/agent/_intermediate/url_candidates_01.json.
+
+  - id: url-candidates-02
+    parallel_group: url_candidates
+    depends_on: []
+    description: >-
+      Same role as url-candidates-01. Use WHR-007, WHR-008, WHR-009, WHR-010,
+      WHR-011, and WHR-012. This is still a planning-only step; do not retrieve,
+      open, browse, fetch, or validate sources. Write valid JSON to
+      /logs/agent/_intermediate/url_candidates_02.json.
+
+
+  - id: url-candidates-03
+    parallel_group: url_candidates
+    depends_on: []
+    description: >-
+      Same role as url-candidates-01. Use WHR-013, WHR-014, WHR-015, WHR-016,
+      WHR-017, and WHR-018. This is still a planning-only step; do not retrieve,
+      open, browse, fetch, or validate sources. Write valid JSON to
+      /logs/agent/_intermediate/url_candidates_03.json.
+
+
+  - id: url-candidates-04
+    parallel_group: url_candidates
+    depends_on: []
+    description: >-
+      Same role as url-candidates-01. Use WHR-019, WHR-020, WHR-021, WHR-022,
+      WHR-023, and WHR-024. This is still a planning-only step; do not retrieve,
+      open, browse, fetch, or validate sources. Write valid JSON to
+      /logs/agent/_intermediate/url_candidates_04.json.
+
+
+  - id: url-candidates-05
+    parallel_group: url_candidates
+    depends_on: []
+    description: >-
+      Same role as url-candidates-01. Use WHR-025, WHR-026, WHR-027, WHR-028,
+      and WHR-029. This is still a planning-only step; do not retrieve, open,
+      browse, fetch, or validate sources. Write valid JSON to
+      /logs/agent/_intermediate/url_candidates_05.json.
+
+
+  - id: url-candidates-06
+    parallel_group: url_candidates
+    depends_on: []
+    description: >-
+      Same role as url-candidates-01. Use WHR-030, WHR-031, WHR-032, WHR-033,
+      and WHR-034. This is still a planning-only step; do not retrieve, open,
+      browse, fetch, or validate sources. Write valid JSON to
+      /logs/agent/_intermediate/url_candidates_06.json.
+
+
+  - id: url-candidates-07
+    parallel_group: url_candidates
+    depends_on: []
+    description: >-
+      Same role as url-candidates-01. Use WHR-035, WHR-036, WHR-037, WHR-038,
+      and WHR-039. This is still a planning-only step; do not retrieve, open,
+      browse, fetch, or validate sources. Write valid JSON to
+      /logs/agent/_intermediate/url_candidates_07.json.
+
+
+  - id: url-candidates-08
+    parallel_group: url_candidates
+    depends_on: []
+    description: >-
+      Same role as url-candidates-01. Use WHR-040, WHR-041, WHR-042, WHR-043,
+      and WHR-044. This is still a planning-only step; do not retrieve, open,
+      browse, fetch, or validate sources. Write valid JSON to
+      /logs/agent/_intermediate/url_candidates_08.json.
+
+
+  - id: source-collector
+    parallel_group: source_collection
+    depends_on:
+      - url-candidates-01
+      - url-candidates-02
+      - url-candidates-03
+      - url-candidates-04
+      - url-candidates-05
+      - url-candidates-06
+      - url-candidates-07
+      - url-candidates-08
+    description: >-
+      Collect the external-source evidence for the listed cases in this pipeline stage. Read all
+      candidate-source files from /logs/agent/_intermediate and respect the trial limits from the
+      main instruction. Save usable candidate snapshots under
+      /logs/agent/_intermediate/candidate_sources/{case_id}/ and write
+      /logs/agent/url_validation_results.json summarizing usable sources, skipped duplicates,
+      unavailable sources, terminal failures, and cases that still lack external evidence. Do not
+      spawn subagents. Do not write case memos, final source paths, review files, or package
+      files.
+      
+  - id: url-plan-reducer
+    parallel_group: source_planning
+    depends_on: [source-collector]
+    description: >-
+      Read /logs/agent/url_validation_results.json and select the best successful external
+      candidate snapshot for each case where one exists. Do not retrieve new sources. Prefer
+      candidates that directly support the public-context curator question and include exact
+      usable excerpt text. For cases without a successful external source, preserve the terminal
+      failure note. Write /logs/agent/external_source_plan.json with one row per case: case_id,
+      selected_status, selected_source_url, selected_snapshot_path, selection_reason, and any
+      terminal note.
+
+  - id: source-finalizer
+    parallel_group: source_finalization
+    depends_on: [url-plan-reducer]
+    description: >-
+      Read /input_artifacts/source_manifest.json and /logs/agent/external_source_plan.json. For
+      every listed case, save the official UNESCO starting page at
+      /logs/agent/retrieved_sources/{case_id}/unesco_property_page.txt. For each case, copy the
+      selected external candidate snapshot or exact excerpt text to
+      /logs/agent/external_context/{case_id}/external_context_source.txt. Do not paraphrase,
+      summarize, or normalize quote-bearing text. If no usable external source was selected, save
+      a clear terminal note at that path. Write
+      /logs/agent/_intermediate/source_finalizer_status.json with source status for every case.
+      Do not spawn subagents. Do not write case memos, review files, or package files.
+
+  - id: retrieval-auditor
+    parallel_group: source_audit
+    depends_on: [source-finalizer]
+    description: >-
+      Use saved sources only. Read the final UNESCO and external-context source files for every
+      case plus /logs/agent/external_source_plan.json and the source_finalizer_status file. Write
+      /logs/agent/retrieval_audit.json with one row per case for each source type, using the
+      fields required by /input_artifacts/output_requirements.md. Record success, terminal
+      retrieval notes, source URLs, saved paths, exact excerpts, and comparison notes. Do not
+      write case memos or final package files.
+
+  - id: analysis-01
+    parallel_group: analysis
+    depends_on: [retrieval-auditor]
+    description: >-
+      Use saved sources only. Analyze WHR-001, WHR-002, WHR-003, WHR-004, WHR-005, WHR-006. Use
+      /input_artifacts/source_manifest.json for fixed identity fields such as case_id,
+      property_name, state party, UNESCO site id, and listed danger year. Write one case memo per
+      case at /logs/agent/case_memos/{case_id}.json using
+      /input_artifacts/output_requirements.md. Each memo should answer the curator questions,
+      compare UNESCO and external context where available, use exact quotes copied from saved
+      snapshots, state safe claim boundaries, and note retrieval limits where a source failed.
+
+  - id: analysis-02
+    parallel_group: analysis
+    depends_on: [retrieval-auditor]
+    description: >-
+      Same role as analysis-01. Use saved sources only. Analyze WHR-007, WHR-008,
+      WHR-009, WHR-010, WHR-011, and WHR-012. Write one case memo per case at
+      /logs/agent/case_memos/{case_id}.json.
+
+
+  - id: analysis-03
+    parallel_group: analysis
+    depends_on: [retrieval-auditor]
+    description: >-
+      Same role as analysis-01. Use saved sources only. Analyze WHR-013, WHR-014,
+      WHR-015, WHR-016, WHR-017, and WHR-018. Write one case memo per case at
+      /logs/agent/case_memos/{case_id}.json.
+
+
+  - id: analysis-04
+    parallel_group: analysis
+    depends_on: [retrieval-auditor]
+    description: >-
+      Same role as analysis-01. Use saved sources only. Analyze WHR-019, WHR-020,
+      WHR-021, WHR-022, WHR-023, and WHR-024. Write one case memo per case at
+      /logs/agent/case_memos/{case_id}.json.
+
+
+  - id: analysis-05
+    parallel_group: analysis
+    depends_on: [retrieval-auditor]
+    description: >-
+      Same role as analysis-01. Use saved sources only. Analyze WHR-025, WHR-026,
+      WHR-027, WHR-028, and WHR-029. Write one case memo per case at
+      /logs/agent/case_memos/{case_id}.json.
+
+
+  - id: analysis-06
+    parallel_group: analysis
+    depends_on: [retrieval-auditor]
+    description: >-
+      Same role as analysis-01. Use saved sources only. Analyze WHR-030, WHR-031,
+      WHR-032, WHR-033, and WHR-034. Write one case memo per case at
+      /logs/agent/case_memos/{case_id}.json.
+
+
+  - id: analysis-07
+    parallel_group: analysis
+    depends_on: [retrieval-auditor]
+    description: >-
+      Same role as analysis-01. Use saved sources only. Analyze WHR-035, WHR-036,
+      WHR-037, WHR-038, and WHR-039. Write one case memo per case at
+      /logs/agent/case_memos/{case_id}.json.
+
+
+  - id: analysis-08
+    parallel_group: analysis
+    depends_on: [retrieval-auditor]
+    description: >-
+      Same role as analysis-01. Use saved sources only. Analyze WHR-040, WHR-041,
+      WHR-042, WHR-043, and WHR-044. Write one case memo per case at
+      /logs/agent/case_memos/{case_id}.json.
+
+
+  - id: qa-01
+    parallel_group: qa
+    depends_on: [analysis-01]
+    description: >-
+      Use saved sources and case memos only. Review WHR-001, WHR-002, WHR-003, WHR-004, WHR-005,
+      WHR-006. Check that each memo answers the curator questions, uses exact quotes copied from
+      saved snapshots, compares UNESCO and external context, states safe claim boundaries, and
+      records retrieval limits where a source failed. Check that
+      curator_questions.what_external_context_changes includes the exact
+      external_context.external_quote copied from the saved external source when an external
+      source exists. Write /logs/agent/_intermediate/qa_01.json with per-case findings and repair
+      notes.
+
+  - id: qa-02
+    parallel_group: qa
+    depends_on: [analysis-02]
+    description: >-
+      Same role as qa-01. Use saved sources and case memos only. Review WHR-007,
+      WHR-008, WHR-009, WHR-010, WHR-011, and WHR-012. Write
+      /logs/agent/_intermediate/qa_02.json with per-case findings and repair notes.
+
+
+  - id: qa-03
+    parallel_group: qa
+    depends_on: [analysis-03]
+    description: >-
+      Same role as qa-01. Use saved sources and case memos only. Review WHR-013,
+      WHR-014, WHR-015, WHR-016, WHR-017, and WHR-018. Write
+      /logs/agent/_intermediate/qa_03.json with per-case findings and repair notes.
+
+
+  - id: qa-04
+    parallel_group: qa
+    depends_on: [analysis-04]
+    description: >-
+      Same role as qa-01. Use saved sources and case memos only. Review WHR-019,
+      WHR-020, WHR-021, WHR-022, WHR-023, and WHR-024. Write
+      /logs/agent/_intermediate/qa_04.json with per-case findings and repair notes.
+
+
+  - id: qa-05
+    parallel_group: qa
+    depends_on: [analysis-05]
+    description: >-
+      Same role as qa-01. Use saved sources and case memos only. Review WHR-025,
+      WHR-026, WHR-027, WHR-028, and WHR-029. Write
+      /logs/agent/_intermediate/qa_05.json with per-case findings and repair notes.
+
+
+  - id: qa-06
+    parallel_group: qa
+    depends_on: [analysis-06]
+    description: >-
+      Same role as qa-01. Use saved sources and case memos only. Review WHR-030,
+      WHR-031, WHR-032, WHR-033, and WHR-034. Write
+      /logs/agent/_intermediate/qa_06.json with per-case findings and repair notes.
+
+
+  - id: qa-07
+    parallel_group: qa
+    depends_on: [analysis-07]
+    description: >-
+      Same role as qa-01. Use saved sources and case memos only. Review WHR-035,
+      WHR-036, WHR-037, WHR-038, and WHR-039. Write
+      /logs/agent/_intermediate/qa_07.json with per-case findings and repair notes.
+
+
+  - id: qa-08
+    parallel_group: qa
+    depends_on: [analysis-08]
+    description: >-
+      Same role as qa-01. Use saved sources and case memos only. Review WHR-040,
+      WHR-041, WHR-042, WHR-043, and WHR-044. Write
+      /logs/agent/_intermediate/qa_08.json with per-case findings and repair notes.
+
+
+  - id: repair-01
+    parallel_group: repair
+    depends_on: [qa-01]
+    description: >-
+      Use saved sources, the WHR-001 through WHR-006 case memos,
+      /logs/agent/_intermediate/qa_01.json, and any intermediate files that directly reference
+      WHR-001 through WHR-006. Apply needed memo repairs for missing curator answers, unsupported
+      claims, non-exact quotes, unsafe claim boundaries, retrieval-limit notes, and missing exact
+      external quotes in curator_questions.what_external_context_changes. If a problem cannot be
+      fixed from saved evidence, leave it cautious and record it as unresolved. Update affected
+      /logs/agent/case_memos/{case_id}.json files in place, then write
+      /logs/agent/_intermediate/repair_01.json summarizing repaired, unchanged, and unresolved
+      cases. Do not retrieve new sources, inspect unrelated case ranges, or spawn subagents.
+
+  - id: repair-02
+    parallel_group: repair
+    depends_on: [qa-02]
+    description: >-
+      Same role as repair-01. Use WHR-007 through WHR-012, their case memos,
+      /logs/agent/_intermediate/qa_02.json, and any intermediate files that directly reference
+      those cases. Update affected case memo files in place, then write
+      /logs/agent/_intermediate/repair_02.json. Do not retrieve new sources, inspect unrelated
+      case ranges, or spawn subagents.
+
+  - id: repair-03
+    parallel_group: repair
+    depends_on: [qa-03]
+    description: >-
+      Same role as repair-01. Use WHR-013 through WHR-018, their case memos,
+      /logs/agent/_intermediate/qa_03.json, and any intermediate files that directly reference
+      those cases. Update affected case memo files in place, then write
+      /logs/agent/_intermediate/repair_03.json. Do not retrieve new sources, inspect unrelated
+      case ranges, or spawn subagents.
+
+  - id: repair-04
+    parallel_group: repair
+    depends_on: [qa-04]
+    description: >-
+      Same role as repair-01. Use WHR-019 through WHR-024, their case memos,
+      /logs/agent/_intermediate/qa_04.json, and any intermediate files that directly reference
+      those cases. Update affected case memo files in place, then write
+      /logs/agent/_intermediate/repair_04.json. Do not retrieve new sources, inspect unrelated
+      case ranges, or spawn subagents.
+
+  - id: repair-05
+    parallel_group: repair
+    depends_on: [qa-05]
+    description: >-
+      Same role as repair-01. Use WHR-025 through WHR-029, their case memos,
+      /logs/agent/_intermediate/qa_05.json, and any intermediate files that directly reference
+      those cases. Update affected case memo files in place, then write
+      /logs/agent/_intermediate/repair_05.json. Do not retrieve new sources, inspect unrelated
+      case ranges, or spawn subagents.
+
+  - id: repair-06
+    parallel_group: repair
+    depends_on: [qa-06]
+    description: >-
+      Same role as repair-01. Use WHR-030 through WHR-034, their case memos,
+      /logs/agent/_intermediate/qa_06.json, and any intermediate files that directly reference
+      those cases. Update affected case memo files in place, then write
+      /logs/agent/_intermediate/repair_06.json. Do not retrieve new sources, inspect unrelated
+      case ranges, or spawn subagents.
+
+  - id: repair-07
+    parallel_group: repair
+    depends_on: [qa-07]
+    description: >-
+      Same role as repair-01. Use WHR-035 through WHR-039, their case memos,
+      /logs/agent/_intermediate/qa_07.json, and any intermediate files that directly reference
+      those cases. Update affected case memo files in place, then write
+      /logs/agent/_intermediate/repair_07.json. Do not retrieve new sources, inspect unrelated
+      case ranges, or spawn subagents.
+
+  - id: repair-08
+    parallel_group: repair
+    depends_on: [qa-08]
+    description: >-
+      Same role as repair-01. Use WHR-040 through WHR-044, their case memos,
+      /logs/agent/_intermediate/qa_08.json, and any intermediate files that directly reference
+      those cases. Update affected case memo files in place, then write
+      /logs/agent/_intermediate/repair_08.json. Do not retrieve new sources, inspect unrelated
+      case ranges, or spawn subagents.
+
+  - id: final-reducer
+    parallel_group: synthesize
+    depends_on:
+      - repair-01
+      - repair-02
+      - repair-03
+      - repair-04
+      - repair-05
+      - repair-06
+      - repair-07
+      - repair-08
+    description: >-
+      Use saved evidence only and do not spawn subagents. Read the manifest, output requirements,
+      retrieval audit, external source plan, all case memos, all saved source snapshots, QA files,
+      and repair files. Do not repair case memos or create another review stage. If unresolved
+      issues remain, record them in the final consistency audit. Write all required final files
+      under /logs/agent: evidence_register.csv, curatorial_quality_review.json,
+      theme_cluster_map.json, selection_rationale.json, final_consistency_audit.json,
+      storyboard_package.json, and output.json. The final package must cover all listed case IDs,
+      partition decisions according to the case memos, preserve source limits, and avoid
+      unsupported current travel, access, route, emergency, or on-site safety claims.

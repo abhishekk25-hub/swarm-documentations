@@ -1,0 +1,225 @@
+{
+  "sources": [
+    {
+      "id": "S-01",
+      "authority": "ICH E6(R2) Good Clinical Practice",
+      "domains": [
+        "ich.org"
+      ],
+      "fact_tokens": [
+        [
+          "e6",
+          "good clinical practice"
+        ],
+        [
+          "e6(r2)"
+        ],
+        [
+          "risk",
+          "monitoring"
+        ]
+      ],
+      "topic": "the GCP standard and the risk-based approach to monitoring (section 5.0 / 5.18)"
+    },
+    {
+      "id": "S-02",
+      "authority": "FDA Guidance: Oversight of Clinical Investigations -- A Risk-Based Approach to Monitoring",
+      "domains": [
+        "fda.gov"
+      ],
+      "fact_tokens": [
+        [
+          "risk-based",
+          "monitoring"
+        ],
+        [
+          "oversight of clinical investigations"
+        ]
+      ],
+      "topic": "the FDA expectation for risk-based monitoring of clinical investigations"
+    },
+    {
+      "id": "S-03",
+      "authority": "ICH E8(R1) General Considerations for Clinical Studies",
+      "domains": [
+        "ich.org"
+      ],
+      "fact_tokens": [
+        [
+          "e8"
+        ],
+        [
+          "general considerations"
+        ]
+      ],
+      "topic": "quality-by-design and critical-to-quality factors that drive monitoring focus"
+    },
+    {
+      "id": "S-04",
+      "authority": "21 CFR Part 312 -- Investigational New Drug Application",
+      "domains": [
+        "ecfr.gov",
+        "accessdata.fda.gov",
+        "govinfo.gov"
+      ],
+      "fact_tokens": [
+        [
+          "part 312"
+        ],
+        [
+          "investigational new drug"
+        ]
+      ],
+      "topic": "the IND framework governing monitoring of regulated drug/biologic trials"
+    },
+    {
+      "id": "S-05",
+      "authority": "21 CFR Part 812 -- Investigational Device Exemptions",
+      "domains": [
+        "ecfr.gov",
+        "accessdata.fda.gov",
+        "govinfo.gov"
+      ],
+      "fact_tokens": [
+        [
+          "part 812"
+        ],
+        [
+          "investigational device"
+        ]
+      ],
+      "topic": "the IDE framework governing monitoring of regulated device trials"
+    },
+    {
+      "id": "S-06",
+      "authority": "21 CFR Part 11 -- Electronic Records; Electronic Signatures",
+      "domains": [
+        "ecfr.gov",
+        "accessdata.fda.gov",
+        "govinfo.gov"
+      ],
+      "fact_tokens": [
+        [
+          "part 11"
+        ],
+        [
+          "electronic records"
+        ]
+      ],
+      "topic": "electronic-records integrity expectations for monitored trial data"
+    },
+    {
+      "id": "S-07",
+      "authority": "FDAAA 801 / 42 CFR Part 11 -- ClinicalTrials.gov registration and results",
+      "domains": [
+        "clinicaltrials.gov",
+        "fda.gov",
+        "ecfr.gov",
+        "govinfo.gov"
+      ],
+      "fact_tokens": [
+        [
+          "801"
+        ],
+        [
+          "registration",
+          "results"
+        ],
+        [
+          "final rule"
+        ]
+      ],
+      "topic": "the registration/results-reporting obligations tied to the portfolio records"
+    },
+    {
+      "id": "S-08",
+      "authority": "45 CFR Part 46 -- Protection of Human Subjects (Common Rule)",
+      "domains": [
+        "hhs.gov",
+        "ecfr.gov",
+        "govinfo.gov"
+      ],
+      "fact_tokens": [
+        [
+          "part 46"
+        ],
+        [
+          "common rule"
+        ],
+        [
+          "human subjects"
+        ]
+      ],
+      "topic": "the human-subjects protection basis underlying site oversight"
+    },
+    {
+      "id": "S-09",
+      "authority": "TransCelerate BioPharma Risk-Based Monitoring framework",
+      "domains": [
+        "transceleratebiopharmainc.com"
+      ],
+      "fact_tokens": [
+        [
+          "risk-based monitoring"
+        ],
+        [
+          "transcelerate"
+        ]
+      ],
+      "topic": "the industry RBM methodology the rulebook's risk tiers are normalized to"
+    },
+    {
+      "id": "S-10",
+      "authority": "FDA Guidance: A Risk-Based Approach to Monitoring of Clinical Investigations -- Questions and Answers",
+      "domains": [
+        "fda.gov"
+      ],
+      "fact_tokens": [
+        [
+          "questions and answers"
+        ],
+        [
+          "monitoring"
+        ]
+      ],
+      "topic": "operational Q&A clarifying monitoring plan content and frequency"
+    },
+    {
+      "id": "S-11",
+      "authority": "NLM ClinicalTrials.gov -- registry data and field definitions",
+      "domains": [
+        "clinicaltrials.gov"
+      ],
+      "fact_tokens": [
+        [
+          "clinicaltrials.gov"
+        ],
+        [
+          "registry"
+        ],
+        [
+          "study record"
+        ]
+      ],
+      "topic": "the provenance and field definitions for the portfolio's source records"
+    },
+    {
+      "id": "S-12",
+      "authority": "ICH E6(R3) Good Clinical Practice",
+      "domains": [
+        "ich.org"
+      ],
+      "fact_tokens": [
+        [
+          "e6(r3)"
+        ],
+        [
+          "e6",
+          "good clinical practice"
+        ]
+      ],
+      "topic": "the current GCP revision modernizing risk-based quality management"
+    }
+  ],
+  "_note": "Acceptable citation domains and load-bearing fact tokens for each required authority. Used to score the source_register sheet; the verifier does not perform network access."
+}

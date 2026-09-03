@@ -1,0 +1,165 @@
+{
+  "task_id": "22f8f5dc732548868854bc1447647ff8",
+  "verifier_type": "hybrid",
+  "total_checks": 20,
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Combines four deterministic gates into one static score, averaged over the four components. Artifacts: opens decision_digest.md, red_flag_matrix.csv, and risk_committee_briefing.md only at their declared paths; each must be a regular non-symlink file, non-empty, UTF-8 decodable, and within generous safety bounds of 2 MiB, 256 KiB, and 96 KiB respectively, with digest sections additionally bounded at 32 KiB. Digest structure: splits decision_digest.md into heading-delimited sections and iterates over the canonical 30-row decisions_index.csv denominator, scoring required descending order and, per section, only whether the decision number, case number, decision date, and corrigendum status are correctly present in that section's opening. It deliberately does not score content-role keyword presence (allegations/reply/findings/practice/evidence/factors/sanction/warning-sign language) or raw citation-pattern counts, because both were satisfiable by templated boilerplate vocabulary with no correctness guarantee and both substantively duplicate checks that verify correctness for real: judge_digest_* scores separation/found_practices/factors/sanction/warning_sign quality, check_digest_item_citation_resolution resolves citations against the source instead of counting citation-shaped patterns, and check_all_decision_practice_labels/check_all_decision_sanction_markers verify the practice and sanction fields against the source text. Matrix schema: parses red_flag_matrix.csv with a 200-row safety bound, requires the exact seven columns in the instructed order, rejects extra row fields, and validates every row's RF identifier, canonical decision number, nonblank citation and observable evidence, basis enum, diligence_response enum, consistent red_flag text per RF identifier, unique RF/decision pair, and contiguous RF numbering from RF-01; it also scores decision_coverage, the fraction of the thirty canonical decisions referenced by at least one matrix row, denominated by decisions_index.csv rather than by the agent's own submitted row count, so a small clean cherry-picked subset of rows cannot substitute for comprehensive coverage. Links: for every matrix row, requires the row's decision_number to have a matching digest section, catching a matrix row that cites a decision the digest never covers; this was formerly its own check but is purely deterministic and structural like the other three components, with no judge-review overlap, so it now lives here instead of as a separate registry entry. The check reports the mean of the artifact, digest-structure, matrix-schema, and links fractions.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/decision_digest.md",
+        "/logs/agent/red_flag_matrix.csv",
+        "/logs/agent/risk_committee_briefing.md"
+      ],
+      "check_function": "check_static_artifacts_and_structure",
+      "how_it_prevents_task_authenticity_violation": "Prevents missing, empty, unsafe-symlink, binary, or resource-exhaustion artifacts; digest sections that omit or misstate the decision number, case number, decision date, or corrigendum status; a red_flag_matrix.csv with default-filled rows, invented decision numbers, duplicated pairings, inconsistent RF-identifier reuse, enum-shaped but unusable records, or row coverage cherry-picked down to a small subset of the thirty canonical decisions; and a matrix row that cites a decision_number the digest never covers, from being treated as completed deliverables. This check does not by itself catch a digest section that is metadata-correct but otherwise contentless, templated, or uncited - check_no_bulk_padding, check_digest_item_citation_resolution, check_all_decision_practice_labels, check_all_decision_sanction_markers, and judge_digest_* are the checks responsible for content substance and correctness."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "Provides the complete digest sections and complete packaged source text for Decisions 147 through 143 to a fixed, prompt-injection-resistant DeepSeek judge. The judge scores each decision separately for separation of allegations, respondent arguments, and Board findings; found practices; evidentiary reasoning; factors; sanction; source-supporting citations; and the pre-contract warning-sign conclusion. The check is the mean of the five decision scores; absent sections or judge infrastructure errors contribute zero.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/decision_digest.md",
+      "check_function": "judge_digest_147_143",
+      "how_it_prevents_task_authenticity_violation": "Stops fluent templates, swapped case facts, unsupported citations, and allegations or party arguments relabeled as holdings from earning substantive digest credit for the first source partition."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Provides the complete digest sections and complete packaged source text for Decisions 142 through 138 to the same fixed judge and criterion-level scoring contract used for the other partitions. The score is the mean of five decision scores, with missing content and unavailable judging receiving zero rather than positive fallback credit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/decision_digest.md",
+      "check_function": "judge_digest_142_138",
+      "how_it_prevents_task_authenticity_violation": "Binds the second five digest records, including the corrigendum-reissued Decision 142, to their own source documents instead of rewarding polished but cross-case or pre-corrigendum summaries."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Provides the complete digest sections and complete packaged source text for Decisions 137 through 133 to the fixed judge. The judge returns one bounded criterion-level score per canonical decision and the verifier averages the five scores; incomplete response schemas, missing sections, or judge failures earn zero.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/decision_digest.md",
+      "check_function": "judge_digest_137_133",
+      "how_it_prevents_task_authenticity_violation": "Requires genuine reading and source-bound separation of party positions and Board reasoning across the third partition rather than copied narrative or global keyword coverage."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Provides the complete digest sections and complete packaged source text for Decisions 132 through 128 to the fixed judge. It uses the same nine task-specific criteria and averages the five canonical decision scores, without truncating submitted sections or awarding positive fallback credit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/decision_digest.md",
+      "check_function": "judge_digest_132_128",
+      "how_it_prevents_task_authenticity_violation": "Prevents the fourth five decisions from being padded with labels or borrowed facts after an agent concentrates genuine effort only on the newest records."
+    },
+    "reward_hacking_checks_5": {
+      "detailed_explanation_of_checks": "Provides the complete digest sections and complete packaged source text for Decisions 127 through 123 to the fixed judge. It uses the same nine task-specific criteria and averages the five canonical decision scores, without truncating submitted sections or awarding positive fallback credit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/decision_digest.md",
+      "check_function": "judge_digest_127_123",
+      "how_it_prevents_task_authenticity_violation": "Prevents the fifth five decisions from being padded with labels or borrowed facts after an agent concentrates genuine effort only on the newest or most-discussed records."
+    },
+    "reward_hacking_checks_6": {
+      "detailed_explanation_of_checks": "Provides the complete digest sections and complete packaged source text for Decisions 122 through 118 to the fixed judge. It uses the same nine task-specific criteria and averages the five canonical decision scores, without truncating submitted sections or awarding positive fallback credit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/decision_digest.md",
+      "check_function": "judge_digest_122_118",
+      "how_it_prevents_task_authenticity_violation": "Prevents the oldest five decisions from being thinly summarized or skipped entirely once an agent has spent most of its budget on the newer partitions."
+    },
+    "reward_hacking_checks_7": {
+      "detailed_explanation_of_checks": "Partitions all canonical decisions into six fixed five-decision groups and, for every group, gives the judge every matrix row for those decisions, the matching digest sections, and the complete matching source documents. The judge scores decision-bound citation support, correctness of holding/factor/party-argument basis, absence of unsupported flags, and justified omission where no pre-contract signal exists. The check averages all six fixed group scores, so empty groups do not shrink the denominator.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/decision_digest.md",
+        "/logs/agent/red_flag_matrix.csv"
+      ],
+      "check_function": "judge_matrix_source_support",
+      "how_it_prevents_task_authenticity_violation": "Blocks rows whose values merely occur somewhere in the corpus, self-consistent fabricated flags, citation stuffing, and omission of obvious supported signals by binding every fixed source partition to its own rows."
+    },
+    "reward_hacking_checks_8": {
+      "detailed_explanation_of_checks": "Across the same six fixed source-partition judge responses used for matrix source support, the judge reviews every matrix row for a specific pre-contract red flag, a concrete requestable record or check in observable_evidence, a proportionate diligence_response, decision-specific reasoning, and non-repetitive wording. It averages the six group scores and gives zero to malformed rows or unavailable judge calls.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/red_flag_matrix.csv",
+      "check_function": "judge_matrix_diligence_quality",
+      "how_it_prevents_task_authenticity_violation": "Rejects generic investigation-only conclusions, repeated boilerplate evidence, and aggressive actions unsupported by the cited decision even when the CSV schema and enums look perfect."
+    },
+    "reward_hacking_checks_9": {
+      "detailed_explanation_of_checks": "Sends the complete briefing to six fixed shared judge calls, each accompanied by one five-decision source partition plus the matching digest sections and matrix rows. Each call scores both briefing criterion sets; this check consumes whether claimed recurring reasoning, procurement/investigations/legal divergence, and the stated resolution of that divergence are supported by that partition. The six scores are averaged; the briefing is never truncated and an unavailable call earns zero.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/decision_digest.md",
+        "/logs/agent/red_flag_matrix.csv",
+        "/logs/agent/risk_committee_briefing.md"
+      ],
+      "check_function": "judge_briefing_patterns_and_reconciliation",
+      "how_it_prevents_task_authenticity_violation": "Prevents a polished briefing from claiming recurrence or professional disagreement based only on its own fabricated digest, a small cherry-picked subset, or generic sanctions vocabulary."
+    },
+    "reward_hacking_checks_10": {
+      "detailed_explanation_of_checks": "Uses the same six fixed shared source-partition judge responses to assess the complete briefing's screening changes, contractual protections, RF-ID support, proportionality, treatment of a past sanction as a risk input rather than automatic exclusion, and use only of party names present in the packaged decisions. Matching matrix rows, digest sections, and source documents accompany each call; the average of all six scores is returned and infrastructure failure has no positive fallback.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/decision_digest.md",
+        "/logs/agent/red_flag_matrix.csv",
+        "/logs/agent/risk_committee_briefing.md"
+      ],
+      "check_function": "judge_briefing_recommendations_and_party_guard",
+      "how_it_prevents_task_authenticity_violation": "Blocks RF-name-dropping, generic vendor-list recommendations, automatic exclusion logic, unsupported contractual demands, and invented party names from receiving committee-briefing credit."
+    },
+    "reward_hacking_checks_11": {
+      "detailed_explanation_of_checks": "For every one of the thirty canonical digest sections, checks presence of all nine elements instruction.md requires (allegations, respondent_arguments, board_findings, practices_found, evidentiary_reasoning, aggravating_factors, mitigating_factors, sanction, warning_sign): locates each field by its labels, then treats it as satisfied only if the text window after the label literally contains 'not stated' or has at least six words beyond the label itself, so a bare label with nothing after it does not count. Presence only, never correctness or quality - judge_digest_* and the source-bound deterministic checks are responsible for whether the content is actually right. The fixed denominator is 270 field-level comparisons (30 decisions x 9 elements); a missing decision section makes every one of its nine comparisons zero.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/decision_digest.md",
+      "check_function": "check_digest_required_fields",
+      "how_it_prevents_task_authenticity_violation": "Real submissions have been observed omitting respondent arguments, evidentiary reasoning, aggravating factors, mitigating factors, and the warning-sign conclusion from every one of thirty sections while still passing schema and order checks; a separate real submission independently omitted aggravating factors, mitigating factors, and evidentiary reasoning from all thirty sections while inventing a due-diligence section that belongs only in the matrix. This check stops a digest that condenses down to only the fields easiest to extract (date, outcome, practice) from earning full digest-completeness credit while silently dropping the elements instruction.md explicitly requires."
+    },
+    "reward_hacking_checks_12": {
+      "detailed_explanation_of_checks": "For every one of the thirty canonical digest sections, locates the practice, evidentiary-reasoning, aggravating/mitigating-factor, and imposed-sanction fields; extracts paragraph or section citations from each field; and resolves the cited anchor against that decision's own packaged PDF text with two independent gates, not raw overlap alone: at least three meaningful overlapping terms for a paragraph citation (five for a section), AND either a field-specific marker in the cited passage (practice stems for the practice field, aggravat/mitigat for the factors field, debarment/reprimand/restitution/ineligib/conditional stems for the sanction field) or, for the evidentiary-reasoning field where no such marker set applies, at least one of the overlapping terms must be distinctive - occurring no more than six times in that decision's own source text - rather than a term common enough to overlap almost any paragraph. The fixed denominator is 120 field-level comparisons, so a missing section, field, unrelated citation, or repeated citation earns zero for the affected field and cannot enlarge the numerator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/decision_digest.md",
+      "check_function": "check_digest_item_citation_resolution",
+      "how_it_prevents_task_authenticity_violation": "Stops a digest from adding four arbitrary citation-shaped strings per section, repeatedly citing Paragraph 1, or citing a real paragraph from the wrong decision while leaving the four requested claims unanchored."
+    },
+    "reward_hacking_checks_13": {
+      "detailed_explanation_of_checks": "Reviews all thirty digest sections and every matrix row for bulk padding. Each digest section is scored as the mean of three independent components: a modest amount of decision-specific vocabulary must be present; long non-'not stated' paragraphs repeated across more than three decisions lose uniqueness credit; and a sliding 12-word window is checked against that same decision's own packaged source text, marking a paragraph's words as covered wherever a 12-word run matches verbatim, so a section whose substantial paragraphs are more than half covered this way loses transcription credit even when no single paragraph is one unbroken exact match (a copied passage commonly carries page-break or OCR artifacts that split an otherwise-verbatim quotation into several matching runs). Matrix placeholders lose credit and exact normalized red-flag/evidence/citation/basis/response fingerprints cannot be repeated across decision rows. The score averages the fixed digest-section and matrix-row fractions.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/decision_digest.md",
+        "/logs/agent/red_flag_matrix.csv"
+      ],
+      "check_function": "check_no_bulk_padding",
+      "how_it_prevents_task_authenticity_violation": "Blocks one generic digest template or one generic diligence record from being copied across the required scope with only decision numbers changed, and separately blocks a section from earning content-substance and label/citation-presence credit by transcribing large verbatim spans of the source decision instead of actually separating and reducing its reasoning into the requested fields - a real submission was observed doing this across all thirty decisions while still passing every presence-based check, since those checks cannot distinguish transcription from synthesis on their own."
+    },
+    "reward_hacking_checks_14": {
+      "detailed_explanation_of_checks": "For each of the thirty canonical decisions, derives the Board-found sanctionable-practice labels from the decision's opening disposition in its packaged PDF and requires exact set equality with the explicitly labeled practice field in the matching digest section. All thirty decisions form the fixed denominator; a missing field or any extra, omitted, or swapped practice label makes that decision comparison zero.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/decision_digest.md",
+      "check_function": "check_all_decision_practice_labels",
+      "how_it_prevents_task_authenticity_violation": "Prevents an agent from learning only the eight partial-oracle samples, filling every unsampled decision with one default practice set, or swapping real practice labels between decisions."
+    },
+    "reward_hacking_checks_15": {
+      "detailed_explanation_of_checks": "For all thirty decisions, extracts the primary sanction type and first stated minimum or compliance period from the packaged PDF's opening disposition, then requires the explicitly labeled imposed-sanction field in the corresponding digest section to contain exactly that one primary type and, when stated, exactly that one primary period. Each decision contributes a type comparison and, when the source states one, a duration comparison; missing, conflicting, stuffed, or unparseable fields score zero.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/decision_digest.md",
+      "check_function": "check_all_decision_sanction_markers",
+      "how_it_prevents_task_authenticity_violation": "Blocks one copied debarment formula or a pool of real durations from receiving correctness credit when it is attached to the wrong decision."
+    },
+    "reward_hacking_checks_16": {
+      "detailed_explanation_of_checks": "Iterates over every matrix row with the submitted row count as denominator, resolves its cited paragraph or section only within that row's own packaged decision, and requires the row's red_flag plus observable_evidence to share at least three meaningful non-boilerplate terms with the cited paragraph (five with a cited section) AND at least one of those shared terms to be distinctive - occurring no more than six times in that decision's own source text - so a citation cannot resolve purely on generic sanctions-board vocabulary common to almost every paragraph. Duplicate rows remain in the denominator and unrelated or unresolvable citations earn zero.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/red_flag_matrix.csv",
+      "check_function": "check_matrix_citation_source_binding",
+      "how_it_prevents_task_authenticity_violation": "Prevents a matrix from reusing Paragraph 1, citing a paragraph from a different decision, or adding citation-shaped text that does not discuss the claimed warning sign."
+    },
+    "reward_hacking_checks_17": {
+      "detailed_explanation_of_checks": "For every matrix row, binds the combined red_flag and observable_evidence text to the complete source text of that exact decision, requires at least four meaningful non-boilerplate overlapping terms, and requires at least two of those terms to occur in no more than four of the thirty packaged decisions. The score is the fraction of all submitted rows meeting both thresholds; blank, extra, duplicated, or corpus-generic rows do not shrink the denominator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/red_flag_matrix.csv",
+      "check_function": "check_matrix_claim_source_overlap",
+      "how_it_prevents_task_authenticity_violation": "Blocks wrong-but-present corpus vocabulary and a single generic diligence row from being attached to every decision without decision-specific source content."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "Iterates over the eight canonical sampled decision keys in partial_oracle.json, extracts the explicitly labeled Board-found-practice field, and requires exact equality with the hand-verified practice set for that decision. A missing field or any extra, omitted, or swapped practice makes that fixed per-decision comparison zero; duplicate text cannot enlarge the numerator.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/decision_digest.md",
+      "check_function": "check_sampled_practices",
+      "how_it_prevents_task_authenticity_violation": "Provides a direct reality check against distributed, hand-verified holdings so plausible but swapped or default practice labels cannot pass solely through schema and prose quality."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "For the same eight fixed sampled decisions, compares the digest's imposed-sanction field with the hand-verified sanction type, minimum period converted to months, and corrigendum status in partial_oracle.json. The sanction type and duration fields must each contain exactly one unambiguous matching value. Each of the three fields per decision contributes independently to a fixed twenty-four-field denominator; missing, conflicting, stuffed, or unparseable values score zero.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/decision_digest.md",
+      "check_function": "check_sampled_sanctions",
+      "how_it_prevents_task_authenticity_violation": "Catches copied sanctions, wrong durations, and failure to use the reissued corrigendum decision through stable facts bound to specific sampled decision numbers."
+    }
+  }
+}

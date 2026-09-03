@@ -1,0 +1,606 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+orchestrator_guidance: >-
+  Each sub-task is dispatched once; at most one retry on hard failure. If a retry fails,
+  escalate with the list of judgments or findings still missing rather than redispatching
+  recursively. A coder that disagrees with a reviewer escalates rather than filing a second
+  version of the same finding, and no sub-task may invent a limb code the standard does not
+  print.
+
+sub_tasks:
+  - id: lead--group-a
+    parallel_group: lead
+    depends_on: []
+    description: >-
+      You are the desk lead for SERBIA and TÜRKİYE.
+      Your scope is the eight judgments those two States hold in
+      /input_artifacts/respondent_states.json. Dispatch exactly four coder sub-agents, one
+      per coder sub-task in your group (coder--a1
+      through coder--a4), each owning the two case_ids that sub-task names.
+      Dispatch each of your four coders exactly once and spawn no further sub-agents beyond
+      those four. Your own output is a short text status naming which of your eight
+      case_ids have a findings file under /logs/agent/findings/ and which are missing.
+      Write no files yourself and do not restate a coder's findings.
+
+  - id: coder--a1
+    parallel_group: code
+    depends_on:
+      - lead--group-a
+    description: >-
+      Code the merits findings of these two judgments: 001-243363 and 001-245073.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: coder--a2
+    parallel_group: code
+    depends_on:
+      - lead--group-a
+    description: >-
+      Code the merits findings of these two judgments: 001-249518 and 001-250023.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: coder--a3
+    parallel_group: code
+    depends_on:
+      - lead--group-a
+    description: >-
+      Code the merits findings of these two judgments: 001-231738 and 001-238269.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: coder--a4
+    parallel_group: code
+    depends_on:
+      - lead--group-a
+    description: >-
+      Code the merits findings of these two judgments: 001-243553 and 001-245254.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: lead--group-b
+    parallel_group: lead
+    depends_on: []
+    description: >-
+      You are the desk lead for ITALY and GEORGIA.
+      Your scope is the eight judgments those two States hold in
+      /input_artifacts/respondent_states.json. Dispatch exactly four coder sub-agents, one
+      per coder sub-task in your group (coder--b1
+      through coder--b4), each owning the two case_ids that sub-task names.
+      Dispatch each of your four coders exactly once and spawn no further sub-agents beyond
+      those four. Your own output is a short text status naming which of your eight
+      case_ids have a findings file under /logs/agent/findings/ and which are missing.
+      Write no files yourself and do not restate a coder's findings.
+
+  - id: coder--b1
+    parallel_group: code
+    depends_on:
+      - lead--group-b
+    description: >-
+      Code the merits findings of these two judgments: 001-242639 and 001-245440.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: coder--b2
+    parallel_group: code
+    depends_on:
+      - lead--group-b
+    description: >-
+      Code the merits findings of these two judgments: 001-245444 and 001-247836.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: coder--b3
+    parallel_group: code
+    depends_on:
+      - lead--group-b
+    description: >-
+      Code the merits findings of these two judgments: 001-234522 and 001-235474.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: coder--b4
+    parallel_group: code
+    depends_on:
+      - lead--group-b
+    description: >-
+      Code the merits findings of these two judgments: 001-249366 and 001-250113.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: lead--group-c
+    parallel_group: lead
+    depends_on: []
+    description: >-
+      You are the desk lead for CYPRUS and NETHERLANDS.
+      Your scope is the eight judgments those two States hold in
+      /input_artifacts/respondent_states.json. Dispatch exactly four coder sub-agents, one
+      per coder sub-task in your group (coder--c1
+      through coder--c4), each owning the two case_ids that sub-task names.
+      Dispatch each of your four coders exactly once and spawn no further sub-agents beyond
+      those four. Your own output is a short text status naming which of your eight
+      case_ids have a findings file under /logs/agent/findings/ and which are missing.
+      Write no files yourself and do not restate a coder's findings.
+
+  - id: coder--c1
+    parallel_group: code
+    depends_on:
+      - lead--group-c
+    description: >-
+      Code the merits findings of these two judgments: 001-234516 and 001-236179.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: coder--c2
+    parallel_group: code
+    depends_on:
+      - lead--group-c
+    description: >-
+      Code the merits findings of these two judgments: 001-244017 and 001-249818.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: coder--c3
+    parallel_group: code
+    depends_on:
+      - lead--group-c
+    description: >-
+      Code the merits findings of these two judgments: 001-233213 and 001-235346.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: coder--c4
+    parallel_group: code
+    depends_on:
+      - lead--group-c
+    description: >-
+      Code the merits findings of these two judgments: 001-242957 and 001-249690.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: lead--group-d
+    parallel_group: lead
+    depends_on: []
+    description: >-
+      You are the desk lead for CZECH REPUBLIC and SPAIN.
+      Your scope is the eight judgments those two States hold in
+      /input_artifacts/respondent_states.json. Dispatch exactly four coder sub-agents, one
+      per coder sub-task in your group (coder--d1
+      through coder--d4), each owning the two case_ids that sub-task names.
+      Dispatch each of your four coders exactly once and spawn no further sub-agents beyond
+      those four. Your own output is a short text status naming which of your eight
+      case_ids have a findings file under /logs/agent/findings/ and which are missing.
+      Write no files yourself and do not restate a coder's findings.
+
+  - id: coder--d1
+    parallel_group: code
+    depends_on:
+      - lead--group-d
+    description: >-
+      Code the merits findings of these two judgments: 001-233686 and 001-243566.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: coder--d2
+    parallel_group: code
+    depends_on:
+      - lead--group-d
+    description: >-
+      Code the merits findings of these two judgments: 001-247170 and 001-251196.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: coder--d3
+    parallel_group: code
+    depends_on:
+      - lead--group-d
+    description: >-
+      Code the merits findings of these two judgments: 001-237296 and 001-241578.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: coder--d4
+    parallel_group: code
+    depends_on:
+      - lead--group-d
+    description: >-
+      Code the merits findings of these two judgments: 001-242203 and 001-245700.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: lead--group-e
+    parallel_group: lead
+    depends_on: []
+    description: >-
+      You are the desk lead for ICELAND and ARMENIA.
+      Your scope is the eight judgments those two States hold in
+      /input_artifacts/respondent_states.json. Dispatch exactly four coder sub-agents, one
+      per coder sub-task in your group (coder--e1
+      through coder--e4), each owning the two case_ids that sub-task names.
+      Dispatch each of your four coders exactly once and spawn no further sub-agents beyond
+      those four. Your own output is a short text status naming which of your eight
+      case_ids have a findings file under /logs/agent/findings/ and which are missing.
+      Write no files yourself and do not restate a coder's findings.
+
+  - id: coder--e1
+    parallel_group: code
+    depends_on:
+      - lead--group-e
+    description: >-
+      Code the merits findings of these two judgments: 001-233111 and 001-243254.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: coder--e2
+    parallel_group: code
+    depends_on:
+      - lead--group-e
+    description: >-
+      Code the merits findings of these two judgments: 001-243562 and 001-249967.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: coder--e3
+    parallel_group: code
+    depends_on:
+      - lead--group-e
+    description: >-
+      Code the merits findings of these two judgments: 001-235467 and 001-237706.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: coder--e4
+    parallel_group: code
+    depends_on:
+      - lead--group-e
+    description: >-
+      Code the merits findings of these two judgments: 001-238658 and 001-250110.
+      Read each judgment at /input_artifacts/judgments/<case_id>.txt in full and write
+      /logs/agent/findings/<case_id>.json for each of them, to the field contract in
+      section 4 of /input_artifacts/limb_standard.md. Take the findings from that
+      judgment's own operative provisions, in the order they appear there. Every finding needs a verdict
+      for each limb in its family, the limb it turned on, a quotation of at least
+      fifteen words copied exactly from the paragraph that states that outcome with
+      that paragraph's number, and a turning point in your own words. Write only your
+      two files and do not spawn sub-agents.
+
+  - id: reviewer--liberty-and-fair-trial
+    parallel_group: review
+    depends_on:
+      - coder--a1
+      - coder--a2
+      - coder--a3
+      - coder--a4
+      - coder--b1
+      - coder--b2
+      - coder--b3
+      - coder--b4
+      - coder--c1
+      - coder--c2
+      - coder--c3
+      - coder--c4
+      - coder--d1
+      - coder--d2
+      - coder--d3
+      - coder--d4
+      - coder--e1
+      - coder--e2
+      - coder--e3
+      - coder--e4
+    description: >-
+      Review the coding of every finding under Articles 5 and 6 across all forty delivered
+      findings files under /logs/agent/findings/, that is the liberty and fair-trial families of the
+      standard. Your scope is those findings wherever they occur, not one State's files.
+      For every finding in scope, whether or not you end up changing it, open the judgment
+      it comes from and read its assessment under THE LAW before deciding: a verdict you did
+      not personally check against that judgment's own text is not reviewed, it is repeated.
+      Where a coding does not match the holding, correct that finding in place in its own file and
+      leave the quotation and the turning point untouched unless the correction makes them
+      wrong about the limb they now name. Touch only findings in your own families. Your
+      text output lists, for every finding in scope, whether you checked it and whether you
+      changed it - not only the ones you changed. Do not spawn sub-agents.
+
+  - id: reviewer--life-and-ill-treatment
+    parallel_group: review
+    depends_on:
+      - coder--a1
+      - coder--a2
+      - coder--a3
+      - coder--a4
+      - coder--b1
+      - coder--b2
+      - coder--b3
+      - coder--b4
+      - coder--c1
+      - coder--c2
+      - coder--c3
+      - coder--c4
+      - coder--d1
+      - coder--d2
+      - coder--d3
+      - coder--d4
+      - coder--e1
+      - coder--e2
+      - coder--e3
+      - coder--e4
+    description: >-
+      Review the coding of every finding under Articles 2 and 3 across all forty delivered
+      findings files under /logs/agent/findings/, that is the life and ill-treatment families of the
+      standard. Your scope is those findings wherever they occur, not one State's files.
+      For every finding in scope, whether or not you end up changing it, open the judgment
+      it comes from and read its assessment under THE LAW before deciding: a verdict you did
+      not personally check against that judgment's own text is not reviewed, it is repeated.
+      Where a coding does not match the holding, correct that finding in place in its own file and
+      leave the quotation and the turning point untouched unless the correction makes them
+      wrong about the limb they now name. Touch only findings in your own families. Your
+      text output lists, for every finding in scope, whether you checked it and whether you
+      changed it - not only the ones you changed. Do not spawn sub-agents.
+
+  - id: reviewer--qualified-rights-a
+    parallel_group: review
+    depends_on:
+      - coder--a1
+      - coder--a2
+      - coder--a3
+      - coder--a4
+      - coder--b1
+      - coder--b2
+      - coder--b3
+      - coder--b4
+      - coder--c1
+      - coder--c2
+      - coder--c3
+      - coder--c4
+      - coder--d1
+      - coder--d2
+      - coder--d3
+      - coder--d4
+      - coder--e1
+      - coder--e2
+      - coder--e3
+      - coder--e4
+    description: >-
+      Review the coding of every finding under Articles 8 and 11 across all forty delivered
+      findings files under /logs/agent/findings/, the smaller half of the qualified-rights
+      family the standard splits by article so no one reviewer holds more than about ten
+      judgments open at once. Your scope is those findings wherever they occur, not one
+      State's files. For every finding in scope, whether or not you end up changing it, open
+      the judgment it comes from and read its assessment under THE LAW before deciding: a
+      verdict you did not personally check against that judgment's own text is not reviewed,
+      it is repeated. Where a coding does not match the holding, correct that finding in place in its own
+      file and leave the quotation and the turning point untouched unless the correction
+      makes them wrong about the limb they now name. Touch only findings in your own scope.
+      Your text output lists, for every finding in scope, whether you checked it and whether
+      you changed it - not only the ones you changed. Do not spawn sub-agents.
+
+  - id: reviewer--qualified-rights-b
+    parallel_group: review
+    depends_on:
+      - coder--a1
+      - coder--a2
+      - coder--a3
+      - coder--a4
+      - coder--b1
+      - coder--b2
+      - coder--b3
+      - coder--b4
+      - coder--c1
+      - coder--c2
+      - coder--c3
+      - coder--c4
+      - coder--d1
+      - coder--d2
+      - coder--d3
+      - coder--d4
+      - coder--e1
+      - coder--e2
+      - coder--e3
+      - coder--e4
+    description: >-
+      Review the coding of every finding under Article 10 and Article 1 of Protocol No. 1
+      across all forty delivered findings files under /logs/agent/findings/, the other half
+      of the qualified-rights family. Your scope is those findings wherever they occur, not
+      one State's files. For every finding in scope, whether or not you end up changing it,
+      open the judgment it comes from and read its assessment under THE LAW before deciding:
+      a verdict you did not personally check against that judgment's own text is not
+      reviewed, it is repeated. Where a coding does not match the holding, correct that
+      finding in place in its own file and leave the quotation and the turning point
+      untouched unless the correction makes them wrong about the limb they now name. Touch
+      only findings in your own scope. Your text output lists, for every finding in scope,
+      whether you checked it and whether you changed it - not only the ones you changed. Do
+      not spawn sub-agents.
+
+  - id: reviewer--remedy-and-status
+    parallel_group: review
+    depends_on:
+      - coder--a1
+      - coder--a2
+      - coder--a3
+      - coder--a4
+      - coder--b1
+      - coder--b2
+      - coder--b3
+      - coder--b4
+      - coder--c1
+      - coder--c2
+      - coder--c3
+      - coder--c4
+      - coder--d1
+      - coder--d2
+      - coder--d3
+      - coder--d4
+      - coder--e1
+      - coder--e2
+      - coder--e3
+      - coder--e4
+    description: >-
+      Review the coding of every finding under Articles 13, 14 and 18 and Article 3 of Protocol No. 1 across all forty delivered
+      findings files under /logs/agent/findings/, that is the remedy, discrimination, misuse and elections families of the
+      standard. Your scope is those findings wherever they occur, not one State's files.
+      For every finding in scope, whether or not you end up changing it, open the judgment
+      it comes from and read its assessment under THE LAW before deciding: a verdict you did
+      not personally check against that judgment's own text is not reviewed, it is repeated.
+      Where a coding does not match the holding, correct that finding in place in its own file and
+      leave the quotation and the turning point untouched unless the correction makes them
+      wrong about the limb they now name. Touch only findings in your own families. Your
+      text output lists, for every finding in scope, whether you checked it and whether you
+      changed it - not only the ones you changed. Do not spawn sub-agents.
+
+  - id: compiler--limb-matrix
+    parallel_group: compile
+    depends_on:
+      - reviewer--liberty-and-fair-trial
+      - reviewer--life-and-ill-treatment
+      - reviewer--qualified-rights-a
+      - reviewer--qualified-rights-b
+      - reviewer--remedy-and-status
+    description: >-
+      Compile /logs/agent/limb_matrix.csv to the field contract in section 5 of
+      /input_artifacts/limb_standard.md by reading the delivered findings files under
+      /logs/agent/findings/ and counting what they actually carry. One row for every limb code
+      that decided at least one finding anywhere in the corpus and no row for any other code.
+      Write only that one file and do not spawn sub-agents.
+
+  - id: compiler--state-profiles
+    parallel_group: compile
+    depends_on:
+      - reviewer--liberty-and-fair-trial
+      - reviewer--life-and-ill-treatment
+      - reviewer--qualified-rights-a
+      - reviewer--qualified-rights-b
+      - reviewer--remedy-and-status
+    description: >-
+      Compile /logs/agent/state_profile.csv to the field contract in section 6 of
+      /input_artifacts/limb_standard.md, one row per State in
+      /input_artifacts/respondent_states.json. Take each State's counts and dominant limb from
+      the delivered findings files under /logs/agent/findings/. For the pattern field, read
+      that State's four judgments' findings together and say what recurs across them at the
+      limb level, or say that nothing does and what the four have instead. Write only that one
+      file and do not spawn sub-agents.
+
+  - id: editor--brief
+    parallel_group: publish
+    depends_on:
+      - compiler--limb-matrix
+      - compiler--state-profiles
+    description: >-
+      Write /logs/agent/limb_brief.md in the three sections section 7 of
+      /input_artifacts/limb_standard.md names, with the level-1 heading it calls for. Derive
+      every figure by recomputing from the delivered findings files under
+      /logs/agent/findings/ yourself; use the limb matrix only as a cross-check to report a
+      disagreement. Where the coded findings do not support a claim, say what is missing
+      rather than writing round it. Write only that one file and do not spawn sub-agents.

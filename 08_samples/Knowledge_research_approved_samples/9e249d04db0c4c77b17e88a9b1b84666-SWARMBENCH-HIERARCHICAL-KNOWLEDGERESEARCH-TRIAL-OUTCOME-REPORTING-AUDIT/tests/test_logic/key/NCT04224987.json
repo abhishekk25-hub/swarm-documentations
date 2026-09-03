@@ -1,0 +1,698 @@
+{
+ "nct": "NCT04224987",
+ "prespecification_version": 2,
+ "prespecification_date": "2020-10-14",
+ "publications": [
+  "PMC11956350",
+  "PMC12246876",
+  "PMC13004693",
+  "PMC8082631"
+ ],
+ "prespecified_units": [
+  {
+   "uid": "pri1",
+   "measure": "All-cause mortality (1-59 months old)",
+   "role": "primary",
+   "timeframe": "2.5 years from the first enrollment",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC8082631",
+   "reported_label": "mortality in 1-59-month group",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary mortality outcomes are defined as all-cause mortality rate (deaths per 1000 person-years) after 2.5 years from the first enrollment in 1) children 1-59 months old comparing the azithromycin 1-59 and placebo arms, 2) children 1-11 months old comparing the azithromycin 1-11 and placebo arm, and 3) children 12-59 months in the azithromycin 1-11 and azithromycin 1-59 arms.",
+   "result_quote": "Mortality in 1-59-month group\nAzithromycin 1-59 vs placebo\n80%\n0.05\n27 deaths per 1000 person-years\n0.019\n1116\n10%\n2.7 per 1000 person-years"
+  },
+  {
+   "uid": "pri2",
+   "measure": "All-cause mortality (1-11 months old)",
+   "role": "primary",
+   "timeframe": "2.5 years from the first enrollment",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12246876",
+   "reported_label": "All-cause mortality in infants aged 1 to 11 months",
+   "reported_instrument": "biannual census",
+   "reported_role": "primary",
+   "role_evidence_quote": "All-cause mortality in infants aged 1 to 11 months (deaths per 1000 person-years) measured through biannual census.",
+   "result_quote": "The incidence rates of mortality among these infants were 18.5 (95% CI, 16.7-20.4) deaths per 1000 person-years at risk in the child arm, 22.3 (95% CI, 20.0-24.7) deaths per 1000 person-years in the infant arm, and 23.9 (95% CI, 21.6-26.2) deaths per 1000 person-years in the placebo arm ( Figure 2 , Figure 3 , and eTable 2 in Supplement 2 )."
+  },
+  {
+   "uid": "pri3",
+   "measure": "All-cause mortality (12-59 months old)",
+   "role": "primary",
+   "timeframe": "2.5 years from the first enrollment",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC8082631",
+   "reported_label": "Mortality in the 12-59-month group",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary mortality outcomes are defined as all-cause mortality rate (deaths per 1000 person-years) after 2.5 years from the first enrollment in 1) children 1-59 months old comparing the azithromycin 1-59 and placebo arms, 2) children 1-11 months old comparing the azithromycin 1-11 and placebo arm, and 3) children 12-59 months in the azithromycin 1-11 and azithromycin 1-59 arms.",
+   "result_quote": "Mortality in the 12-59-month group\nAzithromycin 1-11 vs azithromycin 1-59\n80%\n0.05\n(if 1-11 group\nP  < 0.05)\n\n24 deaths per 1000 person-years\n0.018\n1116\n11%\n2.7 deaths per 1000 person-years"
+  },
+  {
+   "uid": "pri4",
+   "measure": "Prevalence of genetic determinants of resistance to macrolides - nasopharyngeal swabs (1-59 months old)",
+   "role": "primary",
+   "timeframe": "After 4 distributions (approximately 24 months)",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC8082631",
+   "reported_label": "Prevalence of genetic determinants, NP swabs in 1-59-month group",
+   "reported_instrument": "nasopharyngeal swabs",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary resistance outcomes will be assessed after 2 years of distributions and include 1) prevalence of genetic determinants of macrolide resistance in nasopharyngeal samples from children 1-59 months old, and 2) load of genetic determinants of macrolide resistance in rectal samples from children 1-59 months old.",
+   "result_quote": "Prevalence of genetic determinants, NP swabs in 1-59-month group\nAzithromycin 1-11 vs placebo\nAzithromycin 1-59 vs placebo\nAzithromycin 1-11 vs 1-59\n\n80%\n0.05/2\n30%\n0.045\n20\n43%\n13%"
+  },
+  {
+   "uid": "pri5",
+   "measure": "Load of genetic determinants of resistance to macrolides - rectal swabs (1-59 months old)",
+   "role": "primary",
+   "timeframe": "After 4 distributions (approximately 24 months)",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC13004693",
+   "reported_label": "gut macrolide AMR at class level (child-azithromycin versus placebo)",
+   "reported_instrument": "load of macrolide genetic resistance determinants",
+   "reported_role": "primary",
+   "role_evidence_quote": "The prespecified primary outcomes for this AMR study included separate analyses of the load of macrolide genetic resistance determinants in pooled community-level rectal and nasopharyngeal samples collected after four semiannual distributions.",
+   "result_quote": "Macrolide resistance determinants were 1.16-fold as high (95% confidence interval (CI): 1.06-1.28-fold, P  < 0.01) in communities whose children aged 1-59 months were treated with azithromycin compared to communities whose children aged 1-59 months were treated with placebo (Fig. 3a )."
+  },
+  {
+   "uid": "sec2",
+   "measure": "All-cause mortality (1-11 months old )",
+   "role": "secondary",
+   "timeframe": "2.5 years from first enrollment",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12246876",
+   "reported_label": "All-cause mortality in infants aged 1 to 11 months",
+   "reported_instrument": "biannual census",
+   "reported_role": "primary",
+   "role_evidence_quote": "All-cause mortality in infants aged 1 to 11 months (deaths per 1000 person-years) measured through biannual census.",
+   "result_quote": "The incidence rates of mortality among these infants were 18.5 (95% CI, 16.7-20.4) deaths per 1000 person-years at risk in the child arm, 22.3 (95% CI, 20.0-24.7) deaths per 1000 person-years in the infant arm, and 23.9 (95% CI, 21.6-26.2) deaths per 1000 person-years in the placebo arm ( Figure 2 , Figure 3 , and eTable 2 in Supplement 2 )."
+  },
+  {
+   "uid": "sec10",
+   "measure": "Mortality rate by subgroup: Nutritional status",
+   "role": "secondary",
+   "timeframe": "Over 2.5 years",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11956350",
+   "reported_label": "mortality",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This prespecified secondary analysis leverages data from the AVENIR trial to determine whether there is a differential effect of azithromycin MDA on infant mortality in subgroups defined by moderate or severe underweight at the time of treatment.",
+   "result_quote": "The moderate to severe subgroup had a 23% (95% CI 1% to 41%) reduction in mortality and an IRD of 8.0 (95% CI 0.4 to 15.9) fewer deaths per 1000 person-years in the azithromycin arm, while the severe underweight subgroup had a 24% (95% CI -5% to 47%) reduction in mortality and an IRD of 11.2 (95% CI -2.1 to 26.0) fewer deaths per 1000 person-years in the azithromycin arm ( figure 2 , online supplemental table 1 )."
+  },
+  {
+   "uid": "sec14",
+   "measure": "Prevalence of malaria as assessed by RDT",
+   "role": "secondary",
+   "timeframe": "After 4 distributions (approximately 24 months)",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec15",
+   "measure": "Program costs",
+   "role": "secondary",
+   "timeframe": "2.5 years",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec16",
+   "measure": "Cost-effectiveness",
+   "role": "secondary",
+   "timeframe": "2.5 years",
+   "reported": false,
+   "change_disclosed": false
+  }
+ ],
+ "additional_units": [
+  {
+   "rid": "PMC11956350#0",
+   "reporting_document": "PMC11956350",
+   "reported_label": "infant mortality incidence rate",
+   "reported_instrument": "the count of deaths from all causes per community and the person-time at risk in children 1-11 months old",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This prespecified secondary analysis leverages data from the AVENIR trial to determine whether there is a differential effect of azithromycin MDA on infant mortality in subgroups defined by moderate or severe underweight at the time of treatment.",
+   "result_quote": "The outcome for this study was the infant mortality incidence rate as measured by the count of deaths from all causes per community and the person-time at risk in children 1-11 months old."
+  },
+  {
+   "rid": "PMC11956350#1",
+   "reporting_document": "PMC11956350",
+   "reported_label": "Overall",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "The outcome for this study was the infant mortality incidence rate as measured by the count of deaths from all causes per community and the person-time at risk in children 1-11 months old.",
+   "result_quote": "Overall *\n334, 18 413\n18.1 (15.9, 20.1)"
+  },
+  {
+   "rid": "PMC11956350#2",
+   "reporting_document": "PMC11956350",
+   "reported_label": ">=-2",
+   "reported_instrument": "weight-for-age z-score",
+   "reported_role": "secondary",
+   "role_evidence_quote": "WAZ was used to define two subgroups: moderate to severe underweight (WAZ < -2) versus not (WAZ >= -2) and severe underweight (WAZ < -3) versus not (WAZ >= -3).",
+   "result_quote": ">=-2\n211, 13 909\n15.2 (13.1, 17.2)"
+  },
+  {
+   "rid": "PMC11956350#3",
+   "reporting_document": "PMC11956350",
+   "reported_label": "<-2",
+   "reported_instrument": "weight-for-age z-score",
+   "reported_role": "secondary",
+   "role_evidence_quote": "WAZ was used to define two subgroups: moderate to severe underweight (WAZ < -2) versus not (WAZ >= -2) and severe underweight (WAZ < -3) versus not (WAZ >= -3).",
+   "result_quote": "<-2\n123, 4504\n27.3 (21.8, 32.2)"
+  },
+  {
+   "rid": "PMC11956350#4",
+   "reporting_document": "PMC11956350",
+   "reported_label": ">=-3",
+   "reported_instrument": "weight-for-age z-score",
+   "reported_role": "secondary",
+   "role_evidence_quote": "WAZ was used to define two subgroups: moderate to severe underweight (WAZ < -2) versus not (WAZ >= -2) and severe underweight (WAZ < -3) versus not (WAZ >= -3).",
+   "result_quote": ">=-3\n268, 16 610\n16.1 (13.9, 18.1)"
+  },
+  {
+   "rid": "PMC11956350#5",
+   "reporting_document": "PMC11956350",
+   "reported_label": "<-3",
+   "reported_instrument": "weight-for-age z-score",
+   "reported_role": "secondary",
+   "role_evidence_quote": "WAZ was used to define two subgroups: moderate to severe underweight (WAZ < -2) versus not (WAZ >= -2) and severe underweight (WAZ < -3) versus not (WAZ >= -3).",
+   "result_quote": "<-3\n66, 1803\n36.6 (26.9, 44.7)"
+  },
+  {
+   "rid": "PMC11956350#7",
+   "reporting_document": "PMC11956350",
+   "reported_label": "interaction contrasts",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Effect modification was evaluated on the multiplicative and additive scale using interaction contrasts.",
+   "result_quote": "No interaction contrasts on the additive scale nor multiplicative scale were statistically significant for either subgroup ( figure 2 , online supplemental table 1 )."
+  },
+  {
+   "rid": "PMC11956350#8",
+   "reporting_document": "PMC11956350",
+   "reported_label": "infant mortality",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "An exploratory analysis examined the two regions separately using similar methods, though an additional interaction analysis for region was not conducted given the reduced power when stratified further.",
+   "result_quote": "The outcome for this study was the infant mortality incidence rate as measured by the count of deaths from all causes per community and the person-time at risk in children 1-11 months old."
+  },
+  {
+   "rid": "PMC11956350#9",
+   "reporting_document": "PMC11956350",
+   "reported_label": "mortality",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This prespecified secondary analysis leverages data from the AVENIR trial to determine whether there is a differential effect of azithromycin MDA on infant mortality in subgroups defined by moderate or severe underweight at the time of treatment.",
+   "result_quote": "In comparisons of the azithromycin 1-11 month arm versus placebo, the moderate to severe subgroup had an 11% (95% CI -11% to 32%) reduction in mortality and IRD of 4.0 (95% CI -3.6 to 12.6) fewer deaths per 1000 person-years in the azithromycin arm, while the severe underweight subgroup had a 23% (95% CI -11% to 47%) reduction in mortality and IRD of 10.9 (95% CI -4.0 to 26.4) fewer deaths per 1000 person-years in the azithromycin arm ( figure 2 , online supplemental table 1 )."
+  },
+  {
+   "rid": "PMC11956350#10",
+   "reporting_document": "PMC11956350",
+   "reported_label": "interaction contrasts",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Effect modification was evaluated on the multiplicative and additive scale using interaction contrasts.",
+   "result_quote": "No interaction contrasts on the additive scale nor multiplicative scale were statistically significant for either subgroup ( figure 2 , online supplemental table 1 )."
+  },
+  {
+   "rid": "PMC11956350#11",
+   "reporting_document": "PMC11956350",
+   "reported_label": "infant mortality",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "An exploratory analysis examined the two regions separately using similar methods, though an additional interaction analysis for region was not conducted given the reduced power when stratified further.",
+   "result_quote": "The outcome for this study was the infant mortality incidence rate as measured by the count of deaths from all causes per community and the person-time at risk in children 1-11 months old."
+  },
+  {
+   "rid": "PMC11956350#12",
+   "reporting_document": "PMC11956350",
+   "reported_label": "infant mortality",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "This prespecified secondary analysis leverages data from the AVENIR trial to determine whether there is a differential effect of azithromycin MDA on infant mortality in subgroups defined by moderate or severe underweight at the time of treatment.",
+   "result_quote": "While the azithromycin 1-11 month arm showed a non-significant 6% reduction in infant mortality overall, the results suggest that children with severe malnutrition after biannual azithromycin distribution may have experienced an effect of the intervention, although we were not powered to detect this interaction."
+  },
+  {
+   "rid": "PMC12246876#0",
+   "reporting_document": "PMC12246876",
+   "reported_label": "All-cause mortality in infants aged 1 to 11 months",
+   "reported_instrument": "biannual census",
+   "reported_role": "primary",
+   "role_evidence_quote": "Main Outcomes and Measures",
+   "result_quote": "Among infants aged 1 to 11 months, 1432 deaths and 69 590 person-years of observation were included in analyses."
+  },
+  {
+   "rid": "PMC12246876#2",
+   "reporting_document": "PMC12246876",
+   "reported_label": "All-cause mortality in infants aged 1 to 11 months",
+   "reported_instrument": "biannual census",
+   "reported_role": "primary",
+   "role_evidence_quote": "All-cause mortality in infants aged 1 to 11 months (deaths per 1000 person-years) measured through biannual census.",
+   "result_quote": "All-cause mortality in infants aged 1 to 11 months (deaths per 1000 person-years) measured through biannual census."
+  },
+  {
+   "rid": "PMC12246876#3",
+   "reporting_document": "PMC12246876",
+   "reported_label": "All-cause mortality in infants aged 1 to 11 months",
+   "reported_instrument": "biannual census",
+   "reported_role": "primary",
+   "role_evidence_quote": "All-cause mortality in infants aged 1 to 11 months (deaths per 1000 person-years) measured through biannual census.",
+   "result_quote": "All-cause mortality in infants aged 1 to 11 months (deaths per 1000 person-years) measured through biannual census."
+  },
+  {
+   "rid": "PMC12246876#4",
+   "reporting_document": "PMC12246876",
+   "reported_label": "All-cause mortality in infants aged 1 to 11 months",
+   "reported_instrument": "biannual census",
+   "reported_role": "primary",
+   "role_evidence_quote": "All-cause mortality in infants aged 1 to 11 months (deaths per 1000 person-years) measured through biannual census.",
+   "result_quote": "All-cause mortality in infants aged 1 to 11 months (deaths per 1000 person-years) measured through biannual census."
+  },
+  {
+   "rid": "PMC12246876#5",
+   "reporting_document": "PMC12246876",
+   "reported_label": "overall reduction in mortality at 1 to 11 months of age",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The outcome of interest in this exploratory (nonprespecified) subgroup analysis is the community-level all-cause mortality rate (deaths per 1000 person-years at risk) in infants aged 1 to 11 months after 2 years of distributions.",
+   "result_quote": "The overall reduction in mortality at 1 to 11 months of age in communities receiving any azithromycin compared with placebo was 23% (95% CI, 11%-33%), with 23.5% (95% CI, 1.2%-72.7%) explained by treating infants with azithromycin and 76.5% (95% CI, 27.3%-98.8%) explained by also treating children 12 to 59 months of age with azithromycin."
+  },
+  {
+   "rid": "PMC12246876#6",
+   "reporting_document": "PMC12246876",
+   "reported_label": "proportion of the overall association of azithromycin with mortality among infants aged 1 to 11 months due to targeting these infants",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "To estimate the proportion of the overall association of azithromycin with mortality among infants aged 1 to 11 months due to targeting these infants vs including children aged 12 to 59 months, we used a similar Poisson regression model with count of deaths as the outcome, community person-time as the offset, and terms for the adaptive allocation along with terms for whether a community's treatment allocation included infants aged 1 to 11 months or children aged 12 to 59 months.",
+   "result_quote": "23.5% (95% CI, 1.2%-72.7%) explained by treating infants with azithromycin"
+  },
+  {
+   "rid": "PMC12246876#7",
+   "reporting_document": "PMC12246876",
+   "reported_label": "proportion of the overall association of azithromycin with mortality among infants aged 1 to 11 months due to including children aged 12 to 59 months",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "To estimate the proportion of the overall association of azithromycin with mortality among infants aged 1 to 11 months due to targeting these infants vs including children aged 12 to 59 months, we used a similar Poisson regression model with count of deaths as the outcome, community person-time as the offset, and terms for the adaptive allocation along with terms for whether a community's treatment allocation included infants aged 1 to 11 months or children aged 12 to 59 months.",
+   "result_quote": "76.5% (95% CI, 27.3%-98.8%) explained by also treating children 12 to 59 months of age with azithromycin"
+  },
+  {
+   "rid": "PMC12246876#8",
+   "reporting_document": "PMC12246876",
+   "reported_label": "incidence rate ratio comparing mortality in the child and infant arms",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The first compared mortality among infants aged 1 to 11 months in both azithromycin arms (child and infant arms) by subgroup.",
+   "result_quote": "When comparing the child and the infant arms, the IRR among infants with an older sibling in the household was 0.78 (95% CI, 0.65-0.93), whereas the IRR among infants without an older sibling was 0.91 (95% CI, 0.73-1.15) ( Figure 2 and eTable 3 in Supplement 2 )."
+  },
+  {
+   "rid": "PMC12246876#9",
+   "reporting_document": "PMC12246876",
+   "reported_label": "incidence rate ratio comparing mortality in the child and infant arms among infants with an older sibling in the household",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The first compared mortality among infants aged 1 to 11 months in both azithromycin arms (child and infant arms) by subgroup.",
+   "result_quote": "the IRR among infants with an older sibling in the household was 0.78 (95% CI, 0.65-0.93)"
+  },
+  {
+   "rid": "PMC12246876#10",
+   "reporting_document": "PMC12246876",
+   "reported_label": "incidence rate ratio comparing mortality in the child and infant arms among infants without an older sibling",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The first compared mortality among infants aged 1 to 11 months in both azithromycin arms (child and infant arms) by subgroup.",
+   "result_quote": "the IRR among infants without an older sibling was 0.91 (95% CI, 0.73-1.15)"
+  },
+  {
+   "rid": "PMC12246876#11",
+   "reporting_document": "PMC12246876",
+   "reported_label": "multiplicative interaction contrast",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "We aimed to examine effect modification by sibling subgroup for each pairwise comparison of interest on both the multiplicative and additive scales.",
+   "result_quote": "The multiplicative interaction contrast was 0.92 (95% CI, 0.71-1.18; P  = .26)."
+  },
+  {
+   "rid": "PMC12246876#12",
+   "reporting_document": "PMC12246876",
+   "reported_label": "incidence rate difference comparing mortality among infants aged 1 to 11 months in the child and infant arms for those with an older sibling",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "To estimate incidence rate differences (IRDs) and effect modification on the additive scale, we used a Poisson model and G-computation approach.",
+   "result_quote": "On the additive scale, the IRD comparing mortality among infants aged 1 to 11 months in the child and infant arms for those with an older sibling was -4.94 (95% CI, -8.31 to -1.28)."
+  },
+  {
+   "rid": "PMC12246876#13",
+   "reporting_document": "PMC12246876",
+   "reported_label": "incidence rate difference comparing mortality among infants aged 1 to 11 months in the child and infant arms for those without an older sibling",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "To estimate incidence rate differences (IRDs) and effect modification on the additive scale, we used a Poisson model and G-computation approach.",
+   "result_quote": "Among infants without an older sibling, the IRD was -1.90 (95% CI, -6.70 to 2.93) ( Figure 2 and eTable 3 in Supplement 2 )."
+  },
+  {
+   "rid": "PMC12246876#14",
+   "reporting_document": "PMC12246876",
+   "reported_label": "additive interaction contrast",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additive interaction contrasts were calculated to assess interaction on the additive scale, and permutation tests were used to estimate P values.",
+   "result_quote": "The additive interaction contrast was -1.39 (95% CI, -7.21 to 4.53; P  = .31)."
+  },
+  {
+   "rid": "PMC12246876#15",
+   "reporting_document": "PMC12246876",
+   "reported_label": "incidence rate ratio comparing mortality in the infant and placebo arms among infants with an older sibling in the household",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The second compared mortality among infants aged 1 to 11 months in the infant and placebo arms by subgroup.",
+   "result_quote": "When comparing the infant and the placebo arms, the IRR among infants with an older sibling in the household was 0.96 (95% CI, 0.81-1.14)."
+  },
+  {
+   "rid": "PMC12246876#16",
+   "reporting_document": "PMC12246876",
+   "reported_label": "incidence rate ratio comparing mortality in the infant and placebo arms among infants without an older sibling",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "The second compared mortality among infants aged 1 to 11 months in the infant and placebo arms by subgroup.",
+   "result_quote": "The IRR among infants without an older sibling was 0.90 (95% CI, 0.71-1.12) ( Figure 3 and eTable 3 in Supplement 2 )."
+  },
+  {
+   "rid": "PMC12246876#17",
+   "reporting_document": "PMC12246876",
+   "reported_label": "multiplicative interaction contrast",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "We aimed to examine effect modification by sibling subgroup for each pairwise comparison of interest on both the multiplicative and additive scales.",
+   "result_quote": "The multiplicative interaction contrast was 1.07 (95% CI, 0.83-1.40; P  = .61)."
+  },
+  {
+   "rid": "PMC12246876#18",
+   "reporting_document": "PMC12246876",
+   "reported_label": "incidence rate difference comparing mortality in the infant and placebo arms among infants with an older sibling",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "To estimate incidence rate differences (IRDs) and effect modification on the additive scale, we used a Poisson model and G-computation approach.",
+   "result_quote": "The IRD comparing mortality in the infant and placebo arms among infants with an older sibling was -0.90 (95% CI, -4.79 to 3.24)."
+  },
+  {
+   "rid": "PMC12246876#19",
+   "reporting_document": "PMC12246876",
+   "reported_label": "incidence rate difference comparing mortality in the infant and placebo arms among infants without an older sibling",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "To estimate incidence rate differences (IRDs) and effect modification on the additive scale, we used a Poisson model and G-computation approach.",
+   "result_quote": "Among infants without an older sibling, the IRD was -2.56 (95% CI, -7.82 to 2.82) ( Figure 3 and eTable 3 in Supplement 2 )."
+  },
+  {
+   "rid": "PMC12246876#20",
+   "reporting_document": "PMC12246876",
+   "reported_label": "additive interaction contrast",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additive interaction contrasts were calculated to assess interaction on the additive scale, and permutation tests were used to estimate P values.",
+   "result_quote": "The additive interaction contrast was 1.66 (95% CI, -4.53 to 8.18; P  = .36)."
+  },
+  {
+   "rid": "PMC12246876#21",
+   "reporting_document": "PMC12246876",
+   "reported_label": "treatment coverage across MDAs",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "At each census, azithromycin and placebo were administered as a single oral suspension dose of 20 mg/kg (Pfizer Inc), and treatment administration was recorded in the mobile application.",
+   "result_quote": "Mean (SD) treatment coverage across MDAs was 97.1% (5.5%) (eTable 1 in Supplement 2 )."
+  },
+  {
+   "rid": "PMC12246876#22",
+   "reporting_document": "PMC12246876",
+   "reported_label": "serious adverse events",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Caregivers were instructed to report adverse events that occurred within 28 days after MDA to the study team.",
+   "result_quote": "Five serious adverse events were reported during the trial."
+  },
+  {
+   "rid": "PMC12246876#23",
+   "reporting_document": "PMC12246876",
+   "reported_label": "serious adverse events among infants aged 1 to 11 months",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Caregivers were instructed to report adverse events that occurred within 28 days after MDA to the study team.",
+   "result_quote": "Two of these occurred among infants aged 1 to 11 months (eTable 4 in Supplement 2 )."
+  },
+  {
+   "rid": "PMC13004693#1",
+   "reporting_document": "PMC13004693",
+   "reported_label": "gut macrolide AMR at class level (infant-azithromycin versus placebo)",
+   "reported_instrument": "load of macrolide genetic resistance determinants",
+   "reported_role": "primary",
+   "role_evidence_quote": "The prespecified primary outcomes for this AMR study included separate analyses of the load of macrolide genetic resistance determinants in pooled community-level rectal and nasopharyngeal samples collected after four semiannual distributions.",
+   "result_quote": "There were no detectable differences among the communities whose infants were treated only with azithromycin compared to communities whose children were treated with placebo (1.04-fold, 95% CI: 0.94-1.15, P  = 0.66)."
+  },
+  {
+   "rid": "PMC13004693#2",
+   "reporting_document": "PMC13004693",
+   "reported_label": "gut macrolide AMR at class level (child-azithromycin versus infant-azithromycin)",
+   "reported_instrument": "load of macrolide genetic resistance determinants",
+   "reported_role": "primary",
+   "role_evidence_quote": "The prespecified primary outcomes for this AMR study included separate analyses of the load of macrolide genetic resistance determinants in pooled community-level rectal and nasopharyngeal samples collected after four semiannual distributions.",
+   "result_quote": "However, communities whose children were treated with azithromycin had macrolide resistance determinants 1.13-fold higher (95% CI: 1.02-1.23-fold, P  = 0.01) than communities where only infants were treated with azithromycin (Fig. 3a )."
+  },
+  {
+   "rid": "PMC13004693#3",
+   "reporting_document": "PMC13004693",
+   "reported_label": "nasopharyngeal macrolide AMR (child-azithromycin versus placebo)",
+   "reported_instrument": "load of macrolide genetic resistance determinants",
+   "reported_role": "primary",
+   "role_evidence_quote": "The prespecified primary outcomes for this AMR study included separate analyses of the load of macrolide genetic resistance determinants in pooled community-level rectal and nasopharyngeal samples collected after four semiannual distributions.",
+   "result_quote": "In the child-azithromycin group versus the placebo group, the mean fold difference in macrolide AMR was 2.14-fold (95% CI: 0.93-4.99-fold, P  = 0.10; Fig. 3c )."
+  },
+  {
+   "rid": "PMC13004693#4",
+   "reporting_document": "PMC13004693",
+   "reported_label": "nasopharyngeal macrolide AMR (infant-azithromycin versus placebo)",
+   "reported_instrument": "load of macrolide genetic resistance determinants",
+   "reported_role": "primary",
+   "role_evidence_quote": "The prespecified primary outcomes for this AMR study included separate analyses of the load of macrolide genetic resistance determinants in pooled community-level rectal and nasopharyngeal samples collected after four semiannual distributions.",
+   "result_quote": "Similarly, the AMR difference in the infant-azithromycin arm compared to the placebo arm was 2.08-fold (95% CI: 0.93-4.69-fold), and 1.03-fold (95% CI: 0.46-2.30-fold) for the comparison between the child-azithromycin arm and the infant-azithromycin arm (Fig. 3c )."
+  },
+  {
+   "rid": "PMC13004693#5",
+   "reporting_document": "PMC13004693",
+   "reported_label": "nasopharyngeal macrolide AMR (child-azithromycin versus infant-azithromycin)",
+   "reported_instrument": "load of macrolide genetic resistance determinants",
+   "reported_role": "primary",
+   "role_evidence_quote": "The prespecified primary outcomes for this AMR study included separate analyses of the load of macrolide genetic resistance determinants in pooled community-level rectal and nasopharyngeal samples collected after four semiannual distributions.",
+   "result_quote": "Similarly, the AMR difference in the infant-azithromycin arm compared to the placebo arm was 2.08-fold (95% CI: 0.93-4.69-fold), and 1.03-fold (95% CI: 0.46-2.30-fold) for the comparison between the child-azithromycin arm and the infant-azithromycin arm (Fig. 3c )."
+  },
+  {
+   "rid": "PMC13004693#6",
+   "reporting_document": "PMC13004693",
+   "reported_label": "ermF in the gut (child-azithromycin versus placebo)",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additional prespecified and exploratory outcomes",
+   "result_quote": "There was a 7.11-fold as high (95% CI: 3.89-12.91-fold, P  < 0.001) in ermF in the child-azithromycin arm compared to the placebo arm and a 4.20-fold as high (95% CI: 2.39-7.41-fold, P  < 0.001) in the child-azithromycin arm compared to the infant-azithromycin arm."
+  },
+  {
+   "rid": "PMC13004693#7",
+   "reporting_document": "PMC13004693",
+   "reported_label": "ermF in the gut (child-azithromycin versus infant-azithromycin)",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additional prespecified and exploratory outcomes",
+   "result_quote": "There was a 7.11-fold as high (95% CI: 3.89-12.91-fold, P  < 0.001) in ermF in the child-azithromycin arm compared to the placebo arm and a 4.20-fold as high (95% CI: 2.39-7.41-fold, P  < 0.001) in the child-azithromycin arm compared to the infant-azithromycin arm."
+  },
+  {
+   "rid": "PMC13004693#8",
+   "reporting_document": "PMC13004693",
+   "reported_label": "relative abundance of macrolide resistance in the gut versus the nasopharynx",
+   "reported_instrument": "Spearman's rank correlation",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additional prespecified and exploratory outcomes",
+   "result_quote": "The relative abundance of macrolide resistance in the gut did not correlate with the relative abundance of macrolide resistance in the nasopharynx across the three treatment arms (Spearman's rank correlation, r s  = -0.11, P  = 0.16)."
+  },
+  {
+   "rid": "PMC13004693#9",
+   "reporting_document": "PMC13004693",
+   "reported_label": "overall ARG compositions in the gut",
+   "reported_instrument": "Bray-Curtis PERMANOVA",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additional prespecified and exploratory outcomes",
+   "result_quote": "The overall ARG compositions, however, were also not different between treatment arms for the gut (Bray-Curtis PERMANOVA, P  = 0.50) or for the nasopharyngeal (Bray-Curtis PERMANOVA, P  = 0.39) resistomes."
+  },
+  {
+   "rid": "PMC13004693#10",
+   "reporting_document": "PMC13004693",
+   "reported_label": "overall ARG compositions in the nasopharyngeal resistome",
+   "reported_instrument": "Bray-Curtis PERMANOVA",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additional prespecified and exploratory outcomes",
+   "result_quote": "The overall ARG compositions, however, were also not different between treatment arms for the gut (Bray-Curtis PERMANOVA, P  = 0.50) or for the nasopharyngeal (Bray-Curtis PERMANOVA, P  = 0.39) resistomes."
+  },
+  {
+   "rid": "PMC13004693#11",
+   "reporting_document": "PMC13004693",
+   "reported_label": "overall gut microbiome structure (rectal samples)",
+   "reported_instrument": "Euclidean PERMANOVA",
+   "reported_role": "secondary",
+   "role_evidence_quote": "To capture differences in gut and nasopharynx microbial community structures across treatment arms, permutational analysis of variance analysis (PERMANOVA) was performed to assess differences in within-group and between-group Manhattan and Euclidean distances 63 .",
+   "result_quote": "The overall gut and nasopharyngeal microbiome structures were similar among treatment groups 6 months after the fourth drug distribution (Euclidean PERMANOVA, P  = 0.49 for rectal samples; P  = 0.10 for nasopharyngeal samples)."
+  },
+  {
+   "rid": "PMC13004693#12",
+   "reporting_document": "PMC13004693",
+   "reported_label": "overall nasopharyngeal microbiome structure",
+   "reported_instrument": "Euclidean PERMANOVA",
+   "reported_role": "secondary",
+   "role_evidence_quote": "To capture differences in gut and nasopharynx microbial community structures across treatment arms, permutational analysis of variance analysis (PERMANOVA) was performed to assess differences in within-group and between-group Manhattan and Euclidean distances 63 .",
+   "result_quote": "The overall gut and nasopharyngeal microbiome structures were similar among treatment groups 6 months after the fourth drug distribution (Euclidean PERMANOVA, P  = 0.49 for rectal samples; P  = 0.10 for nasopharyngeal samples)."
+  },
+  {
+   "rid": "PMC13004693#13",
+   "reporting_document": "PMC13004693",
+   "reported_label": "beta diversity of microbial composition at the species level in the gut",
+   "reported_instrument": "Bray-Curtis dissimilarity",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Post hoc and exploratory outcomes",
+   "result_quote": "Similarly, beta diversity using Bray-Curtis dissimilarity showed no differences in microbial composition at the species level between treatment arms for the gut (PERMANOVA, P  = 0.62) and for the nasopharynx (PERMANOVA, P  = 0.21)."
+  },
+  {
+   "rid": "PMC13004693#14",
+   "reporting_document": "PMC13004693",
+   "reported_label": "beta diversity of microbial composition at the species level in the nasopharynx",
+   "reported_instrument": "Bray-Curtis dissimilarity",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Post hoc and exploratory outcomes",
+   "result_quote": "Similarly, beta diversity using Bray-Curtis dissimilarity showed no differences in microbial composition at the species level between treatment arms for the gut (PERMANOVA, P  = 0.62) and for the nasopharynx (PERMANOVA, P  = 0.21)."
+  },
+  {
+   "rid": "PMC13004693#15",
+   "reporting_document": "PMC13004693",
+   "reported_label": "gut microbiome Shannon's diversity index",
+   "reported_instrument": "Shannon's diversity index",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Shannon's Index and inverse Simpson's Index were computed at the community level using a one-way ANOVA test 63 .",
+   "result_quote": "Semiannual azithromycin treatments in either children or infants for 2 years did not notably alter either the gut microbiome Shannon's diversity index ( P  = 0.08, one-way ANOVA) or the inverse Simpson's diversity index ( P  > 0.05) (Fig. 5b )."
+  },
+  {
+   "rid": "PMC13004693#16",
+   "reporting_document": "PMC13004693",
+   "reported_label": "gut microbiome inverse Simpson's diversity index",
+   "reported_instrument": "inverse Simpson's diversity index",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Shannon's Index and inverse Simpson's Index were computed at the community level using a one-way ANOVA test 63 .",
+   "result_quote": "Semiannual azithromycin treatments in either children or infants for 2 years did not notably alter either the gut microbiome Shannon's diversity index ( P  = 0.08, one-way ANOVA) or the inverse Simpson's diversity index ( P  > 0.05) (Fig. 5b )."
+  },
+  {
+   "rid": "PMC13004693#17",
+   "reporting_document": "PMC13004693",
+   "reported_label": "nasopharyngeal Shannon's diversity index",
+   "reported_instrument": "Shannon's index",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Shannon's Index and inverse Simpson's Index were computed at the community level using a one-way ANOVA test 63 .",
+   "result_quote": "In addition, there were no differences in alpha-diversity indices among the three arms for the nasopharyngeal samples (Shannon's index, P  = 0.35, one-way ANOVA; inverse Simpson's index, P  = 0.19) (Fig. 5b )."
+  },
+  {
+   "rid": "PMC13004693#18",
+   "reporting_document": "PMC13004693",
+   "reported_label": "nasopharyngeal inverse Simpson's diversity index",
+   "reported_instrument": "inverse Simpson's index",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Shannon's Index and inverse Simpson's Index were computed at the community level using a one-way ANOVA test 63 .",
+   "result_quote": "In addition, there were no differences in alpha-diversity indices among the three arms for the nasopharyngeal samples (Shannon's index, P  = 0.35, one-way ANOVA; inverse Simpson's index, P  = 0.19) (Fig. 5b )."
+  },
+  {
+   "rid": "PMC13004693#19",
+   "reporting_document": "PMC13004693",
+   "reported_label": "relative abundance of Porphyromonas gingivalis in the nasopharynx (child-azithromycin versus placebo)",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additional prespecified and exploratory outcomes",
+   "result_quote": "In the nasopharynx, azithromycin-treated children had an increased relative abundance of Porphyromonas gingivalis (5.70-fold, 95% CI: 2.38-13.65-fold, P  = 0.01) and Prevotella intermedia (5.78-fold, 95% CI: 2.16-15.48-fold, P  = 0.04) compared to placebo-treated children (Extended Data Fig. 6 )."
+  },
+  {
+   "rid": "PMC13004693#20",
+   "reporting_document": "PMC13004693",
+   "reported_label": "relative abundance of Prevotella intermedia in the nasopharynx (child-azithromycin versus placebo)",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additional prespecified and exploratory outcomes",
+   "result_quote": "In the nasopharynx, azithromycin-treated children had an increased relative abundance of Porphyromonas gingivalis (5.70-fold, 95% CI: 2.38-13.65-fold, P  = 0.01) and Prevotella intermedia (5.78-fold, 95% CI: 2.16-15.48-fold, P  = 0.04) compared to placebo-treated children (Extended Data Fig. 6 )."
+  },
+  {
+   "rid": "PMC8082631#1",
+   "reporting_document": "PMC8082631",
+   "reported_label": "mortality in this age group",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "The Macrolides Oraux pour Reduire les Deces avec un  il sur la Resistance trial (MORDOR) later demonstrated that biannual distribution of oral azithromycin to children 1-59 months of age reduced mortality in this age group by 13.5% in Malawi, Niger, and Tanzania (95% CI 6.7 to 19.8) [ 9 ].",
+   "result_quote": "The Macrolides Oraux pour Reduire les Deces avec un  il sur la Resistance trial (MORDOR) later demonstrated that biannual distribution of oral azithromycin to children 1-59 months of age reduced mortality in this age group by 13.5% in Malawi, Niger, and Tanzania (95% CI 6.7 to 19.8) [ 9 ]."
+  },
+  {
+   "rid": "PMC8082631#2",
+   "reporting_document": "PMC8082631",
+   "reported_label": "mortality reductions",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "The greatest mortality reductions were observed in Niger (18.1% reduction, 95% CI 10.0 to 25.5) and among the youngest children (24.9% reduction in children 1-5 months old, 95% CI 10.6 to 37.0), subgroups which also had the highest baseline mortality rates [ 9 ].",
+   "result_quote": "The greatest mortality reductions were observed in Niger (18.1% reduction, 95% CI 10.0 to 25.5) and among the youngest children (24.9% reduction in children 1-5 months old, 95% CI 10.6 to 37.0), subgroups which also had the highest baseline mortality rates [ 9 ]."
+  },
+  {
+   "rid": "PMC8082631#4",
+   "reporting_document": "PMC8082631",
+   "reported_label": "Mortality in 1-11-month group",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary mortality outcomes are defined as all-cause mortality rate (deaths per 1000 person-years) after 2.5 years from the first enrollment in 1) children 1-59 months old comparing the azithromycin 1-59 and placebo arms, 2) children 1-11 months old comparing the azithromycin 1-11 and placebo arm, and 3) children 12-59 months in the azithromycin 1-11 and azithromycin 1-59 arms.",
+   "result_quote": "Mortality in 1-11-month group\nAzithromycin 1-11 vs placebo\n80%\n0.05\n(if 1-59 group\nP  < 0.05)\n\n45 deaths per 1000 person-years\n0.068\n1116\n19%\n8.8 deaths per 1000 person-years"
+  },
+  {
+   "rid": "PMC8082631#7",
+   "reporting_document": "PMC8082631",
+   "reported_label": "Load of genetic determinants, rectal swabs in 1-59-month group e",
+   "reported_instrument": "rectal swabs",
+   "reported_role": "primary",
+   "role_evidence_quote": "Primary resistance outcomes will be assessed after 2 years of distributions and include 1) prevalence of genetic determinants of macrolide resistance in nasopharyngeal samples from children 1-59 months old, and 2) load of genetic determinants of macrolide resistance in rectal samples from children 1-59 months old.",
+   "result_quote": "Load of genetic determinants, rectal swabs in 1-59-month group e\nAzithromycin 1-11 vs placebo\nAzithromycin 1-59 vs placebo\nAzithromycin 1-11 vs 1-59\n\n80%\n0.05/2\n2.13\n0.02\n20\n70%\n0.74"
+  },
+  {
+   "rid": "PMC8082631#8",
+   "reporting_document": "PMC8082631",
+   "reported_label": "mortality rate in children 1-59 months",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Power calculations were based on the primary mortality and resistance outcomes and the anticipated number of communities enrolled by 2.5 years (Table 2 ).",
+   "result_quote": "Biannual distribution of azithromycin to children 1-59 months old reduced mortality by 14% in a cluster-randomized trial."
+  },
+  {
+   "rid": "PMC8082631#9",
+   "reporting_document": "PMC8082631",
+   "reported_label": "mortality rate in children 1-11 months",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Power calculations were based on the primary mortality and resistance outcomes and the anticipated number of communities enrolled by 2.5 years (Table 2 ).",
+   "result_quote": "Biannual distribution of azithromycin to children 1-59 months old reduced mortality by 14% in a cluster-randomized trial."
+  },
+  {
+   "rid": "PMC8082631#10",
+   "reporting_document": "PMC8082631",
+   "reported_label": "mortality rate in children 12-59 months",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "Power calculations were based on the primary mortality and resistance outcomes and the anticipated number of communities enrolled by 2.5 years (Table 2 ).",
+   "result_quote": "Biannual distribution of azithromycin to children 1-59 months old reduced mortality by 14% in a cluster-randomized trial."
+  }
+ ],
+ "dropped_unusable_units": [
+  "PMC8082631#0: NCT04224987/PMC8082631#0 role: quote too short to be evidence"
+ ]
+}

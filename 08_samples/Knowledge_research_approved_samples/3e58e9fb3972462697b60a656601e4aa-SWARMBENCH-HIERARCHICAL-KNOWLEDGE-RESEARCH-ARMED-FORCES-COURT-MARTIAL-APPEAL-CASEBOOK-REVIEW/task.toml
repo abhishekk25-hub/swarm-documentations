@@ -1,0 +1,28 @@
+[task]
+name = "swarmbench/3e58e9fb3972462697b60a656601e4aa-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-ARMED-FORCES-COURT-MARTIAL-APPEAL-CASEBOOK-REVIEW"
+description = "Read 72 Court of Appeals for the Armed Forces opinions; produce one source-grounded case digest per opinion, a coded tracker, and a cross-case term survey. The hybrid verifier uses authorship gating, a simple three-group reward mean, and a suite with at least 60% genuine content checks so roster-only or hollow files earn little credit."
+[metadata]
+verifier_type = "hybrid"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_writing", "long_horizon"]
+dag_depth = 3
+dag_width = 36
+human_solving_hours_estimate = 98.0
+human_solving_hours_justification = "The 72 opinions total about 397,000 words. Close reading at 9,500 words/hour is 42 h; 72 authored digests at 0.5 h each are 36 h; the cross-case survey is 10 h; tracker coding is 4 h; and grounding/QC is 6 h. Total: 42+36+10+4+6 = 98 h."
+estimated_sub_agents = 46
+input_token_estimate = 560000
+why_multi_agent = "The task requires reading about 560,000 input tokens and writing 72 distinct legal digests before a tracker and whole-corpus survey can be reconciled. Thirty-six specialists can each read two opinions in full; nine leads compare eight digests and assemble tracker slices; one reducer integrates the nine rollups. A single agent must perform all reading, writing, and synthesis inside the same 600-second budget, creating a natural timeout or context-pressure gap."
+reference_link = "https://storage.courtlistener.com/pdf/2026/07/28/united_states_v._ellis.pdf"
+network_enabled = false
+
+[agent]
+timeout_sec = 600
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600

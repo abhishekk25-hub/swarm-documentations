@@ -1,0 +1,61 @@
+{
+  "selection_policy": "Fixed eight-record stratified holdout spanning partial, initial, and further delays; dated and indefinite clocks; short and long predecessor chains; and varied authorities. Every value was rechecked against the bounded target-document text in the frozen official files; labels are absent from agent-facing catalog metadata.",
+  "records": {
+    "RCC-001": {
+      "new_effective_date": "2026-07-28",
+      "action_class": "PARTIAL_DELAY",
+      "cfr_references": ["40 CFR 751"],
+      "referenced_predecessors": ["89 FR 103512", "89 FR 103560"],
+      "exception_flags": ["COMPLIANCE_DATE_CHANGE", "MULTIPLE_CLOCK_DATES", "PARTIAL_SCOPE_CHANGE"]
+    },
+    "RCC-002": {
+      "new_effective_date": "INDEFINITE",
+      "action_class": "PARTIAL_DELAY",
+      "cfr_references": ["47 CFR 0", "47 CFR 1"],
+      "referenced_predecessors": [],
+      "exception_flags": ["INDEFINITE_DATE", "NO_PREDECESSOR_CITATION", "PARTIAL_SCOPE_CHANGE"]
+    },
+    "RCC-005": {
+      "new_effective_date": "2026-12-28",
+      "action_class": "FURTHER_DELAY",
+      "cfr_references": ["10 CFR 1040"],
+      "referenced_predecessors": ["90 FR 20783", "90 FR 31140", "90 FR 43907", "90 FR 56968", "91 FR 10954"],
+      "exception_flags": ["LONG_PREDECESSOR_CHAIN", "MULTIPLE_CLOCK_DATES"]
+    },
+    "RCC-012": {
+      "new_effective_date": "2027-12-31",
+      "action_class": "INITIAL_DELAY",
+      "cfr_references": ["9 CFR 201"],
+      "referenced_predecessors": ["90 FR 5146"],
+      "exception_flags": ["MULTIPLE_CLOCK_DATES"]
+    },
+    "RCC-021": {
+      "new_effective_date": "INDEFINITE",
+      "action_class": "FURTHER_DELAY",
+      "cfr_references": ["24 CFR 92"],
+      "referenced_predecessors": ["90 FR 16085", "90 FR 48443", "90 FR 746", "90 FR 8780"],
+      "exception_flags": ["INDEFINITE_DATE", "LONG_PREDECESSOR_CHAIN", "MULTIPLE_CLOCK_DATES", "PARTIAL_SCOPE_CHANGE"]
+    },
+    "RCC-047": {
+      "new_effective_date": "2026-03-30",
+      "action_class": "INITIAL_DELAY",
+      "cfr_references": ["30 CFR 816"],
+      "referenced_predecessors": ["90 FR 54573"],
+      "exception_flags": ["MULTIPLE_CLOCK_DATES"]
+    },
+    "RCC-044": {
+      "new_effective_date": "2026-12-31",
+      "action_class": "FURTHER_DELAY",
+      "cfr_references": ["9 CFR 11"],
+      "referenced_predecessors": ["89 FR 39194", "90 FR 13273", "90 FR 8253"],
+      "exception_flags": ["LONG_PREDECESSOR_CHAIN", "MULTIPLE_CLOCK_DATES"]
+    },
+    "RCC-048": {
+      "new_effective_date": "2026-03-30",
+      "action_class": "INITIAL_DELAY",
+      "cfr_references": ["30 CFR 874"],
+      "referenced_predecessors": ["90 FR 54582"],
+      "exception_flags": ["MULTIPLE_CLOCK_DATES"]
+    }
+  }
+}

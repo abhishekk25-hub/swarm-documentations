@@ -1,0 +1,26 @@
+[task]
+name = "swarmbench/9b7f3f3c51d149d1889cf07b14a41a67-SWARMBENCH-HIERARCHICAL-CREATIVEVIZ-ANIMEFIGHTCONTINUITY"
+description = "Rebuild an anime fight from ~600 noisy eyewitness recaps: cluster recaps describing the same moment (many worded differently; many are one-off decoys), reconstruct the ordered beats from momentum cues, and render the fight via the provided toolkit (one shot per beat + a stitched MP4 with HUD/audio). Offline, hierarchical (3 tiers): 20 leaf analysts cluster one act each, 4 segment managers reconcile their phase, a director merges segments into global order, resolves continuity, and renders."
+[metadata]
+verifier_type = "executable"
+domain = "data-analysis"
+secondary_classification = ["multi_modal"]
+coordination_pattern = "hierarchical"
+dag_depth = 3
+dag_width = 20
+human_solving_hours_estimate = 14
+human_solving_hours_justification = "Reading ~600 long noisy recaps and pairwise-judging which describe the same moment (same-moment recaps share little vocabulary; one-off decoys must be left alone) is genuinely relational (~6h); inferring the beat order from momentum cues (~2h); then rendering one animated shot per beat with HUD + stitching a final cut with audio (~6h). ~14h across the three coupled stages."
+estimated_sub_agents = 25
+input_token_estimate = 55000
+why_multi_agent = "The agent must do THREE coupled things over ~600 recaps: cluster same-moment recaps (relational, non-scriptable - matches depend on reading and comparing full recaps; same-moment recaps share little vocabulary), reconstruct the beat order, AND render an animated shot per beat. The bottleneck is the clustering: pairwise-comparing ~600 items in a single agent's reasoning degrades in ACCURACY as the set grows (its recall craters - same-moment recaps left unlinked) well before any context-window limit is reached; the reconstruction built on those bad clusters is then wrong. A 3-tier hierarchical split escapes this: 20 leaf analysts each get one act (~30 recaps) of focused attention to cluster thoroughly and tag each beat with momentum cues; 4 segment managers each reconcile their five acts (merge-ordering interleaved beats into one phase timeline, work a single leaf cannot do); and a director performs the global reduction no manager can - merging the segments into the true fight order (act and segment order are NOT fight order, so beats must be interleaved, not concatenated) and resolving the continuity chain (HP/combo/timer accumulated across the whole sequence) before rendering. The cross-act ordering and continuity integration is genuine reduction, not aggregation. Reward is additive (0.80 clustering pairwise-F1 vs hidden gold + 0.10 reconstruction order + 0.05 render-structural + 0.05 multimodal LLM judge reviewing one stripped frame per shot in parallel, which fails open to a deterministic proxy; clustering strongly dominant because it is the deterministic relational discriminator, while render via the provided toolkit cannot favor either agent), clamped [0,1], no caps/cliffs/exponents; the clustering F1 is deterministic and dominant."
+network_enabled = false
+reference_link = "https://luizmelo.itch.io/martial-hero"
+[agent]
+timeout_sec = 7200
+[verifier]
+timeout_sec = 1800
+requires_network = true
+[environment]
+cpus = 6
+memory_mb = 8192
+build_timeout_sec = 1200

@@ -1,0 +1,248 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+orchestrator_directive: >-
+  Do NOT read the incident corpus, classify any report, or write any deliverable
+  yourself. Your only job is to run the hierarchy as `task` calls and collect results,
+  in five waves, each wave dispatched only once the wave before it has returned.
+  Wave 1: dispatch the three category desk leads together. Each desk lead OWNS its
+  category slice and will itself dispatch its own account readers as `task` calls, then
+  merge their shards. Do NOT dispatch the eleven account readers yourself; they are
+  spawned by their desk lead. Wave 2: once all three desk leads have returned, dispatch
+  the two concordance analysts together. Wave 3: once both concordance analysts have
+  returned, dispatch the pattern consolidation board. Wave 4: once the consolidation
+  board has returned, dispatch the reportability and docket desk. Wave 5: once the
+  reportability desk has returned, dispatch the assurance reviewer; when it returns,
+  dispatch the packet reducer, which writes all three deliverables to /logs/agent. If a
+  subordinate returns nothing usable, dispatch the next wave anyway with what you have
+  rather than stalling; a partial packet scores, a missing packet does not. CRITICAL:
+  every message you send while work remains MUST contain an actual `task` tool call; a
+  message that only says you are about to dispatch ends the run and fails it. The run
+  FAILS unless /logs/agent/hazard_register.json, /logs/agent/board_docket.csv and
+  /logs/agent/hazard_review_memo.md all exist and are complete when you finish.
+sub_tasks:
+
+# ---------------------------------------------------------------- wave 1: readers
+- id: deskA-reader-1
+  depends_on: []
+  parallel_group: read
+  description: >-
+    You are one of eleven account readers. SCOPE: from
+    /input_artifacts/incident_reports.csv take only the rows whose product_category is
+    "Kitchen", order them by report_no ascending, split that ordered list into six
+    consecutive blocks of equal size with any remainder going to the last block, and
+    handle block 1. Work every report in your block against
+    /input_artifacts/surveillance_policy.md, which is binding. OUTPUT: write
+    /workspace/parts/deskA_1.json holding one record per report you handled, each
+    carrying report_no, report_date, product_category, brand_family, failure_mode,
+    harm_level, severity_conflict, has_company_comment and rationale. Leave
+    company_posture, evidence_grade and every pattern field unset; later stages own them.
+- id: deskA-reader-2
+  depends_on: []
+  parallel_group: read
+  description: >-
+    Same brief as deskA-reader-1, but handle block 2 of the six blocks. OUTPUT:
+    /workspace/parts/deskA_2.json.
+- id: deskA-reader-3
+  depends_on: []
+  parallel_group: read
+  description: >-
+    Same brief as deskA-reader-1, but handle block 3 of the six blocks. OUTPUT:
+    /workspace/parts/deskA_3.json.
+- id: deskA-reader-4
+  depends_on: []
+  parallel_group: read
+  description: >-
+    Same brief as deskA-reader-1, but handle block 4 of the six blocks. OUTPUT:
+    /workspace/parts/deskA_4.json.
+- id: deskA-reader-5
+  depends_on: []
+  parallel_group: read
+  description: >-
+    Same brief as deskA-reader-1, but handle block 5 of the six blocks. OUTPUT:
+    /workspace/parts/deskA_5.json.
+- id: deskA-reader-6
+  depends_on: []
+  parallel_group: read
+  description: >-
+    Same brief as deskA-reader-1, but handle block 6 of the six blocks. OUTPUT:
+    /workspace/parts/deskA_6.json.
+- id: deskB-reader-1
+  depends_on: []
+  parallel_group: read
+  description: >-
+    Same brief as deskA-reader-1, but your SCOPE is the rows whose product_category is
+    "Home Maintenance and Structures", ordered by report_no ascending and split into
+    three consecutive blocks of equal size with any remainder going to the last block;
+    handle block 1. OUTPUT: /workspace/parts/deskB_1.json.
+- id: deskB-reader-2
+  depends_on: []
+  parallel_group: read
+  description: >-
+    Same brief as deskB-reader-1, but handle block 2 of the three blocks. OUTPUT:
+    /workspace/parts/deskB_2.json.
+- id: deskB-reader-3
+  depends_on: []
+  parallel_group: read
+  description: >-
+    Same brief as deskB-reader-1, but handle block 3 of the three blocks. OUTPUT:
+    /workspace/parts/deskB_3.json.
+- id: deskC-reader-1
+  depends_on: []
+  parallel_group: read
+  description: >-
+    Same brief as deskA-reader-1, but your SCOPE is the rows whose product_category is
+    one of "Electronics", "Personal Care", "Furniture, Furnishings & Decorations",
+    "Toys & Children" or "Baby", ordered by report_no ascending and split into two
+    consecutive blocks of equal size with any remainder going to the last block; handle
+    block 1. OUTPUT: /workspace/parts/deskC_1.json.
+- id: deskC-reader-2
+  depends_on: []
+  parallel_group: read
+  description: >-
+    Same brief as deskC-reader-1, but handle block 2 of the two blocks. OUTPUT:
+    /workspace/parts/deskC_2.json.
+
+# ------------------------------------------------------------ wave 1: desk leads
+- id: deskA-lead
+  depends_on:
+  - deskA-reader-1
+  - deskA-reader-2
+  - deskA-reader-3
+  - deskA-reader-4
+  - deskA-reader-5
+  - deskA-reader-6
+  parallel_group: desks
+  description: >-
+    You are the desk lead for the Cooking and Food Preparation desk. COORDINATION: first
+    dispatch your six account readers (deskA-reader-1 through deskA-reader-6) as parallel
+    `task` calls, one per block, then read their six shards
+    /workspace/parts/deskA_1.json through /workspace/parts/deskA_6.json. SCOPE: the
+    product_category "Kitchen" rows of /input_artifacts/incident_reports.csv, worked
+    against /input_artifacts/surveillance_policy.md. OUTPUT: write
+    /workspace/parts/desk_A.json holding the merged per-report records for your whole
+    slice, with every row of your slice present exactly once and every field your readers
+    were asked to populate filled, plus your desk's candidate hazard patterns as the
+    policy defines them, each carrying its key, its member report_nos and the product
+    categories those members came from. Re-read any report a reader left blank,
+    duplicated, or returned without a determination. Do not assign pattern ids and do not
+    compute triggers; later stages own those, and your desk sees only its own slice.
+- id: deskB-lead
+  depends_on:
+  - deskB-reader-1
+  - deskB-reader-2
+  - deskB-reader-3
+  parallel_group: desks
+  description: >-
+    You are the desk lead for the Home Systems and Cleaning desk. Same brief as
+    deskA-lead, but dispatch your three account readers (deskB-reader-1 through
+    deskB-reader-3), your SCOPE is the product_category "Home Maintenance and Structures"
+    rows, your reader shards are /workspace/parts/deskB_1.json through
+    /workspace/parts/deskB_3.json, and your OUTPUT is /workspace/parts/desk_B.json.
+- id: deskC-lead
+  depends_on:
+  - deskC-reader-1
+  - deskC-reader-2
+  parallel_group: desks
+  description: >-
+    You are the desk lead for the Electronics, Personal Care and Juvenile desk. Same
+    brief as deskA-lead, but dispatch your two account readers (deskC-reader-1,
+    deskC-reader-2), your SCOPE is the rows whose product_category is one of
+    "Electronics", "Personal Care", "Furniture, Furnishings & Decorations",
+    "Toys & Children" or "Baby", your reader shards are /workspace/parts/deskC_1.json and
+    /workspace/parts/deskC_2.json, and your OUTPUT is /workspace/parts/desk_C.json.
+
+# ------------------------------------------------------- wave 2: concordance desk
+- id: concordance-1
+  depends_on:
+  - deskA-lead
+  - deskB-lead
+  - deskC-lead
+  parallel_group: concordance
+  description: >-
+    You are one of two concordance analysts. SCOPE: from
+    /input_artifacts/incident_reports.csv take only the rows whose company_comment is
+    non-empty, order them by report_no ascending, split that ordered list into two
+    consecutive blocks of equal size with any remainder going to the last block, and
+    handle block 1. Work each report in your block against
+    /input_artifacts/surveillance_policy.md, drawing the harm_level already recorded for
+    it in /workspace/parts/desk_A.json, desk_B.json or desk_C.json. OUTPUT: write
+    /workspace/parts/concord_1.json holding one record per report you handled, each
+    carrying report_no, company_posture, evidence_grade, countable and a note citing the
+    part of that firm's response you relied on. Where a report's recorded harm_level does
+    not follow from its own account, flag it in your output rather than changing it.
+- id: concordance-2
+  depends_on:
+  - deskA-lead
+  - deskB-lead
+  - deskC-lead
+  parallel_group: concordance
+  description: >-
+    Same brief as concordance-1, but handle block 2 of the two blocks. OUTPUT:
+    /workspace/parts/concord_2.json.
+
+# --------------------------------------------- wave 3: pattern consolidation board
+- id: pattern-consolidation-board
+  depends_on:
+  - concordance-1
+  - concordance-2
+  parallel_group: consolidate
+  description: >-
+    COORDINATION: you run once both concordance analysts have returned, and you are the
+    only stage that sees every desk's findings at once. INPUTS:
+    /workspace/parts/desk_A.json, desk_B.json and desk_C.json, both concordance shards
+    /workspace/parts/concord_1.json and concord_2.json, and
+    /input_artifacts/surveillance_policy.md. OUTPUT: write /workspace/parts/patterns.json
+    holding two things. First, the single canonical incident set: every report in
+    /input_artifacts/incident_reports.csv exactly once, carrying brand_family,
+    failure_mode, harm_level, severity_conflict, company_posture, evidence_grade and
+    rationale, with reports that carry no company response taking the grade the policy
+    gives them. Second, the canonical hazard pattern set the policy defines over that
+    incident set, each pattern carrying a stable pattern_id, its member report_nos, its
+    incident count, its countable count, the product categories it spans, and whether it
+    was formed from candidates that more than one desk proposed separately.
+
+# ------------------------------------------ wave 4: reportability and docket desk
+- id: reportability-docket-desk
+  depends_on:
+  - pattern-consolidation-board
+  parallel_group: reportability
+  description: >-
+    COORDINATION: you run once the consolidation board has returned. INPUTS:
+    /workspace/parts/patterns.json and /input_artifacts/surveillance_policy.md, which is
+    binding for every determination you make. OUTPUT: write
+    /workspace/parts/reportability.json holding the whole pattern set with trigger_rule,
+    trigger_date, filing_deadline, exposure_days, board_slot, board_date and disposition
+    populated for every pattern as the policy determines them, together with the number
+    of patterns that reached a trigger and the number left without a board slot this
+    cycle.
+
+# --------------------------------------------------- wave 5: assurance and packet
+- id: assurance-reviewer
+  depends_on:
+  - reportability-docket-desk
+  parallel_group: assure
+  description: >-
+    COORDINATION: you run once the reportability desk has returned, and you write no
+    deliverable. INPUTS: /workspace/parts/patterns.json,
+    /workspace/parts/reportability.json, /input_artifacts/incident_reports.csv and
+    /input_artifacts/surveillance_policy.md. OUTPUT: write
+    /workspace/parts/corrections.json, a list in which each entry names the report_no or
+    pattern_id, the field, the value currently recorded, the corrected value, and the
+    part of the policy or of that report's own text the correction rests on. Raise a
+    correction only where you can point to that grounds; an empty list is a valid result.
+- id: packet-reducer
+  depends_on:
+  - assurance-reviewer
+  parallel_group: reduce
+  description: >-
+    COORDINATION: you run last and the run FAILS unless you write all three deliverables.
+    INPUTS: /workspace/parts/patterns.json, /workspace/parts/reportability.json,
+    /workspace/parts/corrections.json and /input_artifacts/surveillance_policy.md. Apply
+    the corrections, then confirm every report in /input_artifacts/incident_reports.csv
+    appears exactly once and every pattern_id used on an incident matches a pattern in the
+    pattern set. OUTPUT: write /logs/agent/hazard_register.json,
+    /logs/agent/board_docket.csv and /logs/agent/hazard_review_memo.md, each at the exact
+    path and in the exact shape, field set and section order that instruction.md
+    specifies, with the summary object, the docket rows and the memo's figures all
+    agreeing with the incident and pattern arrays. Read all three files back to confirm
+    they exist and are complete before finishing.

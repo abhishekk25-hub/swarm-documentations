@@ -1,0 +1,326 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+
+sub_tasks:
+
+  - id: lead--g1
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g1-01, spec--g1-02, spec--g1-03, spec--g1-04]
+    description: >-
+      Read across the eight completed Oregon Court of Appeals cards in review group 1. Prepare a group rollup that compares ORAP 5.45 assignment of error with ORAP 5.05 briefing, PCR with a direct criminal appeal, and juvenile ORS 419B work with ordinary civil or administrative review, dispositions, and petition-for-review or remand consequences. Assemble the eight petition_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching folio_index.csv lines.
+
+  - id: spec--g1-01
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v01 and v02 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g1-02
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v03 and v04 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g1-03
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v05 and v06 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g1-04
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v07 and v08 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g2
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g2-01, spec--g2-02, spec--g2-03, spec--g2-04]
+    description: >-
+      Read across the eight completed Oregon Court of Appeals cards in review group 2. Prepare a group rollup that compares ORAP 5.45 assignment of error with ORAP 5.05 briefing, PCR with a direct criminal appeal, and juvenile ORS 419B work with ordinary civil or administrative review, dispositions, and petition-for-review or remand consequences. Assemble the eight petition_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching folio_index.csv lines.
+
+  - id: spec--g2-01
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v09 and v10 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g2-02
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v11 and v12 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g2-03
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v13 and v14 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g2-04
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v15 and v16 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g3
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g3-01, spec--g3-02, spec--g3-03, spec--g3-04]
+    description: >-
+      Read across the eight completed Oregon Court of Appeals cards in review group 3. Prepare a group rollup that compares ORAP 5.45 assignment of error with ORAP 5.05 briefing, PCR with a direct criminal appeal, and juvenile ORS 419B work with ordinary civil or administrative review, dispositions, and petition-for-review or remand consequences. Assemble the eight petition_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching folio_index.csv lines.
+
+  - id: spec--g3-01
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v17 and v18 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g3-02
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v19 and v20 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g3-03
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v21 and v22 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g3-04
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v23 and v24 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g4
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g4-01, spec--g4-02, spec--g4-03, spec--g4-04]
+    description: >-
+      Read across the eight completed Oregon Court of Appeals cards in review group 4. Prepare a group rollup that compares ORAP 5.45 assignment of error with ORAP 5.05 briefing, PCR with a direct criminal appeal, and juvenile ORS 419B work with ordinary civil or administrative review, dispositions, and petition-for-review or remand consequences. Assemble the eight petition_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching folio_index.csv lines.
+
+  - id: spec--g4-01
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v25 and v26 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g4-02
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v27 and v28 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g4-03
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v29 and v30 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g4-04
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v31 and v32 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g5
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g5-01, spec--g5-02, spec--g5-03, spec--g5-04]
+    description: >-
+      Read across the eight completed Oregon Court of Appeals cards in review group 5. Prepare a group rollup that compares ORAP 5.45 assignment of error with ORAP 5.05 briefing, PCR with a direct criminal appeal, and juvenile ORS 419B work with ordinary civil or administrative review, dispositions, and petition-for-review or remand consequences. Assemble the eight petition_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching folio_index.csv lines.
+
+  - id: spec--g5-01
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v33 and v34 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g5-02
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v35 and v36 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g5-03
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v37 and v38 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g5-04
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v39 and v40 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g6
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g6-01, spec--g6-02, spec--g6-03, spec--g6-04]
+    description: >-
+      Read across the eight completed Oregon Court of Appeals cards in review group 6. Prepare a group rollup that compares ORAP 5.45 assignment of error with ORAP 5.05 briefing, PCR with a direct criminal appeal, and juvenile ORS 419B work with ordinary civil or administrative review, dispositions, and petition-for-review or remand consequences. Assemble the eight petition_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching folio_index.csv lines.
+
+  - id: spec--g6-01
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v41 and v42 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g6-02
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v43 and v44 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g6-03
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v45 and v46 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g6-04
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v47 and v48 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g7
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g7-01, spec--g7-02, spec--g7-03, spec--g7-04]
+    description: >-
+      Read across the eight completed Oregon Court of Appeals cards in review group 7. Prepare a group rollup that compares ORAP 5.45 assignment of error with ORAP 5.05 briefing, PCR with a direct criminal appeal, and juvenile ORS 419B work with ordinary civil or administrative review, dispositions, and petition-for-review or remand consequences. Assemble the eight petition_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching folio_index.csv lines.
+
+  - id: spec--g7-01
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v49 and v50 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g7-02
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v51 and v52 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g7-03
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v53 and v54 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g7-04
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v55 and v56 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g8
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g8-01, spec--g8-02, spec--g8-03, spec--g8-04]
+    description: >-
+      Read across the eight completed Oregon Court of Appeals cards in review group 8. Prepare a group rollup that compares ORAP 5.45 assignment of error with ORAP 5.05 briefing, PCR with a direct criminal appeal, and juvenile ORS 419B work with ordinary civil or administrative review, dispositions, and petition-for-review or remand consequences. Assemble the eight petition_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching folio_index.csv lines.
+
+  - id: spec--g8-01
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v57 and v58 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g8-02
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v59 and v60 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g8-03
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v61 and v62 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g8-04
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v63 and v64 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g9
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g9-01, spec--g9-02, spec--g9-03, spec--g9-04]
+    description: >-
+      Read across the eight completed Oregon Court of Appeals cards in review group 9. Prepare a group rollup that compares ORAP 5.45 assignment of error with ORAP 5.05 briefing, PCR with a direct criminal appeal, and juvenile ORS 419B work with ordinary civil or administrative review, dispositions, and petition-for-review or remand consequences. Assemble the eight petition_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching folio_index.csv lines.
+
+  - id: spec--g9-01
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v65 and v66 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g9-02
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v67 and v68 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g9-03
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v69 and v70 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g9-04
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full the assigned Oregon Court of Appeals opinions v71 and v72 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/department_folios/ on the matching department folio (criminal, civil, family, or administrative), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, ORS or ORAP issue, decisive trial-record fact, precise disposition, and petition-for-review or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: merge--final
+    agent_type: general
+    parallel_group: merge
+    depends_on: [lead--g1, lead--g2, lead--g3, lead--g4, lead--g5, lead--g6, lead--g7, lead--g8, lead--g9]
+    description: >-
+      Reconcile the nine group rollups and the completed hearing cards. Produce the canonical 72-row /logs/agent/output/petition_calendar.csv in report order, write /logs/agent/output/department_folios/folio_index.csv, and write /logs/agent/output/orap545_homework.md. The memo compares ORAP 5.45 assignment of error with ORAP 5.05 briefing, PCR with a direct criminal appeal, and juvenile ORS 419B work with ordinary civil or administrative review, dispositions, and petition-for-review or remand consequences. Support each comparison with report labels or appellate numbers; reach later-roster matters; and say what the petition-for-review or remand consequence still leaves open. Confirm that cards sit under /logs/agent/output/department_folios/, follow the six-part shape in /environment/input_artifacts/record_format.md, use /environment/input_artifacts/case_roster.csv for report labels, and that calendar rows are present and consistent.

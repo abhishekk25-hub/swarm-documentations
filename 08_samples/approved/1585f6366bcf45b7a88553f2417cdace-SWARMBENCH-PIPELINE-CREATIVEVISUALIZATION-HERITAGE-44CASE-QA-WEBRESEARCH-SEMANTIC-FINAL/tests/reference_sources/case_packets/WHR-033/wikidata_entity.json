@@ -1,0 +1,1304 @@
+{
+  "entities": {
+    "Q852433": {
+      "aliases": {
+        "he": [
+          {
+            "language": "he",
+            "value": "איסט רנל"
+          }
+        ],
+        "ka": [
+          {
+            "language": "ka",
+            "value": "აღმოსავლეთ რენელი"
+          }
+        ],
+        "pt": [
+          {
+            "language": "pt",
+            "value": "East rennell"
+          }
+        ],
+        "vi": [
+          {
+            "language": "vi",
+            "value": "East Rennell"
+          }
+        ],
+        "zh": [
+          {
+            "language": "zh",
+            "value": "東倫內爾島"
+          }
+        ]
+      },
+      "claims": {
+        "P10565": [
+          {
+            "id": "Q852433$C5B010C3-0D2C-44A9-B50E-293C79EE8899",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "576447"
+              },
+              "hash": "6750226da642926e72fe217a1a3cb31b92f4a79f",
+              "property": "P10565",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1082": [
+          {
+            "id": "Q852433$fd447d91-495d-5624-2dd0-c126dd382127",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+800",
+                  "unit": "1"
+                }
+              },
+              "hash": "75057e83c44115128870810aa0bd619011df55fa",
+              "property": "P1082",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P131": [
+          {
+            "id": "Q852433$ff17305b-4be8-31fa-7ad9-29c739aa470f",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q59580",
+                  "numeric-id": 59580
+                }
+              },
+              "hash": "500ed00e8aa50ce3ca58b35345fcc324f62d1659",
+              "property": "P131",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P1435": [
+          {
+            "id": "Q852433$7D534C7F-A8DC-458E-85EC-69549E8E6CF0",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q9259",
+                  "numeric-id": 9259
+                }
+              },
+              "hash": "d22546e8bf86b97293821ea8757787befdf35ca8",
+              "property": "P1435",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P1448": [
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "en",
+                      "text": "East Rennell"
+                    }
+                  },
+                  "hash": "afa3b01e908d32cd8414d692474a99e8f23b86f7",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "fr",
+                      "text": "Rennell Est"
+                    }
+                  },
+                  "hash": "ac4ea03e3c3a00b11f26918deddaa8e1388068e9",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "ar",
+                      "text": "إيست رينيل"
+                    }
+                  },
+                  "hash": "4f10c1e127c45ee436718b812c3954affe8ba946",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "zh",
+                      "text": "东伦内尔岛"
+                    }
+                  },
+                  "hash": "21dedbbafb0f41b5b8cfac92e9ce2893934f0d53",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "ru",
+                      "text": "Восточная часть острова Реннелл"
+                    }
+                  },
+                  "hash": "ec87169da403bcf546f75fde3b5e3311129a7bd9",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "es",
+                      "text": "Rennell Este"
+                    }
+                  },
+                  "hash": "8eb314dde1f85104f3ba89fbdf7084e3ed036e91",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "ja",
+                      "text": "東レンネル"
+                    }
+                  },
+                  "hash": "65a8c85618c88a89b250c1de37b78b0b09fd1028",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "nl",
+                      "text": "Oost-Rennell"
+                    }
+                  },
+                  "hash": "47baa9df509479998a71e705f9f0dad7f1363845",
+                  "property": "P1448",
+                  "snaktype": "value"
+                }
+              ],
+              "P2614": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038985",
+                      "numeric-id": 23038985
+                    }
+                  },
+                  "hash": "523c09e94984c03aa991bf6fe8ba19efd62f312d",
+                  "property": "P2614",
+                  "snaktype": "value"
+                }
+              ],
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+1998-01-01T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "4cc7e0ac8dc3736a5532569328b04b1e8868527b",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580",
+              "P1448",
+              "P2614"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P17": [
+          {
+            "id": "Q852433$30c9509b-4b03-49f4-6e8c-ed74ebf87dea",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q685",
+                  "numeric-id": 685
+                }
+              },
+              "hash": "39584b0db29aee54245962b37dbf128edbb421cd",
+              "property": "P17",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P18": [
+          {
+            "id": "q852433$3489C094-D95A-4D27-832B-301AC52BBEB8",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "Dugout canoe Rennell.jpg"
+              },
+              "hash": "332cd68a43a68e350938b745fcbb38096ebe3754",
+              "property": "P18",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P2096": [
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "en",
+                      "text": "Canoe on Lake Te Nggano, East Rennell"
+                    }
+                  },
+                  "hash": "5642f52dc82006b1229befb9b19afffc1c3d35d4",
+                  "property": "P2096",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P2096"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2046": [
+          {
+            "id": "Q852433$f577c225-4d47-64c6-80d6-456cd816db22",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+37000",
+                  "unit": "http://www.wikidata.org/entity/Q35852"
+                }
+              },
+              "hash": "63393d4f0d6a52f1a760f76df9c9b35c10189f2f",
+              "property": "P2046",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P518": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q9259",
+                      "numeric-id": 9259
+                    }
+                  },
+                  "hash": "a36e619e9e9474ed2f06d6b204a36f8a919a58a9",
+                  "property": "P518",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P518"
+            ],
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "286a4bfb5ccd3dbd7f32137d3a502f8f55b86ed9",
+                "snaks": {
+                  "P4656": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://en.wikipedia.org/wiki/List_of_World_Heritage_in_Danger"
+                      },
+                      "hash": "8d9772e5ded110f69576d247ad74a872c5729f7d",
+                      "property": "P4656",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P4656"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P206": [
+          {
+            "id": "Q852433$02A07F37-4F2B-4D5E-BE53-509462465866",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q98",
+                  "numeric-id": 98
+                }
+              },
+              "hash": "c58843e42c8a4339c504d91605d923d4030c668d",
+              "property": "P206",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "ac6f9c1f7a352deb884f16211653da535a38b208",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q206855",
+                          "numeric-id": 206855
+                        }
+                      },
+                      "hash": "6a164248fc96bfa583bbb495cb63ae6401ec203c",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P4656": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://ru.wikipedia.org/w/index.php?title=Ист-Реннелл&oldid=82491231"
+                      },
+                      "hash": "76c2bc71b4219f06bd3a2f8cf4ccdeed9efb0c76",
+                      "property": "P4656",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143",
+                  "P4656"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P2614": [
+          {
+            "id": "Q852433$EB5420B5-5E33-40D6-8792-1C70A0D769CE",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038985",
+                  "numeric-id": 23038985
+                }
+              },
+              "hash": "523c09e94984c03aa991bf6fe8ba19efd62f312d",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "0f2524f275996ddc450232f5b9c3b18a75cf6145",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "http://whc.unesco.org/en/list/854"
+                      },
+                      "hash": "b3cc970e27bff94e21f6f53d3a9b026aa1494960",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P31": [
+          {
+            "id": "q852433$9F60C8C4-62C4-4E42-8C57-01186CCBE44B",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23442",
+                  "numeric-id": 23442
+                }
+              },
+              "hash": "fb95cfb799cca38198ce77e0596dddb6aef12202",
+              "property": "P31",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "288ab581e7d2d02995a26dfa8b091d96e78457fc",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q206855",
+                          "numeric-id": 206855
+                        }
+                      },
+                      "hash": "6a164248fc96bfa583bbb495cb63ae6401ec203c",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q852433$abf826f4-4635-0379-e86a-dfdd8002b683",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q7285116",
+                  "numeric-id": 7285116
+                }
+              },
+              "hash": "0f7c29ccb4f535126826419f7d136ae835512eec",
+              "property": "P31",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P373": [
+          {
+            "id": "q852433$14E0E827-D304-41B2-AB93-0B91E3E6B4E8",
+            "mainsnak": {
+              "datatype": "string",
+              "datavalue": {
+                "type": "string",
+                "value": "Rennell Islands"
+              },
+              "hash": "2d6a8bf94781e098c52475554b7703cc70c21c2a",
+              "property": "P373",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "c456dc5cd2117249948c288206ff3f8b1bf574f0",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q8449",
+                          "numeric-id": 8449
+                        }
+                      },
+                      "hash": "e17507043402fe54ae6c4d65cc51f46cec987de9",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P5008": [
+          {
+            "id": "Q852433$8C02D42E-4468-4041-BCA7-C9E3D0ABB4DC",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q107414369",
+                  "numeric-id": 107414369
+                }
+              },
+              "hash": "8a88e1c4c25ebd5c6c809062d163bff87e3cac68",
+              "property": "P5008",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P625": [
+          {
+            "id": "q852433$B92B1391-A917-41D4-8442-57C471FD662D",
+            "mainsnak": {
+              "datatype": "globe-coordinate",
+              "datavalue": {
+                "type": "globecoordinate",
+                "value": {
+                  "altitude": null,
+                  "globe": "http://www.wikidata.org/entity/Q2",
+                  "latitude": -11.683327777778,
+                  "longitude": 160.33332777778,
+                  "precision": 2.7777777777778e-06
+                }
+              },
+              "hash": "bb2f538f834da018c627aef5ea4e4547aaaf5fa9",
+              "property": "P625",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "0f2524f275996ddc450232f5b9c3b18a75cf6145",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "http://whc.unesco.org/en/list/854"
+                      },
+                      "hash": "b3cc970e27bff94e21f6f53d3a9b026aa1494960",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P646": [
+          {
+            "id": "Q852433$0E4ED3E3-A2C5-4808-A653-C68DC8255D8D",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "/m/0b4w6h"
+              },
+              "hash": "32313b9a67570bbafe4f53748b53ba8bb3070df9",
+              "property": "P646",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "2b00cb481cddcac7623114367489b5c194901c4a",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q15241312",
+                          "numeric-id": 15241312
+                        }
+                      },
+                      "hash": "a94b740202b097dd33355e0e6c00e54b9395e5e0",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P577": [
+                    {
+                      "datatype": "time",
+                      "datavalue": {
+                        "type": "time",
+                        "value": {
+                          "after": 0,
+                          "before": 0,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                          "precision": 11,
+                          "time": "+2013-10-28T00:00:00Z",
+                          "timezone": 0
+                        }
+                      },
+                      "hash": "fde79ecb015112d2f29229ccc1ec514ed3e71fa2",
+                      "property": "P577",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248",
+                  "P577"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P757": [
+          {
+            "id": "q852433$B48279B6-BDF9-4279-B944-1B060EE1C7BC",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "854"
+              },
+              "hash": "003ecc9e31712f27a16a7cc53b0f1339e7b01b70",
+              "property": "P757",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P793": [
+          {
+            "id": "Q852433$ddb31a91-4d08-5925-6ca8-48ee51a6be14",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q222384",
+                  "numeric-id": 222384
+                }
+              },
+              "hash": "ec342702ae5c6287265ee8af23935efe390aa50c",
+              "property": "P793",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+2013-00-00T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "67d1a4ab974b916ae9f5cfb4836255945c904f34",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580"
+            ],
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P948": [
+          {
+            "id": "Q852433$84AA7E8F-1065-44BF-A515-AFF070A7B7B6",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "WV banner Rennell and Bellona Lake Tegano.jpg"
+              },
+              "hash": "29d2d48a8fb25806db9f9644219ba347860ba5e9",
+              "property": "P948",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ]
+      },
+      "descriptions": {
+        "ast": {
+          "language": "ast",
+          "value": "islla de Rennell, la islla más al sur del archipiélagu de les islles Salomón"
+        },
+        "de": {
+          "language": "de",
+          "value": "Insel auf den Salomonen"
+        },
+        "en": {
+          "language": "en",
+          "value": "southern portion of Rennell Island in the Solomon Islands"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "section méridionale de l'île de Rennell, aux Salomon, océan Pacifique"
+        },
+        "hyw": {
+          "language": "hyw",
+          "value": "Հնաբանական վայր, Ռենել կղզի, Սոլոմոն կղզեխումբ, Խաղաղական Ովկիանոս"
+        },
+        "mos": {
+          "language": "mos",
+          "value": "wĩn-goabga zĩiga Rennell ko-gũb-tẽnga m'be Solomon ko-sʋg-tẽnga"
+        },
+        "mt": {
+          "language": "mt",
+          "value": "in-naħa tan-Nofsinhar tal-Gżira ta' Rennell fil-Gżejjer Solomon"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "eiland in Salomonseilanden"
+        },
+        "pap": {
+          "language": "pap",
+          "value": "Isla"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "восточная часть острова Реннелл, который является самым большим в мире поднятым атоллом"
+        }
+      },
+      "id": "Q852433",
+      "labels": {
+        "ar": {
+          "language": "ar",
+          "value": "رينيل الشرقية"
+        },
+        "ast": {
+          "language": "ast",
+          "value": "Rennell Este"
+        },
+        "az": {
+          "language": "az",
+          "value": "Şərqi Rennel"
+        },
+        "ca": {
+          "language": "ca",
+          "value": "Rennell oriental"
+        },
+        "dag": {
+          "language": "dag",
+          "value": "East Rennell"
+        },
+        "de": {
+          "language": "de",
+          "value": "East Rennell"
+        },
+        "el": {
+          "language": "el",
+          "value": "Ανατολικό Ρενέλ"
+        },
+        "en": {
+          "language": "en",
+          "value": "East Rennell"
+        },
+        "es": {
+          "language": "es",
+          "value": "Rennell Este"
+        },
+        "fat": {
+          "language": "fat",
+          "value": "Rennell Epuei"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "Rennell Est"
+        },
+        "gl": {
+          "language": "gl",
+          "value": "Rennell Oriental"
+        },
+        "he": {
+          "language": "he",
+          "value": "מזרח רנל"
+        },
+        "hu": {
+          "language": "hu",
+          "value": "Keleti-Rennell-korallzátony"
+        },
+        "hy": {
+          "language": "hy",
+          "value": "Իստ-Ռեննելլ"
+        },
+        "hyw": {
+          "language": "hyw",
+          "value": "Արեւելեան Ռենել"
+        },
+        "id": {
+          "language": "id",
+          "value": "Rennell Timur"
+        },
+        "it": {
+          "language": "it",
+          "value": "East Rennell"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "東レンネル"
+        },
+        "ka": {
+          "language": "ka",
+          "value": "აღმოსავლეთი რენელი"
+        },
+        "ko": {
+          "language": "ko",
+          "value": "동렌넬섬"
+        },
+        "lt": {
+          "language": "lt",
+          "value": "Rytų Renelas"
+        },
+        "mos": {
+          "language": "mos",
+          "value": "East Rennell"
+        },
+        "mt": {
+          "language": "mt",
+          "value": "Lvant ta' Rennell"
+        },
+        "ne": {
+          "language": "ne",
+          "value": "पूर्वी रेनल"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "East Rennell"
+        },
+        "pt": {
+          "language": "pt",
+          "value": "Rennell Oriental"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "Ист-Реннелл"
+        },
+        "sv": {
+          "language": "sv",
+          "value": "Östra Rennell"
+        },
+        "th": {
+          "language": "th",
+          "value": "เรนเนลล์ตะวันออก"
+        },
+        "tr": {
+          "language": "tr",
+          "value": "Doğu Rennell"
+        },
+        "tw": {
+          "language": "tw",
+          "value": "East Rennell na ɔkyerɛwee"
+        },
+        "vi": {
+          "language": "vi",
+          "value": "Đông Rennell"
+        },
+        "xmf": {
+          "language": "xmf",
+          "value": "ბჟაეიოლ რენელი"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "东伦内尔岛"
+        },
+        "zh-hans": {
+          "language": "zh-hans",
+          "value": "东伦内尔岛"
+        },
+        "zh-hant": {
+          "language": "zh-hant",
+          "value": "東倫內爾島"
+        },
+        "zh-hk": {
+          "language": "zh-hk",
+          "value": "東倫內爾島"
+        }
+      },
+      "lastrevid": 2493803397,
+      "modified": "2026-05-18T13:36:46Z",
+      "ns": 0,
+      "pageid": 804266,
+      "sitelinks": {
+        "arwiki": {
+          "badges": [],
+          "site": "arwiki",
+          "title": "رينيل الشرقية"
+        },
+        "astwiki": {
+          "badges": [],
+          "site": "astwiki",
+          "title": "Rennell Este"
+        },
+        "azwiki": {
+          "badges": [],
+          "site": "azwiki",
+          "title": "Şərqi Rennel"
+        },
+        "cawiki": {
+          "badges": [],
+          "site": "cawiki",
+          "title": "Rennell Oriental"
+        },
+        "commonswiki": {
+          "badges": [],
+          "site": "commonswiki",
+          "title": "Category:East Rennell"
+        },
+        "dagwiki": {
+          "badges": [],
+          "site": "dagwiki",
+          "title": "East Rennell"
+        },
+        "dewiki": {
+          "badges": [],
+          "site": "dewiki",
+          "title": "East Rennell"
+        },
+        "elwiki": {
+          "badges": [],
+          "site": "elwiki",
+          "title": "Ανατολικό Ρενέλ"
+        },
+        "enwiki": {
+          "badges": [],
+          "site": "enwiki",
+          "title": "East Rennell"
+        },
+        "enwikivoyage": {
+          "badges": [
+            "Q70894304"
+          ],
+          "site": "enwikivoyage",
+          "title": "East Rennell"
+        },
+        "eswiki": {
+          "badges": [],
+          "site": "eswiki",
+          "title": "Rennell Este"
+        },
+        "fatwiki": {
+          "badges": [],
+          "site": "fatwiki",
+          "title": "Rennell Epuei"
+        },
+        "frwiki": {
+          "badges": [],
+          "site": "frwiki",
+          "title": "Rennell Est"
+        },
+        "glwiki": {
+          "badges": [],
+          "site": "glwiki",
+          "title": "Rennell Oriental"
+        },
+        "hewiki": {
+          "badges": [],
+          "site": "hewiki",
+          "title": "מזרח רנל"
+        },
+        "huwiki": {
+          "badges": [],
+          "site": "huwiki",
+          "title": "Keleti-Rennell-korallzátony"
+        },
+        "hywiki": {
+          "badges": [],
+          "site": "hywiki",
+          "title": "Իստ-Ռեննելլ"
+        },
+        "hywwiki": {
+          "badges": [],
+          "site": "hywwiki",
+          "title": "Արեւելեան Ռենել"
+        },
+        "idwiki": {
+          "badges": [],
+          "site": "idwiki",
+          "title": "Rennell Timur"
+        },
+        "itwiki": {
+          "badges": [],
+          "site": "itwiki",
+          "title": "East Rennell"
+        },
+        "jawiki": {
+          "badges": [],
+          "site": "jawiki",
+          "title": "東レンネル"
+        },
+        "kawiki": {
+          "badges": [],
+          "site": "kawiki",
+          "title": "აღმოსავლეთი რენელი"
+        },
+        "kowiki": {
+          "badges": [],
+          "site": "kowiki",
+          "title": "동렌넬섬"
+        },
+        "ltwiki": {
+          "badges": [],
+          "site": "ltwiki",
+          "title": "Rytų Renelas"
+        },
+        "moswiki": {
+          "badges": [],
+          "site": "moswiki",
+          "title": "East Rennell"
+        },
+        "mtwiki": {
+          "badges": [],
+          "site": "mtwiki",
+          "title": "Lvant ta' Rennell"
+        },
+        "newiki": {
+          "badges": [],
+          "site": "newiki",
+          "title": "पूर्वी रेनल"
+        },
+        "nlwiki": {
+          "badges": [],
+          "site": "nlwiki",
+          "title": "East Rennell"
+        },
+        "ptwiki": {
+          "badges": [],
+          "site": "ptwiki",
+          "title": "Rennell Oriental"
+        },
+        "ruwiki": {
+          "badges": [],
+          "site": "ruwiki",
+          "title": "Ист-Реннелл"
+        },
+        "svwiki": {
+          "badges": [],
+          "site": "svwiki",
+          "title": "Östra Rennell"
+        },
+        "thwiki": {
+          "badges": [],
+          "site": "thwiki",
+          "title": "เรนเนลล์ตะวันออก"
+        },
+        "trwiki": {
+          "badges": [],
+          "site": "trwiki",
+          "title": "Doğu Rennell"
+        },
+        "twwiki": {
+          "badges": [],
+          "site": "twwiki",
+          "title": "East Rennell"
+        },
+        "viwiki": {
+          "badges": [],
+          "site": "viwiki",
+          "title": "Đông Rennell"
+        },
+        "xmfwiki": {
+          "badges": [],
+          "site": "xmfwiki",
+          "title": "ბჟაეიოლი რენელი"
+        },
+        "zhwiki": {
+          "badges": [],
+          "site": "zhwiki",
+          "title": "东伦内尔岛"
+        }
+      },
+      "title": "Q852433",
+      "type": "item"
+    }
+  }
+}

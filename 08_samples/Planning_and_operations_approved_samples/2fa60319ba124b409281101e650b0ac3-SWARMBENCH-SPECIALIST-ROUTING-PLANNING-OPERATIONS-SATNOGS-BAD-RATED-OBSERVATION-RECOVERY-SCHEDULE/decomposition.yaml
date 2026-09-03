@@ -1,0 +1,343 @@
+version: "1.0"
+coordination_pattern: "specialist-routing"
+realized_subagent_target: 25
+dependency_levels: 6
+
+dependency_semantics: >-
+  routing_contract records live dispatch ancestry: a router or lead remains active
+  while its children work. depends_on records the artifact or handoff information
+  that must be available before a subtask can complete; it is not a requirement
+  that an ancestor dispatcher terminate before a child starts.
+
+design_note: >-
+  The station operations corpus is the load-bearing evidence: eligibility cannot be
+  computed until every note has been read, and a single missed declaration silently
+  changes the eligible set, the released schedule and all three ledgers. The
+  decomposition is therefore weighted toward that corpus -- ten of the twenty-five
+  subtasks are note readers covering sixteen stations each, and the ten blocks are
+  jointly exhaustive over the index. The remaining evidence is comparatively cheap
+  and is handled by one reader per source rather than being split further, so that
+  dispatch effort is concentrated where coverage actually decides the answer.
+
+routing_contract:
+  root:
+    - recovery-dispatch-router
+  recovery-dispatch-router:
+    - station-note-lead
+    - observation-case-reader
+    - candidate-pool-reader
+    - network-reference-reader
+    - documentation-reader
+    - eligibility-integrator
+    - assignment-owner
+    - station-register-owner
+    - recovery-schedule-owner
+    - backlog-disposition-owner
+    - constraint-impact-owner
+    - operations-handover-owner
+    - release-integrator
+  station-note-lead:
+    - station-notes-block-a
+    - station-notes-block-b
+    - station-notes-block-c
+    - station-notes-block-d
+    - station-notes-block-e
+    - station-notes-block-f
+    - station-notes-block-g
+    - station-notes-block-h
+    - station-notes-block-i
+    - station-notes-block-j
+    - station-constraint-reconciler
+
+sub_tasks:
+  - id: recovery-dispatch-router
+    description: >-
+      Coordinate the packaged inputs and the five deliverables. Dispatch the
+      station note lead and the four evidence readers, collect their handoffs, then
+      dispatch the eligibility integrator, the assignment owner, the five artifact
+      owners and finally the release integrator. Do not conclude while any of the
+      five deliverables is still missing from /logs/agent under its required name;
+      working files under other names do not discharge that. The station note corpus is the
+      largest and most error-prone input, so confirm the note lead has returned a
+      register covering every station before letting eligibility work begin. Return
+      assigned task IDs, completed handoff IDs and unresolved coordination issues
+      without authoring a final artifact.
+    depends_on: []
+    parallel_group: routing
+
+  - id: station-note-lead
+    description: >-
+      Own the station operations note corpus in
+      /input_artifacts/station_operations/. Divide the roster in index.md into ten
+      contiguous blocks of sixteen stations in listed order and dispatch one reader
+      per block, so the ten blocks together cover the roster exactly once. Require
+      every reader to account for each station it was given, including stations
+      that declare nothing binding, and require the declaration wording to come
+      back with each row. Re-dispatch any block whose reader returns fewer stations
+      than it was assigned.
+    depends_on: []
+    parallel_group: evidence-leads
+
+  - id: station-notes-block-a
+    description: >-
+      Read every station note in the first block of sixteen stations in index.md
+      order. Each note's "Availability for the recovery window" section is the only
+      binding part; other sections and some sentences inside that section describe
+      arrangements that have since been cancelled, lifted or completed. A station
+      may declare several restrictions at once, so report every restriction it
+      declares rather than stopping at the first, and for each one return the
+      ground station ID, the kind of restriction, whichever value that kind carries
+      (window bounds, elevation figure, transmitter mode, or booking allowance) and
+      the sentence that states it. Report a station as unrestricted only after
+      reading its availability section.
+    depends_on: []
+    parallel_group: station-notes
+
+  - id: station-notes-block-b
+    description: >-
+      Read every station note in the second block of sixteen stations in index.md
+      order and return the same per-station account: every restriction the station
+      declares for the recovery window, the value that restriction carries, and the
+      sentence stating it, treating only the availability section as binding and
+      marking a station unrestricted only after reading it.
+    depends_on: []
+    parallel_group: station-notes
+
+  - id: station-notes-block-c
+    description: >-
+      Read every station note in the third block of sixteen stations in index.md
+      order and return the same per-station account: every restriction the station
+      declares for the recovery window, the value that restriction carries, and the
+      sentence stating it, treating only the availability section as binding and
+      marking a station unrestricted only after reading it.
+    depends_on: []
+    parallel_group: station-notes
+
+  - id: station-notes-block-d
+    description: >-
+      Read every station note in the fourth block of sixteen stations in index.md
+      order and return the same per-station account: every restriction the station
+      declares for the recovery window, the value that restriction carries, and the
+      sentence stating it, treating only the availability section as binding and
+      marking a station unrestricted only after reading it.
+    depends_on: []
+    parallel_group: station-notes
+
+  - id: station-notes-block-e
+    description: >-
+      Read every station note in the fifth block of sixteen stations in index.md
+      order and return the same per-station account: every restriction the station
+      declares for the recovery window, the value that restriction carries, and the
+      sentence stating it, treating only the availability section as binding and
+      marking a station unrestricted only after reading it.
+    depends_on: []
+    parallel_group: station-notes
+
+  - id: station-notes-block-f
+    description: >-
+      Read every station note in the sixth block of sixteen stations in index.md
+      order and return the same per-station account: every restriction the station
+      declares for the recovery window, the value that restriction carries, and the
+      sentence stating it, treating only the availability section as binding and
+      marking a station unrestricted only after reading it.
+    depends_on: []
+    parallel_group: station-notes
+
+  - id: station-notes-block-g
+    description: >-
+      Read every station note in the seventh block of sixteen stations in index.md
+      order and return the same per-station account: every restriction the station
+      declares for the recovery window, the value that restriction carries, and the
+      sentence stating it, treating only the availability section as binding and
+      marking a station unrestricted only after reading it.
+    depends_on: []
+    parallel_group: station-notes
+
+  - id: station-notes-block-h
+    description: >-
+      Read every station note in the eighth block of sixteen stations in index.md
+      order and return the same per-station account: every restriction the station
+      declares for the recovery window, the value that restriction carries, and the
+      sentence stating it, treating only the availability section as binding and
+      marking a station unrestricted only after reading it.
+    depends_on: []
+    parallel_group: station-notes
+
+  - id: station-notes-block-i
+    description: >-
+      Read every station note in the ninth block of sixteen stations in index.md
+      order and return the same per-station account: every restriction the station
+      declares for the recovery window, the value that restriction carries, and the
+      sentence stating it, treating only the availability section as binding and
+      marking a station unrestricted only after reading it.
+    depends_on: []
+    parallel_group: station-notes
+
+  - id: station-notes-block-j
+    description: >-
+      Read every station note in the tenth block of sixteen stations in index.md
+      order and return the same per-station account: every restriction the station
+      declares for the recovery window, the value that restriction carries, and the
+      sentence stating it, treating only the availability section as binding and
+      marking a station unrestricted only after reading it.
+    depends_on: []
+    parallel_group: station-notes
+
+  - id: station-constraint-reconciler
+    description: >-
+      Merge the ten block handoffs into one declaration register covering every
+      station in stations.json. Check the merged register against the roster before
+      handing it on: every station accounted for, no station carrying the same kind
+      of restriction twice, every restriction carrying the value its kind requires,
+      and every row carrying the sentence that states it. Resolve gaps or ambiguous
+      extractions with the block owner rather than filling them in.
+    depends_on:
+      - station-notes-block-a
+      - station-notes-block-b
+      - station-notes-block-c
+      - station-notes-block-d
+      - station-notes-block-e
+      - station-notes-block-f
+      - station-notes-block-g
+      - station-notes-block-h
+      - station-notes-block-i
+      - station-notes-block-j
+    parallel_group: evidence-reconcilers
+
+  - id: observation-case-reader
+    description: >-
+      Index every bad-rated recovery case in bad_rated_observations.json by the
+      fields the matching rule uses: observation ID, end timestamp, NORAD catalog
+      ID, transmitter UUID, observation frequency, originating station and station
+      name. Confirm the count matches the source file and report any case missing a
+      field the matching rule needs.
+    depends_on: []
+    parallel_group: evidence-readers
+
+  - id: candidate-pool-reader
+    description: >-
+      Index the later-contact pool in candidate_observations.json by the fields the
+      matching rule uses: observation ID, status, NORAD catalog ID, transmitter
+      UUID, transmitter status, transmitter mode, observation frequency, start,
+      end, ground station and maximum altitude. Confirm the record count matches
+      the source file and flag any candidate whose typed fields will not parse.
+    depends_on: []
+    parallel_group: evidence-readers
+
+  - id: network-reference-reader
+    description: >-
+      Build the normalized lookups from stations.json, transmitters.json and
+      tle_snapshot.json: station identity and location, transmitter UUID with its
+      NORAD ID, mode and status, and TLE records keyed by evidence observation ID
+      so any scheduled satellite can be tied to a TLE for the same NORAD ID. Note
+      that these files are normalized views of the observation snapshot rather than
+      independent sources.
+    depends_on: []
+    parallel_group: evidence-readers
+
+  - id: documentation-reader
+    description: >-
+      Read satnogs_operation_guide.html, satnogs_network_docs.pdf and
+      source_manifest.json. Return the rating definitions from the Observation
+      ratings section, page-accurate references for the API and data limitations
+      the handover must cite, and which packaged artifacts are the public snapshot,
+      which are normalized views of it and which are exercise material.
+    depends_on: []
+    parallel_group: evidence-readers
+
+  - id: eligibility-integrator
+    description: >-
+      Join the declaration register, case roster, candidate pool and reference
+      lookups. For every case produce the set of candidates meeting the baseline
+      matching rule, then apply every declaration the owning station makes to
+      derive the cleared set, keeping a record of which candidate was removed by
+      which declaration under the stated precedence. Carry booking allowances
+      forward as station capacities rather than per-candidate exclusions.
+    depends_on:
+      - station-constraint-reconciler
+      - observation-case-reader
+      - candidate-pool-reader
+      - network-reference-reader
+    parallel_group: integration
+
+  - id: assignment-owner
+    description: >-
+      From the cleared sets and station capacities, choose the assignment that
+      recovers as many cases as possible and, among assignments of that size, has
+      the smallest total delay from case end to candidate start. Ensure no
+      candidate serves two cases and no station exceeds its declared allowance.
+    depends_on:
+      - eligibility-integrator
+    parallel_group: assignment
+
+  - id: station-register-owner
+    description: >-
+      Write /logs/agent/station_constraints.csv from the reconciled register: one
+      row per declaration with its detail value and the verbatim sentence
+      supporting it, and one unrestricted row for each station that declares
+      nothing.
+    depends_on:
+      - station-constraint-reconciler
+    parallel_group: artifacts
+
+  - id: recovery-schedule-owner
+    description: >-
+      Write /logs/agent/recovery_schedule.csv from the chosen assignment, carrying
+      the candidate's recorded identity, timing, frequency and altitude, the
+      computed delay, a TLE evidence record for the same satellite, and a note
+      explaining that specific pairing in its own words.
+    depends_on:
+      - assignment-owner
+    parallel_group: artifacts
+
+  - id: backlog-disposition-owner
+    description: >-
+      Write /logs/agent/backlog_disposition.csv covering every case once, giving
+      the disposition, the reason code, the complete cleared candidate set and a
+      case-specific rationale. Distinguish cases with no baseline candidate from
+      cases whose candidates were all removed by station declarations and from
+      cases whose cleared candidates were taken elsewhere.
+    depends_on:
+      - assignment-owner
+      - eligibility-integrator
+    parallel_group: artifacts
+
+  - id: constraint-impact-owner
+    description: >-
+      Write /logs/agent/constraint_impact.csv listing every case-candidate pairing
+      that met the baseline rule but was removed by the owning station's
+      declaration, with the reason and the detail behind it.
+    depends_on:
+      - eligibility-integrator
+    parallel_group: artifacts
+
+  - id: operations-handover-owner
+    description: >-
+      Write /logs/agent/operations_handover.md using the required headings. Report
+      the outcome, the constraint picture, the control totals and the per-station
+      load, discuss the open backlog case by case in prose, set out what the next
+      shift should chase, and state provenance and limitations with accurate
+      citations to the packaged documentation.
+    depends_on:
+      - assignment-owner
+      - eligibility-integrator
+      - documentation-reader
+    parallel_group: artifacts
+
+  - id: release-integrator
+    description: >-
+      Confirm the five deliverables exist in /logs/agent under exactly their
+      required names before release, promoting any staged or working copy into the
+      required filename and leaving nothing that only resembles a deliverable. Then
+      independently re-check them against each other: station coverage, case
+      coverage, agreement between the schedule and the disposition ledger,
+      agreement between the impact ledger and the cleared sets, no candidate used
+      twice, no station over its allowance, and control totals matching the
+      released schedule. Correct disagreements rather than reporting them.
+    depends_on:
+      - station-register-owner
+      - recovery-schedule-owner
+      - backlog-disposition-owner
+      - constraint-impact-owner
+      - operations-handover-owner
+    parallel_group: release

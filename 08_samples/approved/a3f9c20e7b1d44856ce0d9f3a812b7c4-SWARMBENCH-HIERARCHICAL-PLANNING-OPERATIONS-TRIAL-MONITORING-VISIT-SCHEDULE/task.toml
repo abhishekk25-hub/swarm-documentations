@@ -1,0 +1,29 @@
+[task]
+name = "swarmbench/a3f9c20e7b1d44856ce0d9f3a812b7c4-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-TRIAL-MONITORING-VISIT-SCHEDULE"
+description = "Plan quarterly site-monitoring visits across 48 real clinical-trial sites at 12 U.S. academic partners. Each site's risk is scored live from its ClinicalTrials.gov record using four fixed rules, then the agent picks a visit plan under a hard budget (<=18 visits, <=30 travel nights) that still covers every partner and prefers the riskiest sites. Deliver monitoring_schedule.csv, audit_trace.csv, constraint_checks.csv, and a scheduling_rationale.docx memo under /logs/agent/."
+
+[metadata]
+verifier_type = "llm-judge"
+domain = "planning-operations"
+coordination_pattern = "hierarchical"
+secondary_classification = ["browsing"]
+dag_depth = 4
+dag_width = 24
+human_solving_hours_estimate = 13.0
+human_solving_hours_justification = "Read each of the 33 distinct real trials on ClinicalTrials.gov (open the record, read overall status, last-update date, primary-completion date, results posting, and study type, then apply the four risk rules and capture the source URL): ~9 min per trial = ~5 h. Map the 48 roster rows (some big multi-center trials recur at several partner hospitals) and reconcile per-site risk: ~1 h. Cross-check each of the 12 partner institutions against the FDA warning-letter list and the HHS OIG exclusions list for the audit trail: ~10 min each = ~2 h. Solve the visit selection by hand - maximize total risk subject to <=18 visits, <=30 travel nights, <=1 per site, and >=1 per partner - and verify feasibility: ~1.5 h. Build the three CSVs (schedule, audit trace, constraint checks), write the 1-2 page rationale memo, and QA the budget/coverage arithmetic and citations: ~3.5 h. Total ~13 h."
+estimated_sub_agents = 8
+input_token_estimate = 30000
+why_multi_agent = "The dominant cost is reading the 48 sites' REAL ClinicalTrials.gov records (33 distinct trials) and applying the four risk rules to each with its evidence URL. A single agent doing all lookups in one context degrades: by the second dozen trials it skims the records and mis-scores status/date/results fields, so the per-site risk accuracy (the bulk of the static score) craters. The task runs as a multi-tier hierarchy (dag_depth = 4). The orchestrator delegates to four regional managers (Northeast, Midwest, South, West), each of which spawns six parallel site-scoring workers - two sites each - so the registry reads run roughly 24 workers wide; every worker reads only its own records carefully and returns the four score parts, modality, and source URL, and each manager then verifies its 12 site files and writes a regional handoff before yielding. A compliance manager independently screens all 12 institutions against the FDA warning-letter and HHS OIG exclusion lists. After the regions complete, a scheduling specialist solves the budget- and fairness-constrained selection, an audit specialist assembles the per-site audit trail and the constraint sheet, and a rationale writer produces the memo. The regional managers isolate each portfolio in its own context and add a real verification step absent from a flat single pass. NON-SCRIPTABLE: the risk score cannot be computed from the staged roster alone - every value must be fetched live from the public record - and the selection is a real constrained optimization (a naive top-18-by-risk plan blows the 30-night travel budget and a naive cheapest-per-partner plan leaves most risk on the table). SPRAY-PROOF static checks: selecting every site violates the visit/night caps; selecting nothing or one global group fails per-partner coverage; random risk numbers fail the >=95% accuracy check. verifier_type is llm-judge: tests/judge.py blends deterministic static checks over a pinned oracle (risk-score accuracy, internal score-part consistency, and a graduated near-optimal plan score) at 60% with an LLM grade of scheduling_rationale.docx at 40%; the LLM verdict is fail-closed (0.0 on any failure to obtain a parsed verdict). The agent runs ONLINE (it must browse ClinicalTrials.gov); the static checks grade against a pinned oracle built from the same public records, and the LLM judge scores only the narrative memo. Real data: ClinicalTrials.gov public v2 API."
+reference_link = "https://clinicaltrials.gov/data-api/api"
+
+[agent]
+timeout_sec = 1543
+
+[verifier]
+timeout_sec = 600
+requires_network = true
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600

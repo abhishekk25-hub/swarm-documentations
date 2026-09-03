@@ -1,0 +1,7 @@
+# 2025 AIME I Problem 6
+
+An isosceles trapezoid has an inscribed circle tangent to each of its four sides. The radius of the circle is $3$, and the area of the trapezoid is $72$. Let the parallel sides of the trapezoid have lengths $r$ and $s$, with $r \neq s$. Find $r^2+s^2$
+
+## Diagram
+
+[asy] unitsize(0.5 cm);  real r = 12 + 6*sqrt(3);  real s = 12 - 6*sqrt(3);  real h = 6;    pair A = (-r/2, 0); pair B = ( r/2, 0); pair C = ( s/2, h); pair D = (-s/2, h);  draw(A--B--C--D--cycle);  pair O = (0, h/2); draw(circle(O, 3));  dot(A); label("$A$", A, SW); dot(B); label("$B$", B, SE); dot(C); label("$C$", C, NE); dot(D); label("$D$", D, NW);  dot(O); label("$O$", (0,h/2), E);  label("$r$", midpoint(A--B), S); label("$s$", midpoint(C--D), N); [/asy]

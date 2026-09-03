@@ -1,0 +1,29 @@
+[task]
+name = "swarmbench/25b0c3af7be246f49205f9e4303a0968-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-INDIANA-COURT-OF-APPEALS-DECISION-DIGEST-REVIEW"
+description = "Build an Indiana Court of Appeals cause-drawer casebook from 72 opinions: printed-cause cards on criminal, postconviction, family, and civil drawers, a clerk cause index, a transfer calendar, and Appellate Rule 46 homework on briefing, PCR, and CHINS."
+
+[metadata]
+verifier_type = "hybrid"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_writing", "long_horizon"]
+dag_depth = 3
+dag_width = 36
+human_solving_hours_estimate = 103.7
+human_solving_hours_justification = "Reading 379,434 words of opinions at 5,000 words/hour takes 75.9 hours. Drafting and checking 72 cards at 14 minutes each takes 16.8 hours. Calendar reconciliation takes 4.0 hours; Appellate Rule 46 homework and fidelity QC take 7.0 hours. Total: 75.9 + 16.8 + 4.0 + 7.0 = 103.7 hours."
+estimated_sub_agents = 46
+input_token_estimate = 569000
+why_multi_agent = "A single agent under the shared timeout abandons close reading for a brittle extraction or templating script, then times out with hollow or copied cards rather than finishing the cause index, transfer calendar, and Appellate Rule 46 homework. Thirty-six two-opinion specialists keep two slips in working context, nine leads compare eight matters apiece, and a merger files the drawers and memo."
+reference_link = "https://storage.courtlistener.com/pdf/2026/08/20/alberto_garcia_rodriguez_v._state_of_indiana.pdf"
+network_enabled = false
+
+[agent]
+timeout_sec = 720
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600

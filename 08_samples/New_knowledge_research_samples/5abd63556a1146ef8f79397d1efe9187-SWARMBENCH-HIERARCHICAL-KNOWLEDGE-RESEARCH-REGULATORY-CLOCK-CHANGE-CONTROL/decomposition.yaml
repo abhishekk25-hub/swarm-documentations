@@ -1,0 +1,680 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+
+# Forty-eight readers produce disjoint casefiles. Six portfolio managers then review
+# eight reader outputs each and hand corrected payloads to the final editor.
+sub_tasks:
+  - id: portfolio-1
+    subagent_type: general
+    parallel_group: portfolio_managers
+    depends_on: [read-rcc-001, read-rcc-002, read-rcc-003, read-rcc-004, read-rcc-005, read-rcc-006, read-rcc-007, read-rcc-008]
+    description: >
+      Review the completed reader outputs for records RCC-001, RCC-002, RCC-003, RCC-004, RCC-005, RCC-006, RCC-007, RCC-008. Open every returned casefile and its
+      frozen source, check quotation round-trips, clock chronology, predecessor citations,
+      scope boundaries, narratives, and exception flags, and directly repair or reauthor
+      anything incomplete or unsupported. Do not merely count defects and do not relaunch a
+      specialist that completed successfully. Write every corrected casefile back to
+      /logs/agent/casefiles/<record_id>.json, then write
+      /workspace/portfolio_reviews/portfolio-1.json with all eight corrected casefile payloads,
+      per-record review findings, and a portfolio synthesis draft for the final editor.
+
+  - id: read-rcc-001
+    subagent_type: explore
+    parallel_group: readers_1
+    depends_on: []
+    description: >
+      Reconcile only RCC-001 (2026-15192). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-001.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-002
+    subagent_type: explore
+    parallel_group: readers_1
+    depends_on: []
+    description: >
+      Reconcile only RCC-002 (2026-15123). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-002.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-003
+    subagent_type: explore
+    parallel_group: readers_1
+    depends_on: []
+    description: >
+      Reconcile only RCC-003 (2026-14439). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-003.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-004
+    subagent_type: explore
+    parallel_group: readers_1
+    depends_on: []
+    description: >
+      Reconcile only RCC-004 (2026-14204). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-004.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-005
+    subagent_type: explore
+    parallel_group: readers_1
+    depends_on: []
+    description: >
+      Reconcile only RCC-005 (2026-13347). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-005.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-006
+    subagent_type: explore
+    parallel_group: readers_1
+    depends_on: []
+    description: >
+      Reconcile only RCC-006 (2026-13305). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-006.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-007
+    subagent_type: explore
+    parallel_group: readers_1
+    depends_on: []
+    description: >
+      Reconcile only RCC-007 (2026-13304). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-007.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-008
+    subagent_type: explore
+    parallel_group: readers_1
+    depends_on: []
+    description: >
+      Reconcile only RCC-008 (2026-13155). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-008.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: portfolio-2
+    subagent_type: general
+    parallel_group: portfolio_managers
+    depends_on: [read-rcc-009, read-rcc-010, read-rcc-011, read-rcc-012, read-rcc-013, read-rcc-014, read-rcc-015, read-rcc-016]
+    description: >
+      Review the completed reader outputs for records RCC-009, RCC-010, RCC-011, RCC-012, RCC-013, RCC-014, RCC-015, RCC-016. Open every returned casefile and its
+      frozen source, check quotation round-trips, clock chronology, predecessor citations,
+      scope boundaries, narratives, and exception flags, and directly repair or reauthor
+      anything incomplete or unsupported. Do not merely count defects and do not relaunch a
+      specialist that completed successfully. Write every corrected casefile back to
+      /logs/agent/casefiles/<record_id>.json, then write
+      /workspace/portfolio_reviews/portfolio-2.json with all eight corrected casefile payloads,
+      per-record review findings, and a portfolio synthesis draft for the final editor.
+
+  - id: read-rcc-009
+    subagent_type: explore
+    parallel_group: readers_2
+    depends_on: []
+    description: >
+      Reconcile only RCC-009 (2026-12717). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-009.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-010
+    subagent_type: explore
+    parallel_group: readers_2
+    depends_on: []
+    description: >
+      Reconcile only RCC-010 (2026-11140). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-010.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-011
+    subagent_type: explore
+    parallel_group: readers_2
+    depends_on: []
+    description: >
+      Reconcile only RCC-011 (2026-11057). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-011.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-012
+    subagent_type: explore
+    parallel_group: readers_2
+    depends_on: []
+    description: >
+      Reconcile only RCC-012 (2026-10880). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-012.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-013
+    subagent_type: explore
+    parallel_group: readers_2
+    depends_on: []
+    description: >
+      Reconcile only RCC-013 (2026-10727). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-013.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-014
+    subagent_type: explore
+    parallel_group: readers_2
+    depends_on: []
+    description: >
+      Reconcile only RCC-014 (2026-10160). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-014.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-015
+    subagent_type: explore
+    parallel_group: readers_2
+    depends_on: []
+    description: >
+      Reconcile only RCC-015 (2026-10011). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-015.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-016
+    subagent_type: explore
+    parallel_group: readers_2
+    depends_on: []
+    description: >
+      Reconcile only RCC-016 (2026-09849). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-016.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: portfolio-3
+    subagent_type: general
+    parallel_group: portfolio_managers
+    depends_on: [read-rcc-017, read-rcc-018, read-rcc-019, read-rcc-020, read-rcc-021, read-rcc-022, read-rcc-023, read-rcc-024]
+    description: >
+      Review the completed reader outputs for records RCC-017, RCC-018, RCC-019, RCC-020, RCC-021, RCC-022, RCC-023, RCC-024. Open every returned casefile and its
+      frozen source, check quotation round-trips, clock chronology, predecessor citations,
+      scope boundaries, narratives, and exception flags, and directly repair or reauthor
+      anything incomplete or unsupported. Do not merely count defects and do not relaunch a
+      specialist that completed successfully. Write every corrected casefile back to
+      /logs/agent/casefiles/<record_id>.json, then write
+      /workspace/portfolio_reviews/portfolio-3.json with all eight corrected casefile payloads,
+      per-record review findings, and a portfolio synthesis draft for the final editor.
+
+  - id: read-rcc-017
+    subagent_type: explore
+    parallel_group: readers_3
+    depends_on: []
+    description: >
+      Reconcile only RCC-017 (2026-09822). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-017.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-018
+    subagent_type: explore
+    parallel_group: readers_3
+    depends_on: []
+    description: >
+      Reconcile only RCC-018 (2026-09565). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-018.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-019
+    subagent_type: explore
+    parallel_group: readers_3
+    depends_on: []
+    description: >
+      Reconcile only RCC-019 (2026-09266). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-019.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-020
+    subagent_type: explore
+    parallel_group: readers_3
+    depends_on: []
+    description: >
+      Reconcile only RCC-020 (2026-08386). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-020.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-021
+    subagent_type: explore
+    parallel_group: readers_3
+    depends_on: []
+    description: >
+      Reconcile only RCC-021 (2026-08339). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-021.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-022
+    subagent_type: explore
+    parallel_group: readers_3
+    depends_on: []
+    description: >
+      Reconcile only RCC-022 (2026-07663). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-022.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-023
+    subagent_type: explore
+    parallel_group: readers_3
+    depends_on: []
+    description: >
+      Reconcile only RCC-023 (2026-07622). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-023.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-024
+    subagent_type: explore
+    parallel_group: readers_3
+    depends_on: []
+    description: >
+      Reconcile only RCC-024 (2026-06866). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-024.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: portfolio-4
+    subagent_type: general
+    parallel_group: portfolio_managers
+    depends_on: [read-rcc-025, read-rcc-026, read-rcc-027, read-rcc-028, read-rcc-029, read-rcc-030, read-rcc-031, read-rcc-032]
+    description: >
+      Review the completed reader outputs for records RCC-025, RCC-026, RCC-027, RCC-028, RCC-029, RCC-030, RCC-031, RCC-032. Open every returned casefile and its
+      frozen source, check quotation round-trips, clock chronology, predecessor citations,
+      scope boundaries, narratives, and exception flags, and directly repair or reauthor
+      anything incomplete or unsupported. Do not merely count defects and do not relaunch a
+      specialist that completed successfully. Write every corrected casefile back to
+      /logs/agent/casefiles/<record_id>.json, then write
+      /workspace/portfolio_reviews/portfolio-4.json with all eight corrected casefile payloads,
+      per-record review findings, and a portfolio synthesis draft for the final editor.
+
+  - id: read-rcc-025
+    subagent_type: explore
+    parallel_group: readers_4
+    depends_on: []
+    description: >
+      Reconcile only RCC-025 (2026-06864). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-025.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-026
+    subagent_type: explore
+    parallel_group: readers_4
+    depends_on: []
+    description: >
+      Reconcile only RCC-026 (2026-06851). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-026.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-027
+    subagent_type: explore
+    parallel_group: readers_4
+    depends_on: []
+    description: >
+      Reconcile only RCC-027 (2026-06614). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-027.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-028
+    subagent_type: explore
+    parallel_group: readers_4
+    depends_on: []
+    description: >
+      Reconcile only RCC-028 (2026-06584). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-028.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-029
+    subagent_type: explore
+    parallel_group: readers_4
+    depends_on: []
+    description: >
+      Reconcile only RCC-029 (2026-06197). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-029.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-030
+    subagent_type: explore
+    parallel_group: readers_4
+    depends_on: []
+    description: >
+      Reconcile only RCC-030 (2026-06196). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-030.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-031
+    subagent_type: explore
+    parallel_group: readers_4
+    depends_on: []
+    description: >
+      Reconcile only RCC-031 (2026-05733). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-031.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-032
+    subagent_type: explore
+    parallel_group: readers_4
+    depends_on: []
+    description: >
+      Reconcile only RCC-032 (2026-05732). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-032.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: portfolio-5
+    subagent_type: general
+    parallel_group: portfolio_managers
+    depends_on: [read-rcc-033, read-rcc-034, read-rcc-035, read-rcc-036, read-rcc-037, read-rcc-038, read-rcc-039, read-rcc-040]
+    description: >
+      Review the completed reader outputs for records RCC-033, RCC-034, RCC-035, RCC-036, RCC-037, RCC-038, RCC-039, RCC-040. Open every returned casefile and its
+      frozen source, check quotation round-trips, clock chronology, predecessor citations,
+      scope boundaries, narratives, and exception flags, and directly repair or reauthor
+      anything incomplete or unsupported. Do not merely count defects and do not relaunch a
+      specialist that completed successfully. Write every corrected casefile back to
+      /logs/agent/casefiles/<record_id>.json, then write
+      /workspace/portfolio_reviews/portfolio-5.json with all eight corrected casefile payloads,
+      per-record review findings, and a portfolio synthesis draft for the final editor.
+
+  - id: read-rcc-033
+    subagent_type: explore
+    parallel_group: readers_5
+    depends_on: []
+    description: >
+      Reconcile only RCC-033 (2026-04990). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-033.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-034
+    subagent_type: explore
+    parallel_group: readers_5
+    depends_on: []
+    description: >
+      Reconcile only RCC-034 (2026-04455). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-034.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-035
+    subagent_type: explore
+    parallel_group: readers_5
+    depends_on: []
+    description: >
+      Reconcile only RCC-035 (2026-04454). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-035.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-036
+    subagent_type: explore
+    parallel_group: readers_5
+    depends_on: []
+    description: >
+      Reconcile only RCC-036 (2026-04453). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-036.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-037
+    subagent_type: explore
+    parallel_group: readers_5
+    depends_on: []
+    description: >
+      Reconcile only RCC-037 (2026-04452). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-037.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-038
+    subagent_type: explore
+    parallel_group: readers_5
+    depends_on: []
+    description: >
+      Reconcile only RCC-038 (2026-03459). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-038.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-039
+    subagent_type: explore
+    parallel_group: readers_5
+    depends_on: []
+    description: >
+      Reconcile only RCC-039 (2026-03455). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-039.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-040
+    subagent_type: explore
+    parallel_group: readers_5
+    depends_on: []
+    description: >
+      Reconcile only RCC-040 (2026-02866). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-040.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: portfolio-6
+    subagent_type: general
+    parallel_group: portfolio_managers
+    depends_on: [read-rcc-041, read-rcc-042, read-rcc-043, read-rcc-044, read-rcc-045, read-rcc-046, read-rcc-047, read-rcc-048]
+    description: >
+      Review the completed reader outputs for records RCC-041, RCC-042, RCC-043, RCC-044, RCC-045, RCC-046, RCC-047, RCC-048. Open every returned casefile and its
+      frozen source, check quotation round-trips, clock chronology, predecessor citations,
+      scope boundaries, narratives, and exception flags, and directly repair or reauthor
+      anything incomplete or unsupported. Do not merely count defects and do not relaunch a
+      specialist that completed successfully. Write every corrected casefile back to
+      /logs/agent/casefiles/<record_id>.json, then write
+      /workspace/portfolio_reviews/portfolio-6.json with all eight corrected casefile payloads,
+      per-record review findings, and a portfolio synthesis draft for the final editor.
+
+  - id: read-rcc-041
+    subagent_type: explore
+    parallel_group: readers_6
+    depends_on: []
+    description: >
+      Reconcile only RCC-041 (2026-02311). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-041.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-042
+    subagent_type: explore
+    parallel_group: readers_6
+    depends_on: []
+    description: >
+      Reconcile only RCC-042 (2026-01797). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-042.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-043
+    subagent_type: explore
+    parallel_group: readers_6
+    depends_on: []
+    description: >
+      Reconcile only RCC-043 (2026-01770). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-043.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-044
+    subagent_type: explore
+    parallel_group: readers_6
+    depends_on: []
+    description: >
+      Reconcile only RCC-044 (2026-01648). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-044.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-045
+    subagent_type: explore
+    parallel_group: readers_6
+    depends_on: []
+    description: >
+      Reconcile only RCC-045 (2026-01622). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-045.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-046
+    subagent_type: explore
+    parallel_group: readers_6
+    depends_on: []
+    description: >
+      Reconcile only RCC-046 (2026-01570). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-046.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-047
+    subagent_type: explore
+    parallel_group: readers_6
+    depends_on: []
+    description: >
+      Reconcile only RCC-047 (2026-01569). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-047.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: read-rcc-048
+    subagent_type: explore
+    parallel_group: readers_6
+    depends_on: []
+    description: >
+      Reconcile only RCC-048 (2026-01566). Read its catalog row, the change-control
+      rulebook, and its own frozen source. Write the complete grounded casefile to
+      /logs/agent/casefiles/RCC-048.json with correct chronology, affected scope, action class,
+      predecessor citations, flags, distinct narratives, and three to seven contiguous
+      evidence passages. Return the full payload to the owning portfolio manager. Do not
+      open or write another record.
+
+  - id: cohort-integrity-editor
+    subagent_type: general
+    parallel_group: cohort_synthesis
+    depends_on: [read-rcc-001, read-rcc-002, read-rcc-003, read-rcc-004, read-rcc-005, read-rcc-006, read-rcc-007, read-rcc-008, read-rcc-009, read-rcc-010, read-rcc-011, read-rcc-012, read-rcc-013, read-rcc-014, read-rcc-015, read-rcc-016, read-rcc-017, read-rcc-018, read-rcc-019, read-rcc-020, read-rcc-021, read-rcc-022, read-rcc-023, read-rcc-024, read-rcc-025, read-rcc-026, read-rcc-027, read-rcc-028, read-rcc-029, read-rcc-030, read-rcc-031, read-rcc-032, read-rcc-033, read-rcc-034, read-rcc-035, read-rcc-036, read-rcc-037, read-rcc-038, read-rcc-039, read-rcc-040, read-rcc-041, read-rcc-042, read-rcc-043, read-rcc-044, read-rcc-045, read-rcc-046, read-rcc-047, read-rcc-048, portfolio-1, portfolio-2, portfolio-3, portfolio-4, portfolio-5, portfolio-6]
+    description: >
+      Consume the six repaired portfolio packages and all 48 casefiles under /logs/agent/casefiles/. You have full authority to reopen any frozen source file, re-check any reader payload, and directly re-author or repair any casefile. Verify every mandatory top-level key (record_id, document_number, agency, publication_date, action_class, affected_authority, prior_effective_date, new_effective_date, compliance_dates, referenced_predecessors, operative_scope, disposition, confidence, exception_flags, evidence) is present and non-null in all 48 casefiles; correct any casefile found incomplete against its source before proceeding. Next, recompute the complete regulatory_clock_register.csv (with exact header: record_id, document_number, agency, publication_date, action_class, prior_effective_date, new_effective_date, predecessor_count, affected_authority_count, exception_flag_count, chain_id, clock_risk) and the fixed change_control_exceptions.json population. Write regulatory_clock_briefing.md (1,800 to 3,200 words) with cited portfolio distributions, six important chains, six mixed or partial cases, uncertainties, and distinct operational controls. Write all three final artefacts under /logs/agent/.
+
+  - id: atlas-editor
+    subagent_type: general
+    parallel_group: render
+    depends_on: [cohort-integrity-editor]
+    description: >
+      Recompute all five atlas series (including PARTIAL_DELAY, WITHDRAWAL_AND_DELAY, FURTHER_DELAY, INITIAL_DELAY, OTHER_CLOCK_CHANGE) from the final register, casefiles, and exception population.
+      Write /logs/agent/clock_atlas_data.json and an accessible standalone /logs/agent/regulatory_clock_atlas.svg containing all 5 data series in both the chart marks and legend. Verify that visible labels and values agree with the JSON and that the SVG has no raster embed or executable script. Ensure complete static schema conformance across all deliverables under /logs/agent/.

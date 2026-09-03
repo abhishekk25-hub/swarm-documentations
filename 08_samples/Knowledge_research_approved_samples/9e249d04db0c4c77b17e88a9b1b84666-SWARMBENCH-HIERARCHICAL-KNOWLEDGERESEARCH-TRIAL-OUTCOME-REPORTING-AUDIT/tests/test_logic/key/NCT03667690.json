@@ -1,0 +1,853 @@
+{
+ "nct": "NCT03667690",
+ "prespecification_version": 2,
+ "prespecification_date": "2018-10-01",
+ "publications": [
+  "PMC11426279",
+  "PMC11531808",
+  "PMC12589930"
+ ],
+ "prespecified_units": [
+  {
+   "uid": "pri3",
+   "measure": "Global Cure (EU only)",
+   "role": "primary",
+   "timeframe": "Day 14 (+/-1 day)",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12589930",
+   "reported_label": "Global cure at Day 14",
+   "reported_instrument": "DRC",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary efficacy endpoints were ACM at Day 30 and global cure at Day 14.",
+   "result_quote": "Global cure at Day 14 was observed in 48.1% (13/27) of patients in the rezafungin group and 46.4% (13/28) in the caspofungin group (weighted treatment difference 0.3% [95% CI -25.4-26.3]) (Table 3 )."
+  },
+  {
+   "uid": "pri4",
+   "measure": "Global Cure (EU only)",
+   "role": "primary",
+   "timeframe": "Day 14 (+/-1 day)",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12589930",
+   "reported_label": "Global cure at Day 14",
+   "reported_instrument": "DRC",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary efficacy endpoints were ACM at Day 30 and global cure at Day 14.",
+   "result_quote": "Global cure at Day 14 was observed in 48.1% (13/27) of patients in the rezafungin group and 46.4% (13/28) in the caspofungin group (weighted treatment difference 0.3% [95% CI -25.4-26.3]) (Table 3 )."
+  },
+  {
+   "uid": "sec1",
+   "measure": "Global Cure (US FDA only)",
+   "role": "secondary",
+   "timeframe": "Day 14 (+/-1 day)",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12589930",
+   "reported_label": "Global cure at Day 14",
+   "reported_instrument": "DRC",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary efficacy endpoints were ACM at Day 30 and global cure at Day 14.",
+   "result_quote": "Global cure at Day 14 was observed in 48.1% (13/27) of patients in the rezafungin group and 46.4% (13/28) in the caspofungin group (weighted treatment difference 0.3% [95% CI -25.4-26.3]) (Table 3 )."
+  },
+  {
+   "uid": "sec2",
+   "measure": "Global Cure (US FDA only)",
+   "role": "secondary",
+   "timeframe": "Day 14 (+/-1 day)",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12589930",
+   "reported_label": "Global cure at Day 14",
+   "reported_instrument": "DRC",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary efficacy endpoints were ACM at Day 30 and global cure at Day 14.",
+   "result_quote": "Global cure at Day 14 was observed in 48.1% (13/27) of patients in the rezafungin group and 46.4% (13/28) in the caspofungin group (weighted treatment difference 0.3% [95% CI -25.4-26.3]) (Table 3 )."
+  },
+  {
+   "uid": "sec5",
+   "measure": "Comparison of Global Response (as confirmed by the DRC)",
+   "role": "secondary",
+   "timeframe": "Day 5, Day 30 (-2 days), End Of Treatment (<=2 days of last dose) and Follow-up (Days 52-59).",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12589930",
+   "reported_label": "Global cure at Day 5",
+   "reported_instrument": "DRC",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary efficacy endpoints included global cure at Day 5, and mycological eradication, clinical cure and radiological cure (for patients with IC) at Day 5 and 14.",
+   "result_quote": "Global cure at Day 5 was seen in 33.3% (9/27) of patients in the rezafungin group and 35.7% (10/28) in the caspofungin group (treatment difference -2.4% [95% CI -27.0-22.6]) (Table 4 )."
+  },
+  {
+   "uid": "sec6",
+   "measure": "Comparison of Global Response (as confirmed by the DRC)",
+   "role": "secondary",
+   "timeframe": "Day 5, Day 30 (-2 days), End Of Treatment (<=2 days of last dose) and Follow-up (Days 52-59).",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC12589930",
+   "reported_label": "Global cure at Day 5",
+   "reported_instrument": "DRC",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary efficacy endpoints included global cure at Day 5, and mycological eradication, clinical cure and radiological cure (for patients with IC) at Day 5 and 14.",
+   "result_quote": "Global cure at Day 5 was seen in 33.3% (9/27) of patients in the rezafungin group and 35.7% (10/28) in the caspofungin group (treatment difference -2.4% [95% CI -27.0-22.6]) (Table 4 )."
+  },
+  {
+   "uid": "sec7",
+   "measure": "Comparison of Mycological Response",
+   "role": "secondary",
+   "timeframe": "Day 5, Day 14 (+/-1 day), Day 30 (-2 days), End Of Treatment (<=2 days of last dose), and Follow-up (Days 52-59).",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11426279",
+   "reported_label": "day 5 mycological eradication",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Additional efficacy endpoints included mycological eradication at days 5 and 14, time to first negative blood culture (TTNBC), and the percentage of negative blood cultures (NBCs) at 24 and 48 hours after the first dose of the study drug.",
+   "result_quote": "day 5 mycological eradication was 71.1% and 50.0% (between-group difference, 21.1% [-0.2%, 40.2%])."
+  },
+  {
+   "uid": "sec8",
+   "measure": "Comparison of Mycological Response",
+   "role": "secondary",
+   "timeframe": "Day 5, Day 14 (+/-1 day), Day 30 (-2 days), End Of Treatment (<=2 days of last dose), and Follow-up (Days 52-59).",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11426279",
+   "reported_label": "day 5 mycological eradication",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Additional efficacy endpoints included mycological eradication at days 5 and 14, time to first negative blood culture (TTNBC), and the percentage of negative blood cultures (NBCs) at 24 and 48 hours after the first dose of the study drug.",
+   "result_quote": "day 5 mycological eradication was 71.1% and 50.0% (between-group difference, 21.1% [-0.2%, 40.2%])."
+  },
+  {
+   "uid": "sec11",
+   "measure": "Incidence of treatment emergent adverse events [Safety and Tolerability]",
+   "role": "secondary",
+   "timeframe": "Day 1 through Follow-up visit (Days 52-59)",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11426279",
+   "reported_label": "treatment-emergent adverse events (TEAEs)",
+   "reported_instrument": "National Cancer Institute Common Terminology Criteria for Adverse Events (NCI-CTCAE) version 5.0",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety endpoints included treatment-emergent adverse events (TEAEs), drug-related TEAEs, serious adverse events (SAEs), and drug-related SAEs.",
+   "result_quote": "Echinocandins are recommended as first-line antifungal treatment for candidemia and IC in Europe and the United States [ 6-8 ] based on their efficacy and relatively fewer adverse effects and drug-drug interactions compared with polyenes and triazoles."
+  },
+  {
+   "uid": "sec12",
+   "measure": "Evaluate Pharmacokinetics (Cmax)",
+   "role": "secondary",
+   "timeframe": "Day 1; Days 2, 3, 4, or 5 (one sample on one day only); Day 8; Day 14 (for subjects not receiving a Day 15 dose); Day 15 (if applicable) and Day 22 (if applicable)",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec13",
+   "measure": "Evaluate Pharmacokinetics (Time to Cmax [Tmax])",
+   "role": "secondary",
+   "timeframe": "Day 1; Days 2, 3, 4, or 5 (one sample on one day only); Day 8; Day 14 (for subjects not receiving a Day 15 dose); Day 15 (if applicable) and Day 22 (if applicable)",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec14",
+   "measure": "Evaluate Pharmacokinetics (AUC)",
+   "role": "secondary",
+   "timeframe": "Day 1; Days 2, 3, 4, or 5 (one sample on one day only); Day 8; Day 14 (for subjects not receiving a Day 15 dose); Day 15 (if applicable) and Day 22 (if applicable)",
+   "reported": false,
+   "change_disclosed": false
+  }
+ ],
+ "additional_units": [
+  {
+   "rid": "PMC11426279#1",
+   "reporting_document": "PMC11426279",
+   "reported_label": "global cure rate",
+   "reported_instrument": "clinical cure as assessed by the investigator, radiological cure (for patients with IC), and mycological eradication, all of which were confirmed by an independent, blinded Data Review Committee (DRC)",
+   "reported_role": "primary",
+   "role_evidence_quote": "global response at days 5 and 14 visits (primary efficacy outcome of ReSTORE as mandated by the European Medicines Agency)",
+   "result_quote": "At day 5, the global cure rate was 55.3% (21/38) and 43.5% (20/46) in the rezafungin and caspofungin groups, respectively (treatment difference [95% CI]: 11.8% [-9.7%, 32.2%]);"
+  },
+  {
+   "rid": "PMC11426279#2",
+   "reporting_document": "PMC11426279",
+   "reported_label": "global cure rate",
+   "reported_instrument": "clinical cure as assessed by the investigator, radiological cure (for patients with IC), and mycological eradication, all of which were confirmed by an independent, blinded Data Review Committee (DRC)",
+   "reported_role": "primary",
+   "role_evidence_quote": "global response at days 5 and 14 visits (primary efficacy outcome of ReSTORE as mandated by the European Medicines Agency)",
+   "result_quote": "Rezafungin, a novel, once-weekly echinocandin for the treatment of candidemia and/or invasive candidiasis (IC) was noninferior to caspofungin for day 30 all-cause mortality (ACM) and day 14 global cure in the phase 3 ReSTORE trial ( NCT03667690 )."
+  },
+  {
+   "rid": "PMC11426279#3",
+   "reporting_document": "PMC11426279",
+   "reported_label": "day 14 global response",
+   "reported_instrument": "clinical cure as assessed by the investigator, radiological cure (for patients with IC), and mycological eradication, all of which were confirmed by an independent, blinded Data Review Committee (DRC)",
+   "reported_role": "primary",
+   "role_evidence_quote": "global response at days 5 and 14 visits (primary efficacy outcome of ReSTORE as mandated by the European Medicines Agency)",
+   "result_quote": "day 14 global response was 55.3% and 50.0% (between-group difference, 5.3% [-16.1%, 26.0%]),"
+  },
+  {
+   "rid": "PMC11426279#4",
+   "reporting_document": "PMC11426279",
+   "reported_label": "mycological eradication",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Additional efficacy endpoints included mycological eradication at days 5 and 14, time to first negative blood culture (TTNBC), and the percentage of negative blood cultures (NBCs) at 24 and 48 hours after the first dose of the study drug.",
+   "result_quote": "At day 5, the proportion of patients with mycological eradication was 71.1% (27/38) and 50.0% (23/46) in the rezafungin and caspofungin groups, respectively, with a treatment difference (95% CI) of 21.1% (-0.2%, 40.2%);"
+  },
+  {
+   "rid": "PMC11426279#6",
+   "reporting_document": "PMC11426279",
+   "reported_label": "mycological eradication",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Additional efficacy endpoints included mycological eradication at days 5 and 14, time to first negative blood culture (TTNBC), and the percentage of negative blood cultures (NBCs) at 24 and 48 hours after the first dose of the study drug.",
+   "result_quote": "In the rezafungin and caspofungin groups, respectively, day 30 ACM was 26.3% and 21.7% (between-group difference [95% confidence interval], 4.6% [-13.7%, 23.5%]), day 14 global response was 55.3% and 50.0% (between-group difference, 5.3% [-16.1%, 26.0%]), and day 5 mycological eradication was 71.1% and 50.0% (between-group difference, 21.1% [-0.2%, 40.2%])."
+  },
+  {
+   "rid": "PMC11426279#7",
+   "reporting_document": "PMC11426279",
+   "reported_label": "relapse",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Only 1 patient was classified as a relapse between day 5 and Day 14: a patient in the caspofungin group had documented eradication at day 5 but then had breakthrough candidemia on days 9 and 11.",
+   "result_quote": "Only 1 patient was classified as a relapse between day 5 and Day 14: a patient in the caspofungin group had documented eradication at day 5 but then had breakthrough candidemia on days 9 and 11."
+  },
+  {
+   "rid": "PMC11426279#8",
+   "reporting_document": "PMC11426279",
+   "reported_label": "time to first negative blood culture (TTNBC)",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Additional efficacy endpoints included mycological eradication at days 5 and 14, time to first negative blood culture (TTNBC), and the percentage of negative blood cultures (NBCs) at 24 and 48 hours after the first dose of the study drug.",
+   "result_quote": "Median TTNBC was shorter in the rezafungin versus caspofungin group (23.9 vs 60.5 hours, respectively; P = .094 [nominal]) ( Table 2 , Figure 4 )."
+  },
+  {
+   "rid": "PMC11426279#9",
+   "reporting_document": "PMC11426279",
+   "reported_label": "TTNBC",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Additional efficacy endpoints included mycological eradication at days 5 and 14, time to first negative blood culture (TTNBC), and the percentage of negative blood cultures (NBCs) at 24 and 48 hours after the first dose of the study drug.",
+   "result_quote": "Additional efficacy endpoints included mycological eradication at days 5 and 14, time to first negative blood culture (TTNBC), and the percentage of negative blood cultures (NBCs) at 24 and 48 hours after the first dose of the study drug."
+  },
+  {
+   "rid": "PMC11426279#11",
+   "reporting_document": "PMC11426279",
+   "reported_label": "Patients with NBC, a n (%)",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Additional efficacy endpoints included mycological eradication at days 5 and 14, time to first negative blood culture (TTNBC), and the percentage of negative blood cultures (NBCs) at 24 and 48 hours after the first dose of the study drug.",
+   "result_quote": "Patients with NBC, a n (%)\n26/30 (86.7)\n24/35 (68.6)"
+  },
+  {
+   "rid": "PMC11426279#12",
+   "reporting_document": "PMC11426279",
+   "reported_label": "Patients censored, b n (%)",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Patients censored, b n (%)",
+   "result_quote": "Patients censored, b n (%)\n4/30 (13.3)\n11/35 (31.4)"
+  },
+  {
+   "rid": "PMC11426279#13",
+   "reporting_document": "PMC11426279",
+   "reported_label": "negative blood cultures (NBCs) at 24 and 48 hours after the first dose of the study drug",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Additional efficacy endpoints included mycological eradication at days 5 and 14, time to first negative blood culture (TTNBC), and the percentage of negative blood cultures (NBCs) at 24 and 48 hours after the first dose of the study drug.",
+   "result_quote": "At 24 hours following treatment initiation, NBCs were observed in 55.2% (16/29) and 27.3% (9/33) of patients in the rezafungin and caspofungin groups ( P = .0162 [nominal]), respectively;"
+  },
+  {
+   "rid": "PMC11426279#14",
+   "reporting_document": "PMC11426279",
+   "reported_label": "At 24 h",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Additional efficacy endpoints included mycological eradication at days 5 and 14, time to first negative blood culture (TTNBC), and the percentage of negative blood cultures (NBCs) at 24 and 48 hours after the first dose of the study drug.",
+   "result_quote": "At 24 h\n16/29 (55.2)\n9/33 (27.3)"
+  },
+  {
+   "rid": "PMC11426279#17",
+   "reporting_document": "PMC11426279",
+   "reported_label": "negative blood cultures (NBCs) at 24 and 48 hours after the first dose of the study drug",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Additional efficacy endpoints included mycological eradication at days 5 and 14, time to first negative blood culture (TTNBC), and the percentage of negative blood cultures (NBCs) at 24 and 48 hours after the first dose of the study drug.",
+   "result_quote": "at 48 hours, NBCs were observed in 58.6% (17/29) and 43.8% (14/32) of patients ( P = .2460 [nominal])."
+  },
+  {
+   "rid": "PMC11426279#18",
+   "reporting_document": "PMC11426279",
+   "reported_label": "At 48 h",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Additional efficacy endpoints included mycological eradication at days 5 and 14, time to first negative blood culture (TTNBC), and the percentage of negative blood cultures (NBCs) at 24 and 48 hours after the first dose of the study drug.",
+   "result_quote": "At 48 h\n17/29 (58.6)\n14/32 (43.8)"
+  },
+  {
+   "rid": "PMC11426279#22",
+   "reporting_document": "PMC11426279",
+   "reported_label": "drug-related TEAEs",
+   "reported_instrument": "National Cancer Institute Common Terminology Criteria for Adverse Events (NCI-CTCAE) version 5.0",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety endpoints included treatment-emergent adverse events (TEAEs), drug-related TEAEs, serious adverse events (SAEs), and drug-related SAEs.",
+   "result_quote": "Drug-related TEAEs were reported for 5 (13.2%) and 3 (6.5%) patients in the rezafungin and caspofungin groups, respectively."
+  },
+  {
+   "rid": "PMC11426279#23",
+   "reporting_document": "PMC11426279",
+   "reported_label": "serious adverse events (SAEs)",
+   "reported_instrument": "National Cancer Institute Common Terminology Criteria for Adverse Events (NCI-CTCAE) version 5.0",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety endpoints included treatment-emergent adverse events (TEAEs), drug-related TEAEs, serious adverse events (SAEs), and drug-related SAEs.",
+   "result_quote": "More than half of patients had at least 1 serious TEAE (55.3% [21/38] in the rezafungin group and 54.3% [25/46] in the caspofungin group)."
+  },
+  {
+   "rid": "PMC11426279#24",
+   "reporting_document": "PMC11426279",
+   "reported_label": "drug-related SAEs",
+   "reported_instrument": "National Cancer Institute Common Terminology Criteria for Adverse Events (NCI-CTCAE) version 5.0",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety endpoints included treatment-emergent adverse events (TEAEs), drug-related TEAEs, serious adverse events (SAEs), and drug-related SAEs.",
+   "result_quote": "One patient in the rezafungin group had a serious drug-related TEAE (infusion-related reaction), whereas 2 serious drug-related TEAEs were reported in the caspofungin group (elevated transaminase levels and anaphylactic shock)."
+  },
+  {
+   "rid": "PMC11426279#25",
+   "reporting_document": "PMC11426279",
+   "reported_label": "abnormal clinical laboratory evaluations",
+   "reported_instrument": "National Cancer Institute Common Terminology Criteria for Adverse Events (NCI-CTCAE) version 5.0",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety was also assessed through evaluation of clinical laboratory data.",
+   "result_quote": "A small number of patients experienced abnormal clinical laboratory evaluations (6 [15.8%] in the rezafungin group and 6 [13.0%] in the caspofungin group)."
+  },
+  {
+   "rid": "PMC11531808#0",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Patients managed via OPAT among those receiving >=7 days of echinocandin",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Patient characteristics, treatment and outcomes were studied.",
+   "result_quote": "Across the study period, 11% (44/386) of all patients in our Health Service treated with >=7 days of echinocandin were managed via OPAT."
+  },
+  {
+   "rid": "PMC11531808#1",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Total days of echinocandin administered as OPAT",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Patient characteristics, treatment and outcomes were studied.",
+   "result_quote": "In total, 633 days of echinocandin were administered as OPAT."
+  },
+  {
+   "rid": "PMC11531808#2",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Treatment with concurrent IV antibiotics on OPAT",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Patient characteristics, treatment and outcomes were studied.",
+   "result_quote": "Thirteen patients (13/41; 32%) received concurrent parenteral antibacterials."
+  },
+  {
+   "rid": "PMC11531808#3",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Treatment success",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "outcomes were adapted from the UK OPAT Good Practice Recommendations (GPR).",
+   "result_quote": "Treatment success was achieved in 30/41 (73%) patients."
+  },
+  {
+   "rid": "PMC11531808#4",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Successful",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "outcomes were adapted from the UK OPAT Good Practice Recommendations (GPR).",
+   "result_quote": "Outcome of treatment, n (%)\n\n  Successful\n30 (73)"
+  },
+  {
+   "rid": "PMC11531808#7",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Readmitted; related to infection and/or therapy",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "outcomes were adapted from the UK OPAT Good Practice Recommendations (GPR).",
+   "result_quote": "Readmitted; related to infection and/or therapy\n\n7 (17)"
+  },
+  {
+   "rid": "PMC11531808#8",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Patient led cessation of therapy",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "outcomes were adapted from the UK OPAT Good Practice Recommendations (GPR).",
+   "result_quote": "Patient led cessation of therapy\n\n2 (5)"
+  },
+  {
+   "rid": "PMC11531808#9",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Readmission unrelated to OPAT episode",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "outcomes were adapted from the UK OPAT Good Practice Recommendations (GPR).",
+   "result_quote": "Readmission unrelated to OPAT episode\n2 (5)"
+  },
+  {
+   "rid": "PMC11531808#10",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Potential reduction in total number of OPAT treatments with weekly echinocandin dosing",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary analysis, to determine the feasibility of weekly echinocandin therapy, was conducted based on a potential change in the number of OPAT 'treatments' required if weekly rezafungin was substituted for daily echinocandin.",
+   "result_quote": "If daily echinocandin dosing was replaced with weekly dosing, a potential 52% (633 to 326) reduction in the total number of treatments (for any therapy) delivered by the OPAT team is possible."
+  },
+  {
+   "rid": "PMC11531808#11",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Potential weekly echinocandin treatments replacing daily echinocandin OPAT treatments",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary analysis, to determine the feasibility of weekly echinocandin therapy, was conducted based on a potential change in the number of OPAT 'treatments' required if weekly rezafungin was substituted for daily echinocandin.",
+   "result_quote": "Our 633 daily OPAT 'treatments' with an echinocandin equate to 106 potential treatments with a weekly echinocandin, a nominal reduction of 527/633 (92%) treatments."
+  },
+  {
+   "rid": "PMC11531808#12",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Visits/administration for concurrent daily parenteral antibiotics with weekly echinocandin",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary analysis, to determine the feasibility of weekly echinocandin therapy, was conducted based on a potential change in the number of OPAT 'treatments' required if weekly rezafungin was substituted for daily echinocandin.",
+   "result_quote": "As 13 patients received concurrent daily parenteral antibiotics, 262 visits/administration for this therapy are still required, even with weekly echinocandin administration (42 treatments with echinocandin + antibiotic AND 220 treatments on the remaining 6 days of the week with antibiotics alone)."
+  },
+  {
+   "rid": "PMC11531808#13",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Total care burden reduction in OPAT treatments with weekly echinocandin",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary analysis, to determine the feasibility of weekly echinocandin therapy, was conducted based on a potential change in the number of OPAT 'treatments' required if weekly rezafungin was substituted for daily echinocandin.",
+   "result_quote": "Therefore, by utilizing weekly echinocandin in our cohort, the total care burden could be reduced from 633 to 326 treatments (52% reduction) (Figure S2 )."
+  },
+  {
+   "rid": "PMC11531808#14",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Excess therapy days per patient under conservative weekly dosing",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "To understand the impact of rounding, the excess days of therapy were calculated in this scenario based on an assumed 7 day therapeutic effect of rezafungin.",
+   "result_quote": "Using the conservative weekly dosing strategy, there was a median excess therapy of 2 days (IQR 1-4) per patient, with 109 excess days across the cohort."
+  },
+  {
+   "rid": "PMC11531808#15",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Increase in total days of echinocandin therapy exposure under conservative weekly dosing",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "To understand the impact of rounding, the excess days of therapy were calculated in this scenario based on an assumed 7 day therapeutic effect of rezafungin.",
+   "result_quote": "This represents a 15% increase in the total 'days' of echinocandin therapy exposure relative to daily dosing."
+  },
+  {
+   "rid": "PMC11531808#16",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Echinocandin patients on OPAT in 2022",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Patient characteristics, treatment and outcomes were studied.",
+   "result_quote": "Utilization increased over time, with the highest number of echinocandin patients on OPAT in the final year of the study, 2022 (9/41; 22%)."
+  },
+  {
+   "rid": "PMC11531808#17",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Duration of echinocandin therapy on OPAT",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Days of echinocandin/antibacterial were calculated from medication chart records and are presented as a median and IQR.",
+   "result_quote": "Excluding the two patients admitted directly to the OPAT programme, echinocandin was administered for a median of 9 days (IQR 4-15) via OPAT comprising 58% of patients' total echinocandin duration."
+  },
+  {
+   "rid": "PMC11531808#18",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Total length of care within our Health Service accounted for by OPAT/HITH",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Patient characteristics, treatment and outcomes were studied.",
+   "result_quote": "Overall, OPAT/HITH accounted for 49% of patients' total length of care within our Health Service (median OPAT/HITH stay of 17 days; IQR 8-26) as patients remained on the programme for care, including ongoing antibacterial and/or wound management after completion of antifungals."
+  },
+  {
+   "rid": "PMC11531808#19",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Readmission rate",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "outcomes were adapted from the UK OPAT Good Practice Recommendations (GPR).",
+   "result_quote": "The readmission rate (9/41; 24%) was higher than our previously described rate of 12% across the HITH programme (infectious and non-infectious diagnoses)"
+  },
+  {
+   "rid": "PMC11531808#20",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Concurrent parenteral antibacterials administered on OPAT",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Patient characteristics, treatment and outcomes were studied.",
+   "result_quote": "Concurrent parenteral antibacterials were administered in 13/41 (32%) patients."
+  },
+  {
+   "rid": "PMC11531808#21",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Patients receiving concurrent parenteral antibacterials who received echinocandins via OPAT for >14 days",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Patient characteristics, treatment and outcomes were studied.",
+   "result_quote": "Most patients receiving concurrent parenteral antibacterials (77%; 10/13) received echinocandins via OPAT for >14 days."
+  },
+  {
+   "rid": "PMC11531808#22",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Courses of echinocandin on OPAT of extended duration",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Patient characteristics, treatment and outcomes were studied.",
+   "result_quote": "Most courses of echinocandin on OPAT were of an extended duration, with 76% more than 7 days and 46% more than 14 days."
+  },
+  {
+   "rid": "PMC11531808#23",
+   "reporting_document": "PMC11531808",
+   "reported_label": "Invasive fungal infection proven (EORTC/MSG criteria)",
+   "reported_instrument": "EORTC/MSG 2019 criteria",
+   "reported_role": "other",
+   "role_evidence_quote": "In short, infection was categorized as per EORTC/MSG 2019 criteria",
+   "result_quote": "Invasive fungal infection was proven (EORTC/MSG criteria) in 37/41 (90%) of patients."
+  },
+  {
+   "rid": "PMC12589930#0",
+   "reporting_document": "PMC12589930",
+   "reported_label": "All cause mortality at Day 30",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary efficacy endpoints were ACM at Day 30 and global cure at Day 14.",
+   "result_quote": "The global double blind, randomised, Phase 3 ReSTORE trial ( NCT03667690 ) demonstrated noninferiority of rezafungin versus caspofungin for all cause mortality at Day 30 and global cure at Day 14 in patients with candidemia and/or invasive candidiasis."
+  },
+  {
+   "rid": "PMC12589930#1",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Known to have died",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary efficacy endpoints were ACM at Day 30 and global cure at Day 14.",
+   "result_quote": "Known to have died\n5 (18.5)\n7 (25.0)"
+  },
+  {
+   "rid": "PMC12589930#2",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Unknown survival status",
+   "reported_instrument": "",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary efficacy endpoints were ACM at Day 30 and global cure at Day 14.",
+   "result_quote": "Unknown survival status\n4 (14.8)\n3 (10.7)"
+  },
+  {
+   "rid": "PMC12589930#4",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Cure",
+   "reported_instrument": "DRC",
+   "reported_role": "primary",
+   "role_evidence_quote": "The primary efficacy endpoints were ACM at Day 30 and global cure at Day 14.",
+   "result_quote": "Global response at Day 14, assessed by DRC\n\nCure\n13 (48.1)\n13 (46.4)\n0.3 (-25.4-26.3)"
+  },
+  {
+   "rid": "PMC12589930#6",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Global cure, assessed by DRC",
+   "reported_instrument": "DRC",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary efficacy endpoints included global cure at Day 5, and mycological eradication, clinical cure and radiological cure (for patients with IC) at Day 5 and 14.",
+   "result_quote": "Day 5 endpoints\n\nGlobal cure, assessed by DRC, n (%)\n9 (33.3)\n10 (35.7)\n-2.4 (-27.0-22.6)"
+  },
+  {
+   "rid": "PMC12589930#7",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Mycological eradication at Day 5",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary efficacy endpoints included global cure at Day 5, and mycological eradication, clinical cure and radiological cure (for patients with IC) at Day 5 and 14.",
+   "result_quote": "Mycological eradication at Day 5 was seen in 70.4% (19/27) of patients in the rezafungin group and 71.4% (20/28) in the caspofungin group."
+  },
+  {
+   "rid": "PMC12589930#8",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Mycological eradication at Day 14",
+   "reported_instrument": "",
+   "reported_role": "secondary",
+   "role_evidence_quote": "Secondary efficacy endpoints included global cure at Day 5, and mycological eradication, clinical cure and radiological cure (for patients with IC) at Day 5 and 14.",
+   "result_quote": "At Day 14, mycological eradication was seen in 63.0% (17/27) and 67.9% (19/28) of patients in the rezafungin group and the caspofungin group, respectively (Table 4 )."
+  },
+  {
+   "rid": "PMC12589930#9",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Proportion of patients with a negative blood culture at 24 h",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Exploratory efficacy endpoints were the proportion of patients with a negative blood culture at 24 and 48 h post first dose and time to first negative blood culture.",
+   "result_quote": "At 24 h, the proportion of patients with a negative blood culture was 20.8% (5/24) in the rezafungin group and 16.7% (4/24) in the caspofungin group."
+  },
+  {
+   "rid": "PMC12589930#10",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Patients with negative blood culture at 24 h",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Exploratory efficacy endpoints were the proportion of patients with a negative blood culture at 24 and 48 h post first dose and time to first negative blood culture.",
+   "result_quote": "Exploratory endpoint\n\nPatients with negative blood culture, n / N (%)\n\nAt 24 h\n5/24 (20.8)\n4/24 (16.7)\n-"
+  },
+  {
+   "rid": "PMC12589930#11",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Proportion of patients with a negative blood culture at 48 h",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Exploratory efficacy endpoints were the proportion of patients with a negative blood culture at 24 and 48 h post first dose and time to first negative blood culture.",
+   "result_quote": "susceptible to fluconazole, all signs and symptoms of candidemia/IC resolved, most recent blood culture negative for Candida spp., and no evidence of moderate to severe hepatic injury (see the Supporting Information ) [ 28 ]) could switch to oral stepdown therapy (placebo for patients who received rezafungin, fluconazole 200-800 mg/day for patients who received caspofungin)."
+  },
+  {
+   "rid": "PMC12589930#12",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Time to first negative blood culture",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Exploratory efficacy endpoints were the proportion of patients with a negative blood culture at 24 and 48 h post first dose and time to first negative blood culture.",
+   "result_quote": "The median time to first negative blood culture was 46.4 h (95% CI 32.4-90.3) in the rezafungin group and 48.9 h (95% CI 37.8-94.3) in the caspofungin group."
+  },
+  {
+   "rid": "PMC12589930#13",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Duration of hospital stay",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additional exploratory endpoints in the China cohort were duration of hospital and intensive care unit (ICU) admissions and readmissions.",
+   "result_quote": "the median duration of hospital stay across all admissions was 25.0 days (IQR 16.0-45.0) in the rezafungin group and 21.0 days (IQR 15.0-31.0) in the caspofungin group."
+  },
+  {
+   "rid": "PMC12589930#14",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Duration of ICU admission",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additional exploratory endpoints in the China cohort were duration of hospital and intensive care unit (ICU) admissions and readmissions.",
+   "result_quote": "The median duration of ICU admission was 10.0 days (IQR 6.0-24.0; n  = 9) and 10.5 days (IQR 4.0-22.0; n  = 6) in the rezafungin and the caspofungin group, respectively."
+  },
+  {
+   "rid": "PMC12589930#15",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Newly admitted to the ICU on or after Day 1",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additional exploratory endpoints in the China cohort were duration of hospital and intensive care unit (ICU) admissions and readmissions.",
+   "result_quote": "Two (7.4%) patients receiving rezafungin and four (14.3%) patients receiving caspofungin were newly admitted to the ICU on or after Day 1 of the study."
+  },
+  {
+   "rid": "PMC12589930#16",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Hospital readmissions by follow up (Days 52-59)",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additional exploratory endpoints in the China cohort were duration of hospital and intensive care unit (ICU) admissions and readmissions.",
+   "result_quote": "In the mITT population, in patients who remained alive during hospitalisation ( n  = 23 in both treatment groups), the median duration of hospital stay across all admissions was 25.0 days (IQR 16.0-45.0) in the rezafungin group and 21.0 days (IQR 15.0-31.0) in the caspofungin group."
+  },
+  {
+   "rid": "PMC12589930#17",
+   "reporting_document": "PMC12589930",
+   "reported_label": "ICU readmissions by Day 30",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additional exploratory endpoints in the China cohort were duration of hospital and intensive care unit (ICU) admissions and readmissions.",
+   "result_quote": "Of the patients admitted to the ICU during their initial hospitalisation and subsequently discharged from the ICU before Day 30, 10.0% (1/10) in the rezafungin group and 22.2% (2/9) in the caspofungin group were readmitted to the ICU by Day 30."
+  },
+  {
+   "rid": "PMC12589930#18",
+   "reporting_document": "PMC12589930",
+   "reported_label": "ICU readmissions by follow up",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additional exploratory endpoints in the China cohort were duration of hospital and intensive care unit (ICU) admissions and readmissions.",
+   "result_quote": "By follow up, 9.1% (1/11) of patients in the rezafungin group and 30.0% (3/10) in the caspofungin group were readmitted to the ICU."
+  },
+  {
+   "rid": "PMC12589930#19",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Investigators would have considered discharging patients sooner if once weekly IV rezafungin had been available",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Additional exploratory endpoints in the China cohort were duration of hospital and intensive care unit (ICU) admissions and readmissions.",
+   "result_quote": "In a post hoc analysis, study investigators indicated that they would have considered discharging 9.1% (5/55) of patients sooner if once weekly IV rezafungin had been available (11.1% [3/27] of patients in the rezafungin group and 7.1% [2/28] in the caspofungin group)."
+  },
+  {
+   "rid": "PMC12589930#20",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Any TEAE",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "The most common TEAE, experienced by > 20% of patients in both treatment groups, was hypokalaemia."
+  },
+  {
+   "rid": "PMC12589930#21",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Study drug related TEAEs",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "Study drug related TEAEs\n7 (25.0)\n8 (26.7)"
+  },
+  {
+   "rid": "PMC12589930#22",
+   "reporting_document": "PMC12589930",
+   "reported_label": "SAE",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "Serious adverse events (SAEs) were experienced by 46.4% (13/28) of patients in the rezafungin group and 56.7% (17/30) in the caspofungin group."
+  },
+  {
+   "rid": "PMC12589930#24",
+   "reporting_document": "PMC12589930",
+   "reported_label": "SAE leading to death",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "SAE leading to death\n7 (25.0)\n11 (36.7)"
+  },
+  {
+   "rid": "PMC12589930#25",
+   "reporting_document": "PMC12589930",
+   "reported_label": "TEAE leading to study drug discontinuation",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "TEAEs led to study drug discontinuation in 3.6% (1/28) and 6.7% (2/30) of patients in the rezafungin and the caspofungin group, respectively."
+  },
+  {
+   "rid": "PMC12589930#26",
+   "reporting_document": "PMC12589930",
+   "reported_label": "TEAE leading to study discontinuation",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "TEAE leading to study discontinuation\n4 (14.3)\n4 (13.3)"
+  },
+  {
+   "rid": "PMC12589930#27",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Hypokalaemia",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "TEAEs in >= 10% of patients in either group\n\nHypokalaemia\n6 (21.4)\n7 (23.3)"
+  },
+  {
+   "rid": "PMC12589930#29",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Platelet count decreased",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "Platelet count decreased\n2 (7.1)\n3 (10.0)"
+  },
+  {
+   "rid": "PMC12589930#31",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Respiratory failure",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "Respiratory failure\n2 (7.1)\n3 (10.0)"
+  },
+  {
+   "rid": "PMC12589930#34",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Raised alanine aminotransferase",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "Study drug related TEAEs that were reported in > 1 patient were raised alanine aminotransferase (rezafungin 7.1% [2/28], caspofungin 3.3% [1/30]), hypokalaemia (rezafungin 3.6% [1/28], caspofungin 6.7% [2/30]) and diarrhoea (rezafungin 0.0%, caspofungin 6.7% [2/30]) (Table S3 )."
+  },
+  {
+   "rid": "PMC12589930#35",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Hypokalaemia (study drug related)",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "hypokalaemia (rezafungin 3.6% [1/28], caspofungin 6.7% [2/30])"
+  },
+  {
+   "rid": "PMC12589930#36",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Diarrhoea (study drug related)",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "diarrhoea (rezafungin 0.0%, caspofungin 6.7% [2/30]) (Table S3 )."
+  },
+  {
+   "rid": "PMC12589930#37",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Gastrointestinal haemorrhage",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "In the rezafungin group, SAEs that were reported in > 1 patient were gastrointestinal haemorrhage (7.1% [2/28]), multiple organ dysfunction syndrome (7.1% [2/28]) and sepsis (7.1% [2/28])."
+  },
+  {
+   "rid": "PMC12589930#38",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Multiple organ dysfunction syndrome",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "In the rezafungin group, SAEs that were reported in > 1 patient were gastrointestinal haemorrhage (7.1% [2/28]), multiple organ dysfunction syndrome (7.1% [2/28]) and sepsis (7.1% [2/28])."
+  },
+  {
+   "rid": "PMC12589930#39",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Sepsis",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "In the rezafungin group, SAEs that were reported in > 1 patient were gastrointestinal haemorrhage (7.1% [2/28]), multiple organ dysfunction syndrome (7.1% [2/28]) and sepsis (7.1% [2/28])."
+  },
+  {
+   "rid": "PMC12589930#40",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Septic shock (SAE)",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "In the caspofungin group, SAEs that were reported in > 1 patient were septic shock (13.3% [4/30]) and pneumonia (6.7% [2/30])."
+  },
+  {
+   "rid": "PMC12589930#41",
+   "reporting_document": "PMC12589930",
+   "reported_label": "Pneumonia (SAE)",
+   "reported_instrument": "MedDRA",
+   "reported_role": "safety",
+   "role_evidence_quote": "Treatment emergent adverse events (TEAEs) were recorded and coded using the Medical Dictionary for Regulatory Activities (MedDRA) version 23.0.",
+   "result_quote": "In the caspofungin group, SAEs that were reported in > 1 patient were septic shock (13.3% [4/30]) and pneumonia (6.7% [2/30])."
+  }
+ ],
+ "dropped_unusable_units": [
+  "PMC11426279#10: NCT03667690/PMC11426279#10 result: quote too short to be evidence",
+  "PMC11426279#15: NCT03667690/PMC11426279#15 role: quote too short to be evidence",
+  "PMC11426279#16: NCT03667690/PMC11426279#16 result: quote too short to be evidence",
+  "PMC11426279#19: NCT03667690/PMC11426279#19 role: quote too short to be evidence",
+  "PMC11426279#20: NCT03667690/PMC11426279#20 result: quote too short to be evidence",
+  "PMC11531808#5: NCT03667690/PMC11531808#5 result: quote too short to be evidence",
+  "PMC11531808#6: NCT03667690/PMC11531808#6 result: quote too short to be evidence",
+  "PMC12589930#23: NCT03667690/PMC12589930#23 result: quote too short to be evidence",
+  "PMC12589930#28: NCT03667690/PMC12589930#28 result: quote too short to be evidence",
+  "PMC12589930#30: NCT03667690/PMC12589930#30 result: quote too short to be evidence",
+  "PMC12589930#32: NCT03667690/PMC12589930#32 result: quote too short to be evidence",
+  "PMC12589930#33: NCT03667690/PMC12589930#33 result: quote too short to be evidence"
+ ]
+}

@@ -1,0 +1,560 @@
+--- Page 1 ---
+MULTI-AGENT SWARM BENCHMARK / PHASE 2
+Trainer Onboarding
+for MAS 2.0
+What the client appreciated, what changes in the next
+phase, and how to build tasks whose reward measures the
+actual work.
+Based on the MAS 2.0 Pilot Feedback meeting, 17 Jul 2026
+
+--- Page 2 ---
+WHY THE PROCESS IS CHANGING
+Phase 2 increased the scale and the
+number of ways a task can look
+complete.
+PHASE 1
+10 URLS
+A fuller oracle could compare
+outputs with known answers.PHASE 2
+100 URLS
+Research, sheets, slides, and
+synthesis expand the output
+surface.CONSTRAINT
+no full oracle at scale
+Not every valid answer can be
+precomputed exactly.RESULT
+reward needs deeper evidence
+File presence alone cannot show
+that the work is correct.
+Client meeting: Phase 1 oracle approach does not scale directly from roughly 10 URLs to 100 URLs
+
+--- Page 3 ---
+WHAT THE PILOT EXPOSED
+A package can be structurally
+correct and substantively empty.
+WHAT A SHALLOW CHECK CAN PROVE
+The file exists.
+The workbook has the expected sheets.
+The JSON contains the required keys.
+A chart or video was produced.≠WHAT THE TASK ACTUALLY NEEDS TO PROVE
+The reported values are correct.
+The cited evidence supports the conclusion.
+All required sources were covered.
+The final synthesis reflects the completed analysis.
+This difference is the reward-hacking risk: a model
+can learn to produce convincing shapes instead of
+doing the task.
+
+--- Page 4 ---
+HOW THE REQUIREMENT DEVELOPS
+Move from deliverable checks to an
+explainable reward, one layer at a
+time.
+Phase 2.1 now gives these checks a fixed package contract: inputs under
+environment/input_artifacts/, outputs under /logs/agent/, the rubric at
+tests/rubric_manifest.json, and the grader at tests/verify.py.1 / DELIVERABLE
+Confirm that the requested
+workbook, report, code, chart, or
+video exists and can be opened.2 / SUBSTANCE
+Add checks for values, evidence,
+coverage, consistency, and the
+decisions that make the task
+useful.3 / READABLE RULES
+Describe those checks as
+natural-language questions so
+the intended reward is visible to
+reviewers and the judge.4 / CALIBRATION
+Run SA and MA, inspect the
+failures, and revise checks that
+reward appearance instead of
+capability.
+
+--- Page 5 ---
+ARTIFACT ADDRESS CONTRACT
+Every file gets one exact address
+before the run begins.
+The same output address must appear in instruction.md,
+tests/rubric_manifest.json, and tests/verify.py. A mismatch is a packaging failure,
+not a model failure.PACKAGED SOURCE
+environment/input_artifacts/
+Each shipped file lives here; the
+instruction names its agent-
+facing /input_artifacts/... path.REQUESTED OUTPUT
+/logs/agent/audit.xlsx
+The instruction tells the agent the
+exact destination before
+execution.RUBRIC MANIFEST
+agent_output_path
+Every scored check points to that
+same /logs/agent/... artifact.VERIFIER
+tests/verify.py
+The implementation opens the
+declared path directly; it never
+searches for an output.
+
+--- Page 6 ---
+THE NEW RUBRIC FILE
+The rubric is now one complete,
+readable manifest.
+tests/rubric_manifest.json
+This fixed file explains every scored check and mirrors the checks
+actually registered in tests/verify.py.
+Required buckets: static_checks, reward_hacking_checks, and
+partial_oracle_checks.EVERY CHECK RECORDS FIVE THINGS
+A detailed explanation of the check.
+Its declared point value: 1.
+The exact /logs/agent/... artifact.
+The implementing verifier function.
+The shortcut or authenticity failure it prevents.
+Nothing can be scored but undocumented, and
+nothing can be documented without a real verifier
+function behind it.
+Phase 2.1 standard and supplied COUNTY package: tests/rubric_manifest.json
+
+--- Page 7 ---
+SUPPLIED STANDARDISATION EXAMPLE
+The COUNTY manifest shows the
+required three-part rubric.
+{
+  "total_checks": 10,
+  "checks": {
+    "static_checks_1": {
+      "weight": 1,
+      "agent_output_path":
+        "/logs/agent/compliance_matrix.csv",
+      "check_function": "check_repo_coverage"
+    },
+    "reward_hacking_checks_1": { ... },
+    "partial_oracle_checks_1": { ... }
+  }
+}STATIC CHECKS
+Confirm the required package shape, coverage,
+schema, and artifact presence.
+REWARD-HACKING CHECKS
+Catch duplicated rows, fabricated summaries,
+hollow charts, and other shortcuts that can look
+complete.
+PARTIAL-ORACLE CHECKS
+Compare selected outputs with trusted, hand-
+verified facts when a complete oracle is
+impractical.
+Excerpted from UUID 7cac0ea2... COUNTY-SERVICE-DEPENDENCY-SWEEP
+
+--- Page 8 ---
+WRITING STRONGER MANIFEST ENTRIES
+One entry should explain one
+implemented check.
+Too vague
+"Checks whether the spreadsheet is correct."
+Only a label
+"Duplicate-row check."Mechanics
+"Counts unique repo_name values and compares that count with total
+rows; any difference means the submission contains duplicated
+coverage."
+Authenticity protection
+"Prevents one researched repository from being copied repeatedly to
+imitate a complete 74-repository audit."
+The explanation must be detailed enough for a reviewer to understand the check
+without opening verify.py, while check_function proves that the described logic is
+actually implemented.
+
+--- Page 9 ---
+CHOOSE THE RIGHT CHECKER
+Exact behavior, qualitative meaning,
+or both?
+DETERMINISTIC
+Rule: all 160 bridge IDs appear exactly
+once.
+Use code for counts, schemas, IDs,
+arithmetic, exact quotations, and invariants.LLM JUDGED
+Rule: the executive memo explains the
+highest-risk bridges using evidence from
+the workbook.
+Use an LLM for relevance, synthesis,
+faithfulness, and qualitative usefulness.COMBINED
+Rule: each recommended action uses an
+allowed label and is justified by the cited
+hazard and condition evidence.
+Code validates the label and joins; the LLM
+evaluates whether the explanation is
+supported.
+Example adapted from task e10773926... COUNTY-BRIDGE-FLOOD-SCOUR-RISK-ACTION-PACK
+
+--- Page 10 ---
+PILOT VERIFIER EXAMPLE / 1 OF 4
+EMERG: confidence was rewarded
+over truth
+01
+SELECTED TASK EXAMPLEWhat happened: the verifier recognized valid-looking prefixes, formats, and
+populated fields. Fabricated identifiers and confident verdicts could therefore earn
+credit, while an honest "unable to confirm" response earned none.
+Why that is harmful: the reward teaches the model that sounding certain is more
+valuable than being grounded. This is the opposite of the behavior expected in
+procurement review.
+Better pattern: verify identifiers against a trusted source, resolve cited URLs, spot-
+check verdicts against authority, and recognize justified uncertainty as a valid
+outcome.
+Expected effect: fabricated certainty loses credit; supported findings and transparent uncertainty become the
+rewarded behavior.
+Expanded from the interactive task-example selector
+
+--- Page 11 ---
+PILOT VERIFIER EXAMPLE / 2 OF 4
+COUNTY: completeness was
+mistaken for correctness
+02
+SELECTED TASK EXAMPLEWhat happened: row count, headers, JSON shape, and chart presence showed that
+a package was complete, but they did not prove that the 74 repository audit values
+were correct.
+Why that is harmful: a workbook filled with defaults or placeholders can look
+production-ready and still earn a high reward. The measured score then overstates
+the work actually completed.
+Better pattern: keep the delivery checks, then add known-correct spot checks for
+selected repositories and limited semantic review for claims that cannot be tested
+with simple equality.
+Expected effect: a complete but hollow workbook fails the substantive checks, while a grounded audit receives
+credit even without a full oracle.
+Expanded from the interactive task-example selector
+
+--- Page 12 ---
+PILOT VERIFIER EXAMPLE / 3 OF 4
+COMMUNITY: every rewarded
+artifact needs content review
+03
+SELECTED TASK EXAMPLEWhat happened: the reels were tested for duration, animation, labels, and manifest
+presence. Those checks proved that videos existed, not that they communicated the
+correct duplicate clusters.
+Why that is harmful: the secondary artifact becomes disconnected from the task. A
+model can earn the reel reward by producing polished motion graphics with incorrect
+content.
+Better pattern: extract or inspect the claims shown in each reel and compare the
+displayed cluster count and members with the task evidence.
+Expected effect: visual polish remains valuable, but only after the video communicates the correct result.
+Expanded from the interactive task-example selector
+
+--- Page 13 ---
+PILOT VERIFIER EXAMPLE / 4 OF 4
+COFC: easy fields compressed the
+real capability difference
+04
+SELECTED TASK EXAMPLEWhat happened: structural checks and greppable fields such as case name, judge,
+and word count gave the single agent substantial credit before the difficult legal
+interpretation was measured.
+Why that is harmful: the reward makes SA and MA appear closer than they are on
+the work that matters: docket identity, verbatim evidence, actual outcomes, and legal
+synthesis.
+Better pattern: derive task-specific checks from the legal corpus and held-out
+evidence. Structural checks can remain diagnostic, while earned reward follows the
+substantive findings.
+Expected effect: the score reflects legal reading and grounded extraction rather than the ability to reproduce a
+workbook shape.
+Expanded from the interactive task-example selector
+
+--- Page 14 ---
+A REUSABLE REWARD-DESIGN METHOD
+Design checks from the task's
+evidence, not from a fixed formula.
+1Name the decisions that make
+the task valuable.2Identify the source evidence that
+can prove each decision.
+3Choose an exact, semantic, or
+combined check for each rule.4Run SA and MA, then inspect
+which checks separate real work
+from formatting.# COFC example: task-specific evidence checks
+if quote_appears_verbatim (opinion, row.quote):
+    credit("grounded legal evidence")
+if row.outcome == held_out.outcome :
+    credit("actual court ruling")
+if docket_matches (row.docket, held_out.docket):
+    credit("correct case identity")
+These checks are correct for a legal-opinion task. A bridge, video, code, or planning
+task needs different evidence checks. The reusable pattern is task outcome →
+proof → check, not one universal weight setting.
+Pattern illustrated with real checks from UUID 95dec0ee... COFCPROTESTTRENDS
+
+--- Page 15 ---
+SCORING LESSON
+Equal points prevent an easy
+structural floor.
+HIGH STRUCTURAL WEIGHTi
+The model can earn meaningful reward from
+files, headers, or field presence before
+doing the difficult work.EVERY CHECK IS WORTH 1i
+Each manifest entry declares weight: 1, and
+the verifier applies the same equal-point
+treatment.DIFFICULTY COMES FROM COVERAGEi
+Use enough substantive checks that
+formatting cannot dominate simply because
+it was divided into more entries.
+Weak reward
+20% for a workbook existing, 80% for everything the workbook says.→Phase 2.1 reward
+Each implemented check is one point. Static, reward-hacking, and
+partial-oracle checks together measure whether the package is both
+usable and authentic.
+
+--- Page 16 ---
+WEIGHTING EXPLANATION / 1 OF 3
+Why high structural weight is risky
+01
+SELECTED WEIGHTING NOTEStructure confirms that an artifact can be opened and consumed. It does not confirm
+that the analysis inside it is correct. If structure carries a large guaranteed share, a
+model can earn meaningful reward before reading the sources or making the required
+decisions.
+COUNTY example: 74 rows with the right headers could appear complete even when many
+audit values were defaults or placeholders.
+Expanded from the information control on the weighting slide
+
+--- Page 17 ---
+WEIGHTING EXPLANATION / 2 OF 3
+Why every check declares weight 1
+02
+SELECTED WEIGHTING NOTEPhase 2.1 uses equal point values so a trainer cannot create a large guaranteed floor
+for easy structural checks. The reward becomes the share of individually implemented
+checks the output actually satisfies.
+The supplied COUNTY verifier averages ten components: four static checks, four
+reward-hacking checks, and two partial-oracle checks. Each component contributes one
+equal point.
+Expanded from the information control on the weighting slide
+
+--- Page 18 ---
+WEIGHTING EXPLANATION / 3 OF 3
+How to make equal points
+meaningful
+03
+SELECTED WEIGHTING NOTEEqual points do not make the rubric shallow. Trainers control what the reward
+measures by creating checks for real correctness, source coverage, internal
+consistency, authenticity, and trusted spot checks instead of splitting easy format
+checks into many tiny points.
+A row-presence check is useful, but it should sit beside duplicate detection,
+summary reconciliation, chart-content review, and partial-oracle field comparisons.
+Expanded from the information control on the weighting slide
+
+--- Page 19 ---
+DIFFICULTY CALIBRATION
+The desired result is low SA and
+still-challenged MA.
+low SINGLE-AGENT RESULT
+The single agent should lose points on real coverage, context,
+reconciliation, or synthesis pressure, never because of a broken path
+or missing tool.20-30% CLIENT-STATED MA DIRECTION
+The multi-agent system should improve, but the stronger rubric
+should still expose substantial unfinished work.
+SA: lowMA: 20-
+30%95% = too
+easy
+Phase 2.1 feedback states MA should remain around 20-30% at most; the proposed automated ceiling is still being reconciled
+
+--- Page 20 ---
+FAIR FAILURE
+Low SA is useful only when the task
+caused it.
+VALID CAPABILITY FAILURE
+Missed evidence across a large corpus.
+Inconsistent reconciliation across sources.
+Context pressure caused coverage loss.
+Final synthesis omitted independent findings.INVALID ARTIFICIAL FAILURE
+Missing browser or required tool.
+Wrong output path or inaccessible input.
+Unfair timeout or context difference.
+Hidden requirement or verifier crash.
+A single-digit score is not the goal by itself. A
+genuine, explainable single-agent limitation is the
+goal.
+
+--- Page 21 ---
+ONE GRADING ENTRYPOINT
+Combine exact checks and
+qualitative judging without
+duplicating the reward.
+ONLY DETERMINISTIC
+Reliable for counts and invariants, but
+cannot judge whether a memo is faithful or
+useful.
+Risk: well-shaped but hollow content can
+survive.ONLY LLM JUDGE
+Can evaluate meaning, but may be
+inconsistent on exact arithmetic, identifiers,
+and schemas.
+Risk: avoidable judge variability.COMBINED GRADER
+Runs deterministic rules first, then sends
+only qualitative rules and exact artifacts to
+the LLM.
+Best balance: reproducible facts plus
+semantic depth.
+# tests/test.sh invokes one standard grader   python3 /tests/verify.py
+# verify.py writes the Harbor reward contract   /logs/verifier/reward.txt
+
+--- Page 22 ---
+A STRENGTH TO PRESERVE
+The client appreciated the creativity.
+REALISTIC NICHE
+County bridge flood and scour planning
+across official infrastructure and hazard
+sources.NATURAL COORDINATION
+Bridge specialists, hazard specialists,
+evidence reviewers, and a final risk-plan
+synthesizer.REWARDABLE RESULT
+Exact bridge coverage, grounded risk
+decisions, internally consistent charts, and a
+useful executive memo.
+Source novelty: prefer recent, less-canonical books, presentations, reports, and
+datasets that are unlikely to be reproduced from the base model's pretraining
+knowledge. The task should require reading the supplied evidence.Do not make the tasks generic to make
+them easier to grade. Keep the originality
+and build a rubric capable of recognizing
+correct work.CREATIVITY
+
+--- Page 23 ---
+TRAINER WORKFLOW / STEP 1 OF 8
+Choose a scenario with real
+coordination pressure
+01
+SELECTED WORKFLOW STEPStart with a plausible user and a difficult decision. Use recent, less-canonical books,
+presentations, reports, or datasets that the base model is unlikely to have memorized.
+The work should require reading supplied evidence and reconciling independent
+evidence units, not repeated busywork or recall from pretraining.
+Example: prioritize 160 county bridges using a current supplied inventory, recent
+hazard records, declarations, and gage evidence rather than a famous textbook case
+the model may already know.
+Expanded from the interactive trainer workflow
+
+--- Page 24 ---
+TRAINER WORKFLOW / STEP 2 OF 8
+Prepare stable, reviewable source
+material
+02
+SELECTED WORKFLOW STEPStore packaged inputs under environment/input_artifacts/. Manually verify each file,
+and mention its corresponding agent-facing /input_artifacts/... path in instruction.md
+so the package contains no hidden or orphaned source material.
+Example: environment/input_artifacts/bridges.csv is available to the agent as
+/input_artifacts/bridges.csv, and that runtime path is named in instruction.md.
+Expanded from the interactive trainer workflow
+
+--- Page 25 ---
+TRAINER WORKFLOW / STEP 3 OF 8
+Give every output one exact
+/logs/agent address
+03
+SELECTED WORKFLOW STEPName every requested output in instruction.md under /logs/agent/. Repeat that exact
+address in rubric_manifest.json and use it directly in verify.py.
+Example: instruction.md, agent_output_path, and verify.py all point to
+/logs/agent/risk_pack.xlsx.
+Expanded from the interactive trainer workflow
+
+--- Page 26 ---
+TRAINER WORKFLOW / STEP 4 OF 8
+Design coordination that is visible in
+the trajectory
+04
+SELECTED WORKFLOW STEPSplit work along natural domain or evidence boundaries. The reducer must reconcile
+worker outputs, resolve conflicts, and create the final artifacts.
+Example: condition workers + hazard workers -> county reviewers -> final capital-
+plan synthesizer.
+Expanded from the interactive trainer workflow
+
+--- Page 27 ---
+TRAINER WORKFLOW / STEP 5 OF 8
+Build tests/rubric_manifest.json
+05
+SELECTED WORKFLOW STEPDocument every scored check under one of the three required categories: static,
+reward hacking, or partial oracle. Give every entry the detailed explanation, weight 1,
+exact output path, implementing function, and authenticity protection.
+Example: reward_hacking_checks_1 detects duplicated repo_name rows and points to
+check_no_duplicates in verify.py.
+Expanded from the interactive trainer workflow
+
+--- Page 28 ---
+TRAINER WORKFLOW / STEP 6 OF 8
+Implement the complete grader in
+tests/verify.py
+06
+SELECTED WORKFLOW STEPRegister every scored component in verify.py and keep the manifest in one-to-one
+alignment with that registry. Use deterministic logic for exact facts and an LLM only
+where meaning genuinely requires judgment.
+Example: test.sh runs /tests/verify.py, which evaluates the declared checks and
+writes /logs/verifier/reward.txt.
+Expanded from the interactive trainer workflow
+
+--- Page 29 ---
+TRAINER WORKFLOW / STEP 7 OF 8
+Run SA and MA under the same
+conditions
+07
+SELECTED WORKFLOW STEPKeep tools, environment, rubric, verifier, and time budget equal. Read the artifacts and
+trajectories, not only the final numbers, and separate capability failures from
+infrastructure failures.
+The current direction is low SA and an improved but still-challenged MA result; the
+final automated score gate will be communicated after the 20-30% versus under-50%
+threshold is reconciled.
+Expanded from the interactive trainer workflow
+
+--- Page 30 ---
+TRAINER WORKFLOW / STEP 8 OF 8
+Review the evidence and package
+only the accepted state
+08
+SELECTED WORKFLOW STEPConfirm paths, rubric coverage, grader behavior, coordination depth, and score
+explanations. Package the final accepted logs without hiding infrastructure errors.
+Final review question: can another reviewer reproduce why each earned or lost point
+occurred?
+Expanded from the interactive trainer workflow
+
+--- Page 31 ---
+SUBMISSION GATE
+A task is ready only when package,
+reward, and run evidence agree.
+1 / PACKAGE CONTRACT
+Packaged sources use
+environment/input_artifacts/.
+Every input file is named in instruction.md.
+Every requested output uses an exact
+/logs/agent/... path.
+The manifest and verifier point to those same
+paths.
+The sole grader file is tests/verify.py.2 / RUBRIC INTEGRITY
+tests/rubric_manifest.json exists and parses.
+All three required check categories are present.
+Every entry has the five required fields and
+weight: 1.
+total_checks matches the registered verifier
+checks.
+Every function reference resolves to
+implemented logic.3 / EXECUTION EVIDENCE
+SA and MA receive the same tools,
+environment, verifier, and time budget.
+Low SA comes from genuine task difficulty.
+MA improves but remains meaningfully
+challenged.
+The realized trajectory matches the intended
+coordination pattern.
+Every earned or lost point can be traced to
+evidence.
+Verifier crashes, missing keys, inaccessible paths, and tool failures are infrastructure
+issues. They cannot be used as evidence that the model failed the task.
+
+--- Page 32 ---
+TRAINER TAKEAWAY
+Creative task. Exact
+evidence.  Honest
+reward.
+Keep what made the pilot strong. Package inputs
+consistently, write every output to /logs/agent/, document
+every scored check in tests/rubric_manifest.json, and
+keep the complete grader behind tests/verify.py.
+MAS 2.0 trainer onboarding
+
+--- Page 33 ---
+DISCUSSION
+Questions and task
+examples
+Bring one proposed scenario, one difficult artifact, and one
+manifest check you are unsure how to implement. We will
+classify it as static, reward-hacking, partial-oracle,
+deterministic, LLM judged, or combined.
+SCENARIO
+Is it realistic, niche, and naturally multi-
+agent?EVIDENCE
+What exact file and source prove the work
+was done?CALIBRATION
+Why should SA fail and MA improve without
+becoming nearly perfect?

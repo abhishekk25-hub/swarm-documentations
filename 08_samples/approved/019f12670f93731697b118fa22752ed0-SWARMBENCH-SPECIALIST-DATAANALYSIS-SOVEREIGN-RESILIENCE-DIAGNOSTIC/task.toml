@@ -1,0 +1,30 @@
+[task]
+name = "swarmbench/019f12670f93731697b118fa22752ed0-SWARMBENCH-SPECIALIST-DATAANALYSIS-SOVEREIGN-RESILIENCE-DIAGNOSTIC"
+description = "Build a 20-country sovereign development-resilience diagnostic from live World Bank Open Data across six indicator domains (macro-fiscal, health, education, poverty, governance, climate), reconcile pervasive missing data without zero-filling, compute 0-100 domain sub-scores and a weighted composite index, then deliver CSVs, two PNG charts, an animated MP4 bar-chart-race, and a written committee report."
+
+[metadata]
+verifier_type = "llm-judge"
+domain = "data-analysis"
+coordination_pattern = "specialist-routing"
+secondary_classification = ["browsing", "long_writing"]
+dag_depth = 2
+dag_width = 20
+human_solving_hours_estimate = 58.0
+human_solving_hours_justification = "Six domain analysts each pull 4-6 World Bank indicators for 20 countries over a 14-year window and reconcile missing values (~6 x 4h = 24h); harmonizing reference years and normalization across domains ~6h; building the composite index and ranking ~4h; writing the long diagnostic report with per-country sections in rank order (~10h); building two charts plus the animated bar-chart-race ~7h; coverage QA and final assembly of the CSVs, charts, animation and report ~7h. Total ~58h for a sovereign-analysis team."
+estimated_sub_agents = 21
+input_token_estimate = 320000
+why_multi_agent = "The work spans 20 countries x 6 domains with source_audit.csv, a six-domain composite with two-decimal scores, a 4000+ word report, 1800px PNGs, and a 24+ frame MP4. A single agent often ships domain CSVs but under-logs gaps, skips source_audit.csv, leaves composite at one decimal, and stops before report and charts. Specialist routing runs six domain passes, separate cohort and source-audit builders, harmonization, composite and summary builders, dedicated report and chart builders, coverage QA, and a reducer through Wave 8 that confirms every graded file under /logs/agent/."
+reference_link = "https://api.worldbank.org/v2/"
+
+[agent]
+timeout_sec = 7200.0
+
+[verifier]
+timeout_sec = 1800.0
+requires_network = true
+
+[environment]
+cpus = 2
+memory_mb = 6144
+build_timeout_sec = 900.0
+network_enabled = true

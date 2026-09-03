@@ -1,0 +1,30 @@
+[task]
+name = "swarmbench/487be4c3bc0d4bc9820029fd4cef2f2e-SWARMBENCH-HIERARCHICAL-CREATIVEVIZ-ANIMATEDEXPLAINERREELS"
+description = "For 16 (country, indicator, peer) topics, fetch the country and peer 2000-2022 series live from the no-auth World Bank API, derive the data-story facts (latest value, peak/trough year, trend, peer comparison), write a faithful 150-250 word narrative, and render a 7-9s animated MP4 reel telling it; then assemble manifest.json + output.json. Hybrid scoring: deterministic structural + live-recomputed factual checks, plus a multimodal LLM judging narrative faithfulness. Requires network."
+
+[metadata]
+verifier_type = "llm-judge"
+domain = "data-analysis"
+secondary_classification = ["browsing", "multi_modal", "long_writing"]
+coordination_pattern = "hierarchical"
+dag_depth = 2
+dag_width = 16
+human_solving_hours_estimate = 16
+human_solving_hours_justification = "Per topic: locate the World Bank indicator + country/peer codes and confirm the live 2000-2022 series are populated (~15 min); fetch and parse both series and derive the facts (latest, peak/trough year, trend, peer comparison); write a faithful, specific 150-250 word data-story narrative grounded in the real numbers (~25 min); author an animated matplotlib reel that renders the chart plus the story beats legibly and confirm 7-9s of genuine motion (~35 min). ~1h15 x 16 = ~20h, less some reuse of the render scaffold => ~14h, plus ~2h to assemble the manifest and QA that every value/trend/peak/trough/peer fact matches the live API and every narrative is faithful and non-generic. Total ~16h, dominated by per-topic analysis + faithful writing + rendering across 16 independent units."
+estimated_sub_agents = 17
+input_token_estimate = 14000
+why_multi_agent = "Sixteen INDEPENDENT units, each requiring live data fetch (country + peer), real analysis (peak/trough year, trend, peer comparison), a faithful 150-250 word narrative grounded in the actual numbers, AND a rendered reel. The gap is driven by the per-unit DATA STORY, not the rendering: a single agent in one context can fetch and plot all sixteen, but as it batches sixteen faithful narratives it degrades -- later stories go generic and templated, misstate the peak/trough years, get the peer comparison backwards, or drift from the real values -- exactly what the deterministic factual checks (trend/peak/trough/peer/value recomputed live) and the strict multimodal narrative-faithfulness judge penalize. The structural mechanics a single agent does nail are only one of three static blocks, so nailing them cannot floor the score. A hierarchical decomposition gives one worker per topic, each deriving and writing its story in a clean context, so the sixteenth narrative is as faithful and specific as the first; a final assembler only stitches the records. The static check is the mean of three deterministic blocks -- structural mechanics, live factual recomputation (value/trend/peak/trough/peer), and a per-section narrative gate (the narrative is substantial and names the real peak year, trough year, and peer country) -- and this narrative block is what carries the single-vs-multi gap deterministically. Final reward is the average of that static check and a strict multimodal narrative-faithfulness judge that is GATED by the same narrative gate, so a flaky judge can never pass a thin or generic narrative; the judge fails open to the static score so an outage never moves the gap. Clamped [0,1], no caps/cliffs/exponents. Live data: public no-auth World Bank Indicators API (CC BY-4.0)."
+reference_link = "https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation"
+network_enabled = true
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 1800
+requires_network = true
+
+[environment]
+cpus = 4
+memory_mb = 6144
+build_timeout_sec = 1200

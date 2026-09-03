@@ -1,0 +1,1168 @@
+{
+ "nct": "NCT02747927",
+ "prespecification_version": 0,
+ "prespecification_date": "2016-04-19",
+ "publications": [
+  "PMC10077010",
+  "PMC11646590",
+  "PMC11797386"
+ ],
+ "prespecified_units": [
+  {
+   "uid": "pri1",
+   "measure": "Vaccine Efficacy (VE) of Two Doses of Tetravalent Dengue Vaccine Candidate (TDV) in Preventing Virologically-Confirmed Dengue Fever Induced by Any Dengue Serotype",
+   "role": "primary",
+   "timeframe": "From 30 days post-second vaccination (Day 120) until the end of Part 1 (120 cases of dengue fever are confirmed and minimum duration of subject follow-up of 12 months post-second vaccination)",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against VCD",
+   "reported_instrument": "virologically confirmed dengue (VCD)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "VE against VCD across serotypes was 43.5% (95% confidence interval [CI]: 25.3%, 57.3%) for 4-5 year-olds; 63.5% (95% CI: 56.9%, 69.1%) for 6-11 year-olds, and 67.7% (95% CI: 57.8%, 75.2%) for 12-16 year-olds."
+  },
+  {
+   "uid": "sec4",
+   "measure": "VE of Two Doses of TDV in Preventing Hospitalization due to Virologically-Confirmed Dengue Fever Induced by Any Dengue Serotype",
+   "role": "secondary",
+   "timeframe": "From 30 days post-second vaccination (Day 120) until the end of Part 2 (21 months)",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against hospitalized VCD",
+   "reported_instrument": "hospitalized VCD",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "VE against hospitalized VCD was 63.8% (95% CI: 21.1%, 83.4%), 85.1% (95% CI: 77.1%, 90.3%), and 89.7% (95% CI: 77.9%, 95.2%), for the 3 age groups, respectively."
+  },
+  {
+   "uid": "sec6",
+   "measure": "Percentage of Participants with Solicited Local Injection Site Adverse Events (AEs) in the Safety Subset",
+   "role": "secondary",
+   "timeframe": "Days 1 through 7 after each vaccination",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec7",
+   "measure": "Severity of Solicited Local Injection Site Adverse Events (AEs) in the Safety Subset",
+   "role": "secondary",
+   "timeframe": "Days 1 through 7 after each vaccination",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec8",
+   "measure": "Percentage of Participants with Solicited Systemic Adverse Events (AEs) in the Safety Subset",
+   "role": "secondary",
+   "timeframe": "Days 1 through 14 after each vaccination",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec9",
+   "measure": "Severity of Solicited Systemic Adverse Events (AEs) in the Safety Subset",
+   "role": "secondary",
+   "timeframe": "Days 1 through 14 after each vaccination",
+   "reported": false,
+   "change_disclosed": false
+  },
+  {
+   "uid": "sec11",
+   "measure": "Percentage of Participants with Serious Adverse Events (SAEs) During Parts 1 and 2",
+   "role": "secondary",
+   "timeframe": "From Day 1 until the end of Parts 1 and 2 (approximately 21 months)",
+   "reported": true,
+   "change_disclosed": false,
+   "reporting_document": "PMC11797386",
+   "reported_label": "SAEs",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "In Parts 1 and 2 of the study, rates of SAEs were similar across age groups and serostatus, with 2.6% to 6.8% of participants reporting SAEs."
+  },
+  {
+   "uid": "sec15",
+   "measure": "Geometric Mean Titers (GMTs) of Neutralizing Antibodies for Each of the Four Dengue Serotypes in the Immunogenicity Subset",
+   "role": "secondary",
+   "timeframe": "Day 1 and Months 1, 3, 4, 9, 15 and then annually (up to 3 years)",
+   "reported": false,
+   "change_disclosed": false
+  }
+ ],
+ "additional_units": [
+  {
+   "rid": "PMC10077010#0",
+   "reporting_document": "PMC10077010",
+   "reported_label": "two episodes of symptomatic dengue",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Herein, we describe these multiple episodes of symptomatic dengue, together with an exploratory estimate of the effect of vaccination on subsequent dengue episodes.",
+   "result_quote": "5 of 13,380 TAK-003 recipients and 13 of 6,687 placebo recipients experienced two episodes of symptomatic dengue between the first dose and the end of the study,  57 months later (patients received the second dose 3 months after the first dose)."
+  },
+  {
+   "rid": "PMC10077010#1",
+   "reporting_document": "PMC10077010",
+   "reported_label": "homotypic reinfection",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Herein, we describe these multiple episodes of symptomatic dengue, together with an exploratory estimate of the effect of vaccination on subsequent dengue episodes.",
+   "result_quote": "Two of these participants experienced repeat infection with the same serotype (i.e., homotypic reinfection)."
+  },
+  {
+   "rid": "PMC10077010#2",
+   "reporting_document": "PMC10077010",
+   "reported_label": "relative risk of a subsequent episode of symptomatic dengue",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Herein, we describe these multiple episodes of symptomatic dengue, together with an exploratory estimate of the effect of vaccination on subsequent dengue episodes.",
+   "result_quote": "In comparison with placebo, the relative risk of a subsequent episode of symptomatic dengue was 0.19 (95% CI, 0.07-0.54) in TAK-003 recipients."
+  },
+  {
+   "rid": "PMC10077010#3",
+   "reporting_document": "PMC10077010",
+   "reported_label": "at least one VCD episode",
+   "reported_instrument": "serotype-specific reverse transcription-polymerase chain reaction (RT-PCR)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "In  57 months after the first dose, 442 participants (3.3%) in the TAK-003 group and 547 (8.2%) in the placebo group experienced at least one VCD episode ( Table 1 )."
+  },
+  {
+   "rid": "PMC10077010#4",
+   "reporting_document": "PMC10077010",
+   "reported_label": "two VCD episodes",
+   "reported_instrument": "serotype-specific reverse transcription-polymerase chain reaction (RT-PCR)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Five participants (0.04%) in the TAK-003 group and 13 (0.19%) in the placebo group experienced two VCD episodes during this time frame, resulting in a relative risk of the subsequent VCD episode versus placebo of 0.19 (95% CI, 0.07-0.54) based on the safety set, and 0.48 (95% CI, 0.17-1.32) based on the population of participants who had experienced at least one VCD episode."
+  },
+  {
+   "rid": "PMC10077010#5",
+   "reporting_document": "PMC10077010",
+   "reported_label": "relative risk of the subsequent VCD episode versus placebo",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Five participants (0.04%) in the TAK-003 group and 13 (0.19%) in the placebo group experienced two VCD episodes during this time frame, resulting in a relative risk of the subsequent VCD episode versus placebo of 0.19 (95% CI, 0.07-0.54) based on the safety set, and 0.48 (95% CI, 0.17-1.32) based on the population of participants who had experienced at least one VCD episode."
+  },
+  {
+   "rid": "PMC10077010#6",
+   "reporting_document": "PMC10077010",
+   "reported_label": "relative risk of the subsequent VCD episode versus placebo based on the population of participants who had experienced at least one VCD episode",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Five participants (0.04%) in the TAK-003 group and 13 (0.19%) in the placebo group experienced two VCD episodes during this time frame, resulting in a relative risk of the subsequent VCD episode versus placebo of 0.19 (95% CI, 0.07-0.54) based on the safety set, and 0.48 (95% CI, 0.17-1.32) based on the population of participants who had experienced at least one VCD episode."
+  },
+  {
+   "rid": "PMC10077010#7",
+   "reporting_document": "PMC10077010",
+   "reported_label": "Participants with >= 1 episode of VCD",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Participants with >= 1 episode of VCD, n (%)\n442 (3.3)\n547 (8.2)"
+  },
+  {
+   "rid": "PMC10077010#8",
+   "reporting_document": "PMC10077010",
+   "reported_label": "Participants with subsequent VCD episode",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Participants with subsequent VCD episode, n (%)\n5 (< 0.1)\n13 (0.2)"
+  },
+  {
+   "rid": "PMC10077010#9",
+   "reporting_document": "PMC10077010",
+   "reported_label": "Relative risk of subsequent VCD episode",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Relative risk of subsequent VCD episode * (95% CI)\n0.19 (0.07-0.54)"
+  },
+  {
+   "rid": "PMC10077010#10",
+   "reporting_document": "PMC10077010",
+   "reported_label": "Relative risk of subsequent VCD episode in participants with >= 1 VCD episode",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Relative risk of subsequent VCD episode in participants with >= 1 VCD episode (95% CI)\n0.48 (0.17-1.32)"
+  },
+  {
+   "rid": "PMC10077010#11",
+   "reporting_document": "PMC10077010",
+   "reported_label": "sequential episodes of VCD at trial sites",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Ten of the sequential episodes of VCD occurred at the sites in the Philippines, four in Colombia, three in Sri Lanka, and one in Thailand ( Table 2 )."
+  },
+  {
+   "rid": "PMC10077010#12",
+   "reporting_document": "PMC10077010",
+   "reported_label": "time interval between first and subsequent VCD episode",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Subsequent episodes occurred 46 to 1,181 days after the first episode recorded in the trial (mean, 500 days)."
+  },
+  {
+   "rid": "PMC10077010#13",
+   "reporting_document": "PMC10077010",
+   "reported_label": "serotype of subsequent VCD episodes",
+   "reported_instrument": "serotype-specific RT-PCR assay",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Of the subsequent episodes, five were DENV-1, seven were DENV-2, three were DENV-3, and three were DENV-4."
+  },
+  {
+   "rid": "PMC10077010#14",
+   "reporting_document": "PMC10077010",
+   "reported_label": "homotypic VCD",
+   "reported_instrument": "serotype-specific RT-PCR assay",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "There were two instances of homotypic VCD: one DENV-3 case occurring 763 days after the first episode in a male participant from the Philippines who was 12 years old at enrollment and seropositive at baseline, and one DENV-1 case occurring 207 days after the first episode in a 7-year-old seronegative female participant from Colombia."
+  },
+  {
+   "rid": "PMC10077010#15",
+   "reporting_document": "PMC10077010",
+   "reported_label": "first episodes diagnosed clinically as dengue by the investigators",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "In the 18 participants who experienced two VCD episodes, five of the first episodes after trial vaccination were diagnosed clinically as dengue by the investigators, and three participants were hospitalized (one episode each of DENV-1, -2, and -3)."
+  },
+  {
+   "rid": "PMC10077010#16",
+   "reporting_document": "PMC10077010",
+   "reported_label": "hospitalization during first VCD episodes",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "In the 18 participants who experienced two VCD episodes, five of the first episodes after trial vaccination were diagnosed clinically as dengue by the investigators, and three participants were hospitalized (one episode each of DENV-1, -2, and -3)."
+  },
+  {
+   "rid": "PMC10077010#17",
+   "reporting_document": "PMC10077010",
+   "reported_label": "subsequent episodes diagnosed clinically as dengue",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Two of the subsequent episodes (DENV-1 homotypic reinfection and DENV-4 following DENV-2) were diagnosed clinically as dengue and both required hospitalization."
+  },
+  {
+   "rid": "PMC10077010#18",
+   "reporting_document": "PMC10077010",
+   "reported_label": "hospitalization during subsequent VCD episodes",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Two of the subsequent episodes (DENV-1 homotypic reinfection and DENV-4 following DENV-2) were diagnosed clinically as dengue and both required hospitalization."
+  },
+  {
+   "rid": "PMC10077010#19",
+   "reporting_document": "PMC10077010",
+   "reported_label": "severity classification by the adjudication committee",
+   "reported_instrument": "adjudication committee (severity criteria reported previously 7 - 9 )",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "One of the first VCD episodes (DENV-3 in a baseline seronegative participant) was classified as severe by the adjudication committee; none of the other episodes were classified as severe or dengue hemorrhagic fever."
+  },
+  {
+   "rid": "PMC10077010#20",
+   "reporting_document": "PMC10077010",
+   "reported_label": "dengue hemorrhagic fever",
+   "reported_instrument": "WHO 1997 dengue hemorrhagic fever criteria",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "One of the first VCD episodes (DENV-3 in a baseline seronegative participant) was classified as severe by the adjudication committee; none of the other episodes were classified as severe or dengue hemorrhagic fever."
+  },
+  {
+   "rid": "PMC10077010#21",
+   "reporting_document": "PMC10077010",
+   "reported_label": "distribution by vaccination group among participants with two VCD episodes",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Although this is a small number of cases, the distribution by vaccination group (five in the TAK-003 group versus 13 in the placebo group; 2:1 randomization ratio) provides some evidence of the lower risk of a subsequent symptomatic dengue episode in people who have postvaccination breakthrough cases."
+  },
+  {
+   "rid": "PMC10077010#22",
+   "reporting_document": "PMC10077010",
+   "reported_label": "serotype distribution of first episodes among participants with two VCD episodes",
+   "reported_instrument": "serotype-specific RT-PCR assay",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Among the 18 sequential episodes, the majority of the cases (i.e., 13 of 18 first episodes and 12 of 18 subsequent episodes) were caused by DENV-1 or -2."
+  },
+  {
+   "rid": "PMC10077010#23",
+   "reporting_document": "PMC10077010",
+   "reported_label": "serotype distribution of subsequent episodes among participants with two VCD episodes",
+   "reported_instrument": "serotype-specific RT-PCR assay",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Among the 18 sequential episodes, the majority of the cases (i.e., 13 of 18 first episodes and 12 of 18 subsequent episodes) were caused by DENV-1 or -2."
+  },
+  {
+   "rid": "PMC10077010#24",
+   "reporting_document": "PMC10077010",
+   "reported_label": "DENV-1 and DENV-2 cases in the placebo group",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "This reflects the data in the placebo group over  57 months in eight dengue-endemic countries, in which these two serotypes accounted for the majority of dengue cases (423 of 560)."
+  },
+  {
+   "rid": "PMC10077010#25",
+   "reporting_document": "PMC10077010",
+   "reported_label": "cases of homotypic reinfection",
+   "reported_instrument": "serotype-specific RT-PCR assay",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "All the analyses presented in this manuscript are exploratory and post hoc in nature.",
+   "result_quote": "Notably, we observed no clear patterns in causative serotype of sequential episodes, but we did record two cases of homotypic reinfection."
+  },
+  {
+   "rid": "PMC11646590#0",
+   "reporting_document": "PMC11646590",
+   "reported_label": "vaccine efficacy against virologically confirmed dengue (VCD) in those with YF vaccination",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Evaluation of the impact of prior JE or YF vaccination on VE, safety, and immunogenicity was exploratory and included both prespecified and post hoc analyses.",
+   "result_quote": "The overall VE (95% CI) against VCD was 55.7% (39.7%-67.5%) in those with YF vaccination, compared with 77.8% (70.8%-83.1%) in those with JE vaccination, and 53.5% (45.4%-60.4%) in those with no YF/JE vaccination."
+  },
+  {
+   "rid": "PMC11646590#1",
+   "reporting_document": "PMC11646590",
+   "reported_label": "vaccine efficacy against virologically confirmed dengue (VCD) in those with JE vaccination",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Evaluation of the impact of prior JE or YF vaccination on VE, safety, and immunogenicity was exploratory and included both prespecified and post hoc analyses.",
+   "result_quote": "The overall VE (95% CI) against VCD was 55.7% (39.7%-67.5%) in those with YF vaccination, compared with 77.8% (70.8%-83.1%) in those with JE vaccination, and 53.5% (45.4%-60.4%) in those with no YF/JE vaccination."
+  },
+  {
+   "rid": "PMC11646590#2",
+   "reporting_document": "PMC11646590",
+   "reported_label": "vaccine efficacy against virologically confirmed dengue (VCD) in those with no YF/JE vaccination",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Evaluation of the impact of prior JE or YF vaccination on VE, safety, and immunogenicity was exploratory and included both prespecified and post hoc analyses.",
+   "result_quote": "The overall VE (95% CI) against VCD was 55.7% (39.7%-67.5%) in those with YF vaccination, compared with 77.8% (70.8%-83.1%) in those with JE vaccination, and 53.5% (45.4%-60.4%) in those with no YF/JE vaccination."
+  },
+  {
+   "rid": "PMC11646590#3",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against hospitalized VCD in the YF vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Evaluation of the impact of prior JE or YF vaccination on VE, safety, and immunogenicity was exploratory and included both prespecified and post hoc analyses.",
+   "result_quote": "VE (95% CI) against hospitalized VCD was high, irrespective of prior YF/JE vaccination, and was 79.1% (40.8%-92.6%) in the YF vaccination subgroup, 88.2% (81.4%-92.5%) in the JE vaccination subgroup, and 75.7% (57.3%-86.1%) in the no YF/JE vaccination subgroup ( Figure 3 B )."
+  },
+  {
+   "rid": "PMC11646590#4",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against hospitalized VCD in the JE vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Evaluation of the impact of prior JE or YF vaccination on VE, safety, and immunogenicity was exploratory and included both prespecified and post hoc analyses.",
+   "result_quote": "VE (95% CI) against hospitalized VCD was high, irrespective of prior YF/JE vaccination, and was 79.1% (40.8%-92.6%) in the YF vaccination subgroup, 88.2% (81.4%-92.5%) in the JE vaccination subgroup, and 75.7% (57.3%-86.1%) in the no YF/JE vaccination subgroup ( Figure 3 B )."
+  },
+  {
+   "rid": "PMC11646590#5",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against hospitalized VCD in the no YF/JE vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Evaluation of the impact of prior JE or YF vaccination on VE, safety, and immunogenicity was exploratory and included both prespecified and post hoc analyses.",
+   "result_quote": "VE (95% CI) against hospitalized VCD was high, irrespective of prior YF/JE vaccination, and was 79.1% (40.8%-92.6%) in the YF vaccination subgroup, 88.2% (81.4%-92.5%) in the JE vaccination subgroup, and 75.7% (57.3%-86.1%) in the no YF/JE vaccination subgroup ( Figure 3 B )."
+  },
+  {
+   "rid": "PMC11646590#6",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against VCD in baseline seropositive participants in the YF vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Evaluation of the impact of prior JE or YF vaccination on VE, safety, and immunogenicity was exploratory and included both prespecified and post hoc analyses.",
+   "result_quote": "In baseline seropositive participants, VE (95% CI) was 61.9% (44.8%-73.7%) in the YF vaccination subgroup, 80.4% (72.2%-86.2%) in the JE vaccination subgroup, and 56.9% (47.9%-64.4%) in the no YF/JE vaccination subgroup."
+  },
+  {
+   "rid": "PMC11646590#7",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against VCD in baseline seropositive participants in the JE vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Evaluation of the impact of prior JE or YF vaccination on VE, safety, and immunogenicity was exploratory and included both prespecified and post hoc analyses.",
+   "result_quote": "In baseline seropositive participants, VE (95% CI) was 61.9% (44.8%-73.7%) in the YF vaccination subgroup, 80.4% (72.2%-86.2%) in the JE vaccination subgroup, and 56.9% (47.9%-64.4%) in the no YF/JE vaccination subgroup."
+  },
+  {
+   "rid": "PMC11646590#8",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against VCD in baseline seropositive participants in the no YF/JE vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Evaluation of the impact of prior JE or YF vaccination on VE, safety, and immunogenicity was exploratory and included both prespecified and post hoc analyses.",
+   "result_quote": "In baseline seropositive participants, VE (95% CI) was 61.9% (44.8%-73.7%) in the YF vaccination subgroup, 80.4% (72.2%-86.2%) in the JE vaccination subgroup, and 56.9% (47.9%-64.4%) in the no YF/JE vaccination subgroup."
+  },
+  {
+   "rid": "PMC11646590#9",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against VCD in baseline seronegative participants in the YF vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Evaluation of the impact of prior JE or YF vaccination on VE, safety, and immunogenicity was exploratory and included both prespecified and post hoc analyses.",
+   "result_quote": "In baseline seronegative participants, VE was 38.2% (-10.2% to 65.4%) in the YF vaccination subgroup, 72.9% (58.0%-82.5%) in the JE vaccination subgroup, and 44.3% (24.3%-59.0%) in the no YF/JE vaccination subgroup ( Figure 3 A )."
+  },
+  {
+   "rid": "PMC11646590#10",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against VCD in baseline seronegative participants in the JE vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Evaluation of the impact of prior JE or YF vaccination on VE, safety, and immunogenicity was exploratory and included both prespecified and post hoc analyses.",
+   "result_quote": "In baseline seronegative participants, VE was 38.2% (-10.2% to 65.4%) in the YF vaccination subgroup, 72.9% (58.0%-82.5%) in the JE vaccination subgroup, and 44.3% (24.3%-59.0%) in the no YF/JE vaccination subgroup ( Figure 3 A )."
+  },
+  {
+   "rid": "PMC11646590#11",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against VCD in baseline seronegative participants in the no YF/JE vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Evaluation of the impact of prior JE or YF vaccination on VE, safety, and immunogenicity was exploratory and included both prespecified and post hoc analyses.",
+   "result_quote": "In baseline seronegative participants, VE was 38.2% (-10.2% to 65.4%) in the YF vaccination subgroup, 72.9% (58.0%-82.5%) in the JE vaccination subgroup, and 44.3% (24.3%-59.0%) in the no YF/JE vaccination subgroup ( Figure 3 A )."
+  },
+  {
+   "rid": "PMC11646590#12",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against VCD for DENV-1 in the YF vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "For DENV-1, VE (95% CI) was 55.0% (37.6%-67.6%) in the YF vaccination subgroup, 40.9% (11.5%-60.5%) in the JE vaccination subgroup, and 54.8% (41.0%-65.5%) in the no YF/JE vaccination subgroup."
+  },
+  {
+   "rid": "PMC11646590#13",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against VCD for DENV-1 in the JE vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "For DENV-1, VE (95% CI) was 55.0% (37.6%-67.6%) in the YF vaccination subgroup, 40.9% (11.5%-60.5%) in the JE vaccination subgroup, and 54.8% (41.0%-65.5%) in the no YF/JE vaccination subgroup."
+  },
+  {
+   "rid": "PMC11646590#14",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against VCD for DENV-1 in the no YF/JE vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "For DENV-1, VE (95% CI) was 55.0% (37.6%-67.6%) in the YF vaccination subgroup, 40.9% (11.5%-60.5%) in the JE vaccination subgroup, and 54.8% (41.0%-65.5%) in the no YF/JE vaccination subgroup."
+  },
+  {
+   "rid": "PMC11646590#15",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against hospitalized VCD for DENV-1 in the YF vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "The corresponding VE (95% CI) against hospitalized VCD was 64.2% (-12.9% to 88.6%), 67.3% (32.1%-84.3%), and 80.7% (46.0%-93.1%), respectively."
+  },
+  {
+   "rid": "PMC11646590#16",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against hospitalized VCD for DENV-1 in the JE vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "The corresponding VE (95% CI) against hospitalized VCD was 64.2% (-12.9% to 88.6%), 67.3% (32.1%-84.3%), and 80.7% (46.0%-93.1%), respectively."
+  },
+  {
+   "rid": "PMC11646590#17",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against hospitalized VCD for DENV-1 in the no YF/JE vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "The corresponding VE (95% CI) against hospitalized VCD was 64.2% (-12.9% to 88.6%), 67.3% (32.1%-84.3%), and 80.7% (46.0%-93.1%), respectively."
+  },
+  {
+   "rid": "PMC11646590#18",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against VCD for DENV-2 in the YF vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "For DENV-2, VE (95% CI) was 64.9% (7.8%-86.6%) in the YF vaccination subgroup, 95.6% (91.5%-97.7%) in the JE vaccination subgroup, and 66.6% (52.4%-76.6%) in the no YF/JE vaccination subgroup."
+  },
+  {
+   "rid": "PMC11646590#19",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against VCD for DENV-2 in the JE vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "For DENV-2, VE (95% CI) was 64.9% (7.8%-86.6%) in the YF vaccination subgroup, 95.6% (91.5%-97.7%) in the JE vaccination subgroup, and 66.6% (52.4%-76.6%) in the no YF/JE vaccination subgroup."
+  },
+  {
+   "rid": "PMC11646590#20",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against VCD for DENV-2 in the no YF/JE vaccination subgroup",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "For DENV-2, VE (95% CI) was 64.9% (7.8%-86.6%) in the YF vaccination subgroup, 95.6% (91.5%-97.7%) in the JE vaccination subgroup, and 66.6% (52.4%-76.6%) in the no YF/JE vaccination subgroup."
+  },
+  {
+   "rid": "PMC11646590#21",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against hospitalized dengue for DENV-2",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "VE against hospitalized dengue was high across the 3 subgroups and ranged from 88.4% (95% CI, 59.3%-96.7%) to 100% (not evaluable [NE])."
+  },
+  {
+   "rid": "PMC11646590#22",
+   "reporting_document": "PMC11646590",
+   "reported_label": "overall VE against VCD for DENV-1",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "The overall VE (95% CI) against VCD for DENV-1, DENV-2, DENV-3, and DENV-4 was 52.3% (42.6%-60.3%), 82.8% (77.3%-86.9%), 42.6% (26.2%-55.3%), and 48.3% (8.4%-70.8%), respectively ( Figure 3 A )."
+  },
+  {
+   "rid": "PMC11646590#23",
+   "reporting_document": "PMC11646590",
+   "reported_label": "overall VE against VCD for DENV-2",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "The overall VE (95% CI) against VCD for DENV-1, DENV-2, DENV-3, and DENV-4 was 52.3% (42.6%-60.3%), 82.8% (77.3%-86.9%), 42.6% (26.2%-55.3%), and 48.3% (8.4%-70.8%), respectively ( Figure 3 A )."
+  },
+  {
+   "rid": "PMC11646590#24",
+   "reporting_document": "PMC11646590",
+   "reported_label": "overall VE against VCD for DENV-3",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "The overall VE (95% CI) against VCD for DENV-1, DENV-2, DENV-3, and DENV-4 was 52.3% (42.6%-60.3%), 82.8% (77.3%-86.9%), 42.6% (26.2%-55.3%), and 48.3% (8.4%-70.8%), respectively ( Figure 3 A )."
+  },
+  {
+   "rid": "PMC11646590#25",
+   "reporting_document": "PMC11646590",
+   "reported_label": "overall VE against VCD for DENV-4",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "The overall VE (95% CI) against VCD for DENV-1, DENV-2, DENV-3, and DENV-4 was 52.3% (42.6%-60.3%), 82.8% (77.3%-86.9%), 42.6% (26.2%-55.3%), and 48.3% (8.4%-70.8%), respectively ( Figure 3 A )."
+  },
+  {
+   "rid": "PMC11646590#26",
+   "reporting_document": "PMC11646590",
+   "reported_label": "overall VE against hospitalized VCD for DENV-1",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "The overall VE (95% CI) against hospitalized VCD for DENV-1, DENV-2, DENV-3, and DENV-4 was 71.2% (51.2%-82.9%), 97.0% (92.6%-98.8%), 47.6% (0.2%-72.5%), and 100% (NE), respectively ( Figure 3 B )."
+  },
+  {
+   "rid": "PMC11646590#27",
+   "reporting_document": "PMC11646590",
+   "reported_label": "overall VE against hospitalized VCD for DENV-2",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "The overall VE (95% CI) against hospitalized VCD for DENV-1, DENV-2, DENV-3, and DENV-4 was 71.2% (51.2%-82.9%), 97.0% (92.6%-98.8%), 47.6% (0.2%-72.5%), and 100% (NE), respectively ( Figure 3 B )."
+  },
+  {
+   "rid": "PMC11646590#28",
+   "reporting_document": "PMC11646590",
+   "reported_label": "overall VE against hospitalized VCD for DENV-3",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "The overall VE (95% CI) against hospitalized VCD for DENV-1, DENV-2, DENV-3, and DENV-4 was 71.2% (51.2%-82.9%), 97.0% (92.6%-98.8%), 47.6% (0.2%-72.5%), and 100% (NE), respectively ( Figure 3 B )."
+  },
+  {
+   "rid": "PMC11646590#29",
+   "reporting_document": "PMC11646590",
+   "reported_label": "overall VE against hospitalized VCD for DENV-4",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Data were further explored to understand the impact of prior YF/JE vaccination on performance of the vaccine at serotype level.",
+   "result_quote": "The overall VE (95% CI) against hospitalized VCD for DENV-1, DENV-2, DENV-3, and DENV-4 was 71.2% (51.2%-82.9%), 97.0% (92.6%-98.8%), 47.6% (0.2%-72.5%), and 100% (NE), respectively ( Figure 3 B )."
+  },
+  {
+   "rid": "PMC11646590#30",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against DENV-2 during the first year after vaccination",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Further exploration at the serotype level suggested higher efficacy against DENV-2 VCD in the prior JE vaccination subgroup (VE of 95.6% vs 64.9% in the YF vaccination subgroup and 66.6% in the no YF/JE vaccination subgroup).",
+   "result_quote": "During the first year after vaccination, VE (95% CI) against DENV-2 was 97.7% (92.7%-99.3%), which declined to 75.0% (52.3%-86.9%) during year 2, remained at 76.4% (61.8%-85.4%) during year 3, and declined to 72.8% (7.2%-92.1%) during year 4 after vaccination."
+  },
+  {
+   "rid": "PMC11646590#31",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against DENV-2 during year 2 after vaccination",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Further exploration at the serotype level suggested higher efficacy against DENV-2 VCD in the prior JE vaccination subgroup (VE of 95.6% vs 64.9% in the YF vaccination subgroup and 66.6% in the no YF/JE vaccination subgroup).",
+   "result_quote": "During the first year after vaccination, VE (95% CI) against DENV-2 was 97.7% (92.7%-99.3%), which declined to 75.0% (52.3%-86.9%) during year 2, remained at 76.4% (61.8%-85.4%) during year 3, and declined to 72.8% (7.2%-92.1%) during year 4 after vaccination."
+  },
+  {
+   "rid": "PMC11646590#32",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against DENV-2 during year 3 after vaccination",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Further exploration at the serotype level suggested higher efficacy against DENV-2 VCD in the prior JE vaccination subgroup (VE of 95.6% vs 64.9% in the YF vaccination subgroup and 66.6% in the no YF/JE vaccination subgroup).",
+   "result_quote": "During the first year after vaccination, VE (95% CI) against DENV-2 was 97.7% (92.7%-99.3%), which declined to 75.0% (52.3%-86.9%) during year 2, remained at 76.4% (61.8%-85.4%) during year 3, and declined to 72.8% (7.2%-92.1%) during year 4 after vaccination."
+  },
+  {
+   "rid": "PMC11646590#33",
+   "reporting_document": "PMC11646590",
+   "reported_label": "VE against DENV-2 during year 4 after vaccination",
+   "reported_instrument": "serotype-specific reverse-transcription polymerase chain reaction",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Further exploration at the serotype level suggested higher efficacy against DENV-2 VCD in the prior JE vaccination subgroup (VE of 95.6% vs 64.9% in the YF vaccination subgroup and 66.6% in the no YF/JE vaccination subgroup).",
+   "result_quote": "During the first year after vaccination, VE (95% CI) against DENV-2 was 97.7% (92.7%-99.3%), which declined to 75.0% (52.3%-86.9%) during year 2, remained at 76.4% (61.8%-85.4%) during year 3, and declined to 72.8% (7.2%-92.1%) during year 4 after vaccination."
+  },
+  {
+   "rid": "PMC11646590#34",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events in the YF vaccination subgroup within 28 days after any trial vaccination",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Serious AEs were experienced by 23 of 4241 YF vaccination subgroup participants and 46 of 4787 JE vaccination subgroup participants in the 28 days after any trial vaccination."
+  },
+  {
+   "rid": "PMC11646590#35",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events in the JE vaccination subgroup within 28 days after any trial vaccination",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Serious AEs were experienced by 23 of 4241 YF vaccination subgroup participants and 46 of 4787 JE vaccination subgroup participants in the 28 days after any trial vaccination."
+  },
+  {
+   "rid": "PMC11646590#36",
+   "reporting_document": "PMC11646590",
+   "reported_label": "deaths within 28 days after any trial vaccination",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "No deaths occurred during that time ( Table 3 )."
+  },
+  {
+   "rid": "PMC11646590#37",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events related to investigational product in participants with prior YF vaccine",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Related to investigational product a\n0\n1 (<0.1)\n0\n1 (<0.1)"
+  },
+  {
+   "rid": "PMC11646590#38",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events related to investigational product, immune system disorders, in participants with prior YF vaccine",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Immune system disorders\n0\n1 (<0.1)\n0\n0"
+  },
+  {
+   "rid": "PMC11646590#39",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events related to investigational product, infections and infestations, in participants with prior JE vaccine",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Infections and infestations\n0\n0\n0\n1 (<0.1)"
+  },
+  {
+   "rid": "PMC11646590#40",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events not related to investigational product in participants with prior YF or JE vaccine",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Not related to investigational product\n13 (0.5)\n9 (0.6)\n29 (0.9)\n16 (1.0)"
+  },
+  {
+   "rid": "PMC11646590#41",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events not related to investigational product, blood and lymphatic system disorders",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Blood and lymphatic system disorders\n1 (<0.1)\n0\n1 (<0.1)\n0"
+  },
+  {
+   "rid": "PMC11646590#42",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events not related to investigational product, eye disorders",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Eye disorders\n0\n0\n1 (<0.1)\n0"
+  },
+  {
+   "rid": "PMC11646590#43",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events not related to investigational product, gastrointestinal disorders",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Gastrointestinal disorders\n1 (<0.1)\n0\n2 (<0.1)\n0"
+  },
+  {
+   "rid": "PMC11646590#44",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events not related to investigational product, general disorders and administration site conditions",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "General disorders and administration site conditions\n0\n0\n1 (<0.1)\n0"
+  },
+  {
+   "rid": "PMC11646590#45",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events not related to investigational product, immune system disorders",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Immune system disorders\n0\n0\n1 (<0.1)\n0"
+  },
+  {
+   "rid": "PMC11646590#46",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events not related to investigational product, infections and infestations",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Infections and infestations\n3 (0.1)\n2 (0.1)\n21 (0.7)\n9 (0.6)"
+  },
+  {
+   "rid": "PMC11646590#47",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events not related to investigational product, injury, poisoning, and procedural complications",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Injury, poisoning, and procedural complications\n3 (0.1)\n4 (0.3)\n2 (<0.1)\n6 (0.4)"
+  },
+  {
+   "rid": "PMC11646590#48",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events not related to investigational product, nervous system disorders",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Nervous system disorders\n3 (0.1)\n0\n1 (<0.1)\n0"
+  },
+  {
+   "rid": "PMC11646590#49",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events not related to investigational product, psychiatric disorders",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Psychiatric disorders\n1 (<0.1)\n0\n0\n1 (<0.1)"
+  },
+  {
+   "rid": "PMC11646590#50",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events not related to investigational product, renal and urinary disorders",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Renal and urinary disorders\n1 (<0.1)\n0\n0\n0"
+  },
+  {
+   "rid": "PMC11646590#51",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events not related to investigational product, respiratory, thoracic, and mediastinal disorders",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Respiratory, thoracic, and mediastinal disorders\n1 (<0.1)\n1 (<0.1)\n0\n0"
+  },
+  {
+   "rid": "PMC11646590#52",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events not related to investigational product, skin and subcutaneous tissue disorders",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Skin and subcutaneous tissue disorders\n0\n0\n1 (<0.1)\n0"
+  },
+  {
+   "rid": "PMC11646590#53",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events not related to investigational product, social circumstances",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Social circumstances\n0\n2 (0.1)\n0\n0"
+  },
+  {
+   "rid": "PMC11646590#54",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events leading to withdrawal of investigational product",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Leading to withdrawal of investigational product\n1 (<0.1)\n1 (<0.1)\n0\n0"
+  },
+  {
+   "rid": "PMC11646590#55",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events leading to withdrawal of investigational product, immune system disorders",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Immune system disorders\n0\n1 (<0.1)\n0\n0"
+  },
+  {
+   "rid": "PMC11646590#56",
+   "reporting_document": "PMC11646590",
+   "reported_label": "serious adverse events leading to withdrawal of investigational product, nervous system disorders",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Safety data for 28 days after any trial vaccination (ie, first or second dose) are reported in this analysis.",
+   "result_quote": "Nervous system disorders\n1 (<0.1)\n0\n0\n0"
+  },
+  {
+   "rid": "PMC11797386#2",
+   "reporting_document": "PMC11797386",
+   "reported_label": "study completion through the end of Part 3",
+   "reported_instrument": "",
+   "reported_role": "other",
+   "role_evidence_quote": "Participants (or their parents/guardians) were contacted at least weekly to monitor for febrile illness and potential dengue cases.",
+   "result_quote": "Overall, 94.2% of 4-5 year-olds, 93.9% of 6-11 year-olds, and 84.7% of 12-16 year-olds completed the study through the end of Part 3 (approximately 57 months postvaccination; median duration of follow-up after the second dose was 1641 days)."
+  },
+  {
+   "rid": "PMC11797386#3",
+   "reporting_document": "PMC11797386",
+   "reported_label": "VCD cases",
+   "reported_instrument": "virologically confirmed dengue (VCD)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "Across age groups, 560 cases of VCD were recorded from first vaccination to end of Part 3 in the placebo group, and 447 in the TAK-003 group."
+  },
+  {
+   "rid": "PMC11797386#4",
+   "reporting_document": "PMC11797386",
+   "reported_label": "causative serotype of VCD cases in placebo recipients",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "The predominant causative serotype in placebo recipients varied by age, with DENV-1 and DENV-3 causing the most cases in 4-5 year-olds (33.3% and 35.4%, respectively) compared with DENV-1 and DENV-2 in children aged >=6 years (6-11 year-olds-DENV-1: 42.2%; DENV-2: 36.7%; 12-16 year-olds-DENV-1: 43.8%; DENV-2: 35.0%; Figure 1 A )."
+  },
+  {
+   "rid": "PMC11797386#5",
+   "reporting_document": "PMC11797386",
+   "reported_label": "causative serotype of hospitalized VCD cases in placebo recipients",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "DENV-1 and DENV-2 caused the majority of hospitalized cases across age groups (66.7%-89.5%), whereas DENV-3 caused proportionally more hospitalized cases in 4-5 year-olds than in older children ( Figure 1 B )."
+  },
+  {
+   "rid": "PMC11797386#6",
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against VCD by age group",
+   "reported_instrument": "virologically confirmed dengue (VCD)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "Across serotypes and baseline serostatus, VE against VCD ranged from 43.5% (95% CI: 25.3%, 57.3%) in 4-5 year-olds through to 67.7% (95% CI: 57.8%, 75.2%) in 12-16 year-olds ( Figure 2 A )."
+  },
+  {
+   "rid": "PMC11797386#7",
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against VCD in seropositive 6-11 year-olds",
+   "reported_instrument": "virologically confirmed dengue (VCD)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "in 6-11 year-olds VE was 64.8% (95% CI: 57.0%, 71.2%) in seropositive and 60.5% (95% CI: 46.8%, 70.7%) in seronegative participants"
+  },
+  {
+   "rid": "PMC11797386#8",
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against VCD in seronegative 6-11 year-olds",
+   "reported_instrument": "virologically confirmed dengue (VCD)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "in 6-11 year-olds VE was 64.8% (95% CI: 57.0%, 71.2%) in seropositive and 60.5% (95% CI: 46.8%, 70.7%) in seronegative participants"
+  },
+  {
+   "rid": "PMC11797386#9",
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against VCD in seropositive 12-16 year-olds",
+   "reported_instrument": "virologically confirmed dengue (VCD)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "in 12-16 year-olds these were 68.6% (95% CI: 57.7%, 76.7%) and 63.6% (95% CI: 33.8%, 79.9%), respectively."
+  },
+  {
+   "rid": "PMC11797386#10",
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against VCD in seronegative 12-16 year-olds",
+   "reported_instrument": "virologically confirmed dengue (VCD)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "in 12-16 year-olds these were 68.6% (95% CI: 57.7%, 76.7%) and 63.6% (95% CI: 33.8%, 79.9%), respectively."
+  },
+  {
+   "rid": "PMC11797386#11",
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against VCD in seropositive 4-5 year-olds",
+   "reported_instrument": "virologically confirmed dengue (VCD)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "VE in 4-5 year-olds was 54.1% (95% CI: 34.1%, 68.0%) in seropositive and 23.2% (95% CI: -20.0%, 50.8%) in seronegative participants."
+  },
+  {
+   "rid": "PMC11797386#12",
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against VCD in seronegative 4-5 year-olds",
+   "reported_instrument": "virologically confirmed dengue (VCD)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "VE in 4-5 year-olds was 54.1% (95% CI: 34.1%, 68.0%) in seropositive and 23.2% (95% CI: -20.0%, 50.8%) in seronegative participants."
+  },
+  {
+   "rid": "PMC11797386#13",
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against hospitalized VCD by age group",
+   "reported_instrument": "hospitalized VCD",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "Across baseline serostatuses, VE against hospitalized VCD was 63.8% (95% CI: 21.1%, 83.4%) in the 4-5 year-olds, 85.1% (95% CI: 77.1%, 90.3%) in 6-11 year-olds, and 89.7% (95% CI: 77.9%, 95.2%) in 12-16 year-olds."
+  },
+  {
+   "rid": "PMC11797386#14",
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against VCD by year of age in seropositive participants",
+   "reported_instrument": "virologically confirmed dengue (VCD)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "Estimates of VE of TAK-003 against VCD by year of age ranged from 49.1% (95% CI: 18.8%, 68.0%) in 9 year-olds to 76.9% (95% CI: 26.1%, 92.8%) in 16 year-olds in seropositive participants ( Supplementary Table 2 )."
+  },
+  {
+   "rid": "PMC11797386#15",
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against VCD by year of age in seronegative participants",
+   "reported_instrument": "virologically confirmed dengue (VCD)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "More variation was seen in seronegative participants, ranging from -30.2% (-1152.1%, 86.5%) in 15 year-olds to 92.7% (95% CI: 67.4%, 98.3%) in 12 year-olds, with very few cases in children >12 years of age."
+  },
+  {
+   "rid": "PMC11797386#16",
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against hospitalized VCD in seropositive participants by year of age",
+   "reported_instrument": "hospitalized VCD",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "VE against hospitalized VCD was generally >75% across age groups in seropositive participants, with the exception of 4 year-olds (VE 3.1%, 95% CI: -287.4%, 75.8%) and 16 year-olds (68.0%, 95% CI: -252.9%, 97.1%)."
+  },
+  {
+   "rid": "PMC11797386#17",
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against hospitalized VCD in seronegative participants by year of age",
+   "reported_instrument": "hospitalized VCD",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "In seronegative participants, VE ranged from 51.3% to 100% in children aged 4-12 years, although was associated with large confidence intervals, and no cases reported in older children ( Supplementary Table 3 )."
+  },
+  {
+   "rid": "PMC11797386#18",
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against VCD by individual study year",
+   "reported_instrument": "virologically confirmed dengue (VCD)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "Evaluation of VE against VCD by individual study year showed substantial year-by-year variation in 4-5 year-olds and seronegative 12-16 year-olds ( Supplementary Table 4 )."
+  },
+  {
+   "rid": "PMC11797386#19",
+   "reporting_document": "PMC11797386",
+   "reported_label": "severe dengue cases",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Clinical Signs and Symptoms of VCD by Age Group and Baseline Serostatus",
+   "result_quote": "In total, 3 severe dengue cases were reported in 4-5 year-olds (1 seronegative, 2 seropositive), 5 in 6-11 year-olds (1 seronegative, 4 seropositive), and 0 in 12-16 year-olds."
+  },
+  {
+   "rid": "PMC11797386#20",
+   "reporting_document": "PMC11797386",
+   "reported_label": "DHF cases",
+   "reported_instrument": "",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "Clinical Signs and Symptoms of VCD by Age Group and Baseline Serostatus",
+   "result_quote": "In total, 4 cases of DHF were reported in 4-5 year-olds, 10 in 6-11 year-olds, and 10 in 12-16 year-olds, with the majority of cases in baseline seropositive placebo recipients ( Supplementary Table 9 )."
+  },
+  {
+   "rid": "PMC11797386#22",
+   "reporting_document": "PMC11797386",
+   "reported_label": "SAEs",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "This trend was continued to Part 3 of the study, where 4.7% to 6.9% of participants reported SAEs across age groups ( Table 2 )."
+  },
+  {
+   "rid": "PMC11797386#23",
+   "reporting_document": "PMC11797386",
+   "reported_label": "SAEs considered related to the study interventions",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "In total, 4 participants in the placebo group and 1 in the TAK-003 experienced SAEs considered related to the study interventions; these all occurred during Parts 1 and 2 of the study."
+  },
+  {
+   "rid": "PMC11797386#24",
+   "reporting_document": "PMC11797386",
+   "reported_label": "SAEs leading to discontinuation",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "Across all 3 study parts (randomization ratio 2:1 for TAK-003:placebo), SAEs leading to discontinuation were recorded for 1 participant in the 4-5 years group (placebo), 15 in the 6-11 years group (TAK-003: 11, placebo: 4) and 27 in the 12-16 years group (TAK-003: 18, placebo: 9)."
+  },
+  {
+   "rid": "PMC11797386#25",
+   "reporting_document": "PMC11797386",
+   "reported_label": "deaths",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "In total, 0 deaths occurred in 4-5 year-olds, 11 in 6-11 year-olds, and 12 in 12-16 years, none of which were considered related to the study vaccine."
+  },
+  {
+   "rid": "PMC11797386#26",
+   "reporting_document": "PMC11797386",
+   "reported_label": "SAEs",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "SAEs\n18 (3.7)\n42 (4.2)\n19 (5.4)\n47 (6.8)\n28 (5.7)\n44 (4.9)\n18 (5.1)\n40 (5.7)"
+  },
+  {
+   "rid": "PMC11797386#27",
+   "reporting_document": "PMC11797386",
+   "reported_label": "Related SAEs",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "Related SAEs\n0\n0\n0\n0\n0\n0\n0\n0"
+  },
+  {
+   "rid": "PMC11797386#28",
+   "reporting_document": "PMC11797386",
+   "reported_label": "SAEs leading to discontinuation",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "SAEs leading to discontinuation\n1 (0.2)\n0\n0\n0\n0\n0\n0\n0"
+  },
+  {
+   "rid": "PMC11797386#29",
+   "reporting_document": "PMC11797386",
+   "reported_label": "Deaths",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "Deaths\n0\n0\n0\n0\n0\n0\n0\n0"
+  },
+  {
+   "rid": "PMC11797386#30",
+   "reporting_document": "PMC11797386",
+   "reported_label": "SAEs",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "SAEs\n139 (5.4)\n210 (4.1)\n56 (5.0)\n86 (3.7)\n146 (5.7)\n239 (4.7)\n63 (5.6)\n108 (4.7)"
+  },
+  {
+   "rid": "PMC11797386#31",
+   "reporting_document": "PMC11797386",
+   "reported_label": "Related SAEs",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "Related SAEs\n0\n0\n3 (0.3)\n0\n0\n0\n0\n0"
+  },
+  {
+   "rid": "PMC11797386#32",
+   "reporting_document": "PMC11797386",
+   "reported_label": "SAEs leading to discontinuation",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "SAEs leading to discontinuation\n1 (<0.1)\n4 (<0.1)\n1 (<0.1)\n1 (<0.1)\n2 (<0.1)\n4 (<0.1)\n0\n2 (<0.1)"
+  },
+  {
+   "rid": "PMC11797386#33",
+   "reporting_document": "PMC11797386",
+   "reported_label": "Deaths",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "Deaths\n1 (<0.1)\n2 (<0.1)\n0\n0\n2 (<0.1)\n4 (<0.1)\n0\n2 (<0.1)"
+  },
+  {
+   "rid": "PMC11797386#34",
+   "reporting_document": "PMC11797386",
+   "reported_label": "SAEs",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "SAEs\n83 (4.6)\n132 (3.7)\n9 (2.6)\n21 (3.0)\n117 (6.5)\n198 (5.5)\n24 (6.9)\n35 (5.0)"
+  },
+  {
+   "rid": "PMC11797386#35",
+   "reporting_document": "PMC11797386",
+   "reported_label": "Related SAEs",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "Related SAEs\n1 (<0.1)\n1 (<0.1)\n0\n0\n0\n0\n0\n0"
+  },
+  {
+   "rid": "PMC11797386#36",
+   "reporting_document": "PMC11797386",
+   "reported_label": "SAEs leading to discontinuation",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "SAEs leading to discontinuation\n4 (0.2)\n12 (0.3)\n1 (0.3)\n1 (0.1)\n3 (0.2)\n5 (0.1)\n1 (0.3)\n0"
+  },
+  {
+   "rid": "PMC11797386#37",
+   "reporting_document": "PMC11797386",
+   "reported_label": "Deaths",
+   "reported_instrument": "",
+   "reported_role": "safety",
+   "role_evidence_quote": "Solicited and unsolicited AEs, SAEs, AEs leading to study discontinuation, SAEs related to the investigational product, and deaths during the study are reported for each age group.",
+   "result_quote": "Deaths\n0\n3 (<0.1)\n0\n0\n3 (0.2)\n5 (0.1)\n1 (0.3)\n0"
+  },
+  {
+   "rid": "PMC11797386#38",
+   "reporting_document": "PMC11797386",
+   "reported_label": "VE against VCD by individual study year in 4-5 year-olds",
+   "reported_instrument": "virologically confirmed dengue (VCD)",
+   "reported_role": "exploratory",
+   "role_evidence_quote": "This pre-specified exploratory analysis evaluates the VE of TAK-003 in preventing VCD and hospitalized VCD from first dose to the end of Part 3 (approximately 57 months postvaccination) stratified by year of age and age group (4-5 years, 6-11 years, or 12-16 years) at enrolment.",
+   "result_quote": "Year-by-year estimates of VE against VCD in this age group showed fluctuations from 2.5% to 92.5%, with even greater variation against hospitalized VCD."
+  }
+ ],
+ "dropped_unusable_units": []
+}

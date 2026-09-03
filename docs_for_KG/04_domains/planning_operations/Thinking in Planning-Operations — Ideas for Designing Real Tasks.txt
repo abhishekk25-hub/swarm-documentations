@@ -1,0 +1,122 @@
+﻿THINKING IN PLANNING-OPERATIONS
+Ideas for Designing Real Tasks
+This is not a checklist. It is a way of seeing.
+
+
+WHY THIS DOMAIN PRODUCES THE BIGGEST SINGLE-VS-MULTI GAP
+Most SwarmBench tasks fail to produce a gap because the problem is solvable inside one agent's effective attention. Planning-operations naturally breaks that ceiling for one reason:
+Many decisions × many constraints, where each decision must honour a different subset of the constraints.
+That product is what crushes a single agent. The agent has to hold every constraint in its working attention while also generating a structured, defensible decision for each of many units. It cannot do both. By unit 10–15 it starts templating, dropping conditions, hallucinating citations, and contradicting earlier decisions. Multi-agent decomposition trivially fixes this — one agent reads the constraints and emits a compact reference, others apply that reference to one decision each.
+This pattern is genre-agnostic. It does not require government PDFs. It shows up in business operations, engineering incident response, healthcare scheduling, education planning, sports broadcasting, NGO field work, construction sequencing, manufacturing changeovers — anywhere people make many similar but non-identical decisions while respecting a body of constraints too big to memorize.
+If you can find that shape in any domain you know well, you have a task.
+WHAT "CONSTRAINTS" REALLY MEANS (IT IS NOT JUST RULES)
+The thing the agent must respect can be many things. Stop thinking "government regulations" — start thinking about anything that constrains a decision.
+• Regulations — laws, codes, standards. The obvious case.
+• Internal policy — SOPs, brand guidelines, security policies, escalation matrices.
+• Best-practice corpora — clinical guidelines, engineering runbooks, design system rules.
+• Dependencies — what must happen before what, what conflicts with what.
+• Resource limits — budget, capacity, calendar, staffing, equipment availability.
+• Stakeholder requirements — different parties want different things; the plan must thread the needle.
+• Historical precedent — past incidents, prior decisions that set the bar.
+• Physical reality — geography, weather, infrastructure, distance, time-of-day.
+A good planning-operations task usually combines two or three of these. A wildfire IMT dispatch plan is regulations (NWCG) plus resource limits (which IMTs exist where) plus physical reality (fuels, weather). A conference operations plan is internal policy plus dependencies plus stakeholder requirements. A datacenter migration is dependencies plus resource limits plus best-practice corpora.
+The constraint corpus does not need to be a PDF stack. It can be JSON spec files, a service catalog, a dependency graph, a calendar, a roster, a list of past incidents — anything dense enough that an agent must look it up rather than guess.
+WHAT "DECISIONS" REALLY MEANS
+The output of a planning-operations task should be a plan an operator could act on. That plan is a series of decisions. The decisions can be:
+• Allocation — who gets what resource, when, how much.
+• Scheduling — what order, on what calendar, with what dependencies.
+• Routing — what path, what handoff, what fallback.
+• Approval / denial / conditional approval — and on what grounds.
+• Prioritisation — what gets done first, what waits.
+• Configuration — what knobs are set how for each unit.
+• Assignment — who owns what, who escalates to whom.
+• Sequencing — what activates what, what triggers what.
+The richer the decision space, the more interesting the task. A plan that just answers yes/no for each unit is thin. A plan that answers "what posture, with what owner, on what trigger, with what fallback, citing what constraint" — that is meaty.
+THE WIDE CANVAS — WHERE THIS PATTERN LIVES
+A non-exhaustive tour, just to expand the mental map. Each of these is a planning-operations task waiting to be built; none of them is "follow government PDF rules."
+Crisis and incident.
+Disaster response (corporate BCP, hospital surge, school-district closure, port disruption), software incident response (multi-service outages with runbook + SLO obligations), security breach response (notification timelines, containment sequencing, forensic preservation).
+Healthcare and life sciences.
+OR scheduling under surgeon preference cards, clinical trial site activation across protocols, hospital discharge planning across payor mix, vaccine campaign rollout across community segments, pharmacy formulary review across therapeutic classes.
+Engineering and SRE.
+Service migration plans across dependency graphs, on-call rotation design across time zones and skill sets, capacity-planning seasonality, multi-region deploy gating, postmortem-action portfolio scheduling.
+Logistics and supply chain.
+Last-mile routing under stop windows and vehicle types, port operations during disruption, multi-warehouse inventory rebalancing under demand forecasts, freight-mode selection across lanes, supplier-qualification programmes.
+Construction and infrastructure.
+Project sequencing across critical path and weather windows, permit-stack planning across jurisdictions, BIM clash-resolution work plans, utility shutdown coordination, station-by-station transit refurbishment.
+Retail and consumer.
+New-store opening sequences across markets, planogram rollouts respecting regional regulations and store footprints, peak-season staffing across formats, returns-policy operations across categories.
+Events and broadcasting.
+Multi-venue tour logistics, stadium game-day operations, broadcast control-room run-of-show across simultaneous events, festival site plans with safety and accessibility requirements.
+Education.
+School-district staffing across enrolment shifts, curriculum rollout across grade bands and standards, special-education service planning across IEPs, university tenure-clock cohort planning.
+NGO and humanitarian.
+Field-office activation in new countries under donor requirements, cluster-lead handoffs in protracted crises, distribution planning across populations with different access barriers.
+Finance and trading operations.
+End-of-day close orchestration across asset classes, audit-calendar planning across legal entities, regulatory-reporting schedules across jurisdictions, KYC remediation workplans.
+Manufacturing.
+Line changeover sequencing across SKUs, maintenance windows under throughput targets, recall execution across distributors, supplier-qualification rollouts.
+Government and public sector.
+The whole regulatory-corpus stack from the first guide — FEMA, HUD, EPA, FAR, etc. Just one neighbourhood on a much larger map.
+You should write tasks in domains you actually know. A trainer with a hospital ops background should build hospital ops tasks. The "official PDF stack" pattern is just one shape — find the constraint corpus that lives in your domain and the task follows from there.
+THE STRUCTURAL FAILURE — FELT, NOT MEMORIZED
+When you design a task, the question that matters is not "does this look complex?" It is "what specifically will break inside the single agent?"
+Three things break, predictably, on a well-shaped planning-operations task:
+The constraints fade.
+The agent reads a thick constraint corpus into context. It then starts writing decisions. By decision 8 or 10, the early parts of the constraint corpus are past the model's reliable-recall window. The agent does not know it has forgotten — it just produces less-grounded output, with vaguer citations, generic phrasing, and missed conditional triggers.
+Late decisions go generic.
+By decision 15+, attention is spread so thin that the agent reaches for safe templates. You can grep the output and see the same paragraph reappearing. Distinguishing features of late units get washed out.
+Cross-unit reasoning collapses.
+Decisions 1 and 18 share a resource, a dependency, a downstream consumer. The agent has no working memory of decision 1 when it writes 18, so 18 contradicts 1. This is the single most reliable sign of single-agent failure.
+If you can predict, in writing, which of these three will dominate on your task, you have a real task. If you cannot — if your answer is "the task is just hard" — the gap will not appear and the multi-agent run will look only marginally better.
+WHAT A GOOD TASK FEELS LIKE (NOT A CHECKLIST)
+Rather than a rubric, here are properties that good planning-operations tasks tend to have. Use them as a feel-check, not gates.
+• A working operator in this domain would recognise the deliverable as their day job.
+• The constraint corpus is too dense to keep in your own head while writing one example decision by hand.
+• You can imagine 20+ similar-shape but value-different decisions naturally arising.
+• Different decisions need different subsets of the constraints. (Uniform-rule-application tasks are dead on arrival.)
+• The decisions interact — share resources, share owners, share timelines, share dependencies.
+• There is a "wrong" — decisions that violate constraints or contradict other decisions should be clearly wrong, not stylistic.
+• A real professional could be embarrassed by a bad output, or impressed by a good one.
+If most of these are true, build the task. If only one or two are true, the gap will not appear cleanly.
+SPARKS ACROSS DOMAINS (SO THE IMAGINATION HAS SOMEWHERE TO START)
+These are sketches, not blueprints. Each is one paragraph. The goal is to show how the same structural pattern lives in very different places.
+Hospital-system OR block schedule.
+Given surgeon preference cards, anaesthesia coverage, equipment availability, payor mix, and case-acuity rules, build a one-week OR schedule across 8 ORs. Constraints: surgeon preferences, anaesthesia certification, instrument trays, infection-control isolation, payor-driven case-mix targets. Decisions: which case in which OR at which start time with which team. Single-agent failure: forgets surgeon-specific tray requirements past OR 4.
+Multi-region software deploy gate.
+Given an SLO budget, a service dependency graph, recent incident history, and per-region traffic patterns, write a rollout plan for a backwards-incompatible API change across 12 regions. Constraints: SLO error budgets, dependency ordering, change-freeze calendars, on-call coverage. Decisions: order, canary size, rollback trigger, customer-comms timing per region. Single-agent failure: by region 8, the dependency graph is gone and the agent recommends rolling out the consumer before the producer.
+Touring band city-stop runbook.
+Given venue contracts, local labour rules, transport logistics, immigration documents, and merchandise customs rules, write the operations plan for 25 city stops. Constraints: load-in windows, local stagehand union rules, customs declarations, accessibility statutes, vendor allergy declarations. Decisions: bus call times, load-in crew composition, merch pricing per city, hospitality plan, contingency for visa issue. Single-agent failure: city 14 has a country-specific work-permit rule that single agent applies uniformly or forgets entirely.
+University admissions yield strategy.
+Given prior-year yield models, financial-aid budgets, residential capacity, programme-mix targets, and equity commitments, design a per-applicant-pool yield activation plan for 30 admitted-student pools. Constraints: aid budgets, ED commitments, accessibility, dorm capacity, programme balance. Decisions: which pool gets which intervention (visit, call, top-up aid) on which date. Single-agent failure: late pools get the same generic playbook regardless of pool-specific yield gap.
+Humanitarian field-office activation.
+Given donor reporting requirements, safeguarding standards, host-country agreements, local-staffing rules, and cluster-coordination expectations, build an activation plan for 10 new field offices in different country contexts. Constraints: donor compliance, child-protection standards, host-country MOUs, security protocols, cluster handoffs. Decisions: staffing model, opening sequence, partner agreements, reporting cadence, security posture. Single-agent failure: country 7 has unique safeguarding requirements that the agent flattens into a regional template.
+Manufacturing recall execution.
+Given product-safety regulations, distributor contracts, retail-partner agreements, customer-database segmentation, and replacement-inventory levels, build a recall execution plan across 40 SKUs and 15 markets. Constraints: notification deadlines per jurisdiction, distributor contract terms, replacement availability, refund processing. Decisions: notification wave, replacement vs refund choice, customer-comms script, retailer handoff. Single-agent failure: by SKU 20, the jurisdiction-specific deadlines collapse into one global timeline.
+These look nothing like each other on the surface. Underneath, they are all the same shape: a constraint corpus that is too thick to fit reliably in one agent's attention, applied across many decisions that share structure but differ in detail. Pick a domain you know and write the corresponding paragraph for it. If the paragraph reads cleanly, the task can be built.
+DESIGNING TESTS THAT PROVE THE GAP
+The instinct is to grade prose quality. That instinct is wrong. A single agent's templated late-unit output reads fine — that is exactly why it slips past prose-quality judging.
+What you want to grade is whether the decision honoured the constraints that apply to it. Concretely:
+• Did the plan touch every constraint that should fire for this unit?
+• Did it touch them in a substantive way, not just by name-dropping?
+• Did it stay consistent with the other units' plans where they share something?
+• Did it cite the constraint sources truthfully?
+The mechanical part — schema validity, file paths, counts, citation lookups — should be done by plain Python before any LLM is invoked. The judgement part — does this action substantively address this constraint — should be done by LLM calls that are small and scoped (one constraint, one unit, one short prompt). Never dump the whole plan plus the whole constraint corpus into one judge call — that recreates the same context failure the single agent had, and the judge starts hallucinating "covered" verdicts the same way.
+A simple, defensible scoring shape that produces real gaps:
+• Some weight on deterministic shape (does the output even comply with the schema, are the citations to real things).
+• Most weight on per-decision constraint coverage — for each decision, what fraction of the constraints that should have applied were substantively addressed.
+• A small amount of weight on cross-decision consistency — do the decisions hang together as one coherent plan, or do they contradict each other.
+• A penalty for templated late-unit outputs — judge flags if multiple decisions are paraphrases of each other.
+Before running any real agent, sanity-check the judge with three runs:
+• A perfect answer should score near 1.0.
+• An answer where 30% of the constraint hits have been removed should score in the middle.
+• An answer that uses the same templated decision for every unit should score low.
+If those three cases behave correctly, the judge will measure a real gap when the agents actually run. If they do not, the judge is broken — fix it before spending API budget on real runs.
+HOW TO START, WHEN THE PAGE IS BLANK
+You do not need a process. You need a moment of recognition. The question to sit with is:
+In a domain I actually know something about, where do operators make many similar-but-not-identical decisions while respecting a body of constraints they couldn't recite from memory?
+Wherever your answer points — hospital, datacenter, field office, factory, broadcast control room, school district, port — that is your candidate domain. Write one paragraph in plain English describing what an operator there spends a Tuesday doing. If the paragraph naturally contains the words "for each ___, decide ___ while respecting ___," you have found the task. Build it from there.
+Everything in the first guide — schemas, oracle structure, judge layers — is the machinery to make that idea into a runnable SwarmBench task. But the idea itself comes first, and it comes from inside a domain you actually understand. Trust that.
+A SHORT CLOSING NOTE ON RIGIDITY
+Nothing in this document is a rule. The benchmark needs variety — different industries, different decision types, different constraint shapes, different decomposition patterns. If every trainer builds a government-PDF task, the benchmark looks narrow. If your domain is corporate operations, build that. If it is healthcare, build that. If it is sports broadcasting or music tours or rare-disease patient navigation, build that.
+The structural pattern — many decisions × many constraints, with a measurable consequence for getting it wrong — is what makes the gap appear. The domain it lives in is yours to pick.

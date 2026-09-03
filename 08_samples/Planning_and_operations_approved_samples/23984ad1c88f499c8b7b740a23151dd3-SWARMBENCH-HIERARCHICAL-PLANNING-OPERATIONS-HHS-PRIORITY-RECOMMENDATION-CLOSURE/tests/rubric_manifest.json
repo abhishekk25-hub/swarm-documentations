@@ -1,0 +1,364 @@
+{
+  "task_id": "23984ad1c88f499c8b7b740a23151dd3",
+  "verifier_type": "hybrid",
+  "total_checks": 35,
+  "reward_formula": "(total_static_check_score * 1 + total_reward_hacking_check_score * 2 + total_partial_oracle_check_score * 3) / 6",
+  "scoring": {
+    "per_check": "Every check is independently proportional in [0.0, 1.0] and carries runtime weight 1.",
+    "intra_category_aggregation": "Each category is the unweighted arithmetic mean of its checks.",
+    "final_formula": "(total_static_check_score * 1 + total_reward_hacking_check_score * 2 + total_partial_oracle_check_score * 3) / 6",
+    "content_dominance": "31 of 35 checks are content checks; content categories carry five-sixths of the final coefficient.",
+    "prohibited": "No non-unit check weight, non-canonical blend, final wrapper, cap, floor, gate, ceiling, multiplier, bonus or mode-specific branch.",
+    "infrastructure_error_handling": "Transport failures are recorded in verifier_status.json and judge_justification.txt and never treated as clean calibration evidence."
+  },
+  "grounding": {
+    "source_of_truth": "The 24 frozen originating GAO report texts and their unit-specific excerpts from GAO-25-108032 under /input_artifacts/units, pinned by file_manifest.csv.",
+    "agent_accessible": true,
+    "hidden_answer_key": true,
+    "verification_methods": [
+      "input corpus SHA-256 validation",
+      "literal unit-local quotation attestation",
+      "expected-key coverage with duplicate invariance",
+      "cross-artifact identifier and dependency reconciliation",
+      "ordered and token-set near-duplicate detection",
+      "independent record-weighted semantic assessment against bounded source passages"
+    ]
+  },
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Checks that /logs/agent contains exactly the nine required non-empty deliverables with disclosed shapes, memo headings and length; verifies frozen input hashes and rejects substantive premature-closure or no-further-work assertions.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/recommendation_register.csv",
+        "/logs/agent/recommendation_dossiers.jsonl",
+        "/logs/agent/closure_actions.csv",
+        "/logs/agent/closure_evidence_plan.csv",
+        "/logs/agent/dependency_register.csv",
+        "/logs/agent/implementation_wave_plan.csv",
+        "/logs/agent/priority_arbitration.csv",
+        "/logs/agent/traceability_graph.json",
+        "/logs/agent/executive_decision_memo.md"
+      ],
+      "check_function": "check_output_contract",
+      "how_it_prevents_task_authenticity_violation": "Prevents extra-file padding, source tampering, prohibited closure claims, or a shape-incompatible package from receiving full usability credit."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Scores the frozen U01-U24 roster once each, requiring exact register/dossier coverage, roster-matched report and area fields, a named recommendation owner, and a 25-60-word gap summary that agrees with the dossier.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/recommendation_register.csv",
+        "/logs/agent/recommendation_dossiers.jsonl"
+      ],
+      "check_function": "check_register_schema_and_roster",
+      "how_it_prevents_task_authenticity_violation": "Prevents duplicate padding or selective omission from inflating the apparent portfolio coverage."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "Checks expected-key coverage without raw-row accumulation; same-unit action sequencing and evidence ownership; complete action-to-evidence coverage; dependency ownership and acyclicity; and trace mirroring plus bidirectional claim membership.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/closure_actions.csv",
+        "/logs/agent/closure_evidence_plan.csv",
+        "/logs/agent/dependency_register.csv",
+        "/logs/agent/implementation_wave_plan.csv",
+        "/logs/agent/traceability_graph.json"
+      ],
+      "check_function": "check_identifier_references",
+      "how_it_prevents_task_authenticity_violation": "Prevents disconnected artifacts and invented references from masquerading as an integrated closure plan."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "Checks every disclosed enum over duplicate-invariant expected keys and requires exact register, dependency, and wave-plan coverage for each frozen recommendation unit.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/recommendation_register.csv",
+        "/logs/agent/closure_actions.csv",
+        "/logs/agent/closure_evidence_plan.csv",
+        "/logs/agent/dependency_register.csv",
+        "/logs/agent/implementation_wave_plan.csv"
+      ],
+      "check_function": "check_enum_and_wave_contract",
+      "how_it_prevents_task_authenticity_violation": "Prevents syntactically plausible but contract-incompatible records from being treated as operationally usable."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "For each of the 120 expected action keys, conjoins the action word range, a 6-30-word unit-local anchor, a substantial authored rationale beyond that anchor, owner presence, and distinctness after anchor terms are removed.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/closure_actions.csv",
+      "check_function": "check_action_rationale_grounded_distinctness",
+      "how_it_prevents_task_authenticity_violation": "Prevents a varied-looking action template or fabricated prose from earning credit without engaging the unit's own sources."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "For each of the 72 expected evidence keys, checks request ranges and an observable acceptance test with a condition, bounded population, named evidence object, and verified state; also checks owner presence, a 6-30-word unit-local anchor, substantial authored rationale beyond the anchor, closure-standard overlap, and post-source near-distinctness.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/closure_evidence_plan.csv",
+        "/logs/agent/recommendation_dossiers.jsonl"
+      ],
+      "check_function": "check_evidence_rationale_grounded_distinctness",
+      "how_it_prevents_task_authenticity_violation": "Prevents generic evidence requests or shuffled boilerplate from standing in for recommendation-specific closure proof."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Scores each expected dependency when both action references resolve, both 6-30-word anchors bind to the affected and predecessor units, the rationale contributes substantial non-anchor reasoning, risk text meets its range, and post-anchor prose is distinct.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/dependency_register.csv",
+        "/logs/agent/closure_actions.csv"
+      ],
+      "check_function": "check_dependency_rationale_grounded_distinctness",
+      "how_it_prevents_task_authenticity_violation": "Prevents fabricated dependency prose and repeated sequencing boilerplate from earning anti-hollow credit."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Checks exact pattern fields, distinct rosters covering at least ten units, 6-30-word report anchors, authored explanation and material-difference ranges, and explanation distinctness after anchor wording is removed.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/traceability_graph.json",
+      "check_function": "check_pattern_explanation_grounded_distinctness",
+      "how_it_prevents_task_authenticity_violation": "Prevents keyword grouping and generic pattern narratives from substituting for cross-report comparison."
+    },
+    "reward_hacking_checks_5": {
+      "detailed_explanation_of_checks": "For every expected unit, requires literally attested source quotes, an authored 45-110-word gap with substantial language beyond both quotes and anti-concatenation guards, plus distinct 25-70-word decision notes.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/recommendation_dossiers.jsonl",
+      "check_function": "check_dossier_gap_narrative_authorship",
+      "how_it_prevents_task_authenticity_violation": "Prevents source copying, single-source summaries and name-swapped gap narratives from receiving the same credit as reconciliation."
+    },
+    "reward_hacking_checks_6": {
+      "detailed_explanation_of_checks": "For each expected unit, requires a 30-75-word wave rationale grounded in a canonical dependency anchor, aligned to the dossier gap, naming every admitted predecessor, and paired with a distinct 12-35-word next gate.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/implementation_wave_plan.csv",
+        "/logs/agent/dependency_register.csv",
+        "/logs/agent/recommendation_dossiers.jsonl"
+      ],
+      "check_function": "check_wave_decision_rationale_authorship",
+      "how_it_prevents_task_authenticity_violation": "Prevents arbitrary wave numbers and generic sequencing prose from appearing operationally justified."
+    },
+    "reward_hacking_checks_7": {
+      "detailed_explanation_of_checks": "Parses each memo claim's terminal declaration and 35-140-word paragraph, requires the trace statement literally in that paragraph, and conjoins its authored statement with 6-30-word trace-local source spans.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/executive_decision_memo.md",
+        "/logs/agent/traceability_graph.json"
+      ],
+      "check_function": "check_claim_grounded_authorship",
+      "how_it_prevents_task_authenticity_violation": "Prevents copied report text, citation-only claims and one valid global fact from rescuing unsupported memo assertions."
+    },
+    "reward_hacking_checks_8": {
+      "detailed_explanation_of_checks": "Checks each expected unit against a human-reviewed source-derived target-date result; a dated basis must literally contain its source date phrase, while unknown explanations must contain no borrowed date, remain near-distinct, and engage unit-specific current-status language.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/recommendation_register.csv",
+        "/logs/agent/recommendation_dossiers.jsonl"
+      ],
+      "check_function": "check_unknown_explanation_grounding",
+      "how_it_prevents_task_authenticity_violation": "Prevents default null padding and invented schedules while preserving genuine source gaps."
+    },
+    "reward_hacking_checks_9": {
+      "detailed_explanation_of_checks": "For every expected PA-001 through PA-072 pair, requires the exact assigned lens and units, two unit-local status anchors, a 45-90-word authored comparison engaging both anchors, and corpus-wide distinctness after identifiers and anchor wording are removed.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/priority_arbitration.csv",
+      "check_function": "check_arbitration_rationale_grounded_distinctness",
+      "how_it_prevents_task_authenticity_violation": "Prevents pair-ID loops, one-sided summaries, and name-swapped arbitration templates from receiving two-unit decision credit."
+    },
+    "reward_hacking_checks_10": {
+      "detailed_explanation_of_checks": "For every expected arbitration pair, conjoins a 30-70-word consequence grounded in the deferred unit's gap, a 25-60-word dependency effect grounded in both submitted plans, and independent corpus-wide distinctness for both fields.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/priority_arbitration.csv",
+        "/logs/agent/recommendation_dossiers.jsonl",
+        "/logs/agent/dependency_register.csv",
+        "/logs/agent/implementation_wave_plan.csv"
+      ],
+      "check_function": "check_arbitration_deferral_grounded_distinctness",
+      "how_it_prevents_task_authenticity_violation": "Prevents generic delay language or varied but plan-disconnected dependency prose from masquerading as portfolio tradeoff analysis."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "Checks the complete selected recommendation against the bounded Recommendation passage and one exact contiguous 18-110-word recommendation quote beginning that passage for every expected unit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/recommendation_dossiers.jsonl",
+      "check_function": "check_recommendation_quote_attestation",
+      "how_it_prevents_task_authenticity_violation": "Prevents paraphrases, stitched passages and quotations borrowed from another recommendation from posing as source evidence."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "Checks one exact contiguous 18-110-word current-actions quote per expected unit against that same unit's frozen status excerpt with literal case and whitespace semantics.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/recommendation_dossiers.jsonl",
+      "check_function": "check_status_quote_attestation",
+      "how_it_prevents_task_authenticity_violation": "Prevents a plausible but fabricated implementation update from receiving source-grounding credit."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "An independent semantic assessment scores every expected dossier's submitted current-gap reasoning against bounded passages from its originating report, selected recommendation and May 2025 status, record-weighted across all units.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/recommendation_dossiers.jsonl",
+      "check_function": "check_recommendation_to_gap_semantics",
+      "how_it_prevents_task_authenticity_violation": "Prevents fluent summaries that do not accurately reconcile the control failure with the current implementation gap."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "Derives the disclosed status class from frozen current-status signals for every expected unit and checks the identical class in the register and dossier.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/recommendation_register.csv",
+        "/logs/agent/recommendation_dossiers.jsonl"
+      ],
+      "check_function": "check_current_action_status_classification",
+      "how_it_prevents_task_authenticity_violation": "Prevents self-consistent but source-inconsistent status classifications."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "An independent semantic assessment scores whether each submitted closure criterion proves resolution of the selected recommendation rather than merely repeating a planned activity.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/recommendation_dossiers.jsonl",
+      "check_function": "check_closure_criterion_adequacy",
+      "how_it_prevents_task_authenticity_violation": "Prevents activity completion from being misrepresented as evidence that the underlying control failure is resolved."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "An independent semantic assessment scores all three expected evidence items per unit together against that unit's closure criterion and bounded source context, with omitted keys represented as failures.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/closure_evidence_plan.csv",
+        "/logs/agent/recommendation_dossiers.jsonl"
+      ],
+      "check_function": "check_closure_evidence_sufficiency",
+      "how_it_prevents_task_authenticity_violation": "Prevents cherry-picked or ceremonial evidence requests from appearing sufficient for closure."
+    },
+    "partial_oracle_checks_7": {
+      "detailed_explanation_of_checks": "An independent semantic assessment scores all five expected actions per unit against the submitted current gap and bounded canonical passages without completing omitted reasoning for the author.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/closure_actions.csv",
+        "/logs/agent/recommendation_dossiers.jsonl"
+      ],
+      "check_function": "check_action_to_gap_semantics",
+      "how_it_prevents_task_authenticity_violation": "Prevents generic project-management actions from earning credit when they do not address the recommendation-specific gap."
+    },
+    "partial_oracle_checks_8": {
+      "detailed_explanation_of_checks": "Checks one exact contiguous 18-110-word originating-report span per expected unit and requires substantive term overlap with that unit's selected recommendation subject.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/recommendation_dossiers.jsonl",
+      "check_function": "check_report_finding_anchor",
+      "how_it_prevents_task_authenticity_violation": "Prevents unrelated but valid report quotations from being used as evidence for the selected recommendation."
+    },
+    "partial_oracle_checks_9": {
+      "detailed_explanation_of_checks": "For every expected unit, independently document-frequency-filters report and status vocabulary and requires at least two distinctive terms from each side to occur together in one current-gap sentence.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/recommendation_dossiers.jsonl",
+      "check_function": "check_source_pair_tension_coverage",
+      "how_it_prevents_task_authenticity_violation": "Prevents one-sided summaries, generic HHS language, and isolated rare-word insertion from receiving cross-document reconciliation credit."
+    },
+    "partial_oracle_checks_10": {
+      "detailed_explanation_of_checks": "Checks all 72 frozen pair IDs, lenses and unit assignments; requires opposite advance/defer ownership, exact unit-local current-status anchors for both sides, and the disclosed confidence enum.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/priority_arbitration.csv",
+      "check_function": "check_arbitration_pair_source_attestation",
+      "how_it_prevents_task_authenticity_violation": "Prevents invented pair rosters, borrowed status evidence, and same-unit decisions from appearing source-bound."
+    },
+    "partial_oracle_checks_11": {
+      "detailed_explanation_of_checks": "For every expected pair, independently document-frequency-filters report and status vocabulary and requires a sentence-local bridge of at least two distinctive terms from each source side for both units.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/priority_arbitration.csv",
+      "check_function": "check_arbitration_two_unit_source_tension",
+      "how_it_prevents_task_authenticity_violation": "Prevents one-sided comparisons, generic planning prose, and four isolated rare words from receiving two-unit reconciliation credit."
+    },
+    "partial_oracle_checks_12": {
+      "detailed_explanation_of_checks": "For every expected pair, requires one deferral-consequence sentence to bridge at least two independently filtered distinctive terms from both the deferred unit's report and current-status excerpt.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/priority_arbitration.csv",
+      "check_function": "check_arbitration_deferral_source_tension",
+      "how_it_prevents_task_authenticity_violation": "Prevents a valid status anchor, isolated rare words, or generic delay claim from substituting for the report-to-current-state consequence the row must analyze."
+    },
+    "partial_oracle_checks_13": {
+      "detailed_explanation_of_checks": "For every expected pair, builds unit-specific planning context for the assigned lens and requires the advance rationale to engage both units' readiness evidence, dependency posture, or closure-evidence burden as applicable.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/priority_arbitration.csv",
+        "/logs/agent/recommendation_dossiers.jsonl",
+        "/logs/agent/closure_evidence_plan.csv",
+        "/logs/agent/dependency_register.csv",
+        "/logs/agent/implementation_wave_plan.csv"
+      ],
+      "check_function": "check_arbitration_lens_plan_grounding",
+      "how_it_prevents_task_authenticity_violation": "Prevents a source-grounded comparison under one lens from being copied into a different lens without doing the requested operational analysis."
+    },
+    "partial_oracle_checks_14": {
+      "detailed_explanation_of_checks": "Checks each expected unit's dependency against its affected action and unit-local source/status anchor; a cross-unit predecessor must also bind the predecessor unit's source evidence.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/dependency_register.csv",
+        "/logs/agent/closure_actions.csv"
+      ],
+      "check_function": "check_dependency_source_support",
+      "how_it_prevents_task_authenticity_violation": "Prevents arbitrary or circular dependencies from appearing grounded merely because their identifiers resolve."
+    },
+    "partial_oracle_checks_15": {
+      "detailed_explanation_of_checks": "Requires the portfolio's eight cross-unit predecessors, checks every direct predecessor against the complete expected dependency and action maps, enforces internal action order and later cross-unit waves, and validates both source anchors.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/implementation_wave_plan.csv",
+        "/logs/agent/dependency_register.csv"
+      ],
+      "check_function": "check_wave_prerequisite_satisfaction",
+      "how_it_prevents_task_authenticity_violation": "Prevents an internally inconsistent implementation sequence from appearing executable."
+    },
+    "partial_oracle_checks_16": {
+      "detailed_explanation_of_checks": "An independent semantic assessment checks every declared pattern's roster of at least three expected units and whether its unit-local report spans support the same control-failure relationship rather than only sharing a keyword.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/traceability_graph.json",
+      "check_function": "check_cross_unit_pattern_support",
+      "how_it_prevents_task_authenticity_violation": "Prevents mechanical enum grouping and unsupported portfolio-wide generalization."
+    },
+    "partial_oracle_checks_17": {
+      "detailed_explanation_of_checks": "An independent record-level semantic assessment grades all 72 assigned pairs for a genuine two-unit comparison, source-faithful earlier-attention choice, and lens-specific reasoning present in the submitted row.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/priority_arbitration.csv",
+        "/logs/agent/recommendation_dossiers.jsonl",
+        "/logs/agent/dependency_register.csv",
+        "/logs/agent/implementation_wave_plan.csv"
+      ],
+      "check_function": "check_arbitration_pair_faithfulness",
+      "how_it_prevents_task_authenticity_violation": "Prevents separately summarizing two units, majority voting, or identifier order from substituting for a defensible priority decision."
+    },
+    "partial_oracle_checks_18": {
+      "detailed_explanation_of_checks": "An independent record-level semantic assessment grades every deferred recommendation's operational consequence and whether the submitted dependency effect interprets both plans without inventing a prerequisite.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/priority_arbitration.csv",
+        "/logs/agent/recommendation_dossiers.jsonl",
+        "/logs/agent/dependency_register.csv",
+        "/logs/agent/implementation_wave_plan.csv"
+      ],
+      "check_function": "check_arbitration_deferral_consequence",
+      "how_it_prevents_task_authenticity_violation": "Prevents generic delay harms and thematically related but operationally false dependency claims from earning portfolio-planning credit."
+    },
+    "partial_oracle_checks_19": {
+      "detailed_explanation_of_checks": "An independent record-level semantic assessment grades each of 24 units across all involving pair decisions, its dependency and wave posture, and the memo's treatment, accepting explicit tradeoffs but not silent contradictions.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/priority_arbitration.csv",
+        "/logs/agent/implementation_wave_plan.csv",
+        "/logs/agent/dependency_register.csv",
+        "/logs/agent/executive_decision_memo.md"
+      ],
+      "check_function": "check_portfolio_priority_coherence",
+      "how_it_prevents_task_authenticity_violation": "Prevents locally plausible pair rows from composing into an incoherent leadership priority queue."
+    },
+    "partial_oracle_checks_20": {
+      "detailed_explanation_of_checks": "Uses labelled memo fields to check every unit's exact status, wave, owner and dependency count; then verifies exact Wave 1-4 rosters and all six pattern IDs with their trace rosters.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/executive_decision_memo.md",
+        "/logs/agent/recommendation_register.csv",
+        "/logs/agent/implementation_wave_plan.csv",
+        "/logs/agent/dependency_register.csv"
+      ],
+      "check_function": "check_memo_exact_restatement",
+      "how_it_prevents_task_authenticity_violation": "Prevents the late decision memo from drifting from the operational records it summarizes."
+    },
+    "partial_oracle_checks_21": {
+      "detailed_explanation_of_checks": "Scores every memo claim exhaustively: scope determines minimum unit coverage, evidence ownership and trace anchors must resolve, and every numeric figure in the statement or claim paragraph must appear in that claim's own unit-local source anchors.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/executive_decision_memo.md",
+        "/logs/agent/traceability_graph.json"
+      ],
+      "check_function": "check_claim_scope_evidence",
+      "how_it_prevents_task_authenticity_violation": "Prevents broad conclusions and unsupported figures from receiving the same credit as claims supported at their declared scope."
+    }
+  }
+}

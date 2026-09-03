@@ -1,0 +1,206 @@
+{
+  "task_id": "swarmbench/7b9e4c1a2f8d3e6c5a0b9d8e7f6a5c4b-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-STRASBOURG-TEST-LIMB-FAILURE-AUDIT",
+  "task": "swarmbench/7b9e4c1a2f8d3e6c5a0b9d8e7f6a5c4b-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-STRASBOURG-TEST-LIMB-FAILURE-AUDIT",
+  "verifier_type": "hybrid",
+  "verifier": "tests/verify.py",
+  "reference_facts": "One grader-only file, tests/partial_oracle.json, holds the hand-verified reference. It has two parts. finding_inventory is every merits ruling in the operative provisions of the 40 staged judgments - the items beginning Holds that hold there has or has not been a violation of a named article, excluding Article 41 - read off the Court's own FOR THESE REASONS section and keyed by its order there, with the article token, the outcome and any article it was held in conjunction with. That part is derivable inside the container from the staged judgments and fixes the denominator at 55 findings, so it verifies accuracy rather than withholding an answer. hand_coded_findings is the held-out slice: 16 findings across 11 judgments, covering all 10 respondent States and all 9 article families, each carrying the decisive limb a human read out of the Court's assessment under THE LAW, the paragraph that settles it, the subset of limb verdicts that reading actually established, and a written note of why. The verified_verdicts subset is deliberately partial - it records only what the reading settled, and a limb the oracle does not name is never scored against the submission. No free-text field is ever compared against this file. An unreadable judgment corpus or a missing oracle produces invalid_evaluation.",
+  "scoring": "Every check carries weight 1 inside its own category and returns the share of the release it credits, in [0, 1]. Each category's score is the unweighted mean of its checks: total_static_check_score over the 6 static checks, total_reward_hacking_check_score over the 8 anti-hacking checks, and total_partial_oracle_check_score over the 11 correctness checks. The final reward is the fixed bucket blend of those three means, reward = (1 * total_static_check_score + 2 * total_reward_hacking_check_score + 3 * total_partial_oracle_check_score) / 6, so content carries 5/6 of the blend and structure 1/6 regardless of how many checks sit in each bucket. All four values are written to /logs/verifier/reward.json. There is no multiplier, gate, cap or tier anywhere else in the grader: no check multiplies two signals together and no check zeroes itself on a threshold of another signal. Where a check combines subdimensions it takes their plain mean, and each subdimension is named in that check's entry below.",
+  "fixed_denominators": "Every per-finding check divides by the 55 merits findings the operative provisions of the staged judgments carry, taken from the grader-only inventory, so omitting findings cannot raise a share and inventing them cannot either. Every per-case check divides by the 40 judgments; every per-State check divides by the 10 States in respondent_states.json. The two held-out correctness checks divide by the 16 hand-coded findings. Composite checks take the ordinary mean of their published subdimensions, each computed under its own guard so that a fault in one subdimension neither takes the others' credit nor goes unreported. Missing artifacts score zero, and findings that fail the evidence eligibility gate score zero without shrinking any denominator. Judge calls that go unanswered, or that come back without answering every question, are dropped from the judged denominator and the run is reported as invalid_evaluation, so no submission is marked down for a shortfall on the judge's side.",
+  "empty_output_behaviour": "An empty /logs/agent/findings with no limb matrix, no state profile and no brief scores 0.0000, measured. Every check either divides by a fixed denominator that the missing files cannot reduce, or returns 0.0 outright when its artifact is absent.",
+  "judge_model": "Qwen/Qwen3.6-35B-A3B",
+  "judge_model_note": "The judge is called once per finding that clears the evidence eligibility gate, with that finding's whole judgment and the full definitions of its article family's limb codes in the prompt, and four questions - three about the turning point (whether it names something from this judgment's own reasoning, whether it is about the same thing the quote is about, and whether it is the coder's own sentence rather than the Court's own sentence with a few words swapped for synonyms) and one asking whether the claimed decisive limb is the one the judgment's own outcome actually rests on - and once for the brief with independently recomputed facts and three questions: at most 56 calls for a complete release. Submission text is fenced as untrusted and passed through an injection filter first. Replies must contain exactly one JSON object answering every question asked. A reply that is malformed, or that leaves any question unanswered, is treated the same way as an outage: the affected finding or the brief is dropped from the judged denominator and the run is reported as invalid_evaluation.",
+  "judge_justification_note": "Every call is also asked for a justification of two or three sentences naming the field behind each adverse answer. The verifier records it with the verdict and prints it to stdout beside the score under 'judge verdicts and justifications', failing items first, and writes the same text to /logs/verifier/verify_justification.txt, so every judged score can be audited against the judge's own stated reason for it. The justification is never scored and is deliberately excluded from the answered-in-full test, so a terse judge cannot cost a submission its verdict.",
+  "total_checks": 26,
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Share of the 40 judgments, credited case by case in proportion to the fraction of that case's own claimed findings that clear the evidence eligibility gate rather than as an all-or-nothing per-case credit, that exist at the path the standard names, parse as a JSON object, and repeat their own case_id and respondent_state from respondent_states.json with a non-empty findings list.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_findings_files_delivered",
+      "how_it_prevents_task_authenticity_violation": "Presence sets the denominator and does not bank points on its own: a case with none of its findings anchored in the Court's assessment scores zero, and a case with one anchored finding padded by two fabricated siblings scores only the one-third its genuine coverage earns, so a release assembled from the operative provisions alone - or one that anchors a single finding per file and invents the rest - cannot collect a full case's structural credit for partial or absent reading."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Per judgment, the share of seven shape rules met - the exact top-level key set with no extras, every entry of findings being an object, the exact ten-key finding shape, a finding_id of the form F-<case_id>-NN, an integer paragraph_no, string quote and turning_point fields, and a limb_verdicts object - scaled by the same per-case eligible-finding ratio as static_checks_1 rather than gated as all-or-nothing. Averaged over 40.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_finding_records_shaped",
+      "how_it_prevents_task_authenticity_violation": "Schema conformance is scored only in proportion to how much of that case's findings showed evidence of reading, so a case with fabricated siblings alongside one genuine finding cannot collect the full per-case shape credit for the fabricated records merely because they are well-typed JSON."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "Per delivered finding that clears the gate, the share of six vocabulary rules met: the article token is one the standard maps to a family, the family is one of the nine, the outcome is violation or no_violation, the decisive limb is a code the standard prints, every verdict value is failed, satisfied or not_examined, and every verdict key is a real limb code.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_vocabulary_closed",
+      "how_it_prevents_task_authenticity_violation": "The limb vocabulary is closed by the standard, so a coder cannot invent a limb that happens to describe what it found and cannot record a verdict outside the three the standard allows."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "Five rules over the limb matrix: the exact six-column header in order, a non-empty body, every row the right width, every limb_code drawn from the closed vocabulary, and integer values in the findings, states_touched and failed_count columns.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/limb_matrix.csv",
+      "check_function": "check_limb_matrix_shaped",
+      "how_it_prevents_task_authenticity_violation": "Shape only; the matrix's truth is scored separately by check_matrix_recomputed, so a well-formed table of invented counts gains nothing here beyond its formatting."
+    },
+    "static_checks_5": {
+      "detailed_explanation_of_checks": "Five rules over the state profile: the exact six-column header in order, a non-empty body, exactly ten rows, every row the right width, and a dominant_limb drawn from the closed vocabulary.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/state_profile.csv",
+      "check_function": "check_state_profile_shaped",
+      "how_it_prevents_task_authenticity_violation": "The ten-row requirement is fixed by respondent_states.json, so filing fewer States cannot raise any per-State share elsewhere in the rubric."
+    },
+    "static_checks_6": {
+      "detailed_explanation_of_checks": "Six rules over the brief: a level-1 opening heading, exactly the three named level-2 sections in the standard's order and no others, at least 300 words overall, and at least 40 words in each of the three sections.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/limb_brief.md",
+      "check_function": "check_brief_shaped",
+      "how_it_prevents_task_authenticity_violation": "Section presence is scored here and section content is scored by check_brief_truthful and check_llm_brief_reasoned, so headings alone are never enforcement."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "Share of the 55 findings whose quote, after Unicode folding and whitespace collapsing, occurs as one continuous run inside its own judgment's file.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_quote_verbatim_in_judgment",
+      "how_it_prevents_task_authenticity_violation": "The check an agent cannot satisfy without opening the judgment. A plausible sentence in the Court's register that the Court did not write scores zero."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Share of the 55 findings whose quote is at least fifteen words and falls inside the Court's assessment - after the THE LAW heading and before the operative provisions - rather than anywhere else in the file.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_quote_in_assessment",
+      "how_it_prevents_task_authenticity_violation": "Closes the cheapest route to a verbatim quotation, which is to copy the operative provisions or the Registry keyword summary at the head of the file. Neither lies in the assessment, and neither shows the limb the case turned on."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Share of the 55 findings whose quote actually sits in the numbered paragraph the record claims, matched against that paragraph's own text.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_paragraph_matches_quote",
+      "how_it_prevents_task_authenticity_violation": "A citation a lawyer can check is the deliverable's point. A real quotation under a guessed paragraph number scores zero, so the paragraph has to be located rather than estimated."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Share of the 55 findings whose normalised quote appears exactly once across the whole release. Every finding in a duplicated group loses its credit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_quotes_distinct",
+      "how_it_prevents_task_authenticity_violation": "Closes the cheapest way to satisfy the verbatim checks at scale, which is to find one passage that round-trips and reuse it for every finding in that judgment."
+    },
+    "reward_hacking_checks_5": {
+      "detailed_explanation_of_checks": "Share of the 55 findings whose turning_point reproduces no run of eight or more consecutive words from its own judgment.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_turning_point_in_own_words",
+      "how_it_prevents_task_authenticity_violation": "The turning point is required to be the coder's own account. Pasting the Court's sentence into it turns a judgement into a transcription, which this run-length test catches directly. It does not catch a sentence built by editing the Court's own wording with a synonym swapped every few words while the structure and sequence of ideas stay the Court's - no lexical statistic reliably does, since a genuinely accurate account of a narrow fact pattern legitimately shares much of its source paragraph's own vocabulary, the very thing the local-paragraph grounding check rewards, so a rule that penalises high overlap with the source cannot tell that apart from a reworded copy without also flagging honest work. That distinction is asked of the judge directly (turning_point_original, part of narrative_verification) rather than approximated with a word-overlap ratio."
+    },
+    "reward_hacking_checks_6": {
+      "detailed_explanation_of_checks": "Share of the 55 findings whose turning_point is between 25 and 60 words, the band the standard sets.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_turning_point_within_length",
+      "how_it_prevents_task_authenticity_violation": "Stops both evasions the field invites: a two-word label that says nothing, and a wall of text that restates the judgment instead of naming what it turned on."
+    },
+    "reward_hacking_checks_7": {
+      "detailed_explanation_of_checks": "Mean over the 55 findings and the ten profile pattern fields of whether each is non-empty, free of the closed eighteen-entry filler list, and - for a turning point - carries at least three distinctive words of the paragraphs it actually cites (the five paragraphs from four before its own paragraph_no through that paragraph itself, inclusive, not the whole judgment), a distinctive word being one of four letters or more that is neither a function word nor general legal-report vocabulary. A finding the judge has examined and found not specific to its own reasoning, or not about what its own quote is about, scores zero here regardless of its lexical grounding: a fluent, locally-worded sentence recounting something the judgment does not say is fabrication with good vocabulary, not evidence of reading. Pattern fields are additionally required to sit in the 25-to-60-word band.",
+      "weight": 1,
+      "agent_output_path": ["/logs/agent/findings/<case_id>.json", "/logs/agent/state_profile.csv"],
+      "check_function": "check_no_placeholder_filler",
+      "how_it_prevents_task_authenticity_violation": "A grounding floor measured against only the paragraphs a finding cites, rather than the whole judgment, means generic ECtHR-report vocabulary (found, held, proceedings, authorities) common to nearly every judgment on the article no longer buys a pass; and gating on the judge's own narrative-fidelity verdict closes the gap a lexical check alone cannot close - a plausible, well-worded, wrong account of a real case."
+    },
+    "reward_hacking_checks_8": {
+      "detailed_explanation_of_checks": "Per limb code that decides at least one narratively verified finding, whether the matrix row's family, findings count, states_touched, failed_count and lead_case_id all agree with recomputation from those findings. A limb the verified findings support but the matrix omits, and a matrix row no verified finding supports, both count as failures.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/limb_matrix.csv",
+      "check_function": "check_matrix_recomputed",
+      "how_it_prevents_task_authenticity_violation": "The matrix is one factual assertion about the findings behind it, and the baseline it is checked against is the findings the judge has actually confirmed rather than the findings as the release itself claims them. A finding whose narrative the judge rejects no longer feeds the matrix it would otherwise inflate, so a release cannot bank a limb row on a fabricated finding merely by keeping its own matrix internally consistent with its own wrong coding."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "Share of the 55 hand-verified findings the release recovered with the right article token and the right outcome, matched by the finding's position in its judgment's operative provisions.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_findings_recovered",
+      "how_it_prevents_task_authenticity_violation": "The finding list is held out rather than handed over. The release has to enumerate the merits rulings itself, including the two cases the standard warns about - an item naming two articles jointly is two findings, an item naming one article in conjunction with another is one."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "One minus the share of the 55 real findings' worth of denominator lost to two distinct defects: a delivered finding_id the operative provisions do not carry, and a delivered finding_id the operative provisions do carry but that never cleared the evidence eligibility gate - a correctly-named ruling copied from the operative provisions without ever opening the assessment behind it. Floored at zero.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_no_phantom_findings",
+      "how_it_prevents_task_authenticity_violation": "Stops a release from padding its recall by filing findings for rulings the Court never made, which the recovery check on its own would not penalise, and stops a release that reads only the operative provisions from banking full credit here merely for naming every real finding_id correctly: an ungrounded finding costs exactly as much as a phantom one, so enumerating the true 55-item list without reading any of the assessments behind it does not clear this check."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "Share of the 55 findings whose family is the one the standard's table assigns to that finding's article.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_family_assignment_correct",
+      "how_it_prevents_task_authenticity_violation": "The family fixes which limb codes are even available, so a finding filed under the wrong family has been coded against the wrong test."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "Mean of four subdimensions, each a share of the fixed 55 findings: the limb_verdicts keys are exactly the codes of that finding's family, the decisive limb is a code from that family, a violation finding has at least one failed limb while a no-violation finding has none, and the decisive limb's own verdict agrees with the outcome - failed on a violation, satisfied or not examined on a no-violation.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_verdict_consistency",
+      "how_it_prevents_task_authenticity_violation": "Catches coding that is internally incoherent regardless of what the judgment holds - a violation with nothing failed, a decisive limb from another article's test, a verdict set that quietly drops the limbs the coder did not consider."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "Share of the 16 hand-coded findings whose decisive_limb matches the limb a human read out of the Court's assessment. The slice spans all 10 respondent States and all 9 article families.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_decisive_limb_correct",
+      "how_it_prevents_task_authenticity_violation": "The held-out check the task exists for. It is where a release that coded limbs from the vocabulary a judgment uses, rather than from what the judgment holds, is separated from one that read the assessment - including the case whose Registry keyword line names an imprecise legal framework while the Court expressly leaves lawfulness open, and the two Article 8 family-life violations that fall to different limbs."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "Per hand-coded finding, the share of that finding's hand-verified limb verdicts the release reproduces; averaged over the 16. Only the limbs the human reading actually settled are compared, so a limb the oracle does not name is never scored.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_verified_verdicts_correct",
+      "how_it_prevents_task_authenticity_violation": "Scores the whole verdict row rather than only the decisive limb, so a release cannot get credit by guessing the limb that failed while recording every other limb of the test wrongly."
+    },
+    "partial_oracle_checks_7": {
+      "detailed_explanation_of_checks": "Share of the 10 States whose profile row carries the right slug and agrees with recomputation from the narratively verified findings on its finding count, its violation count and its dominant limb.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/state_profile.csv",
+      "check_function": "check_state_profile_correct",
+      "how_it_prevents_task_authenticity_violation": "The per-State roll-up is recomputed from the findings the judge has confirmed rather than accepted at face value, so a profile built on findings whose narrative the judge rejects disagrees with that baseline and earns nothing, even if the profile agrees perfectly with the release's own submitted findings."
+    },
+    "partial_oracle_checks_8": {
+      "detailed_explanation_of_checks": "Plain mean of five independent subdimensions, each computed against recomputation from the narratively verified findings rather than against the submitted matrix: the total finding count appears in the brief, the violation count appears, the leading limb is named in the first section, the count of decisive findings on procedural limbs appears, and no limb code is named that no verified finding supports.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/limb_brief.md",
+      "check_function": "check_brief_truthful",
+      "how_it_prevents_task_authenticity_violation": "The brief and the matrix cannot validate one another, because every controlling figure is recomputed from findings the judge has confirmed are what they claim to be, not merely from the findings as submitted. No subdimension gates another and none is multiplied by another."
+    },
+    "partial_oracle_checks_9": {
+      "detailed_explanation_of_checks": "One judged call per finding that clears the evidence gate, with that finding's whole judgment in the prompt, asking whether the turning point names something from this judgment's own reasoning rather than restating the article number, the limb code's definition, or the fact that the State lost. Averaged over 55, with undelivered or ineligible findings scoring zero and unanswered calls dropped and reported.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_llm_turning_point_grounded",
+      "how_it_prevents_task_authenticity_violation": "The deterministic grounding floor counts distinctive words; this asks whether those words were assembled into a statement about this case. A sentence that would be true of any judgment on the same article scores zero."
+    },
+    "partial_oracle_checks_10": {
+      "detailed_explanation_of_checks": "From the same per-finding call, whether the turning point is about the same thing the quoted passage is about. Averaged over 55 on the same terms.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_llm_turning_point_matches_quote",
+      "how_it_prevents_task_authenticity_violation": "Ties the two halves of the record together. A quotation that round-trips into the right paragraph and a turning point about something else is a finding assembled from two unrelated pieces of work, which no deterministic check would catch."
+    },
+    "partial_oracle_checks_11": {
+      "detailed_explanation_of_checks": "One judged call per finding that clears the evidence gate, the same call as the two above, handed the full definitions of every limb code in that finding's article family and asked whether the claimed decisive limb - not merely a limb whose vocabulary is discussed somewhere in the judgment, but the one the outcome actually rests on - is correct. Averaged over 55 on the same terms.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/findings/<case_id>.json",
+      "check_function": "check_llm_decisive_limb_grounded",
+      "how_it_prevents_task_authenticity_violation": "check_decisive_limb_correct and check_verified_verdicts_correct only cross-check the 16 hand-coded findings; every other correctness check in this manifest recomputes its baseline from the release's own submitted findings, so a release that codes every finding outside the hand-coded slice from the article's vocabulary rather than from the assessment can still satisfy the matrix, the profile, the brief and verdict consistency, since those check the release against itself. This call is independently grounded in the actual judgment text for all 55 findings and closes that gap for the full denominator rather than the 16-finding slice alone."
+    },
+    "partial_oracle_checks_12": {
+      "detailed_explanation_of_checks": "One report call receives the independently recomputed facts and the brief. Its score is the plain mean of three subdimensions: whether every figure and named limb is consistent with the recomputation, whether the last section names one limb to act on with a reason drawn from this corpus, and whether the brief says something about this set of judgments that a reader could not have written without them.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/limb_brief.md",
+      "check_function": "check_llm_brief_reasoned",
+      "how_it_prevents_task_authenticity_violation": "Handing the judge the recomputed facts means generic process prose, and a brief that contradicts its own findings files, are both visible to it. The three subdimensions average rather than gate."
+    }
+  },
+  "checks_by_category": {
+    "static_checks": 6,
+    "reward_hacking_checks": 8,
+    "partial_oracle_checks": 12
+  },
+  "check_composition": "6 structural checks and 20 content checks over a suite of 26, so structural is 23 per cent of the suite and content 77 per cent, against the requirement that structural not exceed 40 per cent and content reach at least 60 per cent. The content checks are eight anti-hacking checks and twelve correctness checks, spanning six distinct content rubrics: evidence round-tripping into a named paragraph of the Court's own assessment, authored prose grounded in the local vocabulary of the paragraphs the finding actually cites rather than the whole judgment, coding coherence within the standard's closed limb vocabulary, a held-out hand-read slice of decisive limbs and limb verdicts, an independently judged check of the claimed decisive limb against the judgment's own assessment run over every finding rather than the hand-coded slice alone, and roll-ups recomputed from the delivered findings rather than accepted.",
+  "evidence_eligibility_gate": "An eligibility test applied per finding rather than to any check's own score. A finding is eligible only when its quote is at least fifteen words, occurs as one continuous run inside its own judgment's assessment - after THE LAW and before the operative provisions - and sits in the numbered paragraph the record claims. A judgment file is eligible only when at least one of its findings is. An ineligible finding contributes zero to every per-finding check in all three categories, and an ineligible file scores zero on the per-case structural checks, so a release built by reading only the short, uniform operative provisions at the end of each file cannot bank the structural points its schema would otherwise collect. This gates a finding's eligibility to be counted at all; it is not a gate on any check's score given two continuous signals. Measured effect, judge disabled: a release with correct schema, correct article and outcome on every finding, a self-consistent matrix and profile, and fabricated quotations scores 0.1351, with none of its findings clearing the gate; an empty release scores 0.0000; a release coded from the assessments scores 0.7883. The coded-release figure is a floor rather than a ceiling: its turning_point field reuses one templated sentence per article family rather than genuinely distinct prose per finding, which the local-paragraph grounding check and the judge-scored questions (both disabled in this measurement) are built to catch.",
+  "narrative_verification": "A second, judged tier above the deterministic evidence gate. A finding that clears the deterministic gate is additionally verified only once the judge, examining the finding against its own full judgment, confirms all three: that the turning point names something from this judgment's own reasoning, that it is about the same thing the quote is about, and that it is the coder's own sentence rather than the Court's own sentence with a handful of words swapped for synonyms while the structure and sequence of ideas stay the Court's; a finding the judge has not examined (no api key, or that specific call failed) is left on the deterministic signal alone rather than punished for an infrastructure gap. check_no_placeholder_filler additionally requires this per finding, and check_matrix_recomputed, check_state_profile_correct and check_brief_truthful are all computed against the narratively verified findings rather than the eligible findings as submitted, so a release cannot bank anti-hacking or roll-up credit on a finding whose account of the judgment the judge has already rejected. A submission that clears the deterministic gate on many findings but fails narrative verification on most of them will see its reward_hacking-bucket checks fall well below what the deterministic gate alone would have credited, since those checks recompute against the narrower narratively-verified set rather than the wider eligible set; the static bucket is untouched by design, and the partial_oracle bucket moves separately, since static and reward_hacking measure evidence and shape rather than narrative truth, and are deliberately kept apart from the sixteen-finding held-out slice and the all-finding judged checks that already carry partial_oracle's weight for that purpose."
+}

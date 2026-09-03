@@ -1,0 +1,857 @@
+FCC RULEMAKING RELEASE
+Rule subject: Resilient Networks; Disruptions to Communications
+Document number: 2024-07402
+Issuing agency: Federal Communications Commission
+Responsible Bureau: Public Safety and Homeland Security Bureau
+Federal Register citation: 89 FR 25535
+Publication date: 2024-04-11
+
+Federal Register, Volume 89 Issue 71 (Thursday, April 11, 2024)
+
+
+[Federal Register Volume 89, Number 71 (Thursday, April 11, 2024)]
+[Rules and Regulations]
+[Pages 25535-25542]
+From the Federal Register Online via the Government Publishing Office [ www.gpo.gov ]
+[FR Doc No: 2024-07402]
+
+
+=======================================================================
+-----------------------------------------------------------------------
+
+FEDERAL COMMUNICATIONS COMMISSION
+
+47 CFR Part 4
+
+[PSHSB: PS Docket Nos. 21-346 and 15-80; ET Docket No. 04-35; FCC 24-5
+FR ID 212327]
+
+
+Resilient Networks; Disruptions to Communications
+
+AGENCY: Federal Communications Commission.
+
+ACTION: Final rule.
+
+-----------------------------------------------------------------------
+
+SUMMARY: In this document, the Federal Communications Commission (FCC)
+adopts the Second Report and Order (Order) to advance the lines of
+inquiry particularly concerning the Network Outage Reporting System
+(NORS) and the Disaster Information Reporting System (DIRS).
+
+DATES:
+ Effective date: This rule is effective April 11, 2024.
+ Compliance date: Compliance with 47 CFR 4.18 will not be required
+until the FCC has published a document in the Federal Register
+announcing the compliance date.
+
+FOR FURTHER INFORMATION CONTACT: For additional information on this
+proceeding, contact Logan Bennett, Attorney Advisor, Cybersecurity and
+Communications Reliability Division, Public Safety and Homeland
+Security Bureau, (202) 418-7790 or via email at [email protected] .
+For additional information concerning the Paperwork Reduction Act
+information collection requirements contained in this document, send an
+email to [email protected] or contact Nicole Ongele, Office of Managing
+Director Performance Evaluation and Records Management, 202-418-2991,
+or by email to [email protected] .
+
+SUPPLEMENTARY INFORMATION: This is a summary of the Commission's Second
+Report and Order (Order), in PS Docket Nos. 21-346 and 15-80; ET Docket
+No. 04-35; FCC 24-5, adopted on January 25, 2024, and released on
+January 26, 2024. The full text of this document is available by
+downloading the text from the Commission's website at https://docs.fcc.gov/public/attachments/FCC-24-5A1.pdf . To request this
+document in accessible formats for people with disabilities (e.g.,
+Brialle, large print, electronic files, audio format, etc.) or to
+request reasonable accommodations, (e.g., accessible format documents,
+sign language interpreters, CART, etc.), send an email to
+ [email protected] or call the FCC's Consumer and Government Affairs Bureau
+at (202) 418-0530 (voice), (202) 418-0432 (TTY). When the FCC
+Headquarters reopens to the public, the full text of this document will
+also be available for public inspection and copying during regular
+business hours in the FCC Reference Center, 45 L Street NE, Washington,
+DC 20554.
+ Congressional Review Act: The Commission has determined, and the
+Administrator of the Office of Information and Regulatory Affairs, OMB,
+concurs, that this rule is non-major under the Congressional Review
+Act, 5 U.S.C. 804(2). The Commission will send a copy of the Order to
+Congress and the Government Accountability Office pursuant to 5 U.S.C.
+801(a)(1)(A).
+ Paperwork Reduction Act: This document contains additional
+information collection requirements subject to the Paperwork Reduction
+Act of 1995 (PRA), Public Law 104-13. It will be submitted to the
+Office of Management and Budget (OMB) for review under Section 3507(d)
+of the PRA. OMB, the general public, and other Federal agencies will be
+invited to comment on the new or modified information collection
+requirements contained in this proceeding. In addition, we note that
+pursuant to the Small Business Paperwork Relief Act of 2002, Public Law
+107-198, see 44 U.S.C. 3506(c)(4), we previously sought specific
+comment on how the Commission might further reduce the information
+collection burden for small business concerns with fewer than 25
+employees. (See FCC, Resilient Networks Second Report and Order and
+Second Further Notice of Proposed Rulemaking, https://docs.fcc.gov/public/attachments/FCC-24-5A1.pdf (Jan. 26, 2024) at 38, para. 86 and
+at 42, Appdx. B.)
+
+Synopsis
+
+ The Commission initially adopted the DIRS system as a disaster
+response information tool in 2007, but we have not revisited the
+voluntary nature of the system in almost two decades even as the
+disaster and emergency landscape continues to change and technology
+continues to advance. By way of example, since DIRS was adopted on a
+voluntary basis, the Commission has adopted rules pursuant to the
+Warning, Alert and Response Network (WARN) Act to implement Wireless
+Emergency Alerts (WEAs), creating a valuable tool used by emergency
+response officials to leverage mobile communications networks to
+provide timely alerts to consumers in disaster situations.
+
+[[Page 25536]]
+
+ As such, while a voluntary system like DIRS is beneficial, we
+believe in the current regulatory, technological and interconnected
+network environment it cannot work to its fullest potential unless we
+expand the aperture of who reports in the system, and enhance the
+fidelity of the data to allow for more effective decision making in
+response to disaster environments by requiring filings be made in
+emergency contexts. As the Commission evaluates the best approaches to
+support better outcomes for consumers in these challenging situations
+in the Second Further Notice of Proposed Rulemaking (Second FNPRM) (89
+FR 22106, March 29, 2024), input from industry, public safety, public
+interest groups, as well as individuals who deal directly with these
+issues, will play a crucial role in determining how to effectively
+streamline disaster reporting while addressing individual entities'
+specific operational challenges.
+ The 2021 Resilient Networks Notice of Proposed Rulemaking (NPRM)
+(86 FR 61103, Nov. 5, 2021) sought comment on three distinct topics:
+(i) enhancements to NORS and DIRS to improve situational awareness
+around disasters and outage events (which is the subject of the Order);
+(ii) improving implementation of the industry-developed Wireless
+Resiliency Cooperative Framework (which was addressed in the 2022
+Report and Order (87 FR 59329, Sept. 30, 2022) and Further Notice of
+Proposed Rulemaking (87 FR 59379, Sept. 30, 2022) with the Mandatory
+Disaster Response Initiative (MDRI)); and (iii) developing
+communications resilience strategies for power outages (i.e., backup
+power). As detailed below, the Order adopts rules to:
+ require cable communications, wireline, wireless, and
+interconnected Voice over internet Protocol (VoIP) providers (i.e.,
+``subject providers'') to report their infrastructure status
+information in DIRS daily when the Commission activates DIRS in
+geographic areas in which they provide service, even when their
+reportable infrastructure status has not changed compared to the prior
+day The Commission has chosen to focus on cable communications,
+wireless, wireline, and VoIP providers (i.e., ``subject providers'') in
+the Order. Broadcasters, broadband, satellite, and broadband internet
+access service (BIAS) providers expressed varying concerns and unique
+comments compared to those of the subject providers addressed herein
+which we believe are better addressed in a separate proceeding which
+will seek more narrow comments pertaining to those providers
+specifically as is previewed in the Second FNPRM];
+ codify, in part 4 of the Commission's outage reporting
+rules, the current practice that a subject provider's NORS reporting
+obligations are waived while they report in DIRS [This exemption is
+codified as a revision to the Commission's part 4 rules stating that
+NORS reporting requirements do not apply when the Commission requires
+DIRS reporting. See 47 CFR 4.1 through 4.17]; and
+ require that subject providers who report in DIRS provide
+a single, final DIRS report to the Commission, within 24 hours of the
+Commission's deactivation of DIRS, that provides the status of their
+infrastructure identified to the Commission during the DIRS reporting
+period that has not yet been fully restored at the time of the
+deactivation.
+
+Second Report and Order
+
+A. Mandating DIRS Reporting for Cable Communications, Wireless,
+Wireline, and Interconnected VoIP Providers
+
+ In the 2021 Resilient Networks NPRM, the Commission proposed
+requiring cable, wireless, wireline, Direct Broadcast Satellite (DBS),
+Satellite Digital Audio Radio Service (SDARS), interconnected VoIP
+providers, and TV and radio broadcasters to report their infrastructure
+status information in DIRS when the Commission activates DIRS in
+geographic areas in which they provide service. In this respect, the
+Commission proposed to shift the reporting obligation from voluntary to
+mandatory for these providers and expand the categories of providers
+subject to DIRS reporting. In support of this proposal, the Commission
+noted that smaller providers often did not elect to voluntarily
+participate in DIRS reporting, reducing the Commission's situational
+awareness. The size of the provider a consumer uses should not affect a
+consumer's right to public safety and potentially life-saving
+information, nor should small rural communities be less entitled to
+functioning networks that provide alerts and 911 capability than
+communities served by large providers. The Commission also sought
+comment on ways to resolve ambiguity about whether a subject provider's
+lack of DIRS filings means that its network infrastructure remains
+fully operational or it is unable to file, and whether it cannot access
+DIRS due to disruption of its internet access or other exigencies.
+Based on the record, in the Order, the Commission requires DIRS
+reporting only as to cable communications wireline, wireless and
+interconnected VoIP providers, and provides that such reports must be
+filed on a daily basis until the Commission deactivates DIRS. We note
+that in some instances, and where warranted based on circumstances
+during extended activations, the Bureau has required reporting less
+frequently than daily. While we find daily reporting the best cadence
+norm, we delegate authority to PSHSB to amend the reporting schedule to
+a less frequent cadence where warranted. For instance, the Bureau may
+waive, sua sponte, the daily reporting time. In this regard, we also
+decline to provide more specificity as to the time daily reporting
+should occur as requested by NCTA--The internet and Television
+Association (NCTA), in that DIRS reporting may inform other time-
+sensitive disaster coordination activities across the Federal
+Government and that Commission staff must respond to those coordination
+activities by specifying reporting times in each DIRS activation Public
+Notice (PN) on a case-by-case basis. On days when a subject provider
+has no otherwise reportable changes in its infrastructure status, the
+report would take the form of a simplified ``check in'' report. In the
+Second FNPRM, we seek further comment to build a more robust record
+regarding the inclusion of satellite, broadband, and broadcast
+providers in a mandatory DIRS environment.
+ DIRS provides pertinent daily information that the Commission
+provides to a variety of public safety entities through information
+sharing, collaborative disaster response efforts, and to the public.
+The information in DIRS reports also enables the Bureau's Operations
+and Emergency Management Division (OEM) to manage its disaster response
+activities, such as visiting sites and validating communications
+restoration status, supporting vital search and rescue operations, and
+performing eyes-on assessments of disaster impacts and damages to
+prioritize and allocate response and recovery resources. At their core,
+DIRS reports, in combination with operational spectrum surveys and
+other direct engagement, serve as an impetus for open lines of
+communication between communications carriers and emergency management
+officials.
+ In response to the 2021 Resilient Networks NPRM, several public
+interest and public safety-focused commenters opine that mandating DIRS
+reporting would increase the value of the situational awareness
+information that the Commission collects and will result in meaningful
+improvements to public safety. For example, Next Century Cities
+
+[[Page 25537]]
+
+(NCC) remarks that DIRS data from smaller-sized subject providers would
+allow the Commission to have a more granular look at how infrastructure
+and service has been disrupted on the ground, which would critically
+aid disaster response. Public Knowledge notes similarly that, in the
+current voluntary regime, the value of DIRS information is diminished
+as it is unclear if a non-reporting subject provider is unable to
+report due to severe damage or is simply electing not to file DIRS
+reports. Free Press states that more robust DIRS information will allow
+customers and impacted individuals to assess all communications options
+that may be available to them in the immediate aftermath of disaster
+and during a subsequent rebuilding phase; Public Knowledge further
+notes that having more DIRS information will allow the Commission to
+better hold providers accountable for failures.
+ Conversely, several parties representing industry, like ACA
+Connects--America's Communications Association (ACA), oppose mandating
+DIRS on grounds that it would be too burdensome or would only provide a
+limited benefit when it comes to requiring compliance from small
+providers. NTCA--The Rural Broadband Association (NTCA) believes that
+small operators will likely lack the personnel, time, or physical
+resources to make such reports in the midst of a disaster and states
+that DIRS reports may not actually be useful in disaster scenarios
+because the Department of Homeland Security's National Coordinating
+Center for Communications (DHS-NCC) and the Communications Information
+Sharing and Analysis Center (Comms-ISAC) provide a forum for industry
+stakeholders ``to share real-time information and collaborate with
+government partners on network restoration efforts [so] [a]ny new
+information sharing commitments would likely duplicate, and potentially
+conflict with, these established, well-defined processes, creating
+unnecessary burden and undermining rather than strengthening network
+resiliency.'' AT&T argues that, to manage burdens, mandatory reporting
+should be based on a ``best efforts'' standard and that there should be
+no penalty for failure to meet any deadlines established for particular
+events. NTCA also argues, ``it is currently unclear whether filing the
+[DIRS] reports lead to greater coordination between government and
+industry or offers a benefit to a company or community in crisis.''
+ We find that mandatory DIRS reporting will yield substantial public
+safety benefits. DIRS provides situational awareness of communications
+operational status and actionable information to public safety entities
+assisting in disaster response, thus promoting public safety.
+Additionally, the Commission's information sharing program provides
+direct read-only access to government agencies, providing a direct
+benefit to emergency response, and providing complete and accurate
+information to these sharing partners will provide actionable data to
+those making decisions in disaster and reliability contexts. DIRS
+exists ``to report communications infrastructure status and situational
+awareness information during times of crises'' and enables ``the
+Commission [to] disseminate DIRS information to other Federal
+agencies'' to ``facilitate Federal restoration efforts,'' as well as
+efforts from state, local, Tribal, and territorial governments, and get
+boots on the ground in the locations requiring urgent assistance.
+Public Knowledge asserts that ``[t]he FCC must require all wireless . .
+. providers to perform basic measures that reflect the lessons it has
+gleaned from recent post-disaster reports [as] [i]n these reports, the
+FCC has outlined straight-forward and obvious procedures that, if
+performed, would undoubtedly improve disaster responses.'' However, in
+its current voluntary state, DIRS provides the Commission with an
+incomplete picture of infrastructure status and other important
+emergency information and cannot reliably be used to determine whether
+entities are merely not reporting by choice or if they have lost the
+ability to report and are in need of aid and collaboration. Mandating
+DIRS reporting provides a more consistent picture of status during and
+after disasters and emergencies since there is a wider sampling of
+providers recording how an event has affected their infrastructure and
+capabilities. Requiring DIRS reporting will identify clearly for the
+Commission and other emergency response agencies of any possible issues
+and signals for needed aid and assistance and will make apparent when a
+provider does not or cannot report that there is an issue with their
+system or reporting capabilities. APCO International agrees that
+``improving the information in these important systems will be helpful
+for situational awareness and ongoing efforts to improve network
+resiliency.'' Public Knowledge stresses the importance of ``better,
+timelier, and more detailed outage and service-quality reporting to
+ensure accountability [and] . . . needs to make this data available to
+the public in a way that balances the twin imperatives of transparency
+and information security.'' We agree that mandating reporting in DIRS
+will improve situational awareness through daily status updates during
+emergencies and serve the public interest by providing vital
+information regarding the operational status of communications networks
+the Commission and emergency response entities need to effectively
+manage communications needs during and after disasters occur.
+ Mandating DIRS is especially important in today's disaster climate
+as the quantity of disasters has increased since DIRS was first
+formulated. 2023 was recorded as the worst year on record for billion-
+dollar weather and climate disasters, passing the National Oceanic and
+Atmospheric Administration's (NOAA) prior record of 22 events in 2020
+within the first eight months of 2023. DIRS data associated with an
+impacted area is of particular importance, since it provides a
+preliminary understanding of both the impact and scope of damages,
+enables the optimization of the allocation, prioritization, and
+deployment of response and restoration personnel and resources.
+Further, the analysis of DIRS data enables the identification of
+reliability trends and challenges associated with infrastructure in
+rural, underserved, and underprivileged communities. In addition, given
+the rise in the utilization of communications infrastructure by
+emergency response officials as a tool for alerting both through WEA
+and through more established Emergency Alert System (EAS) channels, as
+well as the advent of Next-Generation 911 and text-to-911, the need for
+relevant and comprehensive information related to the availability of
+the infrastructure for communication from and with the public provides
+added urgency for the reformation of our information collection efforts
+in the DIRS context in particular.
+ While commenters argue that reporting in this context is a burden
+particularly for small entities, we disagree with those who surmise
+that mandating participation in DIRS will be unduly burdensome for
+subject providers and that the benefits of such reporting and
+information garnered do not outweigh the detriments, especially in the
+matter of preserving life and public safety. For example, NCTA says
+that ``[w]hile outreach to customers during emergencies is vital,
+`prescriptive requirements for specific modes of communication or
+unrealistic levels of precision and detail--as
+
+[[Page 25538]]
+
+proposed by some in the record--are impractical under emergency
+conditions and would divert limited resources away from maintenance and
+restoration of service.'' Commenters making such assertions opposing
+mandatory DIRS reporting, however, fail to adequately counter the
+benefits it will provide, and overlook the efficiencies associated with
+the proposal. While opposing commenters identify some burdens
+associated with filing in DIRS, they fail to take into account that
+providers would benefit from a simultaneous reduction of burdens due to
+the waiver of NORS filing requirements that we codify below. For
+instance, under NORS, a provider may have to file multiple reports for
+outages across a geographic area (even within counties for areas like
+cities and towns) dependent on the number of components involved. Under
+DIRS, while providers are filing daily, they are submitting DIRS
+reports for the entirety of the affected area. Further, the DIRS
+reporting content is less burdensome than NORS in terms of
+requirements. We agree with Free Press' observation that the Commission
+can also manage burdens as it has the authority to waive mandatory DIRS
+requirements on a case-by-case basis where appropriate, such as for
+extraordinary circumstances. In this respect, non-filing due to such
+circumstances will be examined on a case-by-case basis. In those
+instances where extraordinary circumstances prevent filing due to
+operational limitations, providers should: (1) use the Operations
+Center or otherwise notify the Commission if they are unable to file;
+and (2) make a filing as soon as they are capable, but no later than
+the final report due upon deactivation of DIRS, described below.
+ We also disagree with NTCA's contention that DIRS reports may not
+be useful because there are other avenues, including through the work
+of the DHS-NCC, for emergency managers and first responders to obtain
+real-time situational awareness information. NCTA's similar argument
+that mandating DIRS filings is not warranted because it does not result
+in active participation by stakeholders at the state and local level is
+also unpersuasive. First, the systematic, mandatory collection of
+information in DIRS would not overlap with other Federal, state, local,
+Tribal, and territorial government efforts, and this non-duplicative
+information would be made available in real-time to both DHS and other
+participating public safety entities pursuant to the Commission's
+information sharing rules to further enhance their efforts (The
+mandated collection of information associated with DIRS would be non-
+duplicative and lacking in overlap with state, local, Tribal, and
+territorial governments as the information they receive comes from the
+Department of Homeland Security (DHS) and its Emergency Support
+Function #2 (ESF-2) and/or its state public utility system. Local
+response officials would be lacking this information unless a state or
+local entity has a relationship with a specific carrier, which is not
+common.). Such information could also be available to local entities
+through permitted downstream sharing (The Commission's rules allow
+Participating Agencies to share NORS and DIRS information with first
+responders, emergency communications centers, and other local
+government agencies who play a vital public safety role during crises
+and have a need to know this information (Downstream Agencies).), and
+is shared with the public on an aggregated basis via communications
+status reports published daily by the Commission when DIRS is
+activated, providing valuable public information on available avenues
+for communications during emergencies. Additionally, mandating
+reporting in DIRS for all subject providers would ensure full
+participation of service providers in each affected area and therefore
+present the Commission and other entities with a comprehensive insight
+as to infrastructure status and reporting capabilities of such entities
+through regular updates. The contentions of NTCA and NCTA are
+contradicted by a significant factual record identified in the 2021
+Resilient Networks NPRM and in the Commission's Disaster Communications
+Fall 2021 Field Hearing. As Public Knowledge underscores, the
+importance of information regarding the status of communications
+networks during and after disasters, especially in providing real-time
+updates and emergency alerts to the public as well as to emergency
+response personnel, is critical, particularly as it provides more
+geographically and infrastructure-specific information to those
+affected by outages.
+ We also reject the assertions of ACA Connects and NTCA that the
+burden for small providers with limited resources is too substantial to
+justify mandatory reporting, particularly in the midst of the need to
+effectuate repairs. Small providers, including many recipients of
+Universal Service Funds (USF), are often a crucial link for alerting
+and 911 in rural and underserved communities. The lack of visibility
+into the operational status of these networks when disaster response
+officials are performing vital tasks like determining how to effectuate
+outreach to communities that may involve evacuation instructions,
+shelter in place, or other emergency directives does a significant
+disservice to these populations, and may place them at increased risk.
+While timely restoration is crucially important, the minimal time and
+burden associated with notifying the Commission of infrastructure
+status is necessary to ensure timely emergency response activity.
+Moreover, we clarify that submissions made in DIRS under the rule
+adopted in the Order shall be based on information known by the
+provider at the time. We further recognize that in circumstances where
+DIRS is activated subject providers are necessarily operating in a
+disaster environment, and that submissions must be provided with a
+reasonable basis for believing the information therein is accurate. In
+those instances where extraordinary circumstances prevent filing due to
+operational limitations, providers should: (1) use the FCC Operations
+Center or otherwise notify the Commission if they are unable to file;
+and (2) make a filing as soon as they are capable, but no later than
+the final report due upon deactivation of DIRS, described herein.
+ It has been sixteen years since the Commission launched DIRS, and
+the time is ripe to take steps to improve the efficacy of the system.
+While the National Association of Broadcasters (NAB) argues that
+nothing has changed since the Commission's 2007 determination that a
+voluntary process for DIRS reporting proved adaptable to the unique
+circumstances of various crises, we disagree. The state of natural
+disasters, frequencies of emergencies, and the emergence of advanced
+technology has changed remarkably over the last almost two decades. The
+evolution of alerting through the advent of WEA, the associated
+implementation of FEMA's Integrated Public Alert and Warning System
+(IPAWS) gateway for the dissemination of WEAs and EAS alerts, as well
+as the launch of the Commission's own information sharing program for
+NORS and DIRS have altered the regulatory landscape as well. NAB's
+position similarly fails to consider the results of a Government
+Accountability Office (GAO) report noting a sharp increase in the
+number of wireless outages attributed to a physical incidents, and its
+recommendation that the Commission improve its monitoring of industry
+
+[[Page 25539]]
+
+efforts to strengthen wireless network resilience, as well as the
+Commission's own previous determinations, as a result of inquiries and
+investigations of the infrastructure status and capabilities of
+providers during and after disasters, that there is a need for a more
+comprehensive monitoring of situational awareness information. Like the
+recently adopted Mandatory Disaster Response Initiative (MDRI), DIRS is
+another valuable tool that can aid the Commission in its resiliency and
+restoration efforts. While the MDRI focuses on improving the resiliency
+and reliability of mobile wireless networks before, during, and after
+emergencies, DIRS provides the means to identify where the reparation,
+replacement, and restoration of communications infrastructure is vital.
+ DIRS also provides important information regarding which and how
+many Public Safety Answering Points (PSAPs) are unable to receive
+incoming emergency information from consumers in need. In regard to
+PSAPs, while NORS and DIRS serve similar purposes (reporting network
+outages), they collect different types of data. PSAP impact data is
+specifically collected by DIRS and not NORS. Once DIRS is activated,
+the Commission gets more fidelity as to PSAP status that it would not
+ordinarily get if only NORS were utilized, as no PSAP-specific
+information is collected in NORS at all. DIRS further provides
+information such as how many cell sites have been affected, where
+damaged power infrastructure is impacting communications, and other
+status information. Rather than waiting for the next emergency--be it
+natural or man-made--to strike and remind us, again, of the importance
+of comprehensive situational awareness to ensure the public safety and
+expedite the restoration of communications, we are relying on our
+experience and the record before us to adopt mandatory DIRS
+requirements now.
+ In considering the scope of reporting entities, we limit our
+determination at this time to cable communications, wireless, wireline,
+and interconnected VoIP providers. In this respect, we find that the
+record supports adoption of mandatory DIRS reporting for these
+providers because this group of providers should already have
+information like points of contact, roaming agreements, coordination
+and response plans, and restoration plans of action in place due to the
+general course of business. This was echoed in the record by Public
+Knowledge. Wireless providers especially should already have these
+ideals for resiliency and restoration in place given the 2016 Wireless
+Network Resiliency Cooperative Framework that has recently been
+mandated as the MDRI, which requires wireless providers to establish
+and share with the Commission (upon request) elements like roaming
+arrangements and mutual aid agreements. However, we note the concerns
+raised by satellite (DBS and SDARS) and broadcast (television and
+radio) providers seeking to differentiate their services in terms of
+impact to their specific technology in disaster contexts, operational
+restrictions, and the types of information that is likely relevant for
+disaster response relative to these particular services that may impact
+the specific data needs to be collected from these entities. For
+example, certain types of technology, like satellite, may have limited
+terrestrial components impacted by a disaster such that a more nuanced
+approach for outage reporting may be appropriate. In this respect, we
+also note that these services, while crucial to distribute information
+during disasters, may not serve the same function as the other services
+for which we require DIRS reporting today--namely, the use by consumers
+to seek help by communicating with emergency responders and loved ones.
+The Satellite Industry Association (SIA) requests more detail regarding
+proposals for mandatory DIRS reporting for that sector, and NAB raises
+arguments about the burdens of reporting, especially for smaller
+broadcasters who experience disruptions in the services they provide as
+well as underlying telephone, internet, or power services on which
+broadcasters rely to provide service. Further, these emergencies and
+``disasters often lead to power outages and the loss of telephone and
+internet access, making it difficult if not impossible for smaller
+stations without a corporate support infrastructure to file a DIRS
+report.'' To build a more complete record about the impact of our
+proposals on the satellite and broadcast sectors, we seek further
+comment pertaining to satellite and broadcast, as well as broadband,
+providers whose comments share different concerns and views than the
+subject providers included under the Order, in the Second FNPRM.
+ By mandating DIRS reporting for subject providers, we expect that
+there will be an increase in both the volume and clarity of situational
+awareness information collected, and the Commission will be able to
+share this information with Federal, state, Tribal, and territorial
+partners. Additional DIRS information will be helpful during disaster
+events and can help improve public safety planning and response
+efforts. DIRS provides decision-making public safety officials and
+emergency managers with an invaluable tool for assessing where
+communications services and infrastructure are impacted by disasters,
+as well as insights into the speed and scope of communications
+restoration. Particularly, DIRS information is a key performance
+indicator and serves as a primary input to the FEMA Lifelines report
+and Senior Leaders Interagency Briefings, which enables decision makers
+to concentrate their personnel and resources on areas presumed to have
+been impacted the hardest. Requiring this information to be reported by
+subject providers will assist with general situational awareness, the
+deployment of disaster and recovery logistics, and applications of
+infrastructure grants and insurance claims.
+ Confidentiality. Several commenters raise concerns regarding the
+protection of information that entities would be providing in DIRS on a
+mandatory basis. For instance, NCTA urges the Commission to maintain
+its presumption of confidentiality for DIRS information submitted by
+subject providers, while the California Public Utilities Commission
+(CPUC) alternatively argues that ``it is critical for people to acquire
+as much information about outages, disasters, and service restoration
+efforts before relocating to another, presumably safer location.''
+Public Knowledge similarly argues that public disclosure of outage
+information would enhance market incentives to provide more reliable
+service. While we shift from voluntary to mandatory reporting, we find
+no compelling reason at this time to alter the existing presumption of
+confidentiality for any reporting information received merely by virtue
+of this change, and decline to amend that presumption here. The
+Commission acknowledges that the CPUC filed a Petition for
+Reconsideration in regard to information sharing. The determination
+here discussing confidentiality and the treatment of information is not
+a pre-judgment of the Petition in that context. Particularly in the
+DIRS context, we note that public disclosures are already made on an
+aggregated basis, providing a level of transparency to consumers to
+effectuate the primary purpose of DIRS--the collection and
+dissemination of disaster-specific outage impact information. While
+driving the market to more reliability is an important goal, we do not
+find that disclosure in this context is appropriate at this time.
+
+[[Page 25540]]
+
+B. Codifying the NORS Reporting Waiver When DIRS Is Activated
+
+ In the 2021 Resilient Networks NPRM, the Commission sought comment
+on whether to codify the Commission's typical practice of granting
+subject providers a waiver of their NORS reporting requirements when
+they report in DIRS. Under the Commission's current voluntary DIRS
+reporting approach, the Bureau typically waives NORS reporting
+obligations for subject providers who elect to report in DIRS for the
+duration of its activation period. This decision is announced through
+the release by the Commission of a formal notice on an activation-by-
+activation basis. The Bureau has routinely issued this sua sponte
+waiver when DIRS has been activated and has found success with this
+approach. In the Order, we adopt this proposal and give it effect by
+revising the Commission's part 4 rules to suspend all NORS reporting
+obligations pertaining to outages that arise when DIRS reporting is
+activated and outages are timely reported in DIRS. 47 CFR part 4. More
+specifically, the Commission will waive NORS filings that would be due
+while DIRS is activated. Further, and as discussed more below in the
+following sections, once an outage has been filed under DIRS per the
+Order, a provider need not file the same outage in NORS.
+ USTelecom--The Broadband Association (USTelecom), NCTA, and AT&T
+support this proposal expressly, and no commenters oppose it.
+Accordingly, we conclude that formally codifying this practice would
+give providers more clarity on their obligations and both streamline
+and formalize existing practices with no detrimental impact on the
+Commission's current public safety efforts. Because of the long and
+successful practice of granting waivers, the Bureau and the industry
+should easily transition to this permanent solution. Moreover, the
+codification of this practice will be beneficial for subject providers
+as this waiver will reduce burdens for DIRS filers during emergency
+conditions when the system is activated. As proposed, this shift
+between reporting mechanisms also mitigates the burden of potentially
+duplicative reporting for subject providers by only requiring reporting
+in one system during and after disasters instead of a dual requirement.
+This will also provide administrative efficiency by eliminating the
+need for the Bureau to determine and issue waivers on an activation-by-
+activation basis.
+
+C. Final DIRS Reports Upon Deactivation
+
+ In the 2021 Resilient Networks NPRM, the Commission sought comment
+on how to maintain situational awareness as to the status of providers'
+services when a provider has not yet fully restored its service at the
+time that the Commission deactivates DIRS. The 2021 Resilient Networks
+NPRM asked whether providers with ongoing outages at the time of DIRS
+being deactivated should be required to report those outages in NORS;
+the Commission proposed resolving this issue by requiring that subject
+providers with ongoing outages at the time of DIRS deactivation provide
+a final report that describes their current infrastructure status at
+the time the system was deactivated to be submitted within 24 hours of
+deactivation. This would allow the Commission to see what remains
+unresolved immediately following deactivation of DIRS, and provide to
+the Commission an estimate of when the subject provider believes the
+issue(s) can be resolved. We adopt that proposal here; the final report
+shall be provided as input to a free form text field in the current
+DIRS interface, where a subject provider will be able to describe in
+detail the identity and status of outstanding infrastructure equipment
+and issues and the estimated dates by which these issues shall be
+resolved.
+ Under the Commission's current rules, there may be instances in
+which DIRS is deactivated but some providers have not yet fully
+restored service. In these instances, the Commission no longer has
+situational awareness as to the status of those subject providers'
+services because updates are no longer being filed in DIRS and the
+outage would have never been filed in NORS (as the Commission typically
+suspends NORS reporting obligations for subject providers who elect to
+report in DIRS, and we adopt that practice in the Order). This has
+resulted in an information gap where the Commission loses situational
+awareness of subject providers' status in restoring services after DIRS
+is deactivated. No commenter directly addresses whether providers with
+ongoing outages at the time of DIRS deactivation should be required to
+report those outages in NORS, but AT&T opines that any such report
+should be provided in DIRS rather than NORS.
+ We find that a final deactivation report, filed in DIRS within 24
+hours of the Commission deactivating DIRS, will close a significant gap
+that currently occurs at the conclusion of the DIRS reporting period,
+and therefore adopt such a reporting requirement. Bridging this
+informational divide will also enable Commission staff to conduct
+follow-up inquiries on an as-needed basis based on the information
+gathered, increase provider accountability, and provide needed
+opportunities for analysis associated with recovery. While this minor
+additional filing to close out issues presented though the course of a
+DIRS activation is only a minimal burden, we find the minor burden
+outweighed by the anticipated benefits and efficiencies associated with
+more directed staff engagement with incident resolution. We also find
+that this close-out report obviates the need for any additional filings
+in NORS as related to the same outage and clarify that once an outage
+is filed in DIRS, the event need not be filed in NORS.
+ We also agree with AT&T that it would be most effective for
+providers to supply a final report in DIRS since the report relates to
+a provider's previous filings in DIRS. Moreover, filing such reports in
+DIRS will promote efficiency and reduce confusion, both for those who
+file reports and for those who review them. This would include subject
+providers, participating entities who take part in the Commission's
+NORS and DIRS information sharing program, and Commission staff. Final
+reports will promote clarity by continuing to associate such reports
+with the initiating incident in the same system.
+ While the 2021 Resilient Networks NPRM did not posit a specific
+implementation for the reporting format, and no commenter proposed a
+specific implementation, we clarify here that the report should be
+completed by filling in a free form text field in DIRS where a subject
+provider shall provide, in a text field, a short summary of the
+identity and status of its outstanding infrastructure equipment and
+estimated dates by which any and all issues will be resolved. This
+format will allow maximum flexibility for subject providers to include
+effective descriptions to the Commission given the wide range of issue
+types and related circumstances that may occur in the aftermath of DIRS
+activation. We require, however, that a part of that free form input
+include estimated resolution dates, which will both create
+accountability on the part of providers and allow the Commission staff
+to promptly and effectively follow-up with the providers as necessary.
+
+D. Cost-Benefit Analysis
+
+ In the 2021 Resilient Networks NPRM, the Commission generally
+sought information on the costs and benefits specific to promoting
+situational
+
+[[Page 25541]]
+
+awareness during disasters, noting that ``a proposed requirement to
+file in DIRS must be balanced against additional burdens on providers,
+particularly as DIRS reports are filed in the midst of disasters and
+other emergencies.'' The Commission asked commenters to explore the
+costs and benefits associated with mandatory reporting, but the record
+was lacking in response to this request. However, ACA Connects states
+that the Commission ``should not adopt any requirements to participate
+in DIRS without undertaking a cost-benefit analysis that addresses such
+questions when it comes to considering mandatory reporting for smaller
+providers.''
+ We are cognizant of the fact that, as a general matter, it is
+impossible to assign precise dollar values to the improvement in public
+safety, life and health resulting from changes to the DIRS reporting
+requirements. Nevertheless, we believe that these proposals will result
+in benefits in terms of lives saved and injuries and property damages
+prevented. Expanded reporting will improve situational awareness of
+outages during disasters and aid in emergency response and recovery
+coordination. Improved information on outages makes communications
+options clearer for the individual responding in disasters. Improved
+data on outages can also help the government hold providers accountable
+for failures to timely respond to outages. Data collected can help with
+future disasters through improved planning for support and mitigation
+strategies. According to NOAA, natural disasters have caused annually
+in excess of $118 billion in economic damages and 564 deaths for the
+last 10 years. We believe that the mandatory DIRS filing obligation
+will result in a reduction of these harms to a degree that results in a
+significant social and public safety benefit.
+ In considering the costs associated with a mandatory DIRS filing
+obligation, we expect that subject providers will enter emergency
+contact information and critical information as necessary (i.e.,
+related to infrastructure damage and restoration) in DIRS. Responses,
+and DIRS reports generally, will differ and appear unique for each
+emergency or disaster due to differing events, geographic areas (e.g.,
+a network covers several affected counties and submits one DIRS report
+for each county), and varieties of service provided. We estimate that
+the average cost of the mandatory DIRS reporting for cable
+communications, wireless, wireline, and interconnected VoIP providers
+is less than $1.6 million per year. We do not account for the cost
+arising from assessing the network availability during DIRS activations
+because, as part of normal business operations, service providers would
+have made these assessments without the reporting requirement when a
+disaster strikes. As a result, the assessment cost is not considered
+separately in the cost estimate. The cost estimate of $1.6 million is
+likely an overestimate because it includes service providers that are
+currently voluntarily participating and already incurring the reporting
+costs without the changes in rules for mandated subject providers.
+ While it would be impossible to quantify the precise financial
+value of these health and safety benefits, we believe that the value of
+these benefits will significantly outweigh the annual cost of $1.6
+million. In light of the record reflecting large benefits to
+communications providers, agencies, and other industry stakeholders, we
+find that the total incremental costs imposed on the nation's subject
+providers by these new requirements will be minimal in many instances
+and, even when significant, will be far outweighed by the nationwide
+benefits. While DIRS provides vital information pertaining to
+infrastructure status, it can only be beneficial if as many providers
+as possible participate in reporting. This level of participation has
+yet to be achieved in a voluntary reporting state, causing the need to
+transition to mandatory reporting.
+
+E. Timelines for Compliance
+
+ We set a single date for compliance by all subject providers for
+implementing these rules at the later of 30 days after the FCC
+publishes notice in the Federal Register that the OMB has completed its
+review of Paperwork Reduction Act requirements, November 30, 2024. The
+Commission has selected November 30, 2024, as the effective date for
+mandated DIRS reporting to go into effect as this gives subject
+providers a number of months to comply and ensures that mandated DIRS
+reporting is in place for the entirety of the 2025 hurricane season
+(based on the 2023 current hurricane season that runs from June 1,
+2023, to November 30, 2023). We anticipate that by November 2024 new
+filers will have sufficient time to prepare for filing and the
+Commission will be able to make any changes required in the DIRS
+system. This date will also provide reasonable assurance that any
+necessary transitions do not occur during the height of hurricane
+season, which typically ends by late November.
+ We also find that subject providers will require only a modest
+amount of time to adjust their processes to comply with these rules
+because, as noted above, many subject providers already voluntarily
+report in DIRS or have similar reporting or recording practices for
+disasters in place. We believe that the compliance timing provided
+grants sufficient time for subject providers, including small entities,
+to implement any changes to their reporting methods and work with
+Bureau staff to resolve any concerns about the DIRS reporting process.
+ Once the compliance date has been established, we will require that
+cable communications, wireless, wireline, and interconnected VoIP
+subject providers report their infrastructure status information in
+DIRS whenever the Commission activates DIRS in geographic areas where
+such entities provide service. To resolve previous ambiguity as to
+whether a subject provider was failing to report because (1) its
+network infrastructure remained fully operational; (2) the entity was
+unable to file; or (3) the entity cannot access DIRS due to disruption
+of its internet access or other exigencies, the Commission requires
+entities to file reports on a daily basis until the Commission has
+deactivated DIRS. In this respect, non-filing due to such circumstances
+will be examined on a case-by-case basis. In those instances where
+extraordinary circumstances prevent filing due to operational
+limitations, providers should: (1) use the Operations Center or
+otherwise notify the Commission if they are unable to file; and (2)
+make a filing as soon as they are capable, but no later than the final
+report due upon deactivation of DIRS.
+
+List of Subjects in 47 CFR Part 4
+
+ Communications equipment, Reporting and recordkeeping requirements,
+Telecommunications.
+
+Federal Communications Commission.
+Marlene Dortch,
+Secretary.
+
+Final Rules
+
+ For the reasons discussed in the preamble, the Federal
+Communications Commission amends 47 part 4 as follows:
+
+PART 4--DISRUPTIONS TO COMMUNICATIONS
+
+0
+1. The authority citation for part 4 continues to read as follows:
+
+ Authority: 47 U.S.C. 34-39, 151, 154, 155, 157, 201, 251, 307,
+316, 615a-1, 1302(a), and 1302(b); 5 U.S.C. 301, and Executive Order
+no. 10530.
+
+
+[[Page 25542]]
+
+
+0
+2. Add Sec. 4.18 to read as follows:
+
+
+Sec. 4.18 Mandatory Disaster Information Reporting System (DIRS)
+reporting for Cable Communications, Wireless, Wireline, and VoIP
+providers.
+
+ (a) Cable Communications, Wireline, Wireless, and Interconnected
+VoIP providers shall be required to report their infrastructure status
+information each day in the Disaster Information Reporting System
+(DIRS) when the Commission activates DIRS in geographic areas in which
+they provide service, even when their reportable infrastructure has not
+changed compared to the prior day. Cable Communications, Wireless,
+Wireline and Interconnected VoIP providers are subject to mandated
+reporting in DIRS and shall:
+ (1) Provide daily reports on their infrastructure status from the
+start of DIRS activation until DIRS has been deactivated.
+ (2) Provide a single, final report to the Commission within 24
+hours of the Commission's deactivation of DIRS and the termination of
+required daily reporting, detailing the state of their infrastructure
+at the time of DIRS deactivation and an estimated date of resolution of
+any remaining outages.
+ (b) Cable Communications, Wireline, Wireless, and Interconnected
+VoIP providers who provide a DIRS report pursuant to paragraph (a) of
+this section are not required to make submissions in the Network Outage
+Reporting System (NORS) under this chapter pertaining to any incidents
+arising during the DIRS activation and that are timely reported in
+DIRS. Subject providers shall be notified that DIRS is activated and
+deactivated pursuant to Public Notice from the Commission and/or the
+Public Safety and Homeland Security Bureau.
+ (c) This section may contain information collection and/or
+recordkeeping requirements. Compliance with this section will not be
+required until this paragraph (c) is removed or contains compliance
+dates.
+
+[FR Doc. 2024-07402 Filed 4-10-24; 8:45 am]
+BILLING CODE 6712-01-P

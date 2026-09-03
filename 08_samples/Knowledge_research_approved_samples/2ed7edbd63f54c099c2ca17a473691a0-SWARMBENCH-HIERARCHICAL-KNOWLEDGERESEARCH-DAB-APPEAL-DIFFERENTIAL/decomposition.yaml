@@ -1,0 +1,506 @@
+version: "1.0"
+coordination_pattern: hierarchical
+sub_tasks:
+  - id: root_orchestrator
+    description: >-
+      Owns the whole engagement. Launches the five appeal lane managers and collects their
+      returned record paths and per-pair unit counts. Once every lane reports its pair records
+      written, closes the engagement itself rather than delegating further: reads every pair
+      record from /logs/agent/pair_records, checks that issue categories and grounds are used
+      consistently across pairs (the same kind of ruling coded the same way), fixes inconsistent
+      codings in the records on disk, then rebuilds /logs/agent/issues_ledger.csv from the final
+      records so the ledger and the records agree row for row, one row per unit with the exact
+      column set the brief names. Holds no pair content during the fan-out; every hand-off from
+      the lanes is a file path under /logs/agent plus a count.
+    depends_on: []
+    parallel_group: root
+  - id: lane_manager_1
+    description: >-
+      Manages the appeal pairs dab2738, dab2830, dab2869, dab2913, dab2954, dab3036, dab3094,
+      dab3163, dab3210. Spawns one pair analyst per appeal, collects the returned record paths,
+      confirms each expected record file exists on disk, and returns to the root only the list of
+      paths and per-pair unit counts.
+    depends_on: [root_orchestrator]
+    parallel_group: lane_managers
+  - id: lane_manager_2
+    description: >-
+      Manages the appeal pairs dab2789, dab2849, dab2874, dab2937, dab2991, dab3040, dab3119,
+      dab3185, dab3211. Spawns one pair analyst per appeal, collects the returned record paths,
+      confirms each expected record file exists on disk, and returns to the root only the list of
+      paths and per-pair unit counts.
+    depends_on: [root_orchestrator]
+    parallel_group: lane_managers
+  - id: lane_manager_3
+    description: >-
+      Manages the appeal pairs dab2792, dab2850, dab2891, dab2946, dab3006, dab3046, dab3146,
+      dab3191, dab3220. Spawns one pair analyst per appeal, collects the returned record paths,
+      confirms each expected record file exists on disk, and returns to the root only the list of
+      paths and per-pair unit counts.
+    depends_on: [root_orchestrator]
+    parallel_group: lane_managers
+  - id: lane_manager_4
+    description: >-
+      Manages the appeal pairs dab2794, dab2853, dab2895, dab2947, dab3008, dab3049, dab3147,
+      dab3192, dab3228. Spawns one pair analyst per appeal, collects the returned record paths,
+      confirms each expected record file exists on disk, and returns to the root only the list of
+      paths and per-pair unit counts.
+    depends_on: [root_orchestrator]
+    parallel_group: lane_managers
+  - id: lane_manager_5
+    description: >-
+      Manages the appeal pairs dab2829, dab2858, dab2905, dab2953, dab3035, dab3052, dab3160,
+      dab3194, dab3231. Spawns one pair analyst per appeal, collects the returned record paths,
+      confirms each expected record file exists on disk, and returns to the root only the list of
+      paths and per-pair unit counts.
+    depends_on: [root_orchestrator]
+    parallel_group: lane_managers
+  - id: pair_analyst_dab2738
+    description: >-
+      Owns appeal pair DAB 2738 and CR 4466 (Crawford Healthcare and Rehabilitation), documents
+      /input_artifacts/decisions/board-dab-2738.txt and /input_artifacts/decisions/alj-cr4466.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2738.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_1]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2830
+    description: >-
+      Owns appeal pair DAB 2830 and CR 4670 (Avon Nursing Home), documents
+      /input_artifacts/decisions/board-dab-2830.txt and /input_artifacts/decisions/alj-cr4670.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2830.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_1]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2869
+    description: >-
+      Owns appeal pair DAB 2869 and CR 4922 (Franklin Care Center), documents
+      /input_artifacts/decisions/board-dab-2869.txt and /input_artifacts/decisions/alj-cr4922.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2869.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_1]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2913
+    description: >-
+      Owns appeal pair DAB 2913 and CR 4865 (Oak Ridge Center), documents
+      /input_artifacts/decisions/board-dab-2913.txt and /input_artifacts/decisions/alj-cr4865.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2913.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_1]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2954
+    description: >-
+      Owns appeal pair DAB 2954 and CR 4978 (The Bridge at Rockwood), documents
+      /input_artifacts/decisions/board-dab-2954.txt and /input_artifacts/decisions/alj-cr4978.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2954.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_1]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3036
+    description: >-
+      Owns appeal pair DAB 3036 and CR 5677 (Logan Healthcare Leasing, LLC d/b/a Logan Care and
+      Rehabilitation), documents /input_artifacts/decisions/board-dab-3036.txt and
+      /input_artifacts/decisions/alj-cr5677.txt. Reads both documents, writes the complete pair
+      record to /logs/agent/pair_records/dab3036.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_1]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3094
+    description: >-
+      Owns appeal pair DAB 3094 and CR 5091 (Vibra Hospital of Charleston - TCU), documents
+      /input_artifacts/decisions/board-dab-3094.txt and /input_artifacts/decisions/alj-cr5091.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3094.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_1]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3163
+    description: >-
+      Owns appeal pair DAB 3163 and CR 5296 (Rehab at River's Edge), documents
+      /input_artifacts/decisions/board-dab-3163.txt and /input_artifacts/decisions/alj-cr5296.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3163.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_1]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3210
+    description: >-
+      Owns appeal pair DAB 3210 and CR 5237 (West Caldwell Care Center), documents
+      /input_artifacts/decisions/board-dab-3210.txt and /input_artifacts/decisions/alj-cr5237.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3210.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_1]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2789
+    description: >-
+      Owns appeal pair DAB 2789 and CR 4706 (Covington Manor Nursing Home), documents
+      /input_artifacts/decisions/board-dab-2789.txt and /input_artifacts/decisions/alj-cr4706.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2789.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_2]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2849
+    description: >-
+      Owns appeal pair DAB 2849 and CR 4293 (Libertyville Manor Rehabilitation & Healthcare Cen),
+      documents /input_artifacts/decisions/board-dab-2849.txt and
+      /input_artifacts/decisions/alj-cr4293.txt. Reads both documents, writes the complete pair
+      record to /logs/agent/pair_records/dab2849.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_2]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2874
+    description: >-
+      Owns appeal pair DAB 2874 and CR 4859 (Maysville Nursing and Rehabilitation), documents
+      /input_artifacts/decisions/board-dab-2874.txt and /input_artifacts/decisions/alj-cr4859.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2874.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_2]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2937
+    description: >-
+      Owns appeal pair DAB 2937 and CR 4916 (Golden Living Center - Trussville), documents
+      /input_artifacts/decisions/board-dab-2937.txt and /input_artifacts/decisions/alj-cr4916.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2937.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_2]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2991
+    description: >-
+      Owns appeal pair DAB 2991 and CR 5374 (Cahokia Nursing and Rehabilitation Center), documents
+      /input_artifacts/decisions/board-dab-2991.txt and /input_artifacts/decisions/alj-cr5374.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2991.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_2]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3040
+    description: >-
+      Owns appeal pair DAB 3040 and CR 5060 (Medford Care Center), documents
+      /input_artifacts/decisions/board-dab-3040.txt and /input_artifacts/decisions/alj-cr5060.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3040.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_2]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3119
+    description: >-
+      Owns appeal pair DAB 3119 and CR 5241 (Consulate Healthcare of Jacksonville), documents
+      /input_artifacts/decisions/board-dab-3119.txt and /input_artifacts/decisions/alj-cr5241.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3119.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_2]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3185
+    description: >-
+      Owns appeal pair DAB 3185 and CR 5854 (Pennsylvania Nursing and Rehabilitation Center),
+      documents /input_artifacts/decisions/board-dab-3185.txt and
+      /input_artifacts/decisions/alj-cr5854.txt. Reads both documents, writes the complete pair
+      record to /logs/agent/pair_records/dab3185.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_2]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3211
+    description: >-
+      Owns appeal pair DAB 3211 and CR 5233 (Generations at McKinley Place), documents
+      /input_artifacts/decisions/board-dab-3211.txt and /input_artifacts/decisions/alj-cr5233.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3211.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_2]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2792
+    description: >-
+      Owns appeal pair DAB 2792 and CR 4659 (Kindred Transitional Care and Rehab - Greenfield),
+      documents /input_artifacts/decisions/board-dab-2792.txt and
+      /input_artifacts/decisions/alj-cr4659.txt. Reads both documents, writes the complete pair
+      record to /logs/agent/pair_records/dab2792.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_3]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2850
+    description: >-
+      Owns appeal pair DAB 2850 and CR 4769 (Putnam Center), documents
+      /input_artifacts/decisions/board-dab-2850.txt and /input_artifacts/decisions/alj-cr4769.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2850.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_3]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2891
+    description: >-
+      Owns appeal pair DAB 2891 and CR 4926 (Rockcastle Health and Rehabilitation Center),
+      documents /input_artifacts/decisions/board-dab-2891.txt and
+      /input_artifacts/decisions/alj-cr4926.txt. Reads both documents, writes the complete pair
+      record to /logs/agent/pair_records/dab2891.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_3]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2946
+    description: >-
+      Owns appeal pair DAB 2946 and CR 4997 (North Las Vegas Care Center), documents
+      /input_artifacts/decisions/board-dab-2946.txt and /input_artifacts/decisions/alj-cr4997.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2946.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_3]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3006
+    description: >-
+      Owns appeal pair DAB 3006 and CR 4979 (Emery County Care and Rehabilitation Center),
+      documents /input_artifacts/decisions/board-dab-3006.txt and
+      /input_artifacts/decisions/alj-cr4979.txt. Reads both documents, writes the complete pair
+      record to /logs/agent/pair_records/dab3006.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_3]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3046
+    description: >-
+      Owns appeal pair DAB 3046 and CR 5132 (Donelson Place Care and Rehabilitation Center),
+      documents /input_artifacts/decisions/board-dab-3046.txt and
+      /input_artifacts/decisions/alj-cr5132.txt. Reads both documents, writes the complete pair
+      record to /logs/agent/pair_records/dab3046.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_3]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3146
+    description: >-
+      Owns appeal pair DAB 3146 and CR 5922 (Lutheran Home), documents
+      /input_artifacts/decisions/board-dab-3146.txt and /input_artifacts/decisions/alj-cr5922.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3146.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_3]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3191
+    description: >-
+      Owns appeal pair DAB 3191 and CR 5745 (Sligo Creek Center), documents
+      /input_artifacts/decisions/board-dab-3191.txt and /input_artifacts/decisions/alj-cr5745.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3191.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_3]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3220
+    description: >-
+      Owns appeal pair DAB 3220 and CR 5812 (Potomac Falls Health & Rehab Center), documents
+      /input_artifacts/decisions/board-dab-3220.txt and /input_artifacts/decisions/alj-cr5812.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3220.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_3]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2794
+    description: >-
+      Owns appeal pair DAB 2794 and CR 4715 (Fireside Lodge Retirement Center, Inc.), documents
+      /input_artifacts/decisions/board-dab-2794.txt and /input_artifacts/decisions/alj-cr4715.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2794.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_4]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2853
+    description: >-
+      Owns appeal pair DAB 2853 and CR 4861 (Countryside Rehabilitation and Health Center),
+      documents /input_artifacts/decisions/board-dab-2853.txt and
+      /input_artifacts/decisions/alj-cr4861.txt. Reads both documents, writes the complete pair
+      record to /logs/agent/pair_records/dab2853.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_4]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2895
+    description: >-
+      Owns appeal pair DAB 2895 and CR 4851 (Madison County Nursing Home), documents
+      /input_artifacts/decisions/board-dab-2895.txt and /input_artifacts/decisions/alj-cr4851.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2895.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_4]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2947
+    description: >-
+      Owns appeal pair DAB 2947 and CR 4998 (Green Valley Healthcare and Rehabilitation Center),
+      documents /input_artifacts/decisions/board-dab-2947.txt and
+      /input_artifacts/decisions/alj-cr4998.txt. Reads both documents, writes the complete pair
+      record to /logs/agent/pair_records/dab2947.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_4]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3008
+    description: >-
+      Owns appeal pair DAB 3008 and CR 5059 (38-40 Freneau Avenue Operating Company LLC, d/b/a
+      Atrium Post Acute Care of Mata), documents /input_artifacts/decisions/board-dab-3008.txt and
+      /input_artifacts/decisions/alj-cr5059.txt. Reads both documents, writes the complete pair
+      record to /logs/agent/pair_records/dab3008.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_4]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3049
+    description: >-
+      Owns appeal pair DAB 3049 and CR 5120 (Copperas Cove LTC Partners, Inc.), documents
+      /input_artifacts/decisions/board-dab-3049.txt and /input_artifacts/decisions/alj-cr5120.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3049.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_4]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3147
+    description: >-
+      Owns appeal pair DAB 3147 and CR 6427 (Lakeland Health Care Center), documents
+      /input_artifacts/decisions/board-dab-3147.txt and /input_artifacts/decisions/alj-cr6427.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3147.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_4]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3192
+    description: >-
+      Owns appeal pair DAB 3192 and CR 5169 (Golden Living Center - Morgantown), documents
+      /input_artifacts/decisions/board-dab-3192.txt and /input_artifacts/decisions/alj-cr5169.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3192.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_4]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3228
+    description: >-
+      Owns appeal pair DAB 3228 and CR 5351 (Benbrook Nursing and Rehabilitation Center),
+      documents /input_artifacts/decisions/board-dab-3228.txt and
+      /input_artifacts/decisions/alj-cr5351.txt. Reads both documents, writes the complete pair
+      record to /logs/agent/pair_records/dab3228.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_4]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2829
+    description: >-
+      Owns appeal pair DAB 2829 and CR 4771 (Heritage Plaza Nursing Center), documents
+      /input_artifacts/decisions/board-dab-2829.txt and /input_artifacts/decisions/alj-cr4771.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2829.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_5]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2858
+    description: >-
+      Owns appeal pair DAB 2858 and CR 4785 (Good Shepherd Home for the Aged, Inc., d/b/a The G),
+      documents /input_artifacts/decisions/board-dab-2858.txt and
+      /input_artifacts/decisions/alj-cr4785.txt. Reads both documents, writes the complete pair
+      record to /logs/agent/pair_records/dab2858.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_5]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2905
+    description: >-
+      Owns appeal pair DAB 2905 and CR 4988 (The Harborage), documents
+      /input_artifacts/decisions/board-dab-2905.txt and /input_artifacts/decisions/alj-cr4988.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2905.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_5]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab2953
+    description: >-
+      Owns appeal pair DAB 2953 and CR 4842 (Golden Living Center - Mountain View), documents
+      /input_artifacts/decisions/board-dab-2953.txt and /input_artifacts/decisions/alj-cr4842.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab2953.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_5]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3035
+    description: >-
+      Owns appeal pair DAB 3035 and CR 5179 (Heritage House of Marshall Health and
+      Rehabilitation), documents /input_artifacts/decisions/board-dab-3035.txt and
+      /input_artifacts/decisions/alj-cr5179.txt. Reads both documents, writes the complete pair
+      record to /logs/agent/pair_records/dab3035.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_5]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3052
+    description: >-
+      Owns appeal pair DAB 3052 and CR 5232 (Rehabilitation Center at Hollywood Hills), documents
+      /input_artifacts/decisions/board-dab-3052.txt and /input_artifacts/decisions/alj-cr5232.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3052.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_5]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3160
+    description: >-
+      Owns appeal pair DAB 3160 and CR 5285 (The Oaks), documents
+      /input_artifacts/decisions/board-dab-3160.txt and /input_artifacts/decisions/alj-cr5285.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3160.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_5]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3194
+    description: >-
+      Owns appeal pair DAB 3194 and CR 5054 (Lake Worth Nursing Home), documents
+      /input_artifacts/decisions/board-dab-3194.txt and /input_artifacts/decisions/alj-cr5054.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3194.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_5]
+    parallel_group: pair_analysts
+  - id: pair_analyst_dab3231
+    description: >-
+      Owns appeal pair DAB 3231 and CR 5159 (Heritage Manor - Carlinville, LLC), documents
+      /input_artifacts/decisions/board-dab-3231.txt and /input_artifacts/decisions/alj-cr5159.txt.
+      Reads both documents, writes the complete pair record to
+      /logs/agent/pair_records/dab3231.json per the brief, appends this pair's rows to
+      /logs/agent/issues_ledger.csv, and returns only the record path and the unit count. May
+      spawn one helper reader per document for the longest files.
+    depends_on: [lane_manager_5]
+    parallel_group: pair_analysts

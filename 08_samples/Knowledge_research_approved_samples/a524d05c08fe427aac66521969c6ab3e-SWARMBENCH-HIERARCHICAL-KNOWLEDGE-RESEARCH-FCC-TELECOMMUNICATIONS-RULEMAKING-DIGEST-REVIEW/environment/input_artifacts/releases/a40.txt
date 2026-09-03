@@ -1,0 +1,872 @@
+FCC RULEMAKING RELEASE
+Rule subject: Spectrum Rules and Policies for the Operation of Unmanned Aircraft Systems
+Document number: 2024-29967
+Issuing agency: Federal Communications Commission
+Responsible Bureau: Wireless Telecommunications Bureau
+Federal Register citation: 90 FR 1380
+Publication date: 2025-01-08
+
+Federal Register, Volume 90 Issue 5 (Wednesday, January 8, 2025)
+
+
+[Federal Register Volume 90, Number 5 (Wednesday, January 8, 2025)]
+[Rules and Regulations]
+[Pages 1380-1400]
+From the Federal Register Online via the Government Publishing Office [ www.gpo.gov ]
+[FR Doc No: 2024-29967]
+
+
+=======================================================================
+-----------------------------------------------------------------------
+
+FEDERAL COMMUNICATIONS COMMISSION
+
+47 CFR Parts 0, 1, 2, 87, 88 and 95
+
+[WT Docket No. 22-323; FCC 24-91; FR ID 255475]
+
+
+Spectrum Rules and Policies for the Operation of Unmanned
+Aircraft Systems
+
+AGENCY: Federal Communications Commission.
+
+ACTION: Final rule.
+
+-----------------------------------------------------------------------
+
+SUMMARY: In this document, the Federal Communications Commission (FCC
+or Commission) enables Uncrewed Aircraft System (UAS) operators to
+access dedicated spectrum for control-related communications.
+Specifically, this
+
+[[Page 1381]]
+
+document adopts service rules under new rule part 88 that provide
+operators the ability to obtain direct frequency assignments in a
+portion of the 5030-5091 MHz band for non-networked operation. Under
+these rules, one or more dynamic frequency management systems (DFMSs)
+will manage and coordinate access to the spectrum and enable its safe
+and efficient use, by providing requesting operators with temporary
+frequency assignments to support UAS control link communications with a
+level of reliability suitable for operations in controlled airspace and
+other safety-critical circumstances. To address concerns regarding the
+impact of these aeronautical operations on adjacent services, this
+document locates these operations, for now, in the central part of the
+band, with substantial separation from the bands adjacent to the 5030-
+5091 MHz band.
+
+DATES: The rules are effective February 7, 2025, except for Sec. Sec.
+88.27, 88.31, 88.33, 88.35, 88.111, 88.113, 88.115, 88.135, 88.137, and
+88.141, which are delayed. The Federal Communications Commission will
+publish a document in the Federal Register announcing the effective
+date. The incorporation by reference of material listed in Sec. 88.117
+is approved by the Director of the Federal Register as of February 7,
+2025.
+
+FOR FURTHER INFORMATION CONTACT: For additional information on this
+proceeding, contact Peter Trachtenberg of the Mobility Division,
+Wireless Telecommunications Bureau, at [email protected] or
+(202) 418-7369. For information regarding the Paperwork Reduction Act
+of 1995 (PRA) information collection requirements contained in this
+document, contact Cathy Williams, Office of Managing Director, at (202)
+418-2918 or [email protected] .
+
+SUPPLEMENTARY INFORMATION: This is a summary of the Commission's Report
+and Order in WT Docket No. 22-323; FCC 24-91, adopted on August 21,
+2024, and released on August 29, 2024. The full text of this document
+is available for public inspection online at https://docs.fcc.gov/public/attachments/FCC-24-91A1.pdf . To request materials in accessible
+formats for people with disabilities (braille, large print, electronic
+files, audio format), send an email to [email protected] or call the
+Consumer & Governmental Affairs Bureau at 202-418-0530 (voice), 202-
+418-0432 (TTY).
+
+Synopsis
+
+ Achieving the extraordinary potential of UAS technology will
+require integrating UAS operations into the National Airspace System
+(NAS), including in the controlled airspace in which commercial
+passenger flights operate and in circumstances with heightened risk,
+such as flights involving large aircraft or carrying passengers or
+flights beyond line of sight of the remote pilot. To ensure that these
+flights are sufficiently safe for routine operation, highly reliable
+wireless two-way communications for flight control and telemetry are
+required. In a Notice of Proposed Rulemaking, WT Docket No. 22-323, FCC
+22-101, 88 FR 7910 (February 7, 2023) (UAS NPRM), the Commission
+proposed rules for the 5030-5091 MHz band to help address these
+spectrum needs.
+
+Background
+
+ In the Report and Order, the Commission now takes an initial step
+to enable UAS operators to access dedicated spectrum in the 5030-5091
+MHz band for control-related communications with the required
+reliability. Specifically, the Commission adopts new UAS service rules
+under new rule part 88 that provide operators the ability to obtain
+direct frequency assignments in a portion of the 5030-5091 MHz band for
+non-networked operation. The Commission finds wide support for enabling
+early, direct access to a portion of the band for protected assignments
+under DFMS coordination, and anticipates that such access will
+facilitate the safe integration of UAS operations into the NAS so that
+the United States can realize the enormous potential benefits that UAS
+operations can provide.
+
+Discussion
+
+A. Non-Networked Access (NNA) Service Rules
+
+1. Definitions and Designation of Sub-Band for NNA Operations
+ In the UAS NPRM, the Commission proposed to adopt certain band and
+service rule definitions, including definitions for unmanned aircraft
+systems and unmanned aircraft, as well as other terms, including non-
+networked access operations, and control and non-payload
+communications. Noting consistency with FAA definitions, the Commission
+proposed to define an unmanned aircraft system as ``an unmanned
+aircraft (UA) and its associated elements (including communication
+links and the components that control the UA) that are required for the
+safe and efficient operation of the UA in the airspace of the United
+States,'' and an unmanned aircraft as ``an aircraft operated without
+the possibility of direct human intervention from within or on the
+aircraft.'' The Commission adopts these definitions as proposed, but
+finds it in the public interest to revise the terminology. It finds
+that the term ``uncrewed'' is more inclusive and could better reflect
+future use cases for the spectrum, such as uncrewed passenger flights,
+and thus find that it is appropriate to substitute ``uncrewed'' in
+place of ``unmanned.'' Specifically, it adopts the use of ``uncrewed
+aircraft system'' and ``uncrewed aircraft'' in place of ``unmanned
+aircraft system'' and ``unmanned aircraft,'' respectively.
+ In the UAS NPRM, the Commission also identified two broad use cases
+for determining the appropriate band plan and service rules: non-
+networked operations, or those communications occurring within radio
+line of sight, and network-supported services, which rely on network
+infrastructure to go beyond radio line of sight of the operator. The
+Commission proposed establishing the term Non-Networked Access (NNA) to
+``indicate spectrum or licenses (e.g., NNA blocks) that would be
+governed by service rules appropriate to support non-networked
+communications.'' The UAS NPRM further proposed the use of ``Network-
+Supported Services'' (NSS) to indicate that the relevant spectrum or
+licenses would be governed by service rules appropriate to support the
+provision of networked-based services. The Commission also proposed to
+use NNA and NSS in the rules to designate the spectrum allocated for
+non-networked and network-supported use cases, respectively. In the
+Report and Order, the Commission adopts the NNA and NSS terms as
+discussed above.
+ NNA Block Configuration. Although the Commission finds that it is
+premature to establish a permanent band plan in light of continuing
+developments and evolution of the industry, there is sufficient record
+support and basis to establish rules to allow early access for non-
+networked, direct link operations without compromising any future
+action the Commission may take with respect to UAS operations in the
+5030-5091 MHz band. The Commission thus establishes a temporary
+placement for NNA operation--with a permanent band plan, including
+final locations for NNA and NSS as well as potential provisions for
+opportunistic use by NNA users or NSS licensees, to be resolved in the
+future.
+ Specifically, the Commission allots 10 megahertz for near-term NNA
+access. The Commission finds that, until it makes a determination
+regarding a permanent band plan, it is appropriate
+
+[[Page 1382]]
+
+to locate the 10 megahertz NNA block at 5040-5050 MHz. As discussed
+below, the Commission is adopting an interim access mechanism (IAM) to
+enable NNA entities to begin operations in the band during the interim
+period before a DFMS is operational. Because it will be challenging to
+effectively manage and coordinate operator use of the NNA spectrum
+during this period, the Commission will allow access to additional
+spectrum beyond the 10 megahertz to facilitate the management and
+deconfliction of NNA operations during this period. Accordingly, during
+the IAM period, NNA entities may access to 20 megahertz of the band, at
+5040-5060 MHz. The Wireless Telecommunications Bureau (WTB) will
+announce the dates operators may begin to access the NNA block using
+the IAM process, as well as the date on which a DFMS becomes
+operational and the IAM period ends. Once a DFMS becomes operational,
+the NNA operations will be limited to the 10 megahertz at 5040-5050
+MHz.
+2. Scope of Permissible Uses
+ The Commission limits the scope of NNA communications in the 5030-
+5091 MHz band to Control and Non-payload Communications (CNPC), defined
+as any transmission that is sent between the UA component and the UAS
+ground station of the UAS and that supports the safety or regularity of
+the UA's flight. This approach is in the public interest and is well-
+supported by the record.
+ Mobile and fixed NNA operations. The Commission provides that the
+use of both fixed and mobile ground stations for NNA operations is
+permissible so long as they are not in motion during operation and
+operations are limited to the location associated with the specific
+frequency assignment. The adopted NNA rules do not set specific limits
+as to the use of multiple fixed stations to achieve a single NNA
+operation, and multi-station operations, whether involving multiple
+connected or non-connected stations, are permitted by the NNA rules.
+Thus, UAS operators might choose to access NNA spectrum using limited
+infrastructure deployment, such as a string of ground stations deployed
+over a particular and frequently used flight path.
+3. Licensing Stations by Rule
+ The Commission adopts licensing-by-rule for both NNA ground and
+aircraft stations, pursuant to section 307(e) of the Act, as amended.
+See 47 U.S.C. 307(e). Section 307(e)(1) limits the Commission's
+authority to adopt a license-by-rule approach to certain specific
+categories of service, including the ``citizens band radio service.''
+Section 307(e)(3) in turn provides that ``citizens band radio service''
+shall have the meaning given to it by the Commission by rule. As
+defined in the Commission's rules, the ``citizens band radio service''
+encompasses ``any radio service or other specific classification of
+radio stations used primarily for wireless telecommunications for which
+the FCC has determined that it serves the public interest, convenience,
+and necessity to authorize by rule the operation of radio stations in
+that service or class, without individual licenses, pursuant to 47
+U.S.C. 307(e)(1).'' The Commission finds that licensing NNA stations by
+rule will serve the public interest, convenience, and necessity.
+ Under the license-by-rule framework, to obtain Commission
+authorization to use the NNA spectrum, NNA users must use certified,
+Commission-approved NNA stations, and comply with the applicable NNA
+rules, but need not obtain individual spectrum licenses from the
+Commission. Because a license-by-rule approach will serve the public
+interest, convenience, and necessity, NNA stations are appropriately
+classified as part of the citizens band radio services. This
+classification reflects only the Commission's determination that the
+NNA service should be licensed by rule as the Commission has used that
+construct pursuant to its section 307(e)(1) authority, and not a
+determination that it should be more generally be regulated in similar
+fashion to other services that are classified under the citizens band
+radio services category, such as those in part 95 or part 96 of the
+Commission's rules.
+4. Eligibility
+ Given the limited discussion of the issues raised by foreign
+ownership of stations in a license-by-rule service, the Commission is
+guided by the approach that it took in the 3.5 GHz Citizens Broadband
+Radio Service (CBRS) rules to eligibility for users of CBRS General
+Authorized Access (GAA) stations, which, like NNA stations, are
+licensed by rule. In relevant part, section 96.5 of the Commission's
+rules establishes that any entity, other than those precluded by
+section 310, that otherwise meets the technical, financial, character,
+and citizenship qualifications that the Commission may require in
+accordance with such Act, is eligible to be a General Authorized Access
+(GAA) user. The Commission finds that it will serve the public interest
+to adopt a similar eligibility rule for NNA users.
+5. Creation of a New Part 88
+ The Commission will include UAS-related rules for the 5030-5091 MHz
+band in a single rule part and place such rules in a new part 88,
+rather than placing the new rules in part 87. Establishing a new part
+88 will promote ``clarity and ease of reference'' regarding the rules
+applicable to UAS operations in the 5030-5091 MHz band. The Commission
+also makes the new part 88 subject to rules under part 1, subpart F of
+the Commission's rules governing ``Wireless Radio Service''
+applications and proceedings.
+6. Technical Requirements
+ The RTCA DO-362A Standard. The Commission finds it in the public
+interest to incorporate by reference the standard RTCA, Command and
+Control (C2) Data Link Minimum Operational Performance Standards (MOPS)
+(Terrestrial), RTCA-DO-362A (2020) (RTCA DO-362A) and to adopt certain
+technical requirements in our new UAS rules based on this standard.
+Taking this approach is appropriate at this time, particularly given
+today's incremental steps toward facilitating UAS operations, which
+provides a path in the 5030-5091 MHz band for authorization of NNA
+equipment and operations through shared use, while deferring for
+further consideration and study potential approaches to exclusive
+licensing for NSS operations.
+ The Commission will incorporate by reference into its technical
+rules the specific sections of the RTCA DO-362A standard applicable to
+transmitter output power, emissions bandwidth, out-of-band emission
+limits, emission mask and time division duplexing. To provide
+stakeholders increased flexibility, and in lieu of mandating use of
+specific emission designators, an applicant seeking equipment
+certification may specify the emission designator appropriate to its
+equipment design and proposed operation, provided it meets the
+technical requirements governing NNA equipment and operations.
+ To facilitate expedited updates to its technical rules based on
+evolving technical standards, the Commission delegates joint rulemaking
+authority to WTB and OET to incorporate into the Commission's rules,
+after notice and an opportunity for public comment if necessary or
+appropriate, any updated version of a previously incorporated technical
+standard applicable to UAS operations in the 5030-5091 MHz band. This
+delegation will help ensure that key technical updates relevant to
+requirements for authorization of UAS
+
+[[Page 1383]]
+
+equipment and operations can be incorporated without unnecessary
+administrative delay.
+7. Equipment Authorization
+ To promote reliability and safety, the Commission will require
+transmitters to be certified for use in this new part 88 service
+through compliance with Office of Engineering and Technology (OET)
+procedures for equipment authorization under part 2, subpart J of the
+Commission's rules. The Commission will also require that the
+applicant, when filing the requisite application for equipment
+certification, notify the FAA of the identity of the equipment
+manufacturer. This approach will ensure that necessary coordination
+occurs with the FAA, given its responsibility for ensuring aviation
+safety in the NAS, and will prevent harmful interference through NNA
+equipment compliance with the relevant technical requirements.
+
+B. Dynamic Frequency Management System
+
+ The Commission will require parties seeking to use or using the NNA
+spectrum to be registered with a DFMS and to transmit in the 5030-5091
+MHz band only pursuant to and consistent with the terms of a frequency
+assignment from a Commission-approved DFMS. The Commission defines a
+DFMS as ``a frequency coordination system operating in the 5030-5091
+MHz band that (1) is highly automated and capable of providing rapid
+responses to frequency assignment requests from registered NNA
+operators, and (2) in response to such requests, is capable of
+assigning to the requesting operator temporary protected use of certain
+frequencies for a particular geographic area and time period tailored
+to the operator's submitted operation, to the extent such frequencies
+are available.''
+ The Commission will approve any DFMS that can meet its
+requirements, including approving multiple DFMSs if each of them meets
+the requirements. Each approved DFMS will be required to provide access
+to frequencies nationwide, and to communicate and coordinate with the
+other approved DFMSs as necessary to ensure that their assignments are
+consistent. Below, the Commission establishes requirements to govern
+the DFMS and DFMS administrator and the process by which DFMSs and DFMS
+administrators will be approved, as well as certain rules governing the
+request and assignment process.
+1. DFMS Requirements
+ In the UAS NPRM, the Commission proposed certain high level
+requirements to be codified in proposed section 88.135 of the
+Commission's rules. Among these requirements, the Commission proposed
+that:
+ A DFMS must provide a process for NNA users to register
+with the system for the purpose of submitting frequency assignment
+requests and obtaining frequency assignments.
+ A DFMS must be capable of responding to frequency
+assignment requests nationwide and across the entire 5030-5091 MHz
+band. However, a DFMS may only make assignments for spectrum within
+those frequencies in which NNA operations are permitted.
+ In response to frequency assignment requests from a
+registered NNA user, a DFMS shall determine and provide, through an
+automated (non-manual) process, a frequency assignment for a particular
+geographic area and time period tailored to the NNA user's submitted
+flight plan, to the extent that frequencies are available to meet the
+request and the assignment is otherwise consistent with this part.
+Assignments must provide protected access to frequencies over a
+duration and geographic area sufficient to cover the entire submitted
+flight plan.
+ Assignments must account for the need to protect other
+authorized operations.
+ The Commission adopts these requirements largely as proposed, but
+modifies the proposed requirements to clarify that it will not mandate
+that NNA users submit a ``flight plan'' in connection with their
+requests. It will still require, however, that requests be for spectrum
+to support a single UAS flight, which should help to ensure that
+parties reserve spectrum only for those times that they actually need
+the assignment, and to maximize the usage of the NNA spectrum and the
+resulting benefits. To reflect these determinations, the Commission
+modifies the proposed requirements to use the term ``UAS flight''
+instead of ``flight plan'' (e.g., requiring that a DFMS provide a
+frequency assignment for a particular geographic area and time period
+tailored to the NNA user's submitted UAS flight).
+ Interference modeling. While the Commission does not adopt any
+detailed requirements regarding the methodology or modeling for
+interference calculations, it agree with commenters that models and
+methodologies for interference determinations should be both effective
+in avoiding harmful interference and consistent between different
+DFMSs. Accordingly, it adopts these high level requirements.
+ FAA authorizations. The Commission will require a DFMS to confirm
+through certifications in the frequency assignment request process that
+the requesting party has flight authorization from the FAA to cover the
+flight associated with the assignment request, and that the flight will
+only be piloted by parties that have the necessary FAA remote pilot
+authorization. While the Commission will have primary responsibility
+for the enforcement of this Commission requirement, the Commission will
+coordinate with the FAA as necessary to ensure that oversight and
+enforcement is effective. In particular, compliance questions regarding
+the underlying FAA requirements should generally be determined with FAA
+input. Therefore, the Commission will require anyone challenging a DFMS
+action with regard to this requirement or otherwise seeking a
+Commission determination regarding a party's FAA authorization in this
+context to submit, with its filing to the Commission, a determination
+from the FAA regarding whether the party in question has the relevant
+authorization under FAA rules and requirements.
+ In-flight revisions. The Commission further adds a requirement that
+a DFMS be capable of responding to in-flight revision requests. The
+capacity to revise an assignment during a flight will help to address
+circumstances in which the planned area or duration of operations must
+be altered during the flight, including NPSTC's concern that,
+responding to an emergency, public safety operators will have
+difficulty predicting up front the duration of their need for the
+assignment.
+ Communications between DFMS and NNA stations. The Commission also
+adds certain requirements for communications between a DFMS and NNA
+stations to better ensure compliance with DFMS assignments. The
+Commission is concerned that an approach in which a DFMS merely reviews
+requests and transmits approved assignments to operators, without any
+further mechanism or requirement to promote user compliance, will lead
+to a higher probability of communications occurring outside of
+authorized parameters, either by intention or accident, and will not
+achieve the high level of safety and reliability intended for this
+band. Accordingly, a DFMS is required to be able to communicate
+directly with a ground station operating in the NNA spectrum, or proxy
+software acting on its behalf, to achieve the
+
+[[Page 1384]]
+
+following: (1) ensure that all NNA stations used in the operation,
+including any ground or airborne stations, are programmed to limit
+communications in the 5030-5091 MHz band, during the period of the
+frequency assignment, to the specific frequencies assigned by the DFMS
+and in accordance with the other terms of the assignment; and (2)
+receive updates on flight status when a UA has launched and when it has
+landed. NNA ground stations are similarly required to be capable of
+communicating with a DFMS as necessary to achieve these functions.
+ Limits on requests. The Commission generally provides flexibility
+to DFMSs to determine the parameters of the frequency assignment
+necessary to support the UAS flight, including specific frequencies,
+bandwidth, maximum transmit power, amount of time, and coverage area.
+As discussed above, DFMS assignments must provide protected access over
+a duration and geographic area sufficient to cover the entire submitted
+UAS flight, but the Commission does not mandate that a DFMS frequency
+assignment have the specific terms requested.
+ Two specific restrictions on permissible requests are warranted to
+prevent monopolization and facilitate broader access to NNA spectrum.
+First, requests may only be approved for an operation lasting no more
+than 24 hours. This restriction is consistent with the intention that
+assignments provide support for only a single flight. Second, requests
+may not be approved for periods commencing more than seven calendar
+days after the submission of the request, except to the extent that
+lack of frequency availability in that time frame justifies a later
+assignment. Seven calendar days strikes an appropriate balance between
+preventing parties from engaging in long term reservation of the
+spectrum and permitting reservations in advance to provide greater
+certainty to parties planning their operations. These two limitations
+are based on predictive judgments regarding the extent and nature of
+uses of the spectrum and the Commission may modify the specific values
+as it develops more experience. A DFMS should be capable of
+implementing such changes to the rules.
+ Coordination requirements. It will be critical, in the event there
+are multiple DFMSs, that they actively coordinate their assignments to
+avoid conflicts. Accordingly, the Commission adopts a requirement that
+a DFMS communicate and coordinate with other DFMSs as necessary to
+ensure consistent data and assignments, the safe and robust operation
+of authorized services, and compliance with the rules.
+ Information submitted with registration and requests. Beyond
+requiring that registration information include the registrant's legal
+name and contact information, and that requests must address and be
+limited to the frequencies, duration, and geographic coverage necessary
+to support a single submitted UAS flight, the Commission does not
+define the specific information that a party must submit with a
+frequency assignment request or with registration. It delegates
+authority to WTB, however, to impose additional specific requirements,
+after notice and an opportunity for public comment if it deems
+necessary or appropriate, regarding information that a DFMS must
+collect regarding registrants or frequency requests, such as the
+manufacturer, producer, make, or model of the equipment used, that WTB
+determines will promote the robust and safe use of the band or
+otherwise address security concerns regarding the use of the band, and
+the DFMS must have the capability to collect such additional
+information if required by WTB or the Commission. Further, to
+facilitate inter-DFMS coordination, the Commission will mandate that
+each of the DFMSs require the same registration and request
+information, and will require that information submitted to the DFMS be
+accurate, complete, and made in good faith. In addition, consistent
+with determinations above, the Commission modifies the language in
+proposed section 88.31(a) to clarify that it does not mandate that
+assignment requests necessarily must include specific flight plans. It
+will further require operators to keep any registration information up
+to date and keep any request information up to date through the
+scheduled end of the assignment. It will also require that a DFMS
+maintain all records for at least 60 months.
+ Security. Given the limited record on specific security
+requirements, however, the Commission adopts a minimum set of high
+level requirements to address security concerns: (1) a DFMS must employ
+protocols and procedures to ensure that all communications between the
+DFMS and users or NNA stations in connection with a DFMS's NNA
+functions are secure and that unauthorized parties cannot access, shut
+down, or alter the DFMS or its stored information; (2) communications
+between users and a DFMS, and between different DFMSs, must be secure
+to prevent corruption or unauthorized interception of data, and a DFMS
+must be protected from unauthorized data input or alteration of stored
+data; and (3) a DFMS must verify that the NNA stations to be used in
+operations are part 88 FCC-certified devices and must not provide
+assignments to any other device. In addition, similar to a measure
+adopted in connection with an internet-of-Things cybersecurity labeling
+program, the Commission delegates authority to WTB in coordination
+with, at a minimum, the Office of the Managing Director (OMD)
+(specifically the Office of the Chief Information Officer) and, to the
+extent necessary, the Office of General Counsel (OGC) (specifically the
+Senior Agency Official for Privacy) to identify and impose on the DFMS
+any applicable security or privacy requirements arising from Federal
+law or Federal guidance.
+ Protection of other services. The Commission includes certain
+requirements regarding the protection of certain non-UAS services,
+discussed further below. In addition to these, it adopts a general
+requirement that a DFMS be capable of receiving reports of interference
+and requests for additional protection from Microwave Landing System
+(MLS) users in the 5030-5091 MHz band or authorized users in adjacent
+bands and promptly address interference issues.
+ Non-discrimination. The Commission adopts a requirement that
+frequency assignment functions be performed in a non-discriminatory
+manner, and specifically requires that assignment requests generally be
+granted in a first-come-first-served manner subject only to the
+priorities specified in the rules.
+ Prioritization. The Commission adopts two high-level requirements
+regarding the prioritization of requests. First, in the event of
+emergencies, a DFMS should, to the extent feasible and consistent with
+the interests of aviation safety, prioritize requests from public
+safety entities. The Commission does not permit prioritization in a way
+that would terminate or modify an NNA user's assignment while the
+assignments are in use during a UAS flight. As between the many other
+important private sector uses and critical infrastructure, the non-
+discrimination principle should apply. Second, the Commission adopts a
+requirement that, in extended periods of congestion, the DFMS
+prioritize requests involving flights relying on a single ground
+station over requests that rely on multiple stations, to the extent
+feasible and consistent with the interests of aviation safety. This
+prioritization will still permit operations involving multiple ground
+stations, while ensuring that the NNA spectrum serves its intended
+
+[[Page 1385]]
+
+purpose. To the extent that both of the adopted priorities come into
+play, the public safety priority should take precedence.
+2. DFMS Administrator Requirements
+ In the UAS NPRM, the Commission also proposed requirements for DFMS
+administrators. Specifically, it proposed to require that
+administrators:
+ Operate a DFMS consistent with the rules.
+ Establish and follow protocols and procedures to ensure
+compliance with the rules.
+ Provide service for a ten-year term. This term may be
+renewed at the Commission's discretion.
+ Securely transfer all the information in the DFMS to
+another approved entity in the event it does not continue as the DFMS
+Administrator at the end of its term. It may charge a reasonable price
+for such conveyance.
+ Develop a standardized process with other DFMS
+Administrators for coordinating operations with other approved DFMSs,
+avoiding any conflicting assignments, and maximizing shared use of
+available frequencies.
+ Coordinate with other DFMS Administrators including, to
+the extent possible, sharing assignment and other information,
+facilitating non-interference to and from operations relying on
+assignments from other DFMSs, and other functions necessary to ensure
+that use of available spectrum is safe and efficient and consistent
+with this part.
+ Ensure that the DFMS shall be available at all times to
+immediately respond to requests from authorized Commission personnel
+for any and all information stored or retained by the DFMS.
+ Establish and follow protocols to comply with enforcement
+instructions from the Commission.
+ The Commission largely adopts these as proposed. Given the critical
+importance of inter-DFMS coordination to the safety and reliability of
+the system, it modifies the coordination requirement to reflect that
+the specified coordination is mandatory rather than a ``best efforts''
+requirement. Further, in addition to the limits it adopts above on
+requests to prevent monopolization of the NNA spectrum, the Commission
+also expressly authorizes DFMS administrators to adopt additional
+reasonable limits as necessary to address similar concerns.
+Specifically, it provides that the DFMS administrator may implement
+such reasonable limits on requests as are necessary to prevent the
+hoarding, warehousing, monopolization, or otherwise excessive
+reservation of NNA spectrum by a particular party.
+ As an additional mechanism to assist the Commission in its
+enforcement responsibilities, DFMS administrators are required to
+establish and follow protocols to comply with enforcement instructions
+from the Commission. The Commission expects detailed enforcement
+mechanisms and procedures employed by DFMSs to be developed during the
+approval process described below, including mechanisms and procedures
+to address unauthorized use of the spectrum, and that most issues will
+be addressed through these mechanisms and procedures. However, the
+Commission retains the ultimate responsibility for and authority over
+NNA operations in the band. In the event that the DFMS is unable to
+resolve disputes or identify and address the sources of harmful
+interference or unauthorized or otherwise unlawful operations in the
+band, these issues may be addressed by the Commission.
+ The Commission requires a DFMS to immediately respond to requests
+from authorized Commission personnel for any and all information stored
+or retained by the DFMS. It also anticipates that other Federal
+agencies may have important interests in obtaining DFMS information,
+particularly related to the coordination and protection of Federal UAS
+operations in the band. Accordingly, it delegates authority to WTB, in
+consultation with NTIA, to establish a process, as needed, for direct
+access by Federal agencies to information stored or retained by the
+DFMS, including the scope and terms of such access, through regulation,
+guidance, or agreement, as appropriate.
+ Fees. The Commission authorizes administrators to charge reasonable
+fees for registration, assignments, and other services, including
+reasonable usage-based fees. DFMS fees will not only be necessary to
+fund the development and operation of a DFMS, but can provide UAS
+operators with important incentives to use the limited NNA spectrum
+efficiently and discourage monopolization, warehousing, or hoarding.
+3. DFMS and DFMS Administrator Approval Process
+ The Commission adopts an approach for review and approval of DFMS
+and DFMS administrators similar to the Commission's process for
+selection of Spectrum Access Systems (SASs) and SAS administrators, and
+delegates authority jointly to WTB and OET to administer this process
+in close consultation at all stages of the process with the FAA and
+NTIA, as well as other administrative authority over the DFMS
+comparable to the delegation granted to WTB and OET to administer the
+SASs. It further delegates authority jointly to WTB and the Office of
+the Managing Director (OMD) to determine fees, if any, in connection
+with the filing of a petition to be a DFMS administrator. It also
+direct WTB to obtain Office of Management and Budget review of all
+information collections associated with this process as required under
+the Paperwork Reduction Act.
+4. Obtaining an Assignment From a DFMS
+ In the UAS NPRM, the Commission proposed rules governing the
+process by which parties would obtain an NNA frequency assignment from
+a DFMS. Among these, it proposed that NNA users registered with a DFMS
+may submit a request for temporary frequency assignment for CNPC
+limited to the duration and geographic coverage necessary to support a
+single submitted UAS flight plan. It further proposed that requests may
+be made either prior to an operation or submitted during the relevant
+operation to modify the assignment, and that modification requests must
+be made to the same DFMS responsible for the original assignment. In
+addition, it proposed that, if frequencies meeting the request are
+available, the DFMS would assign them on an exclusive but temporary
+basis, with the scope of the assignment tailored in both duration and
+geographic coverage to ensure interference-free communications for the
+entire submitted UAS flight plan. It also proposed that, when using the
+services of a DFMS, an NNA user shall comply with all instructions of
+the DFMS Administrator, including those regarding registration,
+requests and other submissions to the DFMS, and operational use of NNA
+assignments.
+ Consistent with actions discussed above, instead of requiring
+submission of a ``flight plan,'' the Commission establishes a more
+flexible requirement to submit a ``UAS flight.'' Otherwise, it adopt
+these provisions substantially as proposed.
+5. Interim Access Mechanism
+ The Commission establishes an interim access mechanism (IAM) to
+provide access to the 5030-5091 MHz band during the provisional period
+before a DFMS is operational. Specifically, the IAM will be available
+to all eligible NNA operators licensed by rule, and will allow limited,
+short-term access to 20 megahertz of spectrum in
+
+[[Page 1386]]
+
+the 5040-5060 MHz band of frequencies. The initial access will only be
+suitable for NNA operations, which are typically single flights or
+events. In order for NNA operators to gain access and begin
+transmission in the 5040-5060 MHz block, they must complete a two-step
+process, including FAA coordination and FCC registration.
+ Transition to DFMS Management of NNA Spectrum. When a DFMS is first
+granted final approval, as discussed above, WTB will issue a public
+notice establishing the date on which the DFMS may begin operations,
+after which parties seeking access to NNA spectrum must request a
+frequency assignment from the DFMS. For the DFMS assignment process to
+reliably determine interference impacts, it is critical that all UAS
+operations have gone through a DFMS. Accordingly, after the date on
+which a DFMS first begins operation, parties may not seek or use
+assignments from the IAM. After such date, the spectrum available for
+NNA operations will be restricted to 10 megahertz, as discussed above.
+If WTB finds it appropriate to help ensure a smooth transition, it may
+establish and announce by public notice a date prior to final approval
+of a DFMS after which requests will no longer be processed through IAM,
+but no earlier than the date of the first DFMS conditional approval.
+Further, WTB is authorized to take any other necessary steps to ensure
+a smooth transition to the DFMS management of the NNA spectrum,
+including setting the date for a DFMS to begin operations a sufficient
+period after the date of final approval to permit all or most of the
+outstanding IAM approvals to expire.
+
+C. Compatibility With Other Services
+
+1. Microwave Landing Systems
+ Given that there are no non-Federal Microwave Landing System (MLS)
+stations in the band, and that the Commission does not anticipate
+licensing any future MLS systems, it adopts no measures to protect such
+operations. Because it anticipates continued use of Federal MLS by the
+Air Force, the Commission will establish exclusion zones to protect
+such systems. Further, it will require the DFMS to retain information
+on, and enforce, the zones sufficient to protect any Federal MLS
+stations in the 5030-5091 MHz band. The Commission will coordinate with
+NTIA to identify both the current locations of Federal MLS and the
+appropriate exclusion zones, after which the exclusion zones will be
+identified by Public Notice. To the extent that these locations change,
+such changes can be addressed through a similar process. The Commission
+delegates authority to WTB to issue the public notice identifying any
+initial MLS exclusion zones as well and any subsequent public notices
+necessary to identify changes.
+2. Radionavigation-Satellite Service and AeroMACS
+ The Commission concludes that the technical requirements applicable
+to NNA combined with the frequency separation between the NNA spectrum
+and the 5010-5030 MHz band will be sufficient to provide compatibility
+between NNA operations and Radionavigation-satellite Service (RNSS) in
+the 5010-5030 MHz band. The Commission similarly concludes that the
+adopted technical requirements, combined with the frequency separation,
+will be adequate regulatory measures to provide compatibility between
+NNA operations and AeroMACS in the upper and lower bands adjacent to
+the 5030-5091 MHz band.
+3. Aeronautical Mobile Telemetry
+ The Commission finds that the limits adopted through incorporation
+by reference to provisions of RTCA DO-362A are also sufficient to
+protect Aeronautical Mobile Telemetry (AMT) in the 5091-5150 MHz band.
+Accordingly, it declines to require NNA operations to also comply with
+the criteria of ITU-R M.1459.
+4. Mobile Satellite Service Feeder Links
+ The Commission does not anticipate that rule-compliant fixed earth
+stations in the 5091-5250 MHz band will cause harmful interference to
+NNA operations in the 5030-5091 MHz band. Nevertheless, to address the
+unlikely possibility of interference to UAS operations, the Commission
+clarifies that a Mobile Satellite Service (MSS) feeder link licensee in
+the 5091-5250 MHz band will only be responsible for curing harmful
+interference from its earth station to NNA operations in the
+neighboring 5030-5091 MHz band to the extent such interference is the
+result of the licensee's non-compliance with applicable license or
+regulatory requirements.
+5. Radio Astronomy
+ National Radio Quiet Zone (NRQZ). The Commission requires
+coordination within the NRQZ. As described in detail below, the
+coordination requirements are modeled after the NRQZ coordination
+procedures applicable to other services under section 1.924(a) of the
+Commission's rules. Because these procedures assume that a station
+license application is being submitted to the Commission, however, the
+Commission modifies them to work with the instant context in which a
+frequency assignment request will be submitted instead to a DFMS.
+Specifically, it provide that parties planning to operate an NNA
+station at locations within the NRQZ must notify the National Radio
+Quiet Zone Administrator (NRQZ Administrator) in writing in advance or
+simultaneously with the filing of the request. Although section
+1.924(a) procedures are limited to fixed permanent stations, the
+Commission finds that procedures for NNA operations in the 5030-5091
+MHz band should apply more broadly. Given the inherently short-term
+nature of NNA operations, such operations are likely to often rely on
+temporary stations. Limiting coordination to permanent stations,
+particularly with the aeronautical focus of the service, might
+therefore not provide adequate coordination. The Commission also
+adopts, however, two measures to reduce the burden of coordinating
+short term operations. First, it provides that the NRQZ Administrator
+may provide safe harbors for NNA operations in the NRQZ that do not
+require notification, but a party submitting a frequency assignment
+request under this exception must certify that their request meets the
+criteria for a safe harbor and provide any additional supporting
+documentation required by the DFMS. Further, if a party's operation or
+revision of an operation is within the scope of an approval previously
+granted to the party by the NRQZ Administrator, including any time
+limits on the approval, altitude limits, or other applicable
+conditions, the party need not provide notification of the operation or
+revision to the NRQZ Administrator, but must submit the approval with
+its assignment request.
+ CORF recommends that the coordination notice should be sent to
+ [email protected] . The Commission adopts the same mailing address specified
+in section 1.924(a) and applicable to every other service as the
+initial point of contact, but also permits notification to be sent by
+electronic mail to [email protected] , which should facilitate a more rapid
+coordination. The coordination process based on this notification will
+largely follow the procedures under section 1.924(a), with appropriate
+changes made to reflect the role of the DFMS. Thus, when a request for
+frequency assignment is filed with the DFMS, the notification may be
+submitted prior to or simultaneously
+
+[[Page 1387]]
+
+with the request. After receipt, the DFMS will allow a period of 20
+days for objections. If a DFMS determines that a request is subject to
+one of the two exceptions to notification discussed above, it shall
+process the request without waiting the 20-day period.
+ If a DFMS receives an NRQZ Administrator approval of operations
+that includes the operation associated with the request, if the request
+is within the scope of a safe harbor established by the NRQZ
+Administrator, or if the 20-day period passes without objection, the
+DFMS shall process the request under normal procedures, except with
+regard to the restriction established above that requests may not be
+granted more than seven calendar days in advance. To accommodate the
+20-day period for objections, the Commission provides that, when this
+period is applicable, requests may be approved for periods commencing
+more than seven calendar days after the submission of the request, but
+no more than seven calendar days after the date of DFMS decision. If
+objections are received in the 20-day period, the DFMS administrator
+will forward the record, including the frequency request, to the
+Commission. After consideration of the record, the Commission will take
+whatever action is deemed appropriate, including, potentially,
+providing direction to the relevant DFMS administrator regarding
+resolution of the request.
+ RAS Outside the NRQZ. With regard to radio astronomy observations
+in the adjacent 4990-5000 MHz band, the Commission confirms, as
+recommended by NTIA and other commenters, that NNA operations remain
+subject to footnote US211 of the Table of Allocations. The Commission
+declines to adopt CORF's proposal for exclusion zones to protect
+observations at sites in both the 4990-5000 MHz band and inside the
+5030-5091 MHz band. To facilitate operation of both UAS systems and
+radio astronomy systems, however, it will require a DFMS to immediately
+notify the National Science Foundation, Division of Astronomical
+Sciences, Electromagnetic Spectrum Management Unit, by email of any
+assignments that it approves for UAS operations in the vicinity of the
+radio astronomy facilities identified in footnote US385 of the Table of
+Allocations, which identifies the sites at which radio astronomy
+observations are performed in 4990-5000 MHz. Further, for clarity, the
+Commission will list these facilities in the relevant part 88 rule.
+6. Canadian and Mexican Coordination
+ The Commission does not adopt any measure at this time to address
+operations near the border. Instead, DFMS administrators will be
+required to demonstrate that their systems can and will enforce
+agreements between the U.S., Canadian, and Mexican governments
+regarding commercial operations in the 5030-5091 MHz Band. The specific
+methods of enforcement will be determined and implemented by DFMS
+administrators, with appropriate Commission oversight, after such
+agreements are in place.
+
+Procedural Matters
+
+ Regulatory Flexibility Act. The Regulatory Flexibility Act of 1980,
+as amended (RFA), requires that an agency prepare a regulatory
+flexibility analysis for notice and comment rulemakings, unless the
+agency certifies that ``the rule will not, if promulgated, have a
+significant economic impact on a substantial number of small
+entities.'' Accordingly, the Commission has prepared a Final Regulatory
+Flexibility Analysis (FRFA), below, concerning rule and policy changes
+in the Report and Order.
+ Paperwork Reduction Act. The Report and Order contains new
+information collection requirements subject to the Paperwork Reduction
+Act of 1995 (PRA), Public Law 104-13. All such new requirements will be
+submitted to the Office of Management and Budget (OMB) for review under
+section 3507(d) of the PRA. OMB, the general public, and other Federal
+agencies will be invited to comment on any new or modified information
+collection requirements contained in this proceeding. The Commission
+will publish a separate document in the Federal Register at a later
+date seeking these comments.
+ Congressional Review Act. The Commission has determined, and the
+Administrator of the Office of Information and Regulatory Affairs,
+Office of Management and Budget, concurs, that this rule is non-major
+under the Congressional Review Act, 5 U.S.C. 804(2). The Commission
+will send a copy of the Report and Order to Congress and the Government
+Accountability Office pursuant to 5 U.S.C. 801(a)(1)(A).
+ Accessing Materials. The Office of Federal Register (OFR)
+regulations require that agencies must discuss in the preamble to the
+Federal Register summary of a final rule the ways that the materials
+incorporated by reference are reasonably available to interested
+parties and that interested parties can obtain the materials. In
+addition, OFR regulations require that the preamble to the Federal
+Register summary of a final rule summarize the material incorporated by
+reference.
+ Sections 88.101, 88.103, 88.105, 88.107, and 88.109 of the rules
+adopted herein incorporate by reference certain requirements in
+standards established by the RTCA Special Committee-228, referred to as
+RTCA, Inc. Command and Control (C2) Data Link Minimum Operational
+Performance Standards (MOPS) (Terrestrial), RTCA-DO-362A (December 17,
+2020). These standards provide the technical requirements for equipment
+manufacturers and operators of equipment used for UAS NNA operations in
+the 5030-5091 MHz band. In particular, the standards provide
+information regarding the following technical parameters: transmitter
+output power, emissions bandwidth, out-of-band emissions, emission
+mask, and the applicable time division duplexing frame rate. The text
+of RTCA DO-362A is available online for a fee at https://my.rtca.org/productdetails?id=a1B1R00000LoYFZUA3 .
+
+Final Regulatory Flexibility Analysis
+
+ As required by the Regulatory Flexibility Act of 1980, as amended
+(RFA), an Initial Regulatory Flexibility Analysis (IRFA) was
+incorporated in the Spectrum Rules and Policies for the Operation of
+Unmanned Aircraft Systems; Petition of AIA for Rulemaking to Adopt
+Service Rules for Unmanned Aircraft Systems Command and Control in the
+5030-5091 MHz Band, Notice of Proposed Rulemaking (NPRM) released in
+January 2023. The Federal Communications Commission (Commission) sought
+written public comment on the proposals in the NPRM, including comments
+on the IRFA. No comments were filed addressing the IRFA. This Final
+Regulatory Flexibility Analysis (FRFA) conforms to the RFA.
+
+A. Need for, and Objectives of, the Report and Order
+
+ In the Report and Order, the Commission takes significant action to
+adopt initial service rules for uncrewed aircraft systems (UAS) in the
+5030-5091 MHz band and enable UAS operators to access dedicated
+spectrum with the required reliability to support safety-of-flight,
+control-related communications while also allowing flexibility for the
+industry to further develop. Specifically, the Commission adopts
+service rules that provide operators the ability to obtain direct
+frequency assignments in a portion of the 5030-5091 MHz band. These
+service rules are necessary to provide a critical first step to promote
+access by UAS operators to dedicated spectrum while also allowing a
+consensus to emerge on key issues for

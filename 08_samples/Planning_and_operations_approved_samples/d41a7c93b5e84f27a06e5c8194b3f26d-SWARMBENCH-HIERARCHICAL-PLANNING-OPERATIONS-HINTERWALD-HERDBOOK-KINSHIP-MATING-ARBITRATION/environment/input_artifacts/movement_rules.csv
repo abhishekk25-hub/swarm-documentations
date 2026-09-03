@@ -1,0 +1,12 @@
+rule_id,rule_type,rule_key,rule_value,note
+ISO01,isolation_base_days,DOMESTIC|HS_A,14,Receiving isolation for a movement that stays inside one country and ends at a holding of health status A.
+ISO02,isolation_base_days,DOMESTIC|HS_B,21,Receiving isolation for a domestic movement ending at a holding of health status B.
+ISO03,isolation_base_days,DOMESTIC|HS_C,28,Receiving isolation for a domestic movement ending at a holding of health status C.
+ISO05,isolation_base_days,CROSS_BORDER|HS_A,30,Receiving isolation where the consigning and receiving holdings are in different countries and the receiving holding is status A.
+ISO06,isolation_base_days,CROSS_BORDER|HS_B,38,Receiving isolation where the countries differ and the receiving holding is status B.
+ISO07,isolation_base_days,CROSS_BORDER|HS_C,45,Receiving isolation where the countries differ and the receiving holding is status C.
+CRT01,certificate_class,DOMESTIC,NATIONAL_MOVEMENT_DOCUMENT,A national movement document accompanies any consignment that does not cross a national border.
+CRT02,certificate_class,CROSS_BORDER,INTRA_UNION_TRACES_CERTIFICATE,A consignment crossing a national border travels under an intra-union health certificate raised in TRACES.
+TRN01,transport_category,LIVEWEIGHT_UNDER_350,CAT_1,Space allowance category for an animal whose most recent recorded liveweight is below 350 kg.
+TRN02,transport_category,LIVEWEIGHT_350_TO_550,CAT_2,Space allowance category for an animal whose most recent recorded liveweight is at least 350 kg and at most 550 kg.
+TRN03,transport_category,LIVEWEIGHT_ABOVE_550,CAT_3,Space allowance category for an animal whose most recent recorded liveweight is above 550 kg.

@@ -1,0 +1,666 @@
+﻿Batch-14 — Feedback for Turing
+
+
+Delivery: delivery-harbor-format-samples-14-2026-07-30 · 14 samples · SwarmBench V2 (OpenCode harness)
+
+
+Overall: Good batch on grader design where it counts — the strongest verifiers here (PATENT, SEC-EDGAR, USGS, CIT, HAZMAT) are genuinely grounded, judges are cross-family, hollow or copied submissions score near zero, and we found no reward-hacking on either arm in any sample. Good topology variety too (hierarchical, specialist, pipeline, map-reduce), which is an improvement on earlier all-hierarchical batches.
+
+
+What we're asking for, and where it applies. Two of the asks below are delivery-wide and neither needs any sample regenerated: (1) add a realistic high-level task description as an extra file per sample, and (2) report the content and structural scores separately alongside the overall score. Everything else is scoped to named samples. Going forward we'd also like content to make up at least 40% of every grader's score. The full list is at the end.
+
+
+The actionable items are: single-agent runs that failed for mechanical rather than capability reasons; how the reward is composed on half the samples — seven of the fourteen let a hollow submission bank ≥40% before doing any work, and one of those (MULTIWEAPON) has no held-out ground truth at all; and label/provenance cleanup.
+
+
+───────────────────────────────────────
+How to read this document (key terms)
+
+
+* SA and MA — each task is run two ways: SA = single agent, MA = multi-agent (a coordinated swarm). Same task, same inputs, same budget; the intended difference is one agent vs many. The gap = MA score − SA score. Scores run 0 to 1.
+* verify.py — the grader shipped with each sample. verifier_type is the config label declaring how it works: deterministic/executable (pure code), llm-judge (an AI model rates the output), or hybrid (both).
+* Structural check vs content check — a structural check asks "is the output the right shape?" (file exists, valid schema, right row count, an id copied from an input file). A content check asks "is the work actually right?" — either an AI judge rating quality (rubric) or a comparison against ground truth (GT). Throughout this document content = rubric + GT.
+* Freebie floor — the score a well-formed but hollow submission banks from structural checks alone, before doing any real work. Lower is better.
+* Completion cliff — an arm scored near zero because it wrote nothing, not because its work was poor.
+* decomposition.yaml — the pre-written orchestration plan shipped with each sample: a list of sub-tasks, each naming a role, its input files and its output path.
+───────────────────────────────────────
+Cross-cutting feedback
+
+
+A. The single-agent runs
+
+
+A1. The 6 single-agent failures are not one uniform "completion cliff" — we traced each one through its execution log.
+
+
+* 3 genuine capability cliffs (#1 MULTIWEAPON, #2 PATENT, #3 HAZMAT): SA tried to emit all deliverables in a single write and hit the 32K per-response output cap, producing 0 files. Choosing to one-shot a write that large is a real single-agent failure mode, and MA avoids it because each subagent writes its own smaller file. Worth knowing how the zero arises, though: OpenCode ends the run on the first finish_reason=length, so the truncation ends the episode rather than costing partial credit. PATENT stopped ~6.5 minutes in and HAZMAT at ~8% of budget, both with budget to spare, and PATENT's instruction explicitly rewards partial writes. The failure is genuine, but the 0.00 is harsher than the work was — so the PATENT and HAZMAT gaps overstate the multi-agent advantage by that margin. (MULTIWEAPON runs the other way: its SA score is spuriously inflated by a grading bug, so its gap is understated — see A2.) Nothing for you to action here; we're flagging it so the numbers get read correctly.
+* 1 harness/infra artifact (#4 OHIO): SA was killed by an opencode auto-compaction followed by exit 1 (NonZeroAgentExitCodeError) after 5 steps and ~0.5% of its budget, with zero write attempts. It never got a fair run. Please re-run this sample — as delivered it is not a valid SA↔MA pair.
+* 1 degenerate loop (#5 MOJ-OSS): SA looped on repo 1 of 70 and quit at ~15% of budget. A genuine robustness failure.
+* 1 failed shortcut (#9 FEDERAL): SA attempted a template generator that failed, then exhausted ~96% of its timeout with no truncation. A genuine capability limit on a ~1.9M-token corpus.
+A2. #1 MULTIWEAPON's two arms were graded by different verifier versions, and the SA score is an artefact. The SA arm was scored on 2026-07-22 against 250 checks; the MA arm on 2026-07-29 against the 426 checks that ship with this delivery. The two numbers are therefore not on the same scale.
+
+
+SA's 0.204 is also not a partial result — it is entirely spurious. SA produced no output files at all (the verifier's own notes record balance_simulation_model.json, simulation_results.csv and output.json as missing), yet exactly 51 of its 250 checks scored 1.0, and every one of them is a ranking check (dossier_rank_correct_* ×50 plus dossiers_rank_correct_eq_all). No other check scored above zero, and 51 ÷ 250 = 0.204 — the whole score. Ranking can only be derived from the model file that was never written, so the older verifier passed those checks by default on absent input.
+
+
+Please re-run both arms against the same shipped verifier before this pair is used. On the current verifier SA would score at or near 0, so the true gap is wider than the reported 0.61.
+
+
+B. How the score is composed, and how hard the tasks are
+
+
+A framing note first: we do not read any of this as the model gaming the grader. In all 14 samples the agent is doing what the instruction asks. Where the instruction and rubric only specify the shape of the output, a correctly-behaving agent produces the right shape and stops. The fix is on the specification side — weight substance, not shape.
+
+
+B1. Please add a realistic, high-level task description to each submission.
+
+
+Every sample ships a decomposition.yaml — a pre-written orchestration plan — and the orchestrator is told to execute it verbatim:
+
+
+"Follow decomposition.yaml exactly. Each entry in sub_tasks maps to exactly one task call. Do not merge sub-tasks, skip sub-tasks, or add sub-tasks not listed in the decomposition."
+
+
+The plans are written at a very fine grain. Per sub-task they name the role, the exact input files to read, the exact output path and schema to write, which values to copy verbatim, and often a list of explicit prohibitions:
+
+
+Sample
+	decomp lines
+	sub_tasks
+	exact file paths dictated
+	explicit "do not…"
+	MOJ-OSS
+	1721
+	72
+	79
+	75
+	PHANTOM
+	1225
+	39
+	189
+	72
+	MULTIWEAPON
+	896
+	57
+	271
+	160
+	TRIAL-REGISTRY
+	626
+	46
+	65
+	12
+	SEC-EDGAR
+	614
+	81
+	176
+	1
+	CROSS-JURISDICTIONAL
+	475
+	33
+	94
+	6
+	CA-DROUGHT
+	468
+	32
+	86
+	32
+	USGS
+	256
+	42
+	73
+	42
+	CIT
+	220
+	36
+	63
+	36
+	OHIO
+	185
+	6
+	24
+	12
+	PATENT
+	174
+	34
+	233
+	0
+	FEDERAL
+	167
+	14
+	29
+	0
+	TEA-STALL
+	121
+	6
+	19
+	13
+	HAZMAT
+	96
+	4
+	23
+	6
+	
+
+MOJ-OSS runs to 1721 lines and 72 sub-tasks; MULTIWEAPON carries 160 explicit prohibitions. In the run logs the orchestrator's spawn calls closely follow the file — in the sample we traced end-to-end (PHANTOM), all 12 spawn payloads reused 64–70% of the plan's vocabulary and its role names verbatim (batch-01-manager for cases V001–V020, and so on).
+
+
+What we're asking for — and what we're not. We are not asking you to change your multi-agent pipeline, and you do not need to re-run the MA arm. Keep the detailed decomposition exactly as it is; it can carry on driving your MA scoring.
+
+
+What we'd like is one additional file per sample: a realistic, high-level description of the task — the kind of prompt a real user would actually write. It should say roughly what needs doing and how the work divides, without the exact file paths, output schemas, verbatim-copy rules or prohibition lists. On our side we'd hand that high-level description to the multi-agent arm in place of the detailed plan, so the run reflects a realistic request rather than a finished recipe.
+
+
+Why: at the current level of detail the orchestrator isn't deciding much — it is transcribing a finished plan into task calls. What we want the sample to measure is whether the system can work out the division of labour for itself.
+
+
+Scope: all samples in this delivery. This is an addition to the submission, not a change to your existing pipeline.
+
+
+B2. What the score is made of — and why we'd like to see it split.
+
+
+We split each arm's achieved score into a structural block and a content block. The pattern is consistent: MA's structural block is near-saturated (~0.9–1.0) in almost every sample, while the content block is where the arms actually differ. The clearest case in this batch:
+
+
+Sample
+	MA structural
+	MA content
+	MA blended
+	MOJ-OSS
+	0.875
+	0.25
+	0.667
+	PHANTOM
+	0.877
+	0.526
+	0.658
+	CA-DROUGHT
+	1.00
+	0.63
+	0.691
+	SEC-EDGAR
+	0.993
+	0.629
+	0.714
+	
+
+MOJ-OSS is the sharpest illustration: the MA content block was 0.25 — the content genuinely failed, and the grader correctly caught the fabrication — yet the structural block of 0.875 lifted the run to a respectable-looking 0.667.
+
+
+Where both arms produced output, the gap lives almost entirely in the content block; the structural blocks are close to tied (CA-DROUGHT struct 1.00 vs 0.92, content 0.63 vs 0.30; PHANTOM struct 0.88 vs 0.57, content 0.53 vs 0.18).
+
+
+The blended reward is doing two jobs at once. We'd like two things here, and they work together:
+
+
+1. Report the split. Emit content_score (rubric + GT checks) and structural_score (presence / schema / format / roster-copy checks) as separate fields alongside the blended reward, so a run's real result is legible without re-deriving it.
+2. Change what the blend is made of on the samples flagged in B3 below, where the structural share is large enough that the blended number is mostly reporting shape — MOJ-OSS at 0.667 is the clearest case.
+Scope: the reporting split (1) applies to all samples — it needs the scoring re-run, but no samples regenerated. The reweight (2) applies only to the samples named in B3. Together these are the most useful change in this document.
+
+
+B3. Cut the freebie floor — and going forward, content should be at least 40% of every score.
+
+
+The general rule we'd like to apply from here on: at least 40% of every grader's score should come from content — rubric plus ground-truth checks — rather than from structure. That applies to new submissions, not just the samples flagged below.
+
+
+Every check in each grader, bucketed by reading verify.py, ordered by freebie floor (best first). The last column is the one we'd actually like you to move — a low floor is what makes a grader discriminate, and as the table shows it does not follow from the content share alone.
+
+
+Sample
+	checks
+	structural %
+	rubric %
+	GT %
+	content %
+	freebie floor
+	USGS
+	29
+	38
+	55
+	7
+	62
+	~0–3% (gated)
+	CIT
+	27
+	37
+	52
+	11
+	63
+	~0–3% (gated)
+	PATENT
+	404
+	5
+	0
+	95
+	95
+	~3%
+	SEC-EDGAR
+	43
+	23
+	2
+	74
+	77
+	~9%
+	HAZMAT ‡
+	16
+	37
+	0
+	63
+	63
+	~15%
+	CA-DROUGHT
+	31
+	58
+	16
+	26
+	42
+	~19% (gated)
+	CROSS-JURISDICTIONAL
+	15
+	27
+	0
+	73
+	73
+	~25%
+	PHANTOM ‡
+	56
+	36
+	25
+	39
+	64
+	~40%
+	OHIO
+	43
+	47
+	16
+	37
+	53
+	~40%
+	MOJ-OSS
+	12
+	67
+	17
+	17
+	33
+	~42%
+	TRIAL-REGISTRY
+	32
+	34
+	6
+	60
+	66
+	~50%
+	FEDERAL
+	15
+	53
+	20
+	27
+	47
+	~55%
+	TEA-STALL †
+	24
+	46
+	37
+	17
+	54
+	~60–65%
+	MULTIWEAPON ‡
+	426
+	88
+	12
+	0
+	12
+	~85%
+	
+
+† TEA-STALL's manifest declares 20 of its 24 checks as static_checks, and in practice most of the axes are lenient presence/prose booleans that a hollow submission clears — hence the ~60–65% floor and the perfect MA score. We've bucketed the judged-but-lenient axes as rubric, which flatters it; on substance it is the weakest-discriminating grader in the batch. Content share by count is necessary but not sufficient — the axes also have to bite.
+
+
+‡ A note on reading this table. We bucketed every check by reading verify.py, not by trusting the manifest categories — those categories don't track structural-vs-content (several reward_hacking_checks are deeply substantive, and several static_checks are lenient prose booleans). Most graders average all their checks equally, so a check count is also a weight — with three exceptions, marked ‡ above:
+
+
+* HAZMAT multiplies the mean by a segregation gate: mean(16 checks) × gate.
+* PHANTOM coverage-caps twelve weight-1 judged checks so they can never reach 1.0, capping even a perfect submission at ~0.89.
+* MULTIWEAPON is the most distorted: three manifest entries declared weight: 1 expand to 250, 100 and 50 graded items and carry ~94% of the reward between them — and the 100-item block drops out of the denominator entirely if the model file is missing, which raises the score of a submission that omitted it.
+Please make the manifest weights match the real formula in all three. Bucketing a handful of consistency/anti-gaming checks is a judgement call either way — happy to share our per-check classification if you'd like to review any of it.
+
+
+One clarification on that 40%. It means rubric and ground truth together. A rule of "≥40% must be LLM-rubric" would wrongly penalise your best graders: PATENT is 0% rubric / 95% GT, SEC-EDGAR 2% / 74%, CROSS-JURISDICTIONAL 0% / 73% — deterministic ground truth is exactly what a strong grader looks like. Rubric and GT should be counted together as content, with GT preferred wherever it is feasible.
+
+
+Note also that a structural check is not automatically a freebie. CA-DROUGHT is 58% structural but has a ~19% floor, because 12 of its 18 structural checks are gated on the row carrying a verbatim quote found in the real plan. That gating is the good pattern — see the two floor-killers below.
+
+
+Reweight targets in this batch, in priority order: MULTIWEAPON (88% structural, no held-out ground truth at all), TEA-STALL (~60–65% floor), FEDERAL (~55%), TRIAL-REGISTRY (~50% — from volume thresholds, not from the oracle), MOJ-OSS (~42%), OHIO (~40%), PHANTOM (~40%).
+
+
+Seven of the 14 samples sit at a ≥40% floor — considerably more than Batch-12, which had two. Two patterns already used in this batch drive the floor to ~0%, and we'd like to see them standardised:
+
+
+1. An _eligible authorship gate — every per-record check is gated behind a deterministic authorship test (copy-density, word-order, source vocabulary) plus judge verdicts on whether the record is composed/specific/deep. A hollow or copied record then earns nothing on any check. Used well here in USGS and CIT.
+2. Ground truth denominated over the whole corpus — per-item shares over the fixed corpus, requiring exact matches against frozen truth. Used well in PATENT (383 of 404 checks) and SEC-EDGAR (28 of 43).
+B4. Where full ground truth is infeasible, hand-verify a subset and give it real weight.
+
+
+Some graders credit values that are already in the agent's input files, so the check confirms the agent read a provided file rather than that it did the work: MULTIWEAPON (no held-out key at all — everything checked is in the weapon catalog the agent was handed), FEDERAL (every input is agent-visible; no hidden oracle at all), MOJ-OSS (4-repo oracle, URLs derivable), OHIO (raw filing JSON provided).
+
+
+We understand a complete answer key is sometimes prohibitively expensive. We are not asking for full coverage — a small, hand-verified, held-out slice (a handful of rows or entities that are not in the inputs), carrying meaningful weight, is worth far more than a large key the agent was handed. MULTIWEAPON and FEDERAL are the priorities — neither has any held-out truth today.
+
+
+B5. Task calibration — please leave headroom at the top.
+
+
+7 of the 14 multi-agent runs scored ≥0.80: TEA-STALL 1.00, HAZMAT 0.98, CROSS-JURISDICTIONAL 0.91, FEDERAL 0.91, PATENT 0.87, TRIAL-REGISTRY 0.81, MULTIWEAPON 0.81. We'd like the strongest MA run on a task to land nearer 0.70–0.80, so the task still discriminates between a good run and an excellent one. TEA-STALL scoring a perfect 1.00 leaves nothing to measure at all.
+
+
+To be clear: this is about the MA ceiling, not the gap. A large SA→MA gap is fine and is what we want to see — the concern is a task on which the multi-agent arm is already at 90–100%.
+
+
+Two different causes, two different fixes:
+
+
+* Score composition — MULTIWEAPON (floor ~85%), TEA-STALL (~60–65%), FEDERAL (~55%), TRIAL-REGISTRY (~50%): the reweight in B2/B3 will bring these down on its own. MULTIWEAPON's 0.81 is the least meaningful MA score in the batch — see that sample.
+* Task difficulty — PATENT (0.87), HAZMAT (0.98) and CROSS-JURISDICTIONAL (0.91) sit on tight, low-floor deterministic graders, so those scores are legitimately earned. Please do not reweight those graders — they are the exemplars. There the fix is to make the task harder: more items, more traps and decoys, tighter tolerances.
+C. Labels and provenance
+
+
+C1. verifier_type — one missing, ten imprecise, three correct. We checked each declared label against whether verify.py actually calls a model:
+
+
+* Missing (1): FEDERAL declares no verifier_type at all, though its grader does call a judge. Please add it.
+* Imprecise (10): these declare llm-judge and do call a judge, so the label isn't false — but in most the deterministic half carries the majority of the score (MULTIWEAPON is ~88% deterministic, SEC-EDGAR 42 of 43 checks). hybrid would describe them better. Low priority.
+* Correct (3): PATENT, HAZMAT and CROSS-JURISDICTIONAL declare executable and contain no model call anywhere — no change needed.
+None of this changes a score; the label is what tooling and the team use to catalog tasks and to know which ones need a judge available at grade/train time.
+
+
+C2. Please record the model used by each arm — 9 of 14 pairs ran on different models. SA is generally kimi-k2p6 or kimi-k2p7-code; MA is often the personal deployment accounts/bhanu-nalamadgu-7pl5/deployments/dghe4tfw (also ut1aj6qu; #13 TEA-STALL is k2p6 → k2p7-code). Different models across arms is acceptable to us as a recorded note — but it needs to be recorded in the delivered metadata, and we need to know what the personal deployments map to.
+
+
+C3. Sub-bar notes (context, not defects). MA below 70% (#5 MOJ-OSS, #6 CA-DROUGHT, #10 USGS, #11 CIT, #12 PHANTOM) or a gap under 30pp (#6, #7, #13, #14) — these are genuine gaps on hard tasks, no action needed.
+
+
+───────────────────────────────────────
+Sample index (task UUIDs)
+
+
+Full task UUIDs for every sample in this delivery, so each note below can be tied to an exact task. The delivery folder for each is <UUID>-SWARMBENCH-<NAME>, and the same UUID appears as task_id in tests/rubric_manifest.json.
+
+
+Ref
+	Sample
+	Task UUID
+	#1
+	SPECIALIST-DATA-ANALYSIS-MULTIWEAPON-CLASS-BALANCE-SIM
+	019f84e28c43782ab63fac4d834fdb9d
+	#2
+	HIERARCHICAL-DATAANALYSIS-PATENT-PRIORITY-CHAIN-RECONSTRUCTION
+	28e15ecf69ee48f0b0c173f1fbb0258f
+	#3
+	PIPELINE-PLANNING-OPERATIONS-HAZMAT-OUTBOUND-CONSOLIDATION-TRANSPORT-COMPLIANCE
+	3115eef3e82f4ccd969a2bb18369827f
+	#4
+	HIERARCHICAL-DATA-ANALYSIS-OHIO-SENATE-IE-VENDOR-OVERLAP-NETWORK
+	50014f87da994479ae3d87e7412a0095
+	#5
+	MAPREDUCE-CODESWE-MOJ-OSS-SECURITY-POSTURE-SWEEP
+	8003e6d040f8478f82b3d075f1474872
+	#6
+	HIERARCHICAL-PLANNING-OPERATIONS-CA-REGIONAL-DROUGHT-WATER-SYSTEM-READINESS-SWEEP
+	920c05e0e5044965830c93d976fe24cd
+	#7
+	HIERARCHICAL-PLANNING-OPERATIONS-CROSS-JURISDICTIONAL-PROCUREMENT-SOLICITATION-SCHEDULE
+	9e87a4fd7ef6470e807ba11bf04fd9a8
+	#8
+	HIERARCHICAL-DATA-ANALYSIS-TRIAL-REGISTRY-DRIFT-AUDIT
+	a98ff51350f747c695284bfde39c07a9
+	#9
+	HIERARCHICAL-KNOWLEDGE-RESEARCH-FEDERAL-APPELLATE-OPINION-CASEBOOK-REVIEW
+	b3dba5d1d3a84e2aba35fe7a95e0ae5d
+	#10
+	HIERARCHICAL-KNOWLEDGE-RESEARCH-USGS-EARTH-SCIENCE-FIELD-STUDY-GUIDE
+	bf376a79798a4521b8e1626a83ba8af0
+	#11
+	HIERARCHICAL-KNOWLEDGE-RESEARCH-US-COURT-OF-INTERNATIONAL-TRADE-OPINION-DIGEST-REVIEW
+	d8644c672cd346fc8741dcb43b2c4d56
+	#12
+	HIERARCHICAL-DATA-ANALYSIS-PHANTOM-VENDOR-CLUSTER-DETECTION
+	efb62c4a4a6a4c8797cf5f9522de0b09
+	#13
+	HIERARCHICAL-KNOWLEDGE-RESEARCH-TEA-STALL-FRANCHISE-COMPARISON-PITCH
+	f4a91c7e2b8d43569ac0e1f5d3b62870
+	#14
+	HIERARCHICAL-DATA-ANALYSIS-SEC-EDGAR-ANSWER-AUDIT
+	f82d6e774c714d2d84b412e592ecf8fd
+	
+
+───────────────────────────────────────
+Per-sample feedback
+
+
+Samples needing action
+
+
+#1 SPECIALIST-DATA-ANALYSIS-MULTIWEAPON-CLASS-BALANCE-SIM
+
+
+019f84e28c43782ab63fac4d834fdb9d Build an agent-based multi-weapon balance sim from a 50-weapon EFT corpus (10 each × Assault/Sniper/SMG/Shotgun/Heavy) + 4 live pages.
+
+
+* SA 0.20 / MA 0.81 (gap 0.61). The weakest grader in either batch, and the top reweight priority. 373 of its 426 graded items are structural: dossier padding/word-count/near-duplicate checks, quote-copying out of the community_signals.md files the agent was handed, and rank checks recomputed from the agent's own model numbers. There is no held-out ground truth at all — check_partial_oracle says so in its own docstring ("a structural folder fixture … not a private gold answer key"), and every value it checks (fire_rate, source_url token, class, name) is in the catalog the agent was given.
+* Consequence: a mechanical generator that emits 50 lightly-varied dossiers, with no reasoning about balance at all, can reach roughly 85% — nothing compares its output against a withheld answer. This is the sample where MA's 0.81 tells us least.
+* Also fix the weighting model: static_checks_11 (250 items), reward_hacking_checks_4 (100) and reward_hacking_checks_6 (50) are each declared weight: 1 but carry 59%, 24% and 12% of the reward. Worse, the 100-item block returns an empty list when balance_simulation_model.json is missing, so those items vanish from the denominator — omitting the model file raises the score.
+* Two verifier versions (A2): SA graded 2026-07-22 against 250 checks, MA 2026-07-29 against the shipped 426. SA's 0.204 is entirely spurious — it wrote no files, yet 51 of 250 checks scored 1.0 and all 51 are ranking checks on the model file it never produced (51/250 = 0.204 exactly; nothing else scored). Please re-run both arms on the same shipped verifier; as delivered this is the weakest pair in the batch.
+* SA failure (traced): genuine capability cliff — SA dumped all deliverables in one write, hit the 32K per-response output cap and produced 0 files, with step and time budget left over.
+* What would fix it (B3/B4): hold back a real answer key — a hand-verified balance ranking, or per-weapon values not present in the catalog — and let that carry the majority of the score, with the dossier-shape items capped at 15–20%.
+* Label: declared llm-judge; the deterministic half carries most of the score, so hybrid is more accurate.
+* Models: SA kimi-k2p6 / MA DEPLOY:dghe4tfw — different; please record and map.
+#4 HIERARCHICAL-DATA-ANALYSIS-OHIO-SENATE-IE-VENDOR-OVERLAP-NETWORK
+
+
+50014f87da994479ae3d87e7412a0095 Resolve vendor-name variants across 72 real FEC Schedule-E IE filings (2024 Ohio Senate), build a canonical vendor network graph, flag shared-vendor clusters as leads.
+
+
+* SA 0.02 / MA 0.75 (gap 0.72). Reweight target: 53% of checks structural (content 46%); freebie floor ~40%.
+* Please re-run — the SA arm never got a fair run. SA was killed by an opencode auto-compaction plus a headless exit 1 (NonZeroAgentExitCodeError) after 5 steps / ~0.5% of budget, with zero write attempts. This is a harness/infra artifact, not a capability result, so the pair is not valid as delivered. (Both arms ran on kimi-k2p6; the MA run is sound.)
+* Reweight (B3/B4): roughly 20 of the 43 equal-weight checks are structural or internal-consistency; please cap that block at 15–20%. The raw filing JSON is provided to the agent, so the checks that echo it aren't evidence of work. Credit where due — the partial-oracle block is genuinely strong (it checks every shard transaction and every committee-sourced edge against the original real source data, plus hand-verified entity-resolution and over-merging oracles); that block deserves more of the weight, not less.
+* Label: declared llm-judge; the deterministic half carries most of the score, so hybrid is more accurate.
+#5 MAPREDUCE-CODESWE-MOJ-OSS-SECURITY-POSTURE-SWEEP
+
+
+8003e6d040f8478f82b3d075f1474872 Audit 70 fixed MoJ GitHub repos (frozen scope at /input_artifacts/scope_repos.json), score 5 security controls per repo, emit security_matrix.csv (16 cols), 3 charts (pie + 2 bar), and briefing.json.
+
+
+* SA 0.00 / MA 0.67 (gap 0.67). Most structural-heavy grader in the batch: 67% of checks structural (content 34%), freebie floor ~42%.
+* The clearest case for splitting the score (B2): MA's content block was 0.25 — the grader correctly caught fabrication — but its structural block of 0.875 lifted the run to 0.667. A blended 0.67 reads as a decent run; the content score says otherwise. Top reweight priority in this batch.
+* Reweight (B3/B4): down-weight the 5 structural checks and expand the oracle beyond 4 repos — the URLs are derivable from the inputs, so those checks confirm the agent read a provided file.
+* SA failure (traced): not a write-cliff — SA entered a degenerate repetition loop on repo 1 of 70 and quit at ~15% of budget, never reaching the write stage. A genuine robustness failure (same model on both arms).
+* Label: declared llm-judge; the deterministic half carries most of the score, so hybrid is more accurate.
+#9 HIERARCHICAL-KNOWLEDGE-RESEARCH-FEDERAL-APPELLATE-OPINION-CASEBOOK-REVIEW
+
+
+b3dba5d1d3a84e2aba35fe7a95e0ae5d Produce a plain-English casebook over 72 full U.S. federal appellate opinions (~1.9M tokens).
+
+
+* SA 0.21 / MA 0.91 (gap 0.70). Reweight target: 53% of checks structural (content 47%); freebie floor ~55% — second highest in the batch.
+* No held-out ground truth at all (B4) — the priority fix for this sample. Every input the grader checks against is visible to the agent, so nothing here tests research beyond the provided material. Even a small hand-verified slice would change the character of this grader.
+* Reweight (B3): cut the structural and roster-splice checks and gate the remainder behind a substance judgment. MA at 0.91 on a ~55% floor is mostly the floor talking.
+* SA failure (traced): not a write-cliff — SA attempted a template/mad-lib shortcut that failed, then ran ~96% of its timeout with zero length-truncations. A genuine capability limit on a corpus this size.
+* Label: no verifier_type is declared at all — please add one (hybrid fits the code).
+* Models: SA kimi-k2p6 / MA DEPLOY:dghe4tfw — different; please record and map.
+#8 HIERARCHICAL-DATA-ANALYSIS-TRIAL-REGISTRY-DRIFT-AUDIT
+
+
+a98ff51350f747c695284bfde39c07a9 Reconcile 49 sponsor amendment memos + 60 watchdog claims against real ClinicalTrials.gov version histories; classify each memo and adjudicate each claim.
+
+
+* SA 0.41 / MA 0.81 (gap 0.41). Strong grounding — not a general reweight target. 15 of the 32 checks are partial-oracle checks decided "numerically against truth re-derived live from the registry" at grading time, which is among the best ground truth in either batch.
+* The narrow fix is the volume-threshold checks, not the oracle block: a few static checks pass on bulk rather than correctness — check_report_length_bar (18,000–50,000 words) and check_report_covers_every_study (≥38 of 49 sections "substantive"). Those are what a hollow-but-long submission banks, and they're the reason the floor sits around ~50% despite the strong oracle. Gating them behind at least one oracle check would fix it without touching the live-registry work.
+* Headroom (B5): MA 0.81 — tightening the volume thresholds should bring this into range on its own.
+* Label: declared llm-judge; the deterministic half carries most of the score, so hybrid is more accurate.
+* Models: SA kimi-k2p6 / MA DEPLOY:dghe4tfw — different; please record and map.
+#13 HIERARCHICAL-KNOWLEDGE-RESEARCH-TEA-STALL-FRANCHISE-COMPARISON-PITCH
+
+
+f4a91c7e2b8d43569ac0e1f5d3b62870 Compile decision-ready, sourced franchise economics for 20 Indian tea/chai brands, cross-check ≥2 named sources per figure, reconcile into low-high ranges, flag non-franchising (COCO) brands rather than repeating invented listings.
+
+
+* SA 0.71 / MA 1.00 (gap 0.29). Highest freebie floor in the batch (~60–65%) despite 84% of checks being nominally content.
+* The rubric axes don't bite (B3): 19 of the 24 axes are lenient presence/prose booleans that a hollow submission clears — which is how MA reaches a perfect 1.00. Please give the checks that matter — COCO detection, the numeric ranges, and the ≥2-named-sources requirement — at least 50% of the weight, and down-weight the 11 structural checks.
+* Headroom (B5): a perfect score means the task no longer discriminates at all. This is the clearest example in the batch of why we're asking for headroom.
+* The sealed reference.csv with wide ranges is a good idea — it just needs more weight.
+* Label: declared llm-judge; the deterministic half carries most of the score, so hybrid is more accurate.
+* Models: SA kimi-k2p6 / MA kimi-k2p7-code — different; please record.
+#12 HIERARCHICAL-DATA-ANALYSIS-PHANTOM-VENDOR-CLUSTER-DETECTION
+
+
+efb62c4a4a6a4c8797cf5f9522de0b09 Investigate 200 county procurement vendors via reachable primary public records; resolve shared-attribute/entity clusters; reconcile conflicts; reject false positives; produce a 9-artifact audit-priority pack.
+
+
+* SA 0.32 / MA 0.66 (gap 0.33). Freebie floor ~40%; content 62% of checks; MA structural 0.877 vs content 0.526.
+* Reweight (B3): down-weight the 20 structural checks (14 static + 6 deterministic anti-gaming) to ~15–20%. The 195KB held-out fixture is genuinely good — the structural block is what dilutes it.
+* A perfect submission cannot score 1.0 here. judge_scaled multiplies each judged score by sampled_n / universe_n, so twelve weight-1 LLM checks have hard ceilings well below 1 — 0.20 for check_llm_profile_specificity, check_llm_ranking_rationale_quality, check_llm_cross_artifact_high_risk_consistency and check_llm_package_decision_usefulness; ~0.075 for check_llm_evidence_claim_faithfulness. Three of them (reward_hacking_checks_17/18/19) scale as 20/len(items), so producing more work lowers the ceiling — the opposite of the intended incentive. Net effect: max achievable reward is ~0.89, and the rubric block's real share is ~15%, not the 25% the check count implies. Please either raise the sample sizes or stop scaling the score by coverage.
+* On the SA arm — the grader is right, no action needed: SA wrote 3 of its 9 deliverables as .json when the shared instruction explicitly required .csv/.md. That is a genuine SA specification failure and the grader is correct to penalise it.
+* Label: declared llm-judge; the deterministic half carries most of the score, so hybrid is more accurate.
+* Models: SA kimi-k2p6 / MA DEPLOY:dghe4tfw — different; please record and map.
+Sound — minor notes only
+
+
+#2 HIERARCHICAL-DATAANALYSIS-PATENT-PRIORITY-CHAIN-RECONSTRUCTION
+
+
+28e15ecf69ee48f0b0c173f1fbb0258f Reconstruct the priority-chain continuity graph of 92 granted NeuroPace patents (~285K tokens) from cross-reference prose.
+
+
+* SA 0.00 / MA 0.87 (gap 0.87). Freebie floor ~3%; 383 of 404 checks are corpus-denominated ground truth.
+* An exemplar grader — please don't change the weighting. This is the pattern we'd like standardised elsewhere (B3).
+* Headroom (B5): MA 0.87 is legitimately earned here, so if you want more headroom, make the task harder (more patents, more ambiguous cross-references) rather than touching the grader.
+* SA failure (traced): genuine capability cliff — SA attempted the whole priority graph in one 107K-character turn and hit length truncation; the harness exited after that first truncated step (~6.5 min, budget not exhausted). The instruction explicitly rewards partial writes, so a more capable SA could have scored above 0.
+* Label: declared executable, and correctly so — no model call anywhere in the grader.
+* Models: SA kimi-k2p6 / MA DEPLOY:dghe4tfw — different; please record and map.
+#3 PIPELINE-PLANNING-OPERATIONS-HAZMAT-OUTBOUND-CONSOLIDATION-TRANSPORT-COMPLIANCE
+
+
+3115eef3e82f4ccd969a2bb18369827f Plan one day's outbound hazmat dispatch wave: classify 103 real messy shipping descriptions against a real 49 CFR 172.101 excerpt (47 synonyms/trade names, 35 n.o.s., article-vs-component traps, same-UN multi-row splits), consolidate onto ≤N loads.
+
+
+* SA 0.00 / MA 0.98 (gap 0.98). Freebie floor ~30% base, ~15% after the segregation gate; 63% GT.
+* Good deterministic design — the segregation gate is exactly the kind of floor-killer we're asking for elsewhere. Worth stating explicitly in the manifest that the reward is mean(16 checks) × segregation_gate, not a plain mean: the gate rebuilds each loaded shipment's material profile from the gold hazard data and runs the real 49 CFR 177.848 matrix, crediting only shipments on conflict-free trucks. (Minor: check_segregation_legality recomputes the same predicate the gate uses, so segregation is scored twice — once as 1/16 and once as a multiplier on all 16.)
+* Headroom (B5): MA at 0.98 is earned, but it leaves nothing to measure. The traps in this sample work; there just need to be more of them (or tighter consolidation constraints).
+* SA failure (traced): the cleanest capability cliff in the batch — SA read the inputs, then attempted all 103 shipments in one monolithic generation, hit the 32K output cap and produced 0 files at ~8% of budget, with no timeout.
+* Label: declared executable, and correctly so — no model call anywhere in the grader.
+* Models: SA kimi-k2p7-code / MA DEPLOY:ut1aj6qu — different; please record and map.
+#6 HIERARCHICAL-PLANNING-OPERATIONS-CA-REGIONAL-DROUGHT-WATER-SYSTEM-READINESS-SWEEP
+
+
+920c05e0e5044965830c93d976fe24cd Read ~70 real CA urban water suppliers' adopted 2020 UWMP PDFs; per a binding rulebook classify each WSCP (shortage stages / trigger basis / strongest demand action) + DRA supply risk, copy a verbatim quote for action and risk, compute readiness.
+
+
+* SA 0.40 / MA 0.69 (gap 0.29). Freebie floor ~19%; content 84% of checks; quote-gated against 70 real plans — good design.
+* Minor reweight: three structural checks could be tightened to bring the floor to ~10%.
+* The SA→MA gap here lives entirely in content (struct 1.00 vs 0.92; content 0.63 vs 0.30) — a good example of what B2 would make visible by default.
+* Label: declared llm-judge; the deterministic half carries most of the score, so hybrid is more accurate.
+* Models: SA kimi-k2p6 / MA DEPLOY:dghe4tfw — different; please record and map.
+#7 HIERARCHICAL-PLANNING-OPERATIONS-CROSS-JURISDICTIONAL-PROCUREMENT-SOLICITATION-SCHEDULE
+
+
+9e87a4fd7ef6470e807ba11bf04fd9a8 Turn a 120-row cross-jurisdictional solicitation slate (12 jurisdictions across CA/TX/NY, 4 statutes) into one executable 2026 procurement schedule.
+
+
+* SA 0.64 / MA 0.91 (gap 0.27). Freebie floor ~25%; 73% GT.
+* Well grounded — no reweight needed. We initially read procurement_truth.json as agent-visible; it isn't. The Dockerfile copies only input_artifacts/, instruction.md never mentions tests/, and task.toml states the digest is "never shipped to the agent". It also carries scope_reading (the per-solicitation procurement_type), which appears in no input artifact and drives path → advertising → publications → milestones → board seat → NTP. That is genuine held-out gold and it's the load-bearing part of this grader.
+* Two smaller notes: 4 checks (not 3) are structural/echo — check_schema, check_board_capacity, check_internal_consistency, check_input_fidelity. And although all 15 are declared weight 1, procurement_type effectively gates about 6 of them, so one type misread cascades; check_statutory_authority and check_statute_grounding are also near-duplicates, double-counting citation correctness.
+* Headroom (B5): MA 0.91 — mostly earned, but the reweight plus a few more statutory edge cases would open up the top end.
+* Label: declared executable, and correctly so — no model call anywhere in the grader.
+* Models: SA kimi-k2p7-code / MA kimi-k2p7-code — same both arms.
+#10 HIERARCHICAL-KNOWLEDGE-RESEARCH-USGS-EARTH-SCIENCE-FIELD-STUDY-GUIDE
+
+
+bf376a79798a4521b8e1626a83ba8af0 Read 66 staged USGS earth-science reports (~1.44M tokens) across 6 hydrology disciplines; write one grounded 4-section study-index record per report.
+
+
+* SA 0.00 / MA 0.59 (gap 0.59). Freebie floor ~0–3% (_eligible-gated) — an exemplar; please don't change it.
+* The authorship gate here is the pattern we're asking you to standardise on the high-floor samples (B3).
+* Label: declared llm-judge; the deterministic half carries most of the score, so hybrid is more accurate.
+* Models: SA DEPLOY:ut1aj6qu / MA DEPLOY:ut1aj6qu — same both arms; please confirm what the deployment maps to.
+#11 HIERARCHICAL-KNOWLEDGE-RESEARCH-US-COURT-OF-INTERNATIONAL-TRADE-OPINION-DIGEST-REVIEW
+
+
+d8644c672cd346fc8741dcb43b2c4d56 Read 59 CIT trade-remedy opinions (~636K tokens), author one grounded 4-section index record per opinion, resolving real authorities from a decoy-salted candidate pool.
+
+
+* SA 0.00 / MA 0.44 (gap 0.44). Freebie floor ~0–3% (_eligible-gated) — an exemplar.
+* Hardest task in the batch by MA score, and the low score is honest — this is a good sample.
+* Label: declared llm-judge; the deterministic half carries most of the score, so hybrid is more accurate.
+* Models: SA kimi-k2p6 / MA DEPLOY:dghe4tfw — different; please record and map.
+#14 HIERARCHICAL-DATA-ANALYSIS-SEC-EDGAR-ANSWER-AUDIT
+
+
+f82d6e774c714d2d84b412e592ecf8fd Audit 2,527 real financial answer-records across 73 companies' real SEC EDGAR 10-K MD&A excerpts, chart PNGs, and PDF schedules; flag each candidate answer correct/wrong with a record-specific reason.
+
+
+* SA 0.44 / MA 0.71 (gap 0.27). Freebie floor ~9%; 28 of 43 checks are tight-tolerance ground truth — the richest GT in the batch and an exemplar.
+* MA structural 0.993 vs content 0.629: the content block is where the real result is, which is exactly what B2 would surface.
+* Label: declared llm-judge; the deterministic half carries most of the score, so hybrid is more accurate.
+* Models: SA DEPLOY:dghe4tfw / MA DEPLOY:dghe4tfw — same both arms; please confirm what the deployment maps to.
+───────────────────────────────────────
+Summary of what we're asking for
+
+
+Applies to every sample in this delivery — neither needs samples regenerated:
+
+
+#
+	Ask
+	1
+	Add a realistic, high-level task description as one extra file per sample. No change to your MA pipeline and no MA re-run.
+	2
+	Report content_score and structural_score separately, alongside the existing overall score. Needs the scoring re-run only.
+	
+
+Applies going forward, to new submissions:
+
+
+#
+	Ask
+	3
+	Content — rubric and ground truth together — should make up at least 40% of every grader's score.
+	
+
+Applies to the specific samples named:
+
+
+#
+	Ask
+	Where
+	4
+	Re-run — SA killed by a harness crash at ~0.5% of budget; pair invalid as delivered
+	#4 OHIO
+	5
+	Re-run both arms on the same verifier version
+	#1 MULTIWEAPON
+	6
+	Cut the freebie floor so content carries the score
+	MULTIWEAPON (~85%), TEA-STALL (~60–65%), FEDERAL (~55%), TRIAL-REGISTRY (~50%), MOJ-OSS (~42%), OHIO (~40%), PHANTOM (~40%)
+	7
+	Make the axes bite — presence/prose booleans don't discriminate
+	TEA-STALL
+	8
+	Standardise the floor-killers (_eligible gate as in USGS/CIT; corpus-denominated GT as in PATENT/SEC-EDGAR)
+	the 7 high-floor samples
+	9
+	Add genuinely held-out GT rather than expanding spoon-fed keys
+	MULTIWEAPON (none today), FEDERAL (none today), MOJ-OSS
+	10
+	Fix manifests where declared weights don't match the real formula
+	MULTIWEAPON, PHANTOM, HAZMAT
+	11
+	Add the missing verifier_type; tighten the imprecise ones
+	FEDERAL (missing); 10 declared llm-judge
+	12
+	Record the model used by each arm; map the personal deployments (dghe4tfw, ut1aj6qu)
+	9 of 14 pairs differ
+	13
+	Leave headroom — strongest MA run nearer 0.70–0.80, via harder tasks where the grader is already tight
+	TEA-STALL (1.00), HAZMAT, PATENT, CROSS-JURISDICTIONAL

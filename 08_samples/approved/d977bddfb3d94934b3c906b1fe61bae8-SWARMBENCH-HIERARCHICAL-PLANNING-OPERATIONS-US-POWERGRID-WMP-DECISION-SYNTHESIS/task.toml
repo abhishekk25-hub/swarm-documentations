@@ -1,0 +1,32 @@
+[task]
+name = "swarmbench/d977bddfb3d94934b3c906b1fe61bae8-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-US-POWERGRID-WMP-DECISION-SYNTHESIS"
+description = "Fetch and read across the full set of California Office of Energy Infrastructure Safety 2025 Wildfire Mitigation Plan Decisions ... that all agree on the same utilities, counts and themes."
+
+[metadata]
+verifier_type = "llm-judge"
+domain = "planning-operations"
+coordination_pattern = "hierarchical"
+secondary_classification = ["browsing", "long_writing", "multi_modal"]
+dag_depth = 3
+dag_width = 18
+human_solving_hours_estimate = 30.0
+human_solving_hours_justification = "Each of the ~18 WMP Decisions runs 40-220k characters of dense regulatory text. Reading one Decision closely and pulling its substantive findings on hardening/inspection/maintenance/vegetation/PSPS, each with an exact verbatim quote and topic, is ~1h - call it ~16h to get genuinely through the whole set without thinning out after the first few. Building the grounded findings ledger (one row per finding, de-duplicated, every quote checked against its document) is ~3h. Synthesizing across all of them - identifying the cross-cutting themes and the true outliers, not just per-utility summaries - is ~4h. Drafting the briefing with real per-utility paragraphs plus the themes/outliers/recommendations sections, rendering the ledger-derived charts, and assembling the ~10-slide deck so all four artifacts agree is ~5h. A final consistency/QA pass is ~2h. Total ~30h."
+estimated_sub_agents = 22
+input_token_estimate = 600000
+reference_link = "https://energysafety.ca.gov/what-we-do/electrical-infrastructure-safety/wildfire-mitigation-and-safety/wildfire-mitigation-plans/2025-wildfire-mitigation-plans/"
+why_multi_agent = "The load-bearing work is irreducible per-document reading: 18 separate regulatory Decisions (a draft and a final for each of 9 utilities), each tens to hundreds of thousands of characters of dense, heterogeneous prose, fetched live from Energy Safety's e-filing portal and each read closely enough to surface its real findings and back each one with a verbatim quote that actually appears in that document. A single context cannot fetch, hold and faithfully read the whole set - it gets through two or three Decisions, then its coverage collapses: it starts summarizing from memory, reuses the same quote, attributes a point to the wrong utility, or pads the ledger with findings it cannot ground, and the briefing leans on a couple of utilities and hand-waves the rest. The judge rewards exactly what fails under that load - distinct utilities and topics genuinely covered, substantial and distinct grounded quotes, per-utility narratives that differ where the facts differ, and four deliverables that agree on the same utilities/counts/themes. The work splits into a genuine three-tier hierarchy: eighteen Decision readers (one per Decision - a draft and a final for each of the nine utilities) that each discover and read their single Decision into a grounded shard; three regional consolidators that each consume the six reader shards in their region, de-duplicate them and surface what each utility's final Decision changed from its draft and the directives recurring across the region; and one final assembler that consumes the three regional consolidations and builds the ledger, briefing, charts and deck. Each tier consumes the prior tier's output, so depth is load-bearing - the regional layer is where draft-versus-final and cross-utility comparison actually happen, which a flat fan-out or a single context cannot do across eighteen heavy documents. The advantage is natural reading-and-synthesis capacity across many heavy heterogeneous documents, not fetch speed; there is no hidden information, no single-agent-only limit, and no trap - a skilled person alone would also struggle to fetch and read all eighteen at depth in the budget, which is the point."
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 900
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600
+
+# Browsing is load-bearing: the agent fetches all 18 WMP Decision PDFs live from the
+# Energy Safety e-filing portal. Nothing is shipped to the agent image.
+network_enabled = true

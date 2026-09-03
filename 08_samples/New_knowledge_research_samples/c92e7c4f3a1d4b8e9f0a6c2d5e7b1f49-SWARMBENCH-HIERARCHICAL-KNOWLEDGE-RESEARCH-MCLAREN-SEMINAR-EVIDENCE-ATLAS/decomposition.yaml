@@ -1,0 +1,161 @@
+version: "1.0"
+coordination_pattern: hierarchical
+
+hierarchy:
+  root_managers: [atlas-manager]
+  managers:
+    atlas-manager: [corpus-manager, evidence-review-manager, curriculum-manager, final-synthesis-manager]
+    corpus-manager: [bibliography-shard-01, bibliography-shard-02, bibliography-shard-03, bibliography-shard-04, bibliography-shard-05, bibliography-shard-06, bibliography-shard-07, bibliography-shard-08, bibliography-shard-09, bibliography-shard-10, bibliography-shard-11, bibliography-shard-12, bibliography-shard-13, bibliography-shard-14, bibliography-shard-15, bibliography-shard-16, bibliography-shard-17, bibliography-shard-18, bibliography-shard-19, bibliography-shard-20, bibliography-shard-21, bibliography-shard-22, bibliography-shard-23, bibliography-shard-24]
+    evidence-review-manager: [methods-claims-reviewer, citation-ambiguity-reviewer, theme-boundary-reviewer]
+    curriculum-manager: [reading-sequence-curator, diversity-caveat-reviewer]
+    final-synthesis-manager: [trajectory-writer, claim-auditor, site-assembler]
+
+sub_tasks:
+  - id: atlas-manager
+    description: "Coordinate only. Delegate the live-corpus partition to corpus-manager, review to evidence-review-manager, curriculum design to curriculum-manager, and final artifact assembly to final-synthesis-manager. Do not replace their source-grounded work with a generic synthesis."
+    depends_on: []
+    parallel_group: root-coordination
+  - id: corpus-manager
+    description: "Retrieve the official publication page, freeze its ordered list for this run, divide it into 24 consecutive non-overlapping slices, and write /logs/agent/corpus_shard_manifest.json. Consolidate the shard outputs into the required /logs/agent/output/corpus_map.csv with canonical/version status and provenance fields. Dispatch one auditor per slice."
+    depends_on: [atlas-manager]
+    parallel_group: corpus-coordination
+  - id: bibliography-shard-01
+    description: "Audit SHARD-01 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_01.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-02
+    description: "Audit SHARD-02 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_02.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-03
+    description: "Audit SHARD-03 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_03.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-04
+    description: "Audit SHARD-04 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_04.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-05
+    description: "Audit SHARD-05 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_05.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-06
+    description: "Audit SHARD-06 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_06.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-07
+    description: "Audit SHARD-07 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_07.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-08
+    description: "Audit SHARD-08 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_08.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-09
+    description: "Audit SHARD-09 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_09.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-10
+    description: "Audit SHARD-10 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_10.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-11
+    description: "Audit SHARD-11 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_11.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-12
+    description: "Audit SHARD-12 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_12.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-13
+    description: "Audit SHARD-13 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_13.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-14
+    description: "Audit SHARD-14 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_14.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-15
+    description: "Audit SHARD-15 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_15.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-16
+    description: "Audit SHARD-16 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_16.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-17
+    description: "Audit SHARD-17 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_17.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-18
+    description: "Audit SHARD-18 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_18.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-19
+    description: "Audit SHARD-19 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_19.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-20
+    description: "Audit SHARD-20 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_20.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-21
+    description: "Audit SHARD-21 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_21.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-22
+    description: "Audit SHARD-22 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_22.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-23
+    description: "Audit SHARD-23 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_23.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: bibliography-shard-24
+    description: "Audit SHARD-24 from corpus_shard_manifest.json. Map every assigned official record and write /logs/agent/shard_24.jsonl. Select three distinct canonical works with paper-level sources and draft evidence-card handoffs."
+    depends_on: [corpus-manager]
+    parallel_group: bibliography-audit
+  - id: evidence-review-manager
+    description: "Combine the 24 shard ledgers, resolve duplicates/version conflicts, and dispatch claim, citation, and theme-boundary review."
+    depends_on: [bibliography-shard-01, bibliography-shard-02, bibliography-shard-03, bibliography-shard-04, bibliography-shard-05, bibliography-shard-06, bibliography-shard-07, bibliography-shard-08, bibliography-shard-09, bibliography-shard-10, bibliography-shard-11, bibliography-shard-12, bibliography-shard-13, bibliography-shard-14, bibliography-shard-15, bibliography-shard-16, bibliography-shard-17, bibliography-shard-18, bibliography-shard-19, bibliography-shard-20, bibliography-shard-21, bibliography-shard-22, bibliography-shard-23, bibliography-shard-24]
+    parallel_group: evidence-review-coordination
+  - id: methods-claims-reviewer
+    description: "Own method_comparison_matrix.csv. Review evidence-card method, outcome, causal-boundary, and transferability claims; write the completed matrix and corrected evidence handoffs."
+    depends_on: [evidence-review-manager]
+    parallel_group: evidence-review
+  - id: citation-ambiguity-reviewer
+    description: "Review citations and unresolved title/year/DOI/version ambiguity; write correction and disclosure handoffs."
+    depends_on: [evidence-review-manager]
+    parallel_group: evidence-review
+  - id: theme-boundary-reviewer
+    description: "Own theme_synthesis.md. Review six proposed themes for overlap, weak classifications, historical coverage, and missing boundary cases, then write the evidence-grounded synthesis."
+    depends_on: [evidence-review-manager]
+    parallel_group: evidence-review
+  - id: curriculum-manager
+    description: "Create a preliminary 14-week evidence-card reading sequence and delegate independent sequence and diversity/caveat review."
+    depends_on: [methods-claims-reviewer, citation-ambiguity-reviewer, theme-boundary-reviewer]
+    parallel_group: curriculum-coordination
+  - id: reading-sequence-curator
+    description: "Own seminar_plan.md. Write source-backed weekly reading pair relationships, central questions, activities, methodological caveats, and reserve-reading rationales."
+    depends_on: [curriculum-manager]
+    parallel_group: curriculum-review
+  - id: diversity-caveat-reviewer
+    description: "Check phase/theme/method diversity, duplicate versions, project concentration, and all weekly caveats."
+    depends_on: [curriculum-manager]
+    parallel_group: curriculum-review
+  - id: final-synthesis-manager
+    description: "Compile the final required artifacts only after evidence and curriculum reviews are available."
+    depends_on: [reading-sequence-curator, diversity-caveat-reviewer]
+    parallel_group: synthesis-coordination
+  - id: trajectory-writer
+    description: "Write the research trajectory and cross-paper comparisons using reviewed card evidence and the method matrix."
+    depends_on: [final-synthesis-manager]
+    parallel_group: final-artifacts
+  - id: claim-auditor
+    description: "Own claim_audit.csv. Audit every substantive claim in research_trajectory.md, theme_synthesis.md, and seminar_plan.md after those artifacts exist, and ensure each claim carries evidence and a calibrated support status."
+    depends_on: [trajectory-writer]
+    parallel_group: post-trajectory-audit
+  - id: site-assembler
+    description: "Create the local index.html and validate local links without changing factual research content."
+    depends_on: [trajectory-writer, claim-auditor]
+    parallel_group: final-assembly

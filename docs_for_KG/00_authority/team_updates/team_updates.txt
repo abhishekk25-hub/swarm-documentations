@@ -1,0 +1,840 @@
+Hi team, just reiterating an important point for the upcoming runs: @here
+Please make sure the multi-no plan success rate does not exceed 60%. The goal is to provide the client with genuinely challenging evaluation tasks, so if the multi-no plan succeeds too frequently, the task may not provide enough evaluation value.
+For the newer runs, please incorporate any necessary changes to keep the success rate at or below 60%.
+I’d also request the QA Leads to specifically flag tasks that appear too easy. For example, if a task is achieving around a 90% success rate with the multi-no plan, it is likely not challenging enough and may not be useful for the client’s intended evaluation.
+Please keep this difficulty criterion in mind during both task creation and QA review.
+
+
+Hi Team @here I'm noticing that trainers are still using Caps/clamps while calculating the final reward. The final reward score calculation should be one of these:
+
+Unweighted: reward = (static + reward_hacking + partial_oracle) / 3
+Weighted (1:2:3):  reward = (static*1 + reward_hacking*2 + partial_oracle*3) / 6
+
+Please don't use clamping when you calculate the final score.
+
+
+
+
+
+
+Hello @here :siren-anwar::siren-anwar:
+
+W&B judge calls failing with HTTP 403 Forbidden? It's Cloudflare, and it's a one-line fix.
+
+Root-caused and confirmed. api.inference.wandb.ai is behind Cloudflare, which rejects any request with a Python-urllib/* User-Agent: HTTP 403, body error code: 1010. Nothing to do with your API key, your judge model, credits, or quotas.
+Reproduced with everything else held identical, only the UA changed:
+
+Python-urllib/3.11        -> 403  error code: 1010
+python-requests/2.32.3    -> 200
+curl/8.7.1                -> 200
+swarmbench-verifier/1.0   -> 200Only if your verifier uses urllib for the judge call and doesn't set a User-Agent you might be affected by this error. If you use requests, you're fine, it sends its own UA.
+
+grep -n "urllib.request.Request" tests/verify.py
+grep -in "User-Agent" tests/verify.pyFirst one hits, second one empty, then you'll hit this.
+
+Fix: add "User-Agent": "swarmbench-verifier/1.0" to your judge request headers. That's it.
+
+Second thing, and honestly the bigger one: your verifier needs real debug output. This took a full debugging cycle to find a one-line cause. Not because the bug was subtle, but because the verifier told us nothing. It logged str(exc) on the HTTPError, which produces "HTTP Error 403: Forbidden" and silently discards the response body that literally contained the answer. Three retries later you get the same useless string three times, and the only other signal is reward: 0.0. A verifier that fails should tell you why without anyone needing to reproduce it. test.sh already pipes stdout into $VERIFIER_OUTPUT_DIR/test-stdout.txt, so every print() will be helpfull.
+
+What to log, minimum:
+
+Every external call, on success too. One line: label, HTTP status, model, latency, attempt number. When something breaks at 3am you want to see the calls that worked, not just the one that didn't.
+Full failure detail. Status code, reason, request URL, model, and the response body (truncate to ~800 chars). Keep your key redaction, but redact the key, not the diagnosis.
+Which attempt failed and why it stopped retrying. "attempt 1/3 failed, retrying in 2s" then "giving up, 403 is not transient" beats three identical lines.
+A summary block at the end. Which checks ran, which were skipped, which returned invalid, and the reason for each. Someone reading only test-stdout.txt should be able to reconstruct the run.
+Distinguish infrastructure failure from a genuine You are fixing a **Harbor verifier bootstrapping/path issue** in SwarmBench Phase 2 Task 14.
+
+The current problem is NOT the scoring logic.
+
+The verifier is returning `0.0` because it crashes **before running any checks**.
+
+Current failure:
+
+```text
+status: verifier_error
+invalid_evaluation: true
+error: claim_catalog.json is missing its claims list
+checks_run: 0
+reward: 0.0
+```
+
+Earlier the same underlying problem appeared as:
+
+```text
+source_manifest.json is missing its instruments list
+```
+
+The task ZIP itself contains valid input files, so this is a **runtime path/staging problem**.
+
+The goal is:
+
+> Make Harbor verify-only reliably load the correct immutable verifier inputs regardless of whether `verify.py` is executed from the original task folder or staged as `/tests/verify.py`.
+
+Do not change scoring behavior except where strictly necessary for input bootstrapping.
+
+---
+
+# 1. Understand the actual bug
+
+The current code derives packaged inputs using logic similar to:
+
+```python
+ROOT = Path(__file__).resolve().parents[1]
+
+PACKAGED_INPUT = (
+    ROOT /
+    "environment" /
+    "input_artifacts"
+)
+```
+
+This works when `verify.py` is located at:
+
+```text
+<task>/tests/verify.py
+```
+
+because `ROOT` becomes the task folder.
+
+But Harbor runs the verifier as:
+
+```text
+/tests/verify.py
+```
+
+In that environment:
+
+```python
+Path("/tests/verify.py").resolve().parents[1]
+```
+
+is effectively:
+
+```text
+/
+```
+
+so the verifier incorrectly looks for:
+
+```text
+/environment/input_artifacts/
+```
+
+That directory does not contain the task inputs.
+
+The verifier then falls back to:
+
+```text
+/input_artifacts
+```
+
+which has proven unreliable in the current verify-only runtime.
+
+This causes:
+
+```text
+catalog_claim_count = 0
+```
+
+and the verifier aborts before executing any of the 14 checks.
+
+---
+
+# 2. Do not use task-root-relative paths for verifier-owned inputs
+
+The verifier must use a location stable under Harbor staging.
+
+Use:
+
+```python
+TESTS_DIR = Path(__file__).resolve().parent
+```
+
+Then create a verifier-private immutable input directory such as:
+
+```text
+tests/verifier_inputs/
+```
+
+The required layout should become:
+
+```text
+tests/
+    verify.py
+    test.sh
+    rubric_manifest.json
+    judge_config.json
+
+    verifier_inputs/
+        claim_catalog.json
+        source_manifest.json
+        screening_rulebook.md
+
+        official_aia_base_celex_32024R1689.html
+        official_omn_2026_celex_32026R1744.html
+        official_gpai_guide.html
+        official_gpai_faq.html
+        official_code_gpai.html
+        official_timeline.html
+        official_trans_2026.html
+        official_enf_2026.html
+        official_training_summary.html
+        official_definition.html
+        official_prohibitions.html
+        official_ai_office_enforcement_expert_support.html
+```
+
+Use the actual filenames from the current source manifest. Do not invent names if they differ.
+
+---
+
+# 3. Copy only legitimate public/verifier-required inputs
+
+Populate `tests/verifier_inputs/` with verifier-safe copies of the current public task inputs.
+
+Allowed:
+
+* `claim_catalog.json`
+* `source_manifest.json`
+* `screening_rulebook.md`
+* cached authoritative public source documents
+* other agent-visible source metadata genuinely needed for deterministic verification
+
+Do NOT copy agent deliverables.
+
+Do NOT copy historical outputs.
+
+Do NOT copy execution logs.
+
+Do NOT expose or merge grader-only expected answers into these files.
+
+Do NOT put:
+
+* partial oracle answer values
+* hidden expected actors
+* hidden expected dates
+* grader-only conflict mappings
+* held-out answer keys
+
+inside public verifier input files.
+
+Verifier-private oracle files may remain in `tests/` as they already do, but they must remain logically separate from the public source corpus.
+
+---
+
+# 4. Make verifier input resolution deterministic
+
+Replace the current root-relative packaged-input logic.
+
+Preferred approach:
+
+```python
+TESTS_DIR = Path(__file__).resolve().parent
+
+VERIFIER_INPUT = TESTS_DIR / "verifier_inputs"
+
+RUNTIME_INPUT = Path(
+    os.environ.get(
+        "INPUT_ARTIFACTS_DIR",
+        "/input_artifacts"
+    )
+)
+```
+
+Define mandatory files:
+
+```python
+REQUIRED_VERIFIER_INPUTS = (
+    "claim_catalog.json",
+    "source_manifest.json",
+    "screening_rulebook.md",
+)
+```
+
+Then validate:
+
+```python
+missing = [
+    name
+    for name in REQUIRED_VERIFIER_INPUTS
+    if not (VERIFIER_INPUT / name).is_file()
+]
+
+if missing:
+    raise InfrastructureError(
+        "Verifier immutable inputs missing: "
+        + ", ".join(missing)
+    )
+
+INPUT = VERIFIER_INPUT
+```
+
+For grading, prefer the immutable verifier directory.
+
+Do NOT silently switch to an unrelated runtime `/input_artifacts` directory.
+
+---
+
+# 5. Remove unsafe fallback behavior
+
+The current behavior:
+
+```text
+packaged inputs unavailable
+→ use /input_artifacts
+```
+
+has already caused two invalid 0.0 results.
+
+Remove this silent fallback for verifier-owned grading inputs.
+
+If the immutable verifier inputs do not exist, fail clearly with:
+
+```text
+infrastructure_error
+```
+
+and an explicit message listing missing files.
+
+Do not produce a misleading content score.
+
+Do not treat malformed runtime files as valid task inputs.
+
+---
+
+# 6. Keep agent runtime inputs separate
+
+Important distinction:
+
+The agent may still be instructed to read:
+
+```text
+/input_artifacts/claim_catalog.json
+/input_artifacts/source_manifest.json
+/input_artifacts/screening_rulebook.md
+```
+
+That is an agent runtime concern.
+
+The verifier should not depend on the agent's mounted copy for trusted grading.
+
+Use:
+
+```text
+Agent research inputs:
+    /input_artifacts/...
+
+Verifier trusted inputs:
+    /tests/verifier_inputs/...
+```
+
+These may contain equivalent public source material but serve different runtime roles.
+
+This prevents Harbor mount differences from corrupting verification.
+
+---
+
+# 7. Validate source_manifest fallback paths
+
+If `source_manifest.json` contains values such as:
+
+```json
+"local_fallback": "official_aia_base_....html"
+```
+
+make sure fallback resolution is relative to:
+
+```python
+INPUT
+```
+
+where:
+
+```python
+INPUT == TESTS_DIR / "verifier_inputs"
+```
+
+Example:
+
+```python
+fallback_path = INPUT / fallback_name
+```
+
+Do not resolve fallbacks against:
+
+* `/workspace`
+* original Windows paths
+* original repository root
+* `/environment/input_artifacts`
+* current working directory
+
+The verifier must work when staged solely under `/tests`.
+
+---
+
+# 8. Add strict startup/preflight validation
+
+Before loading any claims or running checks, print a verifier-input diagnostic.
+
+Example:
+
+```text
+VERIFIER_INPUT_DIR=/tests/verifier_inputs
+claim_catalog.json=OK
+source_manifest.json=OK
+screening_rulebook.md=OK
+source_fallbacks=12/12
+```
+
+Then validate the actual contents.
+
+For `claim_catalog.json` require:
+
+```text
+claims exists
+claims is a list
+len(claims) == 72
+```
+
+For `source_manifest.json` require:
+
+```text
+instruments exists
+instruments is a list
+expected instrument count == 12
+```
+
+For local source fallbacks:
+
+```text
+fallback exists
+fallback SHA matches source_manifest fallback_sha256
+```
+
+Fail before scoring if immutable verifier input integrity is broken.
+
+---
+
+# 9. Improve error messages
+
+Do not emit only:
+
+```text
+claim_catalog.json is missing its claims list
+```
+
+because that hides which physical file was loaded.
+
+Include the resolved path.
+
+Example:
+
+```text
+InfrastructureError:
+Invalid claim catalog at /tests/verifier_inputs/claim_catalog.json:
+expected a non-empty "claims" list, found keys=[...]
+```
+
+For manifest:
+
+```text
+Invalid source manifest at /tests/verifier_inputs/source_manifest.json:
+expected "instruments" list
+```
+
+Also print:
+
+```text
+Resolved verifier INPUT = ...
+```
+
+before parsing.
+
+This will make future Harbor failures diagnosable immediately.
+
+---
+
+# 10. Add a Harbor-path regression test
+
+Create a regression that simulates:
+
+```text
+verify.py located at /tests/verify.py
+```
+
+or otherwise ensures verifier logic does NOT depend on:
+
+```python
+Path(__file__).parents[1] / "environment"
+```
+
+The test should prove:
+
+```text
+TESTS_DIR/verifier_inputs
+```
+
+is sufficient to load all required data.
+
+At minimum assert:
+
+```text
+catalog claims = 72
+manifest instruments = 12
+fallback files = expected count
+```
+
+---
+
+# 11. Add runtime-input poisoning regression
+
+Simulate a malformed runtime mount:
+
+```text
+/input_artifacts/claim_catalog.json
+```
+
+containing:
+
+```json
+{}
+```
+
+while valid immutable verifier data exists under:
+
+```text
+/tests/verifier_inputs/
+```
+
+Expected behavior:
+
+```text
+verifier ignores malformed runtime grading input
+uses immutable verifier input
+loads 72 claims
+continues normally
+```
+
+This directly protects against the failure that caused the verify-only `0.0`.
+
+---
+
+# 12. Add missing-verifier-input regression
+
+Remove one verifier-owned required file in a temporary test fixture.
+
+Expected:
+
+```text
+infrastructure_error
+```
+
+with an explicit filename.
+
+Expected:
+
+```text
+checks executed = 0
+```
+
+But importantly it must be reported as an infrastructure failure, not interpreted as a valid agent reward.
+
+---
+
+# 13. Verify test.sh behavior
+
+Inspect:
+
+```text
+tests/test.sh
+```
+
+Harbor may run:
+
+```text
+/tests/verify.py
+```
+
+Keep this behavior compatible.
+
+Do not change `test.sh` to assume access to the original repository directory unless Harbor guarantees that.
+
+The verifier should work when these are all that exist:
+
+```text
+/tests/verify.py
+/tests/rubric_manifest.json
+/tests/judge_config.json
+/tests/verifier_inputs/...
+```
+
+plus the normal agent output directory.
+
+---
+
+# 14. Preserve scoring architecture
+
+Do not alter:
+
+```text
+Static = 3
+Reward-Hacking = 6
+Partial-Oracle = 5
+Total = 14
+```
+
+Do not alter weights.
+
+Do not alter current scoring formulas.
+
+Do not weaken current source grounding.
+
+Do not change adversarial thresholds unless required by a separate verified issue.
+
+This remediation is about **input bootstrapping only**.
+
+---
+
+# 15. Preserve all previous hardening
+
+Do not regress:
+
+* 12/12 authoritative local source fallbacks
+* source overlap checks
+* source-grounded `rh_2`
+* source-grounded `rh_3`
+* source-grounded `rh_4`
+* source-grounded `rh_5`
+* source-grounded `rh_6`
+* claim citation context validation
+* NOT-STATED date validation
+* duplicate uncertainty detection
+* judge stdout justification
+* full 72-row coverage
+* DAG depth 6
+* manifest reverse coverage
+* multiplicative grounding logic
+
+---
+
+# 16. Run validation
+
+After implementation run:
+
+1. `python -m py_compile tests/verify.py`
+2. JSON validation
+3. TOML/YAML validation
+4. verifier input integrity test
+5. claim count assertion
+6. instrument count assertion
+7. 12/12 local fallback existence test
+8. fallback SHA-256 test
+9. Harbor-path simulation
+10. malformed runtime-input poisoning test
+11. missing-verifier-input test
+12. existing adversarial regression suite
+13. positive fixture regression
+14. manifest consistency validation
+15. leakage scan
+
+Do NOT run SA or MA.
+
+---
+
+# 17. Perform a local verify-only simulation
+
+Create a temporary Harbor-like layout conceptually equivalent to:
+
+```text
+/tmp/harbor-test/
+    tests/
+        verify.py
+        rubric_manifest.json
+        judge_config.json
+        verifier_inputs/...
+```
+
+Execute the verifier from that staged location.
+
+Confirm startup reports:
+
+```text
+catalog_claim_count = 72
+instrument_count = 12
+```
+
+and that the verifier proceeds into actual checks.
+
+The important success condition is that output contains:
+
+```text
+CHECK static_1
+CHECK static_2
+CHECK static_3
+CHECK rh_1
+...
+CHECK po_5
+```
+
+rather than aborting before checks.
+
+---
+
+# 18. Do not fabricate agent outputs for testing
+
+If no real `/logs/agent` deliverables exist in the isolated test, use an explicitly named regression fixture only for unit testing.
+
+Do not package regression outputs as actual SA outputs.
+
+Do not alter preserved SA artifacts.
+
+---
+
+# 19. Success criteria
+
+Do not claim fixed unless all are true:
+
+```text
+verify.py works when staged as /tests/verify.py
+```
+
+```text
+verifier does not require original repository root
+```
+
+```text
+verifier does not require /environment/input_artifacts
+```
+
+```text
+verifier trusted grading data does not silently depend on /input_artifacts
+```
+
+```text
+claim catalog resolves to 72 claims
+```
+
+```text
+source manifest resolves to 12 instruments
+```
+
+```text
+12/12 source fallback files resolve correctly
+```
+
+```text
+malformed /input_artifacts cannot override valid verifier inputs
+```
+
+```text
+all 14 checks can begin execution
+```
+
+```text
+existing scoring logic remains unchanged
+```
+
+```text
+no grader-only truth is leaked
+```
+
+---
+
+# FINAL RESPONSE FORMAT
+
+Report:
+
+## Root cause
+
+Explain exactly why:
+
+```python
+Path(__file__).resolve().parents[1]
+```
+
+was unsafe under `/tests/verify.py`.
+
+## Files changed
+
+List all changed/copied files.
+
+## New verifier input layout
+
+Show:
+
+```text
+tests/verifier_inputs/
+```
+
+and its contents.
+
+## Input selection
+
+Show the final code path used to select immutable verifier inputs.
+
+## Harbor simulation
+
+Report:
+
+```text
+Resolved verifier input: ...
+Claims: 72
+Instruments: 12
+Fallbacks: 12/12
+```
+
+## Poisoned runtime test
+
+Report whether malformed `/input_artifacts` was ignored.
+
+## Regression suite
+
+Report PASS/FAIL.
+
+## Scoring architecture
+
+Confirm:
+
+```text
+Static: 3
+Reward-Hacking: 6
+Partial-Oracle: 5
+Total: 14
+```
+
+## Leakage audit
+
+Confirm no hidden oracle values were moved into public verifier inputs.
+
+## Remaining limitation
+
+State clearly that this fixes the **verifier-side input resolution problem**.
+
+It does not prove that Harbor correctly mounts `/input_artifacts` for the agent itself; that must be confirmed from a future real trajectory.
+
+The main acceptance goal is:
+
+> **The next verify-only run must no longer fail before scoring because it cannot locate `claim_catalog.json` or `source_manifest.json`. It must load 72 claims, 12 instruments, and proceed through the actual 14 verifier checks.**
+zero. reward: 0.0 because the work was bad and reward: 0.0 because the judge was unreachable are completely different outcomes, and right now they look identical from outside. Set verifier_status.json with a specific reason and say so loudly in stdout.
+
+
+Concrete shape for the error path:
+except Exception as exc:
+    detail=str(exc)
+    if isinstance(exc,urllib.error.HTTPError):
+        try: payload=exc.read().decode("utf-8","replace")[:800]
+        except Exception: payload=""
+        detail=f"HTTP {exc.code} {exc.reason} model={MODEL} body={payload}"
+    print(f"[JUDGE] {label} attempt {attempt+1}/{retries} FAILED: {detail}", flush=True)
+    if isinstance(exc,urllib.error.HTTPError) and exc.code in (400,401,403,404):
+        print(f"[JUDGE] {label} not retrying, {exc.code} is not transient", flush=True)
+        breakAlso don't retry 400/401/403/404. They're never transient, and retrying only buries the real error.
+• 401 means key missing or invalid
+• 403 with error code: 1010 means Cloudflare User-Agent block (this one)
+• 429 means W&B concurrency limit
+
+
+
+
+Only use these formulas for calculating rewards: Unweighted: reward = (static + reward_hacking + partial_oracle) / 3
+Weighted (1:2:3):  reward = (static*1 + reward_hacking*2 + partial_oracle*3) / 6   Do not use any caps clamp min max strictly in verify.py file. Please check manually before submitting task. Thank you.

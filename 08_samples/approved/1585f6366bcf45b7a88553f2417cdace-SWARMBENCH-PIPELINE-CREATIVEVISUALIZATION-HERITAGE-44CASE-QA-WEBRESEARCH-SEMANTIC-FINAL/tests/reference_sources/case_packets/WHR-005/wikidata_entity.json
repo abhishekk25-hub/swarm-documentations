@@ -1,0 +1,1875 @@
+{
+  "entities": {
+    "Q503835": {
+      "aliases": {
+        "cs": [
+          {
+            "language": "cs",
+            "value": "Manovo-Gounda St Floris"
+          },
+          {
+            "language": "cs",
+            "value": "Národní park Manovo-Gounda Saint Floris"
+          }
+        ],
+        "de": [
+          {
+            "language": "de",
+            "value": "Manovo-Gounda St. Floris"
+          }
+        ],
+        "es": [
+          {
+            "language": "es",
+            "value": "Parque nacional del Manovo Gounda St Floris"
+          },
+          {
+            "language": "es",
+            "value": "Parque Nacional del Manovo Gounda St. Floris"
+          },
+          {
+            "language": "es",
+            "value": "Parque nacional del Manovo-Gounda St Floris"
+          }
+        ],
+        "fi": [
+          {
+            "language": "fi",
+            "value": "Manovo-Gounda St.Floris’n kansallispuisto"
+          },
+          {
+            "language": "fi",
+            "value": "Manovo-Gounda St. Floris'n kansallispuisto"
+          }
+        ],
+        "hr": [
+          {
+            "language": "hr",
+            "value": "Manovo-Gounda St Floris"
+          }
+        ],
+        "ka": [
+          {
+            "language": "ka",
+            "value": "მანოვო გუნდა სენ ფლორის ეროვნული პარკი"
+          }
+        ],
+        "nl": [
+          {
+            "language": "nl",
+            "value": "Nationaal park ManovoGounda St. Floris"
+          },
+          {
+            "language": "nl",
+            "value": "Manovo-Gounda St. Floris"
+          }
+        ],
+        "pl": [
+          {
+            "language": "pl",
+            "value": "Park Narodowy St. Floris"
+          },
+          {
+            "language": "pl",
+            "value": "Manovo-Gounda St. Floris"
+          }
+        ],
+        "pt": [
+          {
+            "language": "pt",
+            "value": "Parque Nacional de St.Floris"
+          }
+        ],
+        "sr": [
+          {
+            "language": "sr",
+            "value": "Маново-Гунда Ст. Флорис Национални парк"
+          }
+        ],
+        "zh": [
+          {
+            "language": "zh",
+            "value": "馬諾沃—貢達聖弗洛里斯國家公園"
+          },
+          {
+            "language": "zh",
+            "value": "马诺沃—贡达圣弗洛里斯国家公园"
+          }
+        ]
+      },
+      "claims": {
+        "P131": [
+          {
+            "id": "Q503835$420c795a-4fac-8fbb-6ffe-dac800bd39fe",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q741025",
+                  "numeric-id": 741025
+                }
+              },
+              "hash": "d5925ec055f41fe1bd9221bd34a024d4d505434e",
+              "property": "P131",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P13591": [
+          {
+            "id": "Q503835$E9B2BA58-EF42-453C-8079-80A2F688DCE5",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "place/f1e379fe-57ab-46cb-bdac-7c8d47e54115"
+              },
+              "hash": "a28093a72085e672cfc79dac84975ba525f548da",
+              "property": "P13591",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1435": [
+          {
+            "id": "Q503835$883D2BB1-CD9E-4C90-87F1-585BFC614CB5",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q9259",
+                  "numeric-id": 9259
+                }
+              },
+              "hash": "d22546e8bf86b97293821ea8757787befdf35ca8",
+              "property": "P1435",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P1448": [
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "en",
+                      "text": "Manovo-Gounda St Floris National Park"
+                    }
+                  },
+                  "hash": "5badae873ef58967b58cda5f9c3941f086c20454",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "fr",
+                      "text": "Parc national du Manovo-Gounda St Floris"
+                    }
+                  },
+                  "hash": "4cd0234effbe5cf5c4ab841708cf59d790b54c95",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "ar",
+                      "text": "منتزه مانوفو غوندا سانت فلوريس"
+                    }
+                  },
+                  "hash": "6201681286fdb9faf76d5af758a0700cac9f35aa",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "zh",
+                      "text": "马诺沃贡达圣绅罗里斯国家公园"
+                    }
+                  },
+                  "hash": "1d17dd18b9ad83382ec4aa055ebe813b841601ab",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "ru",
+                      "text": "Национальный парк Маново-Гоунда–Сен-Флорис"
+                    }
+                  },
+                  "hash": "7fd2e0bfd947459111e493fd23fe43b76b20dee3",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "es",
+                      "text": "Parque nacional del Manovo-Gounda St.Floris"
+                    }
+                  },
+                  "hash": "c62423584542abf894ac4cd9ceb025a8b3832aa2",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "ja",
+                      "text": "マノヴォ-グンダ・サン・フローリス国立公園"
+                    }
+                  },
+                  "hash": "4f70742909649b806f8de1311a81d175d1e76c5a",
+                  "property": "P1448",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "nl",
+                      "text": "Manovo-Gounda Nationaal park Sint Floris"
+                    }
+                  },
+                  "hash": "f3db7d62971d749898a4416607889cad89a01791",
+                  "property": "P1448",
+                  "snaktype": "value"
+                }
+              ],
+              "P2614": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038985",
+                      "numeric-id": 23038985
+                    }
+                  },
+                  "hash": "523c09e94984c03aa991bf6fe8ba19efd62f312d",
+                  "property": "P2614",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038986",
+                      "numeric-id": 23038986
+                    }
+                  },
+                  "hash": "4f9bce7c486875ed74cdf08dd152eb24e026cb5e",
+                  "property": "P2614",
+                  "snaktype": "value"
+                }
+              ],
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+1988-01-01T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "d3d1e463312766e817fdf6a3ad0feb5e24617ae8",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580",
+              "P1448",
+              "P2614"
+            ],
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "d8fa3fa87c475fa6fbe21fb11735e3334342d62b",
+                "snaks": {
+                  "P813": [
+                    {
+                      "datatype": "time",
+                      "datavalue": {
+                        "type": "time",
+                        "value": {
+                          "after": 0,
+                          "before": 0,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                          "precision": 11,
+                          "time": "+2022-05-09T00:00:00Z",
+                          "timezone": 0
+                        }
+                      },
+                      "hash": "75189eafb31fc911d1854a8f1c3c7d076e508d62",
+                      "property": "P813",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://whc.unesco.org/en/list/475"
+                      },
+                      "hash": "0601dca8ac5cfe69626b49b7b08a696d7e97f985",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854",
+                  "P813"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P1566": [
+          {
+            "id": "Q503835$DEB94D62-34C0-42DF-B45B-8BBAA80F62D8",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "6942094"
+              },
+              "hash": "083af3bc0739ab09357714d172ec38f42e8f99ed",
+              "property": "P1566",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "bd49d3e4f67bc460ce7a06b6ac3027347cf5ee55",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q169514",
+                          "numeric-id": 169514
+                        }
+                      },
+                      "hash": "e84b0343e79e2a9aa8abadd7301051e15fba52d6",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P17": [
+          {
+            "id": "Q503835$027ECF2B-5B2C-46C7-A78C-32B54A34833F",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q929",
+                  "numeric-id": 929
+                }
+              },
+              "hash": "8958adc2f2cc73006d9582527ae0ee3f42feefcb",
+              "property": "P17",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1705": [
+          {
+            "id": "Q503835$a50c7348-49e1-80c5-d99e-38bf712588ba",
+            "mainsnak": {
+              "datatype": "monolingualtext",
+              "datavalue": {
+                "type": "monolingualtext",
+                "value": {
+                  "language": "en",
+                  "text": "Manovo-Gounda St. Floris National Park"
+                }
+              },
+              "hash": "c7e7edb5a771e9e011c3b9854fb6b86d89d78401",
+              "property": "P1705",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P18": [
+          {
+            "id": "Q503835$1094e422-44b4-5015-ee6a-1feb53543369",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "Manovo.jpg"
+              },
+              "hash": "1e513ab23fccb109d3fe1704c8c36f66aabd1748",
+              "property": "P18",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2044": [
+          {
+            "id": "Q503835$430819F6-6B76-4FC8-B242-5B7508F41407",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+425",
+                  "unit": "http://www.wikidata.org/entity/Q11573"
+                }
+              },
+              "hash": "9e96c2ac3d0917f76b280b63400be38efda3826b",
+              "property": "P2044",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2046": [
+          {
+            "id": "Q503835$3053fa50-4699-2c28-1163-29ac1008d449",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+17400",
+                  "unit": "http://www.wikidata.org/entity/Q712226"
+                }
+              },
+              "hash": "b9553f83a5341d85fe45c046a7e924de7cd96b31",
+              "property": "P2046",
+              "snaktype": "value"
+            },
+            "rank": "preferred",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q503835$816F6404-B2D7-478D-9BBF-FEAED8F856EB",
+            "mainsnak": {
+              "datatype": "quantity",
+              "datavalue": {
+                "type": "quantity",
+                "value": {
+                  "amount": "+1740000",
+                  "unit": "http://www.wikidata.org/entity/Q35852"
+                }
+              },
+              "hash": "afa6bf024e27b7bb07bbf6541073deb252d62f09",
+              "property": "P2046",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P518": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q9259",
+                      "numeric-id": 9259
+                    }
+                  },
+                  "hash": "a36e619e9e9474ed2f06d6b204a36f8a919a58a9",
+                  "property": "P518",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P518"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P214": [
+          {
+            "id": "Q503835$8a396852-44b2-88bc-cf23-55e5fb68874d",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "315131385"
+              },
+              "hash": "472e1085d8f2aef52734de93ae037866c1954794",
+              "property": "P214",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2163": [
+          {
+            "id": "Q503835$2f3cd67b-42dc-866f-76a0-ff95532858f4",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "1258200"
+              },
+              "hash": "8e2056f5e9629ab19431c1966dbc5ecb48282b2c",
+              "property": "P2163",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P242": [
+          {
+            "id": "Q503835$761DF3FA-525F-4305-8546-636000EF9AF1",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "CAR Map-Manovo-floris.jpg"
+              },
+              "hash": "be00ab0c21cc14a6132e6b0df34615fb7c136232",
+              "property": "P242",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P244": [
+          {
+            "id": "Q503835$80BF172E-6433-49F8-A441-03185E689FB7",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "sh91001165"
+              },
+              "hash": "ac1e3941c20ddd96796bedfa873114637a1ac6af",
+              "property": "P244",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2614": [
+          {
+            "id": "Q503835$13E67E44-05E9-4E4B-893A-A0B64596973C",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038985",
+                  "numeric-id": 23038985
+                }
+              },
+              "hash": "523c09e94984c03aa991bf6fe8ba19efd62f312d",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "3739e196d490c2608580a3033f69bb3ffadd29a0",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "http://whc.unesco.org/en/list/475"
+                      },
+                      "hash": "cf8f55ca2c1013eb573a29daaf478196e87af13a",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q503835$20DDC91D-9DC9-4F30-ADB5-07C25C145177",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038986",
+                  "numeric-id": 23038986
+                }
+              },
+              "hash": "4f9bce7c486875ed74cdf08dd152eb24e026cb5e",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "3739e196d490c2608580a3033f69bb3ffadd29a0",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "http://whc.unesco.org/en/list/475"
+                      },
+                      "hash": "cf8f55ca2c1013eb573a29daaf478196e87af13a",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P31": [
+          {
+            "id": "Q503835$85D95D51-B351-4656-B1B4-B487C5EA8640",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q46169",
+                  "numeric-id": 46169
+                }
+              },
+              "hash": "7530c09f06ad827559689b437ac1a0c9458adf7a",
+              "property": "P31",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P361": [
+          {
+            "id": "Q503835$E3072F51-952E-4AA8-97CD-CF43AEEA9150",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q14227303",
+                  "numeric-id": 14227303
+                }
+              },
+              "hash": "276cccb7b6b581f435850c6f52c52a9e005e9ff2",
+              "property": "P361",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "9b6033a0a0fc3d0000b1c77fe93c161cbcbad1a6",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q19826574",
+                          "numeric-id": 19826574
+                        }
+                      },
+                      "hash": "342852c6ea3be834528dad2b0808c542dc83626d",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P373": [
+          {
+            "id": "Q503835$41f98887-c988-47ae-b303-be86301e7011",
+            "mainsnak": {
+              "datatype": "string",
+              "datavalue": {
+                "type": "string",
+                "value": "Manovo-Gounda St. Floris National Park"
+              },
+              "hash": "5c6d6b4fea538a29234dcdf7fda5b2544a07a7dc",
+              "property": "P373",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P402": [
+          {
+            "id": "Q503835$9a82768e-4f7f-66b5-abb7-6b4b30cf4fe4",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "14080130"
+              },
+              "hash": "580ec1e6381e9149b5e128613f72c0a6cc23cba4",
+              "property": "P402",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P5008": [
+          {
+            "id": "Q503835$4E0D9E72-580C-4B36-B829-B395C69DB032",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q107414369",
+                  "numeric-id": 107414369
+                }
+              },
+              "hash": "8a88e1c4c25ebd5c6c809062d163bff87e3cac68",
+              "property": "P5008",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          {
+            "id": "Q503835$916570AC-5510-4FF4-AAF9-CE2A76E928D5",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q6173448",
+                  "numeric-id": 6173448
+                }
+              },
+              "hash": "136e3fbe19158e73e4bfebf3f2d98a9df8638b7e",
+              "property": "P5008",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P585": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 11,
+                      "time": "+2022-10-31T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "7661f66dd5b82a1ea92515ddb16c09ce3088edea",
+                  "property": "P585",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P585"
+            ],
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P571": [
+          {
+            "id": "Q503835$EBE0C138-32CB-4DE5-B5E9-CA36A421723D",
+            "mainsnak": {
+              "datatype": "time",
+              "datavalue": {
+                "type": "time",
+                "value": {
+                  "after": 0,
+                  "before": 0,
+                  "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                  "precision": 11,
+                  "time": "+1979-05-17T00:00:00Z",
+                  "timezone": 0
+                }
+              },
+              "hash": "4c84576a29b8326e531194560dd9ddec9006611e",
+              "property": "P571",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "9a24f7c0208b05d6be97077d855671d1dfdbc0dd",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q48183",
+                          "numeric-id": 48183
+                        }
+                      },
+                      "hash": "d38375ffe6fe142663ff55cd783aa4df4301d83d",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P625": [
+          {
+            "id": "q503835$138F6ADD-D91F-4392-A006-A03143D8322F",
+            "mainsnak": {
+              "datatype": "globe-coordinate",
+              "datavalue": {
+                "type": "globecoordinate",
+                "value": {
+                  "altitude": null,
+                  "globe": "http://www.wikidata.org/entity/Q2",
+                  "latitude": 8.5,
+                  "longitude": 21.5,
+                  "precision": 0.1
+                }
+              },
+              "hash": "40dfee38f0f322352fb227839c1b77f3e47c3c60",
+              "property": "P625",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P646": [
+          {
+            "id": "Q503835$1AA0EA51-E61D-4521-A5FC-3179E3FECDA6",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "/m/0b2f34"
+              },
+              "hash": "75d4e6cebaf204d9c7a227d6340f5291cc1c7870",
+              "property": "P646",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "2b00cb481cddcac7623114367489b5c194901c4a",
+                "snaks": {
+                  "P248": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q15241312",
+                          "numeric-id": 15241312
+                        }
+                      },
+                      "hash": "a94b740202b097dd33355e0e6c00e54b9395e5e0",
+                      "property": "P248",
+                      "snaktype": "value"
+                    }
+                  ],
+                  "P577": [
+                    {
+                      "datatype": "time",
+                      "datavalue": {
+                        "type": "time",
+                        "value": {
+                          "after": 0,
+                          "before": 0,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                          "precision": 11,
+                          "time": "+2013-10-28T00:00:00Z",
+                          "timezone": 0
+                        }
+                      },
+                      "hash": "fde79ecb015112d2f29229ccc1ec514ed3e71fa2",
+                      "property": "P577",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248",
+                  "P577"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P757": [
+          {
+            "id": "q503835$CF71FB21-EA55-49B2-85F1-2EA8739FE267",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "475"
+              },
+              "hash": "b0f69d8246dfb7fe6681fc2a028125f472b79953",
+              "property": "P757",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "732ec1c90a6f0694c7db9a71bf09fe7f2b674172",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q10000",
+                          "numeric-id": 10000
+                        }
+                      },
+                      "hash": "9123b0de1cc9c3954366ba797d598e4e1ea4146f",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P793": [
+          {
+            "id": "Q503835$cf7738dd-4000-2f8f-6d32-133b4c7c0722",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q222384",
+                  "numeric-id": 222384
+                }
+              },
+              "hash": "ec342702ae5c6287265ee8af23935efe390aa50c",
+              "property": "P793",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+1997-00-00T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "a49c8ed6875b6798d04009217a6aa45c567a440a",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580"
+            ],
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q328",
+                          "numeric-id": 328
+                        }
+                      },
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P809": [
+          {
+            "id": "q503835$46B13EA4-CE27-4B8F-9466-314ACAE45645",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "2256"
+              },
+              "hash": "e920204605ad32a48934a911d4e03de0119d935b",
+              "property": "P809",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "d4bd87b862b12d99d26e86472d44f26858dee639",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q8447",
+                          "numeric-id": 8447
+                        }
+                      },
+                      "hash": "f30cbd35620c4ea6d0633aaf0210a8916130469b",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P814": [
+          {
+            "id": "q503835$8F07B7AB-2112-488B-A529-56CAD99928B5",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q14545628",
+                  "numeric-id": 14545628
+                }
+              },
+              "hash": "20dfc7f4c52c2ad082d5eb39a3b9fd438436fd9c",
+              "property": "P814",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "d4bd87b862b12d99d26e86472d44f26858dee639",
+                "snaks": {
+                  "P143": [
+                    {
+                      "datatype": "wikibase-item",
+                      "datavalue": {
+                        "type": "wikibase-entityid",
+                        "value": {
+                          "entity-type": "item",
+                          "id": "Q8447",
+                          "numeric-id": 8447
+                        }
+                      },
+                      "hash": "f30cbd35620c4ea6d0633aaf0210a8916130469b",
+                      "property": "P143",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P8189": [
+          {
+            "id": "Q503835$D91DD50E-CFC7-48A8-9FB2-E4FC5C9D3E3B",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "987007551312405171"
+              },
+              "hash": "6e26a2d79f5a48180d93aaec1cb757403cf3573e",
+              "property": "P8189",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P949": [
+          {
+            "id": "Q503835$e15597c0-434a-6397-06ff-df8d22d643e7",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "000807430"
+              },
+              "hash": "ddb452b46502bbbd8f492dc279aea25d3553939b",
+              "property": "P949",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ]
+      },
+      "descriptions": {
+        "be-tarask": {
+          "language": "be-tarask",
+          "value": "нацыянальны парк у Цэнтральна-Афрыканскай Рэспубліцы"
+        },
+        "bn": {
+          "language": "bn",
+          "value": "জাতীয় উদ্যান"
+        },
+        "ca": {
+          "language": "ca",
+          "value": "parc nacional a la República Centreafricana"
+        },
+        "cs": {
+          "language": "cs",
+          "value": "národní park ve Středoafrické republice"
+        },
+        "dag": {
+          "language": "dag",
+          "value": "national paaki"
+        },
+        "de": {
+          "language": "de",
+          "value": "Nationalpark in der Zentralafrikanische Republik"
+        },
+        "en": {
+          "language": "en",
+          "value": "national park"
+        },
+        "es": {
+          "language": "es",
+          "value": "parque nacional en República Centroafricana"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "parc national de la République centrafricaine"
+        },
+        "he": {
+          "language": "he",
+          "value": "פארק לאומי בצפון הרפובליקה המרכז-אפריקאית"
+        },
+        "id": {
+          "language": "id",
+          "value": "taman nasional"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "コンゴ民主共和国の国立公園"
+        },
+        "mt": {
+          "language": "mt",
+          "value": "park nazzjonali u Sit ta' Wirt Dinji tal-UNESCO fir-Repubblika Ċentru-Afrikana"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "natuurgebied in Centraal-Afrikaanse Republiek"
+        },
+        "sr": {
+          "language": "sr",
+          "value": "национални парк на Унесковој листи Светске баштине који се налази у префектури Баминги-Бангоран у Централној Афричкој Републици"
+        }
+      },
+      "id": "Q503835",
+      "labels": {
+        "ar": {
+          "language": "ar",
+          "value": "منتزه مانوفو غوندا سانت فلوريس"
+        },
+        "ast": {
+          "language": "ast",
+          "value": "Parque nacional del Manovo-Gounda St. Floris"
+        },
+        "avk": {
+          "language": "avk",
+          "value": "Manovo-Gounda St Floris vedeyaf gerd"
+        },
+        "az": {
+          "language": "az",
+          "value": "Manova Qounda Sent-Floris Milli Parkı"
+        },
+        "ban": {
+          "language": "ban",
+          "value": "Taman Nasional Manovo-Gunda St. Floris"
+        },
+        "be-tarask": {
+          "language": "be-tarask",
+          "value": "Манаво-Гунда-Сэн-Флярэс"
+        },
+        "bg": {
+          "language": "bg",
+          "value": "Национален парк Маново-Гоунда Сен Флорис"
+        },
+        "bn": {
+          "language": "bn",
+          "value": "মানোভো-গউন্ডা সেন্ট ফ্লোরিস জাতীয় উদ্যান"
+        },
+        "ca": {
+          "language": "ca",
+          "value": "Parc Nacional del Manovo-Gounda Saint-Floris"
+        },
+        "ceb": {
+          "language": "ceb",
+          "value": "Manovo-Gounda St. Floris National Park"
+        },
+        "cs": {
+          "language": "cs",
+          "value": "Manovo-Gounda Saint Floris"
+        },
+        "da": {
+          "language": "da",
+          "value": "Manovo-Gounda St. Floris"
+        },
+        "dag": {
+          "language": "dag",
+          "value": "Manovo-Gounda St. Floris National Paaki"
+        },
+        "de": {
+          "language": "de",
+          "value": "Nationalpark Manovo-Gounda Saint Floris"
+        },
+        "en": {
+          "language": "en",
+          "value": "Manovo-Gounda St. Floris National Park"
+        },
+        "eo": {
+          "language": "eo",
+          "value": "Manovo-Gounda St. Floris"
+        },
+        "es": {
+          "language": "es",
+          "value": "Parque nacional del Manovo-Gounda St. Floris"
+        },
+        "eu": {
+          "language": "eu",
+          "value": "Manovo-Gounda St. Floris Parke Nazionala"
+        },
+        "fa": {
+          "language": "fa",
+          "value": "پارک ملی مانووو-گوندا"
+        },
+        "fat": {
+          "language": "fat",
+          "value": "Manovo-Gounda St. Floris Ɔman Ɔdomankoma abɔdze Prama"
+        },
+        "fi": {
+          "language": "fi",
+          "value": "Manovo-Gounda St. Floris’n kansallispuisto"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "parc national du Manovo-Gounda St. Floris"
+        },
+        "gl": {
+          "language": "gl",
+          "value": "Parque Nacional do Manovo-Gounda St. Floris"
+        },
+        "gur": {
+          "language": "gur",
+          "value": "Manovo-Gounda St. Floris National Park"
+        },
+        "he": {
+          "language": "he",
+          "value": "הפארק הלאומי מנובו-גונדה סנט פלוריס"
+        },
+        "hi": {
+          "language": "hi",
+          "value": "मनोवो-गौन्डा सेन्ट फ़्लोरिस राष्ट्रीय उद्यान"
+        },
+        "hr": {
+          "language": "hr",
+          "value": "Manovo-Gounda St. Floris"
+        },
+        "hu": {
+          "language": "hu",
+          "value": "Manovo-Gounda St. Floris Nemzeti Park"
+        },
+        "id": {
+          "language": "id",
+          "value": "Taman Nasional Manovo-Gounda St. Floris"
+        },
+        "it": {
+          "language": "it",
+          "value": "parco nazionale Manovo-Gounda St. Floris"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "マノヴォ＝グンダ・サン・フローリス国立公園"
+        },
+        "ka": {
+          "language": "ka",
+          "value": "მანოვო-გუნდა-სენ-ფლორის ეროვნული პარკი"
+        },
+        "ko": {
+          "language": "ko",
+          "value": "마노보 군다 세인트 플로리스 국립공원"
+        },
+        "lt": {
+          "language": "lt",
+          "value": "Manovo-Gundos-Sent Floriso nacionalinis parkas"
+        },
+        "mos": {
+          "language": "mos",
+          "value": "Manovo-Gounda St. Floris National Park"
+        },
+        "mt": {
+          "language": "mt",
+          "value": "Park Nazzjonali ta' Manovo-Gounda St Floris"
+        },
+        "nb": {
+          "language": "nb",
+          "value": "Manovo-Gounda St. Floris nasjonalpark"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "Nationaal park Manovo-Gounda St. Floris"
+        },
+        "pl": {
+          "language": "pl",
+          "value": "Park Narodowy Manovo-Gounda St. Floris"
+        },
+        "pt": {
+          "language": "pt",
+          "value": "Parque Nacional de Manovo-Gounda St. Floris"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "Национальный парк Маново-Гоунда-Сен-Флорис"
+        },
+        "sh": {
+          "language": "sh",
+          "value": "Manovo-Gounda St. Floris"
+        },
+        "sr": {
+          "language": "sr",
+          "value": "Маново-Гунда Ст. Флорис национални парк"
+        },
+        "sr-ec": {
+          "language": "sr-ec",
+          "value": "Маново-Гунда Ст. Флорис национални парк"
+        },
+        "sr-el": {
+          "language": "sr-el",
+          "value": "Manovo-Gunda St. Floris nacionalni park"
+        },
+        "sv": {
+          "language": "sv",
+          "value": "Manovo-Gounda St. Floris nationalpark"
+        },
+        "sw": {
+          "language": "sw",
+          "value": "Hifadhi ya Manovo-Gounda St. Floris"
+        },
+        "tr": {
+          "language": "tr",
+          "value": "Manovo-Gounda St Floris Milli Parkı"
+        },
+        "tw": {
+          "language": "tw",
+          "value": "Manovo-Gounda St. Floris Ɔman Mmoa Yɛmmea"
+        },
+        "uk": {
+          "language": "uk",
+          "value": "Національний парк Маново-Гоунда-Сен-Флоріс"
+        },
+        "ur": {
+          "language": "ur",
+          "value": "ماناوو گوندا سینٹ فلورس پارک"
+        },
+        "vi": {
+          "language": "vi",
+          "value": "Vườn quốc gia Manovo-Gounda St. Floris"
+        },
+        "war": {
+          "language": "war",
+          "value": "Manovo-Gounda St. Floris Nasodnon nga Parke"
+        },
+        "xmf": {
+          "language": "xmf",
+          "value": "მანოვო-გუნდა-სენ-ფლორაშ ნაციონალური პარკი"
+        },
+        "yue": {
+          "language": "yue",
+          "value": "馬諾沃-貢達聖弗洛里斯國家公園"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "馬諾沃-貢達聖弗洛里斯國家公園"
+        },
+        "zh-hans": {
+          "language": "zh-hans",
+          "value": "马诺沃-贡达圣弗洛里斯国家公园"
+        },
+        "zh-hant": {
+          "language": "zh-hant",
+          "value": "馬諾沃-貢達聖弗洛里斯國家公園"
+        },
+        "zh-hk": {
+          "language": "zh-hk",
+          "value": "馬諾沃-貢達聖弗洛里斯國家公園"
+        }
+      },
+      "lastrevid": 2505750611,
+      "modified": "2026-06-14T05:39:35Z",
+      "ns": 0,
+      "pageid": 473839,
+      "sitelinks": {
+        "arwiki": {
+          "badges": [],
+          "site": "arwiki",
+          "title": "منتزه مانوفو غوندا سانت فلوريس"
+        },
+        "astwiki": {
+          "badges": [],
+          "site": "astwiki",
+          "title": "Parque nacional del Manovo-Gounda St. Floris"
+        },
+        "avkwiki": {
+          "badges": [],
+          "site": "avkwiki",
+          "title": "Manovo-Gounda St Floris vedeyaf gerd"
+        },
+        "azwiki": {
+          "badges": [],
+          "site": "azwiki",
+          "title": "Manovo-Qounda-Sen-Floris Milli Parkı"
+        },
+        "banwiki": {
+          "badges": [],
+          "site": "banwiki",
+          "title": "Taman Nasional Manovo-Gunda St. Floris"
+        },
+        "bgwiki": {
+          "badges": [],
+          "site": "bgwiki",
+          "title": "Национален парк Маново-Гоунда Сен Флорис"
+        },
+        "cawiki": {
+          "badges": [],
+          "site": "cawiki",
+          "title": "Parc Nacional del Manovo-Gounda Saint-Floris"
+        },
+        "cebwiki": {
+          "badges": [],
+          "site": "cebwiki",
+          "title": "Manovo-Gounda St. Floris National Park"
+        },
+        "commonswiki": {
+          "badges": [],
+          "site": "commonswiki",
+          "title": "Category:Manovo-Gounda St. Floris National Park"
+        },
+        "cswiki": {
+          "badges": [],
+          "site": "cswiki",
+          "title": "Manovo-Gounda Saint Floris"
+        },
+        "dagwiki": {
+          "badges": [],
+          "site": "dagwiki",
+          "title": "Manovo-Gounda St. Floris National Park"
+        },
+        "dawiki": {
+          "badges": [],
+          "site": "dawiki",
+          "title": "Manovo-Gounda St. Floris"
+        },
+        "dewiki": {
+          "badges": [],
+          "site": "dewiki",
+          "title": "Nationalpark Manovo-Gounda Saint Floris"
+        },
+        "enwiki": {
+          "badges": [],
+          "site": "enwiki",
+          "title": "Manovo-Gounda St. Floris National Park"
+        },
+        "enwikivoyage": {
+          "badges": [],
+          "site": "enwikivoyage",
+          "title": "Manovo-Gounda St Floris National Park"
+        },
+        "eowiki": {
+          "badges": [],
+          "site": "eowiki",
+          "title": "Manovo-Gounda St. Floris"
+        },
+        "eswiki": {
+          "badges": [],
+          "site": "eswiki",
+          "title": "Parque nacional del Manovo-Gounda St. Floris"
+        },
+        "euwiki": {
+          "badges": [],
+          "site": "euwiki",
+          "title": "Manovo-Gounda St. Floris Parke Nazionala"
+        },
+        "fatwiki": {
+          "badges": [],
+          "site": "fatwiki",
+          "title": "Manovo-Gounda St. Floris Ɔman Ɔdomankoma abɔdze Prama"
+        },
+        "fawiki": {
+          "badges": [],
+          "site": "fawiki",
+          "title": "پارک ملی مانووو-گوندا"
+        },
+        "fiwiki": {
+          "badges": [],
+          "site": "fiwiki",
+          "title": "Manovo-Gounda St. Floris’n kansallispuisto"
+        },
+        "frwiki": {
+          "badges": [],
+          "site": "frwiki",
+          "title": "Parc national du Manovo-Gounda St Floris"
+        },
+        "glwiki": {
+          "badges": [],
+          "site": "glwiki",
+          "title": "Parque Nacional do Manovo-Gounda St. Floris"
+        },
+        "gurwiki": {
+          "badges": [],
+          "site": "gurwiki",
+          "title": "Manovo-Gounda St. Floris National Park"
+        },
+        "hewiki": {
+          "badges": [],
+          "site": "hewiki",
+          "title": "הפארק הלאומי מנובו-גונדה סנט פלוריס"
+        },
+        "hiwiki": {
+          "badges": [],
+          "site": "hiwiki",
+          "title": "मनोवो-गौन्डा सेन्ट फ़्लोरिस राष्ट्रीय उद्यान"
+        },
+        "hrwiki": {
+          "badges": [],
+          "site": "hrwiki",
+          "title": "Manovo-Gounda St. Floris"
+        },
+        "huwiki": {
+          "badges": [],
+          "site": "huwiki",
+          "title": "Manovo-Gounda St. Floris Nemzeti Park"
+        },
+        "idwiki": {
+          "badges": [],
+          "site": "idwiki",
+          "title": "Taman Nasional Manovo-Gounda St. Floris"
+        },
+        "itwiki": {
+          "badges": [],
+          "site": "itwiki",
+          "title": "Parco nazionale del Manovo-Gounda St. Floris"
+        },
+        "jawiki": {
+          "badges": [],
+          "site": "jawiki",
+          "title": "マノヴォ＝グンダ・サン・フローリス国立公園"
+        },
+        "kawiki": {
+          "badges": [],
+          "site": "kawiki",
+          "title": "მანოვო-გუნდა-სენ-ფლორის ეროვნული პარკი"
+        },
+        "kowiki": {
+          "badges": [],
+          "site": "kowiki",
+          "title": "마노보 군다 세인트 플로리스 국립공원"
+        },
+        "ltwiki": {
+          "badges": [],
+          "site": "ltwiki",
+          "title": "Manovo-Gundos-Sent Floriso nacionalinis parkas"
+        },
+        "moswiki": {
+          "badges": [],
+          "site": "moswiki",
+          "title": "Manovo-Gounda St. Floris National Park"
+        },
+        "mtwiki": {
+          "badges": [],
+          "site": "mtwiki",
+          "title": "Park Nazzjonali ta' Manovo-Gounda St Floris"
+        },
+        "nlwiki": {
+          "badges": [],
+          "site": "nlwiki",
+          "title": "Nationaal park Manovo-Gounda St. Floris"
+        },
+        "nowiki": {
+          "badges": [],
+          "site": "nowiki",
+          "title": "Manovo-Gounda St. Floris nasjonalpark"
+        },
+        "plwiki": {
+          "badges": [],
+          "site": "plwiki",
+          "title": "Park Narodowy Manovo-Gounda St. Floris"
+        },
+        "ptwiki": {
+          "badges": [],
+          "site": "ptwiki",
+          "title": "Parque Nacional de Manovo-Gounda St. Floris"
+        },
+        "ptwikivoyage": {
+          "badges": [],
+          "site": "ptwikivoyage",
+          "title": "Parque Nacional de Manovo-Gounda St. Floris"
+        },
+        "ruwiki": {
+          "badges": [],
+          "site": "ruwiki",
+          "title": "Национальный парк Маново-Гоунда-Сен-Флорис"
+        },
+        "shwiki": {
+          "badges": [],
+          "site": "shwiki",
+          "title": "Manovo-Gounda St. Floris"
+        },
+        "srwiki": {
+          "badges": [],
+          "site": "srwiki",
+          "title": "Национални парк Маново-Гунда-Сен Флорис"
+        },
+        "svwiki": {
+          "badges": [],
+          "site": "svwiki",
+          "title": "Manovo-Gounda St. Floris nationalpark"
+        },
+        "swwiki": {
+          "badges": [],
+          "site": "swwiki",
+          "title": "Hifadhi ya Manovo-Gounda St. Floris"
+        },
+        "trwiki": {
+          "badges": [],
+          "site": "trwiki",
+          "title": "Manovo-Gounda St Floris Millî Parkı"
+        },
+        "twwiki": {
+          "badges": [],
+          "site": "twwiki",
+          "title": "Manovo-Gounda St. Floris Ɔman Mmoa Yɛmmea"
+        },
+        "ukwiki": {
+          "badges": [],
+          "site": "ukwiki",
+          "title": "Національний парк Маново-Гоунда-Сен-Флоріс"
+        },
+        "urwiki": {
+          "badges": [],
+          "site": "urwiki",
+          "title": "ماناوو گوندا سینٹ فلورس پارک"
+        },
+        "viwiki": {
+          "badges": [],
+          "site": "viwiki",
+          "title": "Vườn quốc gia Manovo-Gounda St. Floris"
+        },
+        "warwiki": {
+          "badges": [],
+          "site": "warwiki",
+          "title": "Manovo-Gounda St. Floris Nasodnon nga Parke"
+        },
+        "xmfwiki": {
+          "badges": [],
+          "site": "xmfwiki",
+          "title": "მანოვო-გუნდა-სენ-ფლორაშ ნაციონალური პარკი"
+        },
+        "zh_yuewiki": {
+          "badges": [],
+          "site": "zh_yuewiki",
+          "title": "馬諾沃-貢達聖弗洛里斯國家公園"
+        },
+        "zhwiki": {
+          "badges": [],
+          "site": "zhwiki",
+          "title": "馬諾沃-貢達聖弗洛里斯國家公園"
+        }
+      },
+      "title": "Q503835",
+      "type": "item"
+    }
+  }
+}

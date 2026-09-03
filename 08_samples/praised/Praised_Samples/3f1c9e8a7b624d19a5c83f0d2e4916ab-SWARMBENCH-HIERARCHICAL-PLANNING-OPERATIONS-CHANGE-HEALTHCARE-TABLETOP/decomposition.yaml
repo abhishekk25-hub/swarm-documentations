@@ -1,0 +1,207 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+
+sub_tasks:
+  - id: evidence-manager
+    description: >
+      Coordinate all source browsing and evidence extraction. Split the 50 pinned sources across
+      source-reader workers. Produce a normalized evidence table with source_id, URL, title,
+      publisher, source type, quote, topic, and incident relevance.
+    depends_on: []
+    parallel_group: evidence-tier
+
+  - id: regulatory-source-readers
+    description: >
+      Read SEC, HHS, CMS, OCR, and other regulator/government sources. Extract exact quotes about
+      disclosure, operational impact, provider support, breach response, and regulatory obligations.
+    depends_on: [evidence-manager]
+    parallel_group: source-reading
+
+  - id: congressional-source-readers
+    description: >
+      Read congressional letters, hearing materials, testimony, and committee documents. Extract
+      quotes about timeline, MFA/Citrix access, business impact, executive accountability, and
+      healthcare-sector dependency risk.
+    depends_on: [evidence-manager]
+    parallel_group: source-reading
+
+  - id: technical-advisory-readers
+    description: >
+      Read CISA/FBI/HHS advisories and public technical materials on ALPHV/BlackCat and ransomware
+      mitigations. Extract quotes on TTPs, access methods, mitigations, and response controls.
+    depends_on: [evidence-manager]
+    parallel_group: source-reading
+
+  - id: healthcare-impact-readers
+    description: >
+      Read healthcare association, provider impact, and financial stability sources. Extract quotes
+      about claims, pharmacy, provider liquidity, patient-care disruption, and third-party systemic
+      risk.
+    depends_on: [evidence-manager]
+    parallel_group: source-reading
+
+  - id: chronology-manager
+    description: >
+      Consume verified evidence and reconstruct a factual incident chronology. Identify incident
+      phases that can become exercise phases and mark which facts are suitable for injects.
+    depends_on:
+      - regulatory-source-readers
+      - congressional-source-readers
+      - technical-advisory-readers
+      - healthcare-impact-readers
+    parallel_group: synthesis-tier-1
+
+  - id: exercise-design-manager
+    description: >
+      Convert the incident chronology into a 2-hour tabletop design. Define exercise objectives,
+      phase structure, inject pacing, escalation logic, and role coverage requirements.
+    depends_on: [chronology-manager]
+    parallel_group: synthesis-tier-2
+
+  - id: visual-exhibit-analyst
+    description: >
+      Interpret at least five real source-derived visual exhibits listed in visual_exhibits.json,
+      including PDF charts, tables, figures, or control-taxonomy layouts. Produce
+      visual_exhibit_notes.csv and identify which visual insights should shape the executive
+      runbook and incident map.
+    depends_on: [chronology-manager]
+    parallel_group: synthesis-tier-2
+
+  - id: inject-timeline-specialist
+    description: >
+      Draft injects_timeline.csv with at least 40 source-grounded injects. Every inject must include
+      a valid source_id, source_url, quote, target role, expected decision, and debrief objective.
+    depends_on: [exercise-design-manager]
+    parallel_group: deliverable-tier-1
+
+  - id: role-packet-manager
+    description: >
+      Coordinate six role packet writers and ensure every role packet references valid inject IDs,
+      contains private role context, and aligns with the facilitator guide.
+    depends_on: [exercise-design-manager, inject-timeline-specialist]
+    parallel_group: deliverable-tier-2
+
+  - id: ciso-role-writer
+    description: "Write role_packets/ciso.md using verified inject IDs and evidence."
+    depends_on: [role-packet-manager]
+    parallel_group: role-writers
+
+  - id: legal-role-writer
+    description: "Write role_packets/legal.md using verified inject IDs and evidence."
+    depends_on: [role-packet-manager]
+    parallel_group: role-writers
+
+  - id: communications-role-writer
+    description: "Write role_packets/communications.md using verified inject IDs and evidence."
+    depends_on: [role-packet-manager]
+    parallel_group: role-writers
+
+  - id: executive-role-writer
+    description: "Write role_packets/executive_leadership.md using verified inject IDs and evidence."
+    depends_on: [role-packet-manager]
+    parallel_group: role-writers
+
+  - id: it-operations-role-writer
+    description: "Write role_packets/it_operations.md using verified inject IDs and evidence."
+    depends_on: [role-packet-manager]
+    parallel_group: role-writers
+
+  - id: vendor-management-role-writer
+    description: "Write role_packets/vendor_management.md using verified inject IDs and evidence."
+    depends_on: [role-packet-manager]
+    parallel_group: role-writers
+
+  - id: facilitator-guide-writer
+    description: >
+      Write facilitator_guide.md with minute-by-minute instructions, delivery prompts, expected
+      decisions, fallback prompts, and debrief notes tied to valid inject IDs.
+    depends_on: [inject-timeline-specialist, role-packet-manager]
+    parallel_group: deliverable-tier-3
+
+  - id: executive-runbook-writer
+    description: >
+      Write executive_runbook.md for the CISO and exercise sponsor, including objectives, audience,
+      schedule, staffing, assumptions, rules of engagement, remediation workflow, and visual exhibit
+      insights from at least three valid exhibit IDs.
+    depends_on: [exercise-design-manager, visual-exhibit-analyst]
+    parallel_group: deliverable-tier-2
+
+  - id: observer-scorecard-writer
+    description: >
+      Write observer_scorecards.csv. Every row must reference a valid inject_id and define objective,
+      expected behavior, rating scale, evidence of decision quality, and improvement area.
+    depends_on: [inject-timeline-specialist, role-packet-manager]
+    parallel_group: deliverable-tier-3
+
+  - id: incident-map-builder
+    description: >
+      Build incident_map.html as a self-contained visual artifact with incident phases, roles,
+      systems/entities, dependencies, decision points, at least 20 inject IDs, and at least five
+      visual exhibit IDs.
+    depends_on: [chronology-manager, inject-timeline-specialist, visual-exhibit-analyst]
+    parallel_group: deliverable-tier-2
+
+  - id: after-action-template-writer
+    description: >
+      Write after_action_template.md with sections for strengths, gaps, owners, due dates,
+      remediation actions, retest plan, and mappings back to observer objectives or inject IDs.
+    depends_on: [observer-scorecard-writer, facilitator-guide-writer]
+    parallel_group: deliverable-tier-4
+
+  - id: evidence-register-writer
+    description: >
+      Write evidence_register.csv from the verified evidence table. Include every source actually
+      used, exact quoted evidence, artifact usage, and use purpose.
+    depends_on:
+      - inject-timeline-specialist
+      - facilitator-guide-writer
+      - ciso-role-writer
+      - legal-role-writer
+      - communications-role-writer
+      - executive-role-writer
+      - it-operations-role-writer
+      - vendor-management-role-writer
+      - executive-runbook-writer
+      - visual-exhibit-analyst
+      - observer-scorecard-writer
+      - incident-map-builder
+      - after-action-template-writer
+    parallel_group: verification-tier-1
+
+  - id: quote-grounding-verifier
+    description: >
+      Verify that every quoted_evidence string can be found in the matching source_text file.
+      Flag any invented, mismatched, or overly short quotes.
+    depends_on: [evidence-register-writer, inject-timeline-specialist]
+    parallel_group: verification-tier-2
+
+  - id: cross-reference-verifier
+    description: >
+      Check inject IDs, source IDs, role packet references, observer objectives, incident map nodes,
+      and after-action references for consistency across all deliverables.
+    depends_on:
+      - inject-timeline-specialist
+      - ciso-role-writer
+      - legal-role-writer
+      - communications-role-writer
+      - executive-role-writer
+      - it-operations-role-writer
+      - vendor-management-role-writer
+      - visual-exhibit-analyst
+      - observer-scorecard-writer
+      - incident-map-builder
+      - after-action-template-writer
+      - evidence-register-writer
+    parallel_group: verification-tier-2
+
+  - id: final-reconciler
+    description: >
+      Assemble the final output package in /logs/agent/output/. Resolve verifier findings, remove
+      unsupported claims, fix broken cross-references, and ensure all required files are present.
+    depends_on:
+      - quote-grounding-verifier
+      - cross-reference-verifier
+      - executive-runbook-writer
+      - facilitator-guide-writer
+      - incident-map-builder
+    parallel_group: final

@@ -1,0 +1,2698 @@
+Service Assessment
+
+August/September 2017 Hurricane Harvey
+
+U.S. DEPARTMENT OF COMMERCE
+National Oceanic and Atmospheric Administration
+National Weather Service
+Silver Spring, Maryland
+
+Cover Photograph: From August 27–September 4, the National Geodetic Survey (NGS)
+collected damage assessment imagery in the aftermath of Hurricane Harvey. This image is of the
+Route I-10 flooding near Lynchburg, TX, just about 20 miles east of downtown Houston, TX.
+For access to this and other aerial images taken by NGS, please go to
+https://oceanservice.noaa.gov/news/sep17/hurricane-harvey.html.
+
+ii
+
+Service Assessment
+
+August–September 2017 Hurricane Harvey
+
+June 2018
+
+National Weather Service
+John D. Murphy
+Chief Operating Officer
+
+iii
+
+Preface
+Hurricane Harvey, the first major hurricane to make landfall in the United States since
+Wilma in 2005, produced catastrophic impacts over Southeast Texas and Southwest Louisiana.
+The center of Hurricane Harvey made landfall near Rockport, TX, as a Category 4 hurricane,
+producing impacts due to high winds, storm surge, and numerous tornadoes. In a four-day
+period, many areas received more than 40 inches of rain as the cyclone meandered over eastern
+Texas and adjacent waters, causing catastrophic flooding. With peak accumulations of over 60
+inches of rain, Hurricane Harvey produced the most rain on record for a tropical storm or other
+weather event in the contiguous United States and caused an estimated 125 billion dollars of
+damage according to NOAA. At least 68 fatalities in Texas alone were directly attributable to
+this event, the highest death toll due to a tropical system in that state since 1919.
+Because of the highly significant impacts of the event, the National Weather Service
+assembled a service assessment team to evaluate its performance before and during Hurricane
+Harvey. NWS’s operational leadership will review and consider the findings and
+recommendations from this assessment. As appropriate, the recommendations will then be
+integrated into the Annual Operating Plan to improve the quality of operational products and
+services and enhance the National Weather Service public education and awareness materials
+related to flooding and other tropical cyclone hazards. The ultimate goal of this report is to help
+the National Weather Service meet its mission to protect life and property and enhance the
+national economy.
+
+June 2018
+
+iv
+
+Table of Contents
+Page
+1. Introduction ............................................................................................................................... 1
+1.1. NWS Mission .................................................................................................................. 1
+1.2. Purpose of Assessment Report ........................................................................................ 1
+1.3. Methodology ................................................................................................................... 2
+2. Hydrometeorology .................................................................................................................... 4
+2.1. Evolution of Storm .......................................................................................................... 4
+2.2. Wind and Tornado ........................................................................................................... 5
+2.3. Heavy Rain and Flooding ................................................................................................ 7
+2.4. Storm Surge ................................................................................................................... 13
+3. Findings, Recommendations, and Best Practices ................................................................... 17
+3.1. Operations and Decision Support Services ................................................................... 17
+3.1.1. Weather Forecast Offices (WFOs) .................................................................. 17
+3.1.1.1. WFO IDSS and Partner Relationships ............................................. 17
+3.1.1.1 WFO Official Products ...................................................................... 21
+3.1.1.2 WFO Administrative Processes ......................................................... 24
+3.1.2. River Forecast Centers (RFC) ......................................................................... 25
+3.1.2.1. RFC Products and Inputs to the Forecast Guidance ......................... 27
+3.1.2.2. RFC Communications, IDSS, and Relationships ............................. 29
+3.1.3. National Hurricane Center Performance ......................................................... 31
+3.1.3.1. NHC Track and Intensity Forecasts ................................................. 32
+3.1.3.2. NHC Storm Surge Watches and Warnings ...................................... 33
+3.1.3.3. Coordination and IDSS Activities .................................................... 35
+3.1.4. Weather Prediction Center............................................................................... 36
+3.1.5. Southern Region Headquarters and Regional Operations Center ................... 41
+3.1.6. Center Weather Service Units ......................................................................... 44
+3.1.7. Office of Water Prediction .............................................................................. 44
+3.2. Fully Integrated Field Structure .................................................................................... 46
+3.2.1. Core Partners and Deep Relationships ............................................................ 46
+3.2.2. Collaborative Forecast Process ........................................................................ 47
+3.2.3. Impact-based Decision Support Nexus............................................................ 49
+3.3. Systems.......................................................................................................................... 51
+3.3.1. AWIPS Software ............................................................................................. 51
+3.3.1.1. Graphical Forecast Editor (GFE) Software Challenges ................... 51
+3.3.1.2. Flooded Locations and Simulated Hydrographics (FLASH) ........... 52
+3.3.1.3. NCF Support for RFCs ..................................................................... 52
+3.3.2. Communications and Network ........................................................................ 52
+3.3.2.1. Active Directory Login Challenges .................................................. 53
+3.4. Tropical Program Training ............................................................................................ 54
+4. Public Engagement and Societal Impacts ............................................................................... 55
+Acronyms .......................................................................................................... A-1
+Findings, Recommendations and Best Practices ............................................... B-1
+Prior Service Assessment Findings and Recommendations to Revisit ............. C-1
+
+v
+
+Table of Figures
+Figure 1:
+
+Figure 2:
+Figure 3:
+
+Figure 4:
+Figure 5:
+Figure 6:
+
+Figure 7:
+
+Figure 8:
+Figure 9:
+Figure 10:
+Figure 11:
+
+Figure 12:
+
+Figure 13:
+Figure 14:
+
+Figure 15:
+
+Figure 16:
+Figure 17:
+
+Page
+Path of storm as it progressed from a tropical depression to major Hurricane
+Harvey. Source: National Hurricane Center Tropical Cyclone Report on
+Harvey ..................................................................................................................... 4
+SST observations before Hurricane Harvey’s passage. Source: NASA ................ 5
+Radar images of Hurricane Harvey prior to center making landfall on San
+Jose Island, TX: left, 0.5 degree base reflectivity; right, 0.5 degree base
+velocity. Source: WFO Corpus Christi, TX .......................................................... 6
+Damage caused by Hurricane Harvey at Key Allegro, Rockport, TX: before
+(left) and after (right). Source: CNN article published August 28, 2017............... 6
+Hurricane Harvey observed peak 10-meter wind gusts. Source: WFO
+Corpus Christi......................................................................................................... 7
+The 24-hour rainfall (radar-estimated) on August 27 showing widespread
+amounts of 15 inches in Austin, TX, and nearly 20 inches in Houston, TX.
+Source: NOAA ........................................................................................................ 8
+Texas Task Force 1 water rescue squad boats move into a flooded
+community to rescue and evacuate residents impacted by Hurricane Harvey.
+Source: Texas Division of Emergency Management ............................................... 9
+Five-day observed rainfall analysis from 7 a.m., Friday, August 25–30.
+Source: NOAA ...................................................................................................... 10
+Map of FEMA Texas Disaster Declarations by county. Source: FEMA
+Texas Hurricane Harvey (DR-4332) .................................................................... 12
+Impacts to Gulf Coast refining capacity as a result of Hurricane Harvey.
+Source: U.S. Department of Energy .................................................................... 13
+Maximum water levels (feet) measured from tide gauges along the coasts of
+Texas and Louisiana during Hurricane Harvey and areas covered by storm
+surge warnings (magenta) and watches (lavender). Water levels are
+referenced above Mean Higher High Water. Source: NHC Storm Surge
+Unit ....................................................................................................................... 14
+Shown are USGS sensors added to help support Hurricane Harvey
+operations. Source: USGS Flood Event Viewer, Hurricane Harvey,
+August 2017 .......................................................................................................... 14
+Graph of NOS tide gage at Port Lavaca, TX. Source: NWS Advanced
+Hydrologic Prediction Service (AHPS) webpage ................................................. 15
+Storm tide high water mark of 3.75 feet above MHHW at Port Aransas
+High School, Aransas County, TX. Source: USGS Storm Event Viewer,
+Hurricane Harvey 2017 ........................................................................................ 16
+Large 340 meter-long breach at the north end of Matagorda Island produced
+by storm surge and wave action during Hurricane Harvey. Source:
+USGS/NOAA Hurricane Harvey photo comparisons ........................................... 16
+NWS Houston Tweet retweeted by President Trump. Source: NWS
+Houston ................................................................................................................. 20
+WFO Houston/Galveston Facebook post. Source: WFO
+Houston/Galveston, TX ......................................................................................... 21
+
+vi
+
+Figure 18:
+Figure 19:
+
+Figure 20:
+Figure 21:
+Figure 22:
+Figure 23:
+
+Figure 24:
+Figure 25:
+Figure 26:
+Figure 27:
+Figure 28:
+Figure 29:
+Figure 30:
+Figure 31:
+Figure 32:
+Figure 33:
+Figure 34:
+Figure 35:
+Figure 36:
+Figure 37:
+
+Tornado warning polygons issued by WFOs for August 25-–31. Source:
+NWS Performance Management website .............................................................. 24
+Left, the Significant River Flood Outlook product issued on August 24 by
+the WGRFC indicating moderate or greater flooding likely. Right, the
+Excessive Rainfall Outlook issued on the same day with areas showing a
+moderate risk of exceeding flash flood. Source, WGRFC .................................... 26
+NWC Briefing on August 25. Source, NWC........................................................ 26
+WGRFC DSS for Core Partners on August 25. Source, WGRFC ....................... 27
+WGRFC IDSS sample hydrograph and graphic based on WPC PQPF.
+Source: WGRFC .................................................................................................. 28
+Cumulative probability of sustained hurricane force (64 knot) winds
+occurring at any individual location during the 120-h period ending at 7 AM
+CDT Monday, August 28, 2017, from Harvey Advisory 12. Source: NHC....... 33
+NHC products issued at 10 a.m., Wednesday, August 23. Source: NHC ........... 34
+WPC 168-HR and 120-HR QPF contours and QPE color shadings. Source:
+WPC ...................................................................................................................... 37
+Evolution of Hurricane Harvey storm total maximum rainfall forecast
+appearing in public advisories. Source: WPC..................................................... 37
+Excessive Rain Outlook Day 1, Day 2, Day 3 forecasts and observed.
+Source: WPC......................................................................................................... 39
+Sample mesoscale precipitation discussion. Source: WPC ................................ 39
+NWS briefing slide on river trends. Source: NWS SRH ..................................... 42
+NWM-based experimental flood inundation maps. Source: OWP GeoIntelligence ............................................................................................................ 45
+NWM experimental guidance. Source: OWP Geo-Intelligence Division ............ 45
+IDSS partnered level of services. Source: OWA Catalogue ............................... 46
+GOES 16 infrared satellite of Hurricane Harvey. Source: NESDIS and
+WFO Houston ....................................................................................................... 47
+Vision of the Collaborative Forecast Process. Source: OWA Catalogue,
+September 2017 ..................................................................................................... 48
+Sample of National Blend of Models in the Collaborative Forecast Process.
+Source: OWA Catalogue, September 2017 .......................................................... 49
+OWA suggested IDSS alignment for the NWS Water Program. Source:
+OWA Catalogue, September 2017 ........................................................................ 50
+Diversity in Harvey affected states. Source: U.S. Census Bureau, 2017 ........... 56
+
+Table of Tables
+Table 1:
+
+Page
+Flood warnings issued between August 20 and September 10 in the area
+affected by Hurricane Harvey ............................................................................... 11
+
+vii
+
+Service Assessment Team
+The following people participated as members of the Service Assessment Team:
+David Beachler
+Tom Bradshaw
+Jeral Estupinan
+Genene Fisher
+Victor Hom
+Phil Hysell
+Crane Johnson
+Coraggio Maglio
+Gregory Noonan
+
+Science Operations Officer, WFO Marquette, MI
+Meteorologist in Charge, WFO Dallas/Fort Worth, TX
+Meteorologist in Charge, WFO Phoenix, AZ
+Executive Officer, NCEP College Park, MD
+Hydrologist, NWS Headquarters, Silver Spring, MD
+Warning Coordination Meteorologist, WFO Blacksburg, VA
+Service Coordination Hydrologist, Alaska-Pacific RFC, Anchorage, AK
+Coastal Engineer, USACE Galveston District Galveston, TX
+Meteorologist, NWS Central Regional HQ Kansas City, MO
+
+Subject Matter Experts/Consultants Traveling with the Team:
+Denna Geppi
+Jane Harrison
+Kim Klockow
+
+Risk Communication Specialist, NOAA CFO Silver Spring, MD
+Coastal Economists Specialist, North Carolina Sea Grant Raleigh, NC
+Social Science Research Scientist, NOAA National Severe Storms
+Laboratory Norman, OK
+
+Other valuable contributors from NWS Headquarters in Silver Spring, MD:
+Cindy P. Woods
+Douglas C. Young
+Brian Cosgrove
+Susan Buchanan
+Salvatore Romano
+Melody Magnus
+
+Chief, Operations Division
+Chief, Digital and Graphical Information Support Branch
+National Water Model Project Lead, Office of Water Prediction
+Public Affairs Specialist, NWS Director of Public Affairs, NOAA Office
+of Communications
+Evaluation Meteorologist, Performance and Evaluation Branch
+Technical Editor, Analyze, Forecast, and Support Office/INNOVIM LLC
+
+viii
+
+Executive Summary
+Hurricane Harvey is the most significant tropical cyclone rainfall event to impact the United
+States in terms of peak rainfall and scope since this country started maintaining reliable
+precipitation records in the 1880s. The hurricane’s center made landfall between Port Aransas
+and Port O’Connor near Rockport, TX, on August 25, 2017, accompanied by 132 mph sustained
+winds. The storm caused widespread major flooding from east of Austin, TX, eastward through
+the Houston and Beaumont, TX, metropolitan areas, to Lake Charles, LA. Over the five days
+Harvey stalled over the area, the storm generated rainfall totals between 35 and 60 inches. The
+U.S. rainfall maxima records are now held in Jefferson County, TX, where 60.58 inches was
+reported in Nederland, TX and 60.54 inches near Groves, TX, for the storm.
+Hurricane Harvey intensified rapidly in the southwest Gulf of Mexico, strengthening from a
+tropical depression on August 23 to a Category 4 major hurricane on August 25. Following
+landfall, the system slowed its northwest progress significantly, changed course, then drifted
+eastward just off the upper Texas coast until the morning of August 30. East and northeast of the
+storm’s center, heavy rain bands trained repeatedly over Southeast Texas – particularly over the
+greater Houston and Beaumont/Port Arthur areas – causing major to catastrophic urban flash
+flooding and river flooding. In addition to the flood damage, extensive tropical wind and storm
+surge damage also occurred near and east of Hurricane Harvey’s landfall point. Portions of the
+middle Texas coast from Port Aransas to Matagorda sustained the greatest damage from these
+impacts. Localized structural damage also occurred across southeast Texas due to tornadoes.
+NOAA’s National Centers for Environmental Information estimated that Hurricane Harvey
+produced at least 125 billion dollars of damage, the second costliest storm event on record,
+exceeded only by Hurricane Katrina. Hurricane Katrina caused many more deaths than
+Hurricane Harvey, 1,833 deaths as compared to 105. Impacts from Hurricane Katrina were
+mostly from storm surge, while impacts from Hurricane Harvey were mostly from rainfall.
+Massive flooding due to Hurricane Harvey displaced more than 30,000 people and damaged or
+destroyed over 200,000 homes and businesses. Hurricane Katrina destroyed 800,000 housing
+units. Hurricane Harvey also led to extensive impacts to the transportation network across the
+region, affecting logistics and commerce across the land, air, and sea.
+During service assessment interviews, partners overwhelmingly indicated that the National
+Weather Service performed very well throughout this event. As the event unfolded, the NWS’s
+consistent messaging through multiple communication avenues helped emergency managers,
+government officials, and media partners maintain good situational awareness. Residents in
+affected communities were likewise reasonably well prepared and able to take actions that
+mitigated a potentially much higher loss of life. Hurricane Harvey was one of the broadest tests
+to date of the NWS’s strategic emphasis on coordination and collaboration within a fully
+integrated field structure. By any measure, the unified performance of National Centers,
+Weather Forecast Offices, River Forecast Centers, and Regional Operations Centers serves as an
+encouraging benchmark for the progress the NWS has made toward its goal of fully supporting a
+Weather-Ready Nation.
+
+ix
+
+Service Assessment Report
+1. Introduction
+1.1.
+
+NWS Mission
+
+The mission of the National Oceanic and Atmospheric Administration (NOAA) National
+Weather Service (NWS) is to protect life and property by providing weather, hydrologic, and
+climate forecasts and warnings for the United States, its territories, adjacent waters and ocean
+areas, and to enhance the national economy. NWS disseminates centrally produced data,
+weather products, and guidance to 122 local Weather Forecast Offices (WFO), 13 River Forecast
+Centers (RFCs), and 21 Center Weather Service Units (CWSUs). The forecasters at the WFOs
+and RFCs issue forecasts and hazardous watches, warnings and advisories to the public. They
+also interface closely with local emergency managers (EMs) and other federal, state and local
+government partners in the provision of weather, water and climate Impact-based Decision
+Support Services (IDSS). WFOs and RFCs also collaborate significantly with media partners
+and other non-government entities in the distribution and explanation of impact weather
+information. CWSUs are co-located with Federal Aviation Administration (FAA) Air Route
+Traffic Control Centers (ARTCCs), and provide comprehensive IDSS to air traffic controllers,
+traffic management units, traffic control centers and control towers in their areas of jurisdiction.
+The National Hurricane Center (NHC) issues hurricane, tropical storm, and storm surge
+warnings for coastal locations. The Weather Prediction Center (WPC) produces a wide range of
+national weather forecast and analysis products, including Quantitative Precipitation Forecasts
+(QPF), excessive rainfall products, medium-range and probabilistic rainfall guidance, surface
+analysis, and a daily weather map. These aforementioned centers, and seven others comprising
+the National Centers for Environmental Prediction (NCEP), collaborate closely with NWS field
+offices (i.e., WFOs, RFCs) and with EMs and media partners in the creation, distribution and
+interpretation of NWS guidance, outlooks, and hazardous watch/warning information.
+The NWS Headquarters (NWSH), located in Silver Spring, MD, has six regional
+headquarters that provide policy and guidance to the WFOs and RFCs. Each of these
+headquarters also staffs a Regional Operations Center (ROC) that provides tactical field office
+support and decision support to state and region-level federal partners.
+
+1.2.
+
+Purpose of Assessment Report
+
+The NWS may conduct national service assessments for significant hydrometeorological,
+oceanographic, or geological events when they result in one or more of the following conditions:
+•
+•
+•
+•
+•
+
+Multiple fatalities
+Numerous injuries requiring hospitalization
+A significant impact on the economy of a large area or population
+Extensive national public interest or media coverage
+An unusual level of attention to NWS operations by the media, EM community, or elected
+officials
+
+1
+
+Service assessments evaluate NWS performance and ensure the effectiveness of NWS
+products and services in meeting the mission. The goal of service assessments is to improve the
+ability of NWS to protect life and property by identifying and sharing best practices in operations
+and procedures, recommending service enhancements, and addressing service deficiencies.
+This document presents findings and recommendations resulting from the evaluation of NWS
+performance during Hurricane Harvey, August 25–September 1, 2017. The objectives of this
+assessment were to identify significant findings and issue recommendations and best practices
+related to the following key areas:
+•
+•
+•
+•
+•
+•
+
+NWS forecasts, products, warnings, and services
+Messaging
+Storm intensification
+IDSS and partnerships
+NWS internal systems
+Fully Integrated Field Structure
+
+1.3.
+
+Methodology
+
+NWS formed a service assessment team on September 19, 2017. The 12-member team and
+subject matter experts consisted of employees from WFOs and RFCs, NCEP, NWSH, NWS
+Central Region Headquarters, U.S. Army Corps of Engineers (USACE), NOAA Office of the
+Chief Financial Officer, North Carolina Sea Grant, and the NOAA National Severe Storms
+Laboratory. The team completed the following activities:
+•
+
+•
+
+•
+•
+•
+
+Performed on-site evaluations in Texas and Louisiana from October 8–14
+o Visited and conducted staff interviews at:
+▪ WFOs Corpus Christi, TX, Houston/Galveston, TX, Lake Charles, LA, and New
+Orleans/Baton Rouge, LA
+▪ West Gulf and Lower Mississippi RFCs
+▪ CWSU Houston
+▪ Southern Region Headquarters (SRH) and SRH ROC
+o Interviewed local, state and federal EMs, other government officials and the public in the
+primary impacted areas and jurisdictions
+o Toured damaged areas from near Corpus Christi to Beaumont/Port Arthur, TX
+Conducted remote interviews with staff members of:
+o WFOs Austin/San Antonio and Brownsville, TX
+o NHC and NHC Storm Surge Unit
+o WPC
+o Environmental Modeling Center (EMC)
+o Ocean Prediction Center (OPC)
+o Office of Water Prediction (OWP)
+o Forecast Decision Training Branch
+Evaluated products, messages and other services produced by involved NWS entities
+Compiled a core list of common themes discovered during onsite and remote interviews
+Identified significant findings and recommendations to improve the effectiveness of NWS
+products, services, communication, and coordination
+2
+
+After a series of internal reviews, the report on the service assessment was approved, signed
+by the Chief Operating Officer for the National Weather Service, and issued to the American
+public.
+
+3
+
+2. Hydrometeorology
+2.1.
+
+Evolution of Storm
+
+Hurricane Harvey formed from a tropical wave that moved off of the west coast of Africa on
+August 12. The wave developed into a tropical depression east of Barbados early on August 17
+and became Tropical Storm Harvey later that day. The tropical storm moved across the
+Windward Islands on August 18 but decayed into a tropical wave the next day. The wave moved
+steadily westward, eventually crossing the Yucatan Peninsula and entering the southwest Gulf of
+Mexico on August 22. The wave redeveloped into a tropical storm on August 23, steadily
+increased in strength as it tracked northwestward and underwent rapid intensification to a
+Category 4 major hurricane on August 25 (Figure 1). NHC issued the first Hurricane Watch the
+morning of August 23 for Texas from Port Mansfield to San Luis Pass 60 hours prior to
+Hurricane Harvey’s landfall.
+
+Figure 1: Path of storm as it progressed from a tropical depression to major Hurricane Harvey.
+Source: National Hurricane Center Tropical Cyclone Report on Harvey
+
+4
+
+2.2.
+
+Wind and Tornado
+
+On the morning of August 24, data from a Hurricane Hunter aircraft indicated Hurricane
+Harvey was strengthening quickly and moving over water with anomalously warm Sea Surface
+Temperatures (SSTs) (Figure 2).
+
+Figure 2: SST observations before Hurricane Harvey’s passage. Source: NASA
+
+On the morning of August 24, NHC noted Hurricane Harvey’s forward speed would slow in
+a couple of days, due in part to high pressure sliding east from the Intermountain West. As
+Hurricane Harvey continued to encounter the anomalously warm SSTs over the northwestern
+Gulf of Mexico with fairly low vertical wind shear, it rapidly strengthened. Hurricane Harvey
+increased from a Category 2 hurricane on August 25 to a Category 4 major hurricane 12 hours
+later. The NWS issued an extreme wind warning for a major land falling hurricane with winds
+of at least 115 mph. The center of Hurricane Harvey made landfall near Port Aransas/Port
+O’Connor, TX, at 0300 Coordinated Universal Time (UTC) on August 26, with maximum winds
+estimated around 130 mph and a minimum barometric pressure of 937 millibars (Figure 3). This
+intensity resulted in significant damage to Rockport, TX, which is a coastal town 30 miles
+northeast of Corpus Christi (Figure 4). Port Aransas reported a 132 mph wind gust and Copano
+Village, TX, reported a wind gust of 125 mph (Figure 5). Since many meteorological
+observation platforms were disabled prior to the arrival of the highest winds, some of the
+observed wind speeds were likely underestimated, especially near the coast and close to the
+eyewall.
+5
+
+A total of 52 tornadoes were documented in association with Hurricane Harvey and its
+remnants, with the great majority of these events occurring across extreme southeast Texas and
+southwest Louisiana. The WFO Houston county warning area alone experienced 21 of these
+tornadoes between August 25–27. Nearly all of these tornadoes were rated EF-0 or EF-1 in
+intensity, resulting in no deaths or serious injuries and mostly minor structural damage.
+
+Figure 3: Radar images of Hurricane Harvey prior to center making landfall on San Jose Island, TX:
+left, 0.5 degree base reflectivity; right, 0.5 degree base velocity. Source: WFO Corpus Christi, TX
+
+Figure 4: Damage caused by Hurricane Harvey at Key Allegro, Rockport, TX: before (left) and after
+(right). Source: CNN article published August 28, 2017
+
+6
+
+Figure 5: Hurricane Harvey observed peak 10-meter wind gusts. Note: 152-mph gust in Rockport is a
+1-second gust, while the NWS standard is a 3-second gust. Source: WFO Corpus Christi
+
+2.3.
+
+Heavy Rain and Flooding
+
+Rainfall from Hurricane Harvey’s outer bands began on the Texas coast between Brownsville
+and Galveston on Thursday night, August 24. Hurricane Harvey’s forward speed slowed to
+about 5 mph as it approached the coastline and made landfall. The deluge continued well after
+Harvey’s center made landfall and weakened to tropical storm strength early on August 26.
+Harvey’s center then meandered northwest of Victoria, TX. Rainfall amounts over 20 inches
+were reported in the Corpus Christi area in the first 48 hours after landfall, with historic rainfall
+amounts falling between Houston and the Louisiana border. These totals were due to the
+moisture wrapping around the near constant onshore flow of Hurricane Harvey’s outer bands.
+By Sunday morning, August 27, 48-hour rainfall amounts were approaching
+25 inches in the Houston area, with most of that rain falling in a 9- to 12-hour time frame late
+Saturday night and early Sunday morning (Figure 6).
+
+7
+
+Figure 6: The 24-hour rainfall (radar-estimated) on August 27 showing widespread
+amounts of 15 inches in Austin, TX, and nearly 20 inches in Houston, TX. Source: NOAA
+
+WFO Houston issued its first of 10 flash flood emergency warnings at 9:27 p.m. CDT on
+August 26 for West Central Harris, Eastern Fort Bend, and Northern Brazoria counties. With
+saturated soils and rain rates outpacing the drainage capabilities in Houston, significant urban
+drainage flooding occurred overnight. Water levels in the bayous and streams of metropolitan
+Houston rose abruptly overnight, inundating structures, washing out roads, requiring high-water
+rescues, and forcing residents to seek shelter on higher ground (Figure 7). Harris County, TX
+(Houston), Judge Ed Emmett put out the following statement for assistance: “If you have a boat,
+we need your help.” Disastrous flooding impacted almost every watershed in Harris County with
+nearly 57 percent of the Harris County Flood Control District gages measuring record flooding.
+
+8
+
+Figure 7: Texas Task Force 1 water rescue squad boats move into a flooded community to rescue and
+evacuate residents impacted by Hurricane Harvey. Source: Texas Division of Emergency Management
+
+The center of Tropical Storm Harvey slowly moved east-southeast and back offshore on
+August 29–30. Heavy rainfall continued across metropolitan Houston spreading across east
+Texas from Beaumont and Port Arthur, and extending eastward toward Lake Charles, LA.
+Overall, the heaviest rainfall amounts fell between Houston and Lake Charles with numerous
+sites recording over 50 inches of rain and two locations in Jefferson County, TX, approximately
+10 miles to the southeast of Beaumont, exceeding 60 inches (Figure 8).
+
+9
+
+Figure 8: Five-day observed rainfall analysis from 7 a.m., Friday, August 25–30. Source: NOAA
+
+The primary impact from Hurricane Harvey was disastrous flooding. Cities from LaGrange,
+TX, and Victoria, TX, to Lake Charles, LA, experienced widespread flooding that cut off road
+access to some locations for weeks. Approximately 68 deaths were directly attributed to impacts
+from Hurricane Harvey, and all but three of these fatalities were due to freshwater flood
+drowning. Harris County, TX, experienced the highest number of reported fatalities with 36
+flooding deaths. According to media reports, over 1 million people were displaced in Texas with
+779,000 mandatory and 980,000 voluntary evacuations. In Louisiana, media reported 7,000
+mandatory and 133,000 voluntary evacuations. Government and local residents, the “Cajun
+Navy,” conducted more than 17,000 water rescues.
+Approximately 90 percent (60 out of the 67) of NWS river forecast locations in southeast
+Texas reached flood stage. Approximately 69 percent (46 out of the 67) reached major flood
+stage and approximately 46 percent (31 out of the 67) set flood records. The NWS issued
+more than 300 flood-related warnings. Table 1 provides a summary of flood warnings by
+type and WFO.
+
+10
+
+Table 1: Flood warnings issued between August 20 and September 10 in the area
+affected by Hurricane Harvey
+
+Areal Flood
+Warnings
+
+Flood
+Warnings
+
+Flash Flood
+Warnings
+
+WFO Houston
+
+10
+
+105
+
+741
+
+WFO Corpus Christi
+
+5
+
+12
+
+5
+
+WFO Lake Charles2
+
+2
+
+24
+
+353
+
+WFO Austin
+
+0
+
+19
+
+5
+
+WFO New Orleans
+
+0
+
+5
+
+6
+
+1
+
+This total includes 10 flash flood emergency warnings issued by WFO Houston.
+Parts of Texas (e.g., Beaumont) are included in the WFO Lake Charles County Warning Area
+3
+This total includes 3 flash flood emergency warnings issued by WFO Lake Charles.
+2
+
+Harvey destroyed 300,000 to 500,000 vehicles in Houston according to Fortune Magazine
+and Cox Automotive. The estimated cost of individually-owned cars damaged in the storm
+range between $2.7 and $4.9 billion.
+According to the Texas Department of Public Safety, 290,063 homes were damaged and
+16,930 declared destroyed. The two hardest hit counties were Harris, TX, and Galveston, TX.
+Flooding in Harris County led to the destruction of 835 homes and damage to 113,136 homes.
+Flooding in Galveston County resulted in an estimated 1,865 homes destroyed and 22,806 homes
+damaged. The Federal Emergency Management Agency (FEMA) provided individual and
+public assistance to 41 counties across Texas (Figure 9). In all, NOAA’s official estimate of
+damages was $125 billion dollars.
+Baton Rouge and New Orleans were on the eastern edge of the heavy rainfall. Although
+some streets and underpasses were flooded in New Orleans no structures were significantly
+damaged or destroyed. Some minor structure and roadway flooding was reported southwest of
+New Orleans.
+
+11
+
+Figure 9: Map of FEMA Texas Disaster Declarations by county.
+Source: FEMA Texas Hurricane Harvey (DR-4332)
+Gulf Coast oil refineries were significantly impacted by wind and water from Hurricane
+Harvey. On August 29, 14 refineries were reported to have shut down or were in the process of
+shutting down. This shutdown affected approximately 17.6 percent of the U.S. refining capacity.
+The daily loss in output capacity due to the shutdown of Gulf Coast refineries peaked on August
+29 at 4 million fewer barrels per day. Refining capacity in million barrels per day is aggregated
+into three categories: refineries shutdown (see blue in Figure 10), refineries in the process of
+shutting down (orange), and refineries operating at reduced rates (gray). As a result of this
+event, the oil companies would like to foster a closer working relationship with the NWS, U.S.
+Coast Guard, and EMs to become more situationally aware of riverine and coastal flooding,
+which impede access to refineries and their supporting infrastructure. Major flooding as a result
+of Hurricane Harvey ended around September 10, 2017, when all NWS river forecast points
+dropped below major flood stage.
+
+12
+
+Figure 10: Impacts to Gulf Coast refining capacity as a result of Hurricane Harvey. Source: U.S.
+Department of Energy
+
+2.4.
+
+Storm Surge
+
+Storm surge is an abnormal rise of water generated by a storm, over and above the predicted
+astronomical tides. Storm surge is not to be confused with storm tide, which is defined as the
+water level rise due to the combination of storm surge and the astronomical tide. Hurricane
+Harvey caused storm surge of 1 to 2 feet along the lower Texas coast and portions of South
+Padre Island in Cameron County, TX. There were higher storm surges on the middle and upper
+Texas coast. The complex geography and bathymetry of the various bays and estuaries along
+this stretch of the Texas coast led to a wide range of water levels. The highest water level of
+10.35 feet above Mean Higher High Water (MHHW) was recorded at Manchester. This was
+mainly due to excessive runoff from the Buffalo and Brays Bayou into Houston’s Shipping
+Channel. NOAA’s National Ocean Service (NOS) tide stations from the Corpus Christi Bay
+northward to Matagorda Bay, TX, recorded peak storm surge and storm tide levels ranging from
+approximately 3 to 7 feet (Figure 11). The NOS station in Port Lavaca, TX, near Corpus
+Christi, where the hurricane made landfall, recorded the highest measured storm surge, 6.71 feet,
+or a storm tide level of 7.06 feet at 5:18 a.m. CDT on August 26. Sixteen storm tide sensors
+temporarily deployed by the US Geological Survey (USGS) (Figure 12) also detected storm tide
+levels generally between 3 and 6 feet.
+
+13
+
+Figure 11: Maximum water levels (feet) measured from tide gauges along the coasts of
+Texas and Louisiana during Hurricane Harvey and areas covered by storm surge warnings
+(magenta) and watches (lavender). Water levels are referenced above Mean Higher High
+Water. Source: NHC Storm Surge Unit
+
+Figure 12: Shown are USGS sensors added to help support Hurricane Harvey operations.
+Source: USGS Flood Event Viewer, Hurricane Harvey, August 2017
+
+14
+
+Figure 13: Graph of NOS tide gage at Port Lavaca, TX. Source: NWS Advanced
+Hydrologic Prediction Service (AHPS) webpage
+
+WFO Corpus Christi staff members conducted an extensive multi-day manual survey of high
+water marks throughout the area. This survey yielded a much more extensive set of water level
+observations than could be assembled with the limited automatic gage data alone. The highest
+storm tide level observed by the NWS team within the WFO Corpus Christi area of
+responsibility was 12.5 feet, in the Aransas National Wildlife Refuge, TX. A 10-foot storm tide
+level was measured north of Port Lavaca (Figure 13) and an 8-foot storm tide level was recorded
+on the back side of Port Aransas (Figure 14). Additional manual storm tide observations of 4 to
+7.5 feet were common throughout the area.
+Storm surge-induced damage was extensive throughout the middle Texas coast, particularly
+in areas near and to the immediate northeast of Hurricane Harvey’s center landfall location.
+Numerous beachfront and waterfront homes were inundated by surge, particularly in Calhoun
+and Aransas counties, where many marinas, docks, piers, and other similar waterfront
+commercial structures were damaged or destroyed. A large number of boats were damaged or
+destroyed, usually due to beaching or being slammed against piers or other structures. Many
+roads immediately along the coast or the various bays and inlets were similarly inundated,
+leading to roadbed washouts by beach sand. Moderate-to-major beach erosion and damage was
+observed at several locations, including Copano Bay, the Port Aransas area, and along Mustang
+Island. The storm surge produced many cuts and breaches along the barrier islands throughout
+the region, as noted by NOAA overflights (Figure 15).
+
+15
+
+Figure 14: Storm tide high water mark of 3.75 feet above
+MHHW at Port Aransas High School, Aransas County, TX.
+Source: USGS Storm Event Viewer, Hurricane Harvey 2017
+
+Figure 15: Large 340 meter-long breach at the north end of Matagorda Island
+produced by storm surge and wave action during Hurricane Harvey. Source:
+USGS/NOAA Hurricane Harvey photo comparisons
+
+Storm surge levels ranged from 2 to 3.7 feet in the WFO Lake Charles area of responsibility
+with lesser amounts farther east along coastal southeast Louisiana. The WFO Lake Charles area
+reported only minor inundation of coastal roads and highways. Coastal impacts to Louisiana due
+to storm surge were mainly across Cameron Parish.
+16
+
+3. Findings, Recommendations, and Best Practices
+3.1.
+
+Operations and Decision Support Services
+
+3.1.1. Weather Forecast Offices (WFOs)
+WFOs responded in an outstanding fashion to the multi-layered impacts and dynamic
+challenges posed by Hurricane Harvey. This performance was due primarily to operational
+practices proven effective in previous tropical and high-impact events. For years, local office
+leaders in this area have emphasized the need for training and readiness with respect to tropical
+impacts. This long-term planning investment paid major dividends during this historic event.
+This performance is even more noteworthy given the enormous duress the WFO staffs and their
+families (particularly those at WFOs Houston and Corpus Christi) endured due to the prolonged
+flooding and wind impacts posed by Hurricane Harvey.
+WFOs Corpus Christi, Austin/San Antonio, Houston, and Lake Charles all instituted 12-hour
+staffing structures well in advance of landfall. This practice is standard at all offices facing an
+appreciable tropical threat. Each WFO made a strong effort to assign event coordinators for each
+shift. This person was responsible for ensuring the decision support, forecast, and observation
+tasks were executed effectively and that staff fatigue issues were addressed. Staff members and
+management at the impacted offices indicated this process, with few exceptions, worked very
+effectively. Much of this success can be attributed to extensive operational training response
+plans and procedures developed and exercised at these offices. WFO Corpus Christi, for
+example, used laminated task cards that clearly defined the roles of each staff member on a
+particular shift. These tools were particularly helpful for forecasters deployed to WFO Corpus
+Christi from other offices to provide additional support.
+Hurricane Harvey clearly illustrated the major shift in service emphasis that was well
+underway at many coastal WFOs for the past decade or more. Specifically, a large proportion of
+the value that local government and broadcast partners derive from NWS services comes from
+personal and group briefings, related textual and graphical briefing resources, certain social
+media activities, and other interpersonal communications – which augment officially
+disseminated text-based or grid-derived products. This assessment focused on specific partner
+response in Texas and Louisiana during Hurricane Harvey – not experiences from other storms
+in other areas. Thus, care should be taken in extrapolating these perceptions of service value to
+other coastal regions of the United States.
+
+3.1.1.1.
+
+WFO IDSS and Partner Relationships
+
+The service assessment team interviewed a broad cross-section of core local, state, federal,
+and private sector partners throughout the region affected by Hurricane Harvey. This group
+included EMs, other government officials, port managers, Coast Guard officials, and the
+broadcast media. These NWS stakeholders conveyed an overwhelmingly positive feeling about
+the IDSS delivered by their local WFO partners. Many stakeholders stated that the relatively low
+death toll from Hurricane Harvey shows that “someone somewhere got the key information they
+needed and acted on it.” Multiple EMs and other partners stated they use NWS information
+(produced by WFOs, RFCs and NCEP Centers) to drive operational decision making and hazard
+messaging to the community. While some partners stated a near total reliance on NWS
+
+17
+
+information, others mentioned that they relied on various private sector entities as
+complementary sources of information.
+Conference Call Briefings and Emails: Conference call briefings, with and without web
+conferencing and/or email briefing packages, constituted a very large and critically important
+component of the WFOs’ IDSS.
+Every WFO in the region conducted numerous conference call briefings with its partners
+over a one to two-week period bracketing Harvey’s approach, landfall, and departure from the
+region. Virtually every briefing contained most or all of the following elements: primary NHC
+track and intensity forecast information, WPC/WFO-collaborated rainfall forecasts, and a full
+local-scale interpretation of the location, timing, and magnitude of the various impacts expected
+with Hurricane Harvey. Partners stressed the importance of establishing a daily battle cadence
+with these calls.
+In addition to the briefings led by WFOs (conducted up to several times per day before and
+following landfall), staff members took part in many other calls being led by local, county, state,
+or federal EMs or government officials, water community partners, and transportation, energy
+and media stakeholders. For example, WFO Houston delivered a large number of tailored
+marine-oriented briefings to the Houston area Port Coordination Team and the Navigation
+Restoration Team. Each of these teams, in turn, had a diverse cross section of public and private
+stakeholders associated with the Port of Houston, one of the largest economic engines in Texas
+and the country. WFOs Corpus Christi and Lake Charles provided similar briefings to their port
+interests in advance of and following Hurricane Harvey’s impacts. Many of these calls were
+focused on recovery efforts and persisted well after the end of the storm.
+The volume and duration of this briefing load was taxing at times. Fortunately, most of the
+offices were able to distribute the calls among multiple members of the WFO team. While the
+majority of calls were conducted by WFO management, particularly the Warning Coordination
+Meteorologists (WCM) and Service Hydrologists (SH), forecasters also led a significant number
+of calls. For example, the SHs at WFOs Houston, Lake Charles, and Austin/San Antonio
+conducted or participated in many flood-related calls during the event, and the Marine Focal
+Point for WFO Houston led a large number of port and marine-related calls.
+Best Practice: Many of the WFOs distributed the conference call and briefing load beyond the
+management team, to include SHs and other members of the WFO. This force-multiplier effect
+enabled the offices to engage more partners more frequently with a richer set of IDSS content. It
+also somewhat reduced fatigue on the part of the management teams.
+Each of the affected WFO managers and some staff members had well-established
+relationships—in many cases, “deep relationships”—with elected officials, EMs, media, and
+other community partners before Hurricane Harvey occurred. These relationships facilitated
+communication of critical weather information and appropriate partner response as the storm
+progressed. In particular, WCMs at each of the affected WFOs shared close relationships with
+many of their EM and media colleagues. These strong relationships facilitated the quick
+interpersonal transmission of critical IDSS needed for vital community-based decision making.
+Several government partners cited specific instances where NWS personnel called or texted them
+at critical junctures. For example, the Rockport City, TX, EM stated that during the eyewall
+18
+
+passage of Hurricane Harvey, the Corpus Christi WCM texted him to let him know when he
+would be able to send out responders to rescue stranded members of the public. The WCM told
+him how long they had to rescue stranded residents within the calm of Hurricane Harvey’s eye
+before the hazardous conditions resumed.
+Much of this relationship building at WFOs Corpus Christi, Houston, and Lake Charles is a
+product of the frequent EM safety tabletop and full-scale exercises and meetings held with the
+marine transportation and energy industries. These WFOs have a long tradition of taking part in
+these preparedness activities, which are essential in light of the unique hazardous material risks
+in the region. Like many WFOs throughout the NWS, all of the affected offices also host official
+Integrated Warning Team meetings, comprising of the WFO, media members, and various
+emergency response stakeholders from the public and private sectors. These meetings are held
+regularly throughout the year, providing a further opportunity for partners and WFO staff to
+enhance relationships.
+Best Practice: The WFOs well-established relationships with local elected officials, local
+media, EMs, and other community partners before Hurricane Harvey facilitated communication
+of critical IDSS before and during the storm.
+Off-Site IDSS: Compared with the vast amount of IDSS the WFOs conducted in their
+offices, the amount of off-site (e.g., at partner venues such as Emergency Operation Centers)
+IDSS provided during Hurricane Harvey was relatively limited. Off-site IDSS was restricted by
+staff resources, but primarily due to the efficiency of remote delivery IDSS. WFO Corpus
+Christi deployed staff members to the Victoria and Corpus Christi EOCs. The Corpus Christi
+EM stated it was invaluable to have the NWS meteorologist there for four days, adding the EM
+office could coordinate better with the other EOCs because of this in-house meteorological
+support. The Victoria EOC personnel stated they derived great value from these forecaster
+deployments during high-impact events and strongly urged their continuation. Finally, WFO
+Houston is co-located with the Galveston County EMA and thus an appreciable amount of onsite information was conveyed to that stakeholder.
+The Effective Hurricane Messaging (EHM) course, conducted yearly as a collaborative effort
+by various members of the NWS tropical community, proved to be effective in preparing WFO
+meteorologists for both on-site and WFO-based IDSS activities. Multiple WFO and SRH
+personnel have cited a direct link between this course and the improvement of the NWS’s
+tropical weather IDSS effort.
+Finding 1: The EHM course has a strong direct benefit to the improved delivery of
+tropical weather IDSS.
+Recommendation 1: The NWS should allocate training resources for additional EHM courses
+prior to each tropical weather season or seek creative alternatives for offering this training
+content to local WFO personnel.
+
+19
+
+NWSChat: NWSChat has been mentioned in previous service assessments dating to the
+early 2000s and remains a critical tool for direct communication between NWS offices and their
+core partners. The WFO chatrooms were used extensively during Hurricane Harvey. Numerous
+EMs used this tool to see what WFO meteorologists were thinking ahead of time and were able
+to incorporate this knowledge into their operations. Multiple media partners also mentioned that
+NWSChat is their primary method of communication with the WFO. One media partner
+discussed how he was able to see where the eye of Hurricane Harvey was live-on air as a result
+of real-time information on NWSChat from a tablet at the broadcast desk. NWSChat also helps
+media partners provide better coverage by disseminating real-time storm damage and helping
+these partners decide when to send news crews to a specific location.
+Social Media: Social Media, specifically Facebook and Twitter, was a major asset and a
+major workload for all the affected WFOs. WFOs Houston/Galveston, Corpus Christi, Lake
+Charles, and Austin/San Antonio each dedicated at least one staff member 24/7 to social media
+roles. Each affected WFO distributed a large amount of NWS impact information via Facebook
+and Twitter, but also spent considerable time responding to specific questions from the public
+concerning the storm. Social media was also an extremely effective vehicle for identifying
+exactly what impacts were occurring at specific locations within the affected areas. WFO
+Houston’s social media following doubled during the event and WFO Corpus Christi nearly
+doubled its number of Twitter followers. WFO Lake Charles increased its Twitter page
+following by roughly 5,000 people. WFO Houston’s social media had millions of readers, with
+the President of the United States retweeting one of its tweets during Hurricane Harvey
+(Figure 16).
+
+Figure 16: NWS Houston Tweet retweeted by President
+Trump. Source: NWS Houston
+
+20
+
+Social media was a highly effective vehicle for sharing briefing packages with the public
+similar to the ones provided to core partners. Much of the core forecast track/wind intensity,
+storm surge, rainfall and flooding content developed collaboratively between NHC, WPC, and
+the WFOs/RFCs was repackaged and distributed via WFO social media accounts.
+WFO Lake Charles was a formal NWS test site for Facebook Live and this resource was used
+frequently and effectively during Hurricane Harvey. The WFO conducted 19 Facebook Live
+sessions, with an average of 19,000 direct views each. In addition, WFO Lake Charles, the
+Calcasieu Parish Office of Emergency Preparedness, and a local TV station teamed up to do
+weather briefings that were streamed live on the media member’s Facebook Live account. A
+substantial amount of positive feedback was gathered from local EMs and elected officials on the
+use of this resource. Other WFOs in the impacted region specifically mentioned that access to
+Facebook Live would have enhanced their ability to communicate more effectively with
+the public.
+Best Practice: The use of Facebook Live by WFO Lake Charles elicited significant praise for
+communicating live updates to partners and the general public.
+WFOs received numerous specific requests for assistance from residents via their social
+media feeds. In particular, WFO Houston staff discussed being “shocked” that so many people
+were asking for high water rescues directly on the WFO Houston Facebook and Twitter feeds.
+As one staff member mentioned: “People were begging for help.” Figure 17 illustrates one
+example of a public request in response to a WFO Facebook post.
+WFO Houston Facebook Post on August 27, 2017: “This is an extremely dangerous and
+life-threatening situation. Do not attempt to travel unless you are fleeing an area subject to
+flooding!”
+Public Citizen’s response: “My family in Baycliff have waist-high water inside their onestory home located right next to the Baycliff Courthouse off of Grand. Do they just sit there
+and wait it out?”
+Figure 17: WFO Houston/Galveston Facebook post. Source: WFO Houston/Galveston, TX
+
+Even though all WFOs effectively used social media during the event, they all agreed that
+with additional resources, they could have offered even more effective information via these
+outlets. Some offices do not have a specific, consistent strategy for integrating social media into
+their communications plan during high-impact events, but they felt such a plan would be
+valuable in the future. The allocation of staff during these events remains a challenge. WFO
+managers stated they ideally would like to dedicate even more local resources to the
+development of graphics and other special content for social media and web pages; however,
+such allocations must be balanced against the need to resource all other members of a WFO’s
+mission during a high-impact event.
+
+3.1.1.1 WFO Official Products
+Two categories of Advanced Weather Interactive Processing System (AWIPS)-issued
+“official” products required much of the time and attention of local WFO staffs: tropical weather
+text and web graphic products derived from the National Digital Forecast Database grids and
+short-fused convective warnings.
+21
+
+Tropical Product Suite: Staff at coastal and adjacent inland WFOs spend considerable
+amounts of time each year implementing tropical-related AWIPS software, procedural and policy
+updates, and taking training programs on how to use the software effectively. This major time
+investment by local Science and Operations Officers (SOO), Information Technology Officers
+(ITO), and AWIPS and Tropical Focal Points pays off by enabling forecasters to navigate the
+tropical Graphical Forecast Editor (GFE) processes successfully. Each office has created special
+reference materials in an attempt to streamline the various GFE actions that must be executed.
+WFO Corpus Christi created a one-page, GFE cheat sheet that has been replicated at other
+coastal offices. Despite the presence of resources such as this one, there were inevitable system
+issues during Hurricane Harvey that required assistance from SRH and members of the national
+tropical weather training community. This problem has been a common occurrence during
+tropical systems over the past several years.
+At least one forecaster at each affected WFO was dedicated to the tropical product suite
+during Hurricane Harvey. On occasion at some offices, multiple forecasters were creating and/or
+editing GFE-related tropical products. Numerous steps and attention to detail are required to
+execute these tasks, despite the availability of tip sheets and other resource guides. In addition,
+these products require a significant amount of coordination with adjacent offices and NHC staff.
+Multiple WFOs affected by Hurricane Harvey specifically cited the workload required to
+produce the local tropical product suite.
+Fact: Executing the NWS local tropical product suite requires a significant staffing investment,
+both during storms such as Hurricane Harvey and in pre-season training and software preparation
+activities.
+The service assessment team thinks that staff resource investments must be balanced against
+the service benefits derived from the NWS tropical product suite. Identifying a successful costto-benefit ratio for these products was difficult during this assessment. Numerous partners were
+queried regarding their use of the Hurricane Local Statement (HLS) and other locally-generated
+text and graphical tropical products. Responses revealed the HLS was not consistently used by
+this segment of the community during Hurricane Harvey. Rather than accessing storm
+information from these products, government partners stated they relied almost exclusively on
+NWS content from email briefings, conference calls, and other IDSS delivery mechanisms. Only
+a small minority of media respondents in the Texas and southeast Louisiana area said they used
+the HLS during Hurricane Harvey. The partners interviewed also did not report significant use
+of other products from the WFO tropical forecast suite. It is unclear whether this lack of use is
+an issue specific to the western Gulf Coast WFOs, and just during Hurricane Harvey, or a
+broader issue affecting additional WFOs. It is also possible that the large magnitude of the
+dominant rain hazard could explain the decrease use of the HLS with Harvey.
+Finding 2: The HLS and other GFE-driven local tropical products were not widely used by the
+media and other core partners during Hurricane Harvey.
+Recommendation 2: Local offices, Regional Headquarters, and the NWS Tropical Program
+should determine whether partners’ lack of use of local tropical products was peculiar to
+Hurricane Harvey or represents a broader condition affecting other coastal areas.
+22
+
+Short-Fused Convective Warnings: Within the primary Hurricane Harvey impact area, WFOs
+Austin/San Antonio, Corpus Christi, Houston, Lake Charles, New Orleans, and Shreveport
+issued a combined total of 372 tornado, flash flood, and severe thunderstorm warnings from
+August 25–30, 2017. In addition, a few coastal offices issued a large number of short-fused
+marine weather warnings. As evidenced by the large number of warnings, these offices invested
+a tremendous amount of staff time on radar-based warning decision-making and the issuing
+short-fused warnings. Timely and specific flash flood warnings (FFW) and flash flood
+emergencies, particularly in the Greater Houston and Beaumont/Port Arthur areas, were credited
+by government and media partners with motivating public action and saving numerous lives.
+Tornado warnings (TOR) comprised the majority of short-fused convective warnings issued
+during Hurricane Harvey. Across all of Southern Region (SR), 14 WFOs, extending from Texas
+to Tennessee and Georgia, issued 311 TORs in conjunction with Hurricane Harvey and its
+remnants. WFO Houston alone issued 157 TORs, from August 25–28, while WFO Lake Charles
+issued 61 tornado warnings. Many of these warnings were issued repeatedly for identical
+locations, coincident in time with FFWs and river flood warnings. Figure 18 depicts all of the
+tornado warning polygons associated with Hurricane Harvey from August 25–31, 2017. The
+cumulative verification statistics for all tornado warnings issued by the six WFOs in the primary
+Hurricane Harvey affected region are as follows:
+●
+●
+●
+●
+
+Total tornado warnings: 232
+Probability of Detection: 63 percent, Fiscal Year (FY) 2017 National Average: 59 percent
+False Alarm Ratio: 90 percent, FY17 National Average: 72 percent
+Average Lead Time: 7 minutes, FY17 National Average: 8.7 minutes
+
+The high False Alarm Ratio, short Average Lead Time, and great frequency of spatial
+repetition resulted in concerns about the effectiveness of the TORs issued during Hurricane
+Harvey. Responses from EMs and the public reflect a mixed picture however. While some EMs
+stated that “warning saturation” caused them to tune out the messages (and in some cases, turn
+off their notifications), other respondents (among both EMs and the public) did perceive a value
+to the TORs, despite their frequency. They felt the incessant warnings woke people up and
+motivated them to maintain a higher level of overall weather situational awareness. This
+increased awareness in turn enabled them to better protect their property or evacuate when the
+need arose. It is also important to recognize that 23 tornadoes were verified in the Greater
+Houston Area over a 3-day period during the event, a significant frequency that proves the
+hazards did exist. WFO Houston detected 88 percent of these tornadoes and issued TORs for
+them.
+
+23
+
+Figure 18: Tornado warning polygons issued by WFOs for August 25-–31.
+Source: NWS Performance Management website
+
+The persistent banding surrounding the center of Hurricane Harvey produced a very
+favorable environment for short-duration tropical tornadoes. This situation was well diagnosed
+by WFO Houston forecasters and certainly by the Storm Prediction Center, which maintained
+Tornado Watches over Houston for at least 60 continuous hours; however, the sheer number of
+shallow, fast moving velocity couplets forming within these bands, particularly across southeast
+Texas, created significant warning challenges. While the coastal WFOs provide adequate
+training in the detection of individual tropical tornadoes, some forecasters indicated the scale and
+duration of these events, and the extended radar shifts dedicated to their detection (and to
+simultaneous flash flood detection), was physically and mentally taxing.
+In addition to the large number of TORs, WFOs also issued 134 FFWs during Hurricane
+Harvey. The vast majority of these FFWs were issued by WFOs Houston and Lake Charles, and
+many coincided with TORs in effect for the same areas. Again, both positive and negative
+public response impacts emerged from partner feedback regarding these multiple warnings. A
+strong perception did exist, however, that the FFWs resulted in lives saved – a conclusion
+bolstered by the relatively low fatality total for Hurricane Harvey.
+
+3.1.1.2
+
+WFO Administrative Processes
+
+WFO Corpus Christi management noted that most of their staff members evacuated their
+families because of the hurricane hazards expected in their residential areas. Four employees’
+families qualified for NOAA evacuation reimbursement due to formal evacuation orders issued
+by local government authorities. In Texas, these mandatory evacuation zones are tied to storm
+surge, and are very limited in areal extent. As a result, no other WFO families lived in formal
+evacuation zones, and thus did not qualify for NOAA reimbursement. During subsequent
+24
+
+tropical events in 2017 there was more latitude in providing reimbursements to employees and
+families.
+Finding 3: WFO staff members and their families incurred a financial burden as a result of
+limitations in NOAA evacuation pay policies. NOAA’s evacuation policies were also
+inconsistent throughout the course of the season, impacting employee morale.
+Recommendation 3: NWS CFO should work with NOAA to clarify, clearly communicate, and
+ensure a consistent application of the evacuation pay policies for employees and dependents
+before high-impact events.
+
+3.1.2. River Forecast Centers (RFC)
+Owing to the overwhelming hydrologic impacts – and decision support needs – arising from
+Hurricane Harvey’s epic rainfall, the WGRFC and the Lower Mississippi River Forecast Center
+(LMRFC) were critical components of the NWS response from well prior to landfall to many
+days following its dissipation.
+WFOs and government partners in the severely affected regions of southeast Texas stated
+that the strong support and collaboration provided by WGRFC was critical to their operations
+during Hurricane Harvey. The long duration of these high-impact operations challenged the
+WGRFC staff. Management did request assistance (via SRH) early on, and ultimately utilized 3
+personnel from other RFCs throughout the event. This did help mitigate staff fatigue and
+ensured that critical operations were resourced successfully. At the same time, a well-defined
+onboarding and familiarization process was not in place at WGRFC. As a result, it took varying
+amounts of time for the deployed personnel to get fully established on the WGRFC network and
+AWIPS systems, and to become familiar with the RFC’s operations.
+On August 23rd, WGRFC provided daily Hurricane Harvey briefings which highlighted the
+outlook for significant river flooding (Figure 19). Non-routine river forecasts, generated only
+during high flows/flooding situations, were issued on 30 consecutive days, beginning August 25
+and ending September 24. Prior to August 25, there were no river forecasts for the non-routine
+forecast locations on the AHPS Hydrograph Web Pages (Figure 20). WGRFC did highlight the
+devastating flooding expected for Texas and Louisiana in their Harvey IDSS Briefings to
+partners (Figure 21) and in the Significant River Flood Outlook product.
+
+25
+
+Figure 19: Left, the Significant River Flood Outlook product issued on August 24 by the WGRFC
+indicating moderate or greater flooding likely. Right, the Excessive Rainfall Outlook issued on the same
+day with areas showing a moderate risk of exceeding flash flood. Source, WGRFC
+
+Figure 20: NWC Briefing on August 25. Source, NWC
+
+26
+
+Figure 21: WGRFC DSS for Core Partners on August 25. Source, WGRFC
+
+3.1.2.1.
+
+RFC Products and Inputs to the Forecast Guidance
+
+WFOs and external partners alike provided significant positive feedback on the quality of
+RFC forecasts, particularly given the unprecedented magnitude of the flooding. EM and levee
+improvement district officials from Fort Bend County, Texas (west of Houston) specifically
+praised the quality of WGRFC’s forecast for the Brazos River at Richmond, which crested over
+10 feet above flood stage on September 1, 2017. Over 200,000 residents were under an
+evacuation order, contingent on the WGRFC forecast crest at Richmond. Multiple conference
+calls were held between county officials, the WFO Houston SH, and personnel from WGRFC,
+during which extensive forecast and confidence information was conveyed to the partners. The
+EM for Fayette County, Texas also stated that deterministic and probabilistic stage information
+produced by WGRFC – and communicated and interpreted by WFO Austin/San Antonio – was
+extremely useful in her decisions to evacuate flood-threatened residents in LaGrange, Texas.
+Probabilistic Quantitative Precipitation Forecasts (PQPF): The WGRFC produces an
+ensemble river forecast product graphic based on 72 hours of WPC's PQPF. During Hurricane
+Harvey, these hydrographs provided extended guidance beyond the official WGRFC river
+forecasts (Figure 22, left). Although WFOs and the SRH ROC found the PQPF graphic an
+extremely valuable tool when forecasting the expected major flooding (Figure 22, right), there
+are limitations to the spatial and temporal distribution of the PQPF. The Hydrologic Ensemble
+Forecast Service (HEFS) is the preferred NWS approach for producing reliable and skillful
+ensemble streamflow forecasts (see reference to HEFS in these previous service assessments’
+recommendations: 2008 Midwest Flood #15, 2011 Mississippi Flood #19, and 2011
+Missouri/Souris Floods #34). Until RFCs implement HEFS at river locations, the PQPF product
+will be used to support improved situational awareness and meet critical trusted partner/customer
+needs to better understand potential flood scenarios. PQPF complements HEFS in that PQPF
+provides more general uses of how much rainfall is likely and possible.
+27
+
+Figure 22: WGRFC IDSS sample hydrograph and graphic based on WPC PQPF.
+Source: WGRFC
+
+Finding 4: Although the ensemble forecast hydrographs based on PQPF were found to be useful
+by WFO Houston and core partners, HEFS is the preferred NWS approach for producing reliable
+and skillful ensemble streamflow forecasts.
+Recommendation 4: The NWS should continue to implement HEFS at additional river forecast
+locations.
+QPF: Both the WGRFC and the LMRFC issued river forecasts with QPF amounts that
+extended 12 and 24 hours into the future, respectively. During significant regional hydrologic
+events with higher than normal confidence, each RFC transitions to a longer term QPF forecast
+window. During Hurricane Harvey, both offices transitioned to a 72-hour QPF window on
+Friday, August 25. Results of the extended QPF input window were reflected in the next river
+forecast model runs, with many sites forecast to experience major flooding. EMs and river basin
+managers understand and concur with 12 and 24 hours of QPF when there is high uncertainty in
+rainfall; however, extending the QPF beyond 24 hours for Harvey was appropriate.
+Use of National Water Model (NWM) by the RFCs and WFOs: The NWM is generated
+on the Weather and Climate Operational Supercomputing System and provides forecast guidance
+that augments the official NWS river forecasts provided by the RFCs. RFC and WFO personnel
+stated that they examined NWM guidance throughout the event. However, they cited the
+presence of high flows at some points, combined with significant run-to-run variability, as
+reasons for decreased confidence in the output during the event. Given these concerns, the field
+offices did not incorporate the NWM products into their hydrologic IDSS to core partners during
+Hurricane Harvey. Instead, WGRFC, the WFOs, the SRH ROC, and NWS personnel deployed
+to the Texas State Operations Center (SOC) worked diligently to maintain a consistent message
+by adhering to the official river forecasts and ensemble information provided by WGRFC (and in
+Louisiana, from LMRFC).
+Despite this common messaging effort, the presence of NWM output in the public sphere was
+perceived by field personnel to have created some degree of confusion. Academic subject matter
+experts present in the SOC during Hurricane Harvey distributed NWM guidance to state decision
+makers, leading to questions of interpretation from the partners. A NWS hydrologist, deployed
+28
+
+to the SOC to provide hydrologic IDSS, spent significant time explaining various differences
+between the official WGRFC forecasts and the NWM output. This activity distracted the
+hydrologist from other IDSS duties and is perceived to have impacted the partners’ overall
+understanding and confidence in all NWS hydrologic forecasts. In addition, during this high
+intensity event, key WGRFC staff members were pulled away from their primary missions to
+handle questions and concerns related to differences between NWM guidance to WGRFC
+official river forecasts. The Office of Water Prediction did host daily coordination calls
+involving the National Water Center (NWC), WPC, WGRFC, the SRH ROC, Texas Division of
+Emergency Management (TDEM), and the USACE to answer questions about the NWM
+guidance and related products.
+Finding 5: The observed run-to-run inconsistencies during Hurricane Harvey created an extra
+workload for WGRFC and other field entities involved in the provision of IDSS to partners.
+Some partners expressed uncertainty about official NWS river forecasts, given their
+discrepancies with the NWM output.
+Recommendation 5: RFC forecasts are the official source of river forecast information. All
+RFCs and OWP should work together to gain a better understanding of NWM strengths and
+weaknesses and should continue to communicate their model guidance needs while aligning
+messages for consistency.
+
+3.1.2.2.
+
+RFC Communications, IDSS, and Relationships
+
+Dam break: The WGRFC issued a dam break forecast for Louisiana’s Vernon Lake. Since
+the WGRFC did not have an Emergency Action Plan (EAP) with inundation map for these
+circumstances, they needed to conduct a dam break analysis using DSSWISE to simulate flood
+waves resulting from this dam incident. This dam break analysis increased WGRFC’s
+confidence in the flood forecast and understanding of the potential downstream impacts. The
+Decision Support System for Water Infrastructure Security (DSS-WISE) tool is available to
+federal agencies, dam-safety stakeholders, and state dam-safety offices through the funds and
+support of FEMA and the University of Mississippi’s National Center for Computational
+Hydroscience and Engineering. This tool includes a two-dimensional numerical flood model
+with web-based geographic information system (GIS) decision support that can rapidly model
+dynamic, unsteady flows due to dam break or a flood hydrograph and also has the ability to share
+EAPs with inundation maps. (See Appendix C, Finding 12 and Recommended Action of The
+Historic South Carolina Floods of October 1–5, 2015, Service Assessment).
+GIS Support: While the WGRFC staff stated that GIS data coming into the office was vital,
+its sheer volume was overwhelming. This data primarily consisted of satellite and aerial
+imagery. These large raster files present a considerable challenge to process, review, and
+manage. Better data assimilation methods are needed to use these resources effectively during a
+flood event. GIS resources to manage and analyze field reports of flooding and damage to
+infrastructure would assist IDSS activities, including the creation of maps and graphics for social
+media and briefings. These resources need to be embedded at the RFCs and WFOs for
+GIS/IDSS support during events.
+Finding 6: WGRFC needed additional GIS resources to keep pace with the data demands
+imposed by Hurricane Harvey.
+29
+
+Recommendation 6: Additional GIS resources should be available to WFOs and RFCs for
+high-impact events.
+Historical Flood Inundation Maps: Core partners were asked to comment on ways to
+better understand the impacts from 60 inches of rainfall. Partners noted that local communities
+have taken an active role in developing post-event Hurricane Harvey historical flood inundation
+maps to capture the historic Hurricane Harvey flooding and unprecedented rainfall. EMs and
+river basin managers stated these types of maps based on actual flood events with documented
+impacts and verified high water marks can be extremely useful in telling the story, understanding
+the impacts of extreme rainfall, and assisting in community resiliency efforts.
+Finding 7: In general, residents did not comprehend the impacts that more than 60 inches of
+rain would have in their communities. There were no existing products that could effectively
+communicate the impacts.
+Recommendation 7: When the post-event Hurricane Harvey flood inundation maps are made
+available, the NWS should link to these historic flood maps on the appropriate NWS web pages.
+Real-Time Flood Forecast Inundation Maps: Partners commented on model uncertainty
+with real-time flood forecast inundation maps and issues with these types of products. Some
+partners complained about the public’s perception that upstream reservoir operators were not
+doing enough to manage or prevent flooding in downstream communities. These perceptions
+occurred despite the fact that some of the flooding was actually quite localized in origin and
+unrelated to upstream reservoir operations. Real-time inundation maps can clarify these issues
+by including the effects from observed and planned reservoir operations as well as local origins.
+Basin and emergency managers have day-to-day needs and base operational decisions on
+events that have happened in the past 24-36 hours. The addition of real-time flood inundation
+maps to RFC/WFO daily briefings would be extremely valuable to these partners’ decisions.
+Local EMs are concerned with traffic, road safety, and debris removal in their jurisdictions.
+Those interviewed commented that more detailed road/street networks and active road/street
+closures should be included on real-time flood inundation maps. They did not use the real-time
+inundation maps shared by the Texas SOC because the maps failed to show details on the
+potential of street and road impacts.
+At the request of the TDEM Chief, the NWS Director instructed OWP to create and share
+experimental NWM-based inundation maps with TDEM. OWP developed a process to routinely
+create these new maps and coordinated with WGRFC and the SRH ROC to simultaneously
+provide them to the WGRFC, ROC, WPC, and TDEM. These real-time flood inundation maps
+were an entirely new product using a simplified procedure, known as the Height Above Nearest
+Drainage technique, to model the extent of flooding. Given OWP was asked to assume a
+temporary operational posture for the first time, and do so with 24 hours, OWP was not able to
+provide background information such as a user guide, technical guidelines, and specifications.
+TDEM stated the inundation maps were valuable, particularly in areas away from mainstem
+rivers where no other forecast inundation data were available. The NWC-produced inundation
+maps, when combined with mainstem river inundation information provided by the WGRFC and
+USACE, informed critical flood mitigation decisions. Partners who used this information
+indicated that documentation and training are required to better understand and use these maps.
+30
+
+Finding 8: The WGRFC staff had no experience with the NWM flood inundation maps and
+could not provide guidance or support for these products to core partners.
+Recommendation 8: NWS should develop background documentation and training for staff on
+the use of the NWM-produced inundation maps.
+Core partners need to fully understand the limitations of experimental products such as the
+NWM derived inundation maps prior to their use. Partners would have benefitted from NWS
+training at a local RFC/WFO workshop or tabletop exercise before being exposed to these
+products for the first time. The requirement to respond to inquiries regarding the NWM derived
+maps added an extensive workload to an already taxed WGRFC staff. Some core partners did
+question the introduction of new and unverified experimental products during an unprecedented
+flood event on the scale of Hurricane Harvey.
+
+3.1.3. National Hurricane Center Performance
+NHC responded in an outstanding fashion to the multi-layered impacts and dynamic
+challenges posed by Hurricane Harvey. This high performance was due primarily to operational
+practices proven effective in previous high-impact tropical cyclone events. This long-term
+planning investment paid major dividends during this historic event.
+Hurricane Harvey was one of 17 named storms in the North Atlantic Ocean during the busy
+2017 hurricane season and the first of five major hurricanes in continuous succession through
+September 30, 2017. Hurricane Harvey was the first Category 4 hurricane to make landfall in
+the United States since Hurricane Charley in 2004.
+The 2017 tropical season was the first year that NHC issued operational storm surge
+watch/warnings. Hurricane Harvey was the first hurricane for which these products were issued.
+Also during 2017, NHC started issuing watches, warnings, and advisories for potential tropical
+cyclones that posed a threat of bringing tropical storm or hurricane conditions to land areas
+within 48 hours. Hurricane Harvey was an excellent example of the value of these products
+because the storm attained tropical storm strength and impacted the Windward Islands less than
+48 hours after NHC issued its first Potential Tropical Cyclone Advisory for the event on August
+17.
+NHC issued the first of 43 advisories for Potential Tropical Cyclone #9 (Future Hurricane
+Harvey) at 11 a.m. AST, August 17, 2017, when the system was approximately 300 miles east of
+Barbados.
+Hurricane Harvey later dissipated in the central Caribbean Sea, resulting in a temporary end
+to advisories on August 19, 2017. The storm’s remnants tracked westward into the Gulf of
+Mexico and reorganized, resulting in a resumption of advisories at 10 a.m. CDT, Wednesday,
+August 23, 2017. This advisory included Tropical Storm and Hurricane Watches for most of the
+Texas Gulf Coast and the northeast Mexican coast. A Storm Surge Watch also was issued from
+Port Mansfield to High Island, TX.
+Best Practice: NHC issues strongly worded tropical weather outlooks the day before Hurricane
+Harvey formed. In particular, the 18Z (1 PM CDT) outlook specifically mentioned that this
+31
+
+system, “could produce storm surge and tropical storm or hurricane force winds along portions
+of the Texas coast and very heavy rainfall across portions of central and eastern Texas from
+Friday through the weekend.”
+
+3.1.3.1.
+
+NHC Track and Intensity Forecasts
+
+NHC track forecasts for Hurricane Harvey were consistent and accurate, pinpointing landfall
+north of Corpus Christi more than 48 hours in advance. Potential impacts (i.e., storm surge,
+wind, rainfall) were mentioned in the Tropical Weather Outlook beginning about 72 hours before
+the arrival of tropical storm-force winds. This achievement was noted not only by the affected
+WFOs but also by local EMs and other partners. The storm’s slowdown over southeast Texas
+and adjacent waters, which resulted in the epic rainfall event, was also well predicted.
+Unfortunately, Hurricane Harvey’s intensity forecast was far more challenging, as NHC initially
+did not expect it to rapidly intensify into the strongest storm to hit the United States in more than
+10 years.
+Signs of intensification were well underway on Thursday, August 24, and by late that day
+NHC had updated the hurricane and storm surge warnings several times to alert that the storm
+was likely to stall once it made landfall. By that morning, NHC headlines had included words
+such as “life-threatening storm surge and freshwater flooding expected.”
+The actual intensity of Hurricane Harvey increased 30 knots in 24 hours and 65 knots over
+48-hours. The wind speed probability products did show a small chance of hurricane-force
+winds at individual locations along the Texas coast, starting with the first advisory after
+regeneration. While some WFO IDSS messaging informally included the possibility of
+intensification, some local partners emphasized the adverse impact the delayed official forecast
+of higher wind speeds and surge had on their preparations.
+Model guidance did not explicitly forecast Harvey to reach hurricane strength before landfall.
+However, NHC did explicitly mention that possibility. NHC stated the expectation that Harvey
+would become a hurricane before landfall in Advisory 12, the first advisory issued when Harvey
+reformed in the Gulf (10 AM CDT 23 August - 60 hours prior to landfall). The 48-hour intensity
+forecast was for 60 knots and the Tropical Cyclone Discussion stated “Although not explicitly
+forecast below, we are anticipating Harvey being a hurricane at landfall after the 48-hour
+forecast point." The issuance of a Hurricane Watch also explicitly stated the possibility of
+Harvey reaching hurricane strength before landfall. Additionally, NHC wind speed probability
+product showed a 5-10 percent chance of hurricane force winds occurring at individual locations
+along the middle Texas coast in Advisory 12 (Public Advisory and Discussion products) (Figure
+23).
+
+32
+
+Figure 23: Cumulative probability of sustained hurricane force (64 knot) winds
+occurring at any individual location during the 120-h period ending at 7 AM CDT
+Monday, August 28, 2017, from Harvey Advisory 12. Source: NHC
+
+In Advisory 14, (10 PM CDT 23 August - 48 h prior to landfall) NHC explicitly forecast
+Harvey to reach hurricane strength at landfall.
+In Advisory 16 (10 AM CDT 24 August - 36 h prior to landfall) NHC forecast Harvey to be a
+major hurricane at landfall.
+In Advisory 18 (issued at 4 PM CDT 24 August - 30 h before landfall) NHC’s 24-h intensity
+forecast was for 110 knots. Public Advisory 18 explicitly stated that Harvey was expected to
+become a major hurricane before landfall. After this time, NHC intensity forecasts showed
+Harvey reaching 105 or 110 knots before landfall.
+Best Practice: NHC did explicitly mention the possibility and the expectation that Harvey
+would become a hurricane before landfall despite the fact that there was no model guidance
+explicitly supporting this.
+
+3.1.3.2.
+
+NHC Storm Surge Watches and Warnings
+
+Hurricane Harvey provided the first opportunity for the operational use of the NWS storm
+surge watch/warning products. NHC issued its first Storm Surge Watch product at 10 AM CDT
+on Wednesday, August 23, covering the area from Port Mansfield to High Island, TX.
+Predictions included possible storm surge inundations of 4 to 6 feet along the islands and into the
+bays, with slightly higher inundation in isolated locations. NHC also released a potential storm
+surge flood map with the initial Storm Surge Watch. The map depicted a reasonable worst-case
+33
+
+scenario (i.e., a reasonable upper boundary) of the flooding of normally dry land at particular
+locations due to storm surge.
+Forecast inundation values of 6 to 12 feet Above Ground Level in the region from the north
+entrance of the Padre Island National Seashore to Sargent were indicated in Advisory 18 (30 h
+before landfall). These inundation values remained constant until Advisory 22 (4 PM CDT 25
+August - 6 h prior to landfall) when the area from Port Aransas to Port O’Connor was specified
+with a forecast of 9 to 13 feet of inundation. Figure 24 shows the first Storm Surge Watch
+issued from Port Mansfield to High Island, highlighted in pink on the right graphic.
+
+Figure 24: NHC products issued at 10 a.m., Wednesday, August 23. Source: NHC
+
+NHC issues a potential storm surge flooding map whenever a storm surge watch or warning
+or a hurricane watch or warning is in effect for any portion of the Gulf of Mexico or Atlantic
+Ocean coasts of the continental United States. Product descriptions note that after NHC issues a
+storm surge watch or warning, there is a 60 to 90 minute delay in the corresponding potential
+storm surge flood maps.
+The storm surge watch/warning text products list forecast water levels above normally dry
+areas near the coast if the peak surge occurs at high tide. The graphical potential storm surge
+map is an online map with detailed forecast total-water-level information. The depths shown on
+the maps represent total water levels (10% chance of being exceeded).
+Several WFOs noted inconsistencies between the potential storm surge maps and statements.
+Some locations exhibited a 2 to 4 foot difference between the map and statement. In addition to
+site-specific differences, the WFOs often observed that the manual values in the NWS text
+products were higher than the potential storm surge inundation graphic. This caused confusion
+among several EMs.
+There is a need for continuing collaboration between NHC and WFOs to maximize
+consistency and enable WFOs to spend more time on IDSS. A successful collaboration example
+during Harvey was NHC taking the lead to prepare storm surge depth grids within GFE and
+sharing them within impacted WFOs via Intersite Coordination Grids, at the request for
+assistance from WFOs. Without this ability, WFOs ingest raw storm surge guidance, named
+Probabilistic Hurricane Storm Surge, and then manually edit grids within GFE to ensure
+34
+
+consistency with nearby offices and NHC. Unfortunately, this process can prove time
+consuming and difficult, especially for forecasters not familiar with storm surge guidance,
+vertical datums, and the tropical suite of tools within GFE. Instead, NHC manually created
+storm surge grids based on their expertise and coordination with WFOs. This step ensured that
+WFOs initiated their procedures using a grid which was already coordinated thus eliminating the
+need for WFOs to manually adjust/edit storm surge grids. The process proved successful and
+WFOs asked NHC to continue producing grids during the entire event. This support helped
+improve consistency among products issued by NHC and WFOs. In addition, it allowed WFOs
+to spend more time working with their partners to interpret the tropical products.
+
+3.1.3.3.
+
+Coordination and IDSS Activities
+
+There was effective communication and coordination among NCEP Centers and between
+NCEP and the NWS field offices. For example, NHC and WPC coordinated on the catastrophic
+flooding messaging. WPC and the NWC collaborated on IDSS to the TDEM. NHC coordinated
+with SRH on key messages much earlier in the process than it did during past events.
+In addition to the standard coordination with WPC and the affected WFOs, NHC began IDSS
+coordination with SRH and the SR ROC on the morning of August 23. On the following day,
+NHC also contacted the Chief of the TDEM to give him advanced notice on the transition from
+tropical storm to major hurricane.
+While certainly not a new problem, many NWS partners interviewed in conjunction with
+Hurricane Harvey noted that the 48-hour window for the products does not provide sufficient
+lead time to incorporate the products into their evacuation planning. In large population areas
+with complex transportation systems and other services, many EM decisions typically are made
+earlier than 48 hours before the onset of tropical storm force winds.
+Finding 9: Many NWS partners would like to have probabilistic forecast information, especially
+rainfall, in advance of the watch and warnings to make evacuation decisions.
+Recommendation 9: The NWS should provide forecast information, ideally more probabilistic
+products containing forecast confidence information (e.g., low, medium, high confidence), to
+partners at least three days prior to an event to aid with partner evacuation decisions, at the local
+level.
+Prior to landfall, a WFO New Orleans forecaster was deployed to NHC as an IDSS
+coordinator, providing needed connectivity among impacted WFOs and NHC (consistent with
+Hurricane Matthew Service Assessment Recommendation #8). One of many roles this
+coordinator fulfilled was to organize a call with the Texas-area WFOs prior to NHC’s forecast
+upgrade to major hurricane intensity. This call was instrumental in helping local WFOs consider
+the messaging changes needed when shifting from a Category 1 to Category 3 storm. This
+coordinator helped facilitate solid collaboration between NHC and local WFOs on storm surge
+warnings and other watch/warning issues. Unfortunately, this single coordination point of
+contact occasionally became overwhelmed by the large workload.
+Best Practice: A WFO forecaster with substantial tropical and IDSS experience was deployed
+to NHC to serve as an IDSS coordinator. This position unambiguously benefited both NHC and
+the WFOs alike.
+35
+
+Finding 10: During complex high-impact events, the NWS inter-office IDSS coordination
+needs to be 24/7, requiring more than one person.
+Recommendation 10: The NHC IDSS coordinator role should be clearly communicated to all
+parties involved and explicitly resourced to provide around-the-clock coverage during highimpact tropical events. (This reinforces Finding 8 of the October 2016 Hurricane Matthew
+Service Assessment, See Appendix C.)
+
+3.1.4. Weather Prediction Center
+WPC responded in an outstanding fashion in both forecasts and messaging of the
+unprecedented rainfall of Hurricane Harvey. The WPC began highlighting elevated rainfall
+totals along the Texas coast on August 19. On August 24, as Harvey was organizing in the Gulf
+of Mexico, WPC issued the first cumulative QPF forecasts for Hurricane Harvey, with maximum
+rainfall exceeding 20 inches (Figure 25, left). WPC, in collaboration with NHC, RFCs, and
+WFOs, increased amounts in the rainfall statement through time, culminating in forecasts of 50
+inches (Figure 26).
+The traditional 24-hour and multi-day QPF graphics are highly visible flagship products
+issued by WPC. Accessed via web pages, social media, and via IDSS briefing slides and email
+packages, these products were some of the most heavily referenced NWS products during
+Hurricane Harvey. The overall accuracy and value of the QPFs during Hurricane Harvey were
+quite good, particularly when placed in a historical context with tropical events of 10 to
+20 years ago. This accuracy can be attributed to the increased quality of numerical weather
+model guidance both in terms of hurricane track and intensity forecasting and global/regionalscale modeling, the ongoing native skill of WPC forecasters, and the increased collaboration
+with WFOs as part of the integrated field structure.
+Although QPF was generally accurate, it wasn’t perfect. Large-scale operational Numerical
+Weather Prediction models and WPC products had moderately over predicted precipitation totals
+along and inland of the central Texas coast. This included portions of the greater San AntonioAustin I-35 urban corridor. This over prediction is likely related to assumptions made about the
+duration and trajectory of precipitation areas near the center of the land-falling tropical cyclone.
+Farther east and northeast, the intense rainfall totals observed along the upper Texas coast,
+east central Texas, and southwest Louisiana were considerably underrepresented by WPC
+forecasts and numerical model guidance, particularly during the early phases of the event. This
+dry bias remained evident in the 120-hour QPF product issued on the morning of August 26
+(Figure 25, right). In general, the QPF centroid is displaced approximately 110 miles southwest
+of the center of heaviest rainfall, resulting in a considerable under prediction of precipitation
+amounts in the corridor between WFOs Houston and Lake Charles.
+
+36
+
+Figure 25:
+
+WPC 168-HR and 120-HR QPF contours and QPE color shadings. Source: WPC
+
+Figure 26: Evolution of Hurricane Harvey storm total maximum rainfall forecast appearing in public
+advisories. Source: WPC
+
+During Hurricane Harvey, WPC designated daily IDSS shifts, which allowed a forecaster to
+focus on communication with partners. WPC stated that additional collaboration takes time
+away from forecasting and affects the timeliness of products. WPC does not have a WCM,
+unlike other NCEP Centers including AWC, NHC, and the Storm Prediction Center. This
+service assessment team re-emphasizes the need for WPC to have a WCM as noted in
+37
+
+Recommendation 12b from the October 2016 Hurricane Matthew assessment and
+Recommendation 7 from the August 2011 Hurricane Irene Service assessment (See Appendix
+C). The WCM would coordinate messaging during extreme weather events resulting in more
+effective briefings to NWS partners, similar to the Tweet cited to be extremely helpful by the
+media: “The breadth and intensity of this rainfall are beyond anything experienced before.
+Catastrophic flooding is now underway and expected to continue for days.”
+During Hurricane Harvey, NHC distributed the tropical cyclone public advisory product.
+Once the system downgraded to a tropical depression, NHC handed off this product to WPC.
+WPC then added storm summaries to the product. WPC suggested it would be better to keep the
+two products separate for consistency since NHC does not include storm summaries in its
+tropical cyclone public advisory product.
+Finding 11: NHC and WPC effectively transitioned the tropical cyclone public advisory
+product; however, it was a stand-alone product at NHC and became a combined product with
+storm summaries at WPC.
+Recommendation 11: WPC should keep the tropical cyclone public advisory and storm
+summaries as separate products.
+Excessive Rainfall Outlooks: The WPC issued an Excessive Rainfall Outlook which
+mentioned a Slight Risk in its Day 3 outlook on Tuesday afternoon, August 22. The excessive
+rain outlooks from August 22 through September 2 depicted elevated flash flood threat levels in
+association with Hurricane Harvey and its remnant circulation. Each Day 1 graphic showed
+“High Risk” from August 24 to August 31, when rainfall impacts over Texas and Louisiana were
+the most significant.
+Figure 27 depicts a sequence of Day 1, Day 2, and Day 3 forecast graphics and observed
+analyses during the peak period of Harvey’s flooding. Similar to the spatial error trends
+observed with the QPF products, a subtle bias toward higher risk categories exists across the
+Central Texas coast through much of the event. Despite this trend, the outlooks are qualitatively
+very good. High risk outlooks are drawn over most of the area’s most heavily affected by
+devastating flooding. WFOs in the affected areas, particularly WFO Lake Charles, stated that
+these graphics were quite useful in conveying NWS’s overall confidence in the magnitude of the
+flash flooding threats. Excessive rain outlook graphics were included in many of the IDSS
+briefing packages distributed by the WFOs to their local partners.
+In an unprecedented move, WPC depicted a High Risk in its Day 3 Excessive Rain Outlook
+issued Friday afternoon, August 25, valid for the period 12 UTC August 27 to 12 UTC August
+28. This High Risk encompassed much of the greater Houston metropolitan area, where
+catastrophic flooding indeed occurred on August 27.
+Best Practice: WFOs incorporated excessive rain outlooks in their IDSS briefings to better
+convey NWS confidence in flood threats.
+
+38
+
+Figure 27:
+Excessive Rain Outlook Day 1, Day 2, Day 3 forecasts and observed.
+Source: WPC
+
+Mesoscale Precipitation Discussions: The mesoscale precipitation discussion was a third
+key precipitation-related product WPC issued during Hurricane Harvey. The mesoscale
+precipitation discussion is ideally issued 1 to 6 hours prior to the onset of flash flooding, and
+consists of both a graphic depicting an area of concern and a discussion of pertinent mesoscale
+meteorological features supporting the heavy rainfall.
+WPC issued a total of 45 Hurricane Harvey-related mesoscale precipitation discussions
+between August 25 and September 1. WPC issued 28 mesoscale precipitation discussions from
+August 26 to 30 for the Houston area alone. Figure 28 is a portion of the discussion from
+Mesoscale Precipitation Discussion #738, issued at 545 PM CDT on Saturday, August 26, a few
+hours prior to the highest impact flash flooding in the Houston metropolitan area.
+THERE IS A STRONG HIGH RESOLUTION MODEL SIGNAL FOR LOCAL 3.0 TO
+5.00+ INCH RAINFALL AMOUNTS THROUGH 0130Z OVER PORTIONS OR THE
+MIDDLE AND UPPER TX COAST (LED BY THE MOST RECENT HRRR...WHICH
+SHOWED 6.00+ INCH AMOUNTS IN BANDING BOTH WEST AND EAST OF THE
+HOUSTON METRO AREA). THE HIGHEST RAINFALL AMOUNTS ARE EXPECTED
+WHERE THE BANDING PERSISTS...AND WILL PRODUCE SIGNIFICANT FLASH
+FLOODING INTO THE EVENING HOURS.
+Figure 28:
+
+Sample mesoscale precipitation discussion. Source: WPC
+
+Recent years have seen the proliferation of high-resolution modeling, improvement of global
+models, and development of bias-corrected QPF sources, quickly advancing meteorology.
+39
+
+Meteorologists are aware of this change, especially those at WPC, who specialize in predicting
+hazardous rain events. In particular, when the weather system in question is larger in scale,
+slow-moving, and depicted consistently from one model cycle to the next such, as with
+Hurricane Harvey, confidence in the precipitation forecast may be much higher than usual. In
+the case of Hurricane Harvey, it is encouraging that this interplay worked to produce a
+coordinated message of catastrophic and life-threatening flooding with extensive lead time,
+including 72-hours of QPF in river forecasts just prior to landfall.
+The WPC also had established a strong partnership with SR forecast offices, a result of an
+increased frequency of large-scale flood events since 2014. In 2017, SR instilled a policy test
+requiring WFOs to use the WPC QPF as a starting point for forecast collaboration. The frequent
+practice by SR WFOs and WPC to discuss the QPF and excessive rainfall outlooks during
+conference calls has bolstered this relationship. WPC and NHC have strengthened their bonds,
+as have WPC and the WGRFC.
+Best Practice: With frequent practice and exchange in working across forecast service domains,
+WPC, WFOs, and RFCs were ready and able to provide consistent message and service on QPF.
+WPC played a leading role in Hurricane Harvey, even more so than for other major events,
+given the main hazard was prolific rainfall and related flooding. For decades, WPC has honed
+expertise in rainfall prediction via partnership with RFCs, WFOs, the Hydrometeorological
+Testbed and academia. WPC’s path into the integrated field structure has been a laborious one
+of building relationships, increasing exposure via numerous forecaster exchange visits and
+workshops hosted, and operationally proving its value repeatedly by example. However, WPC
+forecasters continue to struggle with an organizational framework that gives their expertise
+footing only as trusted advisors, with no real authority over the official forecast, except to make
+persuasive arguments.
+Finding 12: No single office has authority over the official QPF forecast, which can lead to
+confusion through the NWS field offices and with partners.
+Recommendation 12: NWS should explore designating a single authoritative source for QPF.
+Environmental Modeling Center: About one week prior to Hurricane Harvey’s landfall,
+global ensemble models indicated uncertainty about whether the initial remnants of Hurricane
+Harvey would redevelop after crossing the Yucatan Peninsula and make landfall in Mexico or
+the United States. After an imminent Texas landfall became clear, global and regional guidance
+signaled the potential for significant rainfall amounts in southeast Texas. EMC provided the
+model guidance and warning for a catastrophic event a few days before the event, so it was not a
+surprise for the National Centers and WFOs. The EMC Modeling Evaluation Group conducted a
+rapid assessment and coordinated effective communication between EMC model developers and
+model users throughout the NWS and the meteorological community. Through this group, in
+recent years, lines of communication have been opened between EMC and the National Centers,
+the NWS regional and local offices, and other partners to alert them of model biases and issues
+and to provide a forum for model users to report problems they have seen in EMC forecast
+systems.
+
+40
+
+Ocean Prediction Center: The OPC serves as the primary storm surge service backup
+center for NHC. During the 2017 hurricane season, technical configurations had changed which
+would have prevented backup procedures from working correctly during Hurricane Harvey,
+despite OPC's testing prior to the season. These technical configuration changes included a lack
+of monitoring for failed processes on the NCEP Compute Farm ArcGIS virtual machine and
+regular baseline software updates to the WPC AWIPS system High Performance Computing
+Network, which conflicted with the pre-established storm surge software configuration. In
+addition, updates to this AWIPS network shapefiles are still needed since that configuration is
+diverging from the supported, baseline AWIPS software.
+Finding 13: Late delivery of the AWIPS software with the baseline storm surge capabilities for
+National Centers and limited storm surge program resources prevented the NHC Storm Surge
+Unit and OPC from effectively synchronizing technical configurations and operational
+procedures to allow OPC to backup storm surge service.
+Recommendation 13: Storm surge training and drills must be resourced, scheduled, and held at
+least annually between the NHC Storm Surge Unit and OPC forecasters and development staff to
+ensure they can successfully execute end-to-end service backup.
+
+3.1.5. Southern Region Headquarters and Regional Operations Center
+While SRH, to varying degrees, has employed an Incident Command System (ICS) approach
+to high-impact events since 2011, Hurricane Harvey was the first event where ICS was used
+comprehensively. All divisions of SRH, including the Administrative Management Division and
+Systems Operations Division, suspended many of their routine functions and became fully
+integrated into this ICS structure. Twice daily operations plans were disseminated to all SR field
+offices, providing key information on SRH and affected office activities. SRH uses a multitiered tasking structure in its ROC, in which all staff members can be assigned duties according
+to their abilities as the scale of potential impacts increases. Due to the amount of remote IDSS
+deployments and ROC shifts needing coverage, many employees in the SR Operational Services
+Division (OSD) and Science and Technological Services Division worked operational shifts in
+the ROC. The incoming field ROC Duty Officer and two previous Duty Officers also provided
+valuable assistance during the event.
+Best Practice: SRH fully used the ICS structure during Hurricane Harvey. This structure
+helped staff identify and execute key support objectives, ensured that regional resources were
+properly committed, and facilitated the communication of information to the field offices.
+SR has a long history of providing IDSS to Texas state officials during high-impact events.
+ROC support to TDEM and the SOC in Austin was strong during Hurricane Harvey. The ROC
+began twice daily, webinar-based briefings to TDEM and other state agencies on Monday,
+August 21, five days prior to landfall. ROC staff began special briefings to TDEM senior
+leadership on Tuesday, August 22, and coordinated deployments of NWS personnel to Austin
+that afternoon. The ROC initially deployed one SRH meteorologist and a hydrologist from
+WGRFC two days prior to landfall. This two-person IDSS cadre was quickly augmented to four
+NWS personnel (two meteorologists, and two hydrologists) to provide round-the-clock decision
+support to TDEM leadership and the rest of the SOC staff through the bulk of the event.
+Best Practice: SRH augmented IDSS support staff at TDEM.
+41
+
+Providing IDSS support while deployed requires a deep understanding of the current forecast
+and the ability to answer questions about the hydrologic forecast model. The WGRFC Senior
+Hydrologist did not have access to the Community Hydrologic Prediction System (CHPS)
+forecast system because he was outside of the WGRFC forecast office and not on the AWIPS
+network. Instead, he relied heavily on phone calls and NWSChat with the WGRFC operations
+floor, various external resources, and his own knowledge of forecast operations to answer
+questions about forecast uncertainty.
+Finding 14: Deployed hydrologists have limited tools available to answer questions related to
+forecast uncertainty and sensitivity to forecast precipitation. As IDSS increases in scope and
+context, the ability to put the forecast modeling into the hands of the DSS advisors will become
+critical.
+Recommendation 14: NWS must provide IDSS-deployed forecasters with the proper tools to
+answer questions related to the hydrologic forecast uncertainty and what-if conditions.
+This IDSS was critically important to the SOC, but represented a large resource commitment.
+At the same time, FEMA Region VI also requested and received from the ROC on-site IDSS at
+its Regional Response Coordination Center in Denton, TX. Identifying experienced Texasspecific hydrologic expertise for rapid deployment to Austin is challenging when candidate
+personnel at WGRFC and the local WFOs are responding to the same impacts. The service
+assessment team re-enforces IDSS-related Recommendations 8 and 16 of the October 2016
+Hurricane Matthew Service Assessment (See Appendix C).
+
+Figure 29: NWS briefing slide on river trends. Source: NWS SRH
+
+One of the best ROC practices was developing a set of consistent regional briefing slide
+templates (Figure 29). Both the ROC and the local offices used these templates throughout
+Hurricane Harvey, saving time and increasing message consistency among IDSS providers.
+
+42
+
+Best Practice: The ROC developed a set of consistent regional IDSS briefing slide templates to
+promote a consistent message.
+Flood inundation maps were available from a variety of public agencies during Hurricane
+Harvey, with at times upwards of four different inundation maps available for one particular
+location. The modeling and mapping methods varied between mapping products and was at
+times confusing and overwhelming for local stakeholders.
+At a Public Assistance Boardroom briefing, FEMA, TDEM, and county EMs stated the
+Interagency Flood Risk Management (InFRM) flood inundation maps that had been provided to
+TDEM could also be used for storm damage assessments. The attendees commented that the
+InFRM maps were most representative of the timing, precision, and accuracy of the flooded
+neighborhoods. This information is crucial to determining FEMA damage estimates and
+reimbursement to the community for storm damages and debris removal.
+The Chief of Water Resources from USACE Fort Worth District cited four important rules in
+making these maps, which could be used in near real-time and post disaster recovery.
+1.
+2.
+3.
+4.
+
+Use WGRFC Forecast Flows and Stages
+Match at forecast points (stage to stage)
+Match inundation surfaces among existing maps: FEMA, AHPS, etc.
+Ignore areas with 0–1 inch of inundation (Initially 25 percent of Houston was shown as
+inundated before the shallow areas were removed.)
+
+WGRFC worked with the InFRM team to develop real-time flood forecast inundation
+mapping for Hurricane Harvey. This InFRM effort involved the USACE Fort Worth District,
+USACE Galveston District, engineering consultants, and a university partner to produce maps
+carefully coordinated with WGRFC and updated on a daily basis to reflect the current WGRFC
+crest forecasts. WGRFC also compared the maps to existing inundations maps (FEMA, AHPS),
+evaluated with local rating curves, and reviewed for consistency with other available data. These
+checks were critical to provide consistency with existing available information. The RFC
+provided 11 AHPS flood inundation maps to TDEM, where they were used for planning
+purposes prior to and during the event for the high-impact areas. TDEM commented on the
+value of having these mapping data available in GIS format.
+The USACE-Fort Worth District has completed a draft report entitled Hurricane Harvey
+Flood Inundation Mapping – After Action Report lessons learned, which detailed major
+findings from the InFRM team.
+Finding 15: Flood inundation maps were available from multiple government sources. Users
+were often confused about the differences between the available maps and did not have any clear
+guidance on which maps to use.
+Recommendation 15: The NWS should work with national IWRSS Partners and local
+partnerships, such as InFRM, to understand the strengths and weaknesses of different available
+flood inundation maps and work towards providing best available information with guidance on
+its use.
+43
+
+3.1.6. Center Weather Service Units
+CWSU Houston provided numerous briefings to FAA partners prior to Hurricane Harvey
+disrupting the National Airspace System. CWSU Houston forecasters provided daily briefing
+slides to FAA partners within the Houston airspace, but this increased to three briefings per day
+on August 22. To ensure a consistent message, CWSU forecasters used slides prepared by WFO
+Houston/Galveston and tailored those slides with additional aviation-related impacts and timing
+for FAA partners. These actions by the CWSU personnel reduced exposure for loss of life and
+property. Flight routes and flights started closing on August 22. FAA facilities staff avoided
+traveling in flooded areas based on river forecasts provided in briefings. Schedules for the
+facility staff were augmented so they would not travel when tropical storm winds or stronger
+were forecast. FAA radars were taken off their gears in advance of the arrival of Hurricane
+Harvey to mitigate damage.
+Excessive rains in the Houston area on Saturday night, August 26, flooded the home of one
+CWSU employee, and road flooding prevented other CWSU staff from working, amplifying
+understaffing. One CWSU staff member slept in the office for two nights because he could not
+get home. One employee covered both shifts for several days with CWSU Fort Worth providing
+backup 2 hours per day from Sunday, August 27, through Wednesday, August 30. There are
+limited qualified options available to fill an absent CWSU position. The service assessment
+team reinforces Recommendation 8 of the Historic Nor’easter of January 2016 Service
+Assessment (See Appendix C).
+During the recovery process after a natural disaster, employees from other NWS offices
+should be deployed by their NWS Region to the impacted office to temporarily relieve staff
+whose families were directly impacted by the disaster. The service assessment team reinforces
+Finding 16 of the October 2016 Hurricane Matthew Service Assessment (See Appendix C).
+
+3.1.7. Office of Water Prediction
+As was stated earlier, the TDEM Director contacted the NWS Director and requested that
+OWP assume an operational posture and provide real-time flood forecast inundation mapping
+information and other NWM-based guidance. This occurred on the morning of Sunday, August
+27. Absent personnel to staff the NWC Operations Center, the OWP is focused primarily on
+research and development and research to operations activities. To respond to this request, the
+OWP mobilized personnel at the NWC and worked to begin transmitting the requested products.
+The NWM-based guidance products included “worst case forecast inundation maps,” for the next
+five-day period using the Medium Range GFS-forced NWM and again using the Short Range
+HRRR-forced NWM. In conjunction with other information provided by the WGRFC and the
+USACE, these NWM-based guidance products were used by TDEM to position evacuation
+areas, to stage resources, and to ensure that relief activities were located safely outside of the
+areas of likely flooding. Figure 30 provides a sample of these NWM-based Experimental Flood
+Inundation Maps.
+
+44
+
+Figure 30: NWM-based experimental flood inundation maps. Source: OWP Geo-Intelligence
+
+OWP also provided additional guidance (Figure 31) that contributed to an understanding of
+the flood severity and communication of extreme flooding across the Texas-Louisiana region.
+
+Figure 31: NWM experimental guidance. Source: OWP Geo-Intelligence Division
+
+The NWM expanded hydrologic guidance (experimental) to a large number of stream reaches
+(2.7 million), providing river discharge information at these locations. The model provides
+analyses and forecasts for a full suite of water budget variables and its channel routing scheme
+produces discharge/river flows. Although these river flows can be converted to stage using postprocessing techniques such as the application of synthetic rating tables, WFOs and core partners
+consistently commented that forecast river stage should also be provided with the output.
+Finding 16: The current version of the NWM provides river discharge information, but users
+also need river stage information.
+Recommendation 16: The OWP should include stage and discharge information in its NWM
+output.
+
+45
+
+3.2.
+
+Fully Integrated Field Structure
+
+NOAA’s performance during Hurricane Harvey demonstrated NWS’s ability to adapt,
+exercise NOAA’s capability, and stretch the organization’s capacity to leverage a Fully
+Integrated Field Structure (FIFS). The Operations and Workforce Analysis (OWA)
+recommended FIFS to make more efficient use of existing resources and increase focus on IDSS
+before, during, and after extreme weather, water, and short-term climate events.
+NOAA and NWS management recognized the increased need for national, regional, and local
+offices to support each other as Hurricane Harvey developed, evolved, and transformed. With
+multiple offices spread across different scales, scope, and areas of expertise, NOAA and NWS
+worked collaboratively to deliver better forecasts, services, and IDSS. This effort culminated in
+the provision of consistent key messages highlighting main talking points and projected impacts
+to core partners. The success in IDSS before, during, and after the Hurricane Harvey event was
+built upon good internal communication, collaboration, and coordination.
+Best Practice: Coordination on the forecast and messaging among NCEP, regional headquarters
+offices, RFCs, and WFOs resulted in consistent messaging.
+
+3.2.1. Core Partners and Deep Relationships
+Core partners trust in the NWS, as well as the people behind the forecast and services. They
+had a solid understanding of the severity and potential impacts due to Hurricane Harvey’s
+rainfall, storm surge, and wind, not only based on the written and verbal messaging from NWS,
+but also from the increasing tone and inflection of the NWS meteorologists and hydrologists as
+the storm was ramping up.
+
+Figure 32: IDSS partnered level of services. Source: OWA Catalogue
+
+When there was a need for more information, core partners found the NWS field offices
+accessible 24x7. When EMs needed higher resolution on the forecast warning, timing, and
+specificity of impacts, NWS forecasters were able to relay the information, relate to the EM
+46
+
+impacts, and provide relevant actionable intelligence. This was accomplished by the NWS
+forecasters adhering to the IDSS partnered level of services (Figure 32).
+The core partners commended the NWS for improvements in weather forecasting (extended
+forecasts, better storm tracking, forecasting impacts to life and property), as well as
+improvements to the provision of more quantifiable and verifiable information available in realtime as a result of Geostationary Satellite (GOES)-16 satellite observations.
+GOES-16 helped users to visualize Hurricane Harvey’s intensification, quickly pinpoint its
+track, and witness the intense bands of rainfall in near real-time (Figure 33). Technological
+innovation can help unlock time and reshape the Collaborative Forecast Process (CFP),
+described in the next section.
+
+Figure 33: GOES 16 infrared satellite of Hurricane Harvey. Source: NESDIS and
+WFO Houston
+
+3.2.2. Collaborative Forecast Process
+The NWS field offices demonstrated their effectiveness as the top of the pyramid in the CFP
+(Figure 34) for IDSS. Together the NWS field offices helped build a Weather-Ready Nation
+during Hurricane Harvey. This event showed that many of the fundamental components from
+National Centers were able to effectively support a major event such as Hurricane Harvey.
+
+47
+
+Figure 34: Vision of the Collaborative Forecast Process. Source: OWA Catalogue,
+September 2017
+
+An in-depth analysis into the QPF collaboration process provided more insight into the
+potential success of OWA’s CFP vision from forecast product, impact analysis, to service
+delivery. As noticed by the service assessment team, initial efforts on QPF collaboration calls to
+set the verbiage used for messaging (e.g., “catastrophic,” “life threatening”) were effective and
+should be considered a best practice for extreme events that cover a large geographical area
+served by multiple WFOs. WPC coordination calls every 6 hours were unprecedented and
+WFOs and RFCs indicated they wanted to continue the calls when polled by ROC staff. The
+NWSH Communications Division appreciated the efforts to coordinate messaging and
+terminology on early calls in order to present a consistent message across all WFOs and
+platforms.
+In addition, collaboration with NHC was much improved with this event. NHC effectively
+offered pre-event collaboration when Hurricane Harvey regeneration was still just a possibility.
+This was the first event during which NHC took part in NWSChats beyond just its Storm Surge
+Unit. The consistent NHC briefing templates were valuable in providing a consistent look and
+feel of products between WFOs.
+Best Practice: Coordinated terminology between WFOs in extreme events ensured consistent
+messaging of expected threats in briefings and on social media.
+Based on the QPF collaboration for Hurricane Harvey, the assessment team believes that
+success can be gained with other NWS elements such as the National Blend of Models (Figure
+35).
+
+48
+
+Figure 35: Sample of National Blend of Models in the Collaborative Forecast Process. Source:
+OWA Catalogue, September 2017
+
+3.2.3. Impact-based Decision Support Nexus
+The assessment team primarily examined the effectiveness of the collaboration and
+coordination among the following NWS entities:
+•
+•
+•
+•
+•
+•
+
+WFOs Austin/San Antonio, Corpus Christi, Houston, Lake Charles, New Orleans
+West Gulf and Lower Mississippi RFCs
+SR ROC
+National Centers for Environmental Prediction: EMC, NHC, and WPC
+NWC and NWC Operations Center
+CWSUs
+
+With few exceptions, there was strong coordination on consistent messaging. Recent
+emphasis on relationship building within the agency has paid off and was manifested in displays
+of trust leading to efficient processes and joint decision-making. Several best practices were
+identified that support a fully integrated field structure across the agency. This structure allowed
+for a more IDSS user-centric focus.
+
+49
+
+Figure 36: OWA suggested IDSS alignment for the NWS Water Program. Source: OWA Catalogue,
+September 2017
+
+There is a need for consistent collaborative messaging across all service outlets. OWP
+experimental products simultaneously distributed to TDEM were inconsistent with key messages
+coming out from SR ROC, RFCs, and WFOs, leading to confusion within SR and among local
+EMs. Communication during inland flooding events that include clarity on the roles for all NWS
+organizational units was identified previously in the October 2016 Hurricane Matthew service
+assessment Recommendations 1 and 12a. The pathway of dissemination and coordination
+should consider OWA’s suggested FIFS IDSS alignment for the NWS Water Program (Figure
+36).
+Finding 17: NWC products and services provided simultaneously to SR ROC, WGRFC, WPC
+and TDEM caused confusion with official forecasts. Resources were diverted from primary
+IDSS tasks to address these inconsistencies.
+Recommendation 17: NWS should develop a plan for CFP and IDSS for flooding.
+WFOs directly impacted by Hurricane Harvey instituted 12-hour staffing structures in
+advance of landfall, which is a standard practice at all coastal WFOs faced with an appreciable
+tropical threat, but some of the WGRFC staff exceeded the 12-hour workday. The FIFS concept
+was heavily embodied at the WFO level for IDSS during Hurricane Harvey, not only by the local
+WFOs directly affected by the storm’s landfall but also by a number of other SR WFOs.
+NHC, in particular the storm surge unit, experienced fatigue in issuing 24/7 support for all
+the storms and advisories given limited staffing (e.g., only one federal employee was in the storm
+surge unit).
+In light of ongoing staffing limitations, and in keeping with the FIFS philosophy, the NWS
+must refine and enhance strategies for re-allocating tasks and resources between field units when
+50
+
+high-impact events overtax the capabilities of individual WFOs or shift teams. Supplemental
+staffing with knowledgeable skills, background, and experience should be pre-coordinated prior
+to major events to help the NWS staff and to reduce the potential for burnout. In some cases,
+this kind of dynamic reallocation may need to occur between offices very quickly and
+intermittently, perhaps on the time scale of a few hours at a time.
+
+3.3.
+
+Systems
+
+The assessment team found WFO technical operations performed successfully throughout the
+event. There were, however, some hardware and software challenges that impacted the
+efficiency and effectiveness of WFO performance.
+
+3.3.1. AWIPS Software
+3.3.1.1.
+
+Graphical Forecast Editor (GFE) Software Challenges
+
+Atlantic Basin offices with tropical cyclone wind watch/warning responsibility began issuing
+the WFO tropical cyclone local watch/warning product (WFO TCV) during the 2017 tropical
+season. The WFO TCV text product is a segmented Valid Time Event Code product with each
+segment a discrete forecast zone that contains land-based tropical cyclone wind and storm surge
+watches/warnings in effect, meteorological information, threats (i.e., wind, storm surge, flooding
+rain, tornadoes), and potential impacts. The product is generated from local gridded forecast
+information and national guidance via the AWIPS GFE and is not intended to be manually edited
+by the forecaster. This text product is intended for parsing by the weather enterprise and is
+paired with the WFO HLS to provide a complete, localized tropical forecast.
+Fact: The WFO TCV is intended to be an automatically-generated product.
+The TCV product requires 120 consecutive hours of Wind and WindGust grids,
+102–114 hours of Wind Speed Probability grids, 72 consecutive QPF grids, and at least one grid
+of the following: WindThreat, FloodingRainThreat, or TornadoThreat, and for coastal sites one
+grid of StormSurgeThreat and InundationMax, and finally 12 plus grids of InundationTiming. If
+any of these grids are missing, it will result in merge conflict that then has to be resolved before a
+forecaster can continue. In addition, the Wind and WindGust grids must match the NHC forecast
+and be collaborated on with neighboring offices.
+Harvey’s slow movement impacted the FloodingRainThreat parameter, which is limited to
+72 hours, resulting in an underestimation of the flood threat because the heavy rain window was
+actually well beyond 72 hours; therefore, manual edits were made to adjust up to “extreme” for
+several locations. Another issue reported related to the rapid intensification of Hurricane
+Harvey. The TCV product did not have sufficiently high wind speeds requiring forecasters to
+increase them, by hand editing, from Category 2 up to Category 4.
+Finding 18: Several WFOs impacted by Hurricane Harvey reported issues with GFE and the
+creation of WFO TCV and HLS products, varying from ingest of the pre-TCV and difficulties
+merging the hazards, to the extra staffing required to check grids and then blend them into
+coherent product dataset. During forecast package update times, new GFE data related to the
+WFO TCV, specifically when merging the proposed StormSurgeThreat, would erase previous
+
+51
+
+hazard grids. This resulted in wasted staff time recreating these grids from scratch, delaying
+product issuance.
+Recommendation 18: The NWS should ensure that the tropical program has proper and robust
+software testing and evaluation before national implementation.
+
+3.3.1.2.
+
+Flooded Locations and Simulated Hydrographics (FLASH)
+
+WFOs reported that the FLASH project was a valuable tool for issuing flash flood warnings
+and supporting warning decisions associated with flash floods. As one hydrologist stated, “This
+software was super and very valuable in helping us issue flash flood warnings. [Flash Flood
+Monitoring and Prediction] FFMP was helpful as well. We need to get this into the pipeline
+consistently.”
+Best Practice: WFO Lake Charles stated that having FLASH data in AWIPS was extremely
+useful because it allowed staff to quickly focus in on areas of greatest threat and upgrade flash
+flood warnings to flash flood emergencies, more quickly.
+
+3.3.1.3.
+
+NCF Support for RFCs
+
+WGRFC experienced a critical system error on the CHPS client, hosted on an AWIPS
+workstation that was used to produce river forecasts. Fortunately, this issue was isolated to a
+workstation and was not system-wide so it did not affect the other parts of WGRFC forecast
+system. WGRFC spent time with NCF to troubleshoot this CHPS problem. This effort should
+have been transferred to the CHPS operations support staff to more quickly address the issue.
+Finding 19: NCF does not have resources to troubleshoot and quickly diagnose CHPS issues.
+Recommendation 19: Office of Central Processing should instruct NCF to transfer CHPS
+issues to CHPS operations support staff.
+
+3.3.2. Communications and Network
+WFOs Houston and Corpus Christi held numerous briefings for state and local EMs and
+other partners leading up to and during the event. Due to the limitations on the number of lines
+available on the teleconference and webinars, forecasters had to hold duplicative briefings to
+ensure information was communicated to all essential partners. This limitation doubled the
+workload at a time when forecasters needed to perform other critical duties. Issues with a
+limited number of phone lines for WFO/partner briefings was identified as Finding 19 in the
+October 2016 Hurricane Matthew Service Assessment (See Appendix C). In addition, one EM
+recommended that the NWS add a video conference capability to traditional audio conference
+calls.
+During the 2017 hurricane season, NHC and WFOs had to rely on communicating via the
+legacy hurricane hotline. The new hurricane hotline, which is scheduled to be operational in
+2018, will allow NHC and the WFOs to share weather graphics information using Digital Video
+Teleconference Units. Having both voice and video capabilities allows more accurate weather
+data to reach key decision makers and enables them to make time-critical decisions. During this
+event, however, NWS had to depend on the legacy hurricane hotline and WFO Corpus Christi
+experienced issues with the system. WFO Corpus Christi forecasters could hear NHC but they
+52
+
+were unable to speak through the hotline, so they had to call in on a separate phone line to
+communicate. They asked to use the new units but the system was still in beta testing.
+Finding 20: WFO Corpus Christi reported that the hurricane hotline capability was not fully
+functional, inhibiting effective communication.
+Recommendation 20: NWS should ensure the hurricane hotline, with the full voice and video
+capabilities, will be operational for high-impact events in time for the 2018 hurricane season.
+WFO Lake Charles and other SR WFOs had significantly slow Internet speeds for several
+days. In particular, the NWS Enhanced Data Display (EDD) loaded slowly. WFOs experienced
+significant delays accessing the NWS web services and the desired layers supporting EDD,
+especially during high-impact events. Latency and reliability issues with NWS web pages was
+also an issue identified in Finding 20 of the Hurricane Matthew service assessment (See
+Appendix C).
+Finding 21: WFOs reported delays in accessing the EDD, especially during high-impact events.
+Recommendation 21: The web services provided by NWS need to be more robust and stable,
+especially during high-impact events.
+CWSU Houston did not have access to AWIPS for nearly three weeks because its router
+failed. Due to flooding, shipping and communication companies could not get a replacement
+router delivered and installed at the office. Although this impeded the CWSU’s ability to operate
+and provide decision support to FAA under normal conditions, the CWSU was able to rely on
+the FAA’s Weather and Radar Processor system and web pages to monitor weather conditions.
+Finding 22: Necessary backup computer hardware was unavailable at CWSU Houston. The
+office could not get timely replacements delivered due to local flooding conditions affecting air
+and highway transportation shipping networks.
+Recommendation 22: The NWS should build more redundancy into its routers and other key
+communication devices to avoid a single point of failure.
+
+3.3.2.1.
+
+Active Directory Login Challenges
+
+Several forecasters dispatched to WFOs impacted by Hurricane Harvey commented it took
+an unacceptable amount of time to login to an office computer. Once the forecasters were able to
+login, they couldn’t connect to a local drive. This problem occurred because the forecasters were
+not included in the WFO’s directory list.
+Finding 23: Dispatched forecasters were not included in the directory list of the affected WFO
+to which they were assigned.
+Recommendation 23: NWS Regional IT staff should add dispatched individuals’ active
+directory accounts from their home WFO to the impacted WFO before the forecasters arrive at
+the impacted WFOs. This change also includes temporarily removing any home office re-directs
+or roaming profiles these staff members may have.
+53
+
+3.4.
+
+Tropical Program Training
+
+NWS core partners requested more internal NWS staff training and external partner training
+for new, expanding, and evolving products and services being introduced by NWS. If NWS staff
+is adequately trained, they can then effectively pass on this knowledge to partners who may want
+to integrate these new options into their decision making processes.
+Best Practice: NHC offers the Effective Hurricane Messaging course, which is a collaborative
+effort by SR, ER, OCLO, the ROCs, and NHC, as a way to help WFO forecasters become
+deployable. This course also provides information to the external partners of the different
+products available and how to interpret them.
+Best Practice: NHC offers training on preparedness and product use in various formats,
+including COMET modules, webinars, and in-person training.
+Finding 24: NWS core partners would like to continue to expand their knowledge on the use
+and interpretation of the different tropical products. Also, WFOs are not fully aware of many of
+the basic training modules available to understand the fundamentals of the tropical products.
+Recommendation 24: A comprehensive coordinated effort should exist between Regional
+Headquarters, WFOs, and NHC to expand awareness of training opportunities with the goal of
+understanding and interpreting different tropical products. Training should be prioritized and
+streamlined to maximize effectiveness of roles and responsibilities in tropical IDSS.
+
+54
+
+4. Public Engagement and Societal Impacts
+The NWS provides life-saving information to the public. Past service assessments
+demonstrate how that information reaches NWS partners. This section details these findings for
+Hurricane Harvey, including references to relevant related findings from other service
+assessment reports.
+One prominent issue in the provision of life-saving information includes the reality that
+certain populations remain underserved by NWS products. Cultural differences and language
+barriers added an additional layer of vulnerability in Hurricane Harvey-affected areas. As shown
+in Figure 37, a significant diversity of language, ethnicity and race exists in both Texas and
+Louisiana. Non-English speaking populations need to be considered when creating hazardous
+weather-related information, as well as relationships with racial and ethnic minority groups. The
+overwhelming majority of WFO staff and community partners in the Hurricane Harvey-affected
+region speak English as their first language. In Texas in 2016, 79 percent of the population was
+white and 12.6 percent was black. Across racial groups, approximately 39 percent of the
+population identified as ethnically Hispanic/Latino 1. Approximately 35 percent of residents
+spoke a language other than English at home. In Louisiana in 2016, 63 percent of the population
+was white and 32.6 percent was black. About 5 percent of the population was Hispanic or
+Latino. Approximately 8.5 percent of the population spoke a language other than English at
+home.
+Fact: There is significant racial, ethnic, and language diversity in Texas and Louisiana.
+Finding 25: Community partners did not appear to represent the demographic diversity of area
+populations, potentially limiting audiences served by NWS.
+Recommendation 25: WFO staff should continue to initiate new relationships with underserved
+populations and organizations to ensure a Weather-Ready Nation.
+WFO staff members recounted difficulty broadening their networks beyond certain
+demographic groups. In particular, greater effort needs to be expended to provide consistent
+service to racial and ethnic minorities, as well as those whose first language is not English. EMs
+in Texas and Louisiana stated they provided all Hurricane Harvey communications in English,
+despite the large populations in the area that do not speak English as their first language.
+
+1
+
+https://www.census.gov/mso/www/training/pdf/race-ethnicity-onepager.pdf U.S. Census Bureau considers
+
+race and ethnicity as two separate and distinct concepts.
+
+55
+
+Figure 37: Diversity in Harvey affected states. Source: U.S. Census Bureau, 2017
+
+Some best practices for Spanish-speaking populations were observed and critical for
+communicating information to the public before, during, and after Hurricane Harvey.
+Best Practice: NHC provided Spanish-language media support in its media pool during Harvey.
+This effort was supplemented by staff from WFO Miami, which also provided support for
+numerous Spanish-language radio interviews during Harvey. WFO San Juan also provided
+Spanish versions of the tropical cyclone public advisory that were issued on AWIPS and
+available on the NHC website, and Spanish versions of the tropical cyclone discussion, which
+were available on the NHC website.
+Best Practice: WFO Corpus Christi published its annual Hurricane Guide in Spanish and
+English. The office also provided printed copies for the past 10 years until funding ran out.
+Best Practice: WFO Austin/San Antonio conducted Skype video interviews with CNN in
+Spanish as well as other interviews in Spanish.
+Best Practice: Spanish assistance through the SR Multimedia Assistance in Spanish Team was
+available during Hurricane Harvey, helping translate flash flood emergencies and messages into
+Spanish.
+In addition to NWS partner interviews, the assessment team conducted 28 structured
+interviews with the public to provide a basic assessment of the way forecast information was
+received, understood, and acted upon in preparation for and response to Hurricane Harvey. The
+sampling procedure targeted members of the public in areas that experienced the worst impacts
+— inland flooding due to extreme rainfall, river flooding due to poor drainage downstream, high
+concentrations of tornado warnings, high winds, and storm surge. The number of interviews in
+affected locations was necessarily small, and the results reported here are therefore not
+generalizable. Nonetheless, the sample provides insight into a range of experiences across the
+region.
+56
+
+A concentration of non-native English speakers lived in a mobile home park along a riverbed
+that experienced extensive inland flooding. One interviewee who lived in the park reported that
+residents there did not grasp the potential inundation impacts; they thought their homes were
+protected because they were raised up on blocks at a height sufficient to avoid adverse impacts of
+prior floods. Flood levels caused by the Hurricane Harvey event exceeded heights experienced
+in the area. During the mandatory evacuation, park residents left the majority of their belongings
+in their homes. Many of these people lost all of their belongings as a result. The interviewee
+believed language was a barrier to understanding the potential inundation impacts. The local
+population knew how high the river had risen before in feet, but did not realize the difference a
+few extra feet would make not only in height, but also in horizontal extent from the river and
+including the embankment where their homes were located.
+Fact: The assessment team found some evidence that language was a barrier to effective
+response.
+Almost all interviewees in areas of extreme rainfall reported being aware of the potential
+flood threat that Hurricane Harvey posed. Many individuals made protective decisions, but not
+always ahead of time. One Houston interviewee accidentally drove into unforeseen flood waters
+and required a water rescue. Another interviewee in the Houston area abandoned a car when
+he/she encountered surprise flood waters – the driver and passenger were out purchasing lastminute supplies when he/she heard how bad the event was going to be for Houston. During a
+drive from Austin, an individual had encountered heavy rain and localized flooding, when the
+driver had expected rain to begin the next day.
+Fact: The rapid change in the exact position of the heaviest rainfall took some members of the
+public by surprise, putting them in dangerous driving situations, mainly due to flood waters on
+the road.
+Almost all interviewees reported they had no intention to drive once they heard about the
+significant flood risk for their area, and most did not drive during the event. Once flooding
+began, many interviewees noted they continued to receive flood warnings, but at that point they
+could only shelter in place. Almost all interviewees reported knowing the “Turn Around, Don’t
+Drown” slogan, and said that it was well-known in the area, in general, particularly with so many
+recent flood events. Approximately half of the interviewees heard that flooding in their area was
+expected to be record-breaking and/or worse than they had ever experienced. Only a minority of
+interviewees evacuated, but almost all interviewees prepared to stay in shelter by purchasing
+batteries (anticipating power loss), food, and water.
+Fact: Turn Around, Don’t Drown messaging has achieved widespread understanding in the
+Houston area.
+Finding 26: A majority of those interviewed planned to avoid driving through flood waters, but
+some were hampered by a lack of understanding of the timing and extent of flooding. The rapid
+updating of forecasts exposed many people to unanticipated flood threats.
+Recommendation 26: Flood forecasts that involve relatively large uncertainties should be
+delivered in ways that successfully convey the array of potential outcomes, not just the most
+57
+
+likely outcome. This includes the communication of uncertainty for multiple forecast attributes
+such as timing, location, hazard severity, and hazard impacts.
+Almost all interviewees reported that local TV was highly influential as a source of weather
+information during the event, followed by websites/social media, friends and family, local EM,
+and national TV broadcasts. Many people reported receiving Wireless Emergency Alerts
+(WEA), but did not rank them as highly influential in their decisions. For those who reported
+receiving WEAs, none reported turning them off. Some interviewees received numerous tornado
+warnings through WEA. These individuals noted they appreciated “the heads up.” Interviewees
+did not shelter for each warning, but did remain vigilant about the threat. The team found no
+evidence of a false alarm problem in areas with the most tornado warnings.
+Several individuals reported hearing the phrase “bands of energy” from local broadcast
+media, and they claimed this helped them understand the different/ephemeral nature of the
+hazard embedded in the hurricane’s outer bands. A few people specifically noted that it is
+generally understood that hurricanes are so powerful they can produce tornadoes, and they were
+not surprised to receive many warnings for them. Interviewees also reported feeling an
+atmosphere that was conducive to tornadoes. This feeling also motivated them to respond to the
+threat. The area with the most tornado warnings experienced minor to moderate flooding, but all
+of those interviewed said they were able to shelter in place.
+Fact: Given the extreme and unusual nature of the event, interviewees did not mind receiving a
+large volume of WEAs.
+Interviewees in areas that experienced significant inland river flooding reported they became
+concerned several days before the event when they heard the threat of inland rainfall between
+Houston and Austin, but then relaxed their preparatory activities when they saw that they were
+not going to be in the rainfall bullseye. Most interviewees then took protective action only after
+they received mandatory evacuation orders enforced by officers going door-to-door.
+Interviewees reported a lack of understanding regarding how flooding was possible for their
+location.
+Fact: Inland flooding caused by poor drainage was not as well-understood as river flooding in
+areas.
+
+58
+
+Acronyms
+AHPS
+ARTCCs
+AWIPS
+CFP
+CHPS
+CWSU
+DSS-WISE
+EDD
+EHM
+EM
+EMC
+FAA
+FEMA
+FFW
+FIFS
+FLASH
+FY
+GFE
+GIS
+GOES
+HEFS
+HLS
+HQ
+ICS
+IDSS
+InFRM
+LMRFC
+MHHW
+NCEP
+NHC
+NOAA
+NOS
+NWC
+NWM
+NWS
+NWSH
+OCOO
+OPC
+OSD
+OWA
+OWP
+PQPF
+QPF
+RFC
+
+Advanced Hydrologic Prediction System
+Air Route Traffic Control Centers
+Advanced Weather Interactive Processing System
+Collaborative Forecast Process
+Community Hydrologic Prediction System
+Center Weather Service Unit
+Decision Support System for Water Infrastructure Security
+Enhanced Data Display
+Effective Hurricane Messaging
+Emergency Manager(s)/Emergency Management
+Environmental Modeling Center
+Federal Aviation Administration
+Federal Emergency Management Agency
+Flash Flood Warnings
+Fully Integrated Field Structure
+Flooded Locations and Simulated Hydrographics
+Fiscal Year
+Graphical Forecast Editor
+Geographical Information System
+Geostationary Satellite
+Hydrologic Ensemble Forecast Service
+Hurricane Local Statement
+Headquarters
+Incident Command System
+Impact-based Decision Support Services
+Interagency Flood Risk Management
+Lower Mississippi River Forecast Center
+Mean Higher High Water
+National Centers for Environmental Prediction
+National Hurricane Center
+National Oceanic and Atmospheric Administration
+National Ocean Service
+National Water Center
+National Water Model
+National Weather Service
+National Weather Service Headquarters
+Office of Chief Operating Officer
+Ocean Prediction Center
+Southern Region Operational Services Division
+Operations and Workforce Analysis
+Office of Water Prediction
+Probabilistic Quantitative Precipitation Forecasts
+Quantitative Precipitation Forecast
+River Forecast Centers
+A-1
+
+ROC
+SH
+SOC
+SOO
+SR
+SRH
+SST
+TDEM
+TOR
+USACE
+USGS
+UTC
+WCM
+WEA
+WFO
+WGRFC
+WPC
+
+Regional Operations Center
+Service Hydrologists
+State Operations Center
+Science and Operations Officer
+Southern Region
+NWS Southern Region Headquarters
+Sea Surface Temperatures
+Texas Division of Emergency Management
+Tornado Warnings
+United States Army Corps of Engineers
+United States Geological Survey
+Coordinated Universal Time (same as Zulu “Z” Time)
+Warning Coordination Meteorologists
+Wireless Emergency Alerts
+Weather Forecast Offices
+West Gulf River Forecast Center
+Weather Prediction Center
+
+A-2
+
+Findings, Recommendations and Best
+Practices
+Definitions
+Best Practice: An activity or procedure that has produced outstanding results during a particular
+situation that could be used to improve effectiveness and/or efficiency throughout the
+organization in similar situations. No action is required.
+Finding: A statement that describes something important learned from the assessment for which
+an action may be necessary. Findings are numbered in ascending order and are associated with a
+specific recommendation or action.
+Recommendation: A specific course of action, which should improve NWS operations and
+services, based on an associated finding. Not all recommendations may be achievable but they
+are important to document. Recommendations should be clear, specific, and measurable. The
+team leader and OCOO will compose an action item for each recommendation.
+
+Findings and Recommendations
+Finding 1: The EHM course has a strong direct benefit to the improved delivery of
+tropical weather IDSS.
+Recommendation 1: The NWS should allocate training resources for additional EHM courses
+prior to each tropical weather season or seek creative alternatives for offering this training
+content to local WFO personnel.
+Finding 2: The HLS and other GFE-driven local tropical products were not widely used by the
+media and other core partners during Hurricane Harvey.
+Recommendation 2: Local offices, Regional Headquarters, and the NWS Tropical Program
+should determine whether partners’ lack of use of local tropical products was peculiar to
+Hurricane Harvey or represents a broader condition affecting other coastal areas.
+Finding 3: WFO staff members and their families incurred a financial burden as a result of
+limitations in NOAA evacuation pay policies. NOAA’s evacuation policies were also
+inconsistent throughout the course of the season, impacting employee morale.
+Recommendation 3: NWS CFO should work with NOAA to clarify, clearly communicate, and
+ensure a consistent application of the evacuation pay policies for employees and dependents
+before high-impact events.
+
+B-1
+
+Finding 4: Although the ensemble forecast hydrographs based on PQPF were found to be useful
+by WFO Houston and core partners, HEFS is the preferred NWS approach for producing reliable
+and skillful ensemble streamflow forecasts.
+Recommendation 4: The NWS should continue to implement HEFS at additional river forecast
+locations.
+Finding 5: The observed run-to-run inconsistencies during Hurricane Harvey created an extra
+workload for WGRFC and other field entities involved in the provision of IDSS to partners.
+Some partners expressed uncertainty about official NWS river forecasts, given their
+discrepancies with the NWM output.
+Recommendation 5: RFC forecasts are the official source of river forecast information. All
+RFCs and OWP should work together to gain a better understanding of NWM strengths and
+weaknesses and should continue to communicate their model guidance needs while aligning
+messages for consistency.
+Finding 6: WGRFC needed additional GIS resources to keep pace with the data demands
+imposed by Hurricane Harvey.
+Recommendation 6: Additional GIS resources should be available to WFOs and RFCs for
+high-impact events.
+Finding 7: In general, residents did not comprehend the impacts that more than 60 inches of
+rain would have in their communities. There were no existing products that could effectively
+communicate the impacts.
+Recommendation 7: When the post-event Hurricane Harvey flood inundation maps are made
+available, the NWS should link to these historic flood maps on the appropriate NWS web pages.
+Finding 8: The WGRFC staff had no experience with the NWM flood inundation maps and
+could not provide guidance or support for these products to core partners.
+Recommendation 8: NWS should develop background documentation and training for staff on
+the use of the NWM-produced inundation maps.
+Finding 9: Many NWS partners would like to have probabilistic forecast information, especially
+rainfall, in advance of the watch and warnings to make evacuation decisions.
+Recommendation 9: The NWS should provide forecast information, ideally more probabilistic
+products containing forecast confidence information (e.g., low, medium, high confidence), to
+partners at least three days prior to an event to aid with partner evacuation decisions, at the local
+level.
+Finding 10: During complex high-impact events, the NWS inter-office IDSS coordination
+needs to be 24/7, requiring more than one person.
+
+B-2
+
+Recommendation 10: The NHC IDSS coordinator role should be clearly communicated to all
+parties involved and explicitly resourced to provide around-the-clock coverage during highimpact tropical events. (This reinforces Finding 8 of the October 2016 Hurricane Matthew
+Service Assessment, See Appendix C.)
+Finding 11: NHC and WPC effectively transitioned the tropical cyclone public advisory
+product; however, it was a stand-alone product at NHC and became a combined product with
+storm summaries at WPC.
+Recommendation 11: WPC should keep the tropical cyclone public advisory and storm
+summaries as separate products.
+Finding 12: No single office has authority over the official QPF forecast, which can lead to
+confusion through the NWS field offices and with partners.
+Recommendation 12: NWS should explore designating a single authoritative source for QPF.
+Finding 13: Late delivery of the AWIPS software with the baseline storm surge capabilities for
+National Centers and limited storm surge program resources prevented the NHC Storm Surge
+Unit and OPC from effectively synchronizing technical configurations and operational
+procedures to allow OPC to backup storm surge service.
+Recommendation 13: Storm surge training and drills must be resourced, scheduled, and held at
+least annually between the NHC Storm Surge Unit and OPC forecasters and development staff to
+ensure they can successfully execute end-to-end service backup.
+Finding 14: Deployed hydrologists have limited tools available to answer questions related to
+forecast uncertainty and sensitivity to forecast precipitation. As IDSS increases in scope and
+context, the ability to put the forecast modeling into the hands of the DSS advisors will become
+critical.
+Recommendation 14: NWS must provide IDSS-deployed forecasters with the proper tools to
+answer questions related to the hydrologic forecast uncertainty and what-if conditions.
+Finding 15: Flood inundation maps were available from multiple government sources. Users
+were often confused about the differences between the available maps and did not have any clear
+guidance on which maps to use.
+Recommendation 15: The NWS should work with national IWRSS Partners and local
+partnerships, such as InFRM, to understand the strengths and weaknesses of different available
+flood inundation maps and work towards providing best available information with guidance on
+its use.
+Finding 16: The current version of the NWM provides river discharge information, but users
+also need river stage information.
+Recommendation 16: The OWP should include stage and discharge information in its NWM
+output.
+B-3
+
+Finding 17: NWC products and services provided simultaneously to SR ROC, WGRFC, WPC
+and TDEM caused confusion with official forecasts. Resources were diverted from primary
+IDSS tasks to address these inconsistencies.
+Recommendation 17: NWS should develop a plan for CFP and IDSS for flooding.
+Finding 18: Several WFOs impacted by Hurricane Harvey reported issues with GFE and the
+creation of WFO TCV and HLS products, varying from ingest of the pre-TCV and difficulties
+merging the hazards, to the extra staffing required to check grids and then blend them into
+coherent product dataset. During forecast package update times, new GFE data related to the
+WFO TCV, specifically when merging the proposed StormSurgeThreat, would erase previous
+hazard grids. This resulted in wasted staff time recreating these grids from scratch, delaying
+product issuance.
+Recommendation 18: The NWS should ensure that the tropical program has proper and robust
+software testing and evaluation before national implementation.
+Finding 19: NCF does not have resources to troubleshoot and quickly diagnose CHPS issues.
+Recommendation 19: Office of Central Processing should instruct NCF to transfer CHPS
+issues to CHPS operations support staff.
+Finding 20: WFO Corpus Christi reported that the hurricane hotline capability was not fully
+functional, inhibiting effective communication.
+Recommendation 20: NWS should ensure the hurricane hotline, with the full voice and video
+capabilities, will be operational for high-impact events in time for the 2018 hurricane season.
+Finding 21: WFOs reported delays in accessing the EDD, especially during high-impact events.
+Recommendation 21: The web services provided by NWS need to be more robust and stable,
+especially during high-impact events.
+Finding 22: Necessary backup computer hardware was unavailable at CWSU Houston. The
+office could not get timely replacements delivered due to local flooding conditions affecting air
+and highway transportation shipping networks.
+Recommendation 22: The NWS should build more redundancy into its routers and other key
+communication devices to avoid a single point of failure.
+Finding 23: Dispatched forecasters were not included in the directory list of the affected WFO
+to which they were assigned.
+Recommendation 23: NWS Regional IT staff should add dispatched individuals’ active
+directory accounts from their home WFO to the impacted WFO before the forecasters arrive at
+the impacted WFOs. This change also includes temporarily removing any home office re-directs
+or roaming profiles these staff members may have.
+B-4
+
+Finding 24: NWS core partners would like to continue to expand their knowledge on the use
+and interpretation of the different tropical products. Also, WFOs are not fully aware of many of
+the basic training modules available to understand the fundamentals of the tropical products.
+Recommendation 24: A comprehensive coordinated effort should exist between Regional
+Headquarters, WFOs, an NHC to expand awareness of training opportunities with the goal of
+understanding and interpreting different tropical products. Training should be prioritized and
+streamlined to maximize effectiveness of roles and responsibilities in Tropical IDSS.
+Finding 25: Community partners did not appear to represent the demographic diversity of area
+populations, potentially limiting audiences served by NWS.
+Recommendation 25: WFO staff should continue to initiate new relationships with underserved
+populations and organizations to ensure a Weather-Ready Nation.
+Finding 26: A majority of those interviewed planned to avoid driving through flood waters, but
+some were hampered by a lack of understanding of the timing and extent of flooding. The rapid
+updating of forecasts exposed many people to unanticipated flood threats.
+Recommendation 26: Flood forecasts that involve relatively large uncertainties should be
+delivered in ways that successfully convey the array of potential outcomes, not just the most
+likely outcome. This includes the communication of uncertainty for multiple forecast attributes
+such as timing, location, hazard severity, and hazard impacts.
+
+Best Practices
+Best Practice: Many of the WFOs distributed the conference call and briefing load beyond the
+management team, to include SHs and other members of the WFO team. This force-multiplier
+effect enabled the offices to engage more partners more frequently with a richer set of IDSS
+content. It also somewhat reduced fatigue on the part of the management teams.
+Best Practice: The WFOs well-established relationships with local elected officials, local
+media, EMs, and other community partners before Hurricane Harvey facilitated communication
+of critical IDSS before and during the storm.
+Best Practice: The use of Facebook Live by WFO Lake Charles elicited significant praise for
+communicating live updates to partners and the general public
+Best Practice: NHC issues strongly worded tropical weather outlooks the day before Hurricane
+Harvey formed. In particular, the 18Z (1 PM CDT) outlook specifically mentioned that this
+system, “could produce storm surge and tropical storm or hurricane force winds along portions
+of the Texas coast and very heavy rainfall across portions of central and eastern Texas from
+Friday through the weekend.”
+
+B-5
+
+Best Practice: NHC did explicitly mention the possibility and the expectation that Harvey
+would become a hurricane before landfall despite the fact that there was no model guidance
+explicitly supporting this.
+Best Practice: A WFO forecaster with substantial tropical and IDSS experience was deployed
+to NHC to serve as an IDSS coordinator. This position unambiguously benefited both NHC and
+the WFOs alike.
+Best Practice: WFOs incorporated Excessive Rain Outlooks in their IDSS briefings to better
+convey NWS confidence in flood threats.
+Best Practice: With frequent practice and exchange in working across forecast service domains,
+WPC, WFOs, and RFCs were ready and able to provide consistent message and service on QPF.
+Best Practice: SRH fully used the ICS structure during Hurricane Harvey. This structure
+helped staff identify and execute key support objectives, ensured that regional resources were
+properly committed, and facilitated the communication of information to the field offices.
+Best Practice: SRH augmented IDSS support staff at TDEM.
+Best Practice: The ROC developed a set of consistent regional IDSS briefing slide templates to
+promote a consistent message.
+Best Practice: Coordination on the forecast and messaging among NCEP, regional headquarters
+offices, RFCs, and WFOs resulted in consistent messaging.
+Best Practice: Coordinated terminology between WFOs in extreme events ensured consistent
+messaging of expected threats in briefings and on social media.
+Best Practice: WFO Lake Charles stated that having FLASH data in AWIPS was extremely
+useful because it allowed staff to quickly focus in on areas of greatest threat and upgrade flash
+flood warnings to flash flood emergencies, more quickly.
+Best Practice: NHC offers the Effective Hurricane Messaging course, which is a collaborative
+effort by SR, ER, OCLO, the ROCs, and NHC, as a way to help WFO forecasters become
+deployable. This course also provides information to the external partners of the different
+products available and how to interpret them.
+Best Practice: NHC offers training on preparedness and product use in various formats,
+including COMET modules, webinars, and in-person training.
+Best Practice: NHC provided Spanish-language media support in its media pool during Harvey.
+This effort was supplemented by staff from WFO Miami, which also provided support for
+numerous Spanish-language radio interviews during Harvey. WFO San Juan also provided
+Spanish versions of the Tropical Cyclone Public advisory that were issued on AWIPS and
+available on the NHC website, and Spanish versions of the Tropical Cyclone Discussion, which
+were available on the NHC website.
+B-6
+
+Best Practice: WFO Corpus Christi published its annual Hurricane Guide in Spanish and
+English. The office also provided printed copies for the past 10 years until funding ran out.
+Best Practice: WFO Austin/San Antonio conducted Skype video interviews with CNN in
+Spanish as well as other interviews in Spanish.
+Best Practice: Spanish assistance through the SR Multimedia Assistance in Spanish Team was
+available during Hurricane Harvey, helping translate flash flood emergencies and messages into
+Spanish.
+
+B-7
+
+Prior Service Assessment Findings and
+Recommendations to Revisit
+Findings and Recommended Actions from Prior Service Assessments: This appendix
+contains findings from Hurricane Harvey similar to those in prior service assessments. The team
+would like to re-emphasize these findings and recommended actions which may need additional
+follow-up.
+August 2011 Hurricane Irene Service Assessment
+• Finding 7: After the HPC briefing on August 25, FEMA removed HPC from the VTCs for
+the duration of Irene. HPC serves as the backup for NHC and provides the critical rainfall
+component of the hurricane forecast, the component associated with the majority of fatalities
+associated with Irene.
+• Recommendation 7: Leveraging the success of NHC briefings, the NWS should support the
+creation of a Service Coordination Hydrologist (SCH) position at HPC to deliver more
+effective briefings to key partners.
+Historic South Carolina Floods of October 1–5, 2015 Service Assessment
+• Finding 12: NWS does not provide national Dam Break programmatic software support to
+RFCs. RFCs have relied on their own expertise and ingenuity to keep the Simplified Dam
+Break Model software operational.
+• Recommendation 12: NWS should develop national program and technical support for the
+Dam Break flood program. Part of this support should involve modernizing the NWS Dam
+Break Program and associated software. This Part b involves the implementation of required
+capabilities defined in Part a.
+Historic Nor’easter of January 2016 Service Assessment
+• Finding 8: Emergency employee lodging and food was critical in sustaining operations.
+• Recommendation 8: NWS WFOs Severe Weather and Winter Weather Operations Plans
+should detail procurement procedures for employee lodging and food as specified within
+NWSI 1-208, Delegation of Authority for Food/Lodging Expenditures in Advance of or
+during Major Weather Emergencies or Disasters.
+October 2016 Hurricane Matthew Service Assessment
+• Finding 1: Partners indicated that despite the excellent service and information provided by
+the NWS they were surprised at the magnitude of flooding they experienced and did not feel
+that the threat was communicated adequately.
+• Recommendation 1: The NWS needs to take a comprehensive look at communication
+related to inland flood threats for both river and flash flooding. This may include
+confidence-based forecasts, inundation maps, increased educational efforts, pursuing a social
+science analysis of flood related messaging, and links to WPC’s Excessive Rainfall graphics
+on NHC’s web page.
+C-1
+
+•
+
+•
+•
+•
+•
+
+•
+
+•
+
+•
+•
+•
+•
+
+Finding 8: SRH deployed an IDSS coordinator to NHC. This individual attempted to
+facilitate a consistent message among all NWS entities and partners. The presence of the
+coordinator was widely lauded by all parts of the NWS. The concept of a deployed IDSS
+coordinator into a National Center is not in practice at all regional HQ.
+Recommendation 8: Regional HQ should consider a model of field support that includes
+on-site IDSS coordinators at the appropriate National Center(s) during significant events.
+Finding 12: While WPC medium-range products highlighted the heavy rain and inland
+flood threat 96 hours prior to the event, the lack of an integrated, coordinated message at the
+national level made it difficult to communicate the threat in a holistic manner.
+Recommendation 12a: NWS should establish a national plan for communication during
+inland flooding events that includes clarity on the roles for all internal organizational units.
+Recommendation 12b: NWS should explore having a WCM and/or Public Affairs Officer
+function at the National Center for Weather and Climate Prediction to help with coordination
+and messaging during events.
+Finding 16: Even though significant effort was made to deploy additional personnel to
+WFOs, the service assessment team found that these deployments fell short of meeting
+operational needs. Lack of available staffing led to potentially dangerous forecaster fatigue
+and limitations to WFO IDSS efforts.
+Recommendation 16: NWSH and regional HQ should develop a national pool of trained
+personnel with tropical cyclone experience and IDSS specialists who would be available for
+deployment to assist WFOs, regardless of NWS region. Special emphasis should be placed
+on including prior experience in the affected area, IDSS expertise, and multi-lingual language
+skills.
+Finding 19: Several WFOs reported problems with a limited number of phone lines for
+WFO/partner briefings, restricting partner participation.
+Recommendation 19: NWS regions should ensure WFOs understand the protocols and
+procedures for requesting additional conference phone lines for major event briefings.
+Finding 20: Latency and reliability issues with NWS web pages resulted in inconsistency in
+web services.
+Recommendation 20: NWS Internet Dissemination Service, also known as NIDS, should
+work towards ensuring there is no delay between the issuance of official products and their
+appearance on official web pages.
+
+C-2
+
+

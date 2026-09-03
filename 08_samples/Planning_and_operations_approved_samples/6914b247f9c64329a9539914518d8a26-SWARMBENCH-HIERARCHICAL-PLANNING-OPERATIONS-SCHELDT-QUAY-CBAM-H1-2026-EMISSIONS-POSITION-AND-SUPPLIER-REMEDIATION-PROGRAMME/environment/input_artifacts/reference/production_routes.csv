@@ -1,0 +1,25 @@
+cn_code,production_route,required_processes,required_precursor_cn
+7201,blast furnace ironmaking,sintering or pelletising of iron ore;reduction in the blast furnace,
+7203,direct reduction of iron ore,direct reduction of iron ore;product handling,
+7207 11 14,basic oxygen steelmaking,refining in the basic oxygen converter;continuous casting,7201
+7207 11 14,electric arc furnace with direct reduced iron,melting in the electric arc furnace;continuous casting,7203
+7207 11 14,"electric arc furnace, scrap based",melting in the electric arc furnace;continuous casting,
+7208,hot rolling of semi-finished steel,reheating;hot rolling;coiling and finishing,7207 11 14
+7209,cold rolling of flat steel,pickling;cold rolling;annealing,7208
+7213,hot rolling of semi-finished steel,reheating;hot rolling;coiling and finishing,7207 11 14
+7202 41,submerged arc smelting of ferro-alloys,ore preparation;submerged arc smelting,
+7219 12,stainless flat rolling,melting and refining;hot rolling;annealing and pickling,7202 41;7207 11 14
+7326 90 98,fabrication of steel articles,cutting and forming;welding;surface treatment,7208
+7601,primary aluminium electrolysis,anode production;electrolysis;casting,
+7604 21 00,aluminium extrusion,billet heating;extrusion;ageing,7601
+7606,aluminium flat rolling,slab heating;hot and cold rolling;annealing,7601
+7608,aluminium extrusion,billet heating;extrusion;drawing,7601
+7610 90 90,aluminium fabrication,cutting and machining;assembly;surface treatment,7604 21 00
+2523 10 00 90,clinker burning,raw meal preparation;clinker burning in the kiln;clinker cooling,
+2523 29 00,cement grinding,clinker grinding;blending and dispatch,2523 10 00 90
+2507 00 80 80,clay calcination,clay preparation;calcination,
+2814 10 00,steam reforming and ammonia synthesis,steam reforming of natural gas;ammonia synthesis loop,
+2808 00 00,ammonia oxidation to nitric acid,ammonia oxidation;absorption and abatement,
+3102 10 19,urea synthesis,urea synthesis;granulation or prilling,2814 10 00
+3102 30 90,ammonium nitrate neutralisation,neutralisation;granulation or prilling,2814 10 00;2808 00 00
+3105 20 10,compound fertiliser granulation,neutralisation;granulation;blending,2814 10 00;2808 00 00

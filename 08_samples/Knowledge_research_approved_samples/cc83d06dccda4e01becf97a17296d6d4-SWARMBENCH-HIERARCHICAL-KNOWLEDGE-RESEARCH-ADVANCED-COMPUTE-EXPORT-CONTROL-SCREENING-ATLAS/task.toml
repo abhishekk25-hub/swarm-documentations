@@ -1,0 +1,49 @@
+[task]
+name = "swarmbench/cc83d06dccda4e01becf97a17296d6d4-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-ADVANCED-COMPUTE-EXPORT-CONTROL-SCREENING-ATLAS"
+description = "Advanced Compute Export-Control Screening Atlas: fetch ten public export-control regimes, ground 180 identity-only screening claims in live text, classify licence and end-use posture, attach full round-tripping quotes, build cross-jurisdiction crosswalks and a conflict ledger, and produce agreeing matrix, atlas, charts and counsel briefing."
+
+[metadata]
+verifier_type = "hybrid"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+# browsing: catalog is identity-only; agent fetches each source_url at runtime; verifier scores
+#   deterministic quote round-trip against the pinned snapshot for reproducibility.
+# long_horizon: 180 claims across 10 heterogeneous regimes plus crosswalk, conflict ledger,
+#   four chart series and briefing against a multi-hour budget.
+secondary_classification = ["browsing", "long_horizon"]
+# Ownership spawn depth: orchestrator -> jurisdiction coordinator -> theme-block reader.
+dag_depth = 3
+dag_width = 30
+human_solving_hours_estimate = 120.0
+human_solving_hours_justification = "The load is irreducible per-regime reading of heterogeneous export-control prose, and it breaks into three phases. READING (~78h): ten public regimes (US ITAR via eCFR Title-22 XML, Wassenaar portal, Germany BAFA, Canada EIPA Full Text, India DGFT SCOMET, Ireland SI 443/2009 dual-use order, Sweden ISP, New Zealand MFAT export controls, Israel MOD export portal, UK ECJU guidance). Across 180 claims an analyst must fetch the instrument, locate the nominated theme passage, and extract a verbatim 12-60 word quote that appears in full. At roughly 26 minutes per claim for fetch, locate, quote and paraphrase, 180 x 0.433h = 77.9h, rounded to 78h including re-reads where house style differs. ANALYSIS (~24h): assigning control_class, duty_actor, licence_posture and enduse_sensitivity from closed lists, computing control_tightness_score by the four-term rulebook arithmetic, forming crosswalk groups across jurisdictions on the same theme, and writing conflict rows where classes disagree - about 0.11h per claim plus ~4h of crosswalk reconciliation, so 180 x 0.11h + 4h = 23.8h, taken as 24h. SYNTHESIS (~18h): jurisdiction arcs and reconciliation notes in the atlas, four chart series that match the matrix, conflict ledger cleanup, and a counsel briefing that names shipment risk without inventing controls - about 14h of writing plus 4h consistency. TOTAL: READING 78.0 + ANALYSIS 24.0 + SYNTHESIS 18.0 = 120.0 hours, matching human_solving_hours_estimate."
+estimated_sub_agents = 47
+input_token_estimate = 2200000
+reference_link = "https://www.ecfr.gov/api/versioner/v1/full/2024-01-01/title-22.xml"
+reference_links = [
+  "https://www.ecfr.gov/api/versioner/v1/full/2024-01-01/title-22.xml",
+  "https://www.wassenaar.org/control-lists/",
+  "https://www.bafa.de/EN/Foreign_Trade/Export_Control/export_control_node.html",
+  "https://laws-lois.justice.gc.ca/eng/acts/E-19/FullText.html",
+  "https://www.dgft.gov.in/CP/?optId=25",
+  "https://www.irishstatutebook.ie/eli/2009/si/443/made/en/print",
+  "https://isp.se/eng/",
+  "https://www.mfat.govt.nz/en/trade/export-controls",
+  "https://exportctrl.mod.gov.il/homepage",
+  "https://www.gov.uk/guidance/export-controls-military-goods-software-and-technology",
+]
+why_multi_agent = "The load-bearing work is irreducible per-regime READING across ten heterogeneous export-control house styles, then a cross-jurisdiction reconciliation that only exists after the rows do. The catalog ships identity only - claim_id, jurisdiction, control theme, locator hint, focus prompt, URL - and states nothing about the obligation text, control class, or quote. Under a single long context the predicted failure is incomplete synthesis and house-style contamination, not merely slow work: after US ITAR is read carefully, a serial pass templates US authorization language onto BAFA, SCOMET, ISP and MFAT rows, reuses a handful of eCFR quotes across foreign instruments, invents destination controls that do not appear in the fetched text, and mis-assigns jurisdiction labels onto easier sources. Late rows degrade first. The verifier prices exactly that incomplete atlas: paraphrases that are headings or quote-slices are dropped as padding before any depth credit; the full normalised quote must round-trip into the fetched instrument; jurisdiction_id and control_theme must match the catalog; control_tightness_score must recompute; crosswalk groups must span real jurisdictions; charts and briefing must exist and agree with the matrix. The work splits into a genuine nested hierarchy rather than a flat spray. The root orchestrator dispatches a catalog-lock step, ten jurisdiction coordinators (one per regime), and a short synthesis chain. Each jurisdiction coordinator SPAWNS ITS OWN theme-block readers - 30 readers in all across the ten regimes - so in the realized spawn tree a reader's parent is its jurisdiction coordinator and the deepest parent chain is orchestrator -> coordinator -> reader (three levels; that is what dag_depth records). Coordinators keep per-regime reading local before merge; interim-assembly writes the matrix as soon as coordinators report; only then do class-audit and conflict-audit run in parallel; chart and briefing writers consume both. depends_on in decomposition.yaml records DATAFLOW (who opens whose artefacts), not the spawn tree. The advantage is sustained reading capacity plus a dedicated synthesis path so the atlas and briefing are finished after the rows exist; there is no hidden information and no single-agent-only trap."
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+# Deterministic grounding plus minority W&B Qwen LLM checks. Runtime reward is the
+# canonical equal mean of the normalized static, deterministic-content, and LLM buckets; fail-closed
+# invalid_evaluation if the judge is unavailable. No temperature on judge requests.
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600
+network_enabled = true

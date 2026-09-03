@@ -1,0 +1,118 @@
+# ============================================================================
+# EXECUTION PLAN
+# ----------------------------------------------------------------------------
+# Static graph (6 stages, 12 declared sub-tasks):
+#   docket-frame -> record-manager -> {cluster-a,b,c,d}-consolidation
+#                -> cohort-reconciliation -> {cluster-a,b,c,d}-write
+#                -> docket-assembly
+#
+# record-manager does no document reading itself. It reads
+# /input_artifacts/docket_manifest.csv and, for every site identifier listed
+# there, dispatches one site-record worker that performs the reading task
+# and returns the same output schema every worker shares. The manager passes
+# each worker its site's manifest rows and the reading/output schema
+# verbatim. Before accepting a worker's record the manager checks it against
+# that site's own manifest rows -- a worker returning another site's
+# documents, or returning none at all, is a failed worker, not a site with
+# nothing to report. A failed worker gets one retry; if it still fails the
+# manager marks that site's record not-stated and passes that marker
+# forward rather than accepting contaminated or empty data.
+#
+# A not-stated marker is a first-class result from this point on, not an
+# absence to be silently filled in. Every downstream stage -- cluster
+# consolidation, cohort reconciliation, cluster write, final assembly -- is
+# required to carry a gap forward explicitly rather than let it disappear
+# into a confident-looking default the underlying record never supported.
+#
+# The four cluster-write sub-tasks apply cohort-reconciliation's settled
+# vocabulary and controlling-level decisions to one five-site cluster each,
+# working from that cluster's own site-record worker outputs rather than
+# re-deriving affected media or cleanup levels from a fresh reading of the
+# documents. Keeping this step scoped to five sites at a time, and grounded
+# in what the worker already extracted, is what stands between a settled
+# docket-wide rule and a single agent overwriting twenty sites' worth of
+# already-correct per-document findings with one convenient generalization.
+#
+# docket-assembly does not re-classify any document. It combines the four
+# cluster-write outputs into the two required CSVs, then separately checks
+# each site's current remedy and cited basis against the pinned standards
+# text for unresolved inconsistencies across the whole docket -- a
+# cross-cluster judgment that only makes sense once every cluster's rows
+# are in hand -- and writes the readiness memo alongside the combined CSVs.
+#
+# Four independent writers producing rows for the same two files only stays
+# safe if every one of them, and the agent merging their output, holds to
+# the exact column set and order the task instructions define -- no writer
+# renaming a column, dropping one, adding one of its own, or reordering the
+# rest. docket-assembly is the last point where this can be checked before
+# the files are final, so it is responsible for confirming every combined
+# row uses exactly those columns, and nothing else, before writing.
+#
+# Effective graph (accounting for the manager's per-site spawn): the widest
+# level is the site-record workers spawned under record-manager, one per
+# site identifier present in the manifest.
+# ============================================================================
+
+version: "1.0"
+coordination_pattern: hierarchical
+sub_tasks:
+
+  - id: docket-frame
+    description: Read /input_artifacts/decision_document_guidance.txt, /input_artifacts/cited_standards_register.csv, and /input_artifacts/docket_manifest.csv and set out what each kind of decision document is meant to contain, what each pinned standard's text says as of its recorded date, and which documents belong to each site identifier
+    depends_on: []
+    parallel_group: docket-framing
+
+  - id: record-manager
+    description: Read /input_artifacts/docket_manifest.csv and for every site identifier it lists dispatch one worker that reads every decision document listed for that site and returns its modification history the affected media the cleanup levels as written the standards cited and an evidence anchor for each finding. Give every worker the same reading task and output schema along with only the manifest rows and documents for its own site. Before accepting a worker's returned record check that every document identifier in it belongs to that site's own manifest rows and that the record is not empty. Retry a worker once on a mismatch, a failure, or an incomplete return. If the retry still returns another site's documents or nothing at all mark that site's record not-stated and pass that marker forward rather than accepting contaminated or empty data. Collect every worker's returned record without altering its content.
+    depends_on: [docket-frame]
+    parallel_group: docket-record-dispatch
+
+  - id: cluster-a-consolidation
+    description: Consolidate the histories returned for SITE-01 through SITE-05 into one cluster view and surface where these five sites carry the same requirement or the same standard under different wording units or media labels. Treat any site in this group whose record-manager output is not-stated, empty, or bound to a different site's documents as a gap and list it explicitly in this view's own output rather than folding it silently into the requirement and standard comparison.
+    depends_on: [record-manager]
+    parallel_group: cluster-consolidation
+
+  - id: cluster-b-consolidation
+    description: Consolidate the histories returned for SITE-06 through SITE-10 into one cluster view and surface where these five sites carry the same requirement or the same standard under different wording units or media labels. Treat any site in this group whose record-manager output is not-stated, empty, or bound to a different site's documents as a gap and list it explicitly in this view's own output rather than folding it silently into the requirement and standard comparison.
+    depends_on: [record-manager]
+    parallel_group: cluster-consolidation
+
+  - id: cluster-c-consolidation
+    description: Consolidate the histories returned for SITE-11 through SITE-15 into one cluster view and surface where these five sites carry the same requirement or the same standard under different wording units or media labels. Treat any site in this group whose record-manager output is not-stated, empty, or bound to a different site's documents as a gap and list it explicitly in this view's own output rather than folding it silently into the requirement and standard comparison.
+    depends_on: [record-manager]
+    parallel_group: cluster-consolidation
+
+  - id: cluster-d-consolidation
+    description: Consolidate the histories returned for SITE-16 through SITE-20 into one cluster view and surface where these five sites carry the same requirement or the same standard under different wording units or media labels. Treat any site in this group whose record-manager output is not-stated, empty, or bound to a different site's documents as a gap and list it explicitly in this view's own output rather than folding it silently into the requirement and standard comparison.
+    depends_on: [record-manager]
+    parallel_group: cluster-consolidation
+
+  - id: cohort-reconciliation
+    description: Take the four cluster views and settle one basis_family vocabulary and one normalized unit result covering every cleanup level in the docket then decide for each level which document still controls it and which later document retired it. Carry forward every gap any cluster view listed into this stage's own output unresolved rather than letting it disappear by omission, and do not settle a vocabulary entry or a controlling document for a site whose underlying record was never obtained.
+    depends_on: [cluster-a-consolidation, cluster-b-consolidation, cluster-c-consolidation, cluster-d-consolidation]
+    parallel_group: cohort-reconciliation
+
+  - id: cluster-a-write
+    description: Apply the settled vocabulary and controlling level decisions to SITE-01 through SITE-05 only, working from each site's own site-record worker output rather than re-deriving affected media or cleanup levels from scratch, and produce this cluster's register rows and crosswalk rows covering every document and every adopted or retired cleanup level for these five sites. For any site or document this cluster's own gap list or cohort-reconciliation's carried-forward gap list marks unresolved, write NOT-STATED in the affected register and crosswalk cells rather than filling in a restatement, a none medium, or any other value the underlying record does not support. Use exactly the column set and column order the task instructions define for each file, unchanged, with nothing added, renamed, reordered, or left out.
+    depends_on: [cohort-reconciliation]
+    parallel_group: cluster-write
+
+  - id: cluster-b-write
+    description: Apply the settled vocabulary and controlling level decisions to SITE-06 through SITE-10 only, working from each site's own site-record worker output rather than re-deriving affected media or cleanup levels from scratch, and produce this cluster's register rows and crosswalk rows covering every document and every adopted or retired cleanup level for these five sites. For any site or document this cluster's own gap list or cohort-reconciliation's carried-forward gap list marks unresolved, write NOT-STATED in the affected register and crosswalk cells rather than filling in a restatement, a none medium, or any other value the underlying record does not support. Use exactly the column set and column order the task instructions define for each file, unchanged, with nothing added, renamed, reordered, or left out.
+    depends_on: [cohort-reconciliation]
+    parallel_group: cluster-write
+
+  - id: cluster-c-write
+    description: Apply the settled vocabulary and controlling level decisions to SITE-11 through SITE-15 only, working from each site's own site-record worker output rather than re-deriving affected media or cleanup levels from scratch, and produce this cluster's register rows and crosswalk rows covering every document and every adopted or retired cleanup level for these five sites. For any site or document this cluster's own gap list or cohort-reconciliation's carried-forward gap list marks unresolved, write NOT-STATED in the affected register and crosswalk cells rather than filling in a restatement, a none medium, or any other value the underlying record does not support. Use exactly the column set and column order the task instructions define for each file, unchanged, with nothing added, renamed, reordered, or left out.
+    depends_on: [cohort-reconciliation]
+    parallel_group: cluster-write
+
+  - id: cluster-d-write
+    description: Apply the settled vocabulary and controlling level decisions to SITE-16 through SITE-20 only, working from each site's own site-record worker output rather than re-deriving affected media or cleanup levels from scratch, and produce this cluster's register rows and crosswalk rows covering every document and every adopted or retired cleanup level for these five sites. For any site or document this cluster's own gap list or cohort-reconciliation's carried-forward gap list marks unresolved, write NOT-STATED in the affected register and crosswalk cells rather than filling in a restatement, a none medium, or any other value the underlying record does not support. Use exactly the column set and column order the task instructions define for each file, unchanged, with nothing added, renamed, reordered, or left out.
+    depends_on: [cohort-reconciliation]
+    parallel_group: cluster-write
+
+  - id: docket-assembly
+    description: Before combining anything, check each of the four cluster-write outputs against the exact column set and column order the task instructions define for the register and for the crosswalk; a cluster whose columns were added to, renamed, reordered, or left incomplete has to be sent back to be rebuilt in the required shape rather than merged as it is. Once all four conform, combine their register rows into /logs/agent/remedy_change_register.csv and their crosswalk rows into /logs/agent/cleanup_level_crosswalk.csv without re-classifying any document, confirm the two written files still hold only the required columns with one row per required combination and no stray duplicate rows, then check each site's current remedy and cited basis against the pinned text in /input_artifacts/cited_standards_register.csv across the whole docket to name every unresolved inconsistency and every basis_family cited under materially different wording, and write /logs/agent/review_readiness_memo.md. List every gap any cluster-write output carried forward as unresolved in the memo's account of what the docket leaves unsettled rather than presenting a NOT-STATED site or document as settled fact.
+    depends_on: [cluster-a-write, cluster-b-write, cluster-c-write, cluster-d-write]
+    parallel_group: docket-assembly

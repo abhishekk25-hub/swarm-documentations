@@ -1,0 +1,604 @@
+﻿✍️ Quick notes
+Please rate the new Quick notes tab by taking a short survey.
+All -Hands - Verifier & Rubric Manifest Standards [MANDATORY]
+
+
+Aug 4, 2026
+Nikhil Meda Muhammad Mamdouh Abhishek Garg Prasanth K lokesh.k5@turing.com Mehedi Hasan Tumbo Lobi John sridaran.s@turing.com Mohammad Feroz Saksham Jain Henok Kebede Magra Srisabari S logeshwaran.l@turing.com Anjali Laishram Karthick E palani.s@turing.com logesh.l@turing.com S G Mathavan Ramesh Kumar K Bhanu Prakash Reddy Nalamadgu Aladdin Mostafa Naveen Naveen Estifanos Gashawtena Ruturaj Solanki Atif Shoaib Vivek Verma Abhishek Kathirasan Vinodkumar Baste Yousef el Khawaga Satish Bogala Job Owonubi Mohammad Feroz Shaik Olusegun Olayinka Bright Amidiagbe Aditya Somani tejas.g1@turing.com Kiran Vignesh K Benaiah Yusuf Kuldeep Singh Tanwar zite.o@turing.com Segun Oni Alex Alex Asma
+
+
+Meeting addressed client rejection feedback via standardized verification protocols, updated metadata schemas, and improved evaluation criteria transparency.
+
+
+Verifier Configuration and Logical Standards
+* Verifier type updated to 'hybrid' in TOML files (Ruturaj).
+* Reward scores transitioned from reward.txt to reward.json to include metadata such as structural, reward hacking, and partial oracle check scores.
+* Verifier composition mandated: content checks must comprise at least 40% and structural checks no more than 60% of test cases.
+* Content checks must prioritize analytical verification rather than merely confirming input text presence in the output (S G Mathavan).
+* Scoring logic should remain simple, utilizing standard addition or averaging, to avoid escalation due to overly complex custom gates.
+
+
+Alignment and Consistency Protocols
+* Single-agent and multi-agent runs must utilize identical versions of verifier.py to prevent validation gaps.
+* Rubrics manifest (rubrics_manifest.json) must encompass all test cases defined in verifier.py.
+* Verifier logic, including scoring mechanisms and weightings, must be human-readable and explainable in the manifest file.
+
+
+Debugging and Evaluation Procedures
+* Adding print statements to verifier.py required to log structural check results, scores, and LLM justifications for debugging.
+* Hollow submissions advised as a testing mechanism to ensure the verifier accurately assesses requirements and correctly rejects incomplete tasks.
+
+
+Next steps
+* [The group] Standardize TOML Verifier: Update the TOML file verifier type to hybrid to align with standardized quality gate requirements.
+* [The group] Balance Verifier Composition: Adjust verification logic to ensure content checks comprise at least 40 percent and structural checks do not exceed 60 percent of the overall task test cases.
+* [The group] Implement Verifier Logging: Add print statements to verifier.py to log structural check results, scores, and LLM judge output for easier verification and debugging.
+* [The group] Align Manifest Files: Ensure that every test case defined in verifier.py is present and documented with human-readable explanations in the rubrics manifest.json file.
+* [The group] Synchronize Verifier Versions: Use identical versions of verifier.py for both single-agent and multi-agent task runs to prevent validation inconsistencies.
+* [The group] Test Hollow Submissions: Perform hollow submissions to test the verifier, ensuring it accurately evaluates requirements and does not assign high scores to incomplete submissions.
+* [Ruturaj Solanki] Distribute Meeting Materials: Upload the meeting recording and associated documentation to the announcement channel.
+
+
+
+
+
+
+Want to see more? View the full notes
+Tip: You can always access your full notes from the left sidebar.
+
+
+
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+📝 Full notes
+Aug 4, 2026
+All -Hands - Verifier & Rubric Manifest Standards [MANDATORY]
+Invited Nikhil Meda Muhammad Mamdouh Abhishek Garg Prasanth K lokesh.k5@turing.com Mehedi Hasan Tumbo Lobi John sridaran.s@turing.com Mohammad Feroz Saksham Jain Henok Kebede Magra Srisabari S logeshwaran.l@turing.com Anjali Laishram Karthick E palani.s@turing.com logesh.l@turing.com S G Mathavan Ramesh Kumar K Bhanu Prakash Reddy Nalamadgu Aladdin Mostafa Naveen Naveen Estifanos Gashawtena Ruturaj Solanki Atif Shoaib Vivek Verma Abhishek Kathirasan Vinodkumar Baste Yousef el Khawaga Satish Bogala Job Owonubi Mohammad Feroz Shaik Olusegun Olayinka Bright Amidiagbe Aditya Somani tejas.g1@turing.com Kiran Vignesh K Benaiah Yusuf Kuldeep Singh Tanwar zite.o@turing.com Segun Oni Alex Alex Asma
+Attachments All -Hands - Verifier & Rubric Manifest Standards [MANDATORY]
+Meeting records Transcript Recording 
+
+
+
+
+Summary
+Meeting addressed client rejection feedback via standardized verification protocols, updated metadata schemas, and improved evaluation criteria transparency.
+
+Verifier And Metadata Standards
+Hybrid verifier types and JSON metadata are required for all test case scores. Structural checks are limited to a maximum 60% ratio of total test cases.
+
+Methodology And Scoring Refinements
+Content checks require analytical processing rather than simple verification. Scoring logic must prioritize simplicity to ensure full transparency and avoid opaque penalization.
+
+Testing And Execution Protocols
+Single and multi-agent runs require identical verifier files for consistency. Comprehensive logging and hollow submission testing remain mandatory to ensure test robustness.
+
+
+
+
+Next steps
+* [The group] Standardize TOML Verifier: Update the TOML file verifier type to hybrid to align with standardized quality gate requirements.
+* [The group] Balance Verifier Composition: Adjust verification logic to ensure content checks comprise at least 40 percent and structural checks do not exceed 60 percent of the overall task test cases.
+* [The group] Implement Verifier Logging: Add print statements to verifier.py to log structural check results, scores, and LLM judge output for easier verification and debugging.
+* [The group] Align Manifest Files: Ensure that every test case defined in verifier.py is present and documented with human-readable explanations in the rubrics manifest.json file.
+* [The group] Synchronize Verifier Versions: Use identical versions of verifier.py for both single-agent and multi-agent task runs to prevent validation inconsistencies.
+* [The group] Test Hollow Submissions: Perform hollow submissions to test the verifier, ensuring it accurately evaluates requirements and does not assign high scores to incomplete submissions.
+* [Ruturaj Solanki] Distribute Meeting Materials: Upload the meeting recording and associated documentation to the announcement channel.
+
+
+
+
+Details
+Did the screenshots in this section make your notes better or worse?
+* Meeting Objective and Agenda: S G Mathavan and Ruturaj Solanki convened the meeting to address recent client feedback regarding task rejections and requirements for reworks. The team reviewed specific issues leading to these rejections, ranging from minor metadata errors to major structural and content check deficiencies, to ensure future tasks meet client standards (00:02:12).
+* Standardization of Verifier Type: Ruturaj Solanki instructed the team to update the verifier type in the TOML file to "hybrid" when a task utilizes both an LLM judge and static checks. The quality gate and review processes have been updated to accept this classification (00:06:14).
+  
+
+* Implementation of JSON Metadata: The team is transitioning from the reward.txt file to a reward.json file. This new file must contain metadata regarding scores for all test cases, including structural check scores, reward hacking check scores, and partial oracle check scores, to provide a detailed breakdown of task performance (00:07:42).
+  
+
+* Structural versus Content Check Ratio: Ruturaj Solanki established a requirement that structural checks must not exceed 60% of the overall test cases. Conversely, content checks must constitute at least 40% or more of the overall test cases. Tasks failing to meet this distribution risk auto-rejection by the client (00:11:38).
+* Refining Content Check Methodologies: S G Mathavan clarified that content checks must involve actual analysis rather than simply verifying that a sentence from an input file appears in the output file. Trainers must design tests that confirm the agent has processed the information as requested, moving beyond simple input-to-output presence checks (00:12:52) (00:17:17).
+  
+
+* Handling Reference-Based Content Checks: Yousef el Khawaga inquired about checks requiring the agent to cite specific page numbers, paragraphs, or sections from input files. S G Mathavan confirmed that such checks are valid content checks if the agent provides the necessary rationale, and they should be classified within the partial oracle using an LLM judge (00:24:26).
+* Multi-Agent Run Strategy for Verification: S G Mathavan suggested using multi-agent runs as a trial to visualize output files and establish a search space for creating robust verifiers. While Bright Amidiagbe expressed concern about relying on multi-agent outputs if the underlying composition is poor, S G Mathavan emphasized that this method helps trainers verify oracles and refine verifier logic before finalizing single-agent tasks (00:26:37).
+* Rubric Manifest and Verifier Alignment: Ruturaj Solanki stated that every test case defined in the verifier.py file must be explained and present in the rubrics manifest.json file. The team must avoid duplicate functions and ensure that the verifier and the manifest align perfectly to provide accurate and complete data to the client (00:30:59).
+  
+
+* Transparency in Scoring Logic: S G Mathavan emphasized that scoring logic must be simple, readable, and explainable, such as using basic averaging. Trainers should avoid implementing overly complex or hidden gate mechanisms that penalize tasks in non-transparent ways, as these practices are leading to client escalations (00:36:24).
+* Consistency Between Agent Runs: Ruturaj Solanki and S G Mathavan stressed that single-agent and multi-agent runs must utilize identical versions of the verifier.py file. Using different test cases for different run types creates discrepancies that result in task rejection (00:38:00).
+* Logging via Print Statements: S G Mathavan required trainers to include comprehensive print statements in the verifier.py file for all test logic, specifically printing scores and LLM justifications. This practice ensures that all relevant data is captured in the test standard output, allowing for easier debugging and verification of whether the verifier or the LLM judge is the source of an issue (00:41:31).
+* Hollow Submission Testing: Ruturaj Solanki instructed trainers to create "hollow submissions"—submissions that follow instruction formatting but contain little or no valid content—to test the robustness of their verifier. This process ensures the verifier correctly identifies and penalizes invalid or empty submissions rather than assigning them high scores (00:43:35).
+* Payouts and Closing: S G Mathavan confirmed that payouts are being processed regardless of current client feedback. The team plans to push back on minor client-flagged issues while ensuring future tasks adhere to the discussed standards. Ruturaj Solanki committed to sharing the meeting recording and relevant documentation in the announcement channel (00:46:01).
+
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Aug 4, 2026
+All -Hands - Verifier & Rubric Manifest Standards [MANDATORY] - Transcript
+00:02:12
+
+
+Ruturaj Solanki: Hey, hey guys. Uh let's just wait for a few minutes. Let join join and then kick off the meeting.
+S G Mathavan: Yeah. Hi everyone. Sorry was not able to hear you.
+Ruturaj Solanki: Uh, sorry I was asking am I audible?
+S G Mathavan: Yes. Yeah.
+Ruturaj Solanki: Yeah.
+S G Mathavan: Now we are audited.
+Ruturaj Solanki: Uh, sorry.
+S G Mathavan: Yeah. I think uh maybe next time Rut please do invite team members right with the updated chat.
+Ruturaj Solanki: Uh,
+S G Mathavan: I think uh some of the members have left the team but still they have
+Ruturaj Solanki: the uh Yeah.
+S G Mathavan: okay uh apart
+Ruturaj Solanki: Yes, I actually it was yeah I invited all of the members from the previous meeting.
+S G Mathavan: from
+Ruturaj Solanki: So I'll be using that
+S G Mathavan: no uh I just request the QA leads to quickly check the trainers right from your
+Ruturaj Solanki: together.
+S G Mathavan: team if they are present in the call if not uh let them know about that uh call which is happening right but yeah the whole agenda of this call is Uh recently we got some feedbacks from the client and uh they they were actually not rejecting a task but still they are asking for reworks which is something like which uh some of the cases are minor and some of the g cases are also major which we will be discussing in this call and the next thing is uh yeah today uh for the minor reworks they
+
+
+
+
+00:05:05
+
+
+S G Mathavan: like we feel that uh it is really minor and uh today we are having a call the client and we are going to ask like if it is like acceptable these minor cases will be avoided in the next batches right because this incurs a lot of cost and interest and things. So uh after the detailed discussion we will get to know like what specific task which needs to be uh considered rework and then redeliver it again. Apart from that yeah uh we can go over the rejection list one by one understand how we should not be creating these issues in future. Yeah. Uh RTR.
+Ruturaj Solanki: Yeah, just let me just share my screen,
+S G Mathavan: Okay.
+Ruturaj Solanki: please.
+S G Mathavan: Yeah. Sure.
+Muhammad Mamdouh: Hey Maddie, can okay start?
+Ruturaj Solanki: Yeah. Yeah. I was
+Muhammad Mamdouh: Isn't it?
+S G Mathavan: Yes. M. Okay.
+Ruturaj Solanki: here.
+Muhammad Mamdouh: Yeah.
+S G Mathavan: I think you asking to record the session.
+Muhammad Mamdouh: Yeah.
+
+
+
+
+00:06:14
+
+
+Muhammad Mamdouh: Yeah. Yeah. You started the recording.
+S G Mathavan: Okay. Yeah. Thank you.
+Ruturaj Solanki: Okay. So guys, I hope my screen is visible. Uh yeah. Uh moving to uh yes moving towards the feedback docu uh feedback from the client. Uh let's treat it as very important because these are the things that that like clients have like flagged and we have also like uh immediately like uh applied these changes into our quality gate as well as our uh review process. So uh if you're not uh applying the changes applying these changes uh into your task after this meeting uh your task may go to rejection. So not may definitely go to rejections. So yeah uh let's start with the very first point. Uh this is a very minor uh this is a very minor change. So now what is happening uh what happens is like uh in a toml file where you are like writing a verifier type uh the the issue here was uh the people uh like train some trainers were not writing it correctly like uh let's say they were writing asm judge someone writing as a executable uh so yeah uh we need to uh basically make the changes and make it like standardized one so if your verifier is having lm judge as well as uh some static checks uh which comes into a category for a hybrid verifier type.
+
+
+
+
+00:07:42
+
+
+Ruturaj Solanki: So what we will be doing is uh we will be like uh changing our verifier type to hybrid. We have updated the quality gate as well as uh uh the review process to accept the hybrid verifier as a valid uh as a valid uh verifier type. So come going forward uh please uh make the necessary changes in your towel file and yeah uh then you uh you will be able to uh pass the quality gates uh static checker as well as the checker. Uh now uh moving to the second point which is the uh very important I would say most important uh uh one in the uh in the whole presentation which is the verifier.py output file. So uh traders uh you must know that there is a reward txt file that gets generated every time you uh complete a so reward reward.ext file is nothing but the reward uh rewards it contains nothing but the reward score uh which uh which your uh task scored actually. So now what what happens is this doesn't give us a all the metadata or you can say information regarding the uh scores and everything that like how these checks were applied how what were the checks and what were the total number of things that What?
+
+
+
+
+00:09:00
+
+
+Ruturaj Solanki: like in calculation while calculating this particular check. So what uh we have applied here is uh M also have posted this message where you will be like uh we will be applying uh a patch. A patch is nothing but these three uh uh metadata informations into the reward.json file now which is like change from reward.ext file. Uh here what will happen is uh you will be having all the test uh not uh you will be having scores for the all the test cases that have been uh run uh into your uh verifier. py file. So there will be like a structural check score, reward hacking check score and uh partial oracle check score. This is nothing but the aggregated check score of uh total score of your uh task uh for that particular category. Now uh if you scroll down uh let's see uh why are we implementing this as I mentioned earlier in this uh part in this uh in the beginning like this are the checks uh these are the like aggregated checks of your test cases like let's say you are having 15 test cases with structural checks uh we are going to uh basically have uh aggregated like let's say how much out of what basically how much did it score on the structural basis then how much on the remote hacking get it score how much on the parial oracle did it score so yeah that
+
+
+
+
+00:10:26
+
+
+Ruturaj Solanki: is how we are going to uh like have this metadata into our remotejson or the result JSON file any question here guys that this particular file if not just raise a thumbs up yeah uh most important what's happening is like seeing better and the
+S G Mathavan: Uh uh if I'm not on you taking uh we are not able to hear
+Ruturaj Solanki: task.
+S G Mathavan: it.
+Ruturaj Solanki: Hello. Yeah. Am I audible?
+S G Mathavan: Yes.
+Ruturaj Solanki: No.
+S G Mathavan: Naveen or
+Ruturaj Solanki: Sorry. Uh yes. Uh so going to the the most important thing uh that the client has flagged here. Now let's say you are having a having a verified py and there are some test cases. Now what the client actually wanted is uh let's say you're having uh some 10 test cases and um out of those 10 test cases eight of them are just uh uh static checks or you can say structural checks which are just checking the structure of your task and the uh files that get generated.
+
+
+
+
+00:11:38
+
+
+Ruturaj Solanki: So these are like bas uh these are like uh almost uh useless to the uh verifier uh verifier py file. So what we need to do here is the uh the the checks the structural checks should be not be more than uh I would say 40 uh uh 60 uh 60% it should be always between The than 60% of the overall uh verifier and we will be increasing our content our restricts like the content is like basically what the file actually consist and what we actually ask for the agent to do like let's say we ask the agent to come up with an actual sheet with this particular data where we is it being present in the file is it being correctly present in the file or is it being correctly uh written as we have described in the our instruction ctions and uh uh our input files. So yeah, coming to the golden rule here, the content should be more than 40 to uh more than or equal to 40% of the overall test cases and structural checks should not be greater than 60% of the overall test cases.
+
+
+
+
+00:12:52
+
+
+Ruturaj Solanki: So if the task is having more than uh 60% of the structural checks uh then it depends on uh then what happens here is basically the task uh depends on high structural graders and the task will be auto rejected by the client itself and that will be impacting your uh uh impacting uh impacting uh your task performance as well and it will be coming back to the review uh yeah reworks. Now moving to the fourth point here if you see uh the content checks. Now the this is a very specific point that the client had raised like let's say you are writing let's say we have discussed about the content checkings right what we should basically like check now the important point here is what we should check is one thing and additionally point we should always check is how we are checking it so the main concern from the client here was let's say you are having an instruction uh in instruction file you are giving everything in the instruction file like this is uh my format This is uh this is how you should write it.
+
+
+
+
+00:13:57
+
+
+Ruturaj Solanki: This is basically how you should uh come up with the uh file that I am requesting. You are also incorporating those checks into your verified. Correct. This is right. Uh this is how you should be writing. But one additional point here is you should also be writing uh another uh baseline of checks which are uh basically like checking the actual correctness of the uh content. Like let's say uh instead of uh information like instead of in uh information relying on the input files or the instruction. You should also have some reward hacking scenarios where uh we are like let's say uh for an example very good example would be uh from Maddy's task like there are uh there is uh like there is a github repo uh where like 72 github repos where he where the agent has to bing like fetch each and every URL. Now you are also checking those URLs uh to the verifier py. Now what happened here is basically the test becomes a use list is like already provided to the LM and you are checking it like if this is like correct or not.
+
+
+
+
+00:15:06
+
+
+Ruturaj Solanki: So what we are what we want to imply here is basically checking if the URL that agent used is it correct or not. Now that change the content right uh instead of like giving everything to the verifier as well as the agent we are going to check now correctness of the content. So yes, uh don't uh Yeah, you're
+Bright Amidiagbe: Yeah.
+Ruturaj Solanki: right.
+Bright Amidiagbe: So this content check must hold the information thing I unless we want to talk unless we want to tone down how we do our checks because from one of the gates one of
+Ruturaj Solanki: Mhm.
+Bright Amidiagbe: the dimension quality says that every behavior whether positive or negative must be checked.
+Ruturaj Solanki: Yeah.
+Bright Amidiagbe: So I think that is where this content um simply copied impute
+Ruturaj Solanki: Sure.
+Bright Amidiagbe: scripts into the verifier because if you say okay you must write you must check like you must browse a file then you have to go and write a check that says that make sure that it does.
+Ruturaj Solanki: Correct.
+Bright Amidiagbe: So if we are saying we cannot simply just uh copy that then maybe
+
+
+
+
+00:16:17
+
+
+Ruturaj Solanki: Mhm.
+Bright Amidiagbe: the maybe we throw some light on it or we want to reduce the strictness of that part of the check because if that check still exist then unless the gates are not going unless the rem is not going to pass that particular check.
+Ruturaj Solanki: No agreed Bright. So I understand your concern here. So like like as I mentioned the checks that you all want to mention are should be present in the instruction as well as the checks which is checking the behavior. Now the behavior is something which we cannot predict. Okay, LM can find hundreds of ways to uh come up with a solution uh to a particular problem. Now, uh as I mentioned the the quality gate isn't a uh it is also depends on the agents, right? So, you have to reason through it like let's say it it's coming up with a uh coming up with a uh like let's say you have given some test cases and it's coming up with a uh answer that this test cases are reward hacking.
+
+
+
+
+00:17:17
+
+
+Ruturaj Solanki: the test cases cannot be uh incorporated in your judge uh incorporated in your uh verifier. Py reason behind it let's see uh are you able to like come up with the answer uh answer that no if I if I don't put this check my correctness of my solution will be like deteriorating yeah that's
+S G Mathavan: Now before going to question right right let me explain one more thing the
+Bright Amidiagbe: Uh so yeah. Oh,
+Ruturaj Solanki: right
+Bright Amidiagbe: f******
+S G Mathavan: concern of the client is not specifically the reward hacking checks it's a content check what they were saying is what they were seeing as a pattern right consider my example task let's say I'm giving a list of repository URLs uh and go fetch the data and get do some analysis on the read me.md file and write that particular analysis uh in a specific format which I have requested right so if I'm going to now have a content partial oracle checks which only checks the GitHub URL is present or not which I have already given uh to the agent by input file right so if those were the task where they were checking the sentence were present or not in the file which was created by the agent but that specific sentence is already given in the input file.
+
+
+
+
+00:18:30
+
+
+S G Mathavan: So the client is asking like already the file which you have given to the agent as an input already has this sentence. What is the big difference it's going to do uh by checking that specific sentence is present in the output file or not. So they wanted us to write a content checks like the partial oracle checks and reward hacking checks by doing these analysis. So coming back to my task, I'm not going to write a test case which just only checks the URL, right? I also have to do a particular uh task like pick five URLs do the analysis on the readme write my own answer and then write an LLM judge mentioning these are the rubrics which needs to be covering uh covering these answers and that's how I'm going to rate it right that's what exactly the client wanted you
+Bright Amidiagbe: Yeah.
+S G Mathavan: sir
+Bright Amidiagbe: So I heard the audience I understand what the client want. I'm just pointing it out that if we are strictly following this first information content must validate work that simply that cannot be simply copied from previous from provided imputes or instructions.
+
+
+
+
+00:19:35
+
+
+Bright Amidiagbe: I'm saying our current quality dimensions does not permit this because the quality dimensions states that statics checks I think that's the reason why we are having statics checks in the first place. Every in every behavior either positive or negative must be checked and every check was written must be stated in the problem statement and that is why our problem statement is very large because the longer your test the more your your your
+S G Mathavan: I Yeah, I get the
+Bright Amidiagbe: instruction. So if you're following this part, it's difficult to actually follow this part. It's like you you it's difficult to actually follow this part and that particular item in that I think is QD1 or Q2.
+S G Mathavan: All right. I think we are discussing two factors here. One is you are mentioning, let me reframe your question, right? For example, you have an instruction mentioning that a specific schema or an header needs to be followed and you are following that in static check. If I'm not going to have that check, the LLM judge will be flagging it.
+
+
+
+
+00:20:36
+
+
+S G Mathavan: That's your question,
+Bright Amidiagbe: Yes.
+S G Mathavan: right?
+Bright Amidiagbe: And you know that has already been given in the input already which is what the client is already flagging.
+S G Mathavan: This is actually not uh the client is actually not flagging these things. So what they were flagging it as is consider you are considering like whatever you have asked in the instruction is more of like the static set the schema the format and also the The how a specific file needs to be formatted, right? These can be incorporated in the static checks. What they wanted is content checks are different. Consider our partial oracle checks and also reward hacking checks, right? Those were the tasks which was also checking a sentences which is already provided in the input file. This was what the major constraint at the time. What they were doing is like those specific tasks were not actually doing the analysis and deriving the output and then comparing it with a partial oracle.
+
+
+
+
+00:21:31
+
+
+S G Mathavan: The partial oracle involves a sentence which is already provided in the input files. That was the concern. Uh so moving forward we are not asking like we should not be having static checks which needs to be checking. We should be having statics checks. End of the day the instruction and the verifier should be 100% aligned. What the client is specifically asking is more robust content checks which pushes the trainer to do the partial oracle and come up with the very good partial oracle confirm it and then have it in the task. Not just uh checking if the sentence is present in the output file and just mentioning that okay if the sentence is present from the output file is in the input output file. Sorry. The sentence from the input file is present in the output file. Now the agent has done the work and it gives the reward. This is these specific test cases are not uh encouraged by the client.
+
+
+
+
+00:22:25
+
+
+S G Mathavan: Is it clear?
+Bright Amidiagbe: Yeah. Yeah, it's clear.
+S G Mathavan: Yeah. Okay. Uh yes
+Bright Amidiagbe: I would suggest that maybe we want to visit that part of that um that part of that
+S G Mathavan: yousef
+Bright Amidiagbe: quality dimension as well. So I think it's
+S G Mathavan: uh which part exactly what you're saying like
+Bright Amidiagbe: QD. He killed it too, but I don't know the item.
+S G Mathavan: uh
+Bright Amidiagbe: Is a bit strict. If we want to do this, if you want to do that, maybe we want to tune it down a bit. I don't know.
+S G Mathavan: so let me clear it once right like the instruction and the verifier which is 100% should be aligned the you should be covering those cases in the static check itself. You should not be having an verifier which can be covered in static check and keep it in the uh a partial oracle check or an uh reward hacking checks right and like classify that as a reward hacking or partial oracle that's the main concern of the client just checking a sentence from an input
+
+
+
+
+00:23:23
+
+
+Bright Amidiagbe: Okay.
+S G Mathavan: file and present in the output file is not a valid partial oracle check or reward hacking
+Bright Amidiagbe: Okay.
+S G Mathavan: checks yeah so end of the day the QD is correct we should be
+Bright Amidiagbe: Okay.
+S G Mathavan: 100% align What you have to do here is if you are mentioning that this specific sentence from the input file should be present in the output file then you should be going ahead with the static check right and even if you're using an LLM jet consider that as an static check and you can give it a reasoning saying that this should be present. So apart from the apart from that we should not be classifying any uh sentences which we are picking from an input file and then asking it the agent to solve it right this is actually not considered as a content checks so that's why they're saying ask the trainer to do this analysis or any the task what it needs right and then write the verifier on top of it like once the human is confirming is it clear I Okay,
+
+
+
+
+00:24:26
+
+
+Bright Amidiagbe: Yes. Yes, it is. Yeah, it is.
+S G Mathavan: great. Uh,
+Yousef el Khawaga: uh okay uh one point for me uh for example if I'm asking
+S G Mathavan: yes.
+Yousef el Khawaga: the uh in the instruction to reference from the input where exactly does this get or where exactly like the page number the paragraph the section uh isn't This is considered like a content check because he took a decision or make an action based on a reference that it needs to be present from the input
+Ruturaj Solanki: I can
+S G Mathavan: Yes, these these can be definitely enclosed in static check and the reward hacking checks and the other
+Yousef el Khawaga: files.
+S G Mathavan: content checks should be done by the trainer. So, uh these are considered as a formatting, right? You wanted the agent to follow a specific format and
+Yousef el Khawaga: No, no. Uh not a specific format. Uh I want the agent when he uh returns the answer to all uh
+S G Mathavan: Okay.
+
+
+
+
+00:25:26
+
+
+Yousef el Khawaga: to also return with it the the reason why it uh consider it from the actual inputs. uh like for example if he decided to go right uh because it says in paragraph three in page four uh sentence five one two three
+S G Mathavan: Mhm.
+Yousef el Khawaga: uh I think this counts as a content checks not static checks uh not the formatter
+S G Mathavan: Yes,
+Yousef el Khawaga: schema I mean the reason here because it's reference the input
+S G Mathavan: the these are yes exactly these these can be considered as content checks and you will be classifying it in the partial oracle itself as an LLM gems. Yeah. And also just an point here uh so some trainers would be confused like uh m I'm like going to run a single agent but I wanted my verifier to be much more robust at the first place itself that's why I have emphasized previously a trick which is like first if I'm going to create a very complex task and I'm I'm really not sure how to create a verifier right a complex verifier so the step you have to take uh is on the root cause an unless document you have to create like you have confirmed the creativity you have confirmed the scale.
+
+
+
+
+00:26:37
+
+
+S G Mathavan: Now you are confused whether to step into a step a single agent or multi- aent. This is where you have to select a multi- aent first is when you are confused on the verifier part, right? Maybe come up with your very good complex decomposition.yamel file and then you run the multi- aent first with a very uh simple verifier. Definitely it will it is not considered as a ballot run but at least With this trial run, you will be able to visualize the output files produced by the multi- aent. Now you have a search space to confirm whether these outputs are correct or not. And while confirming it, you are able to find out which are the outputs are valid. You can f now write a verifier on top of it like whatever you have confirmed and then run the single N multi again. Yes. Uh you I hope your question is done right. Okay. Uh, Brian,
+Bright Amidiagbe: Yeah.
+S G Mathavan: please go
+
+
+
+
+00:27:30
+
+
+Bright Amidiagbe: So, yeah, I have a little concern about that approach. I've thought about it before,
+S G Mathavan: ahead.
+Bright Amidiagbe: but I didn't do it because I have the concern about it. And the concern is that it boils down to what you said. You have to make sure that the the comp the composition is good because if you don't make sure that the the composition is good you that means you are just trying
+S G Mathavan: Yeah.
+Bright Amidiagbe: to um I like when it comes to the benchmark you are not trying to verify based on a good a good source. You're just trying to verify based on what the multi- aent is doing. So yeah I thought about it but I just dropped the idea on the line. So because the problem is you don't you might not you might think the verifier is good you might think the composition is good then it produce the result and you write the composer the
+S G Mathavan: Mhm.
+Bright Amidiagbe: verifier for it but if you do the other way around let's say you write the verifier first and you run that same decomposer you might realize that it's not as good as you would have expected as well so
+
+
+
+
+00:28:34
+
+
+S G Mathavan: Now so one more step here bright which I have emphasized which is like let's say I'm not uh like uh saying that the decomposition should be really good. First thing is the a good decomposition on the first iteration is right you are just decomposing multiple sub aents and asking them to take an ownership here let's consider an example I have given an 100 URLs and about a monument and I'm asking them to extract a specific information from about the monuments and create an article on top of it right so let uh I'm if I'm going to write and verifier uh definitely like I need to go through the hundred uh like at least 10 uh like monuments and monument pages and find out the information things like that. But if I'm going to run this multi- aent, it helps me to reduce the search base. Now I have a sheet where this multi- aent produced the files. I'm not going to uh like like assume that these are like right values. I need to pick the 10 and handp pick the 10 verify the oracle once again like if it is a valid uh numbers or not and only after verifying it I will be writing the verifier right so in that case it is not biased to a wrong file which is produced by the multi-
+
+
+
+
+00:29:51
+
+
+S G Mathavan: aent uh the the step which I'm doing is myself picking the 10 task and uh then verifying the oracle is correct or not which makes me make which makes sure that this is like a partial oracle which I have created. Now you can create your verifier on top of it.
+Bright Amidiagbe: Yeah. Okay. Yeah. Yeah, I get it. I'm just trying because I'm just trying to clarify more.
+S G Mathavan: Yeah.
+Bright Amidiagbe: So in that
+S G Mathavan: Yeah. I this this doesn't sounds like an very valid approach for all the cases I
+Bright Amidiagbe: case
+S G Mathavan: would say. uh but yeah uh we can definitely brainstorm uh by bringing up the case to the table right bringing
+Bright Amidiagbe: Yeah.
+S G Mathavan: up the example to the table and then we can find it out like this method is just to reduce the search space like I I don't want to like go through all the 10 U 100 like 10 or 20 URLs by myself do the work manually I I'm here as an human to pull the agent to do this and then verify it but in this case some trainers also use instead of using the multi- aent run right they use cursor to bring up the values and then they verify it like Arthur I think
+
+
+
+
+00:30:59
+
+
+S G Mathavan: mentioned it in Holland's call also so any cases would work but yes putting an idea here yeah over to you can also
+Bright Amidiagbe: Okay. Thanks.
+S G Mathavan: okay uh if nothing else yeah over to you Rut you can go to the next steps
+Ruturaj Solanki: Yeah, thank you. Thank you, Maddie. Uh just to summarize uh as a as a great idea as Maddie mentioned like you can run a multi- aent get the valid files input those content checks to uh the verifier not applicable to all the all the uh tasks as I had mentioned but yeah a very good um try we can say so yeah let's move to the fifth point which is also uh which is a concerning thing right So what is happening is since we you our workflow is dependent on highly dependent on agents agents hallucinate right so what is happening is your rubrics uh manifest JSON file which should actually contain every test cases possible uh every test cases that are in the verify py but it is actually missing it so client has actually like flagged it here so what should happen is what is the expected behavior is that every test cases which is written in your verify.
+
+
+
+
+00:32:21
+
+
+Ruturaj Solanki: py should be present and explained in the ru uh rubric manifest.json file. So yeah, that is the main concern here. So uh again I'm mentioning it every test cases present in the verifier. py should be present in the rubrics manifest.json. We have also implemented a uh we have also implemented uh a uh implemented this checks in our static check in the coate so that the number of test cases as well as uh the rubrics manifest.json should be aligning. Yes. Uh this is uh this is very important. Now, uh one more thing that the client jet flag is like let's say uh we are having uh 10 uh verifying checks here in our verified we're also having 10 rubrics checks in the verified uh sorry rubrics uh in the rubrics file 10 checks but uh some of the checks like let's say one or two checks are like duplicate uh they are like check functions are like uh you can say duplications of another agent and uh uh wrote the rubrics manifest in a similar manner. So we need to check that each functions which is being described in our rubric manifest is uh is uh I would say different or you can say aligning with the verifier.py mind this this should uh this should not actually uh be uh treated as a light matter because uh this concerns is like uh the files that you are providing to the client and the data that we are providing.
+
+
+
+
+00:33:58
+
+
+Ruturaj Solanki: So uh the data that we should always provide should be always accurate and uh complete. So yeah please keep in mind that your verifier and the rubrics manifest or JSON should always always align. And one of the one uh important thing that client also uh uh wanted was like uh everything that you are mentioning in your verified p verified. py should be explainable and uh like written in a very good uh human humanized sentence in your uh re uh premanifest.json. So like let's say your mechanism which you are using multipliers alternate scoring pass or what whatever logic that you are using should be explainable and one more thing here is like let's say you are using gates or any other form of like verifier that you should actually uh try it out first. The problem here is if you're not able to explain your verifier itself like let's say the gates or or any other multiplier of weights that you have used in your verifi verifier not in your rubric uh uh rubric manifest.json then it is like to totally totally uh to the client.
+
+
+
+
+00:35:12
+
+
+Ruturaj Solanki: So a thumb goal here would be golden root here would be to uh to uh basically write a verifier and the test cases as well as your uh reward uh component in an explanable manner. If you're explain it and if you're not able to your lead the task willly on the task. So yeah, please keep in mind that your two how you're checking your files, how you're checking your test case, our input output files should be explainable and should be written in the uh file. Now uh uh single agent and multi- aent must use same file. same verifier. Now let's say you are having one verifier uh you have completed the single agent run and you are satisfied with the run but you are uh seeing that there are some still checks or some thing that are like misaligned. So this is a kind of a mistake from our our end where uh trainers are like running the ver uh ver uh single agent and multi agent it's a different uh I would say different verifier uh Yes,
+S G Mathavan: uh I just wanted to emphasize again on the previous point right so we we were able to see samples
+
+
+
+
+00:36:24
+
+
+Ruturaj Solanki: buddy.
+S G Mathavan: where the the logics which is being used on scoring right I'm not saying about like the scripts part which is writing on the function you can definitely be uh very creative on writing departial or one case I was able to see is the scoring logic so let's say for example in the task it was what is happening is it was actually he made it as a mechanism of gate. What they were doing is the expected logic which we are requesting here is a list of static checks and if if the static check is passing it's going to reward one. It's not uh it's if it is failing it's going to reward zero and the partial oracle checks and also reward hacking checks should always be 0 to one or 01 right this is what the reward which we are expecting but what happened in that specific task is they were also following the same scoring but at the last they were introducing an gate here which is like if one this specific logic in the function fails it was reducing 0.25 25 score from the whole score uh like the score if these patterns are seen uh this is also for the QA leads right if you're not able to see a common uh very easily understandable scoring logic in the particular task feel free to reject it because these are also like keep on the client is escalating these again and again and
+
+
+
+
+00:38:00
+
+
+S G Mathavan: if we are going to do the same mistake again right they will definitely escalate it like uh they they will not be very interested in the verifier part is what I'm trying to emphasize here and uh I know the quality gates they are able to easily uh get it a pass by doing some random because the end of the day it's an LLM but what I'm trying to say is if your scoring logic is not very simple just an addition and then averaging it by three because we have partial oracle reward hacking and static checker right if it is not this logic and maybe you can also add the weightage which is also very structured one two and If this is not the simple logic which we are having in the test case, I feel we should be rejecting the task moving forward. Any doubts here? Okay, great. Uh over to you. Sorry for interrupting. Yeah.
+Ruturaj Solanki: No worries. No worries. Now uh coming to the sixth point as I mentioned earlier The verifier that you are using for single as well as the multi should the same not be having different cases for multi-entit or having different uh test cases for test cases for the single agent.
+
+
+
+
+00:39:14
+
+
+Ruturaj Solanki: So yeah please keep your verifier aligned. So uh multi- aent and single agent should be tested on the same test cases. This is very please don't for like if you're sending a task with a different verifier using different uh this particular gap how could we take this gap since you are two using different test cases. Please have a uh identical versions of your verified email. Yes. M
+Muhammad Mamdouh: Yeah, your voice is breaking up and uh uh some of the word get missing.
+Ruturaj Solanki: uh yeah sure let me just repeat it. So my main goal here is uh the single agent as well as the multi- aent should always pass through an identical uh version of the verify. py. So every test cases that you are writing should this and should be same for the multi- aent without it the client won't be able to have a valid gap and they will be like rejecting the task based on this particular scenario
+S G Mathavan: Uh sorry to jump in like yeah your voice got muffled again rush tlddr guys
+
+
+
+
+00:40:28
+
+
+Ruturaj Solanki: hope
+S G Mathavan: is uh we were this is not like uh uh seen on all the task but what we are trying to emphasize is a task which was run on single agent was running only 250 checks but the multi- aent was running 450 checks. In this case, you could have easily found out that like yeah it is good right we are having multiple a lot of check checks for multi- aent still it scores are very good but still the client wanted is is they wanted a equal balance here. So if you are going to use one single verify py you have to rerun the single agent and multi- agent and this is being uh I know this is like uh an case where it is by mistake and the trainers were using uh we are all executing by manually right but I wanted you all to follow a very structured approach that's why we have shared the assay document as well so every day please use the assay document so that you don't miss these cases because of your manual errors but Yeah.
+
+
+
+
+00:41:31
+
+
+S G Mathavan: Uh this is what the main point here is. Also I'm trying to emphasize one more thing here is on your verify. py always use print statement. Let's say on the structural checks the first check logic is passing use a print statement. If the second structural check is passing use a print statement and if it is an LLM judge, reward hacking checks, partial oracle checks, anything relevant to LLM judge. Right? Always use print statements. Whatever the LLM is throwing at you, right? Uh, ask them. LLM to write two things here the score and also the justification both the things should should be printed so if you're using a print statement the hardware the like hardware stores all these print statements and test std out so you it helps you to also verify if the verifier is an issue or an LM judge is hallucinating so that you can like find out these these cases right so that's the main reason like please emphasize uh and try to run task with the verify.
+
+
+
+
+00:42:32
+
+
+S G Mathavan: py have more print statements in your verify. py so that everything is logged in the test std out and uh I think with this the client is should can also like if you're not having any print statements we don't have a specific file to check what is being verified here like whether the multi- aent luckily we were able to find out this based on the logs and but we wanted a very detailed version of test STD output so we can achieve this by having more print statement I will also emphasize that in the quality gate so I will add in another dimension specifically for this in a QD. Uh but yeah, I just emphasizing here. Any doubts? Okay, great. Uh yeah, over to you. Let's go to next one.
+Ruturaj Solanki: Yeah. Thank you. Thank you, Maddie. Hope my voice is now audible.
+S G Mathavan: Yes.
+Ruturaj Solanki: Uh now Okay. Now, uh moving to the seventh point which is the final point.
+
+
+
+
+00:43:35
+
+
+Ruturaj Solanki: Now, uh we have what we have to do here is uh the content checks like let's say you have implemented the content checks as we have mentioned in the previous point. You have verified ready. Now what you have to do here is uh what you have to do here is as I think uh you guys will be remembering the reward hacking prompt that uh uh we have previously showcase you can create your own hollow submission. Follow submission is nothing but a submission that looks like the requirement that have been like asked in your instruction. be submit it and see if what your verifier is actually like scoring it like is it scoring it high is it scoring it uh uh is it scoring it like accurately or is it like satisfying all the requirements that you have asked in your instruction and basically uh you are able to have achieve a very good score with just a hollow submission then there will be a verifier issue because you haven't implemented the remote hacking checks and uh actually check the content correctness so This should and really something you need and yeah uh please keep this in mind and try come up with a very good verifier and a complete set of uh tricks.
+
+
+
+
+00:44:53
+
+
+Ruturaj Solanki: Yeah, I think that would be all. Any questions guys? Yes,
+Muhammad Mamdouh: So for the hollow submission that we do uh is it supposed to be under
+Ruturaj Solanki: Lord.
+Muhammad Mamdouh: a certain points uh or it can be what is expected for the hollow submission because uh
+Ruturaj Solanki: Yeah. All submissions are you are not going to submit them. So it is just a part of it shaking system like let's say you have completed
+Muhammad Mamdouh: yeah yeah yeah I understand this I understand this part. I'm asking for the score that it get what should it get under one
+Ruturaj Solanki: yeah
+Muhammad Mamdouh: 0.1% or
+Ruturaj Solanki: no no there is no act there is no
+Muhammad Mamdouh: what?
+S G Mathavan: If it is there is no deliverance produced by the LM it should be zero moment.
+Ruturaj Solanki: uh yeah let's
+Muhammad Mamdouh: Okay.
+Ruturaj Solanki: say you are having some structural checks and which is like checking the if the folder is present file is present
+Muhammad Mamdouh: Okay.
+Ruturaj Solanki: yeah very minimal score is expected of course but yeah uh keep sure that keep in mind that it doesn't get a really high score on those structural checks then it will be a very bad hollow submission
+
+
+
+
+00:46:01
+
+
+Muhammad Mamdouh: Yeah.
+Ruturaj Solanki: and just wasting a verifier.
+Muhammad Mamdouh: Yeah. But it it will get some point for for example for the structure because the hu submission
+Ruturaj Solanki: Yeah.
+Muhammad Mamdouh: can b some structure check. So it can get some points but very low
+Ruturaj Solanki: Yeah.
+Muhammad Mamdouh: points.
+Ruturaj Solanki: Yeah.
+Mehedi Hasan: Yes.
+Ruturaj Solanki: Absolutely. Yes.
+Mehedi Hasan: And an and empty submission should get like one point
+Muhammad Mamdouh: Okay.
+Mehedi Hasan: basically.
+Muhammad Mamdouh: Okay. Thank you.
+Ruturaj Solanki: Yeah. Any more questions guys? If not, please uh raise your thumbs up so that we can see that everyone understood each and every point here and all the points that we have discussed here are effective immediately. Basically you have you will have to apply it on your every task that you will be creating and yeah you will be submitting
+S G Mathavan: Uh and also an important point guys is uh we have considered these tasks for payout uh
+Ruturaj Solanki: them.
+S G Mathavan: as we all are aware of like we are processing the payout irrespective of for the client feedback but yeah uh today we are having the client meeting and we will make sure to get uh like uh very uh specific UID right what needs to be re like introducing weightage case then we can uh specifically ask those trainers to work on it.
+
+
+
+
+00:47:23
+
+
+S G Mathavan: Apart from that we are also planning to push back these minor cases right for example the metadata and things uh which is not very impactful for the object group uh task. So we are also planning to push back to the client and but we will make sure that this is not happening in the next few task uh next upcoming task. So this is the agenda for today's call with the client as well but I will keep you guys posted on the great uh if nothing else yeah we can call it a meeting guys. Thank you so much.
+Ruturaj Solanki: Yeah, thank Thank you.
+S G Mathavan: How would
+Ruturaj Solanki: Thank you guys. Yeah,
+Muhammad Mamdouh: Thank
+Ruturaj Solanki: I will be sharing this recording and the document in the uh announcement
+S G Mathavan: you
+Muhammad Mamdouh: you.
+Ruturaj Solanki: channel once it's guys.
+Muhammad Mamdouh: Thank you for the presentation.
+Ruturaj Solanki: Yeah.
+S G Mathavan: Thank you guys.
+Ruturaj Solanki: Thank you guys.
+S G Mathavan: Bye.
+Ruturaj Solanki: Thank you. Bye. Bye guys.
+Muhammad Mamdouh: Bye-bye.
+
+
+
+
+Transcription ended after 00:49:18
+
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

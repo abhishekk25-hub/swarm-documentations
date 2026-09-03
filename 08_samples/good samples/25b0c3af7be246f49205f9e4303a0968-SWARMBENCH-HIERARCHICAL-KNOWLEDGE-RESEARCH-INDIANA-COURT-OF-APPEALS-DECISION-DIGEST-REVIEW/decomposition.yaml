@@ -1,0 +1,326 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+
+sub_tasks:
+
+  - id: lead--g1
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g1-01, spec--g1-02, spec--g1-03, spec--g1-04]
+    description: >-
+      Read across the eight completed Indiana Court of Appeals cards in review group 1. Prepare a group rollup that compares Appellate Rule 46 briefing with a Rule 9 notice stop, PCR with a direct criminal appeal, and CHINS or TPR work with dissolution, dispositions, and transfer or remand consequences. Assemble the eight transfer_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching cause_index.csv lines.
+
+  - id: spec--g1-01
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z01 and z02 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g1-02
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z03 and z04 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g1-03
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z05 and z06 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g1-04
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z07 and z08 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g2
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g2-01, spec--g2-02, spec--g2-03, spec--g2-04]
+    description: >-
+      Read across the eight completed Indiana Court of Appeals cards in review group 2. Prepare a group rollup that compares Appellate Rule 46 briefing with a Rule 9 notice stop, PCR with a direct criminal appeal, and CHINS or TPR work with dissolution, dispositions, and transfer or remand consequences. Assemble the eight transfer_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching cause_index.csv lines.
+
+  - id: spec--g2-01
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z09 and z10 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g2-02
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z11 and z12 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g2-03
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z13 and z14 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g2-04
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z15 and z16 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g3
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g3-01, spec--g3-02, spec--g3-03, spec--g3-04]
+    description: >-
+      Read across the eight completed Indiana Court of Appeals cards in review group 3. Prepare a group rollup that compares Appellate Rule 46 briefing with a Rule 9 notice stop, PCR with a direct criminal appeal, and CHINS or TPR work with dissolution, dispositions, and transfer or remand consequences. Assemble the eight transfer_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching cause_index.csv lines.
+
+  - id: spec--g3-01
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z17 and z18 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g3-02
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z19 and z20 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g3-03
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z21 and z22 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g3-04
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z23 and z24 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g4
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g4-01, spec--g4-02, spec--g4-03, spec--g4-04]
+    description: >-
+      Read across the eight completed Indiana Court of Appeals cards in review group 4. Prepare a group rollup that compares Appellate Rule 46 briefing with a Rule 9 notice stop, PCR with a direct criminal appeal, and CHINS or TPR work with dissolution, dispositions, and transfer or remand consequences. Assemble the eight transfer_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching cause_index.csv lines.
+
+  - id: spec--g4-01
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z25 and z26 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g4-02
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z27 and z28 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g4-03
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z29 and z30 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g4-04
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z31 and z32 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g5
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g5-01, spec--g5-02, spec--g5-03, spec--g5-04]
+    description: >-
+      Read across the eight completed Indiana Court of Appeals cards in review group 5. Prepare a group rollup that compares Appellate Rule 46 briefing with a Rule 9 notice stop, PCR with a direct criminal appeal, and CHINS or TPR work with dissolution, dispositions, and transfer or remand consequences. Assemble the eight transfer_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching cause_index.csv lines.
+
+  - id: spec--g5-01
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z33 and z34 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g5-02
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z35 and z36 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g5-03
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z37 and z38 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g5-04
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z39 and z40 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g6
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g6-01, spec--g6-02, spec--g6-03, spec--g6-04]
+    description: >-
+      Read across the eight completed Indiana Court of Appeals cards in review group 6. Prepare a group rollup that compares Appellate Rule 46 briefing with a Rule 9 notice stop, PCR with a direct criminal appeal, and CHINS or TPR work with dissolution, dispositions, and transfer or remand consequences. Assemble the eight transfer_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching cause_index.csv lines.
+
+  - id: spec--g6-01
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z41 and z42 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g6-02
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z43 and z44 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g6-03
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z45 and z46 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g6-04
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z47 and z48 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g7
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g7-01, spec--g7-02, spec--g7-03, spec--g7-04]
+    description: >-
+      Read across the eight completed Indiana Court of Appeals cards in review group 7. Prepare a group rollup that compares Appellate Rule 46 briefing with a Rule 9 notice stop, PCR with a direct criminal appeal, and CHINS or TPR work with dissolution, dispositions, and transfer or remand consequences. Assemble the eight transfer_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching cause_index.csv lines.
+
+  - id: spec--g7-01
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z49 and z50 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g7-02
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z51 and z52 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g7-03
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z53 and z54 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g7-04
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z55 and z56 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g8
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g8-01, spec--g8-02, spec--g8-03, spec--g8-04]
+    description: >-
+      Read across the eight completed Indiana Court of Appeals cards in review group 8. Prepare a group rollup that compares Appellate Rule 46 briefing with a Rule 9 notice stop, PCR with a direct criminal appeal, and CHINS or TPR work with dissolution, dispositions, and transfer or remand consequences. Assemble the eight transfer_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching cause_index.csv lines.
+
+  - id: spec--g8-01
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z57 and z58 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g8-02
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z59 and z60 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g8-03
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z61 and z62 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g8-04
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z63 and z64 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: lead--g9
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g9-01, spec--g9-02, spec--g9-03, spec--g9-04]
+    description: >-
+      Read across the eight completed Indiana Court of Appeals cards in review group 9. Prepare a group rollup that compares Appellate Rule 46 briefing with a Rule 9 notice stop, PCR with a direct criminal appeal, and CHINS or TPR work with dissolution, dispositions, and transfer or remand consequences. Assemble the eight transfer_calendar.csv rows from the calendar key in /environment/input_artifacts/record_format.md, and the matching cause_index.csv lines.
+
+  - id: spec--g9-01
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z65 and z66 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g9-02
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z67 and z68 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g9-03
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z69 and z70 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: spec--g9-04
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full the assigned Indiana Court of Appeals opinions z71 and z72 at /environment/input_artifacts/decisions/<id>.txt. File one hearing card per opinion under /logs/agent/output/cause_drawers/ on the matching cause drawer (criminal, postconviction, family, or civil), named from the printed appellate number, using the six-part card format in /environment/input_artifacts/record_format.md. Identify the appellant, trial court, appellate number, Indiana Code or Appellate Rule issue, decisive trial-record fact, precise disposition, and transfer or remand consequence. Ground each account only in its own opinion and use original prose.
+
+  - id: merge--final
+    agent_type: general
+    parallel_group: merge
+    depends_on: [lead--g1, lead--g2, lead--g3, lead--g4, lead--g5, lead--g6, lead--g7, lead--g8, lead--g9]
+    description: >-
+      Reconcile the nine group rollups and the completed hearing cards. Produce the canonical 72-row /logs/agent/output/transfer_calendar.csv in report order, write /logs/agent/output/cause_drawers/cause_index.csv, and write /logs/agent/output/appr46_homework.md. The memo compares Appellate Rule 46 briefing with a Rule 9 notice stop, PCR with a direct criminal appeal, and CHINS or TPR work with dissolution, dispositions, and transfer or remand consequences. Support each comparison with report labels or appellate numbers; reach later-roster matters; and say what the transfer or remand consequence still leaves open. Confirm that cards sit under /logs/agent/output/cause_drawers/, follow the six-part shape in /environment/input_artifacts/record_format.md, use /environment/input_artifacts/case_roster.csv for report labels, and that calendar rows are present and consistent.

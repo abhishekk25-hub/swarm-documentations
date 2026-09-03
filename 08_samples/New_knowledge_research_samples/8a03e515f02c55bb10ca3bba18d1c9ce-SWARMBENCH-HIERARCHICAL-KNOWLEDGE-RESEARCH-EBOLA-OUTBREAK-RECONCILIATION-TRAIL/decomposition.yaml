@@ -1,0 +1,629 @@
+version: "1.0"
+coordination_pattern: hierarchical
+
+notes: |
+  ORCHESTRATOR ROLE RESTRICTION: the top-level orchestrator's only legal actions are (1) read
+  its own instruction, (2) call task() to spawn realtime_lead, retrospective_lead, and
+  cross_document_reconciliation, (3) await their completion, (4) call task() to spawn
+  final_synthesis once cross_document_reconciliation is done, and (5) confirm the three
+  required files exist under /logs/agent/ (a bare `ls -la /logs/agent/`) before finishing.
+  These four task() calls are the orchestrator's COMPLETE and EXCLUSIVE dispatch budget for
+  this run -- no additional ad hoc, corrective, or "fix it myself" dispatch beyond those four,
+  however plausible a reason seems in the moment. The orchestrator must NOT itself read any
+  file under /input_artifacts/, must NOT itself read or write /workspace/*.json, must NOT
+  itself open, grep, word-count, or otherwise inspect the CONTENTS of situation_register.csv,
+  reconciliation_dossier.md, or reporting_audit.md (existence-only, via `ls`, is the one
+  permitted check), must NOT itself draft any register row or narrative passage, and must NOT
+  re-do, second-guess, or issue a follow-up task() call to patch a lead's, cross_document_
+  reconciliation's, or final_synthesis's own work -- all real reading, writing, and judgment
+  happens inside the four sub-agents it dispatches, never in the orchestrator's own context.
+
+  DISPATCH OWNERSHIP: the top-level orchestrator's OWN direct task() calls are exactly
+  realtime_lead, retrospective_lead, cross_document_reconciliation, and (last) final_synthesis
+  -- 4 calls total. The orchestrator must NOT itself call any parallel_group: extract entry
+  directly. Each extraction worker is dispatched by ITS OWN stream lead, as that lead's first
+  action after it is spawned -- this is what makes the hierarchy genuinely four levels deep
+  rather than one flat fan-out with an extra label: a lead that never itself calls task() to
+  spawn its workers has not actually acted as a manager, regardless of what subagent_type it
+  was given.
+
+  FILE-BASED HANDOFF, NOT INLINE TEXT: every lead's verified rows and cross_document_
+  reconciliation's confirmed links are each written to a JSON file under /workspace/, never
+  returned as inline row-by-row text in a task() reply. final_synthesis MUST still be
+  dispatched via its own task() call no matter how much total content the leads produced,
+  precisely because that content never needs to pass through the orchestrator's own context
+  at all: it sits on disk, and only final_synthesis, once spawned, needs to read it. Each lead
+  ALSO writes a nonsubstantive.json file recording the real procedural/boilerplate passages it
+  and its workers noticed (WHO/UN publication boilerplate, copyright/disclaimer blocks,
+  contact-list footers, repeated methodology paragraphs) -- this is the only channel through
+  which final_synthesis, which never reads any raw source file itself, can ground
+  reporting_audit.md's Non-Substantive Passages section in real passages instead of inventing
+  them. final_synthesis's two narrative deliverables are held to one non-negotiable output
+  requirement: every entry_id, source_file, and quote either document cites must correspond to
+  an actual row that genuinely exists in the situation_register.csv final_synthesis itself
+  writes -- a citation to a register row or source file that isn't really there is the single
+  most damaging defect either document can have, more damaging than a thinner but fully
+  accurate document would be. Before finishing, final_synthesis must re-read its own
+  situation_register.csv, reconciliation_dossier.md, and reporting_audit.md exactly as it
+  wrote them and correct any citation that does not hold up -- there is no separate node that
+  checks this for you.
+
+  Four-level hierarchy: eighteen extraction workers (twelve covering the 29 real-time WHO/UN/
+  UNICEF situation reports, six covering the 11 real retrospective/after-action documents,
+  split by real word count into small, tractable batches rather than an arbitrary fixed file
+  count) report to their own stream's lead. Each of the two stream leads is responsible for
+  spawning and supervising its own workers, then independently re-verifying every row's
+  supporting_quote against the real source file. In parallel, a dedicated
+  cross_document_reconciliation node is responsible for the one thing no stream-scoped worker
+  or lead can do: reading BOTH streams' verified registers side by side (and going back to the
+  real source text of both when needed) to find genuine cross_document_link pairs -- cases
+  where a retrospective/after-action document's account of what was known at a given time
+  either corroborates or contradicts what the contemporaneous real-time situation report(s)
+  from that same period actually said. No lead or worker should read the OTHER stream's raw
+  files at all -- cross-document correspondence is a reconciliation-stage judgment, made only
+  after both streams have already been independently and completely processed; only
+  cross_document_reconciliation is allowed to read across the realtime/retrospective boundary.
+  The final_synthesis node merges both streams' verified rows into the register (applying
+  cross_document_reconciliation's confirmed links, not any worker's or lead's own unconfirmed
+  guess at a link), writes reconciliation_dossier.md, and writes reporting_audit.md.
+
+  SUB-TASK DESCRIPTIONS ARE SCOPE-ONLY: every extraction worker's description below states
+  WHAT files to read and WHAT to produce (the required row schema), never WHICH specific
+  facts, case counts, dates, or analytical conclusions to expect in those files -- discovering
+  the actual content, however dense or sparse a given file turns out to be, is exactly the
+  work each worker and lead is being asked to do. The same applies to
+  cross_document_reconciliation and final_synthesis: their descriptions state the
+  reconciliation/synthesis METHOD (read both real sides before confirming a link; ground every
+  dossier claim in a real row) without asserting which specific pairs are genuine, which are
+  traps, what conclusion the finished dossier should reach, or how many contradictions exist.
+
+sub_tasks:
+  - id: realtime_extract_1
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read these 2 real WHO/UN Ebola Response Roadmap situation report files in full, under
+      /input_artifacts/realtime/: who_ebola_response_roadmap_update_18_september_2014.txt and
+      who_ebola_response_roadmap_situation_report_8_8_october.txt. For every distinct fact you
+      find, produce a row with: source_file (the file's REAL path relative to
+      /input_artifacts/, INCLUDING the "realtime/" folder prefix, e.g.
+      "realtime/who_ebola_response_roadmap_update_18_september_2014.txt"), document_type
+      ("realtime"), date (the real date the material concerns, YYYY-MM-DD), issuing_body (the
+      real organization that authored this specific document, e.g. "WHO", "UNICEF"),
+      topic_category (one of CASE_COUNT_REPORT, RESPONSE_CAPACITY_STATUS, RISK_ASSESSMENT,
+      OPERATIONAL_CHALLENGE), key_fact (one sentence), and supporting_quote (copied verbatim
+      from the real file text, a real substantive sentence or clause -- never a bare
+      boilerplate line like a copyright notice or contact address). Log every distinct fact
+      you find as its own row; do not compress two genuinely different facts (e.g. two
+      different countries' case counts in the same week, or a case count and a separate
+      capacity statement) into a single row just because they appear close together. Do NOT
+      fill in cross_document_link yourself -- leave every row's link determination to the
+      dedicated cross_document_reconciliation node, which is the only place in this task
+      allowed to read the retrospective stream's files. Reply with your candidate rows as
+      newline-delimited JSON (NDJSON) and NOTHING else -- no prose before or after, no
+      surrounding array brackets or commas between rows, exactly ONE single-line JSON object
+      per row with EXACTLY these keys: source_file, document_type, date, issuing_body,
+      topic_category, key_fact, supporting_quote, each row's object complete on its own line.
+      Use NDJSON specifically rather than one big JSON array: if your reply is ever cut short,
+      every already-complete line is still independently parseable, so only the truncated
+      final row is lost rather than your entire reply becoming unparseable. Your lead depends
+      on parsing this reply programmatically to aggregate all twelve workers' output -- a
+      free-text, prose-wrapped, or malformed-JSON reply risks losing rows during that
+      aggregation, so strict NDJSON with no surrounding commentary is mandatory. You were
+      spawned and are supervised by realtime_lead.
+
+  - id: realtime_extract_11
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read this 1 real WHO Ebola Response Roadmap situation report file in full, under
+      /input_artifacts/realtime/: who_ebola_response_roadmap_situation_report_15_october_.txt.
+      For every distinct fact you find, produce a row with: source_file (REAL path INCLUDING
+      the "realtime/" prefix), document_type ("realtime"), date (YYYY-MM-DD), issuing_body
+      (real authoring organization), topic_category (one of CASE_COUNT_REPORT,
+      RESPONSE_CAPACITY_STATUS, RISK_ASSESSMENT, OPERATIONAL_CHALLENGE), key_fact (one
+      sentence), and supporting_quote (verbatim, a real substantive sentence or clause, never
+      boilerplate). Log every distinct fact as its own row -- this is a single file, but do not
+      under-extract it relative to how much real, distinct, reportable content it actually
+      contains. Do NOT fill in cross_document_link yourself. Reply with your candidate rows as
+      newline-delimited JSON (NDJSON) and NOTHING else -- one single-line JSON object per row,
+      keys exactly: source_file, document_type, date, issuing_body, topic_category, key_fact,
+      supporting_quote. You were spawned and are supervised by realtime_lead.
+
+  - id: realtime_extract_2
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read these 3 real WHO Ebola Response Roadmap situation report files in full, under
+      /input_artifacts/realtime/: who_ebola_response_roadmap_situation_report_17_october_.txt,
+      who_ebola_response_roadmap_situation_report_25_october_.txt, and
+      who_ebola_response_roadmap_situation_report_31_october_.txt. For every distinct fact you
+      find, produce a row with: source_file (REAL path INCLUDING the "realtime/" prefix),
+      document_type ("realtime"), date (YYYY-MM-DD), issuing_body (real authoring
+      organization), topic_category (one of CASE_COUNT_REPORT, RESPONSE_CAPACITY_STATUS,
+      RISK_ASSESSMENT, OPERATIONAL_CHALLENGE), key_fact (one sentence), and supporting_quote
+      (verbatim, a real substantive sentence or clause, never boilerplate). Log every distinct
+      fact as its own row. Do NOT fill in cross_document_link yourself. Reply with your
+      candidate rows as newline-delimited JSON (NDJSON) and NOTHING else -- one single-line
+      JSON object per row, keys exactly: source_file, document_type, date, issuing_body,
+      topic_category, key_fact, supporting_quote. Use NDJSON specifically so a cut-short reply
+      only loses its truncated final row rather than becoming entirely unparseable. You were
+      spawned and are supervised by realtime_lead.
+
+  - id: realtime_extract_3
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read these 3 real files in full, under /input_artifacts/realtime/:
+      who_ebola_response_roadmap_situation_report_5_november_.txt,
+      ebola_response_roadmap_situation_report_update_12_novem.txt, and
+      sierra_leone_ebola_situation_report_3_december_2014.txt. For every distinct fact you
+      find, produce a row with: source_file (REAL path INCLUDING the "realtime/" prefix),
+      document_type ("realtime"), date (YYYY-MM-DD), issuing_body (real authoring
+      organization -- note these three files are not all issued by the same organization,
+      check each file's own text), topic_category (one of CASE_COUNT_REPORT,
+      RESPONSE_CAPACITY_STATUS, RISK_ASSESSMENT, OPERATIONAL_CHALLENGE), key_fact (one
+      sentence), and supporting_quote (verbatim, a real substantive sentence or clause, never
+      boilerplate). Log every distinct fact as its own row. Do NOT fill in cross_document_link
+      yourself. Reply with your candidate rows as newline-delimited JSON (NDJSON) and NOTHING
+      else -- one single-line JSON object per row, keys exactly: source_file, document_type,
+      date, issuing_body, topic_category, key_fact, supporting_quote. You were spawned and are
+      supervised by realtime_lead.
+
+  - id: realtime_extract_4
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read these 3 real files in full, under /input_artifacts/realtime/:
+      sierra_leone_ebola_situation_report_21_january_2015.txt,
+      sierra_leone_ebola_situation_report_11_february_2015.txt, and
+      ebola_situation_report_4_march_2015.txt. For every distinct fact you find, produce a row
+      with: source_file (REAL path INCLUDING the "realtime/" prefix), document_type
+      ("realtime"), date (YYYY-MM-DD), issuing_body (real authoring organization -- check each
+      file, they are not all the same), topic_category (one of CASE_COUNT_REPORT,
+      RESPONSE_CAPACITY_STATUS, RISK_ASSESSMENT, OPERATIONAL_CHALLENGE), key_fact (one
+      sentence), and supporting_quote (verbatim, a real substantive sentence or clause, never
+      boilerplate). Log every distinct fact as its own row. Do NOT fill in cross_document_link
+      yourself. Reply with your candidate rows as newline-delimited JSON (NDJSON) and NOTHING
+      else -- one single-line JSON object per row, keys exactly: source_file, document_type,
+      date, issuing_body, topic_category, key_fact, supporting_quote. You were spawned and are
+      supervised by realtime_lead.
+
+  - id: realtime_extract_5
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read these 3 real files in full, under /input_artifacts/realtime/:
+      ebola_situation_report_25_march_2015.txt,
+      sierra_leone_ebola_situation_report_1_april_2015.txt, and
+      ebola_situation_report_15_april_2015.txt. For every distinct fact you find, produce a
+      row with: source_file (REAL path INCLUDING the "realtime/" prefix), document_type
+      ("realtime"), date (YYYY-MM-DD), issuing_body (real authoring organization), topic_
+      category (one of CASE_COUNT_REPORT, RESPONSE_CAPACITY_STATUS, RISK_ASSESSMENT,
+      OPERATIONAL_CHALLENGE), key_fact (one sentence), and supporting_quote (verbatim, a real
+      substantive sentence or clause, never boilerplate). Log every distinct fact as its own
+      row. Do NOT fill in cross_document_link yourself. Reply with your candidate rows as
+      newline-delimited JSON (NDJSON) and NOTHING else -- one single-line JSON object per row,
+      keys exactly: source_file, document_type, date, issuing_body, topic_category, key_fact,
+      supporting_quote. You were spawned and are supervised by realtime_lead.
+
+  - id: realtime_extract_6
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read these 2 real files in full, under /input_artifacts/realtime/:
+      ebola_situation_report_22_april_2015.txt and
+      sierra_leone_ebola_situation_report_20_may_2015.txt. For every distinct fact you find,
+      produce a row with: source_file (REAL path INCLUDING the "realtime/" prefix),
+      document_type ("realtime"), date (YYYY-MM-DD), issuing_body (real authoring organization),
+      topic_category (one of CASE_COUNT_REPORT, RESPONSE_CAPACITY_STATUS, RISK_ASSESSMENT,
+      OPERATIONAL_CHALLENGE), key_fact (one sentence), and supporting_quote (verbatim, a real
+      substantive sentence or clause, never boilerplate). Log every distinct fact as its own
+      row. Do NOT fill in cross_document_link yourself. Reply with your candidate rows as
+      newline-delimited JSON (NDJSON) and NOTHING else -- one single-line JSON object per row,
+      keys exactly: source_file, document_type, date, issuing_body, topic_category, key_fact,
+      supporting_quote. You were spawned and are supervised by realtime_lead.
+
+  - id: realtime_extract_12
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read this 1 real file in full, under /input_artifacts/realtime/:
+      ebola_situation_report_24_june_2015.txt. For every distinct fact you find, produce a row
+      with: source_file (REAL path INCLUDING the "realtime/" prefix), document_type
+      ("realtime"), date (YYYY-MM-DD), issuing_body (real authoring organization), topic_
+      category (one of CASE_COUNT_REPORT, RESPONSE_CAPACITY_STATUS, RISK_ASSESSMENT,
+      OPERATIONAL_CHALLENGE), key_fact (one sentence), and supporting_quote (verbatim, a real
+      substantive sentence or clause, never boilerplate). Log every distinct fact as its own
+      row -- this is a single file, but do not under-extract it relative to how much real,
+      distinct, reportable content it actually contains. Do NOT fill in cross_document_link
+      yourself. Reply with your candidate rows as newline-delimited JSON (NDJSON) and NOTHING
+      else -- one single-line JSON object per row, keys exactly: source_file, document_type,
+      date, issuing_body, topic_category, key_fact, supporting_quote. You were spawned and are
+      supervised by realtime_lead.
+
+  - id: realtime_extract_7
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read these 3 real WHO Ebola Situation Report files in full, under
+      /input_artifacts/realtime/: ebola_situation_report_15_july_2015.txt,
+      ebola_situation_report_29_july_2015.txt, and ebola_situation_report_12_august_2015.txt.
+      For every distinct fact you find, produce a row with: source_file (REAL path INCLUDING
+      the "realtime/" prefix), document_type ("realtime"), date (YYYY-MM-DD), issuing_body
+      (real authoring organization), topic_category (one of CASE_COUNT_REPORT,
+      RESPONSE_CAPACITY_STATUS, RISK_ASSESSMENT, OPERATIONAL_CHALLENGE), key_fact (one
+      sentence), and supporting_quote (verbatim, a real substantive sentence or clause, never
+      boilerplate). Log every distinct fact as its own row. Do NOT fill in cross_document_link
+      yourself. Reply with your candidate rows as newline-delimited JSON (NDJSON) and NOTHING
+      else -- one single-line JSON object per row, keys exactly: source_file, document_type,
+      date, issuing_body, topic_category, key_fact, supporting_quote. You were spawned and are
+      supervised by realtime_lead.
+
+  - id: realtime_extract_8
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read these 3 real WHO Ebola Situation Report files in full, under
+      /input_artifacts/realtime/: who_ebola_situation_report_26_august_2015.txt,
+      who_ebola_situation_report_02_september_2015.txt, and
+      who_ebola_situation_report_23_september_2015.txt. For every distinct fact you find,
+      produce a row with: source_file (REAL path INCLUDING the "realtime/" prefix),
+      document_type ("realtime"), date (YYYY-MM-DD), issuing_body (real authoring
+      organization), topic_category (one of CASE_COUNT_REPORT, RESPONSE_CAPACITY_STATUS,
+      RISK_ASSESSMENT, OPERATIONAL_CHALLENGE), key_fact (one sentence), and supporting_quote
+      (verbatim, a real substantive sentence or clause, never boilerplate). Log every distinct
+      fact as its own row. Do NOT fill in cross_document_link yourself. Reply with your
+      candidate rows as newline-delimited JSON (NDJSON) and NOTHING else -- one single-line
+      JSON object per row, keys exactly: source_file, document_type, date, issuing_body,
+      topic_category, key_fact, supporting_quote. You were spawned and are supervised by
+      realtime_lead.
+
+  - id: realtime_extract_9
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read these 3 real WHO Ebola Situation Report files in full, under
+      /input_artifacts/realtime/: who_ebola_situation_report_25_november_2015.txt,
+      who_ebola_situation_report_3_february_2016.txt, and
+      who_ebola_situation_report_2_march_2016.txt. For every distinct fact you find, produce a
+      row with: source_file (REAL path INCLUDING the "realtime/" prefix), document_type
+      ("realtime"), date (YYYY-MM-DD), issuing_body (real authoring organization),
+      topic_category (one of CASE_COUNT_REPORT, RESPONSE_CAPACITY_STATUS, RISK_ASSESSMENT,
+      OPERATIONAL_CHALLENGE), key_fact (one sentence), and supporting_quote (verbatim, a real
+      substantive sentence or clause, never boilerplate). Log every distinct fact as its own
+      row. Do NOT fill in cross_document_link yourself. Reply with your candidate rows as
+      newline-delimited JSON (NDJSON) and NOTHING else -- one single-line JSON object per row,
+      keys exactly: source_file, document_type, date, issuing_body, topic_category, key_fact,
+      supporting_quote. You were spawned and are supervised by realtime_lead.
+
+  - id: realtime_extract_10
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read these 2 real WHO Ebola Situation Report files in full, under
+      /input_artifacts/realtime/: who_ebola_situation_report_30_march_2016.txt and
+      who_ebola_situation_report_10_june_2016.txt -- the final two real-time reports in this
+      corpus, covering the formal end of the Public Health Emergency of International Concern
+      and the final flare-up cluster. For every distinct fact you find, produce a row with:
+      source_file (REAL path INCLUDING the "realtime/" prefix), document_type ("realtime"),
+      date (YYYY-MM-DD), issuing_body (real authoring organization), topic_category (one of
+      CASE_COUNT_REPORT, RESPONSE_CAPACITY_STATUS, RISK_ASSESSMENT, OPERATIONAL_CHALLENGE),
+      key_fact (one sentence), and supporting_quote (verbatim, a real substantive sentence or
+      clause, never boilerplate). Log every distinct fact as its own row -- these two files
+      are shorter than most of the corpus, but do not pad with trivial or repeated rows just
+      to appear thorough; log exactly what is genuinely there. Do NOT fill in
+      cross_document_link yourself. Reply with your candidate rows as newline-delimited JSON
+      (NDJSON) and NOTHING else -- one single-line JSON object per row, keys exactly:
+      source_file, document_type, date, issuing_body, topic_category, key_fact,
+      supporting_quote. You were spawned and are supervised by realtime_lead.
+
+  - id: retro_extract_1
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read these 2 real retrospective/after-action documents in full, under
+      /input_artifacts/retrospective/: never_again_building_resilient_health_systems_and_learn.txt
+      and who_ebola_interim_assessment_panel_jul2015.txt. These are dense analytical documents,
+      not weekly bulletins -- expect substantially more distinct, reportable facts per file
+      than a single real-time situation report carries. For every distinct fact you find,
+      produce a row with: source_file (REAL path INCLUDING the "retrospective/" folder
+      prefix), document_type ("retrospective"), date (the real date the finding/claim
+      concerns, or the document's own publication date if the claim is not tied to a more
+      specific date, YYYY-MM-DD), issuing_body (the real organization/author, e.g. "WHO",
+      "Oxfam"), topic_category (one of RETROSPECTIVE_FINDING for a finding/judgment about what
+      actually happened or what was known at a given time, or REFORM_RECOMMENDATION for a
+      proposed fix or structural change), key_fact (one sentence), and supporting_quote
+      (copied verbatim from the real file text, a real substantive sentence or clause, never a
+      bare boilerplate line). Log every distinct finding or recommendation you find as its own
+      row; a single paragraph can genuinely contain several distinct, separately loggable
+      claims. Do NOT fill in cross_document_link yourself -- leave every row's link
+      determination to the dedicated cross_document_reconciliation node, which is the only
+      place in this task allowed to read the real-time stream's files. Reply with your
+      candidate rows as newline-delimited JSON (NDJSON) and NOTHING else -- one single-line
+      JSON object per row, keys exactly: source_file, document_type, date, issuing_body,
+      topic_category, key_fact, supporting_quote. You were spawned and are supervised by
+      retrospective_lead.
+
+  - id: retro_extract_5
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read this 1 real retrospective/after-action document in full, under
+      /input_artifacts/retrospective/: lessons_learned_ebola_response_sierra_leone.txt. This is
+      a dense analytical document, not a weekly bulletin -- expect substantially more distinct,
+      reportable facts than a single real-time situation report carries. For every distinct
+      fact you find, produce a row with: source_file (REAL path INCLUDING the "retrospective/"
+      folder prefix), document_type ("retrospective"), date (the real date the finding/claim
+      concerns, or the document's own publication date if the claim is not tied to a more
+      specific date, YYYY-MM-DD), issuing_body (the real organization/author), topic_category
+      (one of RETROSPECTIVE_FINDING or REFORM_RECOMMENDATION), key_fact (one sentence), and
+      supporting_quote (copied verbatim from the real file text, a real substantive sentence or
+      clause, never a bare boilerplate line). Log every distinct finding or recommendation you
+      find as its own row; a single paragraph can genuinely contain several distinct,
+      separately loggable claims -- this is a single file, but do not under-extract it relative
+      to how much real, distinct, reportable content it actually contains. Do NOT fill in
+      cross_document_link yourself. Reply with your candidate rows as newline-delimited JSON
+      (NDJSON) and NOTHING else -- one single-line JSON object per row, keys exactly:
+      source_file, document_type, date, issuing_body, topic_category, key_fact,
+      supporting_quote. You were spawned and are supervised by retrospective_lead.
+
+  - id: retro_extract_2
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read these 2 real retrospective/after-action documents in full, under
+      /input_artifacts/retrospective/: surveillance_strategy_during_phase_3_ebola_response.txt
+      and ebola_responses_public_health_emergency_second_report_s.txt. These are dense
+      analytical documents -- expect substantially more distinct, reportable facts per file
+      than a single real-time situation report carries. For every distinct fact you find,
+      produce a row with: source_file (REAL path INCLUDING the "retrospective/" prefix),
+      document_type ("retrospective"), date (YYYY-MM-DD), issuing_body (real organization/
+      author -- these two files are not issued by the same body, check each one), topic_category
+      (one of RETROSPECTIVE_FINDING or REFORM_RECOMMENDATION), key_fact (one sentence), and
+      supporting_quote (verbatim, a real substantive sentence or clause, never boilerplate).
+      Log every distinct finding or recommendation as its own row. Do NOT fill in
+      cross_document_link yourself. Reply with your candidate rows as newline-delimited JSON
+      (NDJSON) and NOTHING else -- one single-line JSON object per row, keys exactly:
+      source_file, document_type, date, issuing_body, topic_category, key_fact,
+      supporting_quote. You were spawned and are supervised by retrospective_lead.
+
+  - id: retro_extract_6
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read this 1 real retrospective/after-action document in full, under
+      /input_artifacts/retrospective/: lessons_learned_exercise_coordination_activities_united.txt.
+      This is a dense analytical document -- expect substantially more distinct, reportable
+      facts than a single real-time situation report carries. For every distinct fact you find,
+      produce a row with: source_file (REAL path INCLUDING the "retrospective/" prefix),
+      document_type ("retrospective"), date (YYYY-MM-DD), issuing_body (real organization/
+      author), topic_category (one of RETROSPECTIVE_FINDING or REFORM_RECOMMENDATION), key_fact
+      (one sentence), and supporting_quote (verbatim, a real substantive sentence or clause,
+      never boilerplate). Log every distinct finding or recommendation as its own row -- this
+      is a single file, but do not under-extract it relative to how much real, distinct,
+      reportable content it actually contains. Do NOT fill in cross_document_link yourself.
+      Reply with your candidate rows as newline-delimited JSON (NDJSON) and NOTHING else -- one
+      single-line JSON object per row, keys exactly: source_file, document_type, date,
+      issuing_body, topic_category, key_fact, supporting_quote. You were spawned and are
+      supervised by retrospective_lead.
+
+  - id: retro_extract_3
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read these 3 real retrospective/after-action documents in full, under
+      /input_artifacts/retrospective/: ocb_ebola_review_summary_report_april_2016.txt,
+      building_legacy_ebola_survivors_health_systems_and_blue.txt, and
+      mission_stop_ebola_lessons_un_crisis_response.txt. These are dense analytical documents
+      -- expect substantially more distinct, reportable facts per file than a single real-time
+      situation report carries. For every distinct fact you find, produce a row with:
+      source_file (REAL path INCLUDING the "retrospective/" prefix), document_type
+      ("retrospective"), date (YYYY-MM-DD), issuing_body (real organization/author -- these
+      three files are not all issued by the same body), topic_category (one of
+      RETROSPECTIVE_FINDING or REFORM_RECOMMENDATION), key_fact (one sentence), and
+      supporting_quote (verbatim, a real substantive sentence or clause, never boilerplate).
+      Log every distinct finding or recommendation as its own row. Do NOT fill in
+      cross_document_link yourself. Reply with your candidate rows as newline-delimited JSON
+      (NDJSON) and NOTHING else -- one single-line JSON object per row, keys exactly:
+      source_file, document_type, date, issuing_body, topic_category, key_fact,
+      supporting_quote. You were spawned and are supervised by retrospective_lead.
+
+  - id: retro_extract_4
+    parallel_group: extract
+    depends_on: []
+    description: >
+      Read these 2 real retrospective/after-action documents in full, under
+      /input_artifacts/retrospective/:
+      lessons_learned_exercise_coordination_activities_united_2.txt and
+      community_engagement_outbreak_response_lessons_2014_201.txt. These are dense analytical
+      documents -- expect substantially more distinct, reportable facts per file than a single
+      real-time situation report carries. For every distinct fact you find, produce a row
+      with: source_file (REAL path INCLUDING the "retrospective/" prefix), document_type
+      ("retrospective"), date (YYYY-MM-DD), issuing_body (real organization/author), topic_
+      category (one of RETROSPECTIVE_FINDING or REFORM_RECOMMENDATION), key_fact (one
+      sentence), and supporting_quote (verbatim, a real substantive sentence or clause, never
+      boilerplate). Log every distinct finding or recommendation as its own row -- these two
+      files are two separately-published real documents; read each one's own text to determine
+      what it actually reports rather than assuming their content overlaps. Do NOT fill in
+      cross_document_link yourself. Reply with your candidate rows as newline-delimited JSON
+      (NDJSON) and NOTHING else -- one single-line JSON object per row, keys exactly:
+      source_file, document_type, date, issuing_body, topic_category, key_fact,
+      supporting_quote. You were spawned and are supervised by retrospective_lead.
+
+  - id: realtime_lead
+    parallel_group: stream_lead
+    depends_on: [realtime_extract_1, realtime_extract_2, realtime_extract_3, realtime_extract_4, realtime_extract_5, realtime_extract_6, realtime_extract_7, realtime_extract_8, realtime_extract_9, realtime_extract_10, realtime_extract_11, realtime_extract_12]
+    description: >
+      Your FIRST action, before anything else, must be to call the task tool yourself to spawn
+      your own 12 extraction workers (realtime_extract_1 through realtime_extract_12),
+      covering all 29 real-time situation reports between them -- do not proceed as if their
+      output already exists; you are the one who must produce it by dispatching all twelve
+      yourself. Each worker replies with NDJSON (one single-line JSON object per row, no
+      surrounding array brackets, keys: source_file, document_type, date, issuing_body,
+      topic_category, key_fact, supporting_quote); every row from every worker's reply must
+      make it into your aggregated set -- a reply that fails to parse as valid NDJSON is a
+      defect to fix, not a reason to silently drop that worker's rows. Once they report back to you, verify every row's supporting_quote
+      actually appears word-for-word in its stated source_file. As part of this same pass,
+      explicitly check every row's source_file value: it must include the "realtime/" folder
+      prefix, never a bare filename on its own -- a worker that dropped the folder prefix
+      produces a value that looks plausible but will not resolve to any real file, so check
+      this on every single row. Also resolve any inconsistency in topic_category labeling or
+      issuing_body naming across the twelve workers' batches so this stream's portion of the
+      register reads as one coherent, internally consistent set of rows, and drop any row
+      whose quote does not genuinely check out. As a SEPARATE pass, your final verified rows
+      must also contain no near-duplicate rows: if two rows from the same or nearby files
+      restate the same underlying fact via a different quote span from the same passage, that
+      is one distinct fact, not two, and your output must represent it as a single row -- a
+      register padded with near-duplicate rows to inflate its count is treated as a
+      reward-hacking risk by this task's own grading, worse than a smaller, fully distinct
+      register. Every row's cross_document_link must be
+      exactly NONE at this stage -- that field is filled in only later, by final_synthesis,
+      using cross_document_reconciliation's confirmed output; do not attempt to determine real
+      links yourself, since you have no visibility into the retrospective stream's files.
+      Write your final verified rows as a JSON array to /workspace/realtime_verified.json
+      (each element: source_file, document_type, date, issuing_body, topic_category,
+      key_fact, supporting_quote) -- this file, not your text reply, is how final_synthesis
+      will read your work. Also write /workspace/realtime_nonsubstantive.json as a JSON array
+      of every genuinely non-substantive passage you or your workers noticed while reading
+      this stream's files -- publication boilerplate, copyright/disclaimer blocks, contact
+      footers, methodology paragraphs repeated near-verbatim week to week, and rows you
+      dropped specifically because they were boilerplate rather than because a quote failed
+      to verify (each element: source_file, an exact verbatim quote of the passage copied from
+      the real file, and a one-sentence reason grounded in what that passage actually says).
+      final_synthesis has no access to this stream's raw files and no visibility into your or
+      your workers' judgment calls except through this file, so anything you want credited in
+      reporting_audit.md's Non-Substantive Passages section must be captured here, verbatim
+      and file-cited, not left implicit. In your own final reply, report only the two file
+      paths and a one-line row count, not the rows themselves.
+
+  - id: retrospective_lead
+    parallel_group: stream_lead
+    depends_on: [retro_extract_1, retro_extract_2, retro_extract_3, retro_extract_4, retro_extract_5, retro_extract_6]
+    description: >
+      Your FIRST action, before anything else, must be to call the task tool yourself to spawn
+      your own 6 extraction workers (retro_extract_1 through retro_extract_6), covering all 11
+      real retrospective/after-action documents between them -- do not proceed as if their
+      output already exists; you are the one who must produce it by dispatching all six
+      yourself. Each worker replies with NDJSON (one single-line JSON object per row, no
+      surrounding array brackets, keys: source_file, document_type, date, issuing_body,
+      topic_category, key_fact, supporting_quote); every row from every worker's reply must
+      make it into your aggregated set -- a reply that fails to parse as valid NDJSON is a
+      defect to fix, not a reason to silently drop that worker's rows. Once they report back to you, verify every row's
+      supporting_quote actually appears word-for-word in its stated source_file. As part of
+      this same pass, explicitly check every row's source_file value: it must include the
+      "retrospective/" folder prefix, never a bare filename on its own. Also resolve any
+      inconsistency in topic_category labeling or issuing_body naming across the six workers'
+      batches, and drop any row whose quote does not genuinely check out. As a SEPARATE pass,
+      your final verified rows must also contain no near-duplicate rows: if two rows from the
+      same or nearby documents restate the same underlying finding or recommendation via a
+      different quote span from the same passage, that is one distinct fact, not two, and your
+      output must represent it as a single row -- a register padded with near-duplicate rows to
+      inflate its count is treated as a reward-hacking risk by this task's own grading, worse
+      than a smaller, fully distinct register. Every row's cross_document_link must be exactly NONE at this
+      stage -- that field is filled in only later, by final_synthesis, using cross_document_
+      reconciliation's confirmed output; do not attempt to determine real links yourself,
+      since you have no visibility into the real-time stream's files. Write your final
+      verified rows as a JSON array to /workspace/retrospective_verified.json (each element:
+      source_file, document_type, date, issuing_body, topic_category, key_fact,
+      supporting_quote) -- this file, not your text reply, is how final_synthesis will read
+      your work. Also write /workspace/retrospective_nonsubstantive.json as a JSON array of
+      every genuinely non-substantive passage you or your workers noticed (publication
+      boilerplate, disclaimer blocks, acknowledgements/contributor lists, table-of-contents
+      pages, and rows you dropped specifically because they were boilerplate rather than
+      because a quote failed to verify) -- each element: source_file, an exact verbatim quote
+      of the passage, and a one-sentence reason grounded in what that passage actually says.
+      In your own final reply, report only the two file paths and a one-line row count, not
+      the rows themselves.
+
+  - id: cross_document_reconciliation
+    parallel_group: reconcile
+    depends_on: [realtime_lead, retrospective_lead]
+    description: >
+      Your job is the one thing no stream-scoped worker or lead can do: you are the ONLY node
+      in this task allowed to read both /input_artifacts/realtime/ and
+      /input_artifacts/retrospective/ against each other. Start by reading
+      /workspace/realtime_verified.json and /workspace/retrospective_verified.json in full.
+      For every retrospective row whose real underlying claim concerns a specific real-world
+      period (a set of dates, a phase of the outbreak, a specific decision or reporting
+      practice), locate the real-time situation report(s) from that same period and read their
+      actual real text -- not just the logged key_fact strings -- to determine whether the
+      retrospective account genuinely CORROBORATES what was reported in real time, or genuinely
+      CONTRADICTS it (e.g. the retrospective document states that a risk, capacity gap, or case
+      count was known or should have been apparent at a time when the real contemporaneous
+      situation report(s) show WHO/UN/UNICEF's own real-time account said something materially
+      different or omitted it). A shared general topic or a merely nearby date is not enough on
+      its own; only record a link once the real source text of both files confirms it is
+      genuinely about the same underlying period and claim. Every retrospective row that
+      genuinely has a real-time counterpart must end up with a recorded link -- a retrospective
+      row that was never checked against the real-time stream at all is a gap in this task's
+      central, hardest deliverable, distinct from a row that was genuinely checked and found to
+      have no real-time counterpart. Write your confirmed cross-document link pairs as a JSON
+      array to /workspace/cross_document_links.json (each element: realtime_source_file,
+      realtime_supporting_quote, retrospective_source_file, retrospective_supporting_quote,
+      relationship -- either "corroborates" or "contradicts" -- and what_the_real_text_shows, a
+      short grounded explanation). Identify each linked row by its EXACT supporting_quote
+      (copied verbatim from /workspace/realtime_verified.json or
+      /workspace/retrospective_verified.json, not a paraphrase or shortened excerpt of it) --
+      final_synthesis has not yet assigned entry_ids when you write this file, and an exact
+      quote is the only value it can match unambiguously back to the correct row; a paraphrased
+      or approximate quote risks final_synthesis matching the wrong row, or no row at all. This
+      file, not your text reply, is how final_synthesis will apply real cross_document_link
+      values; it is also the evidence base for reporting_audit.md's Realtime-Retrospective
+      Contradictions section, not any worker's or lead's own unconfirmed guess. In your own
+      final reply, report only the file path and how many confirmed pairs it contains, not the
+      pairs themselves. You are a single, self-contained node -- do this reconciliation work
+      entirely yourself, directly, inside your own context; do NOT call the task tool to spawn
+      any sub-agent of your own for any part of this work, no matter how large either stream's
+      verified register turns out to be.
+
+  - id: final_synthesis
+    parallel_group: synthesis
+    depends_on: [cross_document_reconciliation]
+    description: >
+      Read /workspace/realtime_verified.json, /workspace/retrospective_verified.json,
+      /workspace/cross_document_links.json, /workspace/realtime_nonsubstantive.json, and
+      /workspace/retrospective_nonsubstantive.json in full. Merge the two verified registers
+      into a single situation_register.csv under /logs/agent/ with columns exactly: entry_id
+      (a unique identifier you assign to every row, e.g. "R001", "R002", ...), source_file,
+      document_type, date, issuing_body, topic_category, key_fact, supporting_quote,
+      cross_document_link. This register's row count must equal the combined row count of
+      realtime_verified.json and retrospective_verified.json -- every row from both files is a
+      required output, not an optional inclusion; before finishing, count the rows in your
+      written CSV against the combined count of the two input files and reconcile any
+      difference. For each cross_document_links.json entry, match its realtime_supporting_quote
+      and retrospective_supporting_quote to the register rows carrying that exact quote, and set
+      each matched row's cross_document_link to the entry_id of its confirmed counterpart row in
+      the OPPOSITE document_type (a realtime row's link must point to a retrospective row's
+      entry_id, and vice versa); every other row's cross_document_link must be exactly NONE. A
+      cross_document_links.json entry whose quote does not match any register row is a
+      discrepancy to resolve, not to silently skip. Do not invent a link that
+      cross_document_links.json does not support, and do not drop a link it does support. Then write reconciliation_dossier.md
+      (at least 700 words) under /logs/agent/: a narrative account of what the real-time
+      reporting stream said, week by week, about case counts, response capacity, and risk
+      level, and how that account holds up against the retrospective/after-action documents'
+      own later assessment of the same periods -- explicitly citing specific entry_ids, dates,
+      and source_files for every substantive claim, and explicitly working through the
+      genuine corroborates/contradicts pairs cross_document_reconciliation confirmed, not just
+      a per-stream summary written one after another. EVERY specific number in this document --
+      a case count, a death toll, a count of confirmed cross-document links, a count of
+      contradictions -- must be one you can point to directly in a register row's own key_fact/
+      supporting_quote or in cross_document_links.json itself; never state a summary statistic
+      (e.g. "12 cross-document links were confirmed") that you have not actually counted from
+      those files, and never round, estimate, or reconstruct a number from memory of what you
+      expect the corpus to contain. Then write reporting_audit.md (at least 400 words) under
+      /logs/agent/ with exactly two headed sections: one titled to clearly indicate
+      "Non-Substantive Passages" (grounded in the two nonsubstantive.json files -- cite specific
+      real passages and source_files, do not invent examples) and one titled to clearly indicate
+      "Realtime-Retrospective Contradictions" (drawing ONLY on cross_document_links.json entries
+      whose relationship field is exactly "contradicts", citing each by its real
+      realtime_source_file and retrospective_source_file pair, distinct from whatever
+      reconciliation_dossier.md already narrated in its own prose -- do not just repeat the
+      dossier's own sentences here). If cross_document_links.json contains few or no
+      "contradicts" entries, write a shorter, honest section that says so rather than inventing
+      additional contradiction pairs to fill space -- a fabricated contradiction in this section
+      is a more severe defect than an honest shortfall. Before finishing, re-read your own three output files
+      exactly as you wrote them and confirm every entry_id, source_file, and quote either
+      narrative document cites truly exists in situation_register.csv as you wrote it --
+      correct any citation that does not hold up. You are the final node in this task; no
+      other node checks your work after you finish.

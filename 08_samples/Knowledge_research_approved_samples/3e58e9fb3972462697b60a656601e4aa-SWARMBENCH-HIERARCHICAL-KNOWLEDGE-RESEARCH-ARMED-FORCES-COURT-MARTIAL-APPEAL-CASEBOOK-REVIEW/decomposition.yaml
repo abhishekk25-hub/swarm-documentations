@@ -1,0 +1,650 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+
+sub_tasks:
+
+  - id: lead--g1
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g1-01, spec--g1-02, spec--g1-03, spec--g1-04]
+    description: >-
+      You are the lead for review group 1. Your specialist lanes (spec--g1-01 through spec--g1-04) each author the
+      briefs for their assigned opinions; you do not re-author their briefs. When they finish, read across your
+      group's eight briefs and write a short group rollup: the granted issues and assigned errors your eight cases
+      raise, the standards of review in play, and the affirmed-versus-reversed-versus-remanded split within your
+      group, naming the convergences and divergences you see among them and noting any brief that is thin or
+      ungrounded in the group rollup. Assemble your group's eight tracker rows (report, accused, docket,
+      issue_type, disposition, sentence_relief, note_status) from those briefs, and hand up both your group rollup
+      and your group's rows.
+
+  - id: spec--g1-01
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m01, m02 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g1-02
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m03, m04 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g1-03
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m05, m06 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g1-04
+    agent_type: explore
+    parallel_group: specialists--g1
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m07, m08 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: lead--g2
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g2-01, spec--g2-02, spec--g2-03, spec--g2-04]
+    description: >-
+      You are the lead for review group 2. Your specialist lanes (spec--g2-01 through spec--g2-04) each author the
+      briefs for their assigned opinions; you do not re-author their briefs. When they finish, read across your
+      group's eight briefs and write a short group rollup: the granted issues and assigned errors your eight cases
+      raise, the standards of review in play, and the affirmed-versus-reversed-versus-remanded split within your
+      group, naming the convergences and divergences you see among them and noting any brief that is thin or
+      ungrounded in the group rollup. Assemble your group's eight tracker rows (report, accused, docket,
+      issue_type, disposition, sentence_relief, note_status) from those briefs, and hand up both your group rollup
+      and your group's rows.
+
+  - id: spec--g2-01
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m09, m10 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g2-02
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m11, m12 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g2-03
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m13, m14 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g2-04
+    agent_type: explore
+    parallel_group: specialists--g2
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m15, m16 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: lead--g3
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g3-01, spec--g3-02, spec--g3-03, spec--g3-04]
+    description: >-
+      You are the lead for review group 3. Your specialist lanes (spec--g3-01 through spec--g3-04) each author the
+      briefs for their assigned opinions; you do not re-author their briefs. When they finish, read across your
+      group's eight briefs and write a short group rollup: the granted issues and assigned errors your eight cases
+      raise, the standards of review in play, and the affirmed-versus-reversed-versus-remanded split within your
+      group, naming the convergences and divergences you see among them and noting any brief that is thin or
+      ungrounded in the group rollup. Assemble your group's eight tracker rows (report, accused, docket,
+      issue_type, disposition, sentence_relief, note_status) from those briefs, and hand up both your group rollup
+      and your group's rows.
+
+  - id: spec--g3-01
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m17, m18 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g3-02
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m19, m20 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g3-03
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m21, m22 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g3-04
+    agent_type: explore
+    parallel_group: specialists--g3
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m23, m24 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: lead--g4
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g4-01, spec--g4-02, spec--g4-03, spec--g4-04]
+    description: >-
+      You are the lead for review group 4. Your specialist lanes (spec--g4-01 through spec--g4-04) each author the
+      briefs for their assigned opinions; you do not re-author their briefs. When they finish, read across your
+      group's eight briefs and write a short group rollup: the granted issues and assigned errors your eight cases
+      raise, the standards of review in play, and the affirmed-versus-reversed-versus-remanded split within your
+      group, naming the convergences and divergences you see among them and noting any brief that is thin or
+      ungrounded in the group rollup. Assemble your group's eight tracker rows (report, accused, docket,
+      issue_type, disposition, sentence_relief, note_status) from those briefs, and hand up both your group rollup
+      and your group's rows.
+
+  - id: spec--g4-01
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m25, m26 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g4-02
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m27, m28 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g4-03
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m29, m30 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g4-04
+    agent_type: explore
+    parallel_group: specialists--g4
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m31, m32 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: lead--g5
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g5-01, spec--g5-02, spec--g5-03, spec--g5-04]
+    description: >-
+      You are the lead for review group 5. Your specialist lanes (spec--g5-01 through spec--g5-04) each author the
+      briefs for their assigned opinions; you do not re-author their briefs. When they finish, read across your
+      group's eight briefs and write a short group rollup: the granted issues and assigned errors your eight cases
+      raise, the standards of review in play, and the affirmed-versus-reversed-versus-remanded split within your
+      group, naming the convergences and divergences you see among them and noting any brief that is thin or
+      ungrounded in the group rollup. Assemble your group's eight tracker rows (report, accused, docket,
+      issue_type, disposition, sentence_relief, note_status) from those briefs, and hand up both your group rollup
+      and your group's rows.
+
+  - id: spec--g5-01
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m33, m34 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g5-02
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m35, m36 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g5-03
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m37, m38 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g5-04
+    agent_type: explore
+    parallel_group: specialists--g5
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m39, m40 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: lead--g6
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g6-01, spec--g6-02, spec--g6-03, spec--g6-04]
+    description: >-
+      You are the lead for review group 6. Your specialist lanes (spec--g6-01 through spec--g6-04) each author the
+      briefs for their assigned opinions; you do not re-author their briefs. When they finish, read across your
+      group's eight briefs and write a short group rollup: the granted issues and assigned errors your eight cases
+      raise, the standards of review in play, and the affirmed-versus-reversed-versus-remanded split within your
+      group, naming the convergences and divergences you see among them and noting any brief that is thin or
+      ungrounded in the group rollup. Assemble your group's eight tracker rows (report, accused, docket,
+      issue_type, disposition, sentence_relief, note_status) from those briefs, and hand up both your group rollup
+      and your group's rows.
+
+  - id: spec--g6-01
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m41, m42 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g6-02
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m43, m44 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g6-03
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m45, m46 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g6-04
+    agent_type: explore
+    parallel_group: specialists--g6
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m47, m48 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: lead--g7
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g7-01, spec--g7-02, spec--g7-03, spec--g7-04]
+    description: >-
+      You are the lead for review group 7. Your specialist lanes (spec--g7-01 through spec--g7-04) each author the
+      briefs for their assigned opinions; you do not re-author their briefs. When they finish, read across your
+      group's eight briefs and write a short group rollup: the granted issues and assigned errors your eight cases
+      raise, the standards of review in play, and the affirmed-versus-reversed-versus-remanded split within your
+      group, naming the convergences and divergences you see among them and noting any brief that is thin or
+      ungrounded in the group rollup. Assemble your group's eight tracker rows (report, accused, docket,
+      issue_type, disposition, sentence_relief, note_status) from those briefs, and hand up both your group rollup
+      and your group's rows.
+
+  - id: spec--g7-01
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m49, m50 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g7-02
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m51, m52 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g7-03
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m53, m54 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g7-04
+    agent_type: explore
+    parallel_group: specialists--g7
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m55, m56 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: lead--g8
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g8-01, spec--g8-02, spec--g8-03, spec--g8-04]
+    description: >-
+      You are the lead for review group 8. Your specialist lanes (spec--g8-01 through spec--g8-04) each author the
+      briefs for their assigned opinions; you do not re-author their briefs. When they finish, read across your
+      group's eight briefs and write a short group rollup: the granted issues and assigned errors your eight cases
+      raise, the standards of review in play, and the affirmed-versus-reversed-versus-remanded split within your
+      group, naming the convergences and divergences you see among them and noting any brief that is thin or
+      ungrounded in the group rollup. Assemble your group's eight tracker rows (report, accused, docket,
+      issue_type, disposition, sentence_relief, note_status) from those briefs, and hand up both your group rollup
+      and your group's rows.
+
+  - id: spec--g8-01
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m57, m58 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g8-02
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m59, m60 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g8-03
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m61, m62 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g8-04
+    agent_type: explore
+    parallel_group: specialists--g8
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m63, m64 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: lead--g9
+    agent_type: general
+    parallel_group: leads
+    depends_on: [spec--g9-01, spec--g9-02, spec--g9-03, spec--g9-04]
+    description: >-
+      You are the lead for review group 9. Your specialist lanes (spec--g9-01 through spec--g9-04) each author the
+      briefs for their assigned opinions; you do not re-author their briefs. When they finish, read across your
+      group's eight briefs and write a short group rollup: the granted issues and assigned errors your eight cases
+      raise, the standards of review in play, and the affirmed-versus-reversed-versus-remanded split within your
+      group, naming the convergences and divergences you see among them and noting any brief that is thin or
+      ungrounded in the group rollup. Assemble your group's eight tracker rows (report, accused, docket,
+      issue_type, disposition, sentence_relief, note_status) from those briefs, and hand up both your group rollup
+      and your group's rows.
+
+  - id: spec--g9-01
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m65, m66 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g9-02
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m67, m68 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g9-03
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m69, m70 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: spec--g9-04
+    agent_type: explore
+    parallel_group: specialists--g9
+    depends_on: []
+    description: >-
+      Read in full your assigned opinion(s) m71, m72 at /environment/input_artifacts/orders/<id>.txt and write
+      /logs/agent/output/case_files/<id>.md for each, headed with the report id, the accused, and the docket
+      number, then working through: who the accused is and the court-martial forum below; the offenses and charged
+      articles of conviction and the sentence adjudged; the granted issue or assigned error the court took up; the
+      standard of review it applied and how it reasoned to a result; whether it affirmed, reversed, or set aside
+      the findings or sentence, ordered a rehearing or reassessment, or remanded; and any relief it gave the
+      sentence, plus what sets this opinion apart: the accused, the articles, the granted issue, and the disposition that anchor it so the digest could not be mistaken for any other order in the batch. Write in your own words grounded only in the assigned opinion; do not copy the opinion text and do
+      not import anything from outside it.
+
+  - id: merge
+    agent_type: general
+    parallel_group: merge
+    depends_on: [lead--g1, lead--g2, lead--g3, lead--g4, lead--g5, lead--g6, lead--g7, lead--g8, lead--g9]
+    description: >-
+      Take the nine group rollups and the group tracker slices handed up by the review-group leads and reconcile
+      them into the two consolidation deliverables: /logs/agent/output/case_tracker.csv (one row per opinion, all
+      72, columns report, accused, docket, issue_type, disposition, sentence_relief, note_status, stitched from
+      the leads' group slices) and /logs/agent/output/term_survey.md reading across all 72 opinions - the assigned
+      errors the court credits and the ones it turns away, how the standard of review moves the result, how often
+      relief reaches the findings versus only the sentence, the affirmed-versus-reversed-versus-remanded split,
+      and where opinions cluster by issue type or charged offense - building on the leads' group rollups rather
+      than re-reading every brief from scratch, and anchoring every thread to the opinions behind it by report id,
+      accused name, or docket number. Reconcile and consolidate; do not author missing briefs, and mark anything
+      you cannot determine rather than inventing it.

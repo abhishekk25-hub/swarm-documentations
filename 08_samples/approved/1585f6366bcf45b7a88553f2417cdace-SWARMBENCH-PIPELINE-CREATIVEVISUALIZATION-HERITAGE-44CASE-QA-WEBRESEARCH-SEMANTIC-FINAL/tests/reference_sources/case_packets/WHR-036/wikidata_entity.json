@@ -1,0 +1,915 @@
+{
+  "entities": {
+    "Q7697530": {
+      "aliases": {
+        "en": [
+          {
+            "language": "en",
+            "value": "Saint Hilarion monastery"
+          },
+          {
+            "language": "en",
+            "value": "Tell Umm Amer"
+          }
+        ],
+        "fr": [
+          {
+            "language": "fr",
+            "value": "Monastère Saint Hilarion"
+          }
+        ],
+        "nb": [
+          {
+            "language": "nb",
+            "value": "Tell Umm Amer, St. Hilarion-klosteret"
+          }
+        ]
+      },
+      "claims": {
+        "P131": [
+          {
+            "id": "Q7697530$a0ba4de5-4253-4611-9f78-d0362163c199",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q592249",
+                  "numeric-id": 592249
+                }
+              },
+              "hash": "837a595c1333750acfa8aa1ed7c58ba23233291f",
+              "property": "P131",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P1435": [
+          {
+            "id": "Q7697530$f018fd00-4e17-e3ee-c529-cc34cab796e3",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q9259",
+                  "numeric-id": 9259
+                }
+              },
+              "hash": "d22546e8bf86b97293821ea8757787befdf35ca8",
+              "property": "P1435",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P2614": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038976",
+                      "numeric-id": 23038976
+                    }
+                  },
+                  "hash": "8a15757be66fb6392e3ea58d408565017dbb7532",
+                  "property": "P2614",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038977",
+                      "numeric-id": 23038977
+                    }
+                  },
+                  "hash": "b93cf61b4cce497f573aa200ddc3f2a21f2c48d5",
+                  "property": "P2614",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038980",
+                      "numeric-id": 23038980
+                    }
+                  },
+                  "hash": "dd017954434fbba369a0b4ad7007bc009d4a121b",
+                  "property": "P2614",
+                  "snaktype": "value"
+                }
+              ],
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+2024-00-00T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "54ca0c06a3c87207ceccf47a31d90afeb2f2585b",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580",
+              "P2614"
+            ],
+            "rank": "preferred",
+            "type": "statement"
+          },
+          {
+            "id": "Q7697530$74C5BE89-BF9B-4925-8113-9C2740031175",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q1459900",
+                  "numeric-id": 1459900
+                }
+              },
+              "hash": "d1ae2f914bade38c64113e480fc4c470951be15f",
+              "property": "P1435",
+              "snaktype": "value"
+            },
+            "qualifiers": {
+              "P1448": [
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "en",
+                      "text": "Tell Umm Amer"
+                    }
+                  },
+                  "hash": "049a4b4992281faee78bcfa729d6715e9006c6bf",
+                  "property": "P1448",
+                  "snaktype": "value"
+                }
+              ],
+              "P2614": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038976",
+                      "numeric-id": 23038976
+                    }
+                  },
+                  "hash": "8a15757be66fb6392e3ea58d408565017dbb7532",
+                  "property": "P2614",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038977",
+                      "numeric-id": 23038977
+                    }
+                  },
+                  "hash": "b93cf61b4cce497f573aa200ddc3f2a21f2c48d5",
+                  "property": "P2614",
+                  "snaktype": "value"
+                },
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q23038980",
+                      "numeric-id": 23038980
+                    }
+                  },
+                  "hash": "dd017954434fbba369a0b4ad7007bc009d4a121b",
+                  "property": "P2614",
+                  "snaktype": "value"
+                }
+              ],
+              "P580": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 11,
+                      "time": "+2012-04-02T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "218a6012cdc59315cba57c240f014a2e49b7d319",
+                  "property": "P580",
+                  "snaktype": "value"
+                }
+              ],
+              "P582": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 9,
+                      "time": "+2024-00-00T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "d6ed9e84bd354c9ff69fb81a733762e5e408857e",
+                  "property": "P582",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580",
+              "P1448",
+              "P2614",
+              "P582"
+            ],
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "daebfb7098792d6dfe34b0f70e3a8a2ff637f71b",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://whc.unesco.org/fr/listesindicatives/5716/"
+                      },
+                      "hash": "892c2eb1d97c2d2fcdd2a86c56304e77a63309c1",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P1584": [
+          {
+            "id": "Q7697530$CFE00313-5C17-4DBD-9F64-5C4C2D801894",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "458345971"
+              },
+              "hash": "e59d369f5df9e78cd8f4022f093abe7cf61c986e",
+              "property": "P1584",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P17": [
+          {
+            "id": "Q7697530$7EAD448F-ADBA-4641-A772-ACB527ED0955",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q219060",
+                  "numeric-id": 219060
+                }
+              },
+              "hash": "e3ccffa40914b56c72b1fa480bb54f8be7b48c74",
+              "property": "P17",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "daebfb7098792d6dfe34b0f70e3a8a2ff637f71b",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://whc.unesco.org/fr/listesindicatives/5716/"
+                      },
+                      "hash": "892c2eb1d97c2d2fcdd2a86c56304e77a63309c1",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P18": [
+          {
+            "id": "Q7697530$47a334b9-4b2c-728d-985c-0f2d3cbbd1f8",
+            "mainsnak": {
+              "datatype": "commonsMedia",
+              "datavalue": {
+                "type": "string",
+                "value": "GAZA0010.jpg"
+              },
+              "hash": "08ff33f5690b031f21ab8f910e6a42a954efb696",
+              "property": "P18",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P2614": [
+          {
+            "id": "Q7697530$66213E9E-C51B-47CC-8BC4-CE67FF8512ED",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038976",
+                  "numeric-id": 23038976
+                }
+              },
+              "hash": "8a15757be66fb6392e3ea58d408565017dbb7532",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "daebfb7098792d6dfe34b0f70e3a8a2ff637f71b",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://whc.unesco.org/fr/listesindicatives/5716/"
+                      },
+                      "hash": "892c2eb1d97c2d2fcdd2a86c56304e77a63309c1",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q7697530$C55A30B0-D2EC-4DD4-87EE-932970833D8E",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038977",
+                  "numeric-id": 23038977
+                }
+              },
+              "hash": "b93cf61b4cce497f573aa200ddc3f2a21f2c48d5",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "daebfb7098792d6dfe34b0f70e3a8a2ff637f71b",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://whc.unesco.org/fr/listesindicatives/5716/"
+                      },
+                      "hash": "892c2eb1d97c2d2fcdd2a86c56304e77a63309c1",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q7697530$8E01482D-E7BE-44B3-A3F0-F30E2E933E6C",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q23038980",
+                  "numeric-id": 23038980
+                }
+              },
+              "hash": "dd017954434fbba369a0b4ad7007bc009d4a121b",
+              "property": "P2614",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "daebfb7098792d6dfe34b0f70e3a8a2ff637f71b",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://whc.unesco.org/fr/listesindicatives/5716/"
+                      },
+                      "hash": "892c2eb1d97c2d2fcdd2a86c56304e77a63309c1",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P2671": [
+          {
+            "id": "Q7697530$87E1D5BD-D7AC-4749-B703-D038B88F97B5",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "/g/11j43f4cd7"
+              },
+              "hash": "e97afdb1f0dd96f16543d0c0c82c3ec0d531af2d",
+              "property": "P2671",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P31": [
+          {
+            "id": "Q7697530$A8775F71-0349-4329-93C9-A59A06954CC6",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q811979",
+                  "numeric-id": 811979
+                }
+              },
+              "hash": "c541e660ea15bb30e997a5ed16f8b6e54d7e955a",
+              "property": "P31",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "daebfb7098792d6dfe34b0f70e3a8a2ff637f71b",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://whc.unesco.org/fr/listesindicatives/5716/"
+                      },
+                      "hash": "892c2eb1d97c2d2fcdd2a86c56304e77a63309c1",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          },
+          {
+            "id": "Q7697530$7B9BEB22-0058-4BAE-9581-5257DC2E2785",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q839954",
+                  "numeric-id": 839954
+                }
+              },
+              "hash": "4441c653c09b7127b7d39c2f526a738ab5fbd6a9",
+              "property": "P31",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "daebfb7098792d6dfe34b0f70e3a8a2ff637f71b",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://whc.unesco.org/fr/listesindicatives/5716/"
+                      },
+                      "hash": "892c2eb1d97c2d2fcdd2a86c56304e77a63309c1",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P373": [
+          {
+            "id": "Q7697530$6dc7237e-4bb7-63a1-0a06-242a084418c4",
+            "mainsnak": {
+              "datatype": "string",
+              "datavalue": {
+                "type": "string",
+                "value": "Tell Umm Amer"
+              },
+              "hash": "e2f631fc83239efbb566ac652c3a59a6657feb5b",
+              "property": "P373",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P4171": [
+          {
+            "id": "Q7697530$572C45BF-4397-469D-A7F5-39B56D2A8642",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "5716"
+              },
+              "hash": "7657c254aaf5db196a7a8901f56956633a0313ce",
+              "property": "P4171",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P4345": [
+          {
+            "id": "Q7697530$4a92fb74-46a0-29b7-77c4-be1e7fd22e6e",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q132758039",
+                  "numeric-id": 132758039
+                }
+              },
+              "hash": "c951ca79a6df97889e8e4895cf03cae37a944e8c",
+              "property": "P4345",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "bacb1c4150673a0dc1522b96e2223a79c7470ded",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://web.archive.org/web/20020618092459/http://www.telegraph.co.uk/news/main.jhtml?xml=/news/2001/12/02/wgaza02.xml"
+                      },
+                      "hash": "fea20bc5b4a52d6e91f81c3e4ef3d43fb99828bb",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P527": [
+          {
+            "id": "Q7697530$51ba8346-4f39-e5c3-e532-2a1cf033e598",
+            "mainsnak": {
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "entity-type": "item",
+                  "id": "Q138010051",
+                  "numeric-id": 138010051
+                }
+              },
+              "hash": "e5e36bc5e48fe353399f1e3fcdc3f378f0f6e72e",
+              "property": "P527",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P625": [
+          {
+            "id": "Q7697530$2F75034D-9DC1-4628-903C-2559E51FEF19",
+            "mainsnak": {
+              "datatype": "globe-coordinate",
+              "datavalue": {
+                "type": "globecoordinate",
+                "value": {
+                  "altitude": null,
+                  "globe": "http://www.wikidata.org/entity/Q2",
+                  "latitude": 31.447222222222223,
+                  "longitude": 34.36638888888889,
+                  "precision": 0.0002777777777777778
+                }
+              },
+              "hash": "870989291c734616194b3e5f565fa582208b164e",
+              "property": "P625",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "daebfb7098792d6dfe34b0f70e3a8a2ff637f71b",
+                "snaks": {
+                  "P854": [
+                    {
+                      "datatype": "url",
+                      "datavalue": {
+                        "type": "string",
+                        "value": "https://whc.unesco.org/fr/listesindicatives/5716/"
+                      },
+                      "hash": "892c2eb1d97c2d2fcdd2a86c56304e77a63309c1",
+                      "property": "P854",
+                      "snaktype": "value"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ],
+            "type": "statement"
+          }
+        ],
+        "P646": [
+          {
+            "id": "Q7697530$53595366-1F20-4DA2-8121-97EB924CDB54",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "/m/0k0rjf6"
+              },
+              "hash": "83a6d306b048af87698ce07d8c10b610647479eb",
+              "property": "P646",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ],
+        "P757": [
+          {
+            "id": "Q7697530$14fc1c9a-46ff-628c-6b40-de593a4bef7c",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "1749"
+              },
+              "hash": "2aa36dd1f7c7382e1ce734cb06dd9a26d539831c",
+              "property": "P757",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          }
+        ]
+      },
+      "descriptions": {
+        "de": {
+          "language": "de",
+          "value": "archäologische Stätte im Staat Palästina"
+        },
+        "en": {
+          "language": "en",
+          "value": "Christian archeological site in Palestine"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "site archéologique chrétien de Palestine"
+        },
+        "he": {
+          "language": "he",
+          "value": "אתר ארכיאולוגי ברשות הפלסטינאית"
+        },
+        "nb": {
+          "language": "nb",
+          "value": "klosterruiner i Palestina, oppført på UNESCOs verdensarvliste"
+        }
+      },
+      "id": "Q7697530",
+      "labels": {
+        "ar": {
+          "language": "ar",
+          "value": "تل أم عامر"
+        },
+        "arz": {
+          "language": "arz",
+          "value": "دير القديس هيلاريون"
+        },
+        "de": {
+          "language": "de",
+          "value": "Tell Umm el-ʿAmr"
+        },
+        "en": {
+          "language": "en",
+          "value": "Tell Umm el-'Amr"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "Tell Umm el-‘Amr"
+        },
+        "gl": {
+          "language": "gl",
+          "value": "Tell Umm el-'Amr"
+        },
+        "he": {
+          "language": "he",
+          "value": "תל אום-עאמר"
+        },
+        "nb": {
+          "language": "nb",
+          "value": "Tell Umm el-'Amr"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "Tell Umm el-'Amr"
+        },
+        "tr": {
+          "language": "tr",
+          "value": "Tell Umm el-'Amr"
+        },
+        "uk": {
+          "language": "uk",
+          "value": "Тель-Умм-ель-Амр"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "泰爾烏姆埃爾-阿米爾"
+        }
+      },
+      "lastrevid": 2506326179,
+      "modified": "2026-06-15T14:52:44Z",
+      "ns": 0,
+      "pageid": 7623435,
+      "sitelinks": {
+        "arwiki": {
+          "badges": [],
+          "site": "arwiki",
+          "title": "تل أم عامر"
+        },
+        "arzwiki": {
+          "badges": [],
+          "site": "arzwiki",
+          "title": "دير القديس هيلاريون"
+        },
+        "commonswiki": {
+          "badges": [],
+          "site": "commonswiki",
+          "title": "Category:Tell Umm Amer"
+        },
+        "dewiki": {
+          "badges": [],
+          "site": "dewiki",
+          "title": "Tell Umm el-ʿAmr"
+        },
+        "enwiki": {
+          "badges": [],
+          "site": "enwiki",
+          "title": "Tell Umm el-'Amr"
+        },
+        "frwiki": {
+          "badges": [],
+          "site": "frwiki",
+          "title": "Tell Umm el-‘Amr"
+        },
+        "glwiki": {
+          "badges": [],
+          "site": "glwiki",
+          "title": "Tell Umm el-'Amr"
+        },
+        "hewiki": {
+          "badges": [],
+          "site": "hewiki",
+          "title": "תל אום-עאמר"
+        },
+        "nlwiki": {
+          "badges": [],
+          "site": "nlwiki",
+          "title": "Tell Umm el-'Amr"
+        },
+        "nowiki": {
+          "badges": [],
+          "site": "nowiki",
+          "title": "Tell Umm el-’Amr"
+        },
+        "trwiki": {
+          "badges": [],
+          "site": "trwiki",
+          "title": "Tell Umm el-'Amr"
+        },
+        "ukwiki": {
+          "badges": [],
+          "site": "ukwiki",
+          "title": "Тель-Умм-ель-Амр"
+        },
+        "zhwiki": {
+          "badges": [],
+          "site": "zhwiki",
+          "title": "特爾烏姆阿邁爾"
+        }
+      },
+      "title": "Q7697530",
+      "type": "item"
+    }
+  }
+}

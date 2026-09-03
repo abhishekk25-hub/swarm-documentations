@@ -1,0 +1,156 @@
+{
+  "task_id": "swarmbench/5abd63556a1146ef8f79397d1efe9187-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-REGULATORY-CLOCK-CHANGE-CONTROL",
+  "task": "swarmbench/5abd63556a1146ef8f79397d1efe9187-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-REGULATORY-CLOCK-CHANGE-CONTROL",
+  "verifier_type": "hybrid",
+  "verifier": "tests/verify.py",
+  "fail_closed": true,
+  "total_checks": 15,
+  "scoring_formula": "The exact four-field QG formula is reward=clamp((total_static_check_score*1 + total_reward_hacking_check_score*2 + total_partial_oracle_check_score*3)/6,0,1). Each bucket score is the unweighted mean of its five checks.",
+  "check_weighting_note": "Effective per-check weights are 1 for each static check, 2 for each reward-hacking check, and 3 for each partial-oracle check. Thus the 15 manifest weights sum to 30: structural contributes 5/30 (16.67%) and content contributes 25/30 (83.33%). There is no undeclared gate, cap, floor, tier, or alternate scoring path. reward.json contains exactly the QG four-field numeric contract; infrastructure failures instead emit an explicit invalid_evaluation sidecar and a non-zero verifier exit.",
+  "bucket_counts": {
+    "static": 5,
+    "reward_hacking": 5,
+    "partial_oracle": 5
+  },
+  "scoring": {
+    "check_weights": "Checks are unweighted within each five-check bucket. On a common effective scale, static checks have weight 1, reward-hacking checks weight 2, and partial-oracle checks weight 3, matching the bucket blend exactly.",
+    "formula": "S=mean(5 static); RH=mean(5 reward-hacking); PO=mean(5 partial-oracle); reward=clamp((S*1+RH*2+PO*3)/6,0,1). There is no global gate, cap, floor, multiplier, tier, or step ceiling.",
+    "content_share": "Structural contribution is 1/6 (16.67%); reward-hacking plus partial-oracle contribution is 5/6 (83.33%). Grounding combinations occur only inside the declared content checks.",
+    "reward_contract": "reward.json contains exactly reward, total_static_check_score, total_reward_hacking_check_score, and total_partial_oracle_check_score as numbers. Diagnostics are sibling files; an unavailable judge or scoring exception creates verifier_status.json with invalid_evaluation=true and exits non-zero rather than recording a task-quality zero."
+  },
+  "judge": {
+    "model": "Qwen/Qwen3.6-35B-A3B",
+    "endpoint": "W&B Serverless Inference via WANDB_API_KEY",
+    "decomposition": "Six disjoint portfolio calls cover all 48 casefiles, eight per call, and return separate per-record evidence, chronology, scope, classification, disposition, and reasons from source-selected excerpts. One separate call jointly grades the cited cohort briefing and the SVG's meaningful data encoding. No record is sampled and no single call controls most reward.",
+    "failure_policy": "After retries, any unavailable, incomplete, duplicated-ID, or unparseable judge result invalidates the evaluation. The verifier writes the four numeric compatibility fields as zero alongside verifier_status.json with invalid_evaluation=true, prints the reason, and exits non-zero so infrastructure failure is not training signal."
+  },
+  "infrastructure_failure_policy": {
+    "check_function": "write_invalid_evaluation",
+    "trigger": "Any exhausted LLM judge call, scoring-function exception, or uncaught verifier exception.",
+    "effect": "This is an alternate non-training path, not a reward gate: write the exact four-field numeric compatibility payload at zero, write verifier_status.json with invalid_evaluation=true and detailed errors, print the status and breakdown, and exit non-zero."
+  },
+  "checks": {
+    "static_checks_1": {
+      "weight": 1,
+      "check_function": "check_all_casefiles_present",
+      "agent_output_path": "/logs/agent/casefiles/",
+      "detailed_explanation_of_checks": "Scores complete 48-record casefile coverage and proportionally discounts unexpected JSON casefiles.",
+      "how_it_prevents_task_authenticity_violation": "A partial run cannot present only its easiest records as the complete cohort."
+    },
+    "static_checks_2": {
+      "weight": 1,
+      "check_function": "check_casefile_schema",
+      "agent_output_path": "/logs/agent/casefiles/<record_id>.json",
+      "detailed_explanation_of_checks": "Validates all mandated top-level keys, types, identity, closed vocabularies, evidence-object shape, evidence count, and required evidence-role coverage across all 48 cases.",
+      "how_it_prevents_task_authenticity_violation": "Malformed or conveniently incomplete records cannot be silently omitted by content checks."
+    },
+    "static_checks_3": {
+      "weight": 1,
+      "check_function": "check_register_schema_and_coverage",
+      "agent_output_path": "/logs/agent/regulatory_clock_register.csv",
+      "detailed_explanation_of_checks": "Checks the exact CSV header, complete unique record population, and absence of extra identities.",
+      "how_it_prevents_task_authenticity_violation": "A plausible small register cannot masquerade as the full snapshot."
+    },
+    "static_checks_4": {
+      "weight": 1,
+      "check_function": "check_exception_schema",
+      "agent_output_path": "/logs/agent/change_control_exceptions.json",
+      "detailed_explanation_of_checks": "Checks the exact exception wrapper and case fields, snapshot date, identities, flag lists, and evidence-path list types.",
+      "how_it_prevents_task_authenticity_violation": "Separates parseable exception structure from independently recomputed population correctness."
+    },
+    "static_checks_5": {
+      "weight": 1,
+      "check_function": "check_briefing_and_atlas_structure",
+      "agent_output_path": [
+        "/logs/agent/regulatory_clock_briefing.md",
+        "/logs/agent/clock_atlas_data.json",
+        "/logs/agent/regulatory_clock_atlas.svg"
+      ],
+      "detailed_explanation_of_checks": "Checks briefing word band, exact five-series JSON structure, SVG parseability, and a minimum non-trivial SVG size.",
+      "how_it_prevents_task_authenticity_violation": "Empty shells and renamed non-SVG files do not bank full delivery credit."
+    },
+    "reward_hacking_checks_1": {
+      "weight": 2,
+      "check_function": "check_evidence_quotes_roundtrip",
+      "agent_output_path": "/logs/agent/casefiles/<record_id>.json",
+      "detailed_explanation_of_checks": "Verifies each immutable input source against its manifest SHA-256, then checks source path, 8-70 word contiguous quote round-trip, and required role coverage for every case. Each record's deterministic score is multiplied inside this check by its full-cohort judge evidence-relevance score; exact cross-case quote repeats are reported for audit but do not penalize passages that genuinely occur in both sources.",
+      "how_it_prevents_task_authenticity_violation": "An irrelevant, fabricated, wrong-source, or role-mismatched quotation cannot obtain grounding credit merely by having the right shape."
+    },
+    "reward_hacking_checks_2": {
+      "weight": 2,
+      "check_function": "check_narratives_distinct_and_substantive",
+      "agent_output_path": "/logs/agent/casefiles/<record_id>.json",
+      "detailed_explanation_of_checks": "For every operative_scope and disposition, gives full band credit only at the disclosed 45-120 and 30-90 words, respectively, with gradual partial credit outside those bands; it then multiplies band score and record-specific source-vocabulary grounding by that record's full-cohort semantic judge scope/disposition score. Free prose is not compared by exact string equality.",
+      "how_it_prevents_task_authenticity_violation": "Generic or ID-swapped prose and polished text unrelated to the record lose semantic grounding credit without penalizing accurate alternative phrasing."
+    },
+    "reward_hacking_checks_3": {
+      "weight": 2,
+      "check_function": "check_register_casefile_consistency",
+      "agent_output_path": [
+        "/logs/agent/regulatory_clock_register.csv",
+        "/logs/agent/casefiles/"
+      ],
+      "detailed_explanation_of_checks": "Recomputes all twelve register fields from each final casefile, including counts, chain_id, and clock_risk. Each record's exact agreement score is multiplied inside this check by its source-grounded chronology/classification judge score.",
+      "how_it_prevents_task_authenticity_violation": "A stale or independently fabricated master table cannot agree only in its headline columns."
+    },
+    "reward_hacking_checks_4": {
+      "weight": 2,
+      "check_function": "check_exception_population_and_actions",
+      "agent_output_path": [
+        "/logs/agent/change_control_exceptions.json",
+        "/logs/agent/casefiles/"
+      ],
+      "detailed_explanation_of_checks": "Checks submitted casefile-to-exception population consistency, exact flag transfer, in-range distinct evidence pointers, and the disclosed 35-100 word action band. Conservative source-only patterns independently re-derive strong exception signals across all 48 frozen documents and penalize omitted signaled records or flags. Each item and the aggregate are also bound to the full-cohort source-grounded classification judge, which semantically assesses whether each immediate action addresses every trigger; free prose is not compared by exact string equality or undisclosed keyword anchors.",
+      "how_it_prevents_task_authenticity_violation": "An all-empty self-selected population, filler cases, unsupported flags, or generic actions cannot obtain full credit without independent source signals and semantic source-grounded review."
+    },
+    "reward_hacking_checks_5": {
+      "weight": 2,
+      "check_function": "check_atlas_data_and_svg_agreement",
+      "agent_output_path": [
+        "/logs/agent/clock_atlas_data.json",
+        "/logs/agent/regulatory_clock_atlas.svg",
+        "/logs/agent/regulatory_clock_register.csv"
+      ],
+      "detailed_explanation_of_checks": "Recomputes all five data series, checks exact JSON agreement, requires every series name and label/value pair in actual SVG text elements, checks visual-mark count and genuine aria-* accessibility attributes, and rejects scripts, raster embeds, and common hidden-value stuffing including CSS opacity. The whole agreement score is multiplied by the mean full-cohort source-grounded chronology/classification judgment.",
+      "how_it_prevents_task_authenticity_violation": "A correctly named image, a self-consistent invented register, a coincidental aria substring, or hidden text cannot pass as a truthful atlas."
+    },
+    "partial_oracle_checks_1": {
+      "weight": 3,
+      "check_function": "check_new_effective_date_values",
+      "agent_output_path": "/logs/agent/casefiles/<record_id>.json",
+      "detailed_explanation_of_checks": "Checks new_effective_date on a fixed, stratified eight-of-48 held-out subset against values manually verified from the frozen official documents, including dated and expressly indefinite clocks.",
+      "how_it_prevents_task_authenticity_violation": "A self-consistent but invented controlling date loses meaningful credit against a limited value set absent from the identity-only agent catalog."
+    },
+    "partial_oracle_checks_2": {
+      "weight": 3,
+      "check_function": "check_action_class_and_authority",
+      "agent_output_path": "/logs/agent/casefiles/<record_id>.json",
+      "detailed_explanation_of_checks": "Checks action class and coverage of held-out CFR title/part references within affected_authority on the same fixed, stratified eight-of-48 subset.",
+      "how_it_prevents_task_authenticity_violation": "Plausible labels and generic authority strings must agree with the official record and frozen document."
+    },
+    "partial_oracle_checks_3": {
+      "weight": 3,
+      "check_function": "check_predecessor_chain_values",
+      "agent_output_path": "/logs/agent/casefiles/<record_id>.json",
+      "detailed_explanation_of_checks": "Computes set F1 for predecessor Federal Register citations on the fixed, stratified eight-of-48 held-out subset, excluding each document's own citation.",
+      "how_it_prevents_task_authenticity_violation": "Docket numbers, CFR parts, guessed pages, and omitted history cannot earn chain credit."
+    },
+    "partial_oracle_checks_4": {
+      "weight": 3,
+      "check_function": "check_exception_flags_against_fixture",
+      "agent_output_path": "/logs/agent/casefiles/<record_id>.json",
+      "detailed_explanation_of_checks": "Computes set F1 for all eight rulebook flags on the fixed, stratified eight-of-48 held-out subset.",
+      "how_it_prevents_task_authenticity_violation": "A self-selected easy exception population cannot control its own correctness denominator."
+    },
+    "partial_oracle_checks_5": {
+      "weight": 3,
+      "check_function": "check_case_semantics_and_briefing",
+      "agent_output_path": [
+        "/logs/agent/casefiles/",
+        "/logs/agent/regulatory_clock_briefing.md"
+      ],
+      "detailed_explanation_of_checks": "Uses six disjoint eight-record judge calls whose union is all 48 cases to grade source-grounded chronology, scope, classification, and disposition, then a separate cohort call to grade the cited briefing and meaningful non-degenerate SVG encoding against register-derived atlas data. The cohort-call score is multiplied inside the check by a disclosed citation-coverage ramp from eight to sixteen distinct record IDs; any missing or failed judge result invalidates the evaluation instead of becoming a task-quality zero.",
+      "how_it_prevents_task_authenticity_violation": "Full-cohort semantic reading and cited cross-record synthesis cannot be replaced by valid schemas, generic legal prose, citation stuffing, or a sampled easy subset, while judge infrastructure failures cannot corrupt the training score."
+    }
+  }
+}

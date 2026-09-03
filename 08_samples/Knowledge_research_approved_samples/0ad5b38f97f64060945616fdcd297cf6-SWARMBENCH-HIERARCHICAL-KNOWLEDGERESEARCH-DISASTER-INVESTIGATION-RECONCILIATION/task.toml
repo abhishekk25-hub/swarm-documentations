@@ -1,0 +1,26 @@
+[task]
+name = "swarmbench/0ad5b38f97f64060945616fdcd297cf6-SWARMBENCH-HIERARCHICAL-KNOWLEDGERESEARCH-DISASTER-INVESTIGATION-RECONCILIATION"
+description = "Reconcile the official investigation record for eleven US disasters, each examined by two or three federal bodies whose published figures were never squared against each other. Produce per event reconciliation files pairing what each report states about a fact, with verbatim passages, a commensurability verdict, and the arithmetic that connects differing partitions, plus a corpus wide ledger."
+
+[metadata]
+verifier_type = "executable"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_horizon"]
+dag_depth = 3
+dag_width = 28
+estimated_sub_agents = 43
+input_token_estimate = 1429000
+human_solving_hours_estimate = 170.4
+human_solving_hours_justification = "Corpus is 24 official investigation reports over eleven events, 864,387 words, measured at 1,429,000 tokens by character count. Reading at 200 words per minute for technical prose gives 864,387 / 200 = 4,322 minutes = 72.0 hours. Indexing the quantitative and dated statements in each report, at 1.5 hours per report across 24 reports, is 36.0 hours. Aligning statements across the reports of an event and settling a commensurability verdict, at 12 minutes per fact across the 219 reconciled facts the corpus supports, is 43.8 hours. Deriving the reconciling arithmetic and verifying every passage verbatim against its source, at 4 minutes per fact, is 14.6 hours. Assembling the ledger and running a consistency pass over the eleven event files is 4.0 hours. Total 72.0 + 36.0 + 43.8 + 14.6 + 4.0 = 170.4 hours."
+why_multi_agent = "A single context has to hold three things at once for every fact it settles: the passage in one agency report, the passage in another report of the same event, and the partition each body used, across 24 reports and 1.43 million tokens. The shipped single-agent run reached 27 of the 219 reconciled facts in the corpus and produced records for 11 of the eleven events, scoring 0.063751. The multi-agent run reached 85 facts across 11 events for 0.262699, a gap of 0.198948, with 43 sub-agent sessions realized. The decomposition splits the two kinds of work that a single context has to interleave: a reader holds one report, or one range of an oversized report, and indexes what that report states, and an aligner holds one event and does the comparison, so no agent ever needs more than one event in context while the corpus as a whole is still covered. The same swarm without the pre-authored plan scored 0.210611, so the plan is worth 0.052088 on this task."
+oracle_scoring_rationale = "Scoring compares the submitted reconciliation records against a held-out, hand-authored key of 219 facts at tests/test_logic/answer_key.json. This is an intentional and disclosed design choice, recorded here and in the rubric_manifest qd_03_1_disclosure block, and it is NOT the field-by-field oracle scoring of a whole deliverable that QD-03.1 prohibits. The key is used for two narrow purposes: deciding whether a submitted unit concerns a real contested fact, which is alignment, and spot-checking three fields on the units that align. The substance of the reward is verified against the SHIPPED CORPUS rather than against the key, because every quote a submission offers must verify verbatim against the grader's copy of the report it is attributed to, at the position where the fact actually lives, which is the externally grounded evidence QD-04.12 asks for and is derived from the same documents the agent reads. The denominator is the key's own unit set over the whole corpus, never what the submission chose to write, so volume cannot move it. No scored field is free text: every scored value is a closed enum, a document identifier, a numeric value compared after normalisation, or a verbatim quote, which is why verifier_type is executable under QD-07.8. The live constants the verifier applies are an alignment window of 400 characters, a quote overlap fraction of 0.5, a minimum quote length of 60 characters, and a blanket-verdict denominator floored at 20 credited units; the numeric specificity guard is proportional to the key value's own count of numbers rather than a flat cap, so a correct answer carrying many figures is never punished. The rubric declares 855 checks, 13 static, 31 reward hacking and 811 partial oracle. Each bucket total is that bucket's checks passed over its total checks, with no per-check weighting; every check returns a value in [0,1] and partial values are summed as passed mass. The final reward is the declared blend (total_static_check_score * 1 + total_reward_hacking_check_score * 2 + total_partial_oracle_check_score * 3) / 6. No gate, multiplier, cap or clamp is applied at any stage."
+reference_link = "https://www.weather.gov/publications/assessments"
+
+[verifier]
+timeout_sec = 900
+
+[environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 900

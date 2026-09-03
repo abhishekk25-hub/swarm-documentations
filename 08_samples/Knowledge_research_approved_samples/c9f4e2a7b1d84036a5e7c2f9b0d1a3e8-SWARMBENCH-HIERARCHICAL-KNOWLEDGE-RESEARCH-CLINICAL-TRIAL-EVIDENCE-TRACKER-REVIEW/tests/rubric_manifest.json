@@ -1,0 +1,121 @@
+{
+  "task": "swarmbench/CLINICAL-TRIAL-EVIDENCE-TRACKER",
+  "grader": "tests/verify.py",
+  "reward_contract": "/logs/verifier/reward.txt",
+  "scoring": "Every check declares weight 1 and returns a score in [0,1]; the final reward is the equal-weight mean of all 16 checks (reward = sum(scores)/16), with no multipliers, gates, caps or floors applied on top and no check able to drop out of the denominator. Every scored component grades the entire 72-trial batch (QD-04 full-coverage), never a fixed subset. Content checks (LLM-rubric plus ground truth re-derived from the records) are 8 of the 16 and therefore carry 50% of the reward: rubric = static_checks_6, partial_oracle_checks_5, partial_oracle_checks_6; ground truth = partial_oracle_checks_1..4 and static_checks_4. Two bounds inside individual checks are disclosed here because they cap what a single check can return: partial_oracle_checks_3 refuses any primary_result that carries more than 6 distinct figures or more than 30 words, and requires at least 60% of the figures stated to belong to that record's primary-outcome results, so transcribing every number in a document scores zero rather than passing; static_checks_1 credits a digest as present only at >=120 words, with >=3 of the 6 instructed topics covered, and only when it is not one sentence repeated to length.",
+  "total_checks": 16,
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Counts how many of the 72 required per-trial digests (digests/t01.md..t72.md) are present at the instructed depth, as a fraction of 72. A file counts only when it reaches at least 120 words AND actually works through at least 3 of the 6 instructed topics (trial and population; question and endpoints; population and exposure; results and safety; verdict; why it matters) AND is not one sentence repeated to length or otherwise vocabulary-starved AND actually names the trial it is supposed to cover (that record's sponsor or trial-name tokens from the roster, or its registry identifier). The bar is deliberately tied to the instructed depth rather than to a bare non-empty file, so a short stub, a padded filler paragraph written to cover a late-batch record, or one generic buzzword template lightly varied and reused across the batch clears nothing here.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/tNN.md",
+      "check_function": "check_all_notes_present",
+      "how_it_prevents_task_authenticity_violation": "A partial submission that writes only the first several digests cannot earn full delivery credit."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Checks trial_tracker.csv parses and scores as the mean of six sub-parts: (1) it has the required columns (report, sponsor, registry_id, phase, verdict, primary_result, note_status); (2) it covers all 72 report ids; (3) each row's sponsor/trial name matches the roster for that id (roster-name matches counted once per canonical id so repeated rows cannot inflate coverage); (4) the phase column is actually populated with varied values (fraction of canonical rows whose phase is non-empty, scaled down when fewer than three distinct values appear). The generic-tag filter is deliberately disabled for phase, because several of these real registry records legitimately carry NA as their phase and that is the correct value to report rather than a placeholder; (5) the verdict column is likewise populated with varied values, and the generic-tag filter is disabled there too, since 'mixed' and 'terminated' are stipulated members of the verdict vocabulary rather than filler; and (6) the verdict values fall inside the closed vocabulary the instruction stipulates (met_primary / missed_primary / mixed / terminated), so arbitrary free-text labels do not earn full verdict credit. Leaving the phase or verdict columns blank, filling every row with one constant value, or using out-of-vocabulary verdict labels cannot earn full tracker credit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/trial_tracker.csv",
+      "check_function": "check_tracker_wellformed",
+      "how_it_prevents_task_authenticity_violation": "A tracker that is missing rows, invents report ids, mislabels sponsors, or leaves the required phase / verdict coding blank or constant cannot be treated as complete, well-formed coverage."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "Confirms the cross-batch synthesis evidence_review.md exists, is at least 300 words, clears a distinct-token (vocabulary-richness) ratio floor, is not dominated by a single repeated sentence, AND actually reads across trials: it requires at least three sentences that reference two or more distinct report ids together AND name a concrete shared theme in the same sentence that actually occurs in at least two of the cited records. Verification reads the trial records only and never the agent's own digests, so a memo cannot confirm its own claims by asserting a theme in a digest and then citing it. The theme is tested as the complete matched phrase, never reduced to its first word. Two filters apply in order. First, any bare single-word theme on the generic list ('phase', 'safety', 'efficacy', 'adverse', 'placebo', 'comparator', 'survival', 'mortality', 'terminated', 'mixed', 'oncology', 'diabetes' and the rest of that set) is dropped outright, so only multi-word phrases and single words outside that list are even considered. Second, a surviving theme that is near-universal across the batch, meaning it occurs in more than half the records, is dropped as well; measured on this corpus that removes 'primary endpoint', 'primary outcome', 'secondary endpoint', 'p-value' and 'confidence interval'. What is left and does qualify on this corpus is the genuinely selective phrases: 'hazard ratio', 'response rate', 'effect size' and 'met the primary'. Alternatively the sentence may name a specific figure, which counts only when it appears inside the cited record's own primary-outcome blocks rather than anywhere in the raw document, and only when that figure is not batch boilerplate: a value occurring in more than 15% of the records' analytic blocks is rejected, which on this corpus excludes alpha thresholds such as 0.05 and rounded values such as 0.5. Bare id co-occurrence with no shared substance, a ubiquitous keyword dropped between two ids, a self-invented theme, a coincidental number shared by two unrelated records, or a degenerate one-templated-sentence-per-trial listing therefore cannot earn structural synthesis credit. Sentence boundaries are detected without splitting decimal figures apart, so a clause reporting p=0.03 stays intact.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/evidence_review.md",
+      "check_function": "check_review_present",
+      "how_it_prevents_task_authenticity_violation": "Skipping the required whole-batch synthesis, leaving a one-line stub, or emitting a per-trial list with no cross-trial linkage cannot earn synthesis credit."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "Fraction of the 72 digests that reach at least 200 words AND clear a distinct-token (vocabulary-richness) ratio floor AND are largely the agent's own prose rather than verbatim source (8-gram overlap with the record below 50%) AND contain a length-scaled minimum of record-specific grounded details (percentages, effect-size decimals, registry ids, or years) that actually appear in that record and are used within surrounding record-specific context (not a bare pasted list) - at least three such grounded details, rising with length, AND spanning at least two different kinds of detail unless the digest is unusually figure-dense. A detail counts as grounded only when two further conditions hold. The wording immediately around it (a roughly 160-character window either side) must not itself be lifted from the record, measured by 8-gram overlap against that record, so keeping the record's own numbers inside the record's own sentences and padding the rest earns nothing. And the role the digest gives the figure must be a role the record gives it: cues around the figure are sorted into efficacy, statistics, safety, population and design, and where the digest presents a figure as a finding (efficacy, statistics or safety) the record must use that same figure for at least one of those three roles, otherwise the digest's context merely has to agree with the record's. Reusing a real eligibility threshold or baseline number to dress up a fabricated primary read-out therefore earns nothing, because the record never uses that number as a result. Length padding, repeated text, pasted source, or generic paraphrased boilerplate likewise cannot earn depth credit. Denominator is 72 so thin or missing digests lower the score.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/tNN.md",
+      "check_function": "check_note_depth",
+      "how_it_prevents_task_authenticity_violation": "Padding coverage with one-paragraph stubs that satisfy presence but not substance cannot earn depth credit."
+    },
+    "static_checks_5": {
+      "detailed_explanation_of_checks": "Mean fraction over all digests of the six required sections (trial and population, question and endpoints, population and exposure, results and safety, verdict, why it matters). A section is credited only when its topic appears with substantive surrounding content (not a bare header) AND that content references the record's own identifiers (a sponsor/trial-name token or its registry id), so a generic boilerplate paragraph reused under every header cannot earn format credit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/tNN.md",
+      "check_function": "check_format_sections",
+      "how_it_prevents_task_authenticity_violation": "Free-form write-ups that omit required sections (e.g. results and safety or verdict) cannot earn format credit."
+    },
+    "static_checks_6": {
+      "detailed_explanation_of_checks": "LLM-judged quality of the cross-batch synthesis against six criteria (>=3 recurring threads such as an effect-size band, a recurring endpoint/comparator, or a verdict pattern; trial-level attribution by id/sponsor/registry id; a genuine convergence; a genuine divergence; an open question about the evidence base; and cross-reading rather than trial-by-trial summaries), averaged over independent judge calls. Implemented by check_llm_review, which reads the cached combined LLM grader result.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/evidence_review.md",
+      "check_function": "check_llm_review",
+      "how_it_prevents_task_authenticity_violation": "A synthesis that merely re-lists per-trial summaries or asserts themes without grounding them in specific records cannot earn synthesis-quality credit."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "Detects near-duplicate digests by comparing every pair on two signals: raw 6-word shingle Jaccard (>= 0.5) and a number-masked 6-word shingle Jaccard (>= 0.8) that catches mad-lib templates where only sponsor names, numbers, and dates are swapped. Scores the fraction of digests NOT involved in a flagged pair.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/tNN.md",
+      "check_function": "check_no_duplicate_notes",
+      "how_it_prevents_task_authenticity_violation": "Copying one researched digest across many report ids to fake full 72-trial coverage is caught and not credited."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Fraction of digests free of both stub/deferral markers (TODO/TBD/placeholder/lorem ipsum and paraphrased deferrals such as 'to be written', 'deferred to a later pass', 'section incomplete', 'more to follow', 'working draft', 'expand this later', plus self-referential admissions of thinness such as 'reflects only the readily apparent points') and technical auto-generation/offload fingerprints (code fences including python/json/bash/js/yaml, import openai/anthropic/httpx/aiohttp/litellm, requests/httpx/aiohttp/urllib.request post/get/request calls, anthropic messages.create, client.chat/messages/responses, curl POST/GET, chat/completions and /v1/messages paths, api key, max_tokens, 'as an AI'). The offload pattern is restricted to scripting/API artifacts so legitimate quoted record prose is never flagged.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/tNN.md",
+      "check_function": "check_no_stub_or_offload_artifacts",
+      "how_it_prevents_task_authenticity_violation": "Passing off unfinished stubs, or output produced by scripting the digests through an external model, as genuine analysis is caught and not credited."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Compares note_status against the actual digest per canonical report id (deduplicated to one row per id, denominator fixed at 72 so repeated or padded rows cannot inflate or dilute). An id is credited only when the label agrees with reality by equivalence: a complete-family status (complete/completed/done/finished/final/written) must correspond to a genuinely substantial digest (>=200 words, sufficient vocabulary richness, largely original prose rather than pasted source, and grounded in the record's specific details), and any non-complete-family status is credited only when the digest is in fact not substantial. Marking a thin digest with any complete-family label (or a substantial one with a non-complete label) is not credited, so status synonyms cannot bypass the check in either direction. Scored as the fraction of canonical ids consistent.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/trial_tracker.csv",
+      "check_function": "check_status_matches_reality",
+      "how_it_prevents_task_authenticity_violation": "Marking missing or thin digests as 'complete' to inflate apparent coverage is caught and not credited."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Fraction of digests that are genuinely grounded in their own record. A digest is credited only when all three hold: it is the agent's own prose rather than a near-verbatim copy of its source (8-gram overlap below 0.6); it names that record's distinctive identity (sponsor/trial-name tokens from the roster, or the registry id) in the body past any leading metadata/heading block; and it carries at least 3 figures drawn from that record and used inside the agent's own analytical wording, where a figure counts only if the span around it is not itself lifted from the record and the digest uses the figure in a role the record also gives it, as described under static_checks_4. Naming the trial is therefore not sufficient on its own, so a mechanical synonym-substitution paraphrase that keeps the record's shape, a copied heading line, a wholesale paste of the record, and a fabricated finding decorated with a real number taken from an unrelated part of the record all fail.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/tNN.md",
+      "check_function": "check_notes_grounded_in_own_source",
+      "how_it_prevents_task_authenticity_violation": "Generic interchangeable digests, or wholesale copies of the record, cannot earn grounded-content credit."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "For every one of the 72 trials, checks that the digest cites the correct registry id (trusted fact from trial_roster.csv, present in the record) matching on the registry string to tolerate spacing drift. Credit is only given when the digest is an engaged write-up (at least ~150 words and grounded in the sponsor's own name or record-specific details), so a single spliced boilerplate metadata sentence copying the id cannot earn the point. Scored as the fraction correct over all rostered registry ids.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/tNN.md",
+      "check_function": "check_registry_numbers",
+      "how_it_prevents_task_authenticity_violation": "Digests not tied to the correct real trial, or a bare metadata splice with no analysis, cannot earn grounded-identity credit."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "For every trial, checks the digest cites at least one percentage or effect figure that actually appears in that record (a response rate, adverse-event rate, hazard ratio, or effect-size decimal) within surrounding analytical prose (a >=12-word window carrying record context), not as a bare pasted number, and only from an engaged write-up. Fraction correct over all records whose source carries such a figure.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/tNN.md",
+      "check_function": "check_grounded_figures",
+      "how_it_prevents_task_authenticity_violation": "Digests that name plausible-sounding figures not actually in the record cannot earn grounded-figure credit."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "For every trial, checks the tracker row's primary_result against that record's own posted primary-outcome results. Source figures are taken only from the record's PRIMARY OUTCOME blocks (each running to the next top-level section), never from the document as a whole, so a number lifted from a safety table or a subgroup analysis is not a valid primary result. A stated result is credited only when it is bounded like a headline figure (at most 6 distinct figures and at most 30 words) AND at least 60% of the figures it states are found in those primary-outcome blocks; a row that transcribes every number in the document is rejected outright as a figure dump rather than credited on a single incidental overlap. 'none' is credited only where the record itself posts no primary-outcome figure at all. Fraction correct over all trials, read from the record rather than from the roster.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/trial_tracker.csv",
+      "check_function": "check_primary_result_grounded",
+      "how_it_prevents_task_authenticity_violation": "A primary_result that is fabricated, that dumps every figure in the record hoping one matches, or a blanket 'none' where the record in fact posts a primary effect, cannot earn accuracy credit."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "For every trial, re-derives the verdict from that record's own posted results and compares it with the tracker's verdict column. A record whose status line reports the trial as terminated yields 'terminated'; otherwise the first posted statistical analysis of each PRIMARY OUTCOME block is read and its p-value tested at alpha 0.05, giving met_primary when every primary outcome is significant, missed_primary when none is, and mixed when the primary outcomes split. Records that post nothing to judge on are excluded from the denominator. Scored as the fraction of trials whose stated verdict matches the verdict re-derived from the record, so the verdict column is graded on truthfulness rather than on membership of the closed vocabulary.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/trial_tracker.csv",
+      "check_function": "check_verdict_grounded",
+      "how_it_prevents_task_authenticity_violation": "Filling the verdict column with valid-looking enum tokens that bear no relation to what the record reports, or guessing one constant verdict across the batch, earns nothing here."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "LLM-judged mean aspect-coverage over ALL 72 digests: for each of the six required aspects, whether the digest genuinely and correctly covers it for that specific trial, judged against that record's real source text. Averaged over independent judge calls; implemented by check_llm_coverage reading the cached combined LLM grader result.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/tNN.md",
+      "check_function": "check_llm_coverage",
+      "how_it_prevents_task_authenticity_violation": "Well-shaped digests that omit or fake the substantive analysis cannot earn content credit."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "LLM-judged mean faithfulness+specificity over ALL 72 digests: whether each digest is accurate to its own source, in its own words with nothing fabricated, nothing imported from other trials, and nothing about the therapy drawn from outside knowledge not stated in that record, and grounded in the record's real trial, endpoints, primary-effect figures, and verdict. Averaged over independent judge calls; implemented by check_llm_faithful reading the cached combined LLM grader result. Every judge call issues a fresh random token that the graded material cannot know and the verdict is read only from after that token, so text planted in a digest cannot pose as the judge's own answer.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/tNN.md",
+      "check_function": "check_llm_faithful",
+      "how_it_prevents_task_authenticity_violation": "Fabricated or cross-contaminated content, and generic boilerplate, cannot be scored as faithful analysis."
+    }
+  }
+}

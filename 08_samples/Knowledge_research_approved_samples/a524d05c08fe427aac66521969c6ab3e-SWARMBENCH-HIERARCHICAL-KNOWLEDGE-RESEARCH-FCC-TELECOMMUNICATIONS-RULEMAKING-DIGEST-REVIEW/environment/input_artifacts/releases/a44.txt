@@ -1,0 +1,937 @@
+FCC RULEMAKING RELEASE
+Rule subject: Use of the 5.850-5.925 GHz Band
+Document number: 2024-28980
+Issuing agency: Federal Communications Commission
+Responsible Bureau: Wireless Telecommunications Bureau
+Federal Register citation: 89 FR 100838
+Publication date: 2024-12-13
+
+Federal Register, Volume 89 Issue 240 (Friday, December 13, 2024)
+
+
+[Federal Register Volume 89, Number 240 (Friday, December 13, 2024)]
+[Rules and Regulations]
+[Pages 100838-100856]
+From the Federal Register Online via the Government Publishing Office [ www.gpo.gov ]
+[FR Doc No: 2024-28980]
+
+
+=======================================================================
+-----------------------------------------------------------------------
+
+FEDERAL COMMUNICATIONS COMMISSION
+
+47 CFR Parts 1, 90, 95, and 97
+
+[ET Docket No. 19-138; FCC 24-123; FR ID 265055]
+
+
+Use of the 5.850-5.925 GHz Band
+
+AGENCY: Federal Communications Commission.
+
+ACTION: Final rule.
+
+-----------------------------------------------------------------------
+
+SUMMARY: In this document, the Federal Communications Commission
+(Commission) adopts rules and takes other steps to further address the
+transition of 5.9 GHz Intelligent Transportation System (ITS)
+operations from Dedicated Short Range Communications (DSRC)-based
+technology to cellular-vehicle-to-everything (C-V2X)-based technology.
+Specifically, the Commission adopts technical and operational rules
+governing devices using C-V2X-based technology, eliminates the DSRC
+requirement for communications zone designations, finalizes the
+timeline for sunsetting the use of DSRC-based technology, addresses the
+issue of additional spectrum allocations for ITS use, addresses the
+issue of reimbursing the transition costs of DSRC incumbents, and
+encourages the development of industry standards.
+
+DATES: This final rule is effective February 11, 2025. Existing
+licenses for DSRC systems may be renewed as necessary following this
+effective date but only for a period not to exceed December 14, 2026.
+
+FOR FURTHER INFORMATION CONTACT: Jamie Coleman of the Office of
+Engineering and Technology, at [email protected] or 202-418-2705.
+
+SUPPLEMENTARY INFORMATION: This is a summary of the Commission's Second
+Report and Order, ET Docket No. 19-138, FCC 24-123, adopted on November
+20, 2024, and released on November 21, 2024. The full text of this
+document is available for public inspection and can be downloaded at
+ https://docs.fcc.gov/public/attachments/FCC-24-123A1.pdf . Alternative
+formats are available for people with disabilities (Braille, large
+print, electronic files, audio format) by sending an email to
+ [email protected] or calling the Commission's Consumer and Governmental
+Affairs Bureau at (202) 418-0530 (voice), (202) 418-0432 (TTY).
+
+Procedural Matters
+
+ Regulatory Flexibility Act. The Regulatory Flexibility Act of 1980,
+as amended (RFA), requires that an agency prepare a regulatory
+flexibility analysis for notice and comment rulemakings, unless the
+agency certifies that ``the rule will not, if promulgated, have a
+significant economic impact on a substantial number of small
+entities.'' Accordingly, we have prepared a Final Regulatory
+Flexibility Analysis (FRFA) concerning the possible impact of the rule
+changes contained in the Second Report and Order on small entities. The
+FRFA is set forth in Appendix B of the FCC document, https://docs.fcc.gov/public/attachments/FCC-24-123A1.pdf .
+ Congressional Review Act. The Commission has determined, and the
+Administrator of the Office of Information and Regulatory Affairs,
+Office of Management and Budget concurs, that this rule is ``major''
+under the Congressional Review Act, 5 U.S.C. 804(2). The Commission
+will send a copy of this Second Report and Order to Congress and the
+Government Accountability Office pursuant to 5 U.S.C. 801(a)(1)(A).
+
+Synopsis
+
+Introduction
+
+ The Intelligent Transportation System (ITS) holds promise to
+improve transportation safety and mobility by integrating advanced
+communications technologies into vehicles and infrastructure. The
+connected vehicle ecosystem of the future will make the nation's
+transportation system more flexible, resilient, and safe. This
+ecosystem requires technical and operational rules governing devices
+using C-V2X (cellular-vehicle-to-everything) based technology. In the
+First Report and Order of the Federal Communications Commission's (FCC)
+proceeding, 86 FR 23281 (May 1, 2021), the Commission retained the
+upper 30 megahertz portion (5.895-5.925 GHz) of the 5.850-5.925 GHz
+(5.9 GHz) band for ITS operations. The Commission also required the ITS
+service to transition from Dedicated Short Range Communications (DSRC)-
+based technology to C-V2X-based technology as the connected mobility
+platform for implementing the future of ITS communications in the
+United States. In the Second Report and Order, the Commission further
+addresses the transition of 5.9 GHz ITS operations from DSRC to C-V2X
+by codifying C-V2X technical parameters in the Commission's rules,
+including band usage, message priority, and channel bandwidth. The
+Commission promulgates rules governing equivalent isotropically
+radiated power (EIRP) and out-of-band emissions (OOBE) limits for C-V2X
+on-board units (OBUs) and roadside units (RSUs), and antenna height
+limits for RSUs. In addition, the Commission encourages the development
+of industry standards and finalizes the timeline for sunsetting the use
+of DSRC-based technology. Finally, the Commission addresses the issues
+of additional spectrum allocations for ITS use and reimbursing the
+transition costs of DSRC incumbents.
+
+Background
+
+ The Commission adopted the First Report and Order in 2020, wherein
+it concluded that the most efficient use of the 75 megahertz of
+spectrum in the 5.9 GHz band would be achieved by expanding unlicensed
+operations in the lower 45 megahertz of the band (5.850-5.895 GHz), and
+designating the upper 30 megahertz of the band (5.895-5.925 GHz) for
+the ITS service using C-V2X technology. Among other considerations, the
+Commission made this decision because (1) the DSRC services once
+contemplated for operations across the full 5.9 GHz band
+
+[[Page 100839]]
+
+had not come to fruition in the 20 years since it allocated the
+spectrum for the ITS service; (2) those envisioned vehicle-safety
+features can be or are already being provided using other spectrum
+bands or alternative technology; and (3) the significant public
+interest benefits of adding 45 megahertz of Unlicensed National
+Information Infrastructure (U-NII) spectrum to enable the next-
+generation Wi-Fi, which operates on wider channels and allows gigabit
+connectivity with lower latency, improved coverage, and power
+efficiency. To protect incumbent 5.9 GHz band services, including
+federal incumbent operations, from potential harmful interference from
+unlicensed operations, the Commission imposed stringent power limits
+and operating requirements on unlicensed devices (i.e., access points,
+subordinate devices, and client devices) operating in the lower 45
+megahertz and restricted unlicensed use of the lower 45 megahertz to
+indoor locations. As the First Report and Order determined that the
+operators in the revised ITS band must use C-V2X technology, the
+Further Notice of Proposed Rulemaking (FNPRM), 86 FR 23323 (May 6,
+2021), sought comment on further transition issues and proposed rules
+to finalize the technical parameters for C-V2X operations and the
+timing of when operations must transition from the DSRC technology.
+Although the FNPRM sought comment on the possibility for full-power
+outdoor unlicensed operations across the lower 45 megahertz portion of
+the 5.9 GHz band, those unlicensed operations issues are not addressed
+in the Second Report and Order. In an Order on Reconsideration, 89 FR
+24835 (April 9, 2024), the Commission affirmed its decision in the
+First Report and Order to repurpose the lower 45 megahertz for indoor
+unlicensed operations and rejected various arguments regarding indoor
+unlicensed devices' potential to cause harmful interference to ITS
+operations in the upper 30 megahertz.
+ Recently, the Office of Engineering and Technology (OET), the
+Public Safety and Homeland Security Bureau (PSHSB), and the Wireless
+Telecommunications Bureau (WTB) (hereafter, ``the Bureaus'') granted
+rule waivers to parties requesting to deploy C-V2X operations in the
+upper 30-megahertz portion of the 5.9 GHz band (5.895-5.925 GHz) prior
+to adopting final C-V2X-based technical rules. Specifically, each
+waiver applicant sought waivers for rule sections that establish the
+technical requirements mandating DSRC-based technology in the upper 30
+megahertz of the 5.9 GHz band, to allow C-V2X-based operations in the
+band, and to provide adjustments to the technical parameters where the
+two technologies differ. The Bureaus found that waiving those rules was
+warranted under 47 CFR 1.925, subject to the waiver applicants'
+commitments to adhere to certain technical parameters and conditions
+developed to protect DSRC and federal incumbents from potential harmful
+interference caused by C-V2X operations in the upper 30 megahertz. All
+C-V2X operations pursuant to a waiver are limited to transportation and
+vehicle-safety related communications. Finally, the granted waivers
+were conditioned on the requirement that each waiver recipient would
+ensure that all operations and devices authorized under the waiver
+would comply with the final rules or other guidance provided by the
+Commission.
+
+Discussion
+
+ In the Second Report and Order, the Commission finalizes rules
+concerning band usage, message prioritization, channel bandwidth,
+communications zones, power for RSUs and OBUs, and OOBE limits for C-
+V2X operations, along with other transition issues, including the
+transition timeline. Additionally, the Commission reaches several
+conclusions related to the incorporation of standards, the allocation
+of additional spectrum for ITS, and compensation to incumbents. The
+decisions in this document will not only promote the efficient use of
+30 megahertz of spectrum dedicated to ITS but also the safety benefits
+this technology promises to deliver to the American public.
+ DSRC is defined in the Commission's rules as the use of radio
+techniques to transfer data over short distances between roadside and
+mobile units, between mobile units, and between portable and mobile
+units to perform operations related to improving traffic flow, traffic
+safety, and other ITS applications in a variety of environments. DSRC
+systems may also transmit status and instructional messages related to
+the units involved. Currently, local government entities and entities
+eligible for Industrial/Business Pool licenses are eligible to operate
+RSUs using DSRC, while OBUs in vehicles are licensed by rule. The
+existing DSRC rules lay out a hierarchical priority system for
+messages. Communications involving safety of life have priority access
+over all other DSRC communications. Communications involving public
+safety have the next highest priority, with a presumption that RSUs
+operated by State or local governmental entities are engaged in public
+safety communications. The lowest tier in this communications hierarchy
+are non-priority communications, which include all other communications
+not related to safety of life or public safety.
+ As stated in the FNPRM, the Commission's goal is to facilitate a
+smooth transition from DSRC-based operations to C-V2X-based operations.
+Accordingly, the Commission must address the need, if any, to adopt
+requirements analogous to existing DSRC requirements that would
+similarly govern C-V2X operations in the 5.895-5.925 GHz band. The
+Commission now addresses the technical issues necessary to ensure
+efficient and effective use of the band.
+
+C-V2X Standards
+
+ In the 5.9 GHz NPRM, 85 FR 6841 (February 6, 2020), the Commission
+proposed to incorporate by reference into the Commission's rules the
+3rd Generation Partnership Project (3GPP) C-V2X standard Release 14.
+The Commission did not receive significant comment on this issue. After
+the release of the 5.9 GHz NPRM, 3GPP announced the completion of
+Release 16, which includes enhanced 5G network capabilities.
+Accordingly, the FNPRM sought further comment on how the Commission
+should handle standards with respect to C-V2X. Specifically, the
+Commission asked whether either 3GPP C-V2X standard Release 16 or
+Release 14, in whole or in part, should be incorporated into its rules;
+whether Release 14 should be incorporated initially with an eventual
+transition to Release 16; or whether there is a compelling argument for
+not incorporating either standard into the rules.
+ Comments received in this regard suggest a variety of approaches to
+the issue. T-Mobile disputes the need for a general incorporation,
+stating that ``referencing specific 3GPP releases in the rules [would]
+quickly make them outdated and stifle innovation by freezing
+technologies in place, instead of allowing them to evolve naturally to
+satisfy customer needs and reflect innovation.'' The Institute of
+Transportation Engineers (ITE) expresses similar views, suggesting that
+the Commission refrain from incorporating by reference any one
+particular standard, instead allowing industry to test and evaluate the
+technology and applicable standards without imposing a regulatory
+ceiling. Further, ITE asserts that the
+
+[[Page 100840]]
+
+Commission's question regarding a phased-in approach where it would
+adopt Release 14 now and replace it with Release 16 later does not
+correctly characterize the actual technology implementation process.
+Rather, ITE indicates that the 5G equipment based on Release 16 would
+enhance and complement Release 14 Long Term Evolution (LTE) operating
+equipment and Release 14 equipment would likely remain in use even
+after Release 16 becomes dominant. Other commenters find merit in
+incorporating standard(s) references in some manner. 5G Americas, for
+example, citing the ongoing technology evolution, asks the Commission
+to generally refer to 3GPP releases covering C-V2X, instead of
+``cementing a specific 3GPP release.'' While skeptical that C-V2X can
+be sufficiently realized on the allocated spectrum, AT&T nonetheless
+suggests, without further specificity, that ``the Commission should
+incorporate by reference those portions of both Release 14 and Release
+16 that are relevant to C-V2X, giving ITS band users sufficient
+latitude to innovate.'' Autotalks indicates that ``Releases 14, 15, and
+16 are non-interoperable'' and it supports incorporating by reference
+``explicit'' C-V2X releases to assure ``wide-scale interoperability.''
+ Based on the record before the Commission, the Commission is not
+incorporating by reference any one particular standard. The Commission
+encourages industry to develop a consensus concerning 3GPP releases
+covering C-V2X. The Commission believes this approach is necessary due
+to the constantly evolving nature of both 3GPP standards and the
+functionality of C-V2X. As stated by ITE, new testing will undoubtedly
+lead to changes or enhancements to the applicable standards-and being
+held to a regulatory ceiling by imposing a particular standard may cap
+the potential of future C-V2X applications. The Commission's focus in
+the proceeding is to set objective performance expectations for C-V2X
+technology but let industry come to a consensus on the technology
+standard that should be applicable to C-V2X moving forward. Given the
+broad record support for not incorporating any one particular standard,
+the Commission will thus provide industry the flexibility to develop a
+technology standard that fits within the technical bounds prescribed in
+this document.
+ In making this decision, the Commission reiterates its commitment
+to vehicle safety and the need for all vehicles that incorporate C-V2X
+technology to have the capability to successfully communicate with each
+other. Although the Commission is not mandating a particular standard
+through incorporation by reference, the Commission expects that the
+industry will ensure that all equipment, regardless of manufacturer or
+vehicle integrator, is interoperable and that future iterations of
+equipment based on evolving standards will be forwards and backwards
+compatible to ensure that C-V2X technology delivers the expected safety
+benefits to the American public.
+ Finally, the Commission recognizes that safety-related wireless
+devices and services need to be secure to protect user privacy and
+ensure efficient and timely delivery of the intended safety service.
+The Commission prioritizes cybersecurity and privacy of consumer
+communications through rulemaking and other activities. In addition,
+cybersecurity and privacy actions specific to connected vehicles are
+the focus of ongoing actions at the U.S. Department of Transportation
+(U.S. DOT) with its C-V2X acceleration plan and at the U.S. Department
+of Commerce's Bureau of Industry and Security with its proposed ban on
+the sale or importation of connected vehicles integrating specific
+pieces of hardware and software, or separately sold components, with a
+sufficient nexus to the People's Republic of China or Russia. 89 FR
+79088 (Sept. 26, 2024). The Commission expects that equipment
+manufacturers implementing C-V2X technology will comply with existing
+standards and best practices and collaborate with the automotive
+industry to develop new guidance, standards, and best practices that
+consider cybersecurity and privacy concerns to improve the C-V2X
+security posture. The FCC will continue to monitor and engage with
+federal and private sector partners on these vital issues.
+
+Band Usage
+
+ The Commission's existing ITS rules lay out a hierarchical priority
+system for messages. In the FNPRM, the Commission sought comment on
+whether to retain the message priority hierarchy for C-V2X deployment
+and whether the 5.895-5.925 GHz band should be limited to non-
+commercial services or safety-of-life applications, and if so, how such
+a restriction could be implemented. In this regard, the Commission
+noted that because the stated purpose of ITS is to promote safety, it
+was inclined to retain this message prioritization system in the rules
+to help ensure successful transmission of the most important messages.
+The Commission asked how ``safety-of-life'' should be defined, how
+appropriate applications should be delineated, and whether such a
+limitation could be established via changes to the licensee eligibility
+requirements. Additionally, the Commission asked how the priority
+requirement would work in the C-V2X environment and whether the
+priority determination should continue to be associated with the type
+of licensee or a more granular approach that considers the type of
+message. As noted above, all C-V2X operations pursuant to the recently
+granted waivers are limited to transportation and vehicle-safety
+related communications.
+ Several commenters state that the upper 30 megahertz (5.895-5.925
+GHz) of the 5.9 GHz band should be limited to safety-of-life or non-
+commercial applications. In its comments, Auto Innovators states that
+safety-of-life messages should always have priority when competing for
+spectrum with other types of messages and that the Commission should
+retain its three-tier message priority hierarchy. The Motor and
+Equipment Manufacturers Assoc. (MEMA) also states that the Commission
+should retain its existing message priority hierarchy, given the need
+to ensure that the most important messages are successfully transmitted
+over less critical messages. Robert Bosch LLC (Bosch) comments that a
+hierarchical priority system is necessary to ensure safety-of-life
+messages. Therefore, Bosch states that the FCC should preserve the
+safety-of-life/public safety/non-priority framework for message
+prioritization. Bosch recommends that the Commission allocate a
+dedicated portion of the 30 megahertz to safety-of-life messages, which
+would help ensure uninterrupted transmission of related messages. Bosch
+claims that the remainder of the band could be used for both safety-of-
+life messages and/or advanced safety services, thereby reducing the
+risk of interference, while mitigating high channel load scenarios.
+However, Bosch states that advanced safety messages that are not
+strictly safety-of-life can also provide notable safety benefits as
+well as improved efficiency. For example, Bosch contends that vehicle
+platooning or timed vehicle intersection movement can be viewed as
+beneficial functionalities within the transportation sector. Bosch
+expressed agreement with the Alliance for Automotive Innovation that
+the Commission should not overly restrict operations in the upper 30
+megahertz to only safety-of-life operations and that it is critical for
+the Commission to recognize the importance and value of
+
+[[Page 100841]]
+
+additional functions, such as vehicle platooning, that require use of
+the spectrum.
+ Responding to the Commission's request that commenters address the
+need for granularity in the three-tier message priority hierarchy, MEMA
+states that, utilizing the existing framework, any messages that could
+reduce the risk of an accident should receive priority over other
+messages. For instance, MEMA mentions that public safety messages
+should defer to safety-of-life messages, while messages that strictly
+relate to traffic congestion, efficiency, or other non-safety issues
+should only be transmitted when there is little risk of harmful
+interference. On the other hand, MEMA asserts that commercial
+operations should be permitted in the ITS band because a prohibition on
+commercial operations ``will further disincentivize continued
+innovation in V2X applications'' and, in any case, the distinction
+between ``commercial'' vs. ``non-commercial'' services is undefined in
+this context. AT&T suggests that the Commission should limit the ITS
+band to non-commercial applications and services that promote road
+safety, but allow the U.S. DOT to define specific road-safety related
+applications and services that qualify for use in the 5.895-5.925 GHz
+band. New America's Open Technology Institute (OTI) and Public
+Knowledge (PK) state that prohibiting commercial activity on the upper
+30 megahertz would be consistent with the auto industry's repeated
+insistence on the critical need for additional spectrum for public
+safety and collision avoidance purposes. Similarly, DSA questions the
+automotive industry's claims that 30 megahertz is an insufficient
+amount of spectrum for vehicular safety applications while it also
+advocates for the ability to use that same 30 megahertz to support
+commercial, non-safety applications and services. OTI/PK also state
+that if the Commission does not prohibit commercial use, it would be
+creating an incentive for both the auto and mobile industries to
+underinvest in potential safety-of-life signaling applications in favor
+of commercial applications that are quicker to monetize. OTI/PK
+``continues to believe that requiring licensees to use public safety
+spectrum exclusively for public safety best serves the public interest
+and avoids any potential conflict between maximizing safety and
+maximizing profit.''
+ The Intelligent Transportation Society of America (ITS America)
+argues that spectrum use questions have traditionally been decided by
+groups that construct standards for these technologies--namely, the
+U.S. DOT, SAE International, or the Institute of Electrical and
+Electronics Engineers (``IEEE''). ITS America asserts that these groups
+have appropriately balanced the primacy of safety-of-life applications
+and the possibility of commercial applications that could incentivize
+V2X on-board unit deployment in private vehicle fleets. ITS America
+contends that OTI/PK's suggestion to limit use of the 5.895-5.925 GHz
+band to safety-of-life and public safety communications would
+materially deter V2X investment and deployment, thereby limiting the
+number of vehicles utilizing V2X safety measures. NCTA--The internet &
+Television Association (NCTA) contends that it is unfair to allow
+licensees to gain access to valuable spectrum without an auction. AT&T
+states that limiting use of the spectrum to non-commercial applications
+and services would prevent undue commercial gain from those deploying
+C-V2X and allow the range of operations needed to improve road safety.
+ITE and ITS America join MEMA in arguing that it is impractical to try
+determining which applications are safety-of-life for the purposes of
+restricting the use of the spectrum.
+ Given that the ITS remains focused on integrating radio-based
+technologies to enhance the transportation and vehicular-safety related
+ecosystem, the Commission agrees with those commenters that argue C-V2X
+operations should be governed by a prioritization system that is
+similar to the hierarchical system currently in place for DSRC. Thus,
+safety-of-life messages have top priority, followed by public safety
+communications, and then non-priority communications that promote road
+safety and efficient, effective road use. The Commission disagrees with
+commenters such as OTI/PK who state that allowing non-priority
+communications in the band could lead to underinvestment in safety-of-
+life applications. The Commission also disagrees with commenters such
+as Bosch that the Commission allocate a dedicated portion of the 30
+megahertz to safety-of-life messages. Given that the Commission is
+prioritizing safety-of-life and public safety usage, the Commission
+expects that C-V2X operators will focus their efforts on applications
+within this range in order to effectively utilize the 30 megahertz of
+spectrum made available to them in this document. The Commission adopts
+C-V2X rules that reflect the existing DSRC message prioritization
+hierarchy as follows (in order of precedence): safety-of-life, public
+safety, and non-priority communications.
+ Based on the record in the FCC's proceeding, the Commission
+believes that the communications prioritization hierarchy will ensure
+that the ITS spectrum is not being used for communications and
+applications that would impair the timely and reliable use of the
+spectrum for safety of life and public safety communications. As a
+practical matter, the Commission's decision to adopt a prioritization
+system for C-V2X communications and the high priority to which safety-
+of-life and public safety usage messages are entitled will limit the
+extent to which other type of applications (such as those supporting
+paid advertising and marketing messages) can be effectively developed
+and deployed. The Commission notes that the distinction between
+``commercial'' and ``non-commercial'' remains undefined in the C-V2X
+context, and find limited information in the record to help the
+Commission craft a meaningful and readily applicable definition at this
+time. The Commission further notes that there is fundamental
+disagreement in the record as to whether such a distinction would be
+helpful or harmful to the realization of C-V2X's fundamental safety-
+related objectives. Finally, there is no ``commercial'' component to
+the definition the Commission adopts for C-V2X, which is limited to
+operations ``related to the improvement of traffic flow, traffic
+safety, and other Intelligent Transportation System applications.''
+Given the evolving nature of the C-V2X technology integration, the
+Commission will continue to assess how the C-V2X technology in the
+upper 30 megahertz develops and promotes safety-of-life applications
+and public safety services and whether a further change to the band
+usage would maximize the spectrum usage without compromising the
+intended safety purposes to be supported by the 5.9 GHz band.
+ The Commission also sees no reason to modify the structure by which
+C-V2X licenses are licensed under parts 90 and 95 of its rules,
+notwithstanding NCTA's contention that the value of the spectrum
+warrants use of an auction process unless the spectrum's use is
+restricted to safety-of-life services. As an initial matter, RSU/OBU
+licenses are issued on a non-exclusive basis and the Commission sees no
+need to revise that approach based on the record here. Because the
+Commission's RSU/OBU licensing process does not contemplate the
+acceptance of mutually exclusive applications, there is no basis to use
+an auction process. The Commission also
+
+[[Page 100842]]
+
+sees no reason to deviate from the history of this band that supported
+the prior DSRC licensing process. Under the Transportation Equity Act
+for the 21st Century, Public Law 105-178, 112 Stat. 107 section 5206(f)
+(1998), Congress directed the Commission to consider the spectrum needs
+for ITS. The subsequent allocation of the 5.9 GHz band was made based
+on a finding that DSRC applications would be a key element in meeting
+the nation's transportation needs and improving highway safety.
+Additionally, in the DSRC Report and Order, 64 FR 66405 (November 26,
+1999), the Commission decided against an auction requirement for ITS
+licensees, as users would already be subject to licensing and
+regulatory fees.
+
+Channel Bandwidth
+
+ In the FNPRM, the Commission proposed a ``light touch'' regarding
+C-V2X channel bandwidth, essentially retaining the remaining portion of
+the ITS band plan in place for the legacy DSRC technology beyond the
+transition to C-V2X-based technology. In this regard, the Commission
+described ``the existing ITS band plan'' in the upper 30 megahertz as
+containing three, 10-megahertz DSRC channels: channels 180, 182, and
+184 corresponding to 5.895-5.905 GHz, 5.905-5.915 GHz, and 5.915-5.925
+GHz, respectively. Channels 180 and 182 can be combined into channel
+181 (5.895-5.915 GHz) to provide a single 20-megahertz channel. In the
+FNPRM, the Commission sought comment on whether this band plan,
+specifying three 10-megahertz channels, inter alia, should apply to C-
+V2X operations. Specifically, the Commission asked whether the band
+plan should continue to accommodate combining two channels into a
+single 20-megahertz channel; whether channels 182 and 184 should be
+permitted to be combined into a single 20-megahertz channel; and
+whether all three channels should be permitted to be combined and used
+as a single 30-megahertz channel. The Commission further asked what
+consequences any of these channel bandwidths would have on C-V2X
+deployment and adoption and how a completely flexible band plan versus
+a prescriptive band plan would affect the ability of C-V2X technology
+to maximize efficient and effective use of the band. In this regard,
+the Commission urged commenters to provide sufficient detail regarding
+their preferred band plan and how such a plan could work with C-V2X and
+all other operational and technical rules being addressed, such as
+power limits and out-of-band emissions limits.
+ Some commenters state that the Commission should refrain from an
+overly prescriptive plan and instead allow C-V2X operators to utilize
+the upper 30 megahertz in a flexible manner. Other commenters state
+that C-V2X channelization issues should be determined by the
+transportation industry. Arguing for maximum flexibility, AT&T cites
+the continued evolution of C-V2X and states that the Commission should
+continue to allow ``10 MHz channels and, through their aggregation,
+wider 20 MHz and 30 MHz channels.'' The Utah Department of
+Transportation (UDOT) similarly echoes the desire for the band plan to
+continue to accommodate combining two 10-megahertz channels into a
+single 20-megahertz channel for C-V2X. The Motor Equipment and
+Manufacturers Association (MEMA) argues for retaining the existing ITS
+30-megahertz band plan following the transition to C-V2X, saying that
+``by retaining separate channels within the ITS band, licensees can
+better support safety-of-life use cases which rely on more stringent
+requirements in terms of safety, security, prioritization, and resource
+availability.''
+ Given the Commission's preference for a light touch to minimize
+disruption to ongoing transition activities, the Commission will
+continue to provide for 10-megahertz channel bandwidths, resulting in
+three channels: 5.895-5.905 GHz, 5.905-5.915 GHz, and 5.915-5.925 GHz,
+respectively. The Commission will allow users to combine the 10-
+megahertz channels into 20 megahertz contiguous channels or a single
+30-megahertz channel without restriction, thus accommodating various
+ITS applications and services. Additionally, because the current
+channel number designations reflect the original DSRC band plan and
+related standards, such designations are not relevant to C-V2X and the
+Commission therefore do not assign channel number designations to the
+10-megahertz bandwidths in the C-V2X rules adopted in this document.
+This band plan will provide maximum flexibility to enable the ITS
+industry, which is in the early stages of implementing C-V2X systems,
+to evolve and modify operations as necessary to use the band in the
+most efficient way possible to deliver safety applications to the
+American public.
+
+Communications Zones
+
+ The 5.9 GHz band ITS spectrum is shared and licensed in non-
+exclusive geographic areas based on geo-political boundaries. To
+maximize the use within this shared spectrum, the Commission's rules
+require that each registered RSU designate its intended area of
+operation or ``communications zone'' and that such communications zones
+be the smallest necessary. Under the rules, a communications zone is
+defined as the service area associated with an individual fixed RSU.
+The communications zone radius is derived from the RSU equipment class
+specified in 47 CFR 90.375. In the FNPRM, the Commission proposed to
+retain the ``communications zone'' designations currently in the rules
+and require RSUs to specify their intended zone, believing this would
+maximize spectrum use among all users, continue to ensure that stations
+only cover their intended area, and provide opportunities for other
+licensees to install RSUs for other nearby areas without mutually
+interfering. The Commission asked commenters to address whether the
+current communications zone distance limits should be retained without
+change, modified, or eliminated. The Commission also sought comment on
+what effect any proposed changes would have on the ability for C-V2X to
+deploy new systems and continue operating into the future. The
+Commission also sought comment on whether it should continue to specify
+both transmitter output power and radiated power levels for
+communications zones.
+ In response, 5GAA states that, while DSRC technology theoretically
+was required to utilize RSU communications zones to manage congestion,
+use of communications zones did not occur in practice, and C-V2X does
+not require a similar mechanism for congestion control. 5GAA recommends
+revisions to 47 CFR 90.375 and 90.377 of the rules to remove references
+to communications zones and the associated output power limits.
+Furthermore, as noted in this document, the Bureaus recently granted
+waivers to parties requesting to deploy C-V2X operations in the upper
+30-megahertz portion of the 5.9 GHz band (5.895-5.925 GHz) prior to
+adopting final C-V2X-based rules. Notably, C-V2X waiver applicants did
+not specify communications zones in their waiver requests and requested
+waiver of that rule section. Consequently, as part of those grants, the
+Bureaus permitted C-V2X RSUs and OBUs to operate with a 33 dBm EIRP and
+without transmitter output power limits. Waiver grant recipients are
+not required to designate communications zones or limit their
+transmitter output power or EIRP for designated communications zone
+sizes in their areas of operation.
+ The Commission finds that retaining the existing communications
+zone construct is unnecessary as ITS evolves
+
+[[Page 100843]]
+
+from DSRC to C-V2X technology. Based on information contained in the
+record indicating that DSRC operations did not utilize communications
+zones to manage congestion and that C-V2X operations do not require
+such a mechanism to manage congestion, along with the fact that no C-
+V2X waiver applicants requested communications zone designations, the
+Commission concludes that the communications zone definitions,
+designations, and associated reduced power limits are unnecessary to
+manage congestion control in C-V2X operations. Thus, the C-V2X rules
+adopted herein do not include communications zone requirements. See the
+Final Rules, 47 CFR 90.7, 90.375, 90.377 for these rule changes.
+
+C-V2X Technical Requirements
+
+Power and Antenna Height Limits for C-V2X Roadside Units (RSUs)
+ Power. The Commission's current DSRC rules specify the maximum
+radiated RSU power permitted on each channel, ranging generally from 23
+dBm to 33 dBm, but permitting State and local government entities to
+radiate at higher levels on the control channel (channel 178) at up to
+44.8 dBm and on the public safety priority channel (channel 184) at up
+to 40 dBm. In the FNPRM, the Commission sought comment on what RSU
+power levels should be associated with each communications zone,
+channel, and user under the modified ITS band plan, and whether the
+rules should continue to permit higher radiated power for State and
+local government entities or be consistent among all users as a way of
+maximizing spectrum use and controlling potential harmful interference
+between users. The Commission sought comment on whether RSU radiated
+power should be limited to 23 dBm as specified for some channels, 33
+dBm as specified for others, or some other value, such as permitting
+higher power on a control channel; whether the rules should continue to
+specify both output power (power delivered to the input of the
+transmitting antenna) and radiated power levels for communications
+zone/channel combinations, or whether it would be more appropriate to
+specify only a radiated power limit, and specify power as a power
+density (power per unit of frequency, commonly known as power spectral
+density (PSD)) to normalize power for wider bandwidth channels, if the
+use of such channels is still permitted; and whether compliance with
+the limits should be determined with a root mean square (RMS) detector
+(i.e., average measurement) or with a peak detector.
+ 5GAA recommends adopting a maximum 33 dBm EIRP without transmitter
+output power limits for C-V2X RSUs to promote more robust safety
+services and maximize the overall benefits of C-V2X safety services. A
+broad range of commenters support 5GAA's recommendation. Auto
+Innovators contends that raising the RSU EIRP limit in this manner
+would provide more flexibility to C-V2X operations. DENSO International
+America, Inc., on behalf of DENSO Corporation and its US affiliate
+(DENSO) supports a maximum 33 dBm EIRP for C-V2X RSUs to provide more
+protection from unlicensed device out-of-band emissions from the
+adjacent 5.850-5.895 GHz U-NII-4 band. 5G Americas supports 5GAA's
+recommendation for C-V2X RSU's in-band power limit because the proposal
+is consistent with 3GPP physical layer standards. In response to the
+5.9 GHz NPRM proposal, the National Telecommunications and Information
+Administration (NTIA) supported a maximum RSU EIRP limit of 33 dBm. In
+its comments on the Joint Waiver Parties C-V2X waiver request, which
+only specified the 5.905-5.925 GHz band, NTIA supported an RSU EIRP
+limit of 33 dBm over a 20-megahertz channel (33 dBm/20 MHz) at 5.905-
+5.925 GHz, and then, in its October 2020 Technical Report, an RSU EIRP
+limit of 33 dBm in the lower 10-megahertz channel (33 dBm/10 MHz) at
+5.895-5.905 GHz. In its June 7, 2024 letter, NTIA further expressed
+support for the 33 dBm limit throughout the entire 30 megahertz. NTIA
+expressed agreement with the Commission's conclusion that requiring
+coordination for ITS RSU installations located within a section 90.371
+coordination zone is the best approach to facilitate sharing with
+federal systems. The Commission received no comments on whether it
+would be appropriate to specify the EIRP as a PSD, or whether
+compliance with the EIRP limits should be evaluated using RMS or peak
+measurements.
+ After consideration of the record, the Commission adopts an EIRP
+PSD limit for C-V2X RSU operations, without any limit on the
+transmitter output power. Because the PSD limit will limit the overall
+EIRP, the Commission sees no need to also adopt a corresponding maximum
+EIRP limit. By specifying radiated power limits, without a transmitter
+output power limit, the Commission offers more flexibility for RSU
+stations to provide reliable service in a given coverage area, and
+enable licensees to select the most efficient and effective equipment
+parameters to meet their coverage requirements, while protecting
+incumbent federal radiolocation stations from harmful interference. An
+EIRP PSD limit will keep the power even across the channel to avoid
+RSUs concentrating energy in a narrow bandwidth, thereby keeping the
+harmful interference potential low, and promoting more efficiency/
+higher data throughput by making the use of wider bandwidth channels
+more attractive when RSUs are transmitting. Although the Commission
+adopts these general limits, the Commission notes that if C-V2X RSUs
+are to be located within a coordination zone identified in 47 CFR
+90.387(b), they must first be coordinated with NTIA. As recommended in
+the NTIA letter and supported in the record, the Commission adopts a 33
+dBm/10 MHz, 33 dBm/20 MHz, and 33 dBm/30 MHz EIRP PSD limits for C-V2X
+RSUs These power levels will enable ITS systems to operate over their
+intended service areas and protect federal incumbent radar systems for
+any RSU location outside the coordination zones.
+ Consistent with the measurement procedure for out-of-band emissions
+from unlicensed devices that operate in the 5.850-5.895 GHz (U-NII-4)
+and 5.925-6.425 GHz (U-NII-5) bands, the Commission permits compliance
+with the RSU EIRP limits to be determined using RMS measurements rather
+than requiring peak measurements. As the Commission has previously
+determined, RMS measurements are more appropriate to characterize a
+transmitter's operation because peak power may only be reached
+occasionally and for short periods of time, whereas RMS measurements
+represent the continuous power being generated from a device.
+ Antenna height. The Commission's rules restrict DSRC RSU antenna
+height to limit their signals within their designated zones to the
+extent practicable. RSU antenna height is currently limited to 8 meters
+at full power and may be as high as 15 meters with a corresponding
+power reduction. In the FNPRM, the Commission sought comment on whether
+the existing RSU antenna height limitations in the rules are justified,
+if there are any reasons to permit higher antenna heights, and whether
+licensees should continue to be required to reduce their power for
+higher RSU antenna heights as a way of controlling coverage area and
+reducing the potential for harmful interference. In the C-V2X waiver
+grants noted in this document, the Commission requires compliance with
+the existing RSU antenna height limitation requirements.
+
+[[Page 100844]]
+
+ In its comments, 5GAA recommends that the Commission retain the
+existing RSU antenna height limitations and associated power reduction
+requirement for roadside antennas over 8 meters in height up to a
+maximum of 15 meters. DENSO contends that the power and antenna height
+issues require sufficient technical study and should be agreed to by
+all stakeholders because these technical requirements have a
+significant impact on V2X communication system performance and cost.
+ The Commission agrees with 5GAA that the existing limitations on
+roadside unit transmitting antenna height and associated power
+reduction requirement for RSU transmitting antennas over 8 meters in
+height up to a maximum of 15 meters should be retained in the
+Commission's rules. These limitations have been successful in enabling
+coexistence within the band and preventing harmful interference between
+ITS DSRC operations and to other incumbent operations in the 5.9 GHz
+band while also enabling sufficient signal coverage over the localized
+areas being served by each RSU. Retaining the roadside antenna height
+limits and the associated power reduction requirements for antennas
+more than 8 meters in height will continue to provide a known spectral
+environment for C-V2X systems so that network designers can create
+efficient systems while reducing the potential for harmful interference
+with other ITS licensees and incumbents in the 5.895-5.925 GHz band.
+Thus, the Commission retains the roadside unit antenna height
+limitations and associated power reduction requirement currently
+specified in the Commission's rules. In instances where the maximum RSU
+EIRP must be reduced due to an antenna height greater than 8 meters
+above the roadway surface, the RSU PSD limits must be equivalently
+reduced.
+Power Limits for C-V2X On-Board Units (OBUs)
+ Under the Commission's part 95 rules, DSRC OBU transmitters
+operating in the 5.895-5.925 GHz band must comply with technical
+standard Institute of Electrical and Electronics Engineers (IEEE)
+802.11p-2010 for wireless access in vehicular environments. For
+vehicular and portable on-board units, IEEE standard 802.11p-2010
+specifies maximum transmitter output power (power supplied to the input
+of the transmitting antenna) limits ranging from 1 mW (0 dBm) to 760 mW
+(28.8 dBm), and maximum radiated power (EIRP) permitted on each channel
+ranging generally from 23 dBm to 33 dBm, but permitting State and local
+government entities to radiate at higher levels up to 44.8 dBm. In the
+FNPRM, the Commission sought comment on whether it should modify these
+power rules for application to C-V2X on-board units. The Commission
+proposed to limit C-V2X OBU transmitter output power to no more than 20
+dBm and EIRP to no more than 23 dBm, believing these power levels to be
+appropriate for C-V2X vehicular and portable devices. The Commission
+sought comment on whether it should increase the OBU EIRP limit to 33
+dBm and whether such an increase would affect the ability of C-V2X
+roadside units to co-exist with and protect federal radiolocation
+stations. Further, in this context, the Commission also reminded
+commenters of the need to simultaneously ensure that portable on-board
+units comply with the Commission's radiofrequency (RF) radiation
+exposure limits.
+ In its comments, 5GAA recommends increasing the C-V2X OBU EIRP
+limit to 33 dBm and eliminating the transmitter output power limit
+requirement. A broad range of commenters support this 5GAA
+recommendation. Ford Motor Company (Ford) stated ``that the transmit
+power limit for OBUs should be specified only as an EIRP of 33 dBm RMS
+to provide broader coverage including emergency/public safety
+vehicles.'' Ford submits that ``an increased EIRP limit (achieved
+through a combination of higher transmit power and antenna gain) will
+allow C-V2X-OBU equipped vehicles to communicate more effectively among
+each other and with C-V2X RSUs. This additional flexibility can be
+useful to first responders and public safety vehicles in providing
+higher reliability and range for their safety critical needs (e.g.,
+traffic light preemption).'' Auto Innovators similarly supports 5GAA's
+proposed power limits to provide more flexibility for C-V2X operations.
+ Fiat Chrysler Automobiles supports swift adoption of 5GAA's
+proposed C-V2X service rules to facilitate deployment in the U.S. 5G
+Americas supports 5GAA's proposed C-V2X technical rules, including the
+OBU in-band power limit, because it is consistent with 3GPP physical
+layer standards. OTI/PK agree that the Commission should adopt 5GAA's
+proposal and authorize on board units to operate at up to 33 dBm, if
+feasible. Dynamic Spectrum Alliance (DSA), a global, cross-industry
+alliance focused on increasing dynamic access to unused radio
+frequencies and unlicensed usage proponent, supports 5GAA's request for
+OBUs to operate with a 33 dBm EIRP.
+ In its reply comments, NCTA states that the 5GAA proposal would
+increase power tenfold without addressing NTIA guidance relating to the
+protection of radiolocation exclusion zones. Further, NCTA suggests
+that ``if the Commission determines that C-V2X OBUs can operate at such
+high power (i.e., up to 33 dBm) without the need for exclusion zones,
+it should also permit U-NII-4 devices to operate using at least the
+same power level without exclusion zones, as they would pose a
+significantly lower risk of potential harmful interference to federal
+radars than similarly powered C-V2X devices.''
+ Subsequent to the comment period, 5GAA modified its original
+support for a general 33 dBm EIRP limit by suggesting that the
+Commission's rules should allow the OBU EIRP limits that were granted
+in the C-V2X waivers i.e., OBUs operating in the 5.905-5.925 GHz band
+may operate at 33 dBm EIRP, but not exceed 27 dBm EIRP within 5 degrees of horizontal. 5GAA states that OBUs that seek to
+operate at up to 33 dBm within 5 degrees of horizontal can
+implement a geolocation function to reduce their power to the 27 dBm
+EIRP level when operating near federal radar sites that require
+protection.
+ In its Technical Report submitted in response to the 5.9 GHz NPRM,
+NTIA determined that OBUs operating at 23 dBm EIRP or less would not
+need to be coordinated to protect federal operations in the 5.905-5.925
+GHz band, thus providing an implied power limitation for non-NTIA
+coordinated ITS operations. Subsequently, in its comments on the Joint
+Waiver Request filing, NTIA supported a maximum 33 dBm OBU EIRP limit
+for the C-V2X operations in the 5.905-5.925 GHz band. However, to
+adequately protect the primary federal radiolocation services operating
+in the 5.9 GHz band during the period in which devices are operating
+under a waiver, NTIA requested that C-V2X OBUs be limited to 27 dBm
+EIRP within 5 degrees in elevation from the horizontal
+plane. The granted waivers limit OBU operations and power reduction
+conditions to the 5.905-5.925 GHz band, as requested by NTIA.
+ On June 7, 2024, NTIA submitted a letter to the Commission
+providing additional information in response to the 5.9 GHz FNPRM. The
+NTIA letter addressed, among other things, the C-V2X OBU EIRP limits
+necessary for ``the protection of federal radiolocation systems.'' As
+the NTIA's OBU proposal, which was similar to the most recent 5GAA
+proposal, differed from the Commission's initial 5.9 GHz FNPRM
+
+[[Page 100845]]
+
+proposal, OET issued a Public Notice on June 11, 2024 inviting comment
+on the proposal. The NTIA proposal, as set forth in the OET Public
+Notice, would permit OBU devices to optionally incorporate geofencing
+techniques to protect federal radiolocation sites from harmful
+interference, while operating with higher power in otherwise unaffected
+areas. In sum, for geofenced devices, the Public Notice proposal would
+provide a 33 dBm EIRP PSD limit over the operating bandwidth in areas
+outside of coordination zones. Such devices would rely on a geofencing
+capability to limit the EIRP PSD to 23 dBm for operations that utilize
+the 5.895-5.905 GHz band within coordination zone areas and 27 dBm
+within 5 degrees of horizontal for coordination area
+operations that exclusively use the 5.905-5.925 GHz band. Geofenced
+devices operating in any portion of the 5.895-5.905 GHz band would have
+to abide by the ``worse-case'' 23 dBm limit if operating within the
+coordination zones. Devices that do not incorporate a geofencing
+capability would be required to meet the aforementioned restrictions at
+all locations.
+ Additionally, NTIA asks that the Commission adopt specific
+compliance requirements to ensure geofencing capabilities are properly
+implemented. In this regard, NTIA suggests that manufacturers
+implementing a geofencing capability would need to specifically
+demonstrate and certify compliance of the capability within the FCC's
+equipment certification process specified in part 2 of the Commission's
+rules. Further, in the event that interference protection requirements
+are changed, resulting in updated protection zones, the device should
+include a mechanism to update the OBUs with new information within a
+reasonable timeframe.
+ Comments filed in response to the Public Notice support the
+optional use of geofencing techniques. In its comments, the Intelligent
+Transportation Society of America (ITS America) states that it supports
+NTIA's proposal related to optional geofencing capabilities and
+appreciates the flexibility that the proposal provides to C-V2X
+operations with regards to power levels. ITS America further states
+that updating geofencing parameters for deployed devices poses
+challenges and will require collaboration among government and industry
+stakeholders to successfully implement. Auto Innovators also supports
+the use of geofencing techniques to enable operations at less
+restrictive EIRP levels.
+ Support for geofencing techniques also came from additional
+commenters, including the 5G Automotive Association, the American
+Association of State Highway and Transportation Officials, the
+Institute of Transportation Engineers, and the Wireless Infrastructure
+Association. These commenters recommend the Commission define two
+distinct C-V2X channels, specifically focusing on the lower 10
+megahertz channel at 5.895-5.905 GHz and the upper 20 megahertz channel
+at 5.905-5.925 GHz. Doing so, they say, will ensure interoperability
+within the band. These commenters also request that the Commission
+adopt rules requiring C-V2X operators to look to the NTIA website for
+information on the location of coordination zones. Both the
+Commission's rules and the NTIA's comments in this document specify 47
+CFR 90.371(b) of the rules as the location of the coordination zones
+necessary to protect federal radiolocation systems. Lastly, these
+commenters also recommend including provisions in the rules that would
+require an OBU equipped with geofencing capability to lower its
+transmit EIRP to the appropriate level within 60 seconds of entering
+the power reduction zone.
+ Based on consideration of the record, the Commission adopts power
+limit rules for C-V2X OBUs that provide for optional use of
+``geofencing'' techniques to allow the OBUs to operate at a higher
+radiated power in some locations. As the Commission has discussed,
+geofencing technique involves a radiofrequency device using a
+geolocation capability to determine whether its geographic coordinates
+are within a defined geographic area. In the instant case,
+``geofenced'' OBU devices would incorporate a geolocation capability to
+be aware of the appropriate protection areas around federal
+radiolocation sites. The OBUs would be programmed with the existing
+5.895-5.925 GHz band federal radiolocation sites' coordination zones
+(specified by geographic coordinates and a radius) to ensure that they
+operate with lower power levels within the protected areas. OBU
+equipment that does not incorporate this geolocation capability would
+be required to comply with the more restrictive OBU EIRP limit.
+ Thus, reflective of NTIA's June 7, 2024 recommendation and to allow
+the maximum flexibility possible for C-V2X OBU operations while still
+protecting incumbent federal radar operations in the band from harmful
+interference, the Commission will permit C-V2X OBUs with geolocation
+capabilities to operate with up to the maximum 33 dBm/10 MHz, 33 dBm/20
+MHz, and 33 dBm/30 MHz EIRP PSD outside of a 47 CFR 90.387(b)
+coordination zone. Within the coordination zones, the following limits
+will apply: all operations that include use of the 5.895-5.905 GHz
+channel (i.e., 5.895-5.905 GHz, 5.895-5.915 GHz, and 5.895-5.925 GHz)
+are limited to a 23 dBm EIRP over the channel bandwidth; all other
+channels (i.e., 5.905-5.915 GHz, 5.915-5.925 GHz, 5.905-5.925 GHz
+operations) are limited to 33 dBm over the channel bandwidth, but must
+be reduced to 27 dBm over the channel bandwidth within 5
+degrees of horizontal in elevation. OBUs not equipped with geofencing
+capability will be limited to the power levels specified for operation
+within the coordination zones. Manufacturers incorporating geofencing
+capability for an OBU will need to specifically demonstrate and certify
+that the device implements the capability in a manner that complies
+with the requirements discussed herein when seeking an FCC Equipment
+Certification under part 2 of the Commission's rules. If geofencing
+locations and parameters are subsequently modified, a mechanism should
+be available such that OBUs can be updated with the new information.
+ The Commission further declines to implement recommendations from
+parties responding to the Public Notice that the Commission re-
+channelizes C-V2X operations into two distinct 10 megahertz and 20
+megahertz channels. As stated in the channel bandwidth section above,
+the Commission is providing maximum flexibility to enable the ITS
+industry to evolve and modify operations as necessary to use the band
+in the most efficient way possible to deliver safety applications to
+the American public. The Commission also declines these parties'
+recommendation that the Commission adopt rules requiring C-V2X
+operators obtain coordination zone information from NTIA's website.
+However, the Commission does support industry and government
+collaboration on additional means of obtaining this information. To
+that end, the Commission notes that NTIA has developed machine readable
+KML files for download from its website that can be used by C-V2X
+devices for determining if they are within a coordination zone. The
+Commission also declines to implement a 60-second EIRP adjustment
+requirement after an OBU enters a coordination zone. The rules require
+C-V2X devices to comply with the power limits for their location and
+manufacturers must ensure that devices operate such that they comply
+with the rules for their location. Thus,

@@ -1,0 +1,669 @@
+version: "1.0"
+coordination_pattern: hierarchical
+sub_tasks:
+  - id: audit_root
+    description: "Own the whole audit. Dispatch one lane coordinator for each of the six trial lanes listed below and do not audit any trial yourself. When every lane reports that its trials are finished, assemble the two deliverables yourself in this node: write /logs/agent/outcome_ledger.csv containing every row from every per-trial file, and write /logs/agent/prespecification_basis.csv containing one row per trial. Read the per-trial files from disk one at a time rather than asking the lane coordinators to pass their contents back in a message."
+    depends_on: []
+    parallel_group: orchestration
+  - id: lane_1
+    description: "Coordinate these 4 trials and read nothing yourself: NCT02048007, NCT02944682, NCT03667690, NCT04247009. For each trial dispatch one reader per publication, then dispatch that trial's auditor once its readers have finished. When every trial in the lane is done, confirm each auditor left its file in /workspace/trial_audits/ and report the list of file paths and the row count of each. Report paths and counts only, not file contents."
+    depends_on:
+      - audit_root
+    parallel_group: lanes
+  - id: lane_2
+    description: "Coordinate these 4 trials and read nothing yourself: NCT02391337, NCT03114917, NCT03869177, NCT04369326. For each trial dispatch one reader per publication, then dispatch that trial's auditor once its readers have finished. When every trial in the lane is done, confirm each auditor left its file in /workspace/trial_audits/ and report the list of file paths and the row count of each. Report paths and counts only, not file contents."
+    depends_on:
+      - audit_root
+    parallel_group: lanes
+  - id: lane_3
+    description: "Coordinate these 4 trials and read nothing yourself: NCT02409680, NCT03148457, NCT04033003, NCT04424511. For each trial dispatch one reader per publication, then dispatch that trial's auditor once its readers have finished. When every trial in the lane is done, confirm each auditor left its file in /workspace/trial_audits/ and report the list of file paths and the row count of each. Report paths and counts only, not file contents."
+    depends_on:
+      - audit_root
+    parallel_group: lanes
+  - id: lane_4
+    description: "Coordinate these 4 trials and read nothing yourself: NCT02429180, NCT03198585, NCT04048967, NCT05254002. For each trial dispatch one reader per publication, then dispatch that trial's auditor once its readers have finished. When every trial in the lane is done, confirm each auditor left its file in /workspace/trial_audits/ and report the list of file paths and the row count of each. Report paths and counts only, not file contents."
+    depends_on:
+      - audit_root
+    parallel_group: lanes
+  - id: lane_5
+    description: "Coordinate these 4 trials and read nothing yourself: NCT02584283, NCT03502616, NCT04066881, NCT05485402. For each trial dispatch one reader per publication, then dispatch that trial's auditor once its readers have finished. When every trial in the lane is done, confirm each auditor left its file in /workspace/trial_audits/ and report the list of file paths and the row count of each. Report paths and counts only, not file contents."
+    depends_on:
+      - audit_root
+    parallel_group: lanes
+  - id: lane_6
+    description: "Coordinate these 3 trials and read nothing yourself: NCT02747927, NCT03574597, NCT04224987. For each trial dispatch one reader per publication, then dispatch that trial's auditor once its readers have finished. When every trial in the lane is done, confirm each auditor left its file in /workspace/trial_audits/ and report the list of file paths and the row count of each. Report paths and counts only, not file contents."
+    depends_on:
+      - audit_root
+    parallel_group: lanes
+  - id: read_nct02048007_pmc11815404
+    description: "Read /input_artifacts/trials/NCT02048007/publications/PMC11815404.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02048007-PMC11815404.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct02048007_pmc12362227
+    description: "Read /input_artifacts/trials/NCT02048007/publications/PMC12362227.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02048007-PMC12362227.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct02048007_pmc6258425
+    description: "Read /input_artifacts/trials/NCT02048007/publications/PMC6258425.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02048007-PMC6258425.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct02048007_pmc6592520
+    description: "Read /input_artifacts/trials/NCT02048007/publications/PMC6592520.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02048007-PMC6592520.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct02048007_pmc8462712
+    description: "Read /input_artifacts/trials/NCT02048007/publications/PMC8462712.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02048007-PMC8462712.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct02048007_pmc8719241
+    description: "Read /input_artifacts/trials/NCT02048007/publications/PMC8719241.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02048007-PMC8719241.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct02048007_pmc8819720
+    description: "Read /input_artifacts/trials/NCT02048007/publications/PMC8819720.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02048007-PMC8819720.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct02048007_pmc8861117
+    description: "Read /input_artifacts/trials/NCT02048007/publications/PMC8861117.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02048007-PMC8861117.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct02048007_pmc9399865
+    description: "Read /input_artifacts/trials/NCT02048007/publications/PMC9399865.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02048007-PMC9399865.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: audit_nct02048007
+    description: "Own trial NCT02048007 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT02048007/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT02048007.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct02048007_pmc11815404
+      - read_nct02048007_pmc12362227
+      - read_nct02048007_pmc6258425
+      - read_nct02048007_pmc6592520
+      - read_nct02048007_pmc8462712
+      - read_nct02048007_pmc8719241
+      - read_nct02048007_pmc8819720
+      - read_nct02048007_pmc8861117
+      - read_nct02048007_pmc9399865
+    parallel_group: trial_audits
+  - id: read_nct02944682_pmc11027158
+    description: "Read /input_artifacts/trials/NCT02944682/publications/PMC11027158.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02944682-PMC11027158.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct02944682_pmc11079463
+    description: "Read /input_artifacts/trials/NCT02944682/publications/PMC11079463.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02944682-PMC11079463.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct02944682_pmc11097839
+    description: "Read /input_artifacts/trials/NCT02944682/publications/PMC11097839.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02944682-PMC11097839.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct02944682_pmc11757157
+    description: "Read /input_artifacts/trials/NCT02944682/publications/PMC11757157.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02944682-PMC11757157.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct02944682_pmc12083286
+    description: "Read /input_artifacts/trials/NCT02944682/publications/PMC12083286.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02944682-PMC12083286.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct02944682_pmc12755731
+    description: "Read /input_artifacts/trials/NCT02944682/publications/PMC12755731.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02944682-PMC12755731.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct02944682_pmc13132538
+    description: "Read /input_artifacts/trials/NCT02944682/publications/PMC13132538.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02944682-PMC13132538.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct02944682_pmc13166104
+    description: "Read /input_artifacts/trials/NCT02944682/publications/PMC13166104.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02944682-PMC13166104.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: audit_nct02944682
+    description: "Own trial NCT02944682 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT02944682/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT02944682.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct02944682_pmc11027158
+      - read_nct02944682_pmc11079463
+      - read_nct02944682_pmc11097839
+      - read_nct02944682_pmc11757157
+      - read_nct02944682_pmc12083286
+      - read_nct02944682_pmc12755731
+      - read_nct02944682_pmc13132538
+      - read_nct02944682_pmc13166104
+    parallel_group: trial_audits
+  - id: read_nct03667690_pmc11426279
+    description: "Read /input_artifacts/trials/NCT03667690/publications/PMC11426279.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03667690-PMC11426279.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct03667690_pmc11531808
+    description: "Read /input_artifacts/trials/NCT03667690/publications/PMC11531808.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03667690-PMC11531808.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct03667690_pmc12589930
+    description: "Read /input_artifacts/trials/NCT03667690/publications/PMC12589930.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03667690-PMC12589930.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: audit_nct03667690
+    description: "Own trial NCT03667690 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT03667690/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT03667690.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct03667690_pmc11426279
+      - read_nct03667690_pmc11531808
+      - read_nct03667690_pmc12589930
+    parallel_group: trial_audits
+  - id: read_nct04247009_pmc10798910
+    description: "Read /input_artifacts/trials/NCT04247009/publications/PMC10798910.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04247009-PMC10798910.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct04247009_pmc11987391
+    description: "Read /input_artifacts/trials/NCT04247009/publications/PMC11987391.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04247009-PMC11987391.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: read_nct04247009_pmc12106552
+    description: "Read /input_artifacts/trials/NCT04247009/publications/PMC12106552.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04247009-PMC12106552.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_1
+    parallel_group: publication_readers
+  - id: audit_nct04247009
+    description: "Own trial NCT04247009 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT04247009/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT04247009.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct04247009_pmc10798910
+      - read_nct04247009_pmc11987391
+      - read_nct04247009_pmc12106552
+    parallel_group: trial_audits
+  - id: read_nct02391337_pmc11271403
+    description: "Read /input_artifacts/trials/NCT02391337/publications/PMC11271403.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02391337-PMC11271403.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: read_nct02391337_pmc12015011
+    description: "Read /input_artifacts/trials/NCT02391337/publications/PMC12015011.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02391337-PMC12015011.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: read_nct02391337_pmc12751528
+    description: "Read /input_artifacts/trials/NCT02391337/publications/PMC12751528.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02391337-PMC12751528.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: read_nct02391337_pmc5588987
+    description: "Read /input_artifacts/trials/NCT02391337/publications/PMC5588987.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02391337-PMC5588987.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: audit_nct02391337
+    description: "Own trial NCT02391337 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT02391337/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT02391337.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct02391337_pmc11271403
+      - read_nct02391337_pmc12015011
+      - read_nct02391337_pmc12751528
+      - read_nct02391337_pmc5588987
+    parallel_group: trial_audits
+  - id: read_nct03114917_pmc10668454
+    description: "Read /input_artifacts/trials/NCT03114917/publications/PMC10668454.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03114917-PMC10668454.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: read_nct03114917_pmc12628620
+    description: "Read /input_artifacts/trials/NCT03114917/publications/PMC12628620.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03114917-PMC12628620.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: read_nct03114917_pmc7298803
+    description: "Read /input_artifacts/trials/NCT03114917/publications/PMC7298803.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03114917-PMC7298803.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: audit_nct03114917
+    description: "Own trial NCT03114917 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT03114917/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT03114917.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct03114917_pmc10668454
+      - read_nct03114917_pmc12628620
+      - read_nct03114917_pmc7298803
+    parallel_group: trial_audits
+  - id: read_nct03869177_pmc12676765
+    description: "Read /input_artifacts/trials/NCT03869177/publications/PMC12676765.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03869177-PMC12676765.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: read_nct03869177_pmc7547488
+    description: "Read /input_artifacts/trials/NCT03869177/publications/PMC7547488.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03869177-PMC7547488.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: read_nct03869177_pmc8170939
+    description: "Read /input_artifacts/trials/NCT03869177/publications/PMC8170939.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03869177-PMC8170939.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: read_nct03869177_pmc9469513
+    description: "Read /input_artifacts/trials/NCT03869177/publications/PMC9469513.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03869177-PMC9469513.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: read_nct03869177_pmc9764492
+    description: "Read /input_artifacts/trials/NCT03869177/publications/PMC9764492.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03869177-PMC9764492.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: read_nct03869177_pmc9934504
+    description: "Read /input_artifacts/trials/NCT03869177/publications/PMC9934504.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03869177-PMC9934504.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: audit_nct03869177
+    description: "Own trial NCT03869177 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT03869177/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT03869177.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct03869177_pmc12676765
+      - read_nct03869177_pmc7547488
+      - read_nct03869177_pmc8170939
+      - read_nct03869177_pmc9469513
+      - read_nct03869177_pmc9764492
+      - read_nct03869177_pmc9934504
+    parallel_group: trial_audits
+  - id: read_nct04369326_pmc10367260
+    description: "Read /input_artifacts/trials/NCT04369326/publications/PMC10367260.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04369326-PMC10367260.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: read_nct04369326_pmc11386379
+    description: "Read /input_artifacts/trials/NCT04369326/publications/PMC11386379.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04369326-PMC11386379.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: read_nct04369326_pmc12043179
+    description: "Read /input_artifacts/trials/NCT04369326/publications/PMC12043179.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04369326-PMC12043179.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_2
+    parallel_group: publication_readers
+  - id: audit_nct04369326
+    description: "Own trial NCT04369326 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT04369326/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT04369326.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct04369326_pmc10367260
+      - read_nct04369326_pmc11386379
+      - read_nct04369326_pmc12043179
+    parallel_group: trial_audits
+  - id: read_nct02409680_pmc13150641
+    description: "Read /input_artifacts/trials/NCT02409680/publications/PMC13150641.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02409680-PMC13150641.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_3
+    parallel_group: publication_readers
+  - id: read_nct02409680_pmc5415791
+    description: "Read /input_artifacts/trials/NCT02409680/publications/PMC5415791.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02409680-PMC5415791.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_3
+    parallel_group: publication_readers
+  - id: read_nct02409680_pmc9993805
+    description: "Read /input_artifacts/trials/NCT02409680/publications/PMC9993805.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02409680-PMC9993805.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_3
+    parallel_group: publication_readers
+  - id: audit_nct02409680
+    description: "Own trial NCT02409680 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT02409680/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT02409680.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct02409680_pmc13150641
+      - read_nct02409680_pmc5415791
+      - read_nct02409680_pmc9993805
+    parallel_group: trial_audits
+  - id: read_nct03148457_pmc11775740
+    description: "Read /input_artifacts/trials/NCT03148457/publications/PMC11775740.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03148457-PMC11775740.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_3
+    parallel_group: publication_readers
+  - id: read_nct03148457_pmc12339485
+    description: "Read /input_artifacts/trials/NCT03148457/publications/PMC12339485.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03148457-PMC12339485.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_3
+    parallel_group: publication_readers
+  - id: read_nct03148457_pmc12866218
+    description: "Read /input_artifacts/trials/NCT03148457/publications/PMC12866218.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03148457-PMC12866218.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_3
+    parallel_group: publication_readers
+  - id: audit_nct03148457
+    description: "Own trial NCT03148457 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT03148457/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT03148457.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct03148457_pmc11775740
+      - read_nct03148457_pmc12339485
+      - read_nct03148457_pmc12866218
+    parallel_group: trial_audits
+  - id: read_nct04033003_pmc11328422
+    description: "Read /input_artifacts/trials/NCT04033003/publications/PMC11328422.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04033003-PMC11328422.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_3
+    parallel_group: publication_readers
+  - id: read_nct04033003_pmc11572523
+    description: "Read /input_artifacts/trials/NCT04033003/publications/PMC11572523.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04033003-PMC11572523.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_3
+    parallel_group: publication_readers
+  - id: read_nct04033003_pmc12527171
+    description: "Read /input_artifacts/trials/NCT04033003/publications/PMC12527171.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04033003-PMC12527171.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_3
+    parallel_group: publication_readers
+  - id: read_nct04033003_pmc9508671
+    description: "Read /input_artifacts/trials/NCT04033003/publications/PMC9508671.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04033003-PMC9508671.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_3
+    parallel_group: publication_readers
+  - id: audit_nct04033003
+    description: "Own trial NCT04033003 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT04033003/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT04033003.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct04033003_pmc11328422
+      - read_nct04033003_pmc11572523
+      - read_nct04033003_pmc12527171
+      - read_nct04033003_pmc9508671
+    parallel_group: trial_audits
+  - id: read_nct04424511_pmc10648361
+    description: "Read /input_artifacts/trials/NCT04424511/publications/PMC10648361.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04424511-PMC10648361.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_3
+    parallel_group: publication_readers
+  - id: read_nct04424511_pmc13254738
+    description: "Read /input_artifacts/trials/NCT04424511/publications/PMC13254738.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04424511-PMC13254738.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_3
+    parallel_group: publication_readers
+  - id: read_nct04424511_pmc9809521
+    description: "Read /input_artifacts/trials/NCT04424511/publications/PMC9809521.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04424511-PMC9809521.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_3
+    parallel_group: publication_readers
+  - id: audit_nct04424511
+    description: "Own trial NCT04424511 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT04424511/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT04424511.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct04424511_pmc10648361
+      - read_nct04424511_pmc13254738
+      - read_nct04424511_pmc9809521
+    parallel_group: trial_audits
+  - id: read_nct02429180_pmc12834544
+    description: "Read /input_artifacts/trials/NCT02429180/publications/PMC12834544.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02429180-PMC12834544.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_4
+    parallel_group: publication_readers
+  - id: read_nct02429180_pmc5073546
+    description: "Read /input_artifacts/trials/NCT02429180/publications/PMC5073546.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02429180-PMC5073546.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_4
+    parallel_group: publication_readers
+  - id: read_nct02429180_pmc5829775
+    description: "Read /input_artifacts/trials/NCT02429180/publications/PMC5829775.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02429180-PMC5829775.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_4
+    parallel_group: publication_readers
+  - id: read_nct02429180_pmc6708169
+    description: "Read /input_artifacts/trials/NCT02429180/publications/PMC6708169.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02429180-PMC6708169.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_4
+    parallel_group: publication_readers
+  - id: audit_nct02429180
+    description: "Own trial NCT02429180 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT02429180/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT02429180.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct02429180_pmc12834544
+      - read_nct02429180_pmc5073546
+      - read_nct02429180_pmc5829775
+      - read_nct02429180_pmc6708169
+    parallel_group: trial_audits
+  - id: read_nct03198585_pmc13235861
+    description: "Read /input_artifacts/trials/NCT03198585/publications/PMC13235861.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03198585-PMC13235861.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_4
+    parallel_group: publication_readers
+  - id: read_nct03198585_pmc6588901
+    description: "Read /input_artifacts/trials/NCT03198585/publications/PMC6588901.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03198585-PMC6588901.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_4
+    parallel_group: publication_readers
+  - id: read_nct03198585_pmc8882292
+    description: "Read /input_artifacts/trials/NCT03198585/publications/PMC8882292.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03198585-PMC8882292.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_4
+    parallel_group: publication_readers
+  - id: audit_nct03198585
+    description: "Own trial NCT03198585 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT03198585/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT03198585.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct03198585_pmc13235861
+      - read_nct03198585_pmc6588901
+      - read_nct03198585_pmc8882292
+    parallel_group: trial_audits
+  - id: read_nct04048967_pmc11223439
+    description: "Read /input_artifacts/trials/NCT04048967/publications/PMC11223439.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04048967-PMC11223439.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_4
+    parallel_group: publication_readers
+  - id: read_nct04048967_pmc12498441
+    description: "Read /input_artifacts/trials/NCT04048967/publications/PMC12498441.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04048967-PMC12498441.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_4
+    parallel_group: publication_readers
+  - id: read_nct04048967_pmc12763924
+    description: "Read /input_artifacts/trials/NCT04048967/publications/PMC12763924.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04048967-PMC12763924.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_4
+    parallel_group: publication_readers
+  - id: read_nct04048967_pmc7350704
+    description: "Read /input_artifacts/trials/NCT04048967/publications/PMC7350704.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04048967-PMC7350704.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_4
+    parallel_group: publication_readers
+  - id: audit_nct04048967
+    description: "Own trial NCT04048967 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT04048967/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT04048967.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct04048967_pmc11223439
+      - read_nct04048967_pmc12498441
+      - read_nct04048967_pmc12763924
+      - read_nct04048967_pmc7350704
+    parallel_group: trial_audits
+  - id: read_nct05254002_pmc11556932
+    description: "Read /input_artifacts/trials/NCT05254002/publications/PMC11556932.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT05254002-PMC11556932.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_4
+    parallel_group: publication_readers
+  - id: read_nct05254002_pmc12315800
+    description: "Read /input_artifacts/trials/NCT05254002/publications/PMC12315800.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT05254002-PMC12315800.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_4
+    parallel_group: publication_readers
+  - id: read_nct05254002_pmc12722168
+    description: "Read /input_artifacts/trials/NCT05254002/publications/PMC12722168.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT05254002-PMC12722168.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_4
+    parallel_group: publication_readers
+  - id: audit_nct05254002
+    description: "Own trial NCT05254002 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT05254002/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT05254002.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct05254002_pmc11556932
+      - read_nct05254002_pmc12315800
+      - read_nct05254002_pmc12722168
+    parallel_group: trial_audits
+  - id: read_nct02584283_pmc11745596
+    description: "Read /input_artifacts/trials/NCT02584283/publications/PMC11745596.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02584283-PMC11745596.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_5
+    parallel_group: publication_readers
+  - id: read_nct02584283_pmc12513034
+    description: "Read /input_artifacts/trials/NCT02584283/publications/PMC12513034.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02584283-PMC12513034.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_5
+    parallel_group: publication_readers
+  - id: read_nct02584283_pmc6416838
+    description: "Read /input_artifacts/trials/NCT02584283/publications/PMC6416838.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02584283-PMC6416838.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_5
+    parallel_group: publication_readers
+  - id: read_nct02584283_pmc6701560
+    description: "Read /input_artifacts/trials/NCT02584283/publications/PMC6701560.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02584283-PMC6701560.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_5
+    parallel_group: publication_readers
+  - id: audit_nct02584283
+    description: "Own trial NCT02584283 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT02584283/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT02584283.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct02584283_pmc11745596
+      - read_nct02584283_pmc12513034
+      - read_nct02584283_pmc6416838
+      - read_nct02584283_pmc6701560
+    parallel_group: trial_audits
+  - id: read_nct03502616_pmc11127290
+    description: "Read /input_artifacts/trials/NCT03502616/publications/PMC11127290.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03502616-PMC11127290.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_5
+    parallel_group: publication_readers
+  - id: read_nct03502616_pmc12583238
+    description: "Read /input_artifacts/trials/NCT03502616/publications/PMC12583238.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03502616-PMC12583238.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_5
+    parallel_group: publication_readers
+  - id: read_nct03502616_pmc9500130
+    description: "Read /input_artifacts/trials/NCT03502616/publications/PMC9500130.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03502616-PMC9500130.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_5
+    parallel_group: publication_readers
+  - id: audit_nct03502616
+    description: "Own trial NCT03502616 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT03502616/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT03502616.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct03502616_pmc11127290
+      - read_nct03502616_pmc12583238
+      - read_nct03502616_pmc9500130
+    parallel_group: trial_audits
+  - id: read_nct04066881_pmc12020760
+    description: "Read /input_artifacts/trials/NCT04066881/publications/PMC12020760.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04066881-PMC12020760.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_5
+    parallel_group: publication_readers
+  - id: read_nct04066881_pmc12629454
+    description: "Read /input_artifacts/trials/NCT04066881/publications/PMC12629454.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04066881-PMC12629454.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_5
+    parallel_group: publication_readers
+  - id: read_nct04066881_pmc13231623
+    description: "Read /input_artifacts/trials/NCT04066881/publications/PMC13231623.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04066881-PMC13231623.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_5
+    parallel_group: publication_readers
+  - id: read_nct04066881_pmc9649006
+    description: "Read /input_artifacts/trials/NCT04066881/publications/PMC9649006.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04066881-PMC9649006.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_5
+    parallel_group: publication_readers
+  - id: audit_nct04066881
+    description: "Own trial NCT04066881 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT04066881/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT04066881.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct04066881_pmc12020760
+      - read_nct04066881_pmc12629454
+      - read_nct04066881_pmc13231623
+      - read_nct04066881_pmc9649006
+    parallel_group: trial_audits
+  - id: read_nct05485402_pmc11123861
+    description: "Read /input_artifacts/trials/NCT05485402/publications/PMC11123861.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT05485402-PMC11123861.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_5
+    parallel_group: publication_readers
+  - id: read_nct05485402_pmc11970529
+    description: "Read /input_artifacts/trials/NCT05485402/publications/PMC11970529.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT05485402-PMC11970529.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_5
+    parallel_group: publication_readers
+  - id: read_nct05485402_pmc12963666
+    description: "Read /input_artifacts/trials/NCT05485402/publications/PMC12963666.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT05485402-PMC12963666.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_5
+    parallel_group: publication_readers
+  - id: audit_nct05485402
+    description: "Own trial NCT05485402 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT05485402/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT05485402.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct05485402_pmc11123861
+      - read_nct05485402_pmc11970529
+      - read_nct05485402_pmc12963666
+    parallel_group: trial_audits
+  - id: read_nct02747927_pmc10077010
+    description: "Read /input_artifacts/trials/NCT02747927/publications/PMC10077010.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02747927-PMC10077010.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_6
+    parallel_group: publication_readers
+  - id: read_nct02747927_pmc11646590
+    description: "Read /input_artifacts/trials/NCT02747927/publications/PMC11646590.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02747927-PMC11646590.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_6
+    parallel_group: publication_readers
+  - id: read_nct02747927_pmc11797386
+    description: "Read /input_artifacts/trials/NCT02747927/publications/PMC11797386.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT02747927-PMC11797386.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_6
+    parallel_group: publication_readers
+  - id: audit_nct02747927
+    description: "Own trial NCT02747927 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT02747927/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT02747927.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct02747927_pmc10077010
+      - read_nct02747927_pmc11646590
+      - read_nct02747927_pmc11797386
+    parallel_group: trial_audits
+  - id: read_nct03574597_pmc11271387
+    description: "Read /input_artifacts/trials/NCT03574597/publications/PMC11271387.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03574597-PMC11271387.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_6
+    parallel_group: publication_readers
+  - id: read_nct03574597_pmc11271413
+    description: "Read /input_artifacts/trials/NCT03574597/publications/PMC11271413.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03574597-PMC11271413.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_6
+    parallel_group: publication_readers
+  - id: read_nct03574597_pmc13190271
+    description: "Read /input_artifacts/trials/NCT03574597/publications/PMC13190271.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT03574597-PMC13190271.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_6
+    parallel_group: publication_readers
+  - id: audit_nct03574597
+    description: "Own trial NCT03574597 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT03574597/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT03574597.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct03574597_pmc11271387
+      - read_nct03574597_pmc11271413
+      - read_nct03574597_pmc13190271
+    parallel_group: trial_audits
+  - id: read_nct04224987_pmc11956350
+    description: "Read /input_artifacts/trials/NCT04224987/publications/PMC11956350.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04224987-PMC11956350.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_6
+    parallel_group: publication_readers
+  - id: read_nct04224987_pmc12246876
+    description: "Read /input_artifacts/trials/NCT04224987/publications/PMC12246876.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04224987-PMC12246876.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_6
+    parallel_group: publication_readers
+  - id: read_nct04224987_pmc13004693
+    description: "Read /input_artifacts/trials/NCT04224987/publications/PMC13004693.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04224987-PMC13004693.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_6
+    parallel_group: publication_readers
+  - id: read_nct04224987_pmc8082631
+    description: "Read /input_artifacts/trials/NCT04224987/publications/PMC8082631.txt in full, and read no other publication. List every outcome that this one publication reports a result for, with the wording and the instrument it uses, the role it gives the outcome, the heading that establishes that role, and the sentence or whole table row carrying the number, each copied exactly from this file. Write them to /workspace/reads/NCT04224987-PMC8082631.csv and report the file path and the number of outcomes found, nothing else."
+    depends_on:
+      - lane_6
+    parallel_group: publication_readers
+  - id: audit_nct04224987
+    description: "Own trial NCT04224987 and no other trial. Read the two registry snapshots under /input_artifacts/trials/NCT04224987/ and the reader files for this trial in /workspace/reads/, taking them from disk one at a time. Produce one row per outcome unit for this trial, using the columns the brief specifies, and write them to /workspace/trial_audits/NCT04224987.csv. Report the file path and the number of rows written, nothing else."
+    depends_on:
+      - read_nct04224987_pmc11956350
+      - read_nct04224987_pmc12246876
+      - read_nct04224987_pmc13004693
+      - read_nct04224987_pmc8082631
+    parallel_group: trial_audits

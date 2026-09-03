@@ -1,0 +1,109 @@
+coordination_pattern: hierarchical
+
+sub_tasks:
+
+  - id: risk-northeast-manager
+    parallel_group: collect
+    depends_on: []
+    description: >-
+      You own the Northeast portfolio: Johns Hopkins (S09-S12), Massachusetts General
+      Hospital (S17-S20), and Mount Sinai (S25-S28) - 12 sites. Spin up six workers in
+      parallel, two sites each. Give every worker the scoring rules: from each site's current
+      ClinicalTrials.gov record add 3 if the trial is suspended, terminated, or withdrawn;
+      add 2 if it is recruiting but not updated since before 2025-06-01; add 2 if it is
+      completed with no results posted; add 1 if the primary completion date is before
+      2026-06-01 while still recruiting or active. Keep the four parts separate and sum them,
+      and capture the study type (modality) and a source URL. Each worker writes
+      /workspace/sites/{site_id}.json. Once all six finish, confirm all 12 files exist and
+      write /workspace/regions/northeast.json with the complete and missing site lists.
+
+  - id: risk-midwest-manager
+    parallel_group: collect
+    depends_on: []
+    description: >-
+      You own the Midwest portfolio: Cleveland Clinic (S01-S04), Mayo Clinic (S21-S24), and
+      University of Michigan (S41-S44) - 12 sites. Spin up six workers in parallel, two sites
+      each, and give every worker the same scoring rules used across the project (status 3,
+      stale-recruiting 2, completed-no-results 2, overdue-primary-completion 1, kept as four
+      separate parts and summed), plus the study type (modality) and a source URL per site.
+      Each worker writes /workspace/sites/{site_id}.json. When all six finish, confirm all 12
+      files exist and write /workspace/regions/midwest.json with the complete and missing
+      site lists.
+
+  - id: risk-south-manager
+    parallel_group: collect
+    depends_on: []
+    description: >-
+      You own the South portfolio: Duke University (S05-S08), MD Anderson Cancer Center
+      (S13-S16), and Vanderbilt University (S45-S48) - 12 sites. Spin up six workers in
+      parallel, two sites each, with the same four scoring rules (status 3, stale-recruiting
+      2, completed-no-results 2, overdue-primary-completion 1, kept separate and summed) plus
+      modality and a source URL per site. Each worker writes /workspace/sites/{site_id}.json.
+      When all six finish, confirm all 12 files exist and write /workspace/regions/south.json
+      with the complete and missing site lists.
+
+  - id: risk-west-manager
+    parallel_group: collect
+    depends_on: []
+    description: >-
+      You own the West portfolio: Stanford University (S29-S32), UCLA (S33-S36), and UCSF
+      (S37-S40) - 12 sites. Spin up six workers in parallel, two sites each, with the same
+      four scoring rules (status 3, stale-recruiting 2, completed-no-results 2,
+      overdue-primary-completion 1, kept separate and summed) plus modality and a source URL
+      per site. Each worker writes /workspace/sites/{site_id}.json. When all six finish,
+      confirm all 12 files exist and write /workspace/regions/west.json with the complete and
+      missing site lists.
+
+  - id: compliance-screen
+    parallel_group: collect
+    depends_on: []
+    description: >-
+      You own the regulatory screen. For each of the 12 partner institutions on the roster,
+      check the institution against the FDA warning-letter list and the HHS OIG exclusions
+      list and record what you find (or that nothing was found), with a source URL for each
+      result. This screen does not change any risk_score; it is evidence for the audit trail.
+      Write the findings keyed by institution to /workspace/compliance.json.
+
+  - id: schedule-optimizer
+    parallel_group: plan
+    depends_on:
+      - risk-northeast-manager
+      - risk-midwest-manager
+      - risk-south-manager
+      - risk-west-manager
+    description: >-
+      Read the per-site risk files under /workspace/sites/ (all 48 sites) and choose the visit
+      plan that satisfies the budget and fairness rules in the brief (at most 18 visits, at
+      most 30 travel nights, every partner covered) while maximizing risk coverage per travel
+      night and applying the stated tie-breakers. Write the chosen set with ranks and per-site
+      objective contribution to /workspace/selection.json, and produce
+      /logs/agent/monitoring_schedule.csv (the selected sites only, with the columns listed in
+      the brief).
+
+  - id: audit-assembler
+    parallel_group: assemble
+    depends_on:
+      - risk-northeast-manager
+      - risk-midwest-manager
+      - risk-south-manager
+      - risk-west-manager
+      - compliance-screen
+      - schedule-optimizer
+    description: >-
+      Merge the per-site risk files under /workspace/sites/, the compliance findings, and the
+      chosen selection into /logs/agent/audit_trace.csv with one row for every roster site
+      (trial fields checked, FDA/OIG results, the four score parts, total risk_score, selected
+      flag, and source URLs). Also produce /logs/agent/constraint_checks.csv showing the caps
+      used and whether the plan passed each check: visit count, travel nights, partner
+      coverage, one visit per site, and roster coverage.
+
+  - id: rationale-writer
+    parallel_group: write
+    depends_on:
+      - schedule-optimizer
+      - audit-assembler
+    description: >-
+      Using the selection and the audit record, produce /logs/agent/scheduling_rationale.docx:
+      a short memo explaining how the schedule was chosen, which sites were left out because of
+      the limits, how ties were handled, and what tradeoffs were made so every partner still
+      got covered.

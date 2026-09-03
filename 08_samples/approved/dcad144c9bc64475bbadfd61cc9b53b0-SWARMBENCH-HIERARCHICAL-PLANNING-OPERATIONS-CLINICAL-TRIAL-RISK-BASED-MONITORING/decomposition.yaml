@@ -1,0 +1,354 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+orchestrator_directive: >-
+  Do NOT read, sort, count or process the trial records yourself, and do not write
+  any deliverable yourself - your only job is to dispatch the sub-agents below as
+  `task` calls (one call per sub_task) and pass each one the exact text of its
+  description, then collect results. Each extraction sub_task already lists the exact
+  NCT ids it owns, so you never have to partition anything - just copy the list into
+  the task prompt.   Dispatch order, three levels: (1) dispatch the thirteen extraction-batch leaf
+  workers and the five research leaf workers, in small batches of a few task calls at
+  a time, not all at once; (2) once the thirteen extraction batches have returned
+  dispatch the extraction-coordinator, and once the five research leaves have returned
+  dispatch the research-coordinator - each coordinator consolidates its own group's
+  outputs into a single master file; (3) once BOTH coordinators have returned,
+  dispatch the two final assemblers together in the same message - the
+  workbook-builder and the plan-writer - each of which reads the two master files and
+  writes its own finished deliverable straight to /logs/agent. CRITICAL: every message
+  you send while work remains MUST contain an actual `task` tool call. Never send a
+  message that only says you are "about to" or "now dispatching" a task - a message
+  with no `task` call ends the run immediately and fails it. When the coordinators
+  finish, put the workbook-builder and plan-writer `task` calls in the SAME message;
+  do not announce them and stop. The whole run FAILS unless BOTH
+  /logs/agent/output.xlsx and /logs/agent/monitoring_plan.md exist when you finish.
+sub_tasks:
+- id: trial-extraction-batch-1
+  depends_on: []
+  parallel_group: extract
+  description: >-
+    You are one of thirteen extraction specialists. Read
+    /input_artifacts/monitoring_rulebook.md first, then read ONLY these study records
+    in /input_artifacts/trials/: NCT03281083.txt, NCT03315143.txt, NCT03521934.txt,
+    NCT06083675.txt. Read each record's prose carefully and pull its monitoring-risk
+    fields, applying the rulebook's in-scope/exclusion rule and its overall-vs-site
+    status-reconciliation rule. Emit one row per trial with the fields nct_id,
+    overall_status, study_type, phase, enrollment_count, enrollment_basis, num_sites,
+    site_statuses, status_divergence_flag, intervention_types, regulated_flag,
+    last_update_date, in_scope, exclusion_reason to
+    /workspace/parts/extract_batch1.md. Do not score or schedule.
+- id: trial-extraction-batch-2
+  depends_on: []
+  parallel_group: extract
+  description: >-
+    You are one of thirteen extraction specialists. Read
+    /input_artifacts/monitoring_rulebook.md first, then read ONLY these study records
+    in /input_artifacts/trials/: NCT06383390.txt, NCT06858839.txt, NCT06858878.txt,
+    NCT06897618.txt. Read each record's prose carefully and pull its monitoring-risk
+    fields, applying the rulebook's in-scope/exclusion rule and its overall-vs-site
+    status-reconciliation rule. Emit one row per trial with the fields nct_id,
+    overall_status, study_type, phase, enrollment_count, enrollment_basis, num_sites,
+    site_statuses, status_divergence_flag, intervention_types, regulated_flag,
+    last_update_date, in_scope, exclusion_reason to
+    /workspace/parts/extract_batch2.md. Do not score or schedule.
+- id: trial-extraction-batch-3
+  depends_on: []
+  parallel_group: extract
+  description: >-
+    You are one of thirteen extraction specialists. Read
+    /input_artifacts/monitoring_rulebook.md first, then read ONLY these study records
+    in /input_artifacts/trials/: NCT06901349.txt, NCT06988553.txt, NCT07049679.txt,
+    NCT07055516.txt. Read each record's prose carefully and pull its monitoring-risk
+    fields, applying the rulebook's in-scope/exclusion rule and its overall-vs-site
+    status-reconciliation rule. Emit one row per trial with the fields nct_id,
+    overall_status, study_type, phase, enrollment_count, enrollment_basis, num_sites,
+    site_statuses, status_divergence_flag, intervention_types, regulated_flag,
+    last_update_date, in_scope, exclusion_reason to
+    /workspace/parts/extract_batch3.md. Do not score or schedule.
+- id: trial-extraction-batch-4
+  depends_on: []
+  parallel_group: extract
+  description: >-
+    You are one of thirteen extraction specialists. Read
+    /input_artifacts/monitoring_rulebook.md first, then read ONLY these study records
+    in /input_artifacts/trials/: NCT07089784.txt, NCT07242469.txt, NCT07252765.txt,
+    NCT07271186.txt. Read each record's prose carefully and pull its monitoring-risk
+    fields, applying the rulebook's in-scope/exclusion rule and its overall-vs-site
+    status-reconciliation rule. Emit one row per trial with the fields nct_id,
+    overall_status, study_type, phase, enrollment_count, enrollment_basis, num_sites,
+    site_statuses, status_divergence_flag, intervention_types, regulated_flag,
+    last_update_date, in_scope, exclusion_reason to
+    /workspace/parts/extract_batch4.md. Do not score or schedule.
+- id: trial-extraction-batch-5
+  depends_on: []
+  parallel_group: extract
+  description: >-
+    You are one of thirteen extraction specialists. Read
+    /input_artifacts/monitoring_rulebook.md first, then read ONLY these study records
+    in /input_artifacts/trials/: NCT07282600.txt, NCT07296484.txt, NCT07321886.txt,
+    NCT07340320.txt. Read each record's prose carefully and pull its monitoring-risk
+    fields, applying the rulebook's in-scope/exclusion rule and its overall-vs-site
+    status-reconciliation rule. Emit one row per trial with the fields nct_id,
+    overall_status, study_type, phase, enrollment_count, enrollment_basis, num_sites,
+    site_statuses, status_divergence_flag, intervention_types, regulated_flag,
+    last_update_date, in_scope, exclusion_reason to
+    /workspace/parts/extract_batch5.md. Do not score or schedule.
+- id: trial-extraction-batch-6
+  depends_on: []
+  parallel_group: extract
+  description: >-
+    You are one of thirteen extraction specialists. Read
+    /input_artifacts/monitoring_rulebook.md first, then read ONLY these study records
+    in /input_artifacts/trials/: NCT07351045.txt, NCT07385547.txt, NCT07392190.txt,
+    NCT07396155.txt. Read each record's prose carefully and pull its monitoring-risk
+    fields, applying the rulebook's in-scope/exclusion rule and its overall-vs-site
+    status-reconciliation rule. Emit one row per trial with the fields nct_id,
+    overall_status, study_type, phase, enrollment_count, enrollment_basis, num_sites,
+    site_statuses, status_divergence_flag, intervention_types, regulated_flag,
+    last_update_date, in_scope, exclusion_reason to
+    /workspace/parts/extract_batch6.md. Do not score or schedule.
+- id: trial-extraction-batch-7
+  depends_on: []
+  parallel_group: extract
+  description: >-
+    You are one of thirteen extraction specialists. Read
+    /input_artifacts/monitoring_rulebook.md first, then read ONLY these study records
+    in /input_artifacts/trials/: NCT07399678.txt, NCT07400653.txt, NCT07415954.txt,
+    NCT07465224.txt. Read each record's prose carefully and pull its monitoring-risk
+    fields, applying the rulebook's in-scope/exclusion rule and its overall-vs-site
+    status-reconciliation rule. Emit one row per trial with the fields nct_id,
+    overall_status, study_type, phase, enrollment_count, enrollment_basis, num_sites,
+    site_statuses, status_divergence_flag, intervention_types, regulated_flag,
+    last_update_date, in_scope, exclusion_reason to
+    /workspace/parts/extract_batch7.md. Do not score or schedule.
+- id: trial-extraction-batch-8
+  depends_on: []
+  parallel_group: extract
+  description: >-
+    You are one of thirteen extraction specialists. Read
+    /input_artifacts/monitoring_rulebook.md first, then read ONLY these study records
+    in /input_artifacts/trials/: NCT07495956.txt, NCT07513168.txt, NCT07552389.txt,
+    NCT07558863.txt. Read each record's prose carefully and pull its monitoring-risk
+    fields, applying the rulebook's in-scope/exclusion rule and its overall-vs-site
+    status-reconciliation rule. Emit one row per trial with the fields nct_id,
+    overall_status, study_type, phase, enrollment_count, enrollment_basis, num_sites,
+    site_statuses, status_divergence_flag, intervention_types, regulated_flag,
+    last_update_date, in_scope, exclusion_reason to
+    /workspace/parts/extract_batch8.md. Do not score or schedule.
+- id: trial-extraction-batch-9
+  depends_on: []
+  parallel_group: extract
+  description: >-
+    You are one of thirteen extraction specialists. Read
+    /input_artifacts/monitoring_rulebook.md first, then read ONLY these study records
+    in /input_artifacts/trials/: NCT07564414.txt, NCT07581145.txt, NCT07588438.txt,
+    NCT07603284.txt. Read each record's prose carefully and pull its monitoring-risk
+    fields, applying the rulebook's in-scope/exclusion rule and its overall-vs-site
+    status-reconciliation rule. Emit one row per trial with the fields nct_id,
+    overall_status, study_type, phase, enrollment_count, enrollment_basis, num_sites,
+    site_statuses, status_divergence_flag, intervention_types, regulated_flag,
+    last_update_date, in_scope, exclusion_reason to
+    /workspace/parts/extract_batch9.md. Do not score or schedule.
+- id: trial-extraction-batch-10
+  depends_on: []
+  parallel_group: extract
+  description: >-
+    You are one of thirteen extraction specialists. Read
+    /input_artifacts/monitoring_rulebook.md first, then read ONLY these study records
+    in /input_artifacts/trials/: NCT07606066.txt, NCT07613489.txt, NCT07619157.txt,
+    NCT07632677.txt. Read each record's prose carefully and pull its monitoring-risk
+    fields, applying the rulebook's in-scope/exclusion rule and its overall-vs-site
+    status-reconciliation rule. Emit one row per trial with the fields nct_id,
+    overall_status, study_type, phase, enrollment_count, enrollment_basis, num_sites,
+    site_statuses, status_divergence_flag, intervention_types, regulated_flag,
+    last_update_date, in_scope, exclusion_reason to
+    /workspace/parts/extract_batch10.md. Do not score or schedule.
+- id: trial-extraction-batch-11
+  depends_on: []
+  parallel_group: extract
+  description: >-
+    You are one of thirteen extraction specialists. Read
+    /input_artifacts/monitoring_rulebook.md first, then read ONLY these study records
+    in /input_artifacts/trials/: NCT07649967.txt, NCT07650682.txt, NCT07655076.txt,
+    NCT07658755.txt. Read each record's prose carefully and pull its monitoring-risk
+    fields, applying the rulebook's in-scope/exclusion rule and its overall-vs-site
+    status-reconciliation rule. Emit one row per trial with the fields nct_id,
+    overall_status, study_type, phase, enrollment_count, enrollment_basis, num_sites,
+    site_statuses, status_divergence_flag, intervention_types, regulated_flag,
+    last_update_date, in_scope, exclusion_reason to
+    /workspace/parts/extract_batch11.md. Do not score or schedule.
+- id: trial-extraction-batch-12
+  depends_on: []
+  parallel_group: extract
+  description: >-
+    You are one of thirteen extraction specialists. Read
+    /input_artifacts/monitoring_rulebook.md first, then read ONLY these study records
+    in /input_artifacts/trials/: NCT07660081.txt, NCT07662109.txt, NCT07662135.txt,
+    NCT07662213.txt. Read each record's prose carefully and pull its monitoring-risk
+    fields, applying the rulebook's in-scope/exclusion rule and its overall-vs-site
+    status-reconciliation rule. Emit one row per trial with the fields nct_id,
+    overall_status, study_type, phase, enrollment_count, enrollment_basis, num_sites,
+    site_statuses, status_divergence_flag, intervention_types, regulated_flag,
+    last_update_date, in_scope, exclusion_reason to
+    /workspace/parts/extract_batch12.md. Do not score or schedule.
+- id: trial-extraction-batch-13
+  depends_on: []
+  parallel_group: extract
+  description: >-
+    You are one of thirteen extraction specialists. Read
+    /input_artifacts/monitoring_rulebook.md first, then read ONLY these study records
+    in /input_artifacts/trials/: NCT07666529.txt, NCT07672652.txt, NCT07674628.txt,
+    NCT07674875.txt. Read each record's prose carefully and pull its monitoring-risk
+    fields, applying the rulebook's in-scope/exclusion rule and its overall-vs-site
+    status-reconciliation rule. Emit one row per trial with the fields nct_id,
+    overall_status, study_type, phase, enrollment_count, enrollment_basis, num_sites,
+    site_statuses, status_divergence_flag, intervention_types, regulated_flag,
+    last_update_date, in_scope, exclusion_reason to
+    /workspace/parts/extract_batch13.md. Do not score or schedule.
+- id: gcp-foundations-research-specialist
+  depends_on: []
+  parallel_group: research
+  description: >-
+    You confirm the foundational good-clinical-practice authorities. Using
+    /input_artifacts/sources_to_confirm.md, open the official source for S-01 and S-02
+    (ICH E6(R2) GCP and the FDA risk-based-monitoring guidance). For each, confirm the
+    specific requirement or fact it supplies, record the URL you actually retrieved on
+    the official domain (ich.org, fda.gov), and freeze the retrieval date. Emit a
+    source_register block (source_id, authority, requirement_or_fact, source_url,
+    retrieved_date, used_in_section) to /workspace/parts/sources_gcp.md.
+- id: gcp-revision-and-qa-research-specialist
+  depends_on: []
+  parallel_group: research
+  description: >-
+    You confirm the current-revision GCP and operational-Q&A authorities. Using
+    /input_artifacts/sources_to_confirm.md, open the official source for S-10 and S-12
+    (the FDA risk-based-monitoring Questions and Answers, and ICH E6(R3) GCP). For
+    each, confirm the specific requirement or fact it supplies, record the URL you
+    actually retrieved on the official domain (fda.gov, ich.org), and freeze the
+    retrieval date. Emit a source_register block (source_id, authority,
+    requirement_or_fact, source_url, retrieved_date, used_in_section) to
+    /workspace/parts/sources_gcp_qa.md.
+- id: methodology-and-framework-research-specialist
+  depends_on: []
+  parallel_group: research
+  description: >-
+    You confirm the study-design and industry-framework authorities. Using
+    /input_artifacts/sources_to_confirm.md, open the official source for S-03 and S-09
+    (ICH E8(R1) General Considerations and the TransCelerate BioPharma RBM framework).
+    For each, confirm what it supplies, record the URL actually retrieved on the
+    official domain (ich.org, transceleratebiopharmainc.com), and freeze the date.
+    Emit a source_register block (source_id, authority, requirement_or_fact,
+    source_url, retrieved_date, used_in_section) to /workspace/parts/sources_method.md.
+- id: cfr-regulation-research-specialist
+  depends_on: []
+  parallel_group: research
+  description: >-
+    You confirm the FDA regulation authorities. Using
+    /input_artifacts/sources_to_confirm.md, open the official source for S-04, S-05
+    and S-06 (21 CFR Part 312 IND, 21 CFR Part 812 IDE, and 21 CFR Part 11 electronic
+    records). For each, confirm what it supplies, record the URL actually retrieved on
+    the official domain (ecfr.gov, govinfo.gov, accessdata.fda.gov), and freeze the
+    date. Emit a source_register block (source_id, authority, requirement_or_fact,
+    source_url, retrieved_date, used_in_section) to /workspace/parts/sources_cfr.md.
+- id: registry-and-subjects-research-specialist
+  depends_on: []
+  parallel_group: research
+  description: >-
+    You confirm the human-subjects, reporting and registry authorities. Using
+    /input_artifacts/sources_to_confirm.md, open the official source for S-07, S-08
+    and S-11 (FDAAA 801 / 42 CFR Part 11 ClinicalTrials.gov registration and results,
+    45 CFR Part 46 the Common Rule, and the NLM ClinicalTrials.gov registry
+    documentation). For each, confirm what it supplies, record the URL actually
+    retrieved on the official domain (ecfr.gov, govinfo.gov, hhs.gov,
+    clinicaltrials.gov), and freeze the date. Emit a source_register block (source_id,
+    authority, requirement_or_fact, source_url, retrieved_date, used_in_section) to
+    /workspace/parts/sources_registry.md.
+- id: extraction-coordinator
+  depends_on:
+  - trial-extraction-batch-1
+  - trial-extraction-batch-2
+  - trial-extraction-batch-3
+  - trial-extraction-batch-4
+  - trial-extraction-batch-5
+  - trial-extraction-batch-6
+  - trial-extraction-batch-7
+  - trial-extraction-batch-8
+  - trial-extraction-batch-9
+  - trial-extraction-batch-10
+  - trial-extraction-batch-11
+  - trial-extraction-batch-12
+  - trial-extraction-batch-13
+  parallel_group: coordinate
+  description: >-
+    You are the extraction coordinator for the portfolio's reading team. The thirteen
+    extraction-batch specialists have each written their rows to
+    /workspace/parts/extract_batch1.md through extract_batch13.md. Read all thirteen,
+    merge them into one portfolio extraction table, resolve duplicate or conflicting
+    rows, and confirm every one of the 52 trials appears exactly once with its
+    monitoring-risk fields, its in-scope/exclusion determination and its
+    status-divergence flag; call out any trial that is missing or ambiguous. Write the
+    single consolidated table to /workspace/parts/extraction_master.md. Do not score or
+    schedule.
+- id: research-coordinator
+  depends_on:
+  - gcp-foundations-research-specialist
+  - gcp-revision-and-qa-research-specialist
+  - methodology-and-framework-research-specialist
+  - cfr-regulation-research-specialist
+  - registry-and-subjects-research-specialist
+  parallel_group: coordinate
+  description: >-
+    You are the research coordinator for the regulatory-confirmation team. The five
+    research specialists have each written a sources_*.md file in /workspace/parts.
+    Read all five, merge them into one source register, and confirm every one of the
+    twelve authorities S-01 through S-12 is present with a confirmed official-domain
+    URL, a retrieval date and the specific requirement or fact it supplies; call out
+    any authority that is missing or unconfirmed. Write the single consolidated
+    register to /workspace/parts/sources_master.md.
+- id: workbook-builder
+  depends_on:
+  - extraction-coordinator
+  - research-coordinator
+  parallel_group: assemble
+  description: >-
+    You are the data engineer who owns the structured monitoring workbook, and the run
+    FAILS unless you write it.     Read /workspace/parts/extraction_master.md,
+    /workspace/parts/sources_master.md, /input_artifacts/monitoring_rulebook.md and
+    /input_artifacts/data_provenance_note.md. For each
+    in-scope trial derive the risk score, risk tier, monitoring hours and visit window
+    from the rulebook, and build the monitoring schedule by applying the rulebook's
+    ranking and weekly CRA-capacity rules, marking each trial schedule_visit (with its
+    assigned week), window_infeasible, or defer_capacity. Reconcile against the
+    rulebook: out-of-scope trials excluded from the schedule, the overall status
+    governing every status conflict, no week over the CRA-hours cap, the source
+    register covering every authority in sources_to_confirm.md, and every trial carried
+    to an audited decision. Write the workbook directly to /logs/agent/output.xlsx with
+    the worksheets trial_risk_scores, monitoring_schedule, conflict_log, exclusion_log,
+    capacity_allocation, source_register, audit_log and summary, using the exact column
+    headers in the task instruction. Read the file back to confirm it exists and every
+    sheet is populated. Do not finish until /logs/agent/output.xlsx exists.
+- id: plan-writer
+  depends_on:
+  - extraction-coordinator
+  - research-coordinator
+  parallel_group: assemble
+  description: >-
+    You are the author who owns the written monitoring plan deliverable, and the run
+    FAILS unless you write it.     Read /workspace/parts/extraction_master.md,
+    /workspace/parts/sources_master.md and /input_artifacts/monitoring_rulebook.md,
+    and derive from the rulebook the risk score, tier,
+    monitoring hours and monitoring decision (with assigned week) for each in-scope
+    trial so your narrative is quantified. Write all twelve sections in order:
+    Executive Summary; Background and Portfolio Overview; Methodology and Risk-Based
+    Monitoring Rulebook (with the risk formula spelled out); Risk-Tiering
+    Determination; Regulated-Intervention and Data-Integrity Analysis; a Trial-by-Trial
+    Risk and Monitoring Proofs section with a short, specific, quantified note for
+    EVERY in-scope trial (name it by NCT number, give its risk score, tier and
+    monitoring decision and assigned week, tie the numbers to the record); Monitoring
+    Schedule and CRA Capacity Allocation; Visit-Window and Capacity Infeasibility
+    Analysis naming every window_infeasible and deferred trial (especially any
+    high-tier trial not monitored this quarter) with a concrete mitigation; Data
+    Reconciliation (overall vs site status); Excluded / Out-of-Scope Studies and Data
+    Limitations; Recommendations and Mitigations; and Regulatory Basis and Citations.
+    Write the whole document directly to /logs/agent/monitoring_plan.md, with no
+    placeholder text. Read it back to confirm it is complete. Do not finish until
+    /logs/agent/monitoring_plan.md exists.

@@ -1,0 +1,256 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+
+sub_tasks:
+
+  - id: mgr--gwmodel
+    parallel_group: managers
+    depends_on: [spec--gwmodel-01, spec--gwmodel-02, spec--gwmodel-03, spec--gwmodel-04, spec--gwmodel-05, spec--gwmodel-06, spec--gwmodel-07, spec--gwmodel-08]
+    description: >-
+      You are the Groundwater Flow Modeling discipline manager. You do not read reports or write records yourself; each of your specialist lanes (spec--gwmodel-01 through spec--gwmodel-08) authors the records for one or two reports. Once your lanes finish, collect the records they produced, confirm that a study-index record exists for each of your 15 Groundwater Flow Modeling reports, and hand the discipline's records up with a short coverage status. Do not author or rewrite records yourself.
+
+  - id: spec--gwmodel-01
+    parallel_group: specialists--gwmodel
+    depends_on: []
+    description: >-
+      Read in full your assigned Groundwater Flow Modeling report bundle(s) a-model-uncertainty-quantification-protocol-for--r012, assessment-of-groundwater-quantity-and-quality-c-r004 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--gwmodel-02
+    parallel_group: specialists--gwmodel
+    depends_on: []
+    description: >-
+      Read in full your assigned Groundwater Flow Modeling report bundle(s) comparison-of-hydrologic-data-and-water-budgets--r013, computation-of-regional-groundwater-budgets-for--r005 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--gwmodel-03
+    parallel_group: specialists--gwmodel
+    depends_on: []
+    description: >-
+      Read in full your assigned Groundwater Flow Modeling report bundle(s) conceptual-and-numerical-groundwater-flow-model--r007, groundwater-and-surface-water-interactions-in-th-r001 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--gwmodel-04
+    parallel_group: specialists--gwmodel
+    depends_on: []
+    description: >-
+      Read in full your assigned Groundwater Flow Modeling report bundle(s) groundwater-budget-for-the-mountain-home-area-so-r006, groundwater-response-to-managed-aquifer-recharge-r009 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--gwmodel-05
+    parallel_group: specialists--gwmodel
+    depends_on: []
+    description: >-
+      Read in full your assigned Groundwater Flow Modeling report bundle(s) inset-groundwater-flow-models-for-the-cache-and-r015, methods-for-estimating-selected-low-flow-statist-r010 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--gwmodel-06
+    parallel_group: specialists--gwmodel
+    depends_on: []
+    description: >-
+      Read in full your assigned Groundwater Flow Modeling report bundle(s) simulated-hydrologic-responses-to-proposed-waste-r011, simulating-present-and-future-groundwater-surfac-r014 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--gwmodel-07
+    parallel_group: specialists--gwmodel
+    depends_on: []
+    description: >-
+      Read in full your assigned Groundwater Flow Modeling report bundle(s) simulation-of-groundwater-flow-in-the-silurian-a-r002, simulation-of-groundwater-flow-in-wake-county-no-r008 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--gwmodel-08
+    parallel_group: specialists--gwmodel
+    depends_on: []
+    description: >-
+      Read in full your assigned Groundwater Flow Modeling report bundle(s) simulation-of-groundwater-flow-to-evaluate-hydro-r003 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: mgr--geophys
+    parallel_group: managers
+    depends_on: [spec--geophys-01, spec--geophys-02, spec--geophys-03]
+    description: >-
+      You are the Geophysics and Subsurface Imaging discipline manager. You do not read reports or write records yourself; each of your specialist lanes (spec--geophys-01 through spec--geophys-03) authors the records for one or two reports. Once your lanes finish, collect the records they produced, confirm that a study-index record exists for each of your 6 Geophysics and Subsurface Imaging reports, and hand the discipline's records up with a short coverage status. Do not author or rewrite records yourself.
+
+  - id: spec--geophys-01
+    parallel_group: specialists--geophys
+    depends_on: []
+    description: >-
+      Read in full your assigned Geophysics and Subsurface Imaging report bundle(s) hydrogeologic-characterization-of-the-cahuilla-v-r019, hydrogeologic-conceptualization-of-the-arroyos-s-r016 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--geophys-02
+    parallel_group: specialists--geophys
+    depends_on: []
+    description: >-
+      Read in full your assigned Geophysics and Subsurface Imaging report bundle(s) hydrogeologic-framework-and-conceptual-groundwat-r018, hydrologic-investigations-and-a-preliminary-conc-r021 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--geophys-03
+    parallel_group: specialists--geophys
+    depends_on: []
+    description: >-
+      Read in full your assigned Geophysics and Subsurface Imaging report bundle(s) paleomagnetic-correlation-of-surface-and-subsurf-r020, top-elevation-of-glacial-till-and-thickness-of-r017 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: mgr--wqgeochem
+    parallel_group: managers
+    depends_on: [spec--wqgeochem-01, spec--wqgeochem-02, spec--wqgeochem-03, spec--wqgeochem-04, spec--wqgeochem-05, spec--wqgeochem-06, spec--wqgeochem-07, spec--wqgeochem-08, spec--wqgeochem-09, spec--wqgeochem-10, spec--wqgeochem-11]
+    description: >-
+      You are the Water Quality and Geochemistry discipline manager. You do not read reports or write records yourself; each of your specialist lanes (spec--wqgeochem-01 through spec--wqgeochem-11) authors the records for one or two reports. Once your lanes finish, collect the records they produced, confirm that a study-index record exists for each of your 21 Water Quality and Geochemistry reports, and hand the discipline's records up with a short coverage status. Do not author or rewrite records yourself.
+
+  - id: spec--wqgeochem-01
+    parallel_group: specialists--wqgeochem
+    depends_on: []
+    description: >-
+      Read in full your assigned Water Quality and Geochemistry report bundle(s) an-evaluation-of-the-effects-of-different-deicin-r026, arsenic-and-isotope-concentrations-in-the-lower--r022 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--wqgeochem-02
+    parallel_group: specialists--wqgeochem
+    depends_on: []
+    description: >-
+      Read in full your assigned Water Quality and Geochemistry report bundle(s) assessment-of-water-chemistry-of-the-coconino-aq-r031, characterization-of-stream-water-quality-and-gro-r034 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--wqgeochem-03
+    parallel_group: specialists--wqgeochem
+    depends_on: []
+    description: >-
+      Read in full your assigned Water Quality and Geochemistry report bundle(s) completion-summary-for-monitor-wells-nrf-17-and-r032, escherichia-coli-monitoring-and-assessment-in-20-r023 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--wqgeochem-04
+    parallel_group: specialists--wqgeochem
+    depends_on: []
+    description: >-
+      Read in full your assigned Water Quality and Geochemistry report bundle(s) evaluation-of-water-quality-in-the-langford-vall-r024, evidence-of-nitrate-attenuation-in-intertidal-an-r040 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--wqgeochem-05
+    parallel_group: specialists--wqgeochem
+    depends_on: []
+    description: >-
+      Read in full your assigned Water Quality and Geochemistry report bundle(s) groundwater-age-estimates-for-the-mississippi-ri-r035, groundwater-hydrology-groundwater-and-surface-wa-r036 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--wqgeochem-06
+    parallel_group: specialists--wqgeochem
+    depends_on: []
+    description: >-
+      Read in full your assigned Water Quality and Geochemistry report bundle(s) groundwater-quality-and-groundwater-levels-in-do-r041, hydrogeology-and-groundwater-quality-in-the-snak-r033 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--wqgeochem-07
+    parallel_group: specialists--wqgeochem
+    depends_on: []
+    description: >-
+      Read in full your assigned Water Quality and Geochemistry report bundle(s) iodine-129-in-the-eastern-snake-river-plain-r038, multidecadal-change-in-pesticide-concentrations--r028 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--wqgeochem-08
+    parallel_group: specialists--wqgeochem
+    depends_on: []
+    description: >-
+      Read in full your assigned Water Quality and Geochemistry report bundle(s) perchlorate-metals-organic-compounds-and-lead-is-r039, quality-of-groundwater-used-for-domestic-supply--r025 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--wqgeochem-09
+    parallel_group: specialists--wqgeochem
+    depends_on: []
+    description: >-
+      Read in full your assigned Water Quality and Geochemistry report bundle(s) quality-of-groundwater-used-for-domestic-supply--r042, reconnaissance-of-potential-alternate-water-supp-r027 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--wqgeochem-10
+    parallel_group: specialists--wqgeochem
+    depends_on: []
+    description: >-
+      Read in full your assigned Water Quality and Geochemistry report bundle(s) sources-of-water-and-salts-for-the-zuni-r029, u-s-geological-survey-integrated-water-availabil-r037 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--wqgeochem-11
+    parallel_group: specialists--wqgeochem
+    depends_on: []
+    description: >-
+      Read in full your assigned Water Quality and Geochemistry report bundle(s) water-resources-inventory-and-assessment-at-kata-r030 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: mgr--surfwater
+    parallel_group: managers
+    depends_on: [spec--surfwater-01, spec--surfwater-02, spec--surfwater-03, spec--surfwater-04, spec--surfwater-05]
+    description: >-
+      You are the Surface Water and Watersheds discipline manager. You do not read reports or write records yourself; each of your specialist lanes (spec--surfwater-01 through spec--surfwater-05) authors the records for one or two reports. Once your lanes finish, collect the records they produced, confirm that a study-index record exists for each of your 9 Surface Water and Watersheds reports, and hand the discipline's records up with a short coverage status. Do not author or rewrite records yourself.
+
+  - id: spec--surfwater-01
+    parallel_group: specialists--surfwater
+    depends_on: []
+    description: >-
+      Read in full your assigned Surface Water and Watersheds report bundle(s) aquifer-storage-change-and-storage-properties-ri-r048, assessing-natural-recharge-in-indian-wells-valle-r045 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--surfwater-02
+    parallel_group: specialists--surfwater
+    depends_on: []
+    description: >-
+      Read in full your assigned Surface Water and Watersheds report bundle(s) assessing-the-state-of-hydrologic-science-in-the-r044, climate-change-and-future-water-availability-in--r049 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--surfwater-03
+    parallel_group: specialists--surfwater
+    depends_on: []
+    description: >-
+      Read in full your assigned Surface Water and Watersheds report bundle(s) determination-of-baseline-water-quality-conditio-r043, estimating-domestic-self-supplied-water-use-in-r-r051 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--surfwater-04
+    parallel_group: specialists--surfwater
+    depends_on: []
+    description: >-
+      Read in full your assigned Surface Water and Watersheds report bundle(s) groundwater-level-elevations-in-the-bedrock-aqui-r046, groundwater-level-elevations-in-the-denver-basin-r050 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--surfwater-05
+    parallel_group: specialists--surfwater
+    depends_on: []
+    description: >-
+      Read in full your assigned Surface Water and Watersheds report bundle(s) hydrogeologic-framework-and-conceptual-model-of--r047 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: mgr--aquifer
+    parallel_group: managers
+    depends_on: [spec--aquifer-01, spec--aquifer-02, spec--aquifer-03, spec--aquifer-04, spec--aquifer-05]
+    description: >-
+      You are the Aquifer Characterization and Hydrogeology discipline manager. You do not read reports or write records yourself; each of your specialist lanes (spec--aquifer-01 through spec--aquifer-05) authors the records for one or two reports. Once your lanes finish, collect the records they produced, confirm that a study-index record exists for each of your 10 Aquifer Characterization and Hydrogeology reports, and hand the discipline's records up with a short coverage status. Do not author or rewrite records yourself.
+
+  - id: spec--aquifer-01
+    parallel_group: specialists--aquifer
+    depends_on: []
+    description: >-
+      Read in full your assigned Aquifer Characterization and Hydrogeology report bundle(s) assessment-of-the-interconnection-between-tampa--r061, characterization-of-the-hydrogeologic-framework--r056 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--aquifer-02
+    parallel_group: specialists--aquifer
+    depends_on: []
+    description: >-
+      Read in full your assigned Aquifer Characterization and Hydrogeology report bundle(s) data-gap-analysis-for-estimation-of-agricultural-r059, geochemical-and-hydrological-investigations-of-h-r054 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--aquifer-03
+    parallel_group: specialists--aquifer
+    depends_on: []
+    description: >-
+      Read in full your assigned Aquifer Characterization and Hydrogeology report bundle(s) hydraulic-conductivity-and-transmissivity-estima-r055, hydrogeologic-mapping-and-three-dimensional-geol-r057 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--aquifer-04
+    parallel_group: specialists--aquifer
+    depends_on: []
+    description: >-
+      Read in full your assigned Aquifer Characterization and Hydrogeology report bundle(s) shallow-hydrogeologic-framework-of-the-tully-val-r052, status-of-water-level-altitudes-and-long-term-r058 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--aquifer-05
+    parallel_group: specialists--aquifer
+    depends_on: []
+    description: >-
+      Read in full your assigned Aquifer Characterization and Hydrogeology report bundle(s) three-dimensional-hydrogeologic-framework-model--r060, treatability-study-to-evaluate-bioremediation-of-r053 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: mgr--synthesis
+    parallel_group: managers
+    depends_on: [spec--synthesis-01, spec--synthesis-02, spec--synthesis-03]
+    description: >-
+      You are the Data Synthesis and Mapping discipline manager. You do not read reports or write records yourself; each of your specialist lanes (spec--synthesis-01 through spec--synthesis-03) authors the records for one or two reports. Once your lanes finish, collect the records they produced, confirm that a study-index record exists for each of your 5 Data Synthesis and Mapping reports, and hand the discipline's records up with a short coverage status. Do not author or rewrite records yourself.
+
+  - id: spec--synthesis-01
+    parallel_group: specialists--synthesis
+    depends_on: []
+    description: >-
+      Read in full your assigned Data Synthesis and Mapping report bundle(s) estimated-hydrogeologic-spatial-and-temporal-dis-r063, groundwater-budget-for-the-surficial-aquifer-sur-r064 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--synthesis-02
+    parallel_group: specialists--synthesis
+    depends_on: []
+    description: >-
+      Read in full your assigned Data Synthesis and Mapping report bundle(s) groundwater-storage-change-in-the-north-phoenix--r066, hydrogeologic-framework-of-the-mountain-home-are-r065 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: spec--synthesis-03
+    parallel_group: specialists--synthesis
+    depends_on: []
+    description: >-
+      Read in full your assigned Data Synthesis and Mapping report bundle(s) hydrogeology-of-unconsolidated-and-bedrock-aquif-r062 at /input_artifacts/reports/<report>.md and write /logs/agent/records/<report>.md for each with the level-1 heading and the sections Study identity, Setting and objective, Findings and interpretation, and Applied methods (the field, laboratory, and modeling methods the study actually used, from its candidate list). Write in your own words grounded only in the assigned report; do not copy the report text.
+
+  - id: merge
+    parallel_group: merge
+    depends_on: [mgr--gwmodel, mgr--geophys, mgr--wqgeochem, mgr--surfwater, mgr--aquifer, mgr--synthesis]
+    description: >-
+      Take the discipline-checked records handed up by the six discipline managers and assemble the two consolidation deliverables: /logs/agent/method_map.jsonld (72 nodes: 6 discipline roots from /input_artifacts/discipline_roots.csv plus one node per report carrying title, discipline and one classified_under edge to its discipline root, with report counts per discipline matching the roster) and /logs/agent/validation_log.json (one truthful entry per report with worker_id, discipline, index_id, series and methods_verified). Consolidate only; do not author missing records.

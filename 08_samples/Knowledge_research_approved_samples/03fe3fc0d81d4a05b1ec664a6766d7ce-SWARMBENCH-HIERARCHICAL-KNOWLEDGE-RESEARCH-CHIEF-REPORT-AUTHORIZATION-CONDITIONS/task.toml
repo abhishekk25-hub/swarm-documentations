@@ -1,0 +1,26 @@
+[task]
+name = "swarmbench/03fe3fc0d81d4a05b1ec664a6766d7ce-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-CHIEF-REPORT-AUTHORIZATION-CONDITIONS"
+description = "Reconstruct the authorization conditions of the twenty most recent signed USACE Chief of Engineers reports into a cited conditions register and a sponsor readiness matrix in one workbook, plus a legislative engagement briefing telling a state water resources agency which projects need local sponsor action, which need technical clarification from the Corps district, and which need federal advocacy before the next authorization cycle."
+timeout_sec = 5400
+
+[metadata]
+verifier_type = "hybrid"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_writing", "long_horizon"]
+dag_depth = 4
+dag_width = 20
+human_solving_hours_estimate = 54.0
+human_solving_hours_justification = "One analyst must read each of the twenty packaged signed Chief of Engineers reports end to end and pull project purpose, nonfederal sponsor, recommended plan, estimated first cost, cost price level, benefit basis, environmental commitments, implementation dependencies, authorization matters and page citations out of narrative recommendation language: 20 reports x 1.5 h = 30 h. Cross report reconciliation of differing price levels, base versus supplemental document relationships and dependencies shared across projects adds 8 h. Assigning and defending one readiness label per project against that project's own evidence adds 6 h. Assembling the conditions_register and sponsor_readiness sheets into the workbook adds 4 h. Drafting the legislative briefing and running the consistency pass between the briefing and both sheets adds 6 h. 30 + 8 + 6 + 4 + 6 = 54 hours."
+estimated_sub_agents = 32
+input_token_estimate = 130000
+reference_link = "https://planning.erdc.dren.mil/toolbox/library.cfm?Option=Direct&Group=Main&Item=Chief+Report&Sub=None&Sort=YearDesc"
+why_multi_agent = "One context has to hold twenty signed reports while extracting fifteen register fields and seven readiness fields from each, and those fields sit in narrative recommendation language rather than in greppable structure, so later reports get progressively thinner treatment as earlier report detail is displaced and the cited evidence trail degrades first. The hierarchical graph gives each report its own reader, dispatched through a super-manager and four quintet managers so no manager ever coordinates more than five reports at once, and so no reader's own context carries more than one document's detail. One portfolio-wide consolidation task then reconciles all twenty finished records into a single checked set, which three normalization tasks compare across the full twenty from three different angles -- cost basis, environmental commitments, and sponsor obligations -- before two independent synthesis tasks build the workbook and the legislative briefing from that same checked, normalized set. Reconciling price levels, base versus supplemental relationships and sponsor obligations that repeat across projects is a genuinely different pass from single report extraction, which is why it occupies its own layer instead of being folded into the readers or into the final write up, and writing a data workbook and an analytical leadership briefing are different enough tasks that giving them separate synthesis agents keeps the briefing from being written as a byproduct of assembling the workbook."
+
+[verifier]
+timeout_sec = 900
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600

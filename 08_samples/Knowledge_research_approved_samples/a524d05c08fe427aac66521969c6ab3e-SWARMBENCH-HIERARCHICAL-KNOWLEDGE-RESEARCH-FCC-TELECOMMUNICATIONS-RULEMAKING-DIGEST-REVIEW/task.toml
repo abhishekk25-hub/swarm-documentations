@@ -1,0 +1,28 @@
+[task]
+name = "swarmbench/a524d05c08fe427aac66521969c6ab3e-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-FCC-TELECOMMUNICATIONS-RULEMAKING-DIGEST-REVIEW"
+description = "Read 72 FCC Federal Register rulemaking releases; produce one source-grounded digest per release, a coded rule register, and a cross-release spectrum survey. The hybrid verifier uses authorship gating, a simple three-group reward mean, and a suite with at least 60% genuine content checks so roster-only or hollow files earn little credit."
+[metadata]
+verifier_type = "hybrid"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_writing", "long_horizon"]
+dag_depth = 3
+dag_width = 36
+human_solving_hours_estimate = 124.0
+human_solving_hours_justification = "The 72 releases total about 542,000 words. Close reading at 7,000 words/hour is 77 h; 72 authored digests at about 0.42 h each are 30 h; the spectrum survey is 6 h; register coding is 4 h; and grounding/QC is 7 h. Total: 77+30+6+4+7 = 124 h."
+estimated_sub_agents = 46
+input_token_estimate = 770000
+why_multi_agent = "The task requires reading about 770,000 input tokens and writing 72 distinct regulatory digests before a register and whole-corpus survey can be reconciled. Thirty-six specialists can each read two releases in full; nine leads compare eight digests and assemble register slices; one reducer integrates the nine rollups. A single agent must perform all reading, writing, and synthesis inside the same 900-second budget, creating a natural timeout or context-pressure gap."
+reference_link = "https://www.federalregister.gov/documents/2026-15601"
+network_enabled = false
+
+[agent]
+timeout_sec = 780
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600

@@ -1,0 +1,569 @@
+version: "1.0"
+coordination_pattern: "hierarchical"
+
+notes: |
+  ORCHESTRATOR ROLE RESTRICTION: the orchestrator's only legal actions are (1) read its own
+  instruction, (2) write /workspace/routing.md from disaster_index.csv splitting each domain's
+  23 disasters into lanes of two (the last lane of a domain holding one), (3) call task() to
+  spawn the six domain managers, (4) await their completion, (5) call task() to spawn
+  cross_industry_pattern_reconciliation once all six managers are done, (6) call task() to spawn
+  final_synthesis once the managers and the reconciliation node are both done, and (7) confirm
+  the four required deliverables exist under /logs/agent/ (existence-only, via ls) before
+  finishing. That is the orchestrator's complete and exclusive task() budget for this run --
+  exactly eight task() calls (six managers, one reconciliation, one synthesis), no more, no
+  fewer, and no additional ad hoc or corrective dispatch. The orchestrator must NOT itself read
+  any file under /input_artifacts/corpus/, must NOT itself read or write any /workspace/shards/
+  file, must NOT itself inspect the CONTENTS of any record, the register, the synthesis, or the
+  taxonomy file, and must NOT re-do or second-guess a manager's, the reconciliation node's, or
+  final_synthesis's own work -- all real reading, writing, and judgment happens inside the
+  sub-agents it dispatches.
+
+  DISPATCH OWNERSHIP: the orchestrator's own direct task() calls are exactly the six domain
+  managers, then cross_industry_pattern_reconciliation, then final_synthesis -- eight calls
+  total. The orchestrator must NOT itself call any parallel_group: specialists entry directly.
+  Each domain manager dispatches its own lanes as its first action after being spawned -- a
+  manager that never calls task() to spawn its own lanes has not acted as a manager, regardless
+  of what subagent_type it was given. This is what makes the hierarchy genuinely three levels
+  deep (orchestrator -> manager -> specialist lane) rather than one flat fan-out with an extra
+  label.
+
+  FILE-BASED HANDOFF: every specialist lane writes one shard JSON file per disaster it owns
+  under /workspace/shards/<slug>.json, never returning its findings as inline text in its
+  task() reply -- a manager overseeing twelve lanes covering twenty-three disasters cannot hold
+  all of that content in its own context and should not try to. cross_industry_pattern_reconciliation
+  and final_synthesis both read shards directly from disk, not through any manager's own reply
+  text.
+
+  CROSS-INDUSTRY SCOPE: no domain manager and no specialist lane may read another domain's
+  corpus files or shards, and none may determine a cross_industry_link -- every specialist
+  writes cross_industry_link as an implicit absence (the field simply is not part of a shard;
+  final_synthesis fills it in later using only cross_industry_pattern_reconciliation's own
+  confirmed output). cross_industry_pattern_reconciliation is the ONLY node in this task
+  allowed to read shards from more than one domain against each other, and it must confirm a
+  genuine shared MECHANISM (not just a shared causal_pattern label) by reading both disasters'
+  own real source dossiers before recording a link -- a shared category name alone is not
+  sufficient grounds for a link.
+
+  SUB-TASK DESCRIPTIONS ARE SCOPE-ONLY: every specialist lane's description states WHAT
+  disasters to read and WHAT to produce (the record and shard schema), never WHICH specific
+  causal patterns, facts, or classifications to expect -- discovering the real causal chain and
+  which patterns genuinely apply is exactly the work each lane is being asked to do. The same
+  applies to cross_industry_pattern_reconciliation and final_synthesis: their descriptions state
+  the reconciliation/synthesis METHOD without asserting which specific cross-industry links are
+  genuine or what the finished synthesis should conclude.
+
+  SPECIALIST LANE CONTRACT (applies to every spec--* sub_task below, referenced rather than
+  repeated in each one): for each disaster you own, read its full source dossier in
+  /input_artifacts/corpus/, together with /input_artifacts/causal_pattern_taxonomy.md for the
+  exact record contract and the eight causal pattern definitions with their worked examples,
+  then write a faithful causal-chain record at /logs/agent/records/<slug>.md: a level-1 heading
+  with the real disaster name, an Identity section (real date, real location, industry_domain,
+  and real toll/QID where the source states one), a Causal chain section with five labeled
+  parts (Root cause, Contributing factors, Failure point, Consequence, Reform triggered)
+  specific to this disaster and grounded in its own dossier, and a Causal pattern
+  classification section naming which of the eight patterns genuinely apply (REGULATORY_CAPTURE_OR_WEAK_OVERSIGHT, MAINTENANCE_DEFERRAL_OR_NEGLECT, DESIGN_OR_ENGINEERING_FLAW, OPERATOR_OR_HUMAN_ERROR, COST_CUTTING_UNDER_COMMERCIAL_PRESSURE, CASCADING_OR_COMMON_MODE_FAILURE, IGNORED_PRIOR_WARNINGS_OR_TESTS, INADEQUATE_SAFETY_CULTURE_OR_TRAINING),
+  each with one real, exact, substantive supporting quote copied from this disaster's own
+  source dossier. Do not assign a pattern the source doesn't actually support, and do not write
+  a causal chain generic enough to describe a different disaster equally well. Also write each
+  disaster's shard at /workspace/shards/<slug>.json as a JSON object with disaster_slug,
+  disaster_name, industry_domain, real_date, worker_id (naming you as the specialist that
+  produced it), and patterns (an array of objects, one per applicable causal pattern, each with
+  causal_pattern, key_finding, and supporting_quote matching what you wrote in the record). Do
+  not read any other domain's corpus files, and do not determine any cross_industry_link -- that
+  field does not belong in your shard at all; it is filled in later by
+  cross_industry_pattern_reconciliation and final_synthesis, which you have no visibility into.
+
+  MANAGER LANE CONTRACT (applies to every mgr--* sub_task below): do not read any corpus file or
+  write any record or shard yourself. Your FIRST action must be to call the task tool yourself
+  (subagent_type: explore) to spawn your own 12 specialist lanes, each already assigned its one
+  or two disasters -- do not proceed as if their output already exists; you are the one who must
+  produce it by dispatching all of them yourself, exactly once each. Wait for all 12 to finish,
+  then confirm that a record and a shard exist for every one of your 23 disasters. If a record
+  or shard is still missing for one of your disasters, you may dispatch one replacement
+  specialist for that disaster, and only one; report anything still missing after that in your
+  status instead of dispatching again. Do not read another domain's corpus files or shards, and
+  do not determine or guess at any cross_industry_link -- that is exclusively
+  cross_industry_pattern_reconciliation's job, since you have no visibility into any other
+  domain. In your own final reply, report only which of your 23 disasters have a record and
+  shard present, not their contents.
+
+sub_tasks:
+  - id: mgr--mining
+    parallel_group: managers
+    depends_on: []
+    description: >-
+      You are the Mining & Underground domain manager, responsible for exactly the 23 real disasters whose industry_domain in /input_artifacts/disaster_index.csv is "mining". Follow the MANAGER LANE CONTRACT in these notes. Your 12 specialist lanes are: spec--mining-01, spec--mining-02, spec--mining-03, spec--mining-04, spec--mining-05, spec--mining-06, spec--mining-07, spec--mining-08, spec--mining-09, spec--mining-10, spec--mining-11, spec--mining-12.
+
+  - id: mgr--maritime
+    parallel_group: managers
+    depends_on: []
+    description: >-
+      You are the Maritime & Offshore domain manager, responsible for exactly the 23 real disasters whose industry_domain in /input_artifacts/disaster_index.csv is "maritime". Follow the MANAGER LANE CONTRACT in these notes. Your 12 specialist lanes are: spec--maritime-01, spec--maritime-02, spec--maritime-03, spec--maritime-04, spec--maritime-05, spec--maritime-06, spec--maritime-07, spec--maritime-08, spec--maritime-09, spec--maritime-10, spec--maritime-11, spec--maritime-12.
+
+  - id: mgr--aviation
+    parallel_group: managers
+    depends_on: []
+    description: >-
+      You are the Aviation & Aerospace domain manager, responsible for exactly the 23 real disasters whose industry_domain in /input_artifacts/disaster_index.csv is "aviation". Follow the MANAGER LANE CONTRACT in these notes. Your 12 specialist lanes are: spec--aviation-01, spec--aviation-02, spec--aviation-03, spec--aviation-04, spec--aviation-05, spec--aviation-06, spec--aviation-07, spec--aviation-08, spec--aviation-09, spec--aviation-10, spec--aviation-11, spec--aviation-12.
+
+  - id: mgr--structural
+    parallel_group: managers
+    depends_on: []
+    description: >-
+      You are the Structural & Civil Engineering domain manager, responsible for exactly the 23 real disasters whose industry_domain in /input_artifacts/disaster_index.csv is "structural". Follow the MANAGER LANE CONTRACT in these notes. Your 12 specialist lanes are: spec--structural-01, spec--structural-02, spec--structural-03, spec--structural-04, spec--structural-05, spec--structural-06, spec--structural-07, spec--structural-08, spec--structural-09, spec--structural-10, spec--structural-11, spec--structural-12.
+
+  - id: mgr--chemical
+    parallel_group: managers
+    depends_on: []
+    description: >-
+      You are the Chemical & Industrial Plants domain manager, responsible for exactly the 23 real disasters whose industry_domain in /input_artifacts/disaster_index.csv is "chemical". Follow the MANAGER LANE CONTRACT in these notes. Your 12 specialist lanes are: spec--chemical-01, spec--chemical-02, spec--chemical-03, spec--chemical-04, spec--chemical-05, spec--chemical-06, spec--chemical-07, spec--chemical-08, spec--chemical-09, spec--chemical-10, spec--chemical-11, spec--chemical-12.
+
+  - id: mgr--rail
+    parallel_group: managers
+    depends_on: []
+    description: >-
+      You are the Rail & Transit domain manager, responsible for exactly the 23 real disasters whose industry_domain in /input_artifacts/disaster_index.csv is "rail". Follow the MANAGER LANE CONTRACT in these notes. Your 12 specialist lanes are: spec--rail-01, spec--rail-02, spec--rail-03, spec--rail-04, spec--rail-05, spec--rail-06, spec--rail-07, spec--rail-08, spec--rail-09, spec--rail-10, spec--rail-11, spec--rail-12.
+
+  - id: spec--mining-01
+    parallel_group: specialists
+    depends_on: [mgr--mining]
+    description: >-
+      You own 2 real Mining & Underground disasters: Courrières mine disaster (slug courrieres-mine-disaster); Monongah mining disaster (slug monongah-mining-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--mining-02
+    parallel_group: specialists
+    depends_on: [mgr--mining]
+    description: >-
+      You own 2 real Mining & Underground disasters: Senghenydd colliery disaster (slug senghenydd-colliery-disaster); Benxihu Colliery disaster (slug benxihu-colliery-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--mining-03
+    parallel_group: specialists
+    depends_on: [mgr--mining]
+    description: >-
+      You own 2 real Mining & Underground disasters: Sunshine Mine disaster (slug sunshine-mine-disaster); Aberfan disaster (slug aberfan-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--mining-04
+    parallel_group: specialists
+    depends_on: [mgr--mining]
+    description: >-
+      You own 2 real Mining & Underground disasters: Soma mine disaster (slug soma-mine-disaster); Upper Big Branch Mine disaster (slug upper-big-branch-mine-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--mining-05
+    parallel_group: specialists
+    depends_on: [mgr--mining]
+    description: >-
+      You own 2 real Mining & Underground disasters: Sago Mine disaster (slug sago-mine-disaster); Pike River Mine disaster (slug pike-river-mine-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--mining-06
+    parallel_group: specialists
+    depends_on: [mgr--mining]
+    description: >-
+      You own 2 real Mining & Underground disasters: Bois du Cazier (slug bois-du-cazier); Mount Kembla mining disaster (slug mount-kembla-mining-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--mining-07
+    parallel_group: specialists
+    depends_on: [mgr--mining]
+    description: >-
+      You own 2 real Mining & Underground disasters: Oaks explosion (slug oaks-explosion); Gresford disaster (slug gresford-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--mining-08
+    parallel_group: specialists
+    depends_on: [mgr--mining]
+    description: >-
+      You own 2 real Mining & Underground disasters: Coalbrook mining disaster (slug coalbrook-mining-disaster); Mount Mulligan mine disaster (slug mount-mulligan-mine-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--mining-09
+    parallel_group: specialists
+    depends_on: [mgr--mining]
+    description: >-
+      You own 2 real Mining & Underground disasters: Wilberg Mine disaster (slug wilberg-mine-disaster); Farmington mine disaster (slug farmington-mine-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--mining-10
+    parallel_group: specialists
+    depends_on: [mgr--mining]
+    description: >-
+      You own 2 real Mining & Underground disasters: Moura No. 2 Mine disaster (slug moura-no-2-mine-disaster); Samarco dam disaster (slug samarco-dam-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--mining-11
+    parallel_group: specialists
+    depends_on: [mgr--mining]
+    description: >-
+      You own 2 real Mining & Underground disasters: Centralia mine fire (slug centralia-mine-fire); Chasnala mining disaster (slug chasnala-mining-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--mining-12
+    parallel_group: specialists
+    depends_on: [mgr--mining]
+    description: >-
+      You own 1 real Mining & Underground disaster: Hillcrest mine disaster (slug hillcrest-mine-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--maritime-01
+    parallel_group: specialists
+    depends_on: [mgr--maritime]
+    description: >-
+      You own 2 real Maritime & Offshore disasters: Sinking of the Titanic (slug sinking-of-the-titanic); MV Doña Paz (slug mv-dona-paz). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--maritime-02
+    parallel_group: specialists
+    depends_on: [mgr--maritime]
+    description: >-
+      You own 2 real Maritime & Offshore disasters: MS Estonia (slug ms-estonia); Exxon Valdez oil spill (slug exxon-valdez-oil-spill). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--maritime-03
+    parallel_group: specialists
+    depends_on: [mgr--maritime]
+    description: >-
+      You own 2 real Maritime & Offshore disasters: Deepwater Horizon oil spill (slug deepwater-horizon-oil-spill); Piper Alpha (slug piper-alpha). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--maritime-04
+    parallel_group: specialists
+    depends_on: [mgr--maritime]
+    description: >-
+      You own 2 real Maritime & Offshore disasters: Herald of Free Enterprise (slug herald-of-free-enterprise); SS Sultana (slug ss-sultana). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--maritime-05
+    parallel_group: specialists
+    depends_on: [mgr--maritime]
+    description: >-
+      You own 2 real Maritime & Offshore disasters: Sinking of MV Sewol (slug sinking-of-mv-sewol); Costa Concordia disaster (slug costa-concordia-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--maritime-06
+    parallel_group: specialists
+    depends_on: [mgr--maritime]
+    description: >-
+      You own 2 real Maritime & Offshore disasters: Alexander L. Kielland (platform) (slug alexander-l-kielland-platform); Ocean Ranger (slug ocean-ranger). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--maritime-07
+    parallel_group: specialists
+    depends_on: [mgr--maritime]
+    description: >-
+      You own 2 real Maritime & Offshore disasters: Torrey Canyon oil spill (slug torrey-canyon-oil-spill); Amoco Cadiz oil spill (slug amoco-cadiz-oil-spill). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--maritime-08
+    parallel_group: specialists
+    depends_on: [mgr--maritime]
+    description: >-
+      You own 2 real Maritime & Offshore disasters: Prestige oil spill (slug prestige-oil-spill); SS Andrea Doria (slug ss-andrea-doria). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--maritime-09
+    parallel_group: specialists
+    depends_on: [mgr--maritime]
+    description: >-
+      You own 2 real Maritime & Offshore disasters: PS General Slocum (slug ps-general-slocum); RMS Empress of Ireland (slug rms-empress-of-ireland). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--maritime-10
+    parallel_group: specialists
+    depends_on: [mgr--maritime]
+    description: >-
+      You own 2 real Maritime & Offshore disasters: MV Le Joola (slug mv-le-joola); Al-Salam Boccaccio 98 (slug al-salam-boccaccio-98). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--maritime-11
+    parallel_group: specialists
+    depends_on: [mgr--maritime]
+    description: >-
+      You own 2 real Maritime & Offshore disasters: RMS Lusitania (slug rms-lusitania); Scandinavian Star (slug scandinavian-star). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--maritime-12
+    parallel_group: specialists
+    depends_on: [mgr--maritime]
+    description: >-
+      You own 1 real Maritime & Offshore disaster: SS El Faro (slug ss-el-faro). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--aviation-01
+    parallel_group: specialists
+    depends_on: [mgr--aviation]
+    description: >-
+      You own 2 real Aviation & Aerospace disasters: Tenerife airport disaster (slug tenerife-airport-disaster); Space Shuttle Challenger disaster (slug space-shuttle-challenger-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--aviation-02
+    parallel_group: specialists
+    depends_on: [mgr--aviation]
+    description: >-
+      You own 2 real Aviation & Aerospace disasters: Space Shuttle Columbia disaster (slug space-shuttle-columbia-disaster); American Airlines Flight 191 (slug american-airlines-flight-191). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--aviation-03
+    parallel_group: specialists
+    depends_on: [mgr--aviation]
+    description: >-
+      You own 2 real Aviation & Aerospace disasters: Japan Airlines Flight 123 (slug japan-airlines-flight-123); Air France Flight 447 (slug air-france-flight-447). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--aviation-04
+    parallel_group: specialists
+    depends_on: [mgr--aviation]
+    description: >-
+      You own 2 real Aviation & Aerospace disasters: United Airlines Flight 232 (slug united-airlines-flight-232); ValuJet Flight 592 (slug valujet-flight-592). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--aviation-05
+    parallel_group: specialists
+    depends_on: [mgr--aviation]
+    description: >-
+      You own 2 real Aviation & Aerospace disasters: TWA Flight 800 (slug twa-flight-800); Turkish Airlines Flight 981 (slug turkish-airlines-flight-981). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--aviation-06
+    parallel_group: specialists
+    depends_on: [mgr--aviation]
+    description: >-
+      You own 2 real Aviation & Aerospace disasters: Aloha Airlines Flight 243 (slug aloha-airlines-flight-243); Air France Flight 4590 (slug air-france-flight-4590). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--aviation-07
+    parallel_group: specialists
+    depends_on: [mgr--aviation]
+    description: >-
+      You own 2 real Aviation & Aerospace disasters: Boeing 737 MAX groundings (slug boeing-737-max-groundings); Swissair Flight 111 (slug swissair-flight-111). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--aviation-08
+    parallel_group: specialists
+    depends_on: [mgr--aviation]
+    description: >-
+      You own 2 real Aviation & Aerospace disasters: British Airtours Flight 28M (slug british-airtours-flight-28m); De Havilland Comet (slug de-havilland-comet). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--aviation-09
+    parallel_group: specialists
+    depends_on: [mgr--aviation]
+    description: >-
+      You own 2 real Aviation & Aerospace disasters: El Al Flight 1862 (slug el-al-flight-1862); Korean Air Flight 801 (slug korean-air-flight-801). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--aviation-10
+    parallel_group: specialists
+    depends_on: [mgr--aviation]
+    description: >-
+      You own 2 real Aviation & Aerospace disasters: Air Ontario Flight 1363 (slug air-ontario-flight-1363); China Airlines Flight 140 (slug china-airlines-flight-140). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--aviation-11
+    parallel_group: specialists
+    depends_on: [mgr--aviation]
+    description: >-
+      You own 2 real Aviation & Aerospace disasters: Lauda Air Flight 004 (slug lauda-air-flight-004); Saudia Flight 163 (slug saudia-flight-163). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--aviation-12
+    parallel_group: specialists
+    depends_on: [mgr--aviation]
+    description: >-
+      You own 1 real Aviation & Aerospace disaster: Helios Airways Flight 522 (slug helios-airways-flight-522). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--structural-01
+    parallel_group: specialists
+    depends_on: [mgr--structural]
+    description: >-
+      You own 2 real Structural & Civil Engineering disasters: Tacoma Narrows Bridge (1940) (slug tacoma-narrows-bridge-1940); Hyatt Regency walkway collapse (slug hyatt-regency-walkway-collapse). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--structural-02
+    parallel_group: specialists
+    depends_on: [mgr--structural]
+    description: >-
+      You own 2 real Structural & Civil Engineering disasters: I-35W Mississippi River bridge collapse (slug i-35w-mississippi-river-bridge-collapse); Genoa bridge collapse (slug 2018-genoa-bridge-collapse). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--structural-03
+    parallel_group: specialists
+    depends_on: [mgr--structural]
+    description: >-
+      You own 2 real Structural & Civil Engineering disasters: Rana Plaza collapse (slug rana-plaza-collapse); Grenfell Tower fire (slug grenfell-tower-fire). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--structural-04
+    parallel_group: specialists
+    depends_on: [mgr--structural]
+    description: >-
+      You own 2 real Structural & Civil Engineering disasters: Champlain Towers South collapse (slug champlain-towers-south-collapse); Sampoong Department Store collapse (slug sampoong-department-store-collapse). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--structural-05
+    parallel_group: specialists
+    depends_on: [mgr--structural]
+    description: >-
+      You own 2 real Structural & Civil Engineering disasters: Banqiao Dam (slug banqiao-dam); St. Francis Dam (slug st-francis-dam). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--structural-06
+    parallel_group: specialists
+    depends_on: [mgr--structural]
+    description: >-
+      You own 2 real Structural & Civil Engineering disasters: Vajont Dam (slug vajont-dam); Johnstown Flood (slug johnstown-flood). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--structural-07
+    parallel_group: specialists
+    depends_on: [mgr--structural]
+    description: >-
+      You own 2 real Structural & Civil Engineering disasters: Quebec Bridge (slug quebec-bridge); Silver Bridge (slug silver-bridge). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--structural-08
+    parallel_group: specialists
+    depends_on: [mgr--structural]
+    description: >-
+      You own 2 real Structural & Civil Engineering disasters: Teton Dam (slug teton-dam); Ronan Point (slug ronan-point). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--structural-09
+    parallel_group: specialists
+    depends_on: [mgr--structural]
+    description: >-
+      You own 2 real Structural & Civil Engineering disasters: Willow Island disaster (slug willow-island-disaster); L'Ambiance Plaza (slug lambiance-plaza). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--structural-10
+    parallel_group: specialists
+    depends_on: [mgr--structural]
+    description: >-
+      You own 2 real Structural & Civil Engineering disasters: Skyline Plaza collapse (slug skyline-plaza-collapse); Big Dig ceiling collapse (slug big-dig-ceiling-collapse). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--structural-11
+    parallel_group: specialists
+    depends_on: [mgr--structural]
+    description: >-
+      You own 2 real Structural & Civil Engineering disasters: Tay Bridge disaster (slug tay-bridge-disaster); West Gate Bridge collapse (slug west-gate-bridge-collapse). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--structural-12
+    parallel_group: specialists
+    depends_on: [mgr--structural]
+    description: >-
+      You own 1 real Structural & Civil Engineering disaster: Malpasset Dam (slug malpasset-dam). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--chemical-01
+    parallel_group: specialists
+    depends_on: [mgr--chemical]
+    description: >-
+      You own 2 real Chemical & Industrial Plants disasters: Bhopal disaster (slug bhopal-disaster); Seveso disaster (slug seveso-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--chemical-02
+    parallel_group: specialists
+    depends_on: [mgr--chemical]
+    description: >-
+      You own 2 real Chemical & Industrial Plants disasters: Texas City refinery explosion (slug texas-city-refinery-explosion); Texas City disaster (slug texas-city-disaster-1947). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--chemical-03
+    parallel_group: specialists
+    depends_on: [mgr--chemical]
+    description: >-
+      You own 2 real Chemical & Industrial Plants disasters: Flixborough disaster (slug flixborough-disaster); Buncefield fire (slug buncefield-fire). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--chemical-04
+    parallel_group: specialists
+    depends_on: [mgr--chemical]
+    description: >-
+      You own 2 real Chemical & Industrial Plants disasters: West Fertilizer Company explosion (slug west-fertilizer-company-explosion); Tianjin explosions (slug 2015-tianjin-explosions). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--chemical-05
+    parallel_group: specialists
+    depends_on: [mgr--chemical]
+    description: >-
+      You own 2 real Chemical & Industrial Plants disasters: Beirut explosion (slug 2020-beirut-explosion); Oppau explosion (slug oppau-explosion). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--chemical-06
+    parallel_group: specialists
+    depends_on: [mgr--chemical]
+    description: >-
+      You own 2 real Chemical & Industrial Plants disasters: PEPCON disaster (slug pepcon-disaster); Halifax Explosion (slug halifax-explosion). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--chemical-07
+    parallel_group: specialists
+    depends_on: [mgr--chemical]
+    description: >-
+      You own 2 real Chemical & Industrial Plants disasters: AZF (factory) (slug azf-factory); Jilin chemical plant explosions (slug 2005-jilin-chemical-plant-explosions). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--chemical-08
+    parallel_group: specialists
+    depends_on: [mgr--chemical]
+    description: >-
+      You own 2 real Chemical & Industrial Plants disasters: Chernobyl disaster (slug chernobyl-disaster); Longford gas explosion (slug longford-gas-explosion). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--chemical-09
+    parallel_group: specialists
+    depends_on: [mgr--chemical]
+    description: >-
+      You own 2 real Chemical & Industrial Plants disasters: Minamata disease (slug minamata-disease); Love Canal (slug love-canal). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--chemical-10
+    parallel_group: specialists
+    depends_on: [mgr--chemical]
+    description: >-
+      You own 2 real Chemical & Industrial Plants disasters: Kyshtym disaster (slug kyshtym-disaster); Fukushima nuclear disaster (slug fukushima-nuclear-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--chemical-11
+    parallel_group: specialists
+    depends_on: [mgr--chemical]
+    description: >-
+      You own 2 real Chemical & Industrial Plants disasters: Sandoz chemical spill (slug sandoz-chemical-spill); Three Mile Island accident (slug three-mile-island-accident). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--chemical-12
+    parallel_group: specialists
+    depends_on: [mgr--chemical]
+    description: >-
+      You own 1 real Chemical & Industrial Plants disaster: Ghislenghien gas pipeline explosion (slug ghislenghien-gas-pipeline-explosion). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--rail-01
+    parallel_group: specialists
+    depends_on: [mgr--rail]
+    description: >-
+      You own 2 real Rail & Transit disasters: Eschede train disaster (slug eschede-train-disaster); Ladbroke Grove rail crash (slug ladbroke-grove-rail-crash). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--rail-02
+    parallel_group: specialists
+    depends_on: [mgr--rail]
+    description: >-
+      You own 2 real Rail & Transit disasters: Hatfield rail crash (slug hatfield-rail-crash); Clapham Junction rail crash (slug clapham-junction-rail-crash). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--rail-03
+    parallel_group: specialists
+    depends_on: [mgr--rail]
+    description: >-
+      You own 2 real Rail & Transit disasters: Santiago de Compostela derailment (slug 2013-santiago-de-compostela-derailment); Amagasaki derailment (slug amagasaki-derailment). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--rail-04
+    parallel_group: specialists
+    depends_on: [mgr--rail]
+    description: >-
+      You own 2 real Rail & Transit disasters: Granville rail disaster (slug granville-rail-disaster); Quintinshill rail disaster (slug quintinshill-rail-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--rail-05
+    parallel_group: specialists
+    depends_on: [mgr--rail]
+    description: >-
+      You own 2 real Rail & Transit disasters: Harrow and Wealdstone rail crash (slug harrow-and-wealdstone-rail-crash); Gaisal train disaster (slug gaisal-train-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--rail-06
+    parallel_group: specialists
+    depends_on: [mgr--rail]
+    description: >-
+      You own 2 real Rail & Transit disasters: Balvano train disaster (slug balvano-train-disaster); Chatsworth train collision (slug chatsworth-train-collision). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--rail-07
+    parallel_group: specialists
+    depends_on: [mgr--rail]
+    description: >-
+      You own 2 real Rail & Transit disasters: King's Cross fire (slug kings-cross-fire); Meudon train accident (slug meudon-train-accident). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--rail-08
+    parallel_group: specialists
+    depends_on: [mgr--rail]
+    description: >-
+      You own 2 real Rail & Transit disasters: Odisha train collision (slug 2023-odisha-train-collision); Moorgate tube crash (slug moorgate-tube-crash). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--rail-09
+    parallel_group: specialists
+    depends_on: [mgr--rail]
+    description: >-
+      You own 2 real Rail & Transit disasters: Gare de Lyon train accident (slug 1988-gare-de-lyon-train-accident); Ryongchon disaster (slug ryongchon-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--rail-10
+    parallel_group: specialists
+    depends_on: [mgr--rail]
+    description: >-
+      You own 2 real Rail & Transit disasters: Zoufftgen rail accident (slug zoufftgen-rail-accident); Modane train disaster (slug modane-train-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--rail-11
+    parallel_group: specialists
+    depends_on: [mgr--rail]
+    description: >-
+      You own 2 real Rail & Transit disasters: Clayton Tunnel rail crash (slug clayton-tunnel-rail-crash); Purley rail crash (slug purley-rail-crash). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: spec--rail-12
+    parallel_group: specialists
+    depends_on: [mgr--rail]
+    description: >-
+      You own 1 real Rail & Transit disaster: Ufa train disaster (slug ufa-train-disaster). Follow the SPECIALIST LANE CONTRACT in these notes for each disaster you own -- source at /input_artifacts/corpus/<slug>.md, record at /logs/agent/records/<slug>.md, shard at /workspace/shards/<slug>.json.
+
+  - id: cross_industry_pattern_reconciliation
+    parallel_group: reconcile
+    depends_on: [mgr--mining, mgr--maritime, mgr--aviation, mgr--structural, mgr--chemical, mgr--rail]
+    description: >-
+      Your job is the one thing no domain manager or specialist lane can do: you are the ONLY node in this task allowed to read shard files from more than one industry_domain against each other, and the only node allowed to read corpus files from more than one domain. Start by reading every shard under /workspace/shards/ (all 138). For every pair of pattern entries (one shard's pattern entry, one from a DIFFERENT industry_domain's shard) that plausibly share a causal_pattern label, confirm whether they genuinely share the same underlying MECHANISM -- not just the same category name -- by reading BOTH disasters' own real source dossiers in /input_artifacts/corpus/ yourself before recording a link; a shared label or a superficially similar outcome is not enough on its own. Only record a link once both real dossiers confirm the underlying mechanism is genuinely comparable. Write your confirmed cross-industry link pairs as a JSON array to /workspace/cross_industry_links.json (each element: disaster_slug_a, disaster_slug_b, causal_pattern, industry_domain_a, industry_domain_b, what_makes_the_mechanism_genuinely_the_same) -- this file, not your text reply, is how final_synthesis will apply real cross_industry_link values and is the evidence base for cross_industry_synthesis.md. Never link two shards from the SAME industry_domain to each other. In your own final reply, report only the file path and how many confirmed pairs it contains, not the pairs themselves. You are a single, self-contained node -- do this work entirely yourself; do NOT call the task tool to spawn any sub-agent of your own.
+
+  - id: final_synthesis
+    parallel_group: synthesize
+    depends_on: [mgr--mining, mgr--maritime, mgr--aviation, mgr--structural, mgr--chemical, mgr--rail, cross_industry_pattern_reconciliation]
+    description: >-
+      This sub-task MUST be dispatched via its own task() call -- the orchestrator must NOT do this merge work itself inline. Your own first action is to read every shard under /workspace/shards/ (all 138) and /workspace/cross_industry_links.json directly from disk, before writing anything. Assemble /logs/agent/causal_pattern_register.csv with a single consistent set of entry_ids (assign entry_ids first, then resolve cross_industry_link values using cross_industry_links.json's disaster_slug citations to find the matching rows), exactly these column headers: entry_id, disaster_slug, disaster_name, industry_domain, real_date, causal_pattern, key_finding, supporting_quote, cross_industry_link -- one row per pattern entry across all 138 shards, cross_industry_link exactly NONE for every row that cross_industry_pattern_reconciliation did not confirm a link for. Every entry_id, disaster_slug, and quote you cite anywhere in the two documents below must be looked up against this register as you write it -- an entry_id or disaster_slug that is not really a row in the register you just assembled must never appear in either document, since citing a row that does not exist is the single most damaging defect either document can have. Then write /logs/agent/cross_industry_synthesis.md, at least 900 words, organized by causal pattern rather than by industry, naming specific disasters and entry_ids, working through every genuine cross-industry link cross_industry_pattern_reconciliation confirmed, and explicitly noting any pattern that looks like it recurs but whose underlying mechanism actually differs across the cases (a false cognate) rather than forcing a connection. Finally write /logs/agent/pattern_taxonomy.json: a JSON object with exactly these eight keys (REGULATORY_CAPTURE_OR_WEAK_OVERSIGHT, MAINTENANCE_DEFERRAL_OR_NEGLECT, DESIGN_OR_ENGINEERING_FLAW, OPERATOR_OR_HUMAN_ERROR, COST_CUTTING_UNDER_COMMERCIAL_PRESSURE, CASCADING_OR_COMMON_MODE_FAILURE, IGNORED_PRIOR_WARNINGS_OR_TESTS, INADEQUATE_SAFETY_CULTURE_OR_TRAINING), each mapped to the array of entry_ids from your own register that carry that pattern -- every entry_id in the register must appear under its own pattern's array here, and no entry_id may appear that is not a real register row.

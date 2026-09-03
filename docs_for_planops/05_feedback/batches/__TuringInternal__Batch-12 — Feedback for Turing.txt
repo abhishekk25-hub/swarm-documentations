@@ -1,0 +1,583 @@
+﻿Batch-12 — Feedback for Turing
+
+
+Delivery: delivery-harbor-format-samples-12-2026-07-28 · 12 samples · SwarmBench V2 (OpenCode harness)
+
+
+This document gives our feedback on the 12 samples in this delivery. Overall the batch is strong; the graders are grounded and we found no reward-hacking on either arm in any sample. The notes below are about how the score is composed, how hard the tasks are, and label/provenance accuracy — not about bad work.
+
+
+───────────────────────────────────────
+How to read this document (key terms)
+
+
+Each sample is an agent task with an automatic grader. A few terms used throughout:
+
+
+* The task — an instruction plus input files; the agent must produce one or more deliverable files (a report, a spreadsheet, a slide deck, etc.).
+* SA and MA — every task is attempted two ways: SA = single agent (one agent working alone) and MA = multi-agent (a coordinated "swarm" of agents). Both run the same task, same inputs, same time budget, and normally the same underlying model — the only intended difference is one agent vs many. The point is to measure how much the multi-agent approach helps, shown as the gap between the MA score and the SA score. Each score is a number from 0 to 1.
+* Verifier / grader (verify.py) — the program that reads the agent's output files and computes the score. It is shipped with each sample.
+* verifier_type — a label in the sample's config declaring how the grader works. Three possible values:
+* deterministic / executable — pure code, no AI. Scores by fixed rules (exact text matches, arithmetic, comparison to a known answer key). Same input always gives the same score.
+* llm-judge — an AI model reads the output and rates its quality.
+* hybrid — a mix of both: some checks are plain code, others use an AI judge.
+* LLM judge — when a grader uses an AI model to rate quality. "Cross-family" means the judge is a different model from the one being tested, which avoids a model grading its own work.
+* Ground truth (GT) / frozen oracle / frozen corpus — the fixed reference material the grader checks answers against (e.g. the real source documents, or a hand-verified answer key). "Frozen" means the agent cannot see or change it.
+* Structural check vs content check — a structural check asks "is the output the right shape?" (file exists, valid schema, right number of rows, an id copied over from an input file). A content check asks "is the work actually right?" — either an AI judge rating quality (rubric) or a comparison against ground truth (GT). Throughout this document content = rubric + GT.
+* Freebie floor — the score an empty-but-well-formatted submission can collect for free from structural checks alone, without doing any real work. Lower is better.
+* Completion cliff — when an arm scored low because it produced nothing (e.g. it ran out of budget before writing any file), rather than because its work was poor quality. A "wrote-everything vs wrote-nothing" gap is not a clean measure of quality.
+* Fail-closed / fail-soft — what a grader does if its AI judge can't be reached: fail-closed = give that check a 0 (penalizes the agent, never inflates); fail-soft/drop = skip the check. Both have trade-offs noted below.
+* decomposition.yaml — the pre-written orchestration plan shipped with each sample: a list of sub-tasks, each naming a role, its input files and its output path.
+───────────────────────────────────────
+Overall assessment
+
+
+Most graders in this batch are well grounded — frozen source documents, hand-verified answer keys, or figures recomputed from the source — and where an AI judge is used it is cross-family (no model grading itself). The graders correctly give near-zero scores to empty or copy-pasted submissions, so the low-scoring arms genuinely earned their low scores. The exception worth naming up front is how much of that ground truth is genuinely held out: in several samples the values the grader checks are already sitting in the agent's input files (see A4).
+
+
+What we're asking for, and where it applies. Two of the asks below are delivery-wide and neither needs any sample regenerated: (1) add a realistic high-level task description as an extra file per sample, and (2) report the content and structural scores separately alongside the overall score. Everything else is scoped to named samples. Going forward we'd also like content to make up at least 40% of every grader's score. The full list is at the end.
+
+
+Our main feedback is on how the reward is composed. In several samples a well-formed but hollow submission can bank a large fraction of the score from structural checks alone, which lifts the multi-agent score without reflecting extra work. To be explicit: we do not read this as the model gaming the grader. The agent is doing what the instruction asks; where the instruction and the rubric only specify the shape of the output, a correctly-behaving agent will produce the right shape and stop there. The fix is on the specification side — weight substance, not shape.
+
+
+───────────────────────────────────────
+Cross-cutting feedback
+
+
+A. How the score is composed, and how hard the tasks are
+
+
+A1. Please add a realistic, high-level task description to each submission.
+
+
+Every sample ships a decomposition.yaml — a pre-written orchestration plan — and the orchestrator is told to execute it verbatim:
+
+
+"Follow decomposition.yaml exactly. Each entry in sub_tasks maps to exactly one task call. Do not merge sub-tasks, skip sub-tasks, or add sub-tasks not listed in the decomposition."
+
+
+The plans are written at a very fine grain. Per sub-task they name the role, the exact input files to read, the exact output path and schema to write, which values to copy verbatim, and often a list of explicit prohibitions:
+
+
+Sample
+	decomp lines
+	sub_tasks
+	exact file paths dictated
+	explicit "do not…"
+	WIKIDATA
+	1073
+	56
+	401
+	73
+	US-VETERANS
+	586
+	57
+	104
+	62
+	FINANCE
+	484
+	30
+	119
+	8
+	RURAL-TELEHEALTH
+	356
+	25
+	82
+	7
+	911-COMMISSION
+	308
+	27
+	60
+	16
+	WORLD-BANK
+	292
+	48
+	85
+	48
+	NASA
+	201
+	18
+	29
+	4
+	IETF-RFC
+	167
+	14
+	29
+	0
+	TARIFF
+	148
+	12
+	17
+	9
+	GLEN-HELEN
+	135
+	26
+	61
+	0
+	RECOVERY-TRIAL
+	66
+	5
+	13
+	3
+	CROSS-COUNTY-BOND
+	63
+	3
+	16
+	3
+	
+
+Even the lightest one (CROSS-COUNTY, 3 sub-tasks) dictates the exact input files to read, the exact output path, the exact JSON keys, which values to copy verbatim, and how to batch the sub-agent spawns.
+
+
+What we're asking for — and what we're not. We are not asking you to change your multi-agent pipeline, and you do not need to re-run the MA arm. Keep the detailed decomposition exactly as it is; it can carry on driving your MA scoring.
+
+
+What we'd like is one additional file per sample: a realistic, high-level description of the task — the kind of prompt a real user would actually write. It should say roughly what needs doing and how the work divides, without the exact file paths, output schemas, verbatim-copy rules or prohibition lists. On our side we'd hand that high-level description to the multi-agent arm in place of the detailed plan, so the run reflects a realistic request rather than a finished recipe.
+
+
+Why: at the current level of detail the orchestrator isn't deciding much — it is transcribing a finished plan into task calls. What we want the sample to measure is whether the system can work out the division of labour for itself.
+
+
+Scope: all samples in this delivery. This is an addition to the submission, not a change to your existing pipeline.
+
+
+A2. What the score is made of — and why we'd like to see it split.
+
+
+The blended reward is doing two jobs at once: it reports whether the output has the right shape, and whether the work is right. Those two move independently — a multi-agent run reliably produces well-formed files, so the shape half tends to sit near the top of its range while the content half is what actually separates a good run from a poor one.
+
+
+We tried to separate the two ourselves, and mostly couldn't. Only some samples ship per-check scores; several of those don't label their judged checks; and two (GLEN-HELEN, CROSS-COUNTY-BOND) ship no per-check breakdown at all. The one sample we could fully reconstruct — IETF-RFC — shows why it's worth having: the multi-agent run scored 0.948 on structure against 0.845 on content, and the single-agent run 0.497 against 0.599. Both reconcile exactly to the reported 0.900 and 0.544, and both say far more about the two runs than the blended numbers do. Note the single-agent arm actually scored higher on content than on structure — which the blended 0.544 completely hides.
+
+
+So we'd like two things, and they work together:
+
+
+1. Report the split. Emit content_score (rubric + GT checks) and structural_score (presence / schema / format / roster-copy checks) as separate fields alongside the blended reward, so a run's real result is legible without re-deriving it.
+2. Change what the blend is made of on the samples flagged in A3 below, where the structural share is large enough that the blended number is mostly reporting shape.
+Scope: the reporting split (1) applies to all samples — it needs the scoring re-run, but no samples regenerated. The reweight (2) applies only to the samples named in A3. Together these are the most useful change in this document.
+
+
+A3. Cut the freebie floor — and going forward, content should be at least 40% of every score.
+
+
+The general rule we'd like to apply from here on: at least 40% of every grader's score should come from content — rubric plus ground-truth checks — rather than from structure. That applies to new submissions, not just the samples flagged below.
+
+
+Every check in each grader, bucketed by reading verify.py, ordered by freebie floor (best first). The last column is the one we'd actually like you to move — a low floor is what makes a grader discriminate, and it does not follow from the content share alone.
+
+
+Sample
+	checks
+	structural %
+	rubric %
+	GT %
+	content %
+	freebie floor
+	RECOVERY-TRIAL
+	95
+	1
+	72
+	27
+	99
+	~1%
+	WORLD-BANK
+	29
+	38
+	55
+	7
+	62
+	~0% (gated)
+	US-VETERANS
+	27
+	37
+	52
+	11
+	63
+	~0% (gated)
+	FINANCE *
+	7
+	0
+	100
+	0
+	100
+	~0%
+	911-COMMISSION ‡
+	5
+	0
+	100
+	0
+	100
+	~0–5%
+	WIKIDATA
+	27
+	37
+	56
+	7
+	63
+	~7%
+	GLEN-HELEN ‡
+	73
+	5
+	0
+	95
+	95
+	~10%
+	RURAL-TELEHEALTH
+	35
+	34
+	40
+	26
+	66
+	~30%
+	TARIFF
+	31
+	23
+	10
+	67
+	77
+	~35%
+	CROSS-COUNTY-BOND
+	28
+	50
+	25
+	25
+	50
+	~39%
+	NASA
+	15
+	67
+	20
+	13
+	33
+	~55%
+	IETF-RFC
+	15
+	53
+	20
+	27
+	47
+	~60%
+	
+
+* FINANCE's row shows its effective composition, not its declared one. The manifest lists 7 checks of which 3 look structural, but none of them bank credit, so the effective content share is 100%. The reward is the mean of the 24 per-figure vision grades; a missing figure scores 0 inside that mean, so the presence check sets the denominator of the content score rather than earning anything of its own. The book-download and chart-type-oracle checks are diagnostics, and the manifest correctly declares both at weight 0. That is why FINANCE's freebie floor is ~0% — it belongs with the exemplars.
+
+
+One clarification on that 40%. It means rubric and ground truth together. A rule of "≥40% must be LLM-rubric" would wrongly penalise your best graders: GLEN-HELEN has no LLM rubric at all and is 95% ground truth, and that is exactly what a strong deterministic grader looks like. Rubric and GT should be counted together as content, with GT preferred wherever it is feasible.
+
+
+Reweight targets in this batch, in priority order: IETF-RFC (~60% floor), NASA (~55%), CROSS-COUNTY-BOND (~39%), RURAL-TELEHEALTH (~30%). TARIFF also sits at ~35%, but its floor comes from spoon-fed ground truth rather than structural padding, so it belongs under A4 rather than here.
+
+
+These are picked by freebie floor, not by the 40% rule — the two catch different things. IETF-RFC (47% content) and RURAL-TELEHEALTH (66%) both clear 40% on check counts, yet a hollow submission still banks ~60% and ~30% of their score. NASA fails on both counts and is the clearest single fix in the batch.
+
+
+‡ A note on reading this table. We bucketed every check by reading verify.py, not by trusting the manifest labels. Most graders average all their checks equally, so a check count is also a weight — with two exceptions, both marked ‡ above:
+
+
+* GLEN-HELEN weights its 6 compliance checks at 25% of the score and its other 67 at 75%, so a compliance check is worth roughly 4× any other — while the manifest declares all 73 equal.
+* 911-COMMISSION scores a single judge function averaged over 13 chapters. Of its 5 declared checks, three are that same function listed three times, one is a pass/fail gate rather than a scored term, and one is weight: 0 and never reaches the score.
+Please make the manifest weights match the real formula in both.
+
+
+One further caveat. In the _eligible-gated family (WORLD-BANK, US-VETERANS, WIKIDATA) the deterministic checks only score for records the judge has already approved, so the judge's real influence is greater than the rubric column suggests. Bucketing a handful of consistency/anti-gaming checks is a judgement call either way — happy to share our per-check classification if you'd like to review any of it.
+
+
+Note that a structural check is not automatically a freebie. WORLD-BANK and US-VETERANS are ~37–38% structural but have ~0% floors, because every check sits behind the _eligible gate below. That gating is the good pattern.
+
+
+Three patterns already used in this batch hold the floor at or near zero — we'd like to see them standardised:
+
+
+1. An _eligible authorship gate — every per-record check is gated behind a deterministic authorship test (copy-density, word-order, source vocabulary) plus judge verdicts on whether the record is composed/specific/deep. A hollow or copied record then earns nothing on any check. Used well in WORLD-BANK, US-VETERANS, WIKIDATA, RECOVERY.
+2. Ground truth denominated over the whole corpus — checks are per-item shares over the fixed corpus requiring exact matches against frozen truth. Used well in GLEN-HELEN.
+3. Score only the artifacts, and count a missing one as 0 inside the mean — FINANCE does this well: the presence check doesn't earn credit, it sets the denominator of the content grade, and the structural checks are diagnostics that never enter the reward. Nothing is bankable without producing gradeable work.
+A4. Where full ground truth is infeasible, hand-verify a subset and give it real weight.
+
+
+Several graders credit values that are already sitting in the agent's input files, so the check confirms the agent read a provided file rather than that it did the research: CROSS-COUNTY-BOND (10 of 11 answer-key entries are in county_context; only 1 is genuinely external), NASA (roster copy; only 1 true held-out fact), IETF-RFC (rfc_index.csv is provided).
+
+
+We understand that a complete answer key is sometimes prohibitively expensive to build. We are not asking for full coverage — a small, hand-verified, held-out slice (a handful of rows or entities that are not in the inputs), carrying meaningful weight, is worth far more than a large key that the agent was handed. Please add a few genuinely external entries to the samples above rather than expanding the spoon-fed ones.
+
+
+A5. Task calibration — please leave headroom at the top.
+
+
+7 of the 12 multi-agent runs scored ≥0.80: RECOVERY 0.91, IETF 0.90, FINANCE 0.88, GLEN-HELEN 0.85, WORLD-BANK 0.85, WIKIDATA 0.82, NASA 0.82. We'd like the strongest MA run on a task to land nearer 0.70–0.80, so the task still discriminates between a good run and an excellent one.
+
+
+To be clear: this is about the MA ceiling, not the gap. A large SA→MA gap is fine and is what we want to see — the concern is a task on which the multi-agent arm is already at 85–95%, which leaves nothing to measure as models improve.
+
+
+There are two different causes here, with two different fixes:
+
+
+* Score composition — NASA (0.82) and IETF (0.90) sit on 55–60% freebie floors, so the fix is the reweight in A2/A3.
+* Task difficulty — RECOVERY (0.91), GLEN-HELEN (0.85), WORLD-BANK (0.85), WIKIDATA (0.83) have low floors and tight graders, so those scores are legitimately earned. There the fix is to make the task harder: more items, more decoys, more held-out truth, tighter tolerances.
+B. Labels and provenance
+
+
+B1. verifier_type — two missing, eight imprecise, two correct. We checked each declared label against whether verify.py actually calls a model:
+
+
+* Missing (2): IETF-RFC and NASA declare no verifier_type at all, though both graders call a judge. Please add one (hybrid fits both).
+* Imprecise (8): WIKIDATA, RECOVERY-TRIAL, FINANCE, US-VETERANS, WORLD-BANK, 911-COMMISSION, TARIFF and RURAL-TELEHEALTH declare llm-judge and do call a judge, so the label isn't false — but in several the plain-code half carries most of the score (TARIFF uses a judge on only 3 of its 31 checks). hybrid would describe those better. Low priority.
+* Correct (2): GLEN-HELEN and CROSS-COUNTY-BOND declare executable and contain no model call anywhere — no change needed.
+None of this changes a score; the label is what tooling and the team use to catalog the tasks and to know which ones need an AI judge available at grade/train time.
+
+
+B2. The models are non-standard third-party deployments and aren't clearly documented.
+
+
+The agent models are non-standard third-party Kimi deployments: most samples ran on kimi-k2p6, RECOVERY-TRIAL on kimi-k2p7-code, and two samples (WORLD-BANK, CROSS-COUNTY-BOND) on an opaque personal model deployment (accounts/bhanu-nalamadgu-7pl5/deployments/ut1aj6qu) rather than a standard named model. Please record the model used by each arm in the delivered metadata, and confirm what that custom deployment maps to.
+
+
+There is also one more serious version of this in NASA (S11): there, the two arms ran on different models — the single-agent run used kimi-k2p7-code and the multi-agent run used kimi-k2p6. Because SA and MA are supposed to differ only in single-vs-multi agent, running them on different models muddies the comparison. (In NASA's specific case it happens to be harmless — see that sample below — but it should be confirmed and the record fixed.)
+
+
+───────────────────────────────────────
+Sample index (task UUIDs)
+
+
+Full task UUIDs for every sample in this delivery, so each note below can be tied to an exact task. The delivery folder for each is <UUID>-SWARMBENCH-<NAME>, and the same UUID appears as task_id in tests/rubric_manifest.json.
+
+
+Ref
+	Sample
+	Task UUID
+	S1
+	WIKIDATA-DIASPORA-ARCHIVE-TAXONOMY
+	2b05ac8eda14459ea659edbdca080f72
+	S2
+	RECOVERY-TRIAL-PUBLIC-RECORD-AUDIT
+	2b29b3a08e064febbcc04cd5de4b84be
+	S3
+	FINANCE-PRINCIPLES-FIGURE-PACK
+	2e492bf63d2647b080dbca8407a755c6
+	S4
+	GLEN-HELEN-BID-NOTICE-AUDIT
+	403dfba9c75b4068af777ed64508d379
+	S5
+	US-VETERANS-CLAIMS-COURT-OPINION-CASEBOOK-REVIEW
+	5592974e239640cd94f86c4beab60bfc
+	S6
+	WORLD-BANK-DEVELOPMENT-ECONOMICS-REPORT-REVIEW
+	5802e1c42c8041a2bc7542a086e9471a
+	S7
+	911-COMMISSION-BRIEFING-DECK
+	71f047ae6efe4f0fad4a9c25b7e01d73
+	S8
+	TARIFF-CLASSIFICATION-DUTY-EXPOSURE-DOSSIER
+	a557f91f965342b3ab88d57d7cea877f
+	S9
+	RURAL-TELEHEALTH-ROLLOUT-ALLOCATION
+	a69998878d6943428d9ef09e746c67e6
+	S10
+	IETF-RFC-PROTOCOL-STANDARD-DIGEST-REVIEW
+	b8e0208f15a938dcdfe1bc89858e827e
+	S11
+	NASA-AEROSPACE-TECHNICAL-REPORT-KNOWLEDGE-BASE
+	e2c601da47484b92bc3afda15c1f79e5
+	S12
+	CROSS-COUNTY-BOND-VARIANCE-AUDIT
+	f14548baf0bb42c4b26cc99fc07bdd1a
+	
+
+───────────────────────────────────────
+Per-sample feedback
+
+
+S1 — WIKIDATA-DIASPORA-ARCHIVE-TAXONOMY
+
+
+2b05ac8eda14459ea659edbdca080f72 Task: write 95 grounded reference records + a 100-node classification graph from a frozen 95-document corpus.
+
+
+* SA 0.01 / MA 0.82. Freebie floor ~7%; content 63% of checks. Well-composed — the _eligible authorship gate is doing its job.
+* Label: declared llm-judge; hybrid is more accurate (13 code checks + 14 AI-judge checks).
+* Ground truth: the gold answers are stripped from the shipped key, so the judge decides correctness alone. Adding one deterministic GT check would make the grade less judge-dependent.
+* For training use: if the AI judge is unreachable, the grader currently gives the whole run a 0. Consider a retry/skip policy so a temporary judge outage doesn't inject a false zero during training.
+* Headroom (A5): MA 0.82 on a low-floor grader — legitimately earned, so the task itself could be harder.
+S2 — RECOVERY-TRIAL-PUBLIC-RECORD-AUDIT
+
+
+2b29b3a08e064febbcc04cd5de4b84be Task: reconcile 18 evolving trial-registry versions against 8 publications (fetched live from the web) into 5 cross-linked deliverables.
+
+
+* SA 0.48 / MA 0.91. Freebie floor ~1%; content 99% of checks — the best-composed grader in the batch.
+* Label: declared llm-judge; hybrid is more accurate (about 28% of the score is plain-code grounding checks).
+* Check the judge isn't too lenient: the multi-agent run passed all 68 AI-judged checks but failed 7 of 8 plain-code checks that verify its quotes and URLs are exact. Worth confirming the judge isn't accepting near-miss quotes that the exact-match checks reject.
+* For training use: this task fetches sources from the internet and needs the judge available; those must be guaranteed at train time or these rows will drop.
+* Headroom (A5): MA 0.91 with a ~1% floor — earned, so raise task difficulty rather than reweighting.
+S3 — FINANCE-PRINCIPLES-FIGURE-PACK
+
+
+2e492bf63d2647b080dbca8407a755c6 Task: download a finance textbook and build 24 teaching charts, each showing a specific relationship with the correct shape + a manifest.
+
+
+* SA 0.07 / MA 0.88. Freebie floor ~0%; effectively a content-only grader — an exemplar (see pattern 3 in A3). Nothing structural is bankable: the presence check sets the denominator of the content grade rather than earning credit, and a missing figure scores 0 inside the mean.
+* Judge-error handling: if some (not all) chart-judging calls error out, those charts are silently dropped from the denominator, which can inflate the score. (No errors occurred this run.) Recommend counting an errored judgment as 0 rather than dropping it — this is the one place the design can be gamed by a figure that reliably breaks the judge.
+* One weight mismatch in rubric_manifest.json (minor): static_checks_2 / load_manifest is declared at weight 1, but it only reports how many manifest entries are complete — it never enters the reward. Setting it to 0 would make the manifest fully accurate. Credit where due: this manifest already declares check_book_downloaded and check_manifest_oracle at weight 0 and states plainly that they're diagnostics, which is better hygiene than most samples in the batch — static_checks_2 is the only line that doesn't match the code.
+* Label: the score is 100% driven by the AI vision-judge, so llm-judge is defensible; a hybrid tag would be slightly more precise (optional).
+* Headroom (A5): MA 0.88 — earned; the discriminating power is in how strict the vision judge is.
+S4 — GLEN-HELEN-BID-NOTICE-AUDIT
+
+
+403dfba9c75b4068af777ed64508d379 Task: read 33 frozen procurement records and produce a dated milestone timeline + a statutory compliance finding.
+
+
+* SA 0.35 / MA 0.85. Freebie floor ~10%; 95% of checks are ground truth and there is no AI judge anywhere in it — an exemplar grader; please don't reweight the content side.
+* The reward is not the equal-weight mean the manifest implies: it is 0.25 × mean(6 compliance checks) + 0.75 × mean(67 timeline checks), so each compliance check carries 3.7× the weight of each timeline check while all 73 are declared weight: 1. Please make the manifest match the formula.
+* Label: declared executable, and correctly so — no model call anywhere in the grader.
+* Structural inflation on the SA side (A2): SA scored 0.354 while doing very little of the actual task — the 4 structural checks are ungated, so a well-formed but hollow submission still collects them. Gating them behind at least one content check would remove that.
+* Minor: one of the 67 checks (the compliance explanation check) only looks for the right words, not the right meaning — a fluent but wrong paragraph could pass that single check. It can't earn real credit (the actual facts are scored separately), so this is optional; upgrade it to a meaning-based check only if you want.
+* Headroom (A5): MA 0.85 on a tight deterministic grader — earned; make the task harder (more traps/decoys) rather than changing the grader.
+S5 — US-VETERANS-CLAIMS-COURT-OPINION-CASEBOOK-REVIEW
+
+
+5592974e239640cd94f86c4beab60bfc Task: write 95 own-words case records + a 100-node authority graph, picking real cited laws out of decoy-salted candidate lists.
+
+
+* SA 0.00 / MA 0.53. Freebie floor ~0% (_eligible-gated); content 63% of checks — well composed. Slightly better grounded than its sibling WORLD-BANK: check_disposition_matches_source reads the disposition out of the real opinion body rather than echoing a roster column.
+* Label: declared llm-judge; hybrid is more accurate (plain-code anti-copy checks + AI judge for 14 of 27).
+* Answer-key hygiene: the shipped answer-key file also contains the gold answers (applied/disposition). The grader currently ignores those fields, so there's no leak today — but to be safe, strip them from the shipped file so a future edit to the grader can't accidentally read the answers.
+S6 — WORLD-BANK-DEVELOPMENT-ECONOMICS-REPORT-REVIEW
+
+
+5802e1c42c8041a2bc7542a086e9471a Task: write 80 grounded evidence-index records + an 86-node sector graph, separating real inputs from decoys.
+
+
+* SA 0.00 / MA 0.85. Freebie floor ~0% (_eligible-gated) — an exemplar for the authorship gate. Content is 62% of checks; note that only 2 of the 29 consult anything held out from the agent (report number, sector and series are all columns of the report_roster.csv it was given), so the gate, not the ground truth, is what makes this grader strong.
+* Label: declared llm-judge; hybrid is more accurate.
+* Model: ran on the opaque personal deployment ut1aj6qu (same on both arms) — please confirm the underlying model.
+* Possible over-harsh judge check: two AI-judge checks ("holding grounded" ≈0.04 and "posture grounded" ≈0.56) score far lower than the others (~0.83–1.0). They can only lower the multi-agent score (so they can't inflate the gap), but the "holding" answer key may be too strict — worth a look.
+* Headroom (A5): MA 0.85 with a ~0% floor — earned; raise task difficulty.
+S7 — 911-COMMISSION-BRIEFING-DECK
+
+
+71f047ae6efe4f0fad4a9c25b7e01d73 Task: read the ~1.65-million-token, 13-chapter 9/11 Commission Report and build one slide deck with ≤5 faithful slides per chapter.
+
+
+* SA 0.32 / MA 0.70. Freebie floor ~0–5%. The reward is 100% LLM judge: it is the mean over the 13 chapters of a single judge function. The manifest lists that one function as three separate weight-1 entries, lists a fail-closed gate as a scored structural check, and lists the title oracle at weight 0 — so the declared 5-check structure describes nothing that actually happens. Please reconcile.
+* Grader bug — the judge only scored 11 of 13 chapters: in both runs, the AI judge returned scores for only 11 chapters; chapters 7 and 8 were dropped (a batch asking for chapters 7-8-9 came back with 9 only, and unscored chapters count as 0). A separate check confirms the chapter-7 and chapter-8 slides do exist, so the slides are fine — the judge just failed to score them. This caps the maximum possible score (~0.85 instead of 1.0) but affects both arms equally, so the SA-vs-MA gap is still valid. Please retry/re-batch any chapter the judge failed to score.
+* Give the title oracle teeth: there is a hand-verified chapter-title check that currently carries zero weight (diagnostic only). It is the one fully-reliable, non-AI check in the sample — please give it real weight (~5–10%) or use it as a gate.
+* Label: declared llm-judge; hybrid is more accurate.
+* Nice sample: this is one of the strongest task designs in the batch ("read the whole report, then build the deck").
+S8 — TARIFF-CLASSIFICATION-DUTY-EXPOSURE-DOSSIER
+
+
+a557f91f965342b3ab88d57d7cea877f Task: classify 20 products under the official tariff schedule (with live customs-ruling research) into a workbook + memos + brief.
+
+
+* SA 0.03 / MA 0.43. Substantively the strongest check set in the batch — not a reweight target. Only 2 of the 31 checks are structural contracts (workbook/document parseability); the rest recompute duty arithmetic, resolve cross-rulings against rulings.cbp.gov, check evidence grounding and missing-fact integrity, and reconcile portfolio duty totals against re-derived truth. Freebie floor ~35%, but that floor comes from spoon-fed inputs (below), not from structural padding.
+* Label: declared llm-judge, but only 3 of 31 checks use a judge — the grader is overwhelmingly plain code, so hybrid fits far better.
+* A judge check misfired: in the multi-agent run, one AI-judge check errored with "judge item IDs do not match the batch" and was scored 0 — a spurious small penalty (it lowered the MA score, so it didn't inflate the gap). Worth fixing the ID-matching so it doesn't misfire.
+* The one thing to fix here is the ground truth, not the weighting (A4): the declared product codes are literally in the input files and the manifest is copied, so those checks confirm the agent read a provided file rather than that it researched anything. The oracle covers only 5 of the 20 products — expanding it with held-out entries is the single best improvement to this sample.
+* Note: the live customs-ruling check didn't actually run this time (the agent never looked up any rulings), so that discriminator was untested here.
+S9 — RURAL-TELEHEALTH-ROLLOUT-ALLOCATION
+
+
+a69998878d6943428d9ef09e746c67e6 Task: make a per-site telehealth plan for 1000 hospitals under a "≤200 immediate rollouts" budget, with 6 consistent deliverables.
+
+
+* SA 0.49 / MA 0.74. Freebie floor ~30%; content 66% of checks.
+* Grader bug — one chart check fails for BOTH arms (0 out of 3): the grader recomputes the expected chart totals using only "substantive" rows, but the instruction tells the agent to chart totals from all rows of the ledger. So a correct agent still fails this check. It hits both arms equally (doesn't distort the gap), but the check should be aligned with what the instruction asks for.
+* Judge grades its own family: the AI judge defaults to the same model being tested, i.e. the model is partly grading its own work. It's mitigated (3 judges vote + 15 plain-code checks do the heavy lifting), but switching to a different judge model would remove that concern.
+* Reweight: down-weight the 10 structural checks and gate the attribute-echo checks (the site data is provided as sites.json, so echoing it isn't evidence of work).
+* Label: declared llm-judge; hybrid is more accurate.
+S10 — IETF-RFC-PROTOCOL-STANDARD-DIGEST-REVIEW
+
+
+b8e0208f15a938dcdfe1bc89858e827e Task: write a grounded engineering digest of 72 internet-standard RFCs + a cross-standard survey + an index.
+
+
+* SA 0.54 / MA 0.90. Highest freebie floor in the batch (~60%); 53% of checks structural (content 47%). Splitting the score here is instructive: MA 0.948 structural vs 0.845 content, SA 0.497 vs 0.599 (see A2).
+* Reweight (A3/A5): 9 of the 15 checks are freebie or spoon-fed (rfc_index.csv is provided) — please collapse those to ≤30% of the score and shift weight to the read-the-RFC checks. This is also the main reason MA lands at 0.90.
+* Judge errors are scored as 0, understating good work: when a judging call fails, it's recorded as 0 instead of being skipped. In this run the multi-agent arm lost credit for its entire survey (which it actually wrote, 5144 words) purely because that judging call failed. It can't inflate scores, but it understates quality and adds noise. Recommend skipping failed judgments rather than scoring them 0.
+* Label: no verifier_type is declared at all — please add one (hybrid fits: 12 code checks + 3 AI-judge checks).
+* Minor: one check accepts the generic word "standard" as a valid answer — small reweight.
+S11 — NASA-AEROSPACE-TECHNICAL-REPORT-KNOWLEDGE-BASE
+
+
+e2c601da47484b92bc3afda15c1f79e5 Task: write a teaching "study card" for each of 72 NASA technical reports + a cross-set review.
+
+
+* SA 0.10 / MA 0.82. Most structural-heavy grader in the batch: 67% of checks are structural (content 33%), freebie floor ~55%.
+* Reweight (A3) — top priority in this batch: 10 of the 15 equal-weight checks are presence/format/roster-copy that don't require reading a report. Please cap that block at ~25–30% and move the weight onto the read-the-report checks. There is currently only 1 genuinely held-out fact in the whole grader — a few more (A4) would make this a much stronger sample.
+* The two arms ran on different models: the single-agent run used kimi-k2p7-code and the multi-agent run used kimi-k2p6. Since SA and MA should differ only in single-vs-multi agent, this should be confirmed/fixed. Why it's harmless here: the single-agent arm had the stronger model and still lost badly (0.10 vs 0.82), so the multi-agent advantage is real and if anything understated — but please correct the record.
+* Judge-outage caps the score: the 3 AI-judge checks are scored 0 if the judge can't be reached, which silently caps a perfect submission at 12/15 = 0.80. Fine for our eval runs (judge was available), but for training, make an unreachable judge a hard error or skip it rather than scoring 0.
+* Label: no verifier_type is declared at all — please add one (hybrid fits the code).
+S12 — CROSS-COUNTY-BOND-VARIANCE-AUDIT
+
+
+f14548baf0bb42c4b26cc99fc07bdd1a Task: reconcile 14 bond projects' county budgets against the official disclosed figures, then flag variances, into a ledger + report + memo.
+
+
+* SA 0.00 / MA 0.80. Reweight target: 50% of checks structural (content 50%), freebie floor ~39%.
+* The single-agent arm produced nothing (a "completion cliff"): SA scored 0 because it wrote no deliverable files at all — it spent all 61 of its steps on research and ran out of budget before writing anything (the sample's own notes acknowledge this). So the 0.80 gap here is "wrote everything vs wrote nothing," not a clean quality comparison. Please re-run the single-agent arm so it actually reaches the writing stage — either a larger step budget, or an instruction to write incrementally rather than saving all output for the end.
+* Reweight: a skeleton filled with "Unknown" everywhere (just copying the 14 project IDs/names into the right files) earns ~11 of 28 checks with zero real research. Down-weight those 14 structural checks.
+* The budget figures are handed to the agent (A4): several input files list the budgeted amounts verbatim, and 10 of the 11 answer-key entries are in county_context — so the "matches the budget" checks mostly verify that the agent read the provided file. Only 1 entry is genuinely external. Adding a handful more held-out disclosed figures would make this a much stronger test, and is the single best improvement to this sample.
+* Label: declared executable, and correctly so — no model call anywhere in the grader.
+* Model: ran on the opaque personal deployment ut1aj6qu — please confirm the underlying model.
+───────────────────────────────────────
+Summary of what we're asking for
+
+
+Applies to every sample in this delivery — neither needs samples regenerated:
+
+
+#
+	Ask
+	1
+	Add a realistic, high-level task description as one extra file per sample. No change to your MA pipeline and no MA re-run.
+	2
+	Report content_score and structural_score separately, alongside the existing overall score. Needs the scoring re-run only.
+	
+
+Applies going forward, to new submissions:
+
+
+#
+	Ask
+	3
+	Content — rubric and ground truth together — should make up at least 40% of every grader's score.
+	
+
+Applies to the specific samples named:
+
+
+#
+	Ask
+	Where
+	4
+	Cut the freebie floor so content carries the score
+	IETF-RFC (~60%), NASA (~55%), CROSS-COUNTY (~39%), RURAL (~30%)
+	5
+	Standardise the floor-killers (_eligible authorship gate, corpus-denominated GT, score-only-the-artifacts)
+	NASA, IETF (+ RURAL, CROSS-COUNTY)
+	6
+	Add a few genuinely held-out GT entries rather than expanding spoon-fed keys
+	CROSS-COUNTY, NASA, IETF, TARIFF
+	7
+	Fix manifests where declared weights don't match the real formula
+	GLEN-HELEN, 911-COMMISSION, FINANCE
+	8
+	Add the missing verifier_type; tighten the imprecise ones
+	IETF-RFC + NASA (missing); 8 declared llm-judge
+	9
+	Record the model used by each arm; map the personal deployments
+	all; NASA ran the two arms on different models
+	10
+	Re-batch the chapters the judge dropped; give the title oracle real weight
+	911-COMMISSION
+	11
+	Re-run the single-agent arm so it reaches the writing stage
+	CROSS-COUNTY-BOND
+	12
+	Align the chart check with what the instruction asks for
+	RURAL-TELEHEALTH
+	13
+	Leave headroom — strongest MA run nearer 0.70–0.80, via harder tasks where the grader is already tight
+	RECOVERY, IETF, FINANCE, GLEN-HELEN, WORLD-BANK, WIKIDATA, NASA

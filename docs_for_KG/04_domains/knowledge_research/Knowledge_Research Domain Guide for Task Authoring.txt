@@ -1,0 +1,396 @@
+﻿Workflow for SwarmBench Knowledge-Research Tasks
+Objective
+Create a repeatable workflow for selecting a corpus and converting it into a strong SwarmBench Knowledge-Research executable task.
+The goal is to produce tasks where:
+* single-agent is likely to struggle
+* multi-agent has a real advantage
+* the task passes reviewer expectations for complexity, decomposition, and oracle integrity
+________________
+
+
+Recommended Approach
+Use a staged process:
+1. pick a domain and curate a corpus that exceeds the single-agent context window
+2. design a minimal output schema (no freebie fields)
+3. author per-document questions that target buried claims
+4. assemble the deliverable from a verified audit trail
+5. validate every assumption before any evaluation run
+6. move on quickly if the score pattern does not produce a real gap
+This is not pure corpus dumping and not pure question authoring. It is corpus → schema → questions → assemble → validate.
+________________
+
+
+Step 1: Pick the Domain and Corpus
+The corpus is the highest-leverage decision in the entire process. A bad corpus cannot be rescued by clever questions.
+Minimum filters
+A candidate corpus should be:
+* 3× to 4× the single-agent context window in tokens (target 750K–1.1M for a 262K-token model)
+* composed of 18K–120K characters per document (skip outliers)
+* dated after the evaluation model's knowledge cutoff (forces real reading, not recall)
+* naturally divisible into 5–6 sub-categories
+* written in dense technical prose, not boilerplate
+Good corpus patterns
+Prefer corpora involving:
+* fresh arXiv preprints in a subject area (math, physics, ML, q-bio, condensed matter)
+* subject areas with theorem-proof or methods-section structure
+* 50 documents, balanced across 5 scored sub-categories with 1 unscored diversity bucket
+* naturally buried numerical claims (constants, exponents, dimensions, hyperparameters)
+Avoid
+Avoid corpora that are:
+* under 2× context (single agent fits everything → gap evaporates)
+* web-fetched summarized content (capped at ~50K tokens regardless of source count)
+* structured records with field labels (a single regex pass extracts all answers)
+* short per-document (under 18K chars: too shallow for buried questions)
+* pre-cutoff (evaluation model recalls answers from training data)
+* single sub-category (loses natural sub-agent specialization)
+________________
+
+
+Step 2: Use a Strong Corpus Filter
+When pulling documents, apply strict constraints up front rather than filtering after the fact.
+Hard requirements
+* documents dated 1–6 months after the model's knowledge cutoff
+* character count between 18,000 and 120,000 per document
+* balanced sub-category counts (e.g. 10 / 10 / 10 / 10 / 6 / 4 for 50 docs)
+* total token count in the 700K–1,100K range, measured with a real tokenizer (e.g. tiktoken cl100k_base)
+* raw text extracted from PDF (not summarization)
+* subcategory tags stripped from document body to prevent grep-leaks
+Best practice
+* spot-check 3 random documents for prose readability — heavy-equation papers can be PDF-corrupted
+* if a sub-category falls short, extend the date window or designate it as the unscored bucket
+* store all extracted text under environment/input_artifacts/ so the Dockerfile copies it cleanly
+* maintain a private manifest recording document id, subdiscipline, and char count per document — useful when something needs to be re-extracted later
+________________
+
+
+Step 3: Design the Schema
+Schemas have stayed small and stable across shipped tasks.
+Per-document fields
+Three fields per document. No more.
+* a document identifier (the filename stem)
+* paper_specific_answer — answer to Q1
+* paper_specific_answer_2 — answer to Q2
+Aggregation fields
+Five integer-typed counts at the top level, one per scored sub-category, exact-match grading:
+* one <sub_category>_papers_count per scored bucket
+* the unscored sub-category gets no count field
+Tolerance choices
+* per-document integer answers: ±10% with minimum slack of 1.0
+* per-document string answers: contains-key-term match (case- and whitespace-insensitive)
+* aggregation counts: exact match, no tolerance
+Avoid
+* per-document fields where the answer is constant across the corpus (e.g. year_published)
+* per-document booleans (1-bit answers, low-content)
+* string aggregations like most_common_method (judge tolerance is too loose)
+* float-valued fields with arbitrary precision (impossible to verify cleanly)
+* exposing the subdiscipline label as a per-document output (50 free points from grep)
+The subdiscipline label belongs in a private trainer-only audit, used to compute aggregations only.
+________________
+
+
+Step 4: Decide the Task Shape Early
+Before authoring questions, decide:
+* is this a knowledge-research executable task?
+* does it fit fan-out-synthesize or map-reduce?
+* what does the verifier check, field by field?
+* why should single-agent fail?
+* why should multi-agent succeed?
+Pattern selection
+Use fan-out-synthesize when:
+* each sub-agent owns a different slice of the corpus
+* per-document analysis requires sustained attention on one document
+* the reducer's job is mechanical merging plus aggregation arithmetic
+Use map-reduce when:
+* every input gets the same operation (same checklist, same extraction)
+* correctness depends on identical processing across many uniform units
+For arXiv-style corpora, fan-out-synthesize is almost always the correct fit.
+Sub-agent count
+* 19–23 specialists + 1 reducer (so 20–24 total)
+* must equal estimated_sub_agents in task.toml
+* must equal the number of sub_tasks entries in decomposition.yaml
+* a working 50-document layout: 12 specialists × 3 + 7 specialists × 2 + 1 reducer = 20
+________________
+
+
+Step 5: Author the Questions
+This is where the wedge actually lives. Questions are not the creative output; they are mechanical filling-in of slots.
+Hard-question taxonomy
+Mix freely; rotate styles to avoid making the corpus answerable by one trick.
+1. constants in theorem/proposition statements emerging from combined hypotheses
+2. bound exponents in asymptotic estimates (prose-quoted, not equation-rendered)
+3. counts of cases or branches in case-by-case proofs
+4. dimensions, ranks, orders, multiplicities quoted in body prose
+5. specific scenario or regime values buried mid-paragraph
+6. footnote / appendix-only constants
+7. prior-work cross-reference values
+8. specific integer parameter values mentioned only in proof body
+Target ratio: ~70% integer answers / ~30% short-string answers.
+Anti-patterns
+Reject any question that looks like one of these — they are surface-skim answerable:
+* anything in the abstract or first paragraph of the main result
+* any value stated in the title
+* numbers that appear only inside displayed/numbered equations
+* bibliography numbers, citation tags, page numbers
+* anything in the first 2,000 characters of the document
+* headline metrics from abstract or conclusion
+* system size or dataset size unless mid-section and non-headline
+Anti-leak rules
+The literal answer must not appear in either paired question text.
+* string-answer leak: if the answer is a string longer than 3 characters, it must not appear (case-insensitive) in either question text
+* integer-answer leak: if the answer is an integer N, the digit N must not appear as a standalone token in either question — regex (?<!\d)N(?!\d)
+* this catches section/theorem references — "Section 3", "Theorem 1.3", "E_2 page" all leak the integer
+The fix is mechanical: phrase the question without referencing any section/theorem/equation/page label that contains the answer's digit. If unavoidable, paraphrase: "in the main spectral theorem" instead of "in Theorem 5.2".
+Verbatim supporting sentences
+Every record carries supporting_sentence_1 and supporting_sentence_2. These are non-negotiable.
+* must be a verbatim contiguous substring of the document body
+* check by normalizing both (lowercase, unify unicode, strip line-break hyphens, drop all whitespace) and substring-matching
+* bake this verification into the authoring loop — every supporting sentence must be confirmed against the actual document before the record is locked
+* skipping verification produces 15–20% verbatim mismatch rates and expensive repairs
+Cross-document confusion
+When one authoring pass owns 10 documents in one batch, it will sometimes mix them up — quote a passage from document 7 as the supporting sentence for document 4.
+Defenses:
+* process documents in a fixed order, one record at a time
+* run a verbatim sweep against the correct document for each record after authoring completes
+* repair affected records by re-authoring against the correct document, not by editing the bad sentence
+________________
+
+
+Step 5.5: Parallel Authoring Setup
+Authoring 100 questions sequentially against 50 documents takes hours and tends to produce uneven quality. The proven shape is to fan out the authoring itself — multiple parallel authoring helpers, each owning a small balanced batch, returning structured JSON.
+Batch sizing
+* 5 helpers × 10 documents per batch is the empirical sweet spot for a 50-document corpus
+* smaller batches (3–4 docs) under-utilize parallelism and waste setup overhead
+* larger batches (15+ docs) raise the cross-document confusion rate sharply
+* for 39–40 document corpora: 4 helpers × 10, or 5 × 8
+Batching strategy
+Do not group by sub-category. Each helper should see a mix of sub-categories.
+* sort documents by sub-category, then round-robin into N batches
+* this gives each batch a balanced cross-section (e.g. 2 probability + 2 combinatorics + 2 number theory + 2 algebraic geometry + 2 algebraic topology)
+* prevents any single helper from over-specializing on one sub-category and missing the diversity intent
+* record the batch assignment somewhere reproducible — useful when a single helper needs re-dispatching
+Helper prompt template
+Each helper receives an identical prompt skeleton with only the document list swapped:
+* the full hard-question taxonomy
+* the anti-pattern list
+* the anti-leak rules with regex
+* explicit instruction to verify each supporting_sentence against the actual document file before returning
+* explicit instruction to verify anti-leak (integer standalone token + string substring) before returning
+* the exact JSON shape to return, with one record per assigned document
+* a final-message constraint: return only the JSON array, no commentary, starting [ ending ]
+The prompt at the bottom of this guide is the canonical template. Use it verbatim, swapping only the assigned document list.
+Dispatch
+* launch all N helpers in parallel, not sequentially
+* each helper's output is captured as one JSON array of records
+* expected wall time: 5–10 minutes per helper for 10 documents, running in parallel → ~10 minutes total for the whole corpus
+Concatenation
+After all helpers return, concatenate their JSON arrays into a single master audit list. Verify two invariants before going further:
+* the concatenated list has exactly the expected number of records (e.g. 50)
+* every document identifier is unique across the list (no duplicates from overlapping batches)
+If either invariant fails, the batching was wrong. Fix it before authoring more.
+Verification gates (run BEFORE assembling task files)
+Run two programmatic sweeps against the merged audit:
+1. anti-leak sweep — for every record, check both string and integer leaks across all four (answer, question) pairs. Print every leak with the document id and which field leaks where.
+2. verbatim sweep — for every record, normalize the supporting sentence and the document text, confirm substring inclusion. Print every mismatch.
+If either sweep returns errors, do not proceed to assembly. Fix the audit first.
+Repair pass
+For records that fail verification, dispatch a single targeted repair helper (not a full re-batching) with:
+* only the affected document ids in scope
+* the same prompt template, but with stricter verbatim-verification language: "before returning each record, run a content search for a 5–15 word substring of your candidate supporting sentence against the actual file, and confirm the search returns matches"
+* expected affected record count: 5–10% of total on a first pass; 0% after one repair cycle if the verification language is strict
+Merge the repair output into the master audit by document id (replace, don't append). Re-run both verification sweeps. Only proceed when both return zero errors.
+Common parallel-authoring failures
+* a helper returns 9 records instead of 10 — usually a JSON syntax error in one record. Re-dispatch only the missing document ids.
+* a helper writes its output somewhere unexpected — set the path explicitly in the prompt; if the helper still writes elsewhere, move the file post-hoc.
+* two helpers produce the same document id — batching error. Verify the partition has no overlaps.
+* all helpers leak the same integer in the same way — the prompt's anti-leak language is too weak. Sharpen the regex example in the prompt and re-dispatch.
+________________
+
+
+Step 6: Assemble Fast, Validate Early
+Once the audit is verified, assemble the deliverable:
+1. emit tests/oracle.json and solution/oracle.json from the audit (both must be byte-identical)
+2. emit instruction.md with the per-document question lists, output schema, grading rules
+3. emit decomposition.yaml with one specialist entry per batch and one reducer entry
+4. emit task.toml with description, AHT estimate plus arithmetic justification, why_multi_agent
+5. clone environment/Dockerfile, tests/test.sh, solution/solve.sh from a previously working task
+6. confirm the verifier returns 1.0 against its own oracle
+7. run pre-flight checks before handing off
+Do not over-invest before validating.
+Validation order
+1. assembly-time validation — every audit record passes the schema, anti-leak, and verbatim checks
+2. oracle judge self-test — judge.py against solution/oracle.json returns score = 1.0000 exactly
+3. pre-flight checks — folder name, decomposition shape, AHT arithmetic, anti-leak, environment hygiene, corpus shape, supporting sentences
+4. deliverable assembly — ZIP with explicit dir entries, single root, no junk
+The pre-flight check list
+Run all of these against the assembled deliverable. Every one must pass.
+* folder name regex match
+* task.toml [task].name matches folder
+* estimated_sub_agents equals actual sub-task count
+* decomposition.yaml has the expected number of id: entries
+* each specialist contains its assigned questions inlined verbatim
+* tests/oracle.json and solution/oracle.json sha256 match
+* oracle judge self-score = 1.0000
+* combined instruction.md + decomposition.yaml ≤ 100 KB
+* AHT components sum arithmetically to the stated estimate
+* anti-leak sweep returns 0 leaks
+* Dockerfile has no forbidden COPY/install (no COPY tests/, no COPY solution/, no kimi-cli, no kimi-agent-sdk)
+* every .sh file has LF line endings
+* document count and total token count in target band
+* every scored sub-category has ≥ 3 documents
+* every supporting sentence is a substring of its document under tolerant normalization
+________________
+
+
+Step 7: Judge the Task by Results
+A corpus may look strong on paper and still fail as a SwarmBench task.
+Good outcome
+* oracle scores 1.0
+* single-agent scores ≤ 0.55
+* multi-agent scores ≥ 0.85
+* multi minus single ≥ 0.40
+Bad outcomes
+* oracle scores below 1.0 (assembly error, not authoring error)
+* single-agent scores ≥ 0.60 (corpus too easy or freebie fields exist)
+* multi-agent scores < 0.85 (orchestration problem, not authoring)
+* gap < 0.40 (the wedge does not exist in this design)
+Decision tree on single-agent score
+* ≤ 0.45 → run multi
+* 0.45 – 0.55 → judgment call (proceed if multi has historically been ≥ 0.90 for similar corpora)
+* ≥ 0.55 → rewrite the leaked questions before running multi
+If the score pattern is weak after one rewrite cycle, switch corpus instead of forcing a bad one.
+________________
+
+
+Common Blockers
+1. Trivial freebie fields
+Per-document fields where every value is the same, or where a single grep extracts the answer. Single-agent gets free points; gap dies. Remove the field entirely.
+2. Tolerance too loose
+Integer tolerance at ±20% lets the single agent guess and land in range. Tighten to ±10% with minimum slack of 1.0.
+3. Surface-skim questions
+Questions answerable from the abstract, title, or first paragraph. Single agent reads 50 abstracts in one context and answers them all. Push answers into proof bodies, appendices, footnotes, or multi-section integration.
+4. Anti-leak miss
+Answer string appears in another question text, or integer answer appears as a standalone token in a section reference. Single agent substring-matches its way to passing. Re-run the leak sweep after every authoring batch.
+5. Verbatim hallucination
+Authoring helper quotes a sentence that doesn't exist in the document, or quotes from the wrong document. Pre-flight verbatim check fails. Bake verification into the authoring loop and re-author broken records.
+6. Combined size overrun
+instruction.md + decomposition.yaml exceeds 100 KB. The orchestrator's command line truncates and the multi run fails before it starts. Trim instruction framing prose first; keep questions and decomposition descriptions intact. Aim for ≤ 70 KB.
+7. Reducer re-reading inputs
+The reducer's prompt allows or invites re-reading the corpus. The reducer becomes a single agent with the full corpus, defeating fan-out. State explicitly: "Aggregate the N specialist outputs without re-reading /input_artifacts/."
+8. Decomposition leaks
+Specialist descriptions reveal the answer or the location. Reviewer rejects as describing how instead of what. Describe the deliverable, not the value or pointer.
+________________
+
+
+Lessons Learned
+* The corpus carries the task; clever questions cannot rescue a 50K-token corpus.
+* Every per-document field is either a trivial freebie or a real wedge driver — there is no in-between.
+* Subdiscipline labels in per-document outputs are 50 free points; keep them in the audit only.
+* Authoring helpers hallucinate supporting sentences ~15–20% of the time without explicit verification.
+* Authoring helpers confuse documents in long batches; verify against the correct document.
+* The integer-leak rule (digits as standalone tokens) is the single most common first-pass failure.
+* Pre-flight is the cheapest place to catch errors. A check that fails here costs minutes; the same check failing later costs hours.
+* AHT arithmetic must literally sum — 41h + 10h ≠ 60h.
+* The decision predictive of gap quality: "could a Python script extract this answer with grep?" If yes, the gap dies.
+________________
+
+
+Team Standard for Task Acceptance
+Before investing in question authoring, a corpus should pass this screen:
+* 50 documents (or other count cleanly partitioning into 19–23 sub-agents)
+* 750K–1.1M total tokens (3×–4× the single-agent context window)
+* 18K–120K characters per document
+* balanced sub-categories with one unscored diversity bucket
+* post-cutoff dates
+* raw text extracted from PDF, with subcategory tags stripped
+* believable single-agent failure mode (cannot fit the corpus or cannot sustain attention)
+* believable multi-agent advantage (per-sub-agent slice fits inside attention window)
+If it fails this screen, reject it early.
+________________
+
+
+Final Recommendation
+Use this workflow:
+1. select a domain whose corpus naturally exceeds 3× context
+2. download fresh, post-cutoff documents balanced across 5–6 sub-categories
+3. author 2 questions per document targeting buried claims, with verbatim-verified supporting sentences
+4. validate the audit for anti-leak and cross-document hallucination before assembling
+5. run the pre-flight check list before any evaluation run
+6. drop weak corpora early; do not force a design that produces gap < 0.40
+________________
+
+
+Short Summary
+Best workflow: corpus curation → schema design → question authoring → assembly → pre-flight → evaluation runs → keep or discard.
+Best corpora: fresh arXiv preprints, 50 documents, 750K–1.1M tokens, balanced across 5 scored sub-categories, post-cutoff.
+Main mistake to avoid: adding "easy" per-document fields that one agent answers for free, or authoring questions answerable from the abstract.
+________________
+
+
+Prompt Idea (Question Authoring)
+You are authoring two extraction questions per document for a knowledge-research benchmark.
+Questions must require reading the document body — not the abstract, not the title, not the
+first methods paragraph. Surface-skim answers will collapse the score gap.
+
+
+## Hard requirements
+
+
+For each document, produce one record with:
+1. document identifier (filename stem)
+2. paper_subdiscipline (from the allowed enum)
+3. question_1_text, answer_1, answer_1_type, supporting_sentence_1, source_location_1
+4. question_2_text, answer_2, answer_2_type, supporting_sentence_2, source_location_2
+
+
+Targets: ~70% integer answers, ~30% short-string answers.
+Each supporting_sentence must be a verbatim contiguous substring of the document body.
+
+
+## Hard-question taxonomy (rotate across documents)
+
+
+- constants in theorem statements emerging from combined hypotheses
+- bound exponents in asymptotic estimates (prose-quoted)
+- counts of cases or branches in case-by-case proofs
+- dimensions, ranks, orders, multiplicities in body prose
+- specific scenario or regime values buried mid-paragraph
+- footnote or appendix-only constants
+- prior-work cross-reference values
+- specific integer parameter values in proof body only
+
+
+## Anti-patterns (REJECT)
+
+
+- abstract or first-paragraph statement of the main result
+- any value stated in the title
+- numbers only inside displayed/numbered equations
+- bibliography numbers, page numbers
+- anything in the first 2,000 characters
+- headline metrics from abstract or conclusion
+
+
+## Anti-leak (HARD — verify before finalizing each record)
+
+
+- string answer of length > 3 must NOT appear in either question text (case-insensitive)
+- integer answer must NOT appear as a standalone token in either question text — regex
+  (?<!\d)<int>(?!\d). This includes section, theorem, equation, and page references.
+- if the answer matches a section number, paraphrase: "in the main spectral theorem"
+  instead of "in Theorem 5.2".
+
+
+## Verbatim verification (HARD — verify before finalizing each record)
+
+
+Before locking in any record, search the actual document file for a 5–15 word
+substring of your candidate supporting sentence. Confirm a hit. If no hit, pick
+a different fact or rephrase to match the actual text.
+
+
+## Output
+
+
+Return a single JSON array of N objects, one per assigned document. Valid JSON.
+No commentary. Start with `[`, end with `]`.
+

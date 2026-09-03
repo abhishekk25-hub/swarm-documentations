@@ -1,0 +1,5 @@
+# 2025 AIME I Problem 2
+
+On $\triangle ABC$ points $A$, $D$, $E$, and $B$ lie in that order on side $\overline{AB}$ with $AD = 4$, $DE = 16$, and $EB = 8$. Points $A$, $F$, $G$, and $C$ lie in that order on side $\overline{AC}$ with $AF = 13$, $FG = 52$, and $GC = 26$. Let $M$ be the reflection of $D$ through $F$, and let $N$ be the reflection of $G$ through $E$. Quadrilateral $DEGF$ has area $288$. Find the area of heptagon $AFNBCEM$.
+
+[asy] unitsize(14); pair A = (0, 9), B = (-6, 0), C = (12, 0), D = (5A + 2B)/7, E = (2A + 5B)/7, F = (5A + 2C)/7, G = (2A + 5C)/7, M = 2F - D, N = 2E - G; filldraw(A--F--N--B--C--E--M--cycle, lightgray); draw(A--B--C--cycle); draw(D--M); draw(N--G); dot(A); dot(B); dot(C); dot(D); dot(E); dot(F); dot(G); dot(M); dot(N); label("$A$", A, dir(90)); label("$B$", B, dir(225)); label("$C$", C, dir(315)); label("$D$", D, dir(135)); label("$E$", E, dir(135)); label("$F$", F, dir(45)); label("$G$", G, dir(45)); label("$M$", M, dir(45)); label("$N$", N, dir(135)); [/asy]

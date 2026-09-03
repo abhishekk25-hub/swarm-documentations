@@ -1,0 +1,125 @@
+{
+  "task": "swarmbench/FCC-TELECOMMUNICATIONS-RULEMAKING-DIGEST-REVIEW",
+  "grader": "tests/verify.py",
+  "reward_contract": "/logs/verifier/reward.txt",
+  "scoring": "Reward is the simple mean of the static, reward-hacking, and partial-oracle group means: (static + reward_hacking + partial_oracle) / 3. Content/structural classification does not weight or multiply the reward. Ten of 16 checks (62.5%) are content checks that require source-specific non-header evidence, analytical grounding, source-derived outcomes, or judged coverage, faithfulness, and synthesis; six are structural. Authorship gating and fixed 72-record denominators prevent hollow or partial output from banking easy credit.",
+  "total_checks": 16,
+  "check_classification": {
+    "structural": ["static_checks_1", "static_checks_2", "reward_hacking_checks_1", "reward_hacking_checks_2", "reward_hacking_checks_3", "partial_oracle_checks_1"],
+    "content": ["static_checks_3", "static_checks_4", "static_checks_5", "static_checks_6", "reward_hacking_checks_4", "partial_oracle_checks_2", "partial_oracle_checks_3", "partial_oracle_checks_4", "partial_oracle_checks_5", "partial_oracle_checks_6"]
+  },
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Counts how many of the 72 required per-release digests (digests/a01.md..a72.md) exist and clear a minimal substance gate of at least 40 words, as a fraction of 72, so a bare stub (one character or a few words) does not count as present. Confirms the core deliverable was produced across the whole run rather than only an early stretch.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/aNN.md",
+      "check_function": "check_all_notes_present",
+      "how_it_prevents_task_authenticity_violation": "A partial submission that writes only the first several digests, or fills the rest with one-character placeholder files, cannot earn full delivery credit."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Checks rule_register.csv parses, has the required columns (report, rule_subject, document_number, fcc_bureau, radio_service, action_type, note_status), covers all 72 report ids, that each row matches the roster for that id by the rule subject's distinctive tokens OR the Federal Register document number (matches counted once per canonical id so repeated rows cannot inflate coverage), that BOTH the fcc_bureau and radio_service columns are actually populated with meaningful, varied values (fraction of canonical rows whose value is non-empty and non-generic, scaled down when fewer than three distinct values appear across the roster), AND that the radio_service column uses the closed service vocabulary (wireless / broadcast / satellite / wireline / public safety / media): the sixth sub-part is the fraction of canonical rows whose radio_service is one of those enum values, so arbitrary free-text service labels cannot earn full credit. Scored as the mean of the six sub-parts.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/rule_register.csv",
+      "check_function": "check_tracker_wellformed",
+      "how_it_prevents_task_authenticity_violation": "A register that is missing rows, invents report ids, mislabels the rule subject/document number, or leaves the required fcc_bureau / radio_service coding blank or constant cannot be treated as complete, well-formed coverage."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "Confirms the cross-release survey spectrum_survey.md exists, is at least 300 words, clears a distinct-token (vocabulary-richness) ratio floor, is not dominated by a single repeated sentence, AND actually reads across releases: it requires at least three sentences that reference two or more distinct digest ids together AND name a concrete shared theme in the same sentence (a spectrum band, a radio service, a technical limit, or a kind of Commission action), where the named theme is source-verified - it must actually appear in at least two of the cited releases' own record text - so a fabricated filler sentence that merely juxtaposes two ids plus a theme keyword the releases do not share earns no credit, and neither does bare id co-occurrence or a degenerate one-templated-sentence-per-release listing. The survey must also span the whole run (at least 12 distinct digest ids cited including at least three from the later a49-a72 range) so a survey that fades out after the first several releases cannot earn synthesis credit. The deterministic source-link and whole-roster conditions are necessary but not sufficient: the cached LLM synthesis score must also be at least 0.5, so grep-style co-occurrence lists do not pass as genuine cross-record reasoning.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/spectrum_survey.md",
+      "check_function": "check_review_present",
+      "how_it_prevents_task_authenticity_violation": "Skipping the required whole-run survey, leaving a one-line stub, or emitting a per-release list with no cross-release linkage cannot earn synthesis credit."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "Fraction of the 72 digests that reach at least 220 words AND clear a distinct-token (vocabulary-richness) ratio floor AND are largely the agent's own prose rather than verbatim source (8-gram overlap with the record below 50%) AND contain a length-scaled minimum of release-specific grounded details (frequencies/power/dollar figures, percentages, counts of channels/comments/stations, document numbers, or years) that actually appear in that record and are used within surrounding release-specific context (not a bare pasted list) - at least three such grounded details, rising with length (roughly one more per 250 words), AND spanning at least two different kinds of detail (e.g. a frequency plus a document number, not the same kind of token twice) unless the digest is unusually detail-dense, so length padding, repeated text, pasted source, generic paraphrased boilerplate, or a digest that sprinkles only two same-kind tokens cannot earn depth credit. Denominator is 72 so thin or missing digests lower the score. A roster/header identity such as a docket, document number, or publication year cannot satisfy depth alone; at least one grounded non-identity core value from the source body is required. Qualifying body-derived specifics also include 47 CFR rule-section citations; these are not roster or filename metadata.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/aNN.md",
+      "check_function": "check_note_depth",
+      "how_it_prevents_task_authenticity_violation": "Padding coverage with one-paragraph stubs that satisfy presence but not substance cannot earn depth credit."
+    },
+    "static_checks_5": {
+      "detailed_explanation_of_checks": "Mean fraction over all digests of the six required sections (subject and service, action taken, rules and obligations, problem and record, reasoning, and what sets it apart). A section is credited only when its topic appears with substantive surrounding content (not a bare header) AND that content references the release's own identifiers (a rule-subject token or its document number), so a generic boilerplate paragraph reused under every header cannot earn format credit. Topic words and the record identity are not enough by themselves: each credited section window must also contain a source-shared non-identity core token, preventing empty headings or roster-decorated boilerplate from earning format credit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/aNN.md",
+      "check_function": "check_format_sections",
+      "how_it_prevents_task_authenticity_violation": "Free-form digests that omit required sections (e.g. rules and obligations or reasoning) cannot earn format credit."
+    },
+    "static_checks_6": {
+      "detailed_explanation_of_checks": "LLM-judged quality of the cross-release survey against six synthesis criteria (>=3 recurring threads such as radio services, licensee classes, spectrum bands, technical limits, kinds of Commission action, or responsible Bureaus; release-level attribution by id/document number/rule subject; a genuine convergence; a genuine divergence; a gap or open question the run leaves; and cross-reading rather than release-by-release summaries), graded through structured JSON judge responses. Implemented by check_llm_review, which reads the cached combined LLM grader result. The judge returns a short evidence justification with its structured scores; the verifier retains it in judge_justification.txt and prints it for audit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/spectrum_survey.md",
+      "check_function": "check_llm_review",
+      "how_it_prevents_task_authenticity_violation": "A survey that merely re-lists per-release summaries or asserts themes without grounding them in specific releases cannot earn synthesis-quality credit."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "Detects near-duplicate digests by comparing every pair on two signals: raw 6-word shingle Jaccard (>= 0.5) and a number-masked 6-word shingle Jaccard (>= 0.8) that catches mad-lib templates where only rule subjects, numbers, and dates are swapped. Scores the fraction of digests NOT involved in a flagged pair.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/aNN.md",
+      "check_function": "check_no_duplicate_notes",
+      "how_it_prevents_task_authenticity_violation": "Copying one researched digest across many report ids to fake full 72-release coverage is caught and not credited."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Fraction of digests free of both stub/deferral markers (TODO/TBD/placeholder/lorem ipsum and paraphrased deferrals such as 'to be written', 'deferred to a later pass', 'section incomplete', 'more to follow', 'working draft', 'more detail may be added when time permits', 'expand this later', plus self-referential admissions of thinness phrased in prose such as 'not captured above', 'reflects only the readily apparent points', or 'surface-level') and technical auto-generation/offload fingerprints (code fences, import openai, requests.post/get, chat/completions, api key, max_tokens, 'as an AI'). The offload pattern is restricted to scripting/API artifacts so legitimate quoted record prose is never flagged.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/aNN.md",
+      "check_function": "check_no_stub_or_offload_artifacts",
+      "how_it_prevents_task_authenticity_violation": "Passing off unfinished stubs, or output produced by scripting the digests through an external model, as genuine analysis is caught and not credited."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Compares note_status against the actual digest per canonical release id (deduplicated to one row per id, denominator fixed at 72 so repeated or padded rows cannot inflate or dilute). An id is credited only when the label agrees with reality by equivalence: a complete-family status (complete/completed/done/finished/final/written) must correspond to a genuinely substantial digest (>=220 words, sufficient vocabulary richness, largely original prose rather than pasted source, and grounded in the record's specific details), and any non-complete-family status is credited only when the digest is in fact not substantial. Marking a thin digest with any complete-family label (or a substantial one with a non-complete label) is not credited, so status synonyms cannot bypass the check in either direction and no status value earns credit unconditionally. Scored as the fraction of canonical ids consistent.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/rule_register.csv",
+      "check_function": "check_note_status_consistent",
+      "how_it_prevents_task_authenticity_violation": "Marking missing or thin digests as 'complete' to inflate apparent coverage is caught and not credited."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Fraction of digests that ground their own release's identity in the body: they must mention the distinctive identity (rule-subject tokens from the roster, or the document number) AND additionally carry at least one non-identity grounded specific - a quantity, a percentage, or a count that actually appears in THIS record, used in context. Because the digest header is required to carry the rule subject and document number (both available from proceeding_roster.csv without reading the record), identity alone cannot prove grounding; requiring a non-header specific means a fabricated digest that merely echoes its own mandated header earns no credit. Publication year is deliberately excluded from the non-identity specific because it is also disclosed in the roster. The match is required in the body past any leading metadata/heading block, and a near-verbatim copy of the source (8-gram overlap >= 0.6) earns no credit. Qualifying body-derived specifics also include 47 CFR rule-section citations; these are not roster or filename metadata.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/aNN.md",
+      "check_function": "check_notes_grounded_in_own_source",
+      "how_it_prevents_task_authenticity_violation": "Generic interchangeable digests, or wholesale copies of the record, cannot earn grounded-content credit."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "For every one of the 72 releases, checks that the digest cites the correct Federal Register document number (trusted fact from proceeding_roster.csv, present in the record). Credit is only given when the corresponding record clears the full authorship gate: at least 220 words of substantive own-words analysis, low direct/gapped-copy density, and grounded non-identity evidence from its own source. Scored as the fraction correct over all rostered document numbers.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/aNN.md",
+      "check_function": "check_project_numbers",
+      "how_it_prevents_task_authenticity_violation": "Digests not tied to the correct real release, or a bare metadata splice with no analysis, cannot earn grounded-identity credit."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "For every release, checks the digest cites at least one release-specific figure - a quantity, a percentage, or a count - that actually appears in that record within surrounding analytical prose (a >=12-word window carrying release context). Fraction correct over all releases with a digest. Identity proximity alone does not qualify: the figure window must contain an analytical connective tying the value to the source's reasoning, finding, or decision. Qualifying body-derived specifics also include 47 CFR rule-section citations; these are not roster or filename metadata.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/aNN.md",
+      "check_function": "check_grounded_figures",
+      "how_it_prevents_task_authenticity_violation": "Digests that name plausible-sounding figures not actually in the record cannot earn grounded-figure credit."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "For every release, compares the register row's action_type column to a held-out answer key kept in tests/enum_key.csv (never shipped to the agent). The release no longer carries a single labelled 'Action type:' metadata line, so the kind of action (Report and Order, Memorandum Opinion and Order, Order on Reconsideration, or Further Notice) must be worked out by reading the body of the release; the key exists only so the verifier has a stable answer to score against (normalised for case, spacing, and underscores). Scored by macro-averaging per-action-type accuracy (the mean of the per-class correct fractions, not the row-level fraction), so that guessing the single most common action for every release is capped near 1/K while a genuine per-record reading can reach 1.0.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/rule_register.csv",
+      "check_function": "check_activity_matches_source",
+      "how_it_prevents_task_authenticity_violation": "An action_type column that is constant, fabricated, or contradicts the action stated in the record cannot earn accuracy credit, and the class distribution cannot be gamed by majority guessing."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "LLM-judged mean aspect-coverage over ALL 72 digests: for each of the six required aspects (subject and service, action taken, rules and obligations, problem and record, reasoning, and specificity), whether the digest genuinely and correctly covers it for that specific release, judged against that release's real record text. graded through structured JSON judge responses; implemented by check_llm_coverage reading the cached combined LLM grader result. Only authorship-eligible records reach the judge; missing or ineligible records remain zero under the fixed denominator of 72. Each structured judge result includes a retained and printed short evidence justification.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/aNN.md",
+      "check_function": "check_llm_coverage",
+      "how_it_prevents_task_authenticity_violation": "Well-shaped digests that omit or fake the substantive analysis cannot earn content credit."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "LLM-judged mean faithfulness+specificity over ALL 72 digests: whether each digest is accurate to its own record, in its own words with nothing fabricated, nothing imported from other releases, and nothing about the proceeding drawn from outside knowledge not stated in that record, and grounded in the release's real bands, licensees, service, action, rules, and figures. graded through structured JSON judge responses; implemented by check_llm_faithful reading the cached combined LLM grader result. Only authorship-eligible records reach the judge; missing or ineligible records remain zero under the fixed denominator of 72. Each structured judge result includes a retained and printed short evidence justification.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/digests/aNN.md",
+      "check_function": "check_llm_faithful",
+      "how_it_prevents_task_authenticity_violation": "Fabricated or cross-contaminated content, and generic boilerplate, cannot be scored as faithful analysis."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "For every release, compares the register row's radio_service column (mapped to the closed service vocabulary wireless / broadcast / satellite / wireline / public safety / media) to a held-out answer key kept in tests/enum_key.csv (never shipped to the agent). The release no longer carries a single labelled 'Radio service:' metadata line, so the service the rule most concerns must be inferred by reading the release's own text; the key exists only so the verifier has a stable answer to score against. Scored by macro-averaging per-service accuracy (the mean of the per-class correct fractions, not the row-level fraction), so that guessing the single most common service for every release is capped near 1/K while a genuine per-record reading can reach 1.0.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/output/rule_register.csv",
+      "check_function": "check_institute_matches_source",
+      "how_it_prevents_task_authenticity_violation": "A radio_service column that is constant, fabricated, or contradicts the service stated in the record cannot earn accuracy credit, and the class distribution cannot be gamed by majority guessing."
+    }
+  }
+}

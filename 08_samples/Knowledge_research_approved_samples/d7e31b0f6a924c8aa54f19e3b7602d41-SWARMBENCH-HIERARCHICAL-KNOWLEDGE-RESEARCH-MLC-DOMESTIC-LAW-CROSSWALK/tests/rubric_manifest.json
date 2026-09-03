@@ -1,0 +1,936 @@
+{
+  "task_id": "d7e31b0f6a924c8aa54f19e3b7602d41",
+  "task": "swarmbench/d7e31b0f6a924c8aa54f19e3b7602d41-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-MLC-DOMESTIC-LAW-CROSSWALK",
+  "verifier_type": "hybrid",
+  "verifier": "tests/verify.py",
+  "total_checks": 102,
+  "total_points": 102,
+  "scoring": "Within each of the three buckets every check is equal-weight (weight 1, additive) and no check, and no stage of the reward computation, uses a gate or a multiplier of any kind: 13 static checks, 28 reward-hacking checks, 61 partial-oracle checks (102 total; 50 of the 102, all in reward_hacking/partial_oracle, are LLM-judged -- 49.0%). Four of the 102 (2 reward_hacking, 2 partial_oracle) combine two or three independent quality signals into one check's score by plain average: r_evidence_density_and_breadth, r_shard_content_and_nonduplication, o_grounding_and_authenticity, o_memo_figures_and_profile_coverage. The three bucket means (total_static_check_score, total_reward_hacking_check_score, total_partial_oracle_check_score) are then blended into the final reward with a fixed weight of static x1, reward_hacking x2, partial_oracle x3 over 6 -- itself a plain weighted average, not a gate -- so content (reward_hacking + partial_oracle) always carries 5/6 of the final reward regardless of bucket size. Under this blend a hollow-but-well-formed submission that clears only the static bucket and scores zero on every content check would reach reward = 1/6 (~16.7%), though in practice the static checks themselves (s_mapping_schema, s_evidence_schema, etc.) already require the per-cell eligibility criteria below to be met, which a hollow submission cannot meet, so the effective floor stays near 0. Free-text copy-paste, fabrication, template authorship, legal support, source-coverage note honesty and amendment completeness are LLM-judged with deterministic heuristics passed only as verifier_flags hints. Deterministic checks cover file and schema shape, fixed-scope completeness, quote round-trip, non-TOC passage shape, per-cell eligibility and cross-file reconciliation. The verifier also prints reward_equal_weight_all_checks, the flat mean over all 102 checks, to stdout as a non-scoring diagnostic; reward.json itself carries only reward and the three bucket means. Empty submission scores 0. Check-count composition, by count of checks rather than by weight: 13 structural of 102 total = 12.7%; 89 reward-hacking + partial-oracle of 102 = 87.3%.",
+  "reference_facts": "Ground truth recomputed from jurisdictions.csv, provisions_registry.csv, source_manifest.json and normalized staged texts per crosswalk_standard section 8. tests/partial_oracle.json is verifier self-audit only.",
+  "fixed_denominators": "504 cells for mapping/eligibility; 72 booleans (12 x 6 LLM dimensions including notes_authored and evidence_authentic) per provision composite; document-level axes include memorandum quality, reconciliation, profile authorship, source-coverage note honesty, amendment completeness and evaluator-directed prose resistance. Missing units score 0 inside fixed denoms.",
+  "empty_output_behaviour": "Empty frozen submission yields reward 0.000000 and points_earned 0 because each check's ordinary semantics score 0 when required deliverables are absent (no central empty gate in grade()). Status remains ok.",
+  "judge_model": "Qwen/Qwen3.6-35B-A3B",
+  "judge_model_note": "Judging only skips entirely when the API key is absent or the submission is genuinely empty (submission_empty(): no workbook, lineage graph, queue, coverage rows, audit, memo markdown, memo PDF, or shards at all) -- a missing or wrongly-named workbook alone does NOT suppress memo or prose-injection-scan judging, since a real, correctly-delivered comparative_legal_memorandum.md deserves an actual judged verdict rather than a silent zero indistinguishable from the judge never having run. The independent judge is pinned to W&B Inference at https://api.inference.wandb.ai/v1/chat/completions with Qwen/Qwen3.6-35B-A3B and WANDB_API_KEY. Three presentation-varied passes back every judged check and each strict JSON boolean carries the majority verdict. Per provision, deterministic iso3 sub-batches of six are judged three times; the forty-two provision checks read disjoint 12-cell slices with six dimensions per cell and a fixed 72-boolean denominator. Structural eligibility is scored separately and does not zero these independent legal-quality judgments. The memorandum is judged by three full-document passes, and complete prose fields are scanned in bounded chunks by three passes. A unit needs at least two parseable passes; otherwise affected judged checks score 0 with no heuristic fallback. All three judge call sites -- cell batches, the memorandum, and the prompt-injection prose scan -- go through _call_model_parsed, which retries up to two more times at 2x then 3x the base completion-token budget whenever a reply is not parseable JSON, since a thinking-capable judge can occasionally spend enough of a fixed budget on leaked reasoning tokens to truncate the JSON answer even with thinking nominally disabled; a call that still returns no valid JSON object after all three attempts is left unjudged rather than guessed at. Every cell judge call and the memo judge call also requests a short free-text rationale naming the specific deciding fact alongside its booleans; verify.py writes the first successfully-parsed rationale per cell/memo unit to /logs/verifier/judge_justification.json (cell_rationales_by_key keyed by provision_id|iso3, plus memo_rationale) so judged verdicts carry a human-readable justification, not only boolean output. If any one of the three judge units (cells, memo, injection scan) fails to reach JUDGE_MIN_SAMPLES, llm_available is False for the whole run and every LLM-judged check scores 0 even when the other two units judged cleanly; verify_status.json's invalid_evaluation extras surface the specific failure via llm_batch_failed, llm_memo_error, and llm_injection_error (each carrying a diagnosable reason string such as parse_failed:empty_reply, parse_failed:no_brace:len=N, parse_failed:unbalanced_or_invalid_json:len=N, or schema_mismatch:*) rather than a bare null, so a genuinely strong submission whose cells and memo were both judged is never indistinguishable in the status file from one where the judge never ran at all.",
+  "verifier_dependencies": "Standard library plus openpyxl (agent-shared, installed in environment/Dockerfile) plus pypdf and requests (verifier-only, installed fresh by tests/test.sh before verify.py runs).",
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Mean of eight deliverable-presence indicators plus two continuous shares: Mapping rows whose notes meet the disclosed word floor, and expected cells clearing structural eligibility. No hidden threshold converts either share to all-or-nothing credit.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "s_deliverables_present",
+      "how_it_prevents_task_authenticity_violation": "Stops a part-finished run from being presented as a finished crosswalk. A submission that maps a few bands and never writes the lineage graph, the coverage trail or the memorandum loses credit here rather than having the missing artefact silently skipped by the checks that would have read it, and requiring substantive payload in each file stops an empty document with the right filename from counting as delivery."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Share of the six required workbook sheets that both exist and carry the kind of researched content that sheet represents; no global eligible-cell threshold is applied.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "s_workbook_sheets",
+      "how_it_prevents_task_authenticity_violation": "Stops the six-sheet record being collapsed into one sheet of convenience, and stops empty-notes packages from banking sheet-presence freebies."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "Mapping rows carry provision_id, iso3, transposition_status, instrument_ids, primary_citation and notes, with non-none rows naming instrument_ids, AND each cell must pass the authorship/substance eligibility gate (word-band, injection-clean, AND sharing at least MIN_PROVISION_OVERLAP=3 distinctive content words with that cell's own MLC provision excerpt, so a note about the wrong obligation cannot pass on word count alone), scored over the fixed denominator of 504 required provision_id/iso3 cells so a partial or hollow workbook cannot earn full credit for tidy rows.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "s_mapping_schema",
+      "how_it_prevents_task_authenticity_violation": "Dividing on the 504 registered cells rather than on the rows offered stops a small immaculate workbook from scoring like a complete one. Requiring eligibility (authored notes plus quote-backed evidence or honest unresolved for statuses that owe evidence) stops template notes and instrument_ids alone from banking schema credit."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "Evidence rows carry section 5 columns, passage_text is 15-120 words, clears objective non-TOC shape filters, and quote-locates into the staged source, divided by the owing-cell denominator floored at 12. Relevance-note authorship is judged by the LLM, not a phrase gate.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "s_evidence_schema",
+      "how_it_prevents_task_authenticity_violation": "Scaling the denominator to the cells that owe a passage closes the cheapest evidence strategy: file a dozen perfect rows and leave the remaining cells unevidenced. Requiring quote round-trip stops fabricated passage_text that never appears in the staged corpus from banking schema credit."
+    },
+    "static_checks_5": {
+      "detailed_explanation_of_checks": "Instruments and Amendments sheets match section 4/6 columns; instrument_type uses the closed vocabulary; instrument_id is unique, matches ISO3-I### and forms a contiguous per-jurisdiction sequence from 001; in_force_note appears exactly when the Boolean is false; all twelve jurisdictions carry a cited instrument; and each amendment date parses with after_cutoff agreeing with 2026-07-30.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "s_instruments_amendments_schema",
+      "how_it_prevents_task_authenticity_violation": "Closes the routes by which a citation layer can be fabricated instead of researched. Invented tokens fail the ISO3-I### and uniqueness test, a jurisdiction nobody researched shows up as a jurisdiction with no instrument row, and an amendment dated after the cutoff cannot be flagged false to keep it inside the crosswalk because after_cutoff is recomputed from the date the row itself carries."
+    },
+    "static_checks_6": {
+      "detailed_explanation_of_checks": "Unresolved research_note is 40-100 words with valid reason_code; Summary has 42 rows with all status columns including zero and unresolved_count. Standard 15: nothing to report is credited only where the workbook is research-backed, meaning all 504 mapping rows are delivered and every one of the twelve jurisdictions carries at least one Instruments row.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "s_unresolved_summary_sheets",
+      "how_it_prevents_task_authenticity_violation": "Stops the two sheets that record what could not be settled from being filed as shape without content: a gap with no reason_code from the closed set, or a note too short to say what was searched, is exactly the entry that books an unresolved cell without doing the search. Requiring all forty-two Summary rows including zero-valued status columns stops the tally being trimmed to the provisions that came out well. The empty case is gated on a research-backed workbook, so a package that cites no domestic law for a jurisdiction cannot bank this check by simply reporting nothing."
+    },
+    "static_checks_7": {
+      "detailed_explanation_of_checks": "article_lineage_graph.json carries as_of, nodes, edges with relationship from section 9.3; meta.node_count and meta.edge_count equal actual node and edge counts.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "s_lineage_graph_shape",
+      "how_it_prevents_task_authenticity_violation": "Requiring meta counts to equal the real node and edge counts stops a graph advertising a corpus-wide reading it does not contain, which is the cheapest way to make twenty-four band-local fragments look like the one assembled graph the office asked for."
+    },
+    "static_checks_8": {
+      "detailed_explanation_of_checks": "Queue CSV matches section 9.4 with queue_id Q001 upward in canonical provision_id then iso3 order, a 40-100 word source-naming research_note, and the deterministic priority band stated in the standard. An empty queue earns credit only when the workbook is otherwise research-backed.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "s_unresolved_queue_shape",
+      "how_it_prevents_task_authenticity_violation": "Canonical Q001-upward ordering ties the queue to the workbook's own gap set instead of to whatever order was convenient to emit, so the queue cannot be assembled independently of the sheet it is meant to mirror; the word band and the closed priority vocabulary stop 'further research needed' from standing as an entry. The empty case is gated on a research-backed workbook, so a package that cites no domestic law for a jurisdiction cannot bank this check by simply reporting nothing."
+    },
+    "static_checks_9": {
+      "detailed_explanation_of_checks": "source_coverage.csv matches section 9.5 columns, consulted parses as a Boolean, and each notes value is 5-80 words before its source-specific honesty is judged semantically.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "s_source_coverage_shape",
+      "how_it_prevents_task_authenticity_violation": "Stops the coverage census being filed with blank cells against the files nobody opened, which is how a submission makes an account of the whole corpus without accounting for any particular file in it."
+    },
+    "static_checks_10": {
+      "detailed_explanation_of_checks": "method_audit.json matches section 9.6 keys; narrative word bands and jurisdiction/status naming requirements; what_the_audit_found states each federal_structure label (unitary, federal, mixed) with the corresponding numeric count from federal_structure_counts using local phrase matching.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "s_method_audit_shape",
+      "how_it_prevents_task_authenticity_violation": "Stops the audit narrative being written as generic method prose. It has to name real jurisdictions, real statuses and the federal-structure split as figures that agree with its own counts, so the audit cannot claim a fleet-wide reading that was never performed."
+    },
+    "static_checks_11": {
+      "detailed_explanation_of_checks": "Twenty-four SHARD-Cx-Bxx.json files with section 9.1 shape, band_summary 60-120 words, cluster_id/band_id aligned.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "s_shards_delivered",
+      "how_it_prevents_task_authenticity_violation": "Stops the per-band working record being collapsed into fewer larger files or filled with placeholder objects. Each band file has to carry its own cluster and band identity and its own summary, so a submission cannot publish a workbook while skipping the band-level record the reconciliation checks it against."
+    },
+    "static_checks_12": {
+      "detailed_explanation_of_checks": "Memorandum title, sections, Executive summary 150-250 words, twelve iso3 profiles 100-180 words naming at least two provision_ids, one transposition_status recorded on Mapping, and one staged source basename for that iso3, themes 200-350 words, four cluster subsections.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "s_memo_markdown_sections",
+      "how_it_prevents_task_authenticity_violation": "Stops the memorandum being a template with names substituted. Each profile has to name provisions the workbook actually records for that flag, a status that workbook actually assigns, and a staged file from that jurisdiction's own bundle, so a paragraph that would fit any of the twelve earns nothing."
+    },
+    "static_checks_13": {
+      "detailed_explanation_of_checks": "PDF readable text layer with memorandum title, sufficient length, and normalized word-set similarity to markdown of at least 0.55.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "s_memo_pdf_readable",
+      "how_it_prevents_task_authenticity_violation": "Stops a stub, a scanned image or an unrelated document from satisfying the second memorandum deliverable: the text layer has to be extractable, long enough to be the memorandum, and lexically close to the markdown it is supposed to carry."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "When the transposition workbook is present, pinned jurisdictions/provisions/manifest/mlc text and manifest source files hash to delivered sha1_12 values; scores 0 if workbook absent.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_input_integrity",
+      "how_it_prevents_task_authenticity_violation": "Catches the most direct attack available against a corpus-grounded task, which is editing a staged source, the registry or the manifest so that the crosswalk's claims become true. Any byte-level change to a pinned input is detected and the run is recorded as invalid rather than scored."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Counts distinct in-scope cells whose mapping row uses a canonical PXXX|ISO3 key drawn from the registered provision and jurisdiction sets, minus one penalty per off-contract row, over the fixed denominator of 504 cells, so neither omitting cells nor padding the sheet with extra or malformed rows can raise the score.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_canonical_cell_keys",
+      "how_it_prevents_task_authenticity_violation": "Closes two opposite shortcuts at once. Dividing by the 504 registered cells stops a submission choosing a smaller scope than the task has, and deducting a point for every off-contract row stops the reverse trick of padding Mapping with invented provisions, foreign jurisdiction codes or repeated keys to lift the count."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Share of 504 canonical cells appearing exactly once on Mapping (purely proportional; duplicate/extra rows are not separately capped here).",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_all_cells_present_once",
+      "how_it_prevents_task_authenticity_violation": "Stops the cell census being satisfied by volume. A cell written ten times still counts once and a cell never written counts as missing, so neither duplication nor selective coverage moves the score."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Evidence manifest paths resolve to source_manifest entries; Instruments paths and instrument_type resolve exactly, title and citation are identifying phrases located in the staged source, and in_force_on_cutoff agrees with the manifest's in_force_as_of. Scoring uses the owing-cell plus jurisdiction-floored denominator rather than only submitted rows.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_manifest_source_ids_valid",
+      "how_it_prevents_task_authenticity_violation": "Stops citations that point at files which do not exist in the staged corpus, the cheapest way to make a status look sourced. Because the denominator is the work owed rather than the rows offered, citing three real files and skipping the rest cannot score like citing them all."
+    },
+    "reward_hacking_checks_5": {
+      "detailed_explanation_of_checks": "Exactly one source_coverage.csv row per manifest entry, no duplicates or omissions.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_source_coverage_exactly_once",
+      "how_it_prevents_task_authenticity_violation": "Stops the census being gamed from either end: a file listed twice does not count twice, and a file the research never opened cannot be dropped from the trail to conceal that it was never read."
+    },
+    "reward_hacking_checks_6": {
+      "detailed_explanation_of_checks": "Share of evidence rows that are 15-120-word, objectively substantive, location-validated, quote-located, provision-relevant (passage shares >=3 distinctive content words with the cited cell's own MLC provision excerpt, weighted down for corpus-generic maritime vocabulary that recurs across most provisions so one boilerplate template cannot clear the bar against many provisions at once), sourced from that cell's own jurisdiction (or a GLOBAL manifest entry), AND not a near-duplicate (5-word-shingle Jaccard >= 0.7) of another evidence row's passage within the same jurisdiction, over the owing-cell coverage-scaled denominator. Relevance-note authorship is an LLM dimension.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_quotes_found_in_normalized_txt",
+      "how_it_prevents_task_authenticity_violation": "This is what separates a quoted passage from an invented one. The excerpt has to be found verbatim in the staged file its own row names, so a plausible paraphrase of what a statute probably says fails, and because the denominator is the cells owing evidence, quoting well for a handful of cells does not cover the rest."
+    },
+    "reward_hacking_checks_7": {
+      "detailed_explanation_of_checks": "Evidence provision_id/iso3 pairs exist on Mapping, counted over the cells owing a passage rather than over the evidence rows submitted.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_evidence_cells_join_mapping",
+      "how_it_prevents_task_authenticity_violation": "Stops evidence being filed against cells the workbook does not map, which would let a submission accumulate credit on passages while leaving the crosswalk itself thin."
+    },
+    "reward_hacking_checks_8": {
+      "detailed_explanation_of_checks": "Every non-none Mapping cell has Evidence row(s) or matching Unresolved/queue row explaining absence.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_non_none_cells_have_evidence_or_unresolved",
+      "how_it_prevents_task_authenticity_violation": "Forces every asserted transposition to be either evidenced or openly booked as a gap, so the middle option, a confident status with nothing behind it and no admission that nothing was found, earns nothing."
+    },
+    "reward_hacking_checks_9": {
+      "detailed_explanation_of_checks": "Instrument manifest_path values are manifest-valid, and each amendment row both references an instrument_id on the Instruments sheet and names a manifest-valid manifest_path of its own, over a denominator floored at the twelve jurisdictions section 4.3 requires instrument rows for.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_instruments_reference_manifest",
+      "how_it_prevents_task_authenticity_violation": "Stops the instrument and amendment layers floating free of the corpus: each has to be anchored to a real staged file. The floor at twelve jurisdictions stops a submission that researched one flag from scoring as though it had researched all of them."
+    },
+    "reward_hacking_checks_10": {
+      "detailed_explanation_of_checks": "Unresolved sheet and queue have exactly equal provision_id/iso3 key sets (not partial overlap). Where both are empty, credit requires the rest of the package to agree there are no gaps: 504 mapping rows delivered and a method audit reporting cells_mapped 504 with cells_unresolved 0. Credit for the both-empty case additionally requires every jurisdiction to carry an Instruments row, per standard 4.3.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_workbook_unresolved_matches_queue",
+      "how_it_prevents_task_authenticity_violation": "Stops the two gap records disagreeing, which is how a submission shows a short queue to a reader while the workbook admits more. Requiring the rest of the package to agree before an empty queue earns credit closes the obvious version of that: declaring no gaps at all without having mapped the cells that would have produced them. A jurisdiction with no instrument row is unresearched rather than gap-free, so the both-empty case no longer pays for a crosswalk that never opened the domestic law."
+    },
+    "reward_hacking_checks_11": {
+      "detailed_explanation_of_checks": "Lineage node and edge IDs are unique; the node set is exactly all 42 registered provisions plus the instruments cited by eligible cells. MLC node_id equals provision_id and each domestic node resolves to a cited Instruments token with matching iso3. Every edge runs from its own provision node to an instrument cited by that same Mapping cell and jurisdiction.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_lineage_nodes_edges_consistent",
+      "how_it_prevents_task_authenticity_violation": "Stops a graph assembled from dangling identifiers, and stops an edge attributing one jurisdiction's instrument to another jurisdiction's cell, a mismatch that would otherwise let one well-researched flag supply lineage for all twelve."
+    },
+    "reward_hacking_checks_12": {
+      "detailed_explanation_of_checks": "For every eligible Mapping cell, a non-none cell's edge targets are exactly its Mapping.instrument_ids and all relationships match its status; a none cell has no edge.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_lineage_relationship_matches_mapping",
+      "how_it_prevents_task_authenticity_violation": "Stops the graph and the workbook telling different stories about the same cell, which is the failure the office settled a complaint over: an edge cannot record a transposition the Mapping sheet does not, and a none cell cannot quietly acquire one."
+    },
+    "reward_hacking_checks_13": {
+      "detailed_explanation_of_checks": "Coverage iso3, manifest_path and instrument_type agree exactly with source_manifest.json.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_coverage_lists_real_sources",
+      "how_it_prevents_task_authenticity_violation": "Stops the coverage trail being invented rather than derived: every row has to name a file the manifest carries and attribute it to the jurisdiction the manifest attributes it to."
+    },
+    "reward_hacking_checks_14": {
+      "detailed_explanation_of_checks": "Audit scope, shard, status, federal-structure, mapped/unresolved and coverage counts are recomputed exactly from the workbook, shards and source_coverage rows; reconciliation row counts are 504 with empty mismatches.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_audit_federal_and_reconciliation",
+      "how_it_prevents_task_authenticity_violation": "Stops the audit asserting a reconciliation it never performed. The federal-structure split is recomputed from jurisdictions.csv, and a reconciliation block reporting 504 rows on both sides with no mismatches has to be true of the workbook actually delivered."
+    },
+    "reward_hacking_checks_15": {
+      "detailed_explanation_of_checks": "Summary per-provision status columns including zero and unresolved_count match Mapping and Unresolved tallies.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_summary_matches_cell_tally",
+      "how_it_prevents_task_authenticity_violation": "Stops the Summary sheet being a second, more flattering reckoning of the same rows, the exact failure the instruction names. Every per-status figure and every unresolved_count has to be the tally of the Mapping and Unresolved rows the submission itself wrote."
+    },
+    "reward_hacking_checks_16": {
+      "detailed_explanation_of_checks": "Every shard cell matches Mapping status, instrument_ids, evidence_ids and notes semantically; each declared amendment resolves to matching shard/workbook rows for a cited cell instrument, and every workbook amendment is declared by at least one affected shard cell.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_shard_cells_match_mapping",
+      "how_it_prevents_task_authenticity_violation": "Stops the band records and the workbook being produced independently of each other. A status that changed between the band file and the Mapping sheet, or an evidence identifier present in one and absent from the other, is the signature of a workbook written first and band files back-filled afterwards to look like research."
+    },
+    "reward_hacking_checks_17": {
+      "detailed_explanation_of_checks": "Unresolved and queue research_note is 40-100 words, names a source-manifest basename for that iso3, shares at least MIN_SOURCE_OVERLAP=2 distinctive content words with that named file's own staged text (so dropping a filename into a generic sentence without ever reading the file cannot pass), AND -- via cell_has_honest_unresolved -- shares provision-specific vocabulary with the cell's own MLC provision excerpt (note_relevant_to_provision, corpus-generic-vocabulary-weighted), so a single fixed 'searched and found nothing' template cannot bank the escape hatch across many provisions at once. Standard 15: nothing to report is credited only where the workbook is research-backed, meaning all 504 mapping rows are delivered and every one of the twelve jurisdictions carries at least one Instruments row.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_research_notes_name_staged_files",
+      "how_it_prevents_task_authenticity_violation": "Stops a gap being booked without a search. A note that names no file from that jurisdiction's own manifest bundle cannot show the bundle was ever opened, and the word band stops 'further research is needed' standing as the account of what was missing. The empty case is gated on a research-backed workbook, so a package that cites no domestic law for a jurisdiction cannot bank this check by simply reporting nothing."
+    },
+    "reward_hacking_checks_18": {
+      "detailed_explanation_of_checks": "Fast deterministic denylist pass over memo, Mapping notes, research_note, relevance_note and band_summary for known grader-directed phrases and markers; the semantic scan in o_llm_prose_not_judge_directed covers evasive phrasing this list cannot enumerate.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_prose_not_prompt_injection",
+      "how_it_prevents_task_authenticity_violation": "Catches the direct form of the attack on the judged checks, instructions aimed at the grader placed inside the prose fields the judge reads, deterministically and before any judged check sees the text."
+    },
+    "reward_hacking_checks_19": {
+      "detailed_explanation_of_checks": "Standard 5.2: every Evidence row's manifest_path resolves to a source_manifest.json entry whose iso3 equals the row's own iso3, or to one of the three GLOBAL entries. Denominator is the coverage-scaled evidence denominator, so a quote lifted verbatim from another country's statute scores zero however well it matches the MLC obligation. This same jurisdiction-match test is now also folded directly into evidence_row_substantive/evidence_row_credit, so a mismatch zeroes credit in every check that consumes it, not only here; this check independently re-verifies the same fact from the raw Evidence sheet.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_evidence_matches_source_jurisdiction",
+      "how_it_prevents_task_authenticity_violation": "Stops one jurisdiction's statute being used to evidence another's cell. Without it the cheapest route to 504 evidenced cells is to find one well-drafted national instrument and cite it everywhere, because maritime labour wording is similar across flags and a judge reading the passage alone would find it apt."
+    },
+    "reward_hacking_checks_20": {
+      "detailed_explanation_of_checks": "Standard 14: for each source_coverage.csv row, consulted must equal whether any Evidence or Instruments row cites that manifest_path, and provision_ids_touched must equal exactly the set of provision_ids on the Evidence rows citing it. Two booleans per row over a denominator floored at twice the manifest entry count, so a mechanical copy of source_manifest.json with invented or blanket consulted/provision values is contradicted by the workbook and scores near zero.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_coverage_claims_match_evidence",
+      "how_it_prevents_task_authenticity_violation": "Stops the coverage trail being written as a claim rather than a record. Both audit fields are recomputed from the workbook's own citations, so a mechanical copy of the manifest with everything marked consulted is contradicted by the rows that were never filed."
+    },
+    "reward_hacking_checks_21": {
+      "detailed_explanation_of_checks": "Standard 9.1: each shard's band_summary must name at least two of that band's own provision_ids and at least two iso3 codes, must share at least MIN_BAND_SUMMARY_OVERLAP=3 distinctive content words with the notes actually written for that band's own eligible Mapping cells (so an ID-substituted template that never engages with the band's real researched content scores zero even when it names the right ids), and must not be a near-duplicate (5-word-shingle Jaccard >= 0.7) of any other shard's summary. Denominator floored at 24 shards, so one boilerplate paragraph padded into the 60-120 word window and reused across bands scores zero.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_band_summaries_are_band_specific",
+      "how_it_prevents_task_authenticity_violation": "Stops one paragraph padded to the word band and pasted into all twenty-four band files. A summary has to name its own band's provisions and real jurisdictions, and near-duplicate summaries are rejected on both sides of the pair, so reuse costs more than writing."
+    },
+    "reward_hacking_checks_22": {
+      "detailed_explanation_of_checks": "Every Mapping instrument_id resolves to an Instruments row for the same iso3, and primary_citation equals one cited Instruments.citation. Only a none cell may leave instrument_ids empty, in which case primary_citation is exactly none. The denominator is the fixed 504 cells.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_mapping_instrument_ids_exist",
+      "how_it_prevents_task_authenticity_violation": "Stops instrument citation being satisfied by identifiers that resolve to nothing or are borrowed from another jurisdiction. Allowing an empty column only on a none or unresolved cell closes the other escape, which is leaving the citation column blank across the board while still calling every cell mapped. Closes the blanket-none crosswalk, where every cell is recorded none with no citation at all: for a jurisdiction the workbook never cites, an empty citation column is read as research left undone rather than as a finding of no law."
+    },
+    "reward_hacking_checks_23": {
+      "detailed_explanation_of_checks": "Each evidence_id matches <provision_id>-<ISO3>-E<nn>, is globally unique, and forms a contiguous per-cell sequence beginning at E01, over the coverage-scaled evidence denominator.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_evidence_ids_wellformed",
+      "how_it_prevents_task_authenticity_violation": "Stops evidence identifiers being bare sequence numbers that carry no relation to the cell they belong to, the shape that lets rows be duplicated or reattributed to a different cell later without any identifier ever contradicting another."
+    },
+    "reward_hacking_checks_24": {
+      "detailed_explanation_of_checks": "Every Amendments row references a cited instrument; uses a unique, positive, contiguous <instrument_id>-A<number> sequence; resolves its manifest path; locates an identifying amending-instrument phrase and effective date in that source; and gives a ten-word effect with at least three substantive source terms. Cell-level legal effect is also LLM-judged. An empty sheet earns credit only for a research-backed workbook.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_amendments_reference_instruments",
+      "how_it_prevents_task_authenticity_violation": "Stops the amendment layer being filled with changes to instruments the crosswalk never cites, and closes the opposite shortcut of deleting the sheet: an empty Amendments sheet earns credit only once the workbook itself is complete. The empty case is gated on a research-backed workbook, so a package that cites no domestic law for a jurisdiction cannot bank this check by simply reporting nothing."
+    },
+    "reward_hacking_checks_25": {
+      "detailed_explanation_of_checks": "Standard 9.4: the unresolved queue carries one row per Unresolved sheet row for the same canonical cell with the same reason_code drawn from the closed set, so the two files cannot tell different stories about which cells failed. Standard 15: nothing to report is credited only where the workbook is research-backed, meaning all 504 mapping rows are delivered and every one of the twelve jurisdictions carries at least one Instruments row.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_unresolved_reason_codes_agree",
+      "how_it_prevents_task_authenticity_violation": "Stops the queue and the Unresolved sheet classifying the same failure differently, which is how a submission would show a manageable set of reasons in the file a reader opens first while the workbook records something else. The empty case is gated on a research-backed workbook, so a package that cites no domestic law for a jurisdiction cannot bank this check by simply reporting nothing."
+    },
+    "reward_hacking_checks_26": {
+      "detailed_explanation_of_checks": "Standard 9.4: queue_id runs Q001 upward with no gaps in the canonical provision-then-iso3 order the queue is already required to follow. Standard 15: nothing to report is credited only where the workbook is research-backed, meaning all 504 mapping rows are delivered and every one of the twelve jurisdictions carries at least one Instruments row.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "r_queue_ids_sequential",
+      "how_it_prevents_task_authenticity_violation": "Stops the queue being emitted in whatever order rows happened to be produced with identifiers assigned afterwards. Gaps and renumbering are the signature of a queue assembled from fragments rather than derived from the workbook's settled gap set. The empty case is gated on a research-backed workbook, so a package that cites no domestic law for a jurisdiction cannot bank this check by simply reporting nothing."
+    },
+    "reward_hacking_checks_27": {
+      "detailed_explanation_of_checks": "Paired-signal content check: averages quote density (credited quote-located, provision-relevant evidence rows per cell owing evidence, capped at 1.0) with jurisdiction breadth (share of the twelve jurisdictions carrying at least one credited quote). The check's own score is the plain average of the two independent fractions, not a product or gate.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/mlc_transposition_workbook.xlsx"
+      ],
+      "check_function": "r_evidence_density_and_breadth",
+      "how_it_prevents_task_authenticity_violation": "Still rewards depth spread across the whole corpus over depth concentrated in a handful of jurisdictions, because both fractions are read from the same 12-jurisdiction denominator; the average (rather than a product) keeps the check free of gates and multipliers, at the cost of some resistance to a submission that is very strong on one axis and weak on the other."
+    },
+    "reward_hacking_checks_28": {
+      "detailed_explanation_of_checks": "Paired-signal content check: averages the share of the twenty-four shards whose band_summary shares real vocabulary with the notes actually written for that band's own eligible cells with the share of shards that are not near-duplicates (5-word-shingle Jaccard < 0.7) of any other shard. The check's own score is the plain average of the two independent shares, not a product or gate.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/shards/"
+      ],
+      "check_function": "r_shard_content_and_nonduplication",
+      "how_it_prevents_task_authenticity_violation": "Still rewards summaries that are both genuinely grounded in their own band's content and distinct from other shards' summaries, via a plain average of the two shares rather than a product or gate."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "Mapping provision_id set covers provisions_registry.csv.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_provision_set_matches_scope",
+      "how_it_prevents_task_authenticity_violation": "Stops the crosswalk quietly narrowing itself to the provisions that were easy to place, since the registry rather than the submission decides which forty-two are in scope."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "Lineage graph includes mlc_provision nodes and valid relationship edges.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_lineage_includes_mlc_root",
+      "how_it_prevents_task_authenticity_violation": "Stops a file of domestic instruments with no MLC provisions in it, or with no typed relationships, from passing as an article lineage graph: without provision nodes and relationship edges it records no transposition at all."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "Counts the 504 required cells that are eligible AND whose transposition_status is drawn from the closed vocabulary, over the fixed 504 denominator. Hollow empty-notes rows earn nothing even when status tokens are valid.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_mapping_statuses_use_closed_set",
+      "how_it_prevents_task_authenticity_violation": "Stops free-form status wording and stops a hollow roster of closed-set statuses with empty notes from banking vocabulary credit."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "Queue provision_id/iso3 pairs are canonical scope cells. An empty queue scores only where the workbook carries all 504 mapping rows, the Unresolved sheet is likewise empty, and the method audit reports cells_mapped 504 with cells_unresolved 0. Credit for an empty queue additionally requires every jurisdiction to carry an Instruments row, per standard 4.3.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_unresolved_queue_cells_canonical",
+      "how_it_prevents_task_authenticity_violation": "Stops the queue being padded with cells outside the crosswalk's scope, and stops an empty queue standing as a claim of completeness that the workbook and the audit do not support. Standard 4.3 reads a jurisdiction with no instrument row as research not done, so an empty queue over an uncited corpus earns nothing here."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "Queue reason_code values belong to section 7.2 vocabulary. An empty queue scores only where the workbook carries all 504 mapping rows, the Unresolved sheet is likewise empty, and the method audit reports cells_mapped 504 with cells_unresolved 0. Credit for an empty queue additionally requires every jurisdiction to carry an Instruments row, per standard 4.3.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_queue_gap_types_closed_set",
+      "how_it_prevents_task_authenticity_violation": "Stops gaps being labelled with invented reasons that no reviewer could triage, and applies the same completeness condition before an empty queue earns anything. Standard 4.3 reads a jurisdiction with no instrument row as research not done, so an empty queue over an uncited corpus earns nothing here."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "Structural eligibility over the fixed 504 cells: Mapping.notes is 25-100 words and contains no deterministic injection marker; full/partial/delegated/reserved also require a located substantive passage or a 40-100-word unresolved note naming a staged basename; none/unclear require that unresolved search record. Authorship, templates and source-paste semantics are LLM-judged separately.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_eligible_cell_coverage",
+      "how_it_prevents_task_authenticity_violation": "Stops a hollow, well-formed Mapping sheet from banking content credit. Template notes and identifier-only stubs fail the gate, and every dependent schema/LLM cell check that reads eligibility scores those cells at zero while keeping all 504 cells in the denominator."
+    },
+    "partial_oracle_checks_7": {
+      "detailed_explanation_of_checks": "Graduated depth band: at least 150 evidence passages that credit only when the Mapping cell is eligible, the passage clears objective TOC/shape filters, and the quote round-trips into staged sources.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_substantive_quotes_ge150",
+      "how_it_prevents_task_authenticity_violation": "Stops a SA-style package that pastes statute/TOC text into Evidence without authored Mapping notes from banking evidence volume."
+    },
+    "partial_oracle_checks_8": {
+      "detailed_explanation_of_checks": "Graduated depth band: at least 400 credited (eligible-cell) location-validated, quote-located evidence passages.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_substantive_quotes_ge400",
+      "how_it_prevents_task_authenticity_violation": "Raises the bar beyond a shallow sample of good quotes padded with paste-only Evidence rows; corpus-scale authored research is required for this band."
+    },
+    "partial_oracle_checks_9": {
+      "detailed_explanation_of_checks": "Share of cells that owe evidence (section 3) which are eligible and carry at least one credited location-validated, quote-located, provision-relevant, jurisdiction-matched, non-duplicate passage, scored over the fixed owing-cell denominator.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_owing_cells_substantive_evidence",
+      "how_it_prevents_task_authenticity_violation": "A pile of Evidence quotes without Mapping notes cannot cover owing cells; eligibility and quote credit are both required."
+    },
+    "partial_oracle_checks_10": {
+      "detailed_explanation_of_checks": "method_audit.json status_counts match Mapping status tallies.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_audit_header_matches_mapping_counts",
+      "how_it_prevents_task_authenticity_violation": "Stops the audit reporting a distribution of statuses the workbook does not carry, the version of the settled complaint in which the summary figures are written before the mapping is finished."
+    },
+    "partial_oracle_checks_11": {
+      "detailed_explanation_of_checks": "Standard 9.1: each of the twenty-four shards declares exactly its own band's provisions from provisions_registry.csv and carries exactly that band's provisions times the twelve jurisdictions as cells, over a fixed 24-shard denominator, so a shard cannot quietly narrow or overlap its band.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_shard_bands_match_provision_registry",
+      "how_it_prevents_task_authenticity_violation": "Stops a band file choosing its own scope. Narrowing a band, overlapping a neighbour's provisions or dropping jurisdictions from its cell list would each let the twenty-four files together cover less than the registry requires while every individual file still looked complete."
+    },
+    "partial_oracle_checks_12": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P001 (Minimum age of 16) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P001_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P001 cell (Minimum age of 16) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P001 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_13": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P002 (Night work restriction under 18) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P002_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P002 cell (Night work restriction under 18) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P002 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_14": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P003 (Hazardous work prohibition under 18) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P003_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P003 cell (Hazardous work prohibition under 18) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P003 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_15": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P004 (Valid medical certificate required) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P004_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P004 cell (Valid medical certificate required) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P004 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_16": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P005 (Medical certificate validity limits) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P005_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P005 cell (Medical certificate validity limits) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P005 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_17": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P006 (Training and qualification) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P006_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P006 cell (Training and qualification) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P006 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_18": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P007 (Recruitment service regulation) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P007_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P007 cell (Recruitment service regulation) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P007 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_19": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P008 (Recruitment fee prohibition) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P008_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P008 cell (Recruitment fee prohibition) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P008 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_20": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P009 (Written seafarer employment agreement) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P009_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P009 cell (Written seafarer employment agreement) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P009 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_21": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P010 (Mandatory agreement particulars) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P010_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P010 cell (Mandatory agreement particulars) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P010 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_22": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P011 (Captivity continuation protection) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P011_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P011 cell (Captivity continuation protection) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P011 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_23": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P012 (Regular full wage payment) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P012_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P012 cell (Regular full wage payment) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P012 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_24": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P013 (Monthly wage account) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P013_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P013 cell (Monthly wage account) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P013 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_25": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P014 (Wage allotment and transfer) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P014_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P014 cell (Wage allotment and transfer) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P014 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_26": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P015 (Minimum rest 10 hours and 77 hours) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P015_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P015 cell (Minimum rest 10 hours and 77 hours) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P015 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_27": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P016 (Posted shipboard work schedule) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P016_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P016 cell (Posted shipboard work schedule) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P016 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_28": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P017 (Daily work and rest records) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P017_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P017 cell (Daily work and rest records) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P017 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_29": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P018 (Paid annual leave) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P018_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P018 cell (Paid annual leave) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P018 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_30": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P019 (Repatriation entitlement triggers) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P019_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P019 cell (Repatriation entitlement triggers) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P019 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_31": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P020 (Maximum service before repatriation) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P020_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P020 cell (Maximum service before repatriation) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P020 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_32": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P021 (Repatriation financial security) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P021_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P021 cell (Repatriation financial security) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P021 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_33": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P022 (Accommodation headroom) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P022_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P022 cell (Accommodation headroom) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P022 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_34": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P023 (Sleeping room standards) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P023_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P023 cell (Sleeping room standards) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P023 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_35": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P024 (Accommodation heating) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P024_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P024 cell (Accommodation heating) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P024 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_36": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P025 (Ventilation and air conditioning) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P025_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P025 cell (Ventilation and air conditioning) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P025 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_37": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P026 (Food and water standards) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P026_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P026 cell (Food and water standards) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P026 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_38": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P027 (Qualified ships cook) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P027_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P027 cell (Qualified ships cook) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P027 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_39": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P028 (Medical care on board and ashore) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P028_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P028 cell (Medical care on board and ashore) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P028 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_40": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P029 (Medical report form) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P029_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P029 cell (Medical report form) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P029 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_41": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P030 (Shipowner sickness injury liability) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P030_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P030 cell (Shipowner sickness injury liability) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P030 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_42": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P031 (Occupational safety and health) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P031_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P031 cell (Occupational safety and health) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P031 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_43": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P032 (Shore welfare facilities) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P032_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P032 cell (Shore welfare facilities) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P032 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_44": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P033 (Social security protection) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P033_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P033 cell (Social security protection) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P033 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_45": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P034 (Flag state inspection system) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P034_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P034 cell (Flag state inspection system) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P034 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_46": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P035 (Certificate threshold 500 GT) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P035_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P035 cell (Certificate threshold 500 GT) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P035 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_47": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P036 (Certificate validity of five years) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P036_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P036 cell (Certificate validity of five years) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P036 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_48": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P037 (DMLC Part I national requirements) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P037_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P037 cell (DMLC Part I national requirements) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P037 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_49": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P038 (Published inspection statistics) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P038_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P038 cell (Published inspection statistics) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P038 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_50": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P039 (On-board complaint procedure) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P039_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P039 cell (On-board complaint procedure) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P039 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_51": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P040 (Port state control inspection) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P040_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P040 cell (Port state control inspection) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P040 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_52": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P041 (No more favourable treatment) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P041_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P041 cell (No more favourable treatment) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P041 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_53": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: source-grounded quality of provision P042 (Onshore complaint handling) across its own twelve jurisdictions, scored over a fixed denominator of 72 booleans (12 cells x status_supported, evidence_relevant, rationale_specific, unresolved_honest, notes_authored, evidence_authentic). The forty-two provision checks partition the 504 cells, so each reports a disjoint slice of judge output rather than a reslice of the whole. Every boolean is the majority verdict of three independent judge passes that present the same cells in different orders under different reading instructions, so no single call determines any cell and a verdict that only held because of where a cell sat in the prompt does not survive the vote.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_provision_P042_composite",
+      "how_it_prevents_task_authenticity_violation": "Judged against the MLC text and the staged excerpts rather than against the submission's own confidence, this is what separates a researched P042 cell (Onshore complaint handling) from a well-formatted one: a status no staged source supports, a passage that does not address the obligation, template reasoning with identifiers dropped into it, or a gap booked without a search each fail their own boolean. The fixed denominator of 72 booleans means the jurisdictions left unmapped for P042 cannot be made good by the ones that were."
+    },
+    "partial_oracle_checks_54": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B): memorandum provides genuine cross-jurisdiction comparative analysis rather than restated workbook counts. Decided by majority vote over three independent memo judge passes that reorder the section payload and vary the reading instruction, so no single call determines the check.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_memo_comparative_quality",
+      "how_it_prevents_task_authenticity_violation": "Stops the board-facing document being the workbook restated. The comparative reading across twelve flags is the part of the job no single band can produce, and it is the first part a submission under time pressure replaces with counts it already had to hand."
+    },
+    "partial_oracle_checks_55": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B): every numeric factual figure in the full memorandum matches or reconciles with Mapping-derived overall/per-iso3/per-provision status counts, all Summary rows, and the full method_audit supplied to the memo judge. Decided by majority vote over the same three independent, differently ordered memo judge passes.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_memo_figures_reconcile",
+      "how_it_prevents_task_authenticity_violation": "Stops the memorandum quoting figures that flatter the work. Every number in it is held against the mapping-derived counts, the Summary rows and the audit, so a headline total cannot be rounded, invented, or carried over from an earlier draft of the crosswalk."
+    },
+    "partial_oracle_checks_56": {
+      "detailed_explanation_of_checks": "W&B Inference judge: jurisdiction profiles and cluster write-ups are individually authored rather than copy-pasted identical gap/boilerplate paragraphs. Decided by majority vote over three memo judge passes returning profiles_authored; verifier_flags (repeated gap hits) are hints only \u2014 the model decides authenticity from the memorandum text.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_memo_profiles_authored",
+      "how_it_prevents_task_authenticity_violation": "Stops a SA-style memorandum that swaps jurisdiction names over one pasted gap paragraph from banking comparative credit. Free-text authorship is LLM-judged, not exact-phrase gated."
+    },
+    "partial_oracle_checks_57": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B): every source_coverage notes value specifically explains how its source was used or why an unconsulted source was not cited, consistently with manifest metadata and citation-derived coverage claims. Decided by majority vote over three document-level judge passes.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/source_coverage.csv"
+      ],
+      "check_function": "o_llm_coverage_notes_honest",
+      "how_it_prevents_task_authenticity_violation": "Stops a formally complete source census from filling its audit explanation column with generic prose that says nothing about the individual staged source or contradicts whether the workbook actually cited it."
+    },
+    "partial_oracle_checks_58": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B): submitted amendment rows and shard links account for material amendment, commencement and effective-date signals in the staged domestic sources that affect cited instruments or cutoff classification. The judge receives bounded staged-source windows and the complete submitted amendment/link inventory. Decided by majority vote over three document-level judge passes.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/mlc_transposition_workbook.xlsx",
+        "/logs/agent/shards/SHARD-*.json"
+      ],
+      "check_function": "o_llm_amendment_coverage_complete",
+      "how_it_prevents_task_authenticity_violation": "Prevents a formally valid but empty or selectively incomplete Amendments sheet from hiding material staged changes that affect the legal status as of the cutoff."
+    },
+    "partial_oracle_checks_59": {
+      "detailed_explanation_of_checks": "W&B Inference judge (Qwen/Qwen3.6-35B-A3B), own ensembled calls: every submitted prose field\u2014including memo, Mapping and shard notes, unresolved research notes, relevance notes, amendment effects, coverage notes, audit narrative and band summaries\u2014is scanned in bounded chunks for evaluator-directed language, with each field's verdict decided by majority vote over three independent passes. Score is the share of unflagged fields, so manipulative prose that evades the fixed phrase denylist is still caught semantically.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/"
+      ],
+      "check_function": "o_llm_prose_not_judge_directed",
+      "how_it_prevents_task_authenticity_violation": "Catches what a fixed phrase list cannot: prose written to persuade whoever is evaluating the work rather than to inform a maritime lawyer. Because the scan is semantic, rewording an instruction aimed at the grader does not evade it."
+    },
+    "partial_oracle_checks_60": {
+      "detailed_explanation_of_checks": "Paired-signal content check: averages deterministic structural grounding (share of the fixed 504 cells clearing cell_eligible) with independent LLM-judged authenticity (share of the 504 cells the judge marked notes_authored true; cells the judge never reached count as not authored). The check's own score is the plain average of the two fractions, not a product or gate.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/mlc_transposition_workbook.xlsx"
+      ],
+      "check_function": "o_grounding_and_authenticity",
+      "how_it_prevents_task_authenticity_violation": "Still rewards both structural eligibility and judge-confirmed authenticity via a plain average of the two shares rather than a product or gate."
+    },
+    "partial_oracle_checks_61": {
+      "detailed_explanation_of_checks": "Paired-signal content check: averages three independent signals -- whether the memorandum's figures actually reconcile with the workbook (LLM-judged), whether the LLM independently judges the jurisdiction profiles as authored rather than copy-pasted templates (profiles_authored), and the share of the twelve jurisdiction profiles that are structurally complete (right word band, name real provisions and a real status this submission's own Mapping sheet records, and name a staged source basename for that flag). The check's own score is the plain average of all three, not a product or gate.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/comparative_legal_memorandum.md"
+      ],
+      "check_function": "o_memo_figures_and_profile_coverage",
+      "how_it_prevents_task_authenticity_violation": "Still rewards reconciled figures, judge-confirmed profile authorship, and structural profile coverage together via a plain average of the three signals rather than a product or gate."
+    }
+  }
+}

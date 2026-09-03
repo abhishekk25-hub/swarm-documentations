@@ -1,0 +1,102 @@
+{
+  "as_of_date": "2026-07-01",
+  "horizon_weeks": 13,
+  "weekly_cra_hours_cap": 48,
+  "in_scope_statuses": [
+    "RECRUITING",
+    "ACTIVE_NOT_RECRUITING",
+    "ENROLLING_BY_INVITATION"
+  ],
+  "exclusion_reasons": {
+    "COMPLETED": "completed_closeout",
+    "TERMINATED": "terminated",
+    "WITHDRAWN": "withdrawn",
+    "SUSPENDED": "suspended",
+    "NOT_YET_RECRUITING": "not_yet_enrolling",
+    "UNKNOWN": "status_unknown",
+    "NO_LONGER_AVAILABLE": "no_longer_available"
+  },
+  "phase_pts": {
+    "EARLY_PHASE1": 30,
+    "PHASE1": 30,
+    "PHASE2": 20,
+    "PHASE3": 25,
+    "PHASE4": 15,
+    "NA": 8,
+    "": 8
+  },
+  "study_type_pts": {
+    "INTERVENTIONAL": 10,
+    "OBSERVATIONAL": 0,
+    "EXPANDED_ACCESS": 5
+  },
+  "enrollment_pts": [
+    [
+      500,
+      20
+    ],
+    [
+      100,
+      12
+    ],
+    [
+      1,
+      5
+    ]
+  ],
+  "sites_pts": [
+    [
+      10,
+      15
+    ],
+    [
+      2,
+      8
+    ]
+  ],
+  "staleness_pts": [
+    [
+      365,
+      15
+    ],
+    [
+      180,
+      8
+    ]
+  ],
+  "estimated_enrollment_pts": 5,
+  "regulated_pts": 10,
+  "high_tier_min": 70,
+  "medium_tier_min": 45,
+  "base_monitor_hours": 8,
+  "tier_monitor_hours": {
+    "high": 14,
+    "medium": 8,
+    "low": 4
+  },
+  "sites_monitor_hours": [
+    [
+      10,
+      8
+    ],
+    [
+      2,
+      4
+    ]
+  ],
+  "window_weeks": {
+    "high": 10,
+    "medium": 12,
+    "low": 13
+  },
+  "regulated_intervention_types": [
+    "BIOLOGICAL",
+    "COMBINATION_PRODUCT",
+    "DEVICE",
+    "DIAGNOSTIC_TEST",
+    "DRUG",
+    "GENETIC",
+    "RADIATION"
+  ],
+  "_note": "Rulebook parameters restated from monitoring_rulebook.md. These are inputs/rules, NOT answers; verify.py recomputes all scores, tiers and the reference schedule from trials_reference.json using these constants."
+}

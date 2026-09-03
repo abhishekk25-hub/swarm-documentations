@@ -1,0 +1,300 @@
+{
+  "task_id": "swarmbench/b4f7c2e91d0a48536ec7182f9a0d3b65-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-VERTICAL-CONCEPT-PROGRESSION-AUDIT",
+  "task": "swarmbench/b4f7c2e91d0a48536ec7182f9a0d3b65-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-VERTICAL-CONCEPT-PROGRESSION-AUDIT",
+  "verifier_type": "hybrid",
+  "verifier": "tests/verify.py",
+  "reference_facts": "One grader-only file, tests/partial_oracle.json, holds the hand-verified reference: a twelve-unit representative sample, one unit from each grade-band-and-cluster lane, carrying the bibliographic record transcribed from the published Project Gutenberg catalogue entry and cross-read against the provenance table staged in the container, together with the subjects a human recorded after reading that passage; and nine cross-band concept verticals a human confirmed are genuinely present in this corpus, each with the unit list carrying it. Every fact in it is derivable inside the container from the staged passage headers and the passages themselves, so the oracle verifies accuracy and confirms the staged evidence rather than withholding an answer. The verticals are used only as a recall floor over a release that is free to name its own concepts, matched by unit-set overlap rather than by name, and no free-text field is ever compared against the oracle. Everything else is derived at grading time from the same inputs the agent has: the 60 staged passage files supply the verbatim quotations, the grounded-word floors and the eight-gram overlap test, and the band spans, span classes, regression flags, release constraints and roll-up counts are recomputed from the submitted sheets and dossiers. An unreadable passage corpus or a missing oracle file produces invalid_evaluation.",
+  "scoring": "Every check carries weight 1 inside its own category and returns the share of the release it credits, in [0, 1]. Each category's score is the unweighted mean of its checks: total_static_check_score over the 6 static checks, total_reward_hacking_check_score over the 15 anti-hacking checks, and total_partial_oracle_check_score over the 17 correctness checks. The final reward is the fixed bucket blend of those three means, reward = (1 * total_static_check_score + 2 * total_reward_hacking_check_score + 3 * total_partial_oracle_check_score) / 6, so content carries 5/6 of the blend and structure 1/6 regardless of how many checks sit in each bucket. All four values are written to /logs/verifier/reward.json. There is no multiplier, gate, cap, tier or ceiling anywhere else in the grader: no check multiplies two signals together and no check zeroes itself on a threshold of another signal. Where a check combines subdimensions it takes their plain mean, and each subdimension is named in that check's entry below.",
+  "fixed_denominators": "Every per-unit check divides by the 60 rows in units.csv; every per-dossier check divides by the 24 dossiers the standard fixes, so filing fewer or more dossiers cannot raise a per-dossier share; observation-level checks divide by the 180 observations the standard fixes; the hand sample divides by 12; the vertical recall floor divides by 3 of the 9 confirmed verticals; release constraints use nine rules; report band counts use four bands. Composite checks take the ordinary mean of their published subdimensions, each computed under its own guard so that a fault in one subdimension neither takes the others' credit nor goes unreported. Missing artifacts score zero, and artifacts that fail the authorship eligibility gate score zero without shrinking any denominator. Judge calls that go unanswered, or that come back without answering every question, are reported as invalid_evaluation.",
+  "empty_output_behaviour": "An empty /logs/agent/units and /logs/agent/concepts with no index and no report scores 0.0000. Every check either divides by a fixed denominator that the missing files cannot reduce, or returns 0.0 outright when its artifact is absent.",
+  "judge_model": "Qwen/Qwen3.6-35B-A3B",
+  "judge_model_note": "The judge is called once per delivered unit sheet with its full passage and eight focused questions, once per delivered dossier with the verbatim rung evidence the verifier supplies and five questions, once per five-unit lane for separate shared-structure and noun-substitution lists, once over the 24 concept names and statements for duplicate concepts, and once for the report with independently recomputed facts, three scored questions and one completion-claim question: 98 calls for a complete release. Submission text is fenced as untrusted. Replies must contain exactly one JSON object answering every question asked. A reply that is malformed, or that leaves any question unanswered, is treated the same way as an outage for every kind of call alike: the affected sheet, dossier, lane or report is dropped from the judged denominator and the run is reported as invalid_evaluation, so no submission is marked down for a shortfall on the judge's side.",
+  "judge_justification_note": "Every call is also asked for a justification of two or three sentences naming the field, rung or sentence behind each adverse answer. The verifier records it with the verdict and prints it to stdout beside the score under 'judge verdicts and justifications', failing items first, and writes the same text to /logs/verifier/verify_justification.txt, so every judged score can be audited against the judge's own stated reason for it. The justification is never scored and is deliberately excluded from the answered-in-full test, so a terse judge cannot cost a submission its verdict.",
+  "total_checks": 38,
+  "checks": {
+    "static_checks_1": {
+      "detailed_explanation_of_checks": "Share of the 60 units in units.csv whose concept sheet exists at the path the standard names, parses as a JSON object, and repeats its own unit_id, grade_band and subject_cluster from the unit table.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_sheets_delivered",
+      "how_it_prevents_task_authenticity_violation": "Coverage signal only, and one of just six structural checks in the smallest-weighted bucket. It rejects a release that renamed or partitioned the files its own way, and it fixes the identity every substantive check keys on. A file that exists and is labelled correctly earns this and nothing else."
+    },
+    "static_checks_2": {
+      "detailed_explanation_of_checks": "Per unit, the share of nine shape rules met: the exact top-level key set with no extras, the four typed source fields, a non-empty passage_summary, exactly three observations, the exact five-key observation shape, well-formed hyphenated concept_id slugs, integer demand levels inside 1 to 5, string quote and note fields, and three different concept_ids on the one sheet. Averaged over 60.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_sheet_fields_shaped",
+      "how_it_prevents_task_authenticity_violation": "Shape only. Every value this check sees is graded for truth elsewhere: the quotations against the passages, the demand levels against the scale by the judge, the concept ids against the dossiers by projection. Filling the schema with well-typed nothing passes here and fails substantive checks."
+    },
+    "static_checks_3": {
+      "detailed_explanation_of_checks": "Share of the 24 dossiers the standard fixes that exist under the concepts directory, parse as a JSON object, carry a file name that is a well-formed concept_id slug, and repeat that identifier in the record. The denominator is 24 regardless of how many files were filed.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/concepts/<concept_id>.json",
+      "check_function": "check_dossiers_delivered",
+      "how_it_prevents_task_authenticity_violation": "A release that files thirty dossiers to cover its uncertainty, or eighteen because it never reconciled, cannot raise this share; the count itself is one of the nine release constraints scored in the correctness bucket."
+    },
+    "static_checks_4": {
+      "detailed_explanation_of_checks": "Per dossier, the share of nine shape rules met: the exact top-level key set, string concept_name, statement and teacher_note, a primary_cluster drawn from the three clusters, a non-empty rungs list, the exact four-key rung shape, typed rung fields with a band from the four bands and a demand level in range, a bands_covered list of distinct real bands, a span_class from the three permitted strings, and well-formed regression flag pairs. Averaged over 24.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/concepts/<concept_id>.json",
+      "check_function": "check_dossier_fields_shaped",
+      "how_it_prevents_task_authenticity_violation": "Shape only. Whether the rungs are the right rungs, whether the derived fields follow from them, and whether the dossier gathers one concept or two are graded by three separate substantive checks."
+    },
+    "static_checks_5": {
+      "detailed_explanation_of_checks": "Seven rules over the one progression index: the exact top-level key set, a non-empty compiled_by, exactly 24 concept rows, the exact seven-key concept row shape, typed concept row values with a span_class from the permitted strings, exactly 60 unit rows each carrying a concept_ids list, and an all-integer summary block with the exact eight keys.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/progression_index.json",
+      "check_function": "check_index_shaped",
+      "how_it_prevents_task_authenticity_violation": "Shape only. Whether any number in the index is true is graded by a separate anti-hacking check that recomputes every row and the summary from the sheets and dossiers the index describes."
+    },
+    "static_checks_6": {
+      "detailed_explanation_of_checks": "Eight rules over the report: a level-1 opening heading, exactly the five named level-2 sections in the standard's order and no others, at least 500 words overall, and at least 40 words in each of the five sections.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/articulation_report.md",
+      "check_function": "check_report_shaped",
+      "how_it_prevents_task_authenticity_violation": "Requiring each section to be filled as well as present means five bare headings, the cheapest thing that satisfies a section contract, earn nothing. What the report actually says is graded by one correctness recomputation check and one correctness judged check."
+    },
+    "reward_hacking_checks_1": {
+      "detailed_explanation_of_checks": "Share of the 180 observations whose evidence_quote, after Unicode folding and whitespace collapsing, occurs as one continuous run inside that observation's own unit's passage file.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_quote_verbatim_in_own_passage",
+      "how_it_prevents_task_authenticity_violation": "This is the check an agent cannot satisfy without opening the file. A plausible-sounding period quotation, a quotation from a different unit's passage, or a paraphrase all fail, and the quote is the only field in the release where reproducing source text is permitted at all. The denominator is the 180 observations the standard fixes, so omitting observations does not raise the share."
+    },
+    "reward_hacking_checks_2": {
+      "detailed_explanation_of_checks": "Share of the 180 observations whose normalised evidence_quote appears exactly once across the whole release. Every observation in a duplicated group loses its credit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_quotes_distinct",
+      "how_it_prevents_task_authenticity_violation": "Closes the cheapest way to satisfy the verbatim check at scale, which is to find one long quotation and paste it into every observation; because both sides of a duplicated pair lose the point, duplication is never cheaper than reading."
+    },
+    "reward_hacking_checks_3": {
+      "detailed_explanation_of_checks": "Per sheet and per dossier, the share of authored fields that reproduce neither a run of eight or more consecutive passage words nor the passage in disguise. Four-word run density must stay at or below one half, and fields of 30 or more tokens may take no more than 65 percent of their words from any one same-length passage stretch. A sheet's fields are measured against its own passage; a rung's advance_over_previous is measured against the passage of the unit that rung names. Sheet scores and dossier scores are averaged over 60 and 24 respectively.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/units/<unit_id>.json",
+        "/logs/agent/concepts/<concept_id>.json"
+      ],
+      "check_function": "check_prose_in_own_words",
+      "how_it_prevents_task_authenticity_violation": "A single contiguous-window test can always be stepped around by dropping a synonym in every few words, which leaves a sentence that is still the source sentence. Four-word run density measures how much remains verbatim, while same-length passage reuse catches more frequent substitution."
+    },
+    "reward_hacking_checks_4": {
+      "detailed_explanation_of_checks": "Per sheet, the share of ten word-count rules met: the passage summary and, for each of three observations, the quote, the treatment note and the demand reason. Per dossier, the concept name, statement and teacher note plus one rule per rung for advance_over_previous. Averaged over 60 and 24.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/units/<unit_id>.json",
+        "/logs/agent/concepts/<concept_id>.json"
+      ],
+      "check_function": "check_prose_within_length",
+      "how_it_prevents_task_authenticity_violation": "A one-word treatment note and a thousand-word one both fail, so neither stubs nor padding buy their way past the fields the judge and the overlap tests read."
+    },
+    "reward_hacking_checks_5": {
+      "detailed_explanation_of_checks": "Share of authored fields that are non-empty, contain nothing from the closed eighteen-entry filler list the standard prints, do not repeat that same field word for word anywhere else in the release, and carry at least the number of their own passage's distinctive words the standard's table sets: 4 for the passage summary, 3 for each treatment note, 2 for each demand reason and 2 for each advance_over_previous. A distinctive word is a word of four letters or more that is neither a function word nor general schoolroom vocabulary. Each filler entry is matched as a whole word or phrase, so a real word that contains one, such as mastodon containing todo, is not filler. Concept names, statements and teacher notes are exempt from the grounding floor because a concept belongs to several passages at once.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/units/<unit_id>.json",
+        "/logs/agent/concepts/<concept_id>.json"
+      ],
+      "check_function": "check_no_placeholder_filler",
+      "how_it_prevents_task_authenticity_violation": "A closed list of legacy markers only catches an agent that writes lorem ipsum, which a current model rarely does; the natural low-effort failure is fluent prose that says nothing, such as this passage develops the concept further and builds on prior learning. Requiring each field to name words its own passage actually uses measures that directly, and it cannot be satisfied without reading the assigned passage."
+    },
+    "reward_hacking_checks_6": {
+      "detailed_explanation_of_checks": "For each unit, the distinctive vocabulary of its passage summary, three treatment notes and three demand reasons is taken, restricted to words the unit's own passage also uses, with the unit's own source title and author removed. The unit fails if that signature holds fewer than 8 words of its own or if its Jaccard overlap with any other unit's signature reaches 0.6. Share of the 60 that pass. The standard tells the agent that a signature has to be substantial and stay clearly distinct from every other sheet's, and states the measure; the thresholds themselves are graders' constants and are not printed for the agent.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_sheets_not_templated",
+      "how_it_prevents_task_authenticity_violation": "This is the direct test of the failure mode the task is built around: one reading written once and reissued sixty times with the nouns swapped. Confining the signature to words the passage itself carries is what keeps it a measure of content rather than of register: sixty readings written in one voice share connectives and framing verbs by design, and a measure that counted those would report two genuine readings of different passages as near-duplicates. Measured on the staged corpus, two sheets about two genuinely different passages overlap at most 0.354, and that maximum is a pair of architecture passages that really do share their subject matter, while a shell reissued sixty times carries almost nothing of any passage and fails the size floor before overlap is reached."
+    },
+    "reward_hacking_checks_7": {
+      "detailed_explanation_of_checks": "The same measure over the dossiers: the distinctive vocabulary of a dossier's concept statement, teacher note and all of its advance_over_previous fields, less its own concept name words, must hold at least 8 words and overlap every other dossier's signature by less than 0.6. Share of the 24 that pass.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/concepts/<concept_id>.json",
+      "check_function": "check_dossiers_not_templated",
+      "how_it_prevents_task_authenticity_violation": "A dossier signature is not confined to one passage, because a concept belongs to several at once, so this measures whether twenty-four concepts were reasoned about separately or one dossier shell was filled in twenty-four times."
+    },
+    "reward_hacking_checks_8": {
+      "detailed_explanation_of_checks": "Share of the 180 rungs whose normalised advance_over_previous appears exactly once across the release. Every rung in a duplicated group loses its credit.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/concepts/<concept_id>.json",
+      "check_function": "check_advance_fields_distinct",
+      "how_it_prevents_task_authenticity_violation": "The advance statement is the field the whole audit exists for, and the cheapest way to fill 180 of them is one sentence about going deeper, repeated. Scoring it separately from the broader templating measure means that failure cannot be diluted by fields that happen to vary."
+    },
+    "reward_hacking_checks_9": {
+      "detailed_explanation_of_checks": "The projection rule, scored per dossier and all-or-nothing. A dossier scores only when its rung units are exactly the set of units whose sheets named that concept_id, with no unit repeated, and every rung repeats that unit's grade band from the unit table and that sheet's demand_level unchanged. A concept some sheet named but no dossier covers counts as a failed dossier. Denominator 24.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/concepts/<concept_id>.json",
+      "check_function": "check_rungs_match_observations",
+      "how_it_prevents_task_authenticity_violation": "This is the constraint no writer can satisfy alone and the one a serial agent breaks when it arrives at the dossier stage with an inventory it can no longer reconcile. Treating the rung set as one factual assertion prevents a dossier that quietly drops the inconvenient half of its rungs from keeping most of the credit for the half it kept, and counting uncovered concepts as failures prevents a release from raising its share by filing fewer dossiers."
+    },
+    "reward_hacking_checks_10": {
+      "detailed_explanation_of_checks": "Mean of three subdimensions: the share of 24 concept rows whose rung count, bands covered, span class, clusters, regression count and peak demand all agree with recomputation from the dossier; the share of 60 unit rows whose concept_ids match that sheet's observations; and a binary reconciliation of the eight-key summary against the same recomputation.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/progression_index.json",
+      "check_function": "check_index_truthful",
+      "how_it_prevents_task_authenticity_violation": "An index row is one factual assertion about a dossier. Treating its fields as separately bankable would let a row that misstates a span class keep most of the credit because the easy counts matched, and comparing every value against the delivered files means an index that agrees only with itself earns nothing."
+    },
+    "reward_hacking_checks_11": {
+      "detailed_explanation_of_checks": "Twelve lane-level judge calls identify sheets sharing the same sentence plan, note structure or reasoning across each five-unit lane.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_llm_sheets_not_templated",
+      "how_it_prevents_task_authenticity_violation": "A semantic comparison detects repeated structure after surface wording has been rotated, which a token-overlap measure confined to passage words cannot see."
+    },
+    "reward_hacking_checks_12": {
+      "detailed_explanation_of_checks": "The same twelve lane calls return a second, separate list naming sheets made from one shell by substituting concept names, nouns or synonyms. No further judge call is made for it.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_llm_noun_swap_not_templated",
+      "how_it_prevents_task_authenticity_violation": "Separating noun substitution from broad structural repetition prevents either failure mode from being diluted by the other."
+    },
+    "reward_hacking_checks_13": {
+      "detailed_explanation_of_checks": "Per unit, the judge checks that the three observations are separately reasoned about different ideas in that passage rather than one shell repeated with the concept name swapped.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_llm_observations_not_generic",
+      "how_it_prevents_task_authenticity_violation": "Three observations can each be individually well formed while being the same observation written three times, which no per-field check can see."
+    },
+    "reward_hacking_checks_14": {
+      "detailed_explanation_of_checks": "Per unit, the judge checks that the passage summary is specific to that passage rather than a reusable summary shell with nouns substituted.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_llm_summaries_not_generic",
+      "how_it_prevents_task_authenticity_violation": "The grounded-word floor proves the summary names some words the passage uses; only a reading can tell that those words were dropped into a shell."
+    },
+    "reward_hacking_checks_15": {
+      "detailed_explanation_of_checks": "Per dossier, the judge checks that the advance_over_previous fields are separately written rather than one shell reused down the rungs with nouns or unit identifiers substituted.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/concepts/<concept_id>.json",
+      "check_function": "check_llm_advance_not_generic",
+      "how_it_prevents_task_authenticity_violation": "Uniqueness of strings does not prove separate reasoning; a shell rotated by unit id produces 180 unique strings that all say the same nothing."
+    },
+    "partial_oracle_checks_1": {
+      "detailed_explanation_of_checks": "One mean combines source-header accuracy over 60 units, the twelve-unit independently transcribed bibliography sample, and the twelve-unit hand-read subject anchors, where a sheet clears the anchor when its summary or treatment notes name at least one subject a human recorded after reading that passage.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_source_evidence_correct",
+      "how_it_prevents_task_authenticity_violation": "All three concern one evidence dimension; consolidating them preserves coverage without awarding three full correctness weights to readily extracted metadata. The hand-read anchors are the part that cannot be produced from the file header alone."
+    },
+    "partial_oracle_checks_2": {
+      "detailed_explanation_of_checks": "Mean of three subdimensions over 24 dossiers: bands_covered against the bands of the rung units taken from the unit table, span_class against the full_span, continuous and interrupted rule in section 6, and regression_flags against every pair where a lower band carries a strictly greater demand level than a higher band, compared as a set with duplicates rejected.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/concepts/<concept_id>.json",
+      "check_function": "check_derived_fields_correct",
+      "how_it_prevents_task_authenticity_violation": "These are the three fields the standard computes rather than chooses, and a derived field that disagrees with the rungs beside it is the one defect a reader of the index cannot see. Taking each rung's band from the unit table rather than from the rung's own claim means a mislabelled rung cannot manufacture a span the set does not have."
+    },
+    "partial_oracle_checks_3": {
+      "detailed_explanation_of_checks": "Mean of the nine constraints of section 7: sixty sheets, exactly twenty-four dossiers, three distinct observations per sheet, exactly 180 observations placed as 180 rungs, every dossier holding four to twelve rungs, every dossier reaching four units and two bands, at least eight dossiers reaching three or more bands, at least seven drawing on two or more clusters, and at least six dossiers led by each of the three clusters. The quota rules score the share of the quota reached rather than all-or-nothing, so a release that reaches six of the eight three-band concepts is credited for six.",
+      "weight": 1,
+      "agent_output_path": [
+        "/logs/agent/units/<unit_id>.json",
+        "/logs/agent/concepts/<concept_id>.json"
+      ],
+      "check_function": "check_release_constraints_met",
+      "how_it_prevents_task_authenticity_violation": "This is the only check that cannot be satisfied one sheet or one dossier at a time. Which concepts exist and how 180 observations fall across exactly 24 of them is a decision about the whole set, and sixty independently written sheets naming whichever three concepts seemed natural to each writer will miss it in a way no local quality can repair."
+    },
+    "partial_oracle_checks_4": {
+      "detailed_explanation_of_checks": "A recall floor against the nine cross-band verticals a human confirmed are genuinely present in this corpus. A vertical counts as recovered when some delivered dossier's rung units include at least three of the units the human recorded for it; the score is the number recovered capped at three, over three.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/concepts/<concept_id>.json",
+      "check_function": "check_known_verticals_recovered",
+      "how_it_prevents_task_authenticity_violation": "The release names its own concepts, so this is matched by unit-set overlap rather than by name and never compares a free-text field against the oracle. It is the one check that asks whether the register found the progressions that are actually in the corpus: a set of twenty-four arbitrary or single-band concepts scores zero on it, while a release that read the passages clears the floor of three without aiming at it. The floor is deliberately low because many valid registers exist over this corpus."
+    },
+    "partial_oracle_checks_5": {
+      "detailed_explanation_of_checks": "The plain mean of five independent subdimensions, each computed against recomputation from the delivered sheets and dossiers rather than against the submitted index: whether every per-band units and observations count matches, whether the break section names exactly the recomputed interrupted and regressing concepts (or states plainly that there are none, in the case where that is true), whether a report over a release carrying deterministic authorship alerts avoids claiming the audit is finished, whether the full-span list is named exactly, and whether the cluster section carries the recomputed cross-cluster count. No subdimension gates another and none is multiplied by another.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/articulation_report.md",
+      "check_function": "check_report_truthful",
+      "how_it_prevents_task_authenticity_violation": "The report and the index can no longer validate one another when both repeat the same claim, since all controlling facts come from the sheets and dossiers. A false-clean write-up over scripted sheets loses the naming subdimensions it lies on as well as the authorship subdimension, so the more it overstates the less it keeps; and because each subdimension is scored on its own, a formatting slip costs a fifth rather than the whole check."
+    },
+    "partial_oracle_checks_6": {
+      "detailed_explanation_of_checks": "One judged call per delivered sheet, with that unit's full passage in the prompt, asking whether every recorded concept is something the passage actually treats rather than a concept it never touches or a label so broad it would fit any passage. Averaged over 60, with undelivered sheets scoring zero and unanswered calls dropped and reported.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_llm_observations_grounded",
+      "how_it_prevents_task_authenticity_violation": "The deterministic checks can tell that a quotation is verbatim and that a note uses passage words; only a reading can tell that the concept filed against them is one the passage treats. Judging against the passage itself rather than against a rubric of good observations is what keeps this a correctness check."
+    },
+    "partial_oracle_checks_7": {
+      "detailed_explanation_of_checks": "From the same per-unit call, whether every treatment note says what this passage actually does with the concept rather than a sentence that would be true of any passage treating it. Averaged over 60 on the same terms.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_llm_treatment_notes_faithful",
+      "how_it_prevents_task_authenticity_violation": "The grounded-word floor is satisfied by any three passage words; the difference between a note about this treatment and a note about the concept in general can only be read."
+    },
+    "partial_oracle_checks_8": {
+      "detailed_explanation_of_checks": "From the same per-unit call, whether every demand_reason refers to what the passage and its quotation actually do rather than restating the level or describing the grade band. Averaged over 60 on the same terms.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_llm_demand_levels_justified",
+      "how_it_prevents_task_authenticity_violation": "A reason that says the treatment is at level 3 because it is a level 3 treatment satisfies every length and grounding rule and justifies nothing."
+    },
+    "partial_oracle_checks_9": {
+      "detailed_explanation_of_checks": "From the same per-unit call, with the five-level scale printed in the prompt, whether each demand_level is the right level for that passage's treatment judged from the passage, and specifically false where a level was evidently assigned from the unit's grade band rather than from what the passage does. Averaged over 60 on the same terms.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_llm_demand_scale_applied",
+      "how_it_prevents_task_authenticity_violation": "Demand levels are the input to every regression flag in the release, and the cheapest way to produce sixty sets of them is to map the grade band onto the scale. That produces a monotonic set with no regressions anywhere, which is exactly the false-clean result the audit exists to prevent, and no deterministic check can distinguish it from a correct reading."
+    },
+    "partial_oracle_checks_10": {
+      "detailed_explanation_of_checks": "From the same per-unit call, whether the passage summary describes what the passage is actually about, accurately enough for a reviewer who has not opened it. Averaged over 60 on the same terms.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_llm_passage_summary_faithful",
+      "how_it_prevents_task_authenticity_violation": "A summary can be the right length, use four of the passage's words and still describe a different passage; the hand-read anchors cover twelve units and this covers all sixty."
+    },
+    "partial_oracle_checks_11": {
+      "detailed_explanation_of_checks": "From the same per-unit call, whether each evidence_quote is a place in the passage where the recorded concept is genuinely treated rather than an arbitrary span that merely contains a matching word. Averaged over 60 on the same terms.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/units/<unit_id>.json",
+      "check_function": "check_llm_quote_locates_concept",
+      "how_it_prevents_task_authenticity_violation": "Verbatim containment is satisfied by any span of the file, including a table of contents line or a passage about something else entirely that happens to carry the word. This is the check that makes the quotation evidence rather than proof of file access."
+    },
+    "partial_oracle_checks_12": {
+      "detailed_explanation_of_checks": "One judged call per delivered dossier, with the verbatim rung evidence the verifier gathers from the sheets in the prompt, asking whether every rung is really about the same concept, and explicitly false where the dossier has gathered two ideas that merely share a word. Averaged over 24, with undelivered dossiers scoring zero.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/concepts/<concept_id>.json",
+      "check_function": "check_llm_concept_coherent",
+      "how_it_prevents_task_authenticity_violation": "This is the false vertical, the error the standard names outright and the one the adoption panel convenes to test. A taxonomic order and an architectural order, a musical scale and the scale of a fish, the planet Jupiter and the god Jupiter all pass every deterministic check in the release while inventing a progression that does not exist. Supplying the judge with the rung quotations rather than the dossier's own prose is what lets it see the two senses."
+    },
+    "partial_oracle_checks_13": {
+      "detailed_explanation_of_checks": "From the same per-dossier call, whether every advance_over_previous names a genuine difference the evidence supports - a new distinction, mechanism, term or obligation on the reader - and false if any merely says the treatment is deeper, fuller or more advanced. Averaged over 24 on the same terms.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/concepts/<concept_id>.json",
+      "check_function": "check_llm_advances_real",
+      "how_it_prevents_task_authenticity_violation": "This is the field the audit exists for and the only one that requires two passages to be held at once. Uniqueness and length checks cannot distinguish a real comparison from a fluent claim that the next rung goes further."
+    },
+    "partial_oracle_checks_14": {
+      "detailed_explanation_of_checks": "From the same per-dossier call, whether the concept statement states the idea itself, what a pupil who has it knows, rather than describing the passages or listing the units. Averaged over 24 on the same terms.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/concepts/<concept_id>.json",
+      "check_function": "check_llm_statement_is_concept",
+      "how_it_prevents_task_authenticity_violation": "The standard's distinction between a concept and a topic label is the premise of the whole register, and a statement that merely lists where the concept appears reveals that the register was built from labels rather than from ideas."
+    },
+    "partial_oracle_checks_15": {
+      "detailed_explanation_of_checks": "From the same per-dossier call, whether the teacher note says something specific about where this concept is strong in this set and where a teacher must supply what the set does not, rather than generic scheme-of-work prose. Averaged over 24 on the same terms.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/concepts/<concept_id>.json",
+      "check_function": "check_llm_teacher_note_specific",
+      "how_it_prevents_task_authenticity_violation": "The teacher note is exempt from the passage-grounding floor because a concept belongs to several passages at once, which leaves a reading as the only way to tell a useful note from filler."
+    },
+    "partial_oracle_checks_16": {
+      "detailed_explanation_of_checks": "One judge call receives all 24 concept names and statements and returns the pairs that are the same concept under two names. Both dossiers of a flagged pair lose their credit; share of the 24 unflagged.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/concepts/<concept_id>.json",
+      "check_function": "check_llm_concepts_not_duplicated",
+      "how_it_prevents_task_authenticity_violation": "The standard fixes the count at exactly twenty-four, which creates a direct incentive to split one concept in two when the inventory falls short. That is the mirror image of the false vertical and is equally invisible to every deterministic check, since two dossiers with different slugs and different rungs are structurally impeccable."
+    },
+    "partial_oracle_checks_17": {
+      "detailed_explanation_of_checks": "One report call receives the independently recomputed summary, per-band counts, full-span, interrupted and regressing concept lists and the deterministic authorship alerts. Its score is the plain mean of four independent subdimensions: the judge's factual agreement, gap-specific prioritisation and release-specific analysis, and a fourth that is zero where authorship alerts exist and the report claims the release is finished. The fourth averages with the other three rather than gating them. That claim is detected two ways, either of which is sufficient: a list of the ordinary phrasings, and a separate judged question asking whether the report claims completion in any words at all, so a paraphrase around the phrase list does not evade it.",
+      "weight": 1,
+      "agent_output_path": "/logs/agent/articulation_report.md",
+      "check_function": "check_llm_report_reasoned",
+      "how_it_prevents_task_authenticity_violation": "The judge is not asked a vague single question and cannot treat generic process prose, or a report contradicting recomputation, as a reasoned report."
+    }
+  },
+  "checks_by_category": {
+    "static_checks": 6,
+    "reward_hacking_checks": 15,
+    "partial_oracle_checks": 17
+  },
+  "authorship_eligibility_gate": "An eligibility test applied per artifact rather than to any check's own score. A unit sheet is eligible only when it parses, carries its three observations, all three evidence quotes are continuous runs of that unit's own passage file, and its summary names at least four of the passage's own distinctive words. A concept dossier is eligible only when it parses, every rung names a unit whose own sheet claimed that concept, at least half its rungs stand on eligible sheets, and its concept statement is not a string another dossier already used. An ineligible artifact contributes zero to every per-artifact check in all three categories and is excluded from the release-wide quota counts, so a hollow but well-formed submission cannot bank the structural points its schema would otherwise collect. This gates an artifact's eligibility to be counted at all; it is not a gate on any check's score given two continuous signals. Measured effect: a release that reissues one sheet shell sixty times with well-formed schema, a self-consistent index and a factually true report scores 0.0924, and an empty release scores 0.0000."
+}

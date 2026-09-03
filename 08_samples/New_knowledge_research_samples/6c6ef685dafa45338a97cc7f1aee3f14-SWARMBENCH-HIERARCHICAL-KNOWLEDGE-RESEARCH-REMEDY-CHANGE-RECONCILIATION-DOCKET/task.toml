@@ -1,0 +1,26 @@
+[task]
+name = "swarmbench/6c6ef685dafa45338a97cc7f1aee3f14-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-REMEDY-CHANGE-RECONCILIATION-DOCKET"
+description = "Reconcile the signed remedy against its later modifications across twenty Superfund site decision dockets so a five year review team can establish the operative remedy at each site, delivering a remedy change register keyed to signed documents, a cleanup level crosswalk normalized across media and units, and a readiness memo naming the sites carrying an unresolved inconsistency between the current remedy and the standards cited for it."
+
+[metadata]
+verifier_type = "hybrid"
+domain = "knowledge-research"
+coordination_pattern = "hierarchical"
+secondary_classification = ["long_horizon"]
+dag_depth = 3
+dag_width = 40
+human_solving_hours_estimate = 194.8
+human_solving_hours_justification = "The manifest contains 65 signed decision documents totaling 5,344 source-PDF pages across 20 sites. Careful extraction-oriented reading at about 35 pages per hour is about 152.7 hours. Document-level remedy-change capture and evidence anchoring at about 15 minutes per document adds 16.3 hours. Normalization and reconciliation of roughly 180 cleanup-level records at about 2 minutes each adds 6.0 hours. Reading the shared guidance and pinned standards material adds about 2.9 hours. Four cluster consolidations add 4.0 hours, cohort reconciliation adds 6.0 hours, readiness-memo drafting adds 4.0 hours, and final cross-artifact review adds 3.0 hours. Total is about 194.8 hours."
+estimated_sub_agents = 58
+input_token_estimate = 3800000
+reference_link = "https://www.epa.gov/superfund/search-superfund-decision-documents"
+why_multi_agent = "The manifest contains 65 signed decision documents totaling 5,344 source-PDF pages across 20 sites, about 267 pages per site on average. The determinations that decide the result sit in decision-summary narrative, responsiveness summaries and table footnotes rather than in labeled fields, so one context holding the full corpus is likely to lose deferrals, partial substitutions and retired cleanup levels. The hierarchical graph gives every site its own sustained reader, then four cluster leads reconcile five sites each so wording and unit variation surface at a tractable scope. A cohort stage settles one basis-family vocabulary and controlling-value convention across clusters, and the final assembly applies that shared frame back across all sites. The shared frame depends on the first-pass evidence and therefore requires a distinct reconciliation stage."
+
+
+[verifier]
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 600

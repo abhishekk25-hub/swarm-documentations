@@ -1,0 +1,555 @@
+version: "1.0"
+coordination_pattern: hierarchical
+sub_tasks:
+  - id: reconciliation-lead
+    description: >-
+      Own the whole reconciliation and delegate it. Dispatch one lane manager for each of the four
+      event lanes and do none of the report reading or fact alignment yourself. When every lane
+      reports back, read the finished per event files under /logs/agent/reconciliation/ from disk,
+      check that each of the eleven events named in the brief has a file and that the files parse,
+      and then build /logs/agent/reconciliation_ledger.csv by concatenating one row per unit
+      across every event file in the order the units appear, with the header and column meanings
+      the brief specifies.
+    depends_on: []
+    parallel_group: root
+  - id: lane-atlantic-major
+    description: >-
+      Own the atlantic-major lane, which covers these events: ida-2021, harvey-2017, matthew-2016.
+      Dispatch one reader for each of the 6 report files in those event directories, wait for the
+      readers of an event to finish, then dispatch that event's aligner. Do not read the reports
+      or write the event files yourself. Return to your caller only the output path and the count
+      of items written, never the contents.
+    depends_on:
+      - reconciliation-lead
+    parallel_group: lanes
+  - id: lane-atlantic-northeast
+    description: >-
+      Own the atlantic-northeast lane, which covers these events: sandy-2012, irene-2011,
+      florence-michael-2018. Dispatch one reader for each of the 8 report files in those event
+      directories, wait for the readers of an event to finish, then dispatch that event's aligner.
+      Do not read the reports or write the event files yourself. Return to your caller only the
+      output path and the count of items written, never the contents.
+    depends_on:
+      - reconciliation-lead
+    parallel_group: lanes
+  - id: lane-severe-local-storm
+    description: >-
+      Own the severe-local-storm lane, which covers these events: joplin-tornado-2011,
+      table-rock-lake-2018. Dispatch one reader for each of the 6 report files in those event
+      directories, wait for the readers of an event to finish, then dispatch that event's aligner.
+      Do not read the reports or write the event files yourself. Return to your caller only the
+      output path and the count of items written, never the contents.
+    depends_on:
+      - reconciliation-lead
+    parallel_group: lanes
+  - id: lane-flood-and-fire
+    description: >-
+      Own the flood-and-fire lane, which covers these events: sc-floods-2015,
+      colorado-floods-2013, camp-fire-2018. Dispatch one reader for each of the 8 report files in
+      those event directories, wait for the readers of an event to finish, then dispatch that
+      event's aligner. Do not read the reports or write the event files yourself. Return to your
+      caller only the output path and the count of items written, never the contents.
+    depends_on:
+      - reconciliation-lead
+    parallel_group: lanes
+  - id: read-ida-2021-tcr
+    description: >-
+      Read /input_artifacts/ida-2021/nhc-tropical-cyclone-report.txt in full, covering the whole
+      file rather than its opening sections. Write to /workspace/extracts/ida-2021/tcr.json every
+      statement in that text which gives a quantitative or dated fact about the event, each with
+      the passage copied exactly as it appears in the file and the character position in the file
+      where the passage starts. Return to your caller only the output path and the count of items
+      written, never the contents.
+    depends_on:
+      - lane-atlantic-major
+    parallel_group: readers
+  - id: read-ida-2021-sa
+    description: >-
+      Read /input_artifacts/ida-2021/nws-service-assessment.txt in full, covering the whole file
+      rather than its opening sections. Write to /workspace/extracts/ida-2021/sa.json every
+      statement in that text which gives a quantitative or dated fact about the event, each with
+      the passage copied exactly as it appears in the file and the character position in the file
+      where the passage starts. Return to your caller only the output path and the count of items
+      written, never the contents.
+    depends_on:
+      - lane-atlantic-major
+    parallel_group: readers
+  - id: read-harvey-2017-tcr
+    description: >-
+      Read /input_artifacts/harvey-2017/nhc-tropical-cyclone-report.txt in full, covering the
+      whole file rather than its opening sections. Write to
+      /workspace/extracts/harvey-2017/tcr.json every statement in that text which gives a
+      quantitative or dated fact about the event, each with the passage copied exactly as it
+      appears in the file and the character position in the file where the passage starts. Return
+      to your caller only the output path and the count of items written, never the contents.
+    depends_on:
+      - lane-atlantic-major
+    parallel_group: readers
+  - id: read-harvey-2017-sa
+    description: >-
+      Read /input_artifacts/harvey-2017/nws-service-assessment.txt in full, covering the whole
+      file rather than its opening sections. Write to /workspace/extracts/harvey-2017/sa.json
+      every statement in that text which gives a quantitative or dated fact about the event, each
+      with the passage copied exactly as it appears in the file and the character position in the
+      file where the passage starts. Return to your caller only the output path and the count of
+      items written, never the contents.
+    depends_on:
+      - lane-atlantic-major
+    parallel_group: readers
+  - id: read-matthew-2016-tcr
+    description: >-
+      Read /input_artifacts/matthew-2016/nhc-tropical-cyclone-report.txt in full, covering the
+      whole file rather than its opening sections. Write to
+      /workspace/extracts/matthew-2016/tcr.json every statement in that text which gives a
+      quantitative or dated fact about the event, each with the passage copied exactly as it
+      appears in the file and the character position in the file where the passage starts. Return
+      to your caller only the output path and the count of items written, never the contents.
+    depends_on:
+      - lane-atlantic-major
+    parallel_group: readers
+  - id: read-matthew-2016-sa
+    description: >-
+      Read /input_artifacts/matthew-2016/nws-service-assessment.txt in full, covering the whole
+      file rather than its opening sections. Write to /workspace/extracts/matthew-2016/sa.json
+      every statement in that text which gives a quantitative or dated fact about the event, each
+      with the passage copied exactly as it appears in the file and the character position in the
+      file where the passage starts. Return to your caller only the output path and the count of
+      items written, never the contents.
+    depends_on:
+      - lane-atlantic-major
+    parallel_group: readers
+  - id: read-sandy-2012-fema
+    description: >-
+      Read /input_artifacts/sandy-2012/fema-after-action-report.txt in full, covering the whole
+      file rather than its opening sections. Write to /workspace/extracts/sandy-2012/fema.json
+      every statement in that text which gives a quantitative or dated fact about the event, each
+      with the passage copied exactly as it appears in the file and the character position in the
+      file where the passage starts. Return to your caller only the output path and the count of
+      items written, never the contents.
+    depends_on:
+      - lane-atlantic-northeast
+    parallel_group: readers
+  - id: read-sandy-2012-tcr
+    description: >-
+      Read /input_artifacts/sandy-2012/nhc-tropical-cyclone-report.txt in full, covering the whole
+      file rather than its opening sections. Write to /workspace/extracts/sandy-2012/tcr.json
+      every statement in that text which gives a quantitative or dated fact about the event, each
+      with the passage copied exactly as it appears in the file and the character position in the
+      file where the passage starts. Return to your caller only the output path and the count of
+      items written, never the contents.
+    depends_on:
+      - lane-atlantic-northeast
+    parallel_group: readers
+  - id: read-sandy-2012-sa
+    description: >-
+      Read /input_artifacts/sandy-2012/nws-service-assessment.txt in full, covering the whole file
+      rather than its opening sections. Write to /workspace/extracts/sandy-2012/sa.json every
+      statement in that text which gives a quantitative or dated fact about the event, each with
+      the passage copied exactly as it appears in the file and the character position in the file
+      where the passage starts. Return to your caller only the output path and the count of items
+      written, never the contents.
+    depends_on:
+      - lane-atlantic-northeast
+    parallel_group: readers
+  - id: read-irene-2011-tcr
+    description: >-
+      Read /input_artifacts/irene-2011/nhc-tropical-cyclone-report.txt in full, covering the whole
+      file rather than its opening sections. Write to /workspace/extracts/irene-2011/tcr.json
+      every statement in that text which gives a quantitative or dated fact about the event, each
+      with the passage copied exactly as it appears in the file and the character position in the
+      file where the passage starts. Return to your caller only the output path and the count of
+      items written, never the contents.
+    depends_on:
+      - lane-atlantic-northeast
+    parallel_group: readers
+  - id: read-irene-2011-sa
+    description: >-
+      Read /input_artifacts/irene-2011/nws-service-assessment.txt in full, covering the whole file
+      rather than its opening sections. Write to /workspace/extracts/irene-2011/sa.json every
+      statement in that text which gives a quantitative or dated fact about the event, each with
+      the passage copied exactly as it appears in the file and the character position in the file
+      where the passage starts. Return to your caller only the output path and the count of items
+      written, never the contents.
+    depends_on:
+      - lane-atlantic-northeast
+    parallel_group: readers
+  - id: read-florence-michael-2018-tcr-florence
+    description: >-
+      Read /input_artifacts/florence-michael-2018/nhc-tropical-cyclone-report-florence.txt in
+      full, covering the whole file rather than its opening sections. Write to
+      /workspace/extracts/florence-michael-2018/tcr-florence.json every statement in that text
+      which gives a quantitative or dated fact about the event, each with the passage copied
+      exactly as it appears in the file and the character position in the file where the passage
+      starts. Return to your caller only the output path and the count of items written, never the
+      contents.
+    depends_on:
+      - lane-atlantic-northeast
+    parallel_group: readers
+  - id: read-florence-michael-2018-tcr-michael
+    description: >-
+      Read /input_artifacts/florence-michael-2018/nhc-tropical-cyclone-report-michael.txt in full,
+      covering the whole file rather than its opening sections. Write to
+      /workspace/extracts/florence-michael-2018/tcr-michael.json every statement in that text
+      which gives a quantitative or dated fact about the event, each with the passage copied
+      exactly as it appears in the file and the character position in the file where the passage
+      starts. Return to your caller only the output path and the count of items written, never the
+      contents.
+    depends_on:
+      - lane-atlantic-northeast
+    parallel_group: readers
+  - id: read-florence-michael-2018-sa
+    description: >-
+      Read /input_artifacts/florence-michael-2018/nws-service-assessment.txt in full, covering the
+      whole file rather than its opening sections. Write to
+      /workspace/extracts/florence-michael-2018/sa.json every statement in that text which gives a
+      quantitative or dated fact about the event, each with the passage copied exactly as it
+      appears in the file and the character position in the file where the passage starts. Return
+      to your caller only the output path and the count of items written, never the contents.
+    depends_on:
+      - lane-atlantic-northeast
+    parallel_group: readers
+  - id: read-joplin-tornado-2011-nist-p1
+    description: >-
+      Read the section of /input_artifacts/joplin-tornado-2011/nist-technical-investigation.txt
+      that runs from character 0 to character 400000 of the file, which is part 1 of 3; the other
+      parts belong to other readers, so cover your own range and no more. Write to
+      /workspace/extracts/joplin-tornado-2011/nist-p1.json every statement in that text which
+      gives a quantitative or dated fact about the event, each with the passage copied exactly as
+      it appears in the file and the character position in the file where the passage starts.
+      Return to your caller only the output path and the count of items written, never the
+      contents.
+    depends_on:
+      - lane-severe-local-storm
+    parallel_group: readers
+  - id: read-joplin-tornado-2011-nist-p2
+    description: >-
+      Read the section of /input_artifacts/joplin-tornado-2011/nist-technical-investigation.txt
+      that runs from character 400000 to character 800000 of the file, which is part 2 of 3; the
+      other parts belong to other readers, so cover your own range and no more. Write to
+      /workspace/extracts/joplin-tornado-2011/nist-p2.json every statement in that text which
+      gives a quantitative or dated fact about the event, each with the passage copied exactly as
+      it appears in the file and the character position in the file where the passage starts.
+      Return to your caller only the output path and the count of items written, never the
+      contents.
+    depends_on:
+      - lane-severe-local-storm
+    parallel_group: readers
+  - id: read-joplin-tornado-2011-nist-p3
+    description: >-
+      Read the section of /input_artifacts/joplin-tornado-2011/nist-technical-investigation.txt
+      that runs from character 800000 to character 1059233 of the file, which is part 3 of 3; the
+      other parts belong to other readers, so cover your own range and no more. Write to
+      /workspace/extracts/joplin-tornado-2011/nist-p3.json every statement in that text which
+      gives a quantitative or dated fact about the event, each with the passage copied exactly as
+      it appears in the file and the character position in the file where the passage starts.
+      Return to your caller only the output path and the count of items written, never the
+      contents.
+    depends_on:
+      - lane-severe-local-storm
+    parallel_group: readers
+  - id: read-joplin-tornado-2011-sa
+    description: >-
+      Read /input_artifacts/joplin-tornado-2011/nws-service-assessment.txt in full, covering the
+      whole file rather than its opening sections. Write to
+      /workspace/extracts/joplin-tornado-2011/sa.json every statement in that text which gives a
+      quantitative or dated fact about the event, each with the passage copied exactly as it
+      appears in the file and the character position in the file where the passage starts. Return
+      to your caller only the output path and the count of items written, never the contents.
+    depends_on:
+      - lane-severe-local-storm
+    parallel_group: readers
+  - id: read-table-rock-lake-2018-ntsb
+    description: >-
+      Read /input_artifacts/table-rock-lake-2018/ntsb-marine-accident-report.txt in full, covering
+      the whole file rather than its opening sections. Write to
+      /workspace/extracts/table-rock-lake-2018/ntsb.json every statement in that text which gives
+      a quantitative or dated fact about the event, each with the passage copied exactly as it
+      appears in the file and the character position in the file where the passage starts. Return
+      to your caller only the output path and the count of items written, never the contents.
+    depends_on:
+      - lane-severe-local-storm
+    parallel_group: readers
+  - id: read-table-rock-lake-2018-sa
+    description: >-
+      Read /input_artifacts/table-rock-lake-2018/nws-service-assessment.txt in full, covering the
+      whole file rather than its opening sections. Write to
+      /workspace/extracts/table-rock-lake-2018/sa.json every statement in that text which gives a
+      quantitative or dated fact about the event, each with the passage copied exactly as it
+      appears in the file and the character position in the file where the passage starts. Return
+      to your caller only the output path and the count of items written, never the contents.
+    depends_on:
+      - lane-severe-local-storm
+    parallel_group: readers
+  - id: read-sc-floods-2015-sa
+    description: >-
+      Read /input_artifacts/sc-floods-2015/nws-service-assessment.txt in full, covering the whole
+      file rather than its opening sections. Write to /workspace/extracts/sc-floods-2015/sa.json
+      every statement in that text which gives a quantitative or dated fact about the event, each
+      with the passage copied exactly as it appears in the file and the character position in the
+      file where the passage starts. Return to your caller only the output path and the count of
+      items written, never the contents.
+    depends_on:
+      - lane-flood-and-fire
+    parallel_group: readers
+  - id: read-sc-floods-2015-usgs
+    description: >-
+      Read /input_artifacts/sc-floods-2015/usgs-flood-report.txt in full, covering the whole file
+      rather than its opening sections. Write to /workspace/extracts/sc-floods-2015/usgs.json
+      every statement in that text which gives a quantitative or dated fact about the event, each
+      with the passage copied exactly as it appears in the file and the character position in the
+      file where the passage starts. Return to your caller only the output path and the count of
+      items written, never the contents.
+    depends_on:
+      - lane-flood-and-fire
+    parallel_group: readers
+  - id: read-colorado-floods-2013-sa
+    description: >-
+      Read /input_artifacts/colorado-floods-2013/nws-service-assessment.txt in full, covering the
+      whole file rather than its opening sections. Write to
+      /workspace/extracts/colorado-floods-2013/sa.json every statement in that text which gives a
+      quantitative or dated fact about the event, each with the passage copied exactly as it
+      appears in the file and the character position in the file where the passage starts. Return
+      to your caller only the output path and the count of items written, never the contents.
+    depends_on:
+      - lane-flood-and-fire
+    parallel_group: readers
+  - id: read-colorado-floods-2013-usgs
+    description: >-
+      Read /input_artifacts/colorado-floods-2013/usgs-flood-report.txt in full, covering the whole
+      file rather than its opening sections. Write to
+      /workspace/extracts/colorado-floods-2013/usgs.json every statement in that text which gives
+      a quantitative or dated fact about the event, each with the passage copied exactly as it
+      appears in the file and the character position in the file where the passage starts. Return
+      to your caller only the output path and the count of items written, never the contents.
+    depends_on:
+      - lane-flood-and-fire
+    parallel_group: readers
+  - id: read-camp-fire-2018-nist-p1
+    description: >-
+      Read the section of /input_artifacts/camp-fire-2018/nist-technical-investigation.txt that
+      runs from character 0 to character 400000 of the file, which is part 1 of 3; the other parts
+      belong to other readers, so cover your own range and no more. Write to
+      /workspace/extracts/camp-fire-2018/nist-p1.json every statement in that text which gives a
+      quantitative or dated fact about the event, each with the passage copied exactly as it
+      appears in the file and the character position in the file where the passage starts. Return
+      to your caller only the output path and the count of items written, never the contents.
+    depends_on:
+      - lane-flood-and-fire
+    parallel_group: readers
+  - id: read-camp-fire-2018-nist-p2
+    description: >-
+      Read the section of /input_artifacts/camp-fire-2018/nist-technical-investigation.txt that
+      runs from character 400000 to character 800000 of the file, which is part 2 of 3; the other
+      parts belong to other readers, so cover your own range and no more. Write to
+      /workspace/extracts/camp-fire-2018/nist-p2.json every statement in that text which gives a
+      quantitative or dated fact about the event, each with the passage copied exactly as it
+      appears in the file and the character position in the file where the passage starts. Return
+      to your caller only the output path and the count of items written, never the contents.
+    depends_on:
+      - lane-flood-and-fire
+    parallel_group: readers
+  - id: read-camp-fire-2018-nist-p3
+    description: >-
+      Read the section of /input_artifacts/camp-fire-2018/nist-technical-investigation.txt that
+      runs from character 800000 to character 947437 of the file, which is part 3 of 3; the other
+      parts belong to other readers, so cover your own range and no more. Write to
+      /workspace/extracts/camp-fire-2018/nist-p3.json every statement in that text which gives a
+      quantitative or dated fact about the event, each with the passage copied exactly as it
+      appears in the file and the character position in the file where the passage starts. Return
+      to your caller only the output path and the count of items written, never the contents.
+    depends_on:
+      - lane-flood-and-fire
+    parallel_group: readers
+  - id: read-camp-fire-2018-sa
+    description: >-
+      Read /input_artifacts/camp-fire-2018/nws-service-assessment.txt in full, covering the whole
+      file rather than its opening sections. Write to /workspace/extracts/camp-fire-2018/sa.json
+      every statement in that text which gives a quantitative or dated fact about the event, each
+      with the passage copied exactly as it appears in the file and the character position in the
+      file where the passage starts. Return to your caller only the output path and the count of
+      items written, never the contents.
+    depends_on:
+      - lane-flood-and-fire
+    parallel_group: readers
+  - id: align-ida-2021
+    description: >-
+      Read every extract file under /workspace/extracts/ida-2021/ and write
+      /logs/agent/reconciliation/ida-2021.json, one unit per fact that the reports of this event
+      address. Each unit carries the category, a short qualifier line, one entry per report that
+      states the fact giving that report's file name, the value as that report frames it and the
+      passage copied exactly from that report, then a verdict which is one of agree_exact,
+      agree_after_mapping, discrepant or single_source_only, then mapping_arithmetic.
+      mapping_arithmetic is a required field whenever the verdict is agree_after_mapping or
+      discrepant, and it states the relation connecting the reports' figures rather than listing
+      those figures again. Return to your caller only the output path and the count of items
+      written, never the contents.
+    depends_on:
+      - read-ida-2021-tcr
+      - read-ida-2021-sa
+    parallel_group: aligners
+  - id: align-harvey-2017
+    description: >-
+      Read every extract file under /workspace/extracts/harvey-2017/ and write
+      /logs/agent/reconciliation/harvey-2017.json, one unit per fact that the reports of this
+      event address. Each unit carries the category, a short qualifier line, one entry per report
+      that states the fact giving that report's file name, the value as that report frames it and
+      the passage copied exactly from that report, then a verdict which is one of agree_exact,
+      agree_after_mapping, discrepant or single_source_only, then mapping_arithmetic.
+      mapping_arithmetic is a required field whenever the verdict is agree_after_mapping or
+      discrepant, and it states the relation connecting the reports' figures rather than listing
+      those figures again. Return to your caller only the output path and the count of items
+      written, never the contents.
+    depends_on:
+      - read-harvey-2017-tcr
+      - read-harvey-2017-sa
+    parallel_group: aligners
+  - id: align-matthew-2016
+    description: >-
+      Read every extract file under /workspace/extracts/matthew-2016/ and write
+      /logs/agent/reconciliation/matthew-2016.json, one unit per fact that the reports of this
+      event address. Each unit carries the category, a short qualifier line, one entry per report
+      that states the fact giving that report's file name, the value as that report frames it and
+      the passage copied exactly from that report, then a verdict which is one of agree_exact,
+      agree_after_mapping, discrepant or single_source_only, then mapping_arithmetic.
+      mapping_arithmetic is a required field whenever the verdict is agree_after_mapping or
+      discrepant, and it states the relation connecting the reports' figures rather than listing
+      those figures again. Return to your caller only the output path and the count of items
+      written, never the contents.
+    depends_on:
+      - read-matthew-2016-tcr
+      - read-matthew-2016-sa
+    parallel_group: aligners
+  - id: align-sandy-2012
+    description: >-
+      Read every extract file under /workspace/extracts/sandy-2012/ and write
+      /logs/agent/reconciliation/sandy-2012.json, one unit per fact that the reports of this event
+      address. Each unit carries the category, a short qualifier line, one entry per report that
+      states the fact giving that report's file name, the value as that report frames it and the
+      passage copied exactly from that report, then a verdict which is one of agree_exact,
+      agree_after_mapping, discrepant or single_source_only, then mapping_arithmetic.
+      mapping_arithmetic is a required field whenever the verdict is agree_after_mapping or
+      discrepant, and it states the relation connecting the reports' figures rather than listing
+      those figures again. Return to your caller only the output path and the count of items
+      written, never the contents.
+    depends_on:
+      - read-sandy-2012-fema
+      - read-sandy-2012-tcr
+      - read-sandy-2012-sa
+    parallel_group: aligners
+  - id: align-irene-2011
+    description: >-
+      Read every extract file under /workspace/extracts/irene-2011/ and write
+      /logs/agent/reconciliation/irene-2011.json, one unit per fact that the reports of this event
+      address. Each unit carries the category, a short qualifier line, one entry per report that
+      states the fact giving that report's file name, the value as that report frames it and the
+      passage copied exactly from that report, then a verdict which is one of agree_exact,
+      agree_after_mapping, discrepant or single_source_only, then mapping_arithmetic.
+      mapping_arithmetic is a required field whenever the verdict is agree_after_mapping or
+      discrepant, and it states the relation connecting the reports' figures rather than listing
+      those figures again. Return to your caller only the output path and the count of items
+      written, never the contents.
+    depends_on:
+      - read-irene-2011-tcr
+      - read-irene-2011-sa
+    parallel_group: aligners
+  - id: align-florence-michael-2018
+    description: >-
+      Read every extract file under /workspace/extracts/florence-michael-2018/ and write
+      /logs/agent/reconciliation/florence-michael-2018.json, one unit per fact that the reports of
+      this event address. Each unit carries the category, a short qualifier line, one entry per
+      report that states the fact giving that report's file name, the value as that report frames
+      it and the passage copied exactly from that report, then a verdict which is one of
+      agree_exact, agree_after_mapping, discrepant or single_source_only, then mapping_arithmetic.
+      mapping_arithmetic is a required field whenever the verdict is agree_after_mapping or
+      discrepant, and it states the relation connecting the reports' figures rather than listing
+      those figures again. Return to your caller only the output path and the count of items
+      written, never the contents.
+    depends_on:
+      - read-florence-michael-2018-tcr-florence
+      - read-florence-michael-2018-tcr-michael
+      - read-florence-michael-2018-sa
+    parallel_group: aligners
+  - id: align-joplin-tornado-2011
+    description: >-
+      Read every extract file under /workspace/extracts/joplin-tornado-2011/ and write
+      /logs/agent/reconciliation/joplin-tornado-2011.json, one unit per fact that the reports of
+      this event address. Each unit carries the category, a short qualifier line, one entry per
+      report that states the fact giving that report's file name, the value as that report frames
+      it and the passage copied exactly from that report, then a verdict which is one of
+      agree_exact, agree_after_mapping, discrepant or single_source_only, then mapping_arithmetic.
+      mapping_arithmetic is a required field whenever the verdict is agree_after_mapping or
+      discrepant, and it states the relation connecting the reports' figures rather than listing
+      those figures again. Return to your caller only the output path and the count of items
+      written, never the contents.
+    depends_on:
+      - read-joplin-tornado-2011-nist-p1
+      - read-joplin-tornado-2011-nist-p2
+      - read-joplin-tornado-2011-nist-p3
+      - read-joplin-tornado-2011-sa
+    parallel_group: aligners
+  - id: align-table-rock-lake-2018
+    description: >-
+      Read every extract file under /workspace/extracts/table-rock-lake-2018/ and write
+      /logs/agent/reconciliation/table-rock-lake-2018.json, one unit per fact that the reports of
+      this event address. Each unit carries the category, a short qualifier line, one entry per
+      report that states the fact giving that report's file name, the value as that report frames
+      it and the passage copied exactly from that report, then a verdict which is one of
+      agree_exact, agree_after_mapping, discrepant or single_source_only, then mapping_arithmetic.
+      mapping_arithmetic is a required field whenever the verdict is agree_after_mapping or
+      discrepant, and it states the relation connecting the reports' figures rather than listing
+      those figures again. Return to your caller only the output path and the count of items
+      written, never the contents.
+    depends_on:
+      - read-table-rock-lake-2018-ntsb
+      - read-table-rock-lake-2018-sa
+    parallel_group: aligners
+  - id: align-sc-floods-2015
+    description: >-
+      Read every extract file under /workspace/extracts/sc-floods-2015/ and write
+      /logs/agent/reconciliation/sc-floods-2015.json, one unit per fact that the reports of this
+      event address. Each unit carries the category, a short qualifier line, one entry per report
+      that states the fact giving that report's file name, the value as that report frames it and
+      the passage copied exactly from that report, then a verdict which is one of agree_exact,
+      agree_after_mapping, discrepant or single_source_only, then mapping_arithmetic.
+      mapping_arithmetic is a required field whenever the verdict is agree_after_mapping or
+      discrepant, and it states the relation connecting the reports' figures rather than listing
+      those figures again. Return to your caller only the output path and the count of items
+      written, never the contents.
+    depends_on:
+      - read-sc-floods-2015-sa
+      - read-sc-floods-2015-usgs
+    parallel_group: aligners
+  - id: align-colorado-floods-2013
+    description: >-
+      Read every extract file under /workspace/extracts/colorado-floods-2013/ and write
+      /logs/agent/reconciliation/colorado-floods-2013.json, one unit per fact that the reports of
+      this event address. Each unit carries the category, a short qualifier line, one entry per
+      report that states the fact giving that report's file name, the value as that report frames
+      it and the passage copied exactly from that report, then a verdict which is one of
+      agree_exact, agree_after_mapping, discrepant or single_source_only, then mapping_arithmetic.
+      mapping_arithmetic is a required field whenever the verdict is agree_after_mapping or
+      discrepant, and it states the relation connecting the reports' figures rather than listing
+      those figures again. Return to your caller only the output path and the count of items
+      written, never the contents.
+    depends_on:
+      - read-colorado-floods-2013-sa
+      - read-colorado-floods-2013-usgs
+    parallel_group: aligners
+  - id: align-camp-fire-2018
+    description: >-
+      Read every extract file under /workspace/extracts/camp-fire-2018/ and write
+      /logs/agent/reconciliation/camp-fire-2018.json, one unit per fact that the reports of this
+      event address. Each unit carries the category, a short qualifier line, one entry per report
+      that states the fact giving that report's file name, the value as that report frames it and
+      the passage copied exactly from that report, then a verdict which is one of agree_exact,
+      agree_after_mapping, discrepant or single_source_only, then mapping_arithmetic.
+      mapping_arithmetic is a required field whenever the verdict is agree_after_mapping or
+      discrepant, and it states the relation connecting the reports' figures rather than listing
+      those figures again. Return to your caller only the output path and the count of items
+      written, never the contents.
+    depends_on:
+      - read-camp-fire-2018-nist-p1
+      - read-camp-fire-2018-nist-p2
+      - read-camp-fire-2018-nist-p3
+      - read-camp-fire-2018-sa
+    parallel_group: aligners

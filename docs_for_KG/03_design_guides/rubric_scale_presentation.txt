@@ -1,0 +1,244 @@
+--- Page 1 ---
+MAKING TASKS WHERE A TEAM CLEARLY BEATS ONE AGENT
+The whole game is
+the rubric.
+A rubric is just the grader. If it can't tell a rushed answer from a great one, one
+agent and a whole team score the same, and the task proves nothing. Here are
+five real tasks of ours: what each asked, what went wrong, and how to fix it.
+
+--- Page 2 ---
+THE IDEA
+If your grader can't tell a rushed
+answer from a great one, then
+one agent and a whole team get
+the same score.
+A good rubric is a tough, fair grader that gives points for work that is actually
+correct, over enough real work that one agent can't finish it alone.
+
+--- Page 3 ---
+CASE 1 · SOVEREIGN RESILIENCE
+It gave points for showing upgap only +4.6
+The task: score 20 countries across 6 development domains from live
+World Bank data, then build CSVs, charts, an animation and a written
+report.
+# 16 of 22 checks look like this
+("cohort_complete",
+ "cohort.csv exists and lists
+  all 20 required countries")
+reward = points / totalTHE PROBLEM
+The grader checked the files were there, not that the numbers
+were right. Any agent makes the files, so single scored 91%
+and the team 95%. Nothing separates them.
+THE FIX
+Grade the actual values against a reference, the way Finance
+grades each chapter against the textbook.
+
+--- Page 4 ---
+CASE 1 · SOVEREIGN · THE CHECKS
+What it checked, and what it should have
+CHECKS IT HAD (PRESENCE)
+Each CSV exists and has 20 country rows
+Sub-scores and the index are within 0-100
+Rank is a clean 1..20; charts are valid PNGs; mp4 ≥ 6s
+Report is ~1500+ words and names the sectionsCHECKS IT SHOULD HAVE (CORRECTNESS)
+values_match_worldbank: sampled cells match the live
+WB value within tolerance
+no_hollow_domain: an empty or abandoned domain loses
+points, not passes
+report_depth: each country profile scored 0..1 on depth
+and grounding
+gap_honesty: stale or missing cells flagged with a fallback
+year
+THE DIFFERENCE (PROJECTED)single 0.91→~0.65team 0.96→~0.90gap +4.6→~+25
+
+--- Page 5 ---
+CASE 2 · DRUG SHORTAGE BRIEFING
+The checks were too easy to passgap −10 (single won)
+The task: build dossiers for ~120 shortage drugs, reconcile conflicting
+sources, and write an allocation plan for contested supply.
+# 30 checks, each 1 point
+RUBRIC = [
+ ("coverage_all_drugs", ..)  # easy
+ ("evidence_coverage", ..)   # easy
+ ("allocation_resolved", ..) # hard
+ # ...mostly easy coverage...
+]
+reward = passed / 30THE PROBLEM
+Most checks just asked "did they cover everything," which
+any agent passes. The few hard analysis checks got drowned
+out, so the single agent even edged ahead.
+THE FIX (NO WEIGHTAGE, PER OUR RULE)
+Change the checks themselves: fewer easy "is it present"
+checks, more that require the hard, correct reconciliation and
+allocation, so passing actually means doing the work.
+
+--- Page 6 ---
+CASE 2 · DRUG SHORTAGE · THE CHECKS
+What it checked, and what it should have
+CHECKS IT HAD (30, MOSTLY EASY)
+Every drug has a dossier row (coverage)
+Sources are cited (present, not verified)
+Columns and schema are valid
+Only a few items tested the hard reconciliation and
+allocationCHECKS IT SHOULD HAVE (SAME EQUAL WEIGHT)
+reconciliation_correct: contested drug resolves to the
+stronger source's value
+allocation_feasible: plan respects every supply cap, no
+site over-allocated
+coverage_is_correct: a row scores only if value AND
+source are right
+Fewer trivially-passable presence items overall
+THE DIFFERENCE (PROJECTED)single ~0.75→~0.55team ~0.65→~0.80gap −10→~+25
+
+--- Page 7 ---
+CASE 3 · NYC RESTAURANT REMEDIATION
+It multiplied instead of adding, and trusted the
+agent's own numbers
+gap −48 (worst)
+The task: take NYC restaurant inspection data, fix each store's violations,
+and produce a consistent set of trackers, a deck and a report.
+# the "answer key" was rebuilt from
+# the agent's OWN output files, then:
+remediation = base
+  * (0.30 + 0.70 * fact_align)  # x..
+  * (0.30 + 0.70 * ...)         # x..
+reward = completion * rubric  # multiplyTHE PROBLEM
+Instead of adding points, it multiplied factors. One wrong
+factor near zero dragged the whole score down. And the
+answer key came from the agent's own files, so when the
+team's file was slightly off, everything collapsed: single 58,
+team 10.
+THE FIX
+Add points, don't multiply. Don't use weightage (our rule). And
+freeze the answer key inside the task instead of rebuilding it
+from the agent.
+Tax-Court does this right: grades each case
+against the real court opinion, gap +40.
+
+--- Page 8 ---
+CASE 3 · NYC RESTAURANT · THE CHECKS
+What it checked, and what it should have
+CHECKS IT HAD (MULTIPLIED)
+Deliverables present (a completion factor)
+Counts match a key rebuilt from the agent's own files
+Routing, fact-alignment, template, consistency, each a
+factor
+reward = completion * product(factors), with weightsCHECKS IT SHOULD HAVE (ADDED)
+reward = sum(ok) / n: add points, never multiply
+frozen key: grade against an answer shipped in the task
+counts_match_frozen_key within a small tolerance
+per_store_fix_correct: one point per store; one miss
+costs one point
+THE DIFFERENCE (PROJECTED)single 0.58→~0.55team 0.10→~0.80gap −48→~+25
+
+--- Page 9 ---
+CASE 4 · CAPITAL CHANGE-ORDER LEDGER
+A good grader, but one agent could just finish it
+gap only +2
+The task: read board-minute PDFs for 48 projects and extract a clean,
+exact ledger of change orders and approvals.
+# exact grading vs a frozen answer key.
+# Nothing wrong with the rubric.
+# But only 48 small records:
+single = 370/442   # 0.837
+team   = 379/442   # 0.858THE PROBLEM
+The rubric was genuinely good, exact checks against a frozen
+key. But 48 records is small enough for one agent to finish
+alone, so both scored ~85%. This isn't a rubric problem, it's a
+size problem.
+THE FIX
+Add more independent, hard pieces until one agent runs out
+of time and splitting the work actually pays off.
+
+--- Page 10 ---
+CASE 4 · CAPITAL LEDGER · THE CHECKS
+Good checks, just not enough of them
+CHECKS IT HAD (GOOD, BUT SMALL)
+Each ledger field exact-matched to a frozen key
+442 field checks across 48 projects
+Honest grader, nothing wrong with the rubric itself
+But one agent can finish 48 records in the budgetWHAT IT SHOULD HAVE (SCALE, NOT NEW CHECKS)
+Grow to 200+ projects, beyond one agent's budget
+cross_doc_reconciliation: join each order across minutes
++ amendment + approval
+late_evidence_captured: facts buried deep in long PDFs
+must be found
+Same exact-match grading, just more independent work
+THE DIFFERENCE (PROJECTED)single 0.84→~0.60team 0.86→~0.85gap +2→~+25
+
+--- Page 11 ---
+CASE 5 · FINANCE SLIDES — WHAT GOOD LOOKS LIKE
+Graded like a tough professor, across many hard
+pieces
+gap +32
+The task: turn a 630-page finance textbook into key-point slides, one set
+per chapter, for all 20 chapters.
+"Grade like a tough professor.
+ List each chapter's key points,
+ check how many the slides
+ actually explain correctly.
+ Anything fabricated is a
+ serious defect."
+reward = avg over all 20 chaptersWHY IT WORKS
+It grades correctness against the real book (a fixed reference),
+chapter by chapter. A rushed single agent writes shallow,
+generic chapters and loses points.
+AND IT HAS SCALE
+20 chapters is more than one agent can do deeply in the
+budget. A team splits them and goes deep, so the gap opens
+honestly: single 0.53, team 0.85.
+
+--- Page 12 ---
+A TECHNIQUE FOR THE TRICKY CASES
+When the rubric looks fine but the gap is small, read
+the outputs
+Sometimes a real gap is there, the rubric just isn't grading it. The fastest way to
+find it: open the single-agent output and the multi-agent output side by side
+and look at the quality difference the score is ignoring.
+If the team's file is clearly better (deeper, cleaner, no placeholders) but the
+scores are close, that difference is your ungraded gap, and your clue for what to
+check.
+
+--- Page 13 ---
+WORKED EXAMPLE · SOVEREIGN OUTPUTS, SAME RUBRIC
+Both passed the same 15/16 checks. One is 5x the
+work.
+Single report: 1,462 words, only 14 of 20
+countries. Team report: 7,816 words, all 20.
+Final scores: 0.909 vs 0.955.
+SINGLE AGENT REPORT
+Profiled only 14 of 20 countries, generic blurbs.
+Narrative gave up on Governance and CO2 ("API issues").
+No data-quality caveats or per-country flags.MULTI-AGENT REPORT
+All 20 countries, each with its own numbers.
+Documented CO2 proxies, per-country staleness flags.
+Data-quality tiers + a portfolio allocation table.
+CHECKS TO ADD TO GRADE THAT DIFFERENCE (BROAD SPARKS, NOT RULES)
+values_match_worldbank: sample cells vs the live WB value, so hollow or missing
+sections cost real points.
+report_depth: score each country profile 0 to 1 on depth and grounding, not one "is
+it ~1500 words" yes/no.
+gap_honesty: reward per-country staleness and fallback-year flags, like the Finance
+"tough professor."
+WITH THESE (PROJECTED)single 0.909→~0.65team 0.955→~0.90gap +4.6→~+25
+
+--- Page 14 ---
+BEFORE YOU SHIP A TASK, CHECK
+Quick test: if an agent could pass just by
+producing the files in the right format, your
+rubric is too weak.
+And if a single agent ever beats the team, the rubric isn't just weak, it's unfair, fix
+that first. Remember: add points, don't multiply; no weightage; freeze the answer
+key; don't derive it from the agent.Does my rubric check the work is right, not just handed in? 1
+Is there enough real work that one agent can't do it all well
+alone?2
+If unsure, open both outputs (single vs team) and see what
+quality the score is missing.3
+
+--- Page 15 ---
+TAKEAWAY
+Make the grader honest.
+Make the work big enough.
+Four of our five tasks failed on one of these, three on the rubric, one on size. Get
+both right and the gap shows up on its own. These are directions to spark your
+thinking, not "use this exact column or file." Keep your own style.

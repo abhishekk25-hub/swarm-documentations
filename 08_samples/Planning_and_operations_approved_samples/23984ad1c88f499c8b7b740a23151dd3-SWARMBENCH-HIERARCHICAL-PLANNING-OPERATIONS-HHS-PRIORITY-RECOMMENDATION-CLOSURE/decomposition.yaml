@@ -1,0 +1,248 @@
+version: "1.0"
+coordination_pattern: hierarchical
+
+sub_tasks:
+  - id: establish-scope-and-contracts
+    parallel_group: scope
+    depends_on: []
+    description: >-
+      Do not spawn sub-agents. Read instruction.md, /input_artifacts/portfolio_roster.json,
+      /input_artifacts/portfolio_arbitration_pairs.csv, /input_artifacts/source_manifest.csv,
+      /input_artifacts/file_manifest.csv, /input_artifacts/source_provenance.md, and
+      /input_artifacts/status/gao-25-108032-full.txt. Verify every bounded status excerpt against
+      the complete status letter before writing
+      /workspace/scope/portfolio-scope.json with the exact U01-U24 roster, report and status
+      paths, operational-area assignments, fixed area rosters, and the exact 72-pair arbitration
+      roster partitioned by comparison lens. Write
+      /workspace/scope/deliverable-schemas.json with every required output path, header, field
+      set, enum, identifier grammar, word range, count, ordering rule, and cross-file invariant
+      stated in instruction.md. Write /workspace/scope/validate-unit.py and
+      /workspace/scope/validate-portfolio.py as executable contracts derived from those disclosed
+      requirements. The unit contract must validate schema, cardinality, source-quote binding,
+      and ownership for one durable unit file; the portfolio contract must validate exact
+      expected-key coverage, global ID uniqueness, dependency ordering, and bidirectional
+      references. Do not analyze a recommendation or create a deliverable.
+
+  - id: verify-public-health-emergency
+    parallel_group: unit-area-hierarchy
+    depends_on: [establish-scope-and-contracts]
+    description: >-
+      Spawn one public_health_emergency area-lead sub-agent for roster U01-U04. The area lead
+      reads the scope and schema contracts, then spawns exactly four terminal workers in one
+      batch, one per unit. Each terminal worker reads only its assigned report and status excerpt,
+      writes /workspace/verified-units/UXX.json with the complete unit dossier, five actions,
+      three evidence items, dependency candidate, source anchors, and receipt, and runs the unit
+      contract. The lead checks all four executable results and hashes and writes
+      /workspace/area-manifests/public_health_emergency.json. Neither level may write final
+      deliverables; terminal workers do not spawn children.
+
+  - id: verify-fda-oversight
+    parallel_group: unit-area-hierarchy
+    depends_on: [establish-scope-and-contracts]
+    description: >-
+      Spawn one fda_oversight area-lead sub-agent for roster U05-U08. The area lead reads the scope
+      and schema contracts, then spawns exactly four terminal workers in one batch, one per unit.
+      Each terminal worker reads only its assigned report and status excerpt, writes
+      /workspace/verified-units/UXX.json with the complete unit record and receipt, and runs the
+      unit contract. The lead checks all four executable results and hashes and writes
+      /workspace/area-manifests/fda_oversight.json. Neither level may write final deliverables;
+      terminal workers do not spawn children.
+
+  - id: verify-improper-payments
+    parallel_group: unit-area-hierarchy
+    depends_on: [establish-scope-and-contracts]
+    description: >-
+      Spawn one improper_payments area-lead sub-agent for roster U09-U12. The area lead reads the
+      scope and schema contracts, then spawns exactly four terminal workers in one batch, one per
+      unit. Each worker reads only its assigned report and status excerpt, writes the complete
+      /workspace/verified-units/UXX.json and receipt, and runs the unit contract. The lead checks
+      all four executable results and hashes and writes
+      /workspace/area-manifests/improper_payments.json. Neither level may write final deliverables;
+      terminal workers do not spawn children.
+
+  - id: verify-public-program-oversight
+    parallel_group: unit-area-hierarchy
+    depends_on: [establish-scope-and-contracts]
+    description: >-
+      Spawn one public_program_oversight area-lead sub-agent for roster U13-U15. The area lead
+      reads the scope and schema contracts, then spawns exactly three terminal workers in one
+      batch, one per unit. Each worker reads only its assigned report and status excerpt, writes
+      the complete /workspace/verified-units/UXX.json and receipt, and runs the unit contract. The
+      lead checks all three executable results and hashes and writes
+      /workspace/area-manifests/public_program_oversight.json. Neither level may write final
+      deliverables; terminal workers do not spawn children.
+
+  - id: verify-medicaid-oversight
+    parallel_group: unit-area-hierarchy
+    depends_on: [establish-scope-and-contracts]
+    description: >-
+      Spawn one medicaid_oversight area-lead sub-agent for roster U16-U18. The area lead reads the
+      scope and schema contracts, then spawns exactly three terminal workers in one batch, one per
+      unit. Each worker reads only its assigned report and status excerpt, writes the complete
+      /workspace/verified-units/UXX.json and receipt, and runs the unit contract. The lead checks
+      all three executable results and hashes and writes
+      /workspace/area-manifests/medicaid_oversight.json. Neither level may write final deliverables;
+      terminal workers do not spawn children.
+
+  - id: verify-medicare-payment
+    parallel_group: unit-area-hierarchy
+    depends_on: [establish-scope-and-contracts]
+    description: >-
+      Spawn one medicare_payment area-lead sub-agent for roster U19-U21. The area lead reads the
+      scope and schema contracts, then spawns exactly three terminal workers in one batch, one per
+      unit. Each worker reads only its assigned report and status excerpt, writes the complete
+      /workspace/verified-units/UXX.json and receipt, and runs the unit contract. The lead checks
+      all three executable results and hashes and writes
+      /workspace/area-manifests/medicare_payment.json. Neither level may write final deliverables;
+      terminal workers do not spawn children.
+
+  - id: verify-infrastructure-privacy-it
+    parallel_group: unit-area-hierarchy
+    depends_on: [establish-scope-and-contracts]
+    description: >-
+      Spawn one infrastructure_privacy_it area-lead sub-agent for roster U22-U24. The area lead
+      reads the scope and schema contracts, then spawns exactly three terminal workers in one
+      batch, one per unit. Each worker reads only its assigned report and status excerpt, writes
+      the complete /workspace/verified-units/UXX.json and receipt, and runs the unit contract. The
+      lead checks all three executable results and hashes and writes
+      /workspace/area-manifests/infrastructure_privacy_it.json. Neither level may write final
+      deliverables; terminal workers do not spawn children.
+
+  - id: reconcile-authored-prose
+    parallel_group: corpus-specialists
+    depends_on:
+      - verify-public-health-emergency
+      - verify-fda-oversight
+      - verify-improper-payments
+      - verify-public-program-oversight
+      - verify-medicaid-oversight
+      - verify-medicare-payment
+      - verify-infrastructure-privacy-it
+    description: >-
+      Spawn one prose-reconciliation specialist. It reads all 24 verified unit records, their
+      quoted source anchors, and all seven area receipts. Reconcile authored fields for
+      recommendation-specific reasoning while preserving source meaning, write the complete
+      edited units to /workspace/reconciled-units/, and write
+      /workspace/reconciliation/prose-collision-receipt.json with exact roster, hashes, and
+      contract results. The specialist does not spawn children or create final deliverables.
+
+  - id: reconcile-dependencies-and-patterns
+    parallel_group: corpus-specialists
+    depends_on:
+      - verify-public-health-emergency
+      - verify-fda-oversight
+      - verify-improper-payments
+      - verify-public-program-oversight
+      - verify-medicaid-oversight
+      - verify-medicare-payment
+      - verify-infrastructure-privacy-it
+    description: >-
+      Spawn one relationship-reconciliation specialist. It reads all 24 verified dependency
+      candidates, their source anchors, and all seven area receipts. Assign one owner to each
+      relationship, select at least eight defensible cross-unit predecessors, establish six
+      source-supported patterns, and write /workspace/reconciliation/relationships.json plus its
+      executable cardinality and source-binding receipt. The specialist does not spawn children
+      or create final deliverables.
+
+  - id: integrate-portfolio-state
+    parallel_group: integration
+    depends_on: [reconcile-authored-prose, reconcile-dependencies-and-patterns]
+    description: >-
+      Do not spawn sub-agents. Read the schema contract, every reconciled unit, both reconciliation
+      receipts, and the relationship file. Assign the canonical global action, evidence,
+      dependency, pattern, and claim identifiers before any dependent synthesis. Persist
+      /workspace/integrated/id-map.json. Build /workspace/integrated/portfolio-state.json and a
+      complete many-to-many proof index that maps every action and evidence item to its unit,
+      dependency, wave candidate, pattern, and decision claim in both directions. Run
+      /workspace/scope/validate-portfolio.py and write the machine-derived result to
+      /workspace/integrated/integration-receipt.json. Do not create final deliverables and do not
+      release an invalid state downstream.
+
+  - id: arbitrate-closure-readiness
+    parallel_group: arbitration-lenses
+    depends_on: [integrate-portfolio-state]
+    description: >-
+      Spawn exactly one closure-readiness arbitration specialist. It owns the 24 pair IDs whose
+      comparison_lens is closure_readiness and no others. It reads both reconciled unit packets,
+      all six evidence rows, and both wave/dependency records for every assigned pair. For each
+      pair it selects advance and defer units, binds exact unit-local status anchors, and authors
+      the advance rationale, deferral consequence, and dependency effect required by
+      instruction.md. Write /workspace/arbitration/closure-readiness.jsonl plus an exact roster,
+      source-binding, and field-range receipt. Do not spawn children or write final deliverables.
+
+  - id: arbitrate-dependency-leverage
+    parallel_group: arbitration-lenses
+    depends_on: [integrate-portfolio-state]
+    description: >-
+      Spawn exactly one dependency-leverage arbitration specialist. It owns the 24 pair IDs whose
+      comparison_lens is dependency_leverage and no others. It reads both reconciled unit packets,
+      both dependency records, the global predecessor graph, and both wave rows for every assigned
+      pair. Produce recommendation-specific advance, deferral, and dependency reasoning with exact
+      status anchors in /workspace/arbitration/dependency-leverage.jsonl, then write an exact
+      roster, source-binding, and field-range receipt. Do not spawn children or write final
+      deliverables.
+
+  - id: arbitrate-evidence-burden
+    parallel_group: arbitration-lenses
+    depends_on: [integrate-portfolio-state]
+    description: >-
+      Spawn exactly one evidence-burden arbitration specialist. It owns the 24 pair IDs whose
+      comparison_lens is evidence_burden and no others. It reads both reconciled unit packets and
+      the complete design, operating, and outcome evidence sets for every assigned pair. Compare
+      closure-proof burden and the source-grounded consequence of deferral, and write
+      /workspace/arbitration/evidence-burden.jsonl plus an exact roster, source-binding, and
+      field-range receipt. Do not spawn children or write final deliverables.
+
+  - id: reconcile-priority-arbitration
+    parallel_group: arbitration-reconciliation
+    depends_on:
+      - arbitrate-closure-readiness
+      - arbitrate-dependency-leverage
+      - arbitrate-evidence-burden
+    description: >-
+      Spawn exactly one arbitration-reconciliation specialist. It reads the three non-overlapping
+      lens outputs, their receipts, the integrated dependency graph, and the 72-pair source roster.
+      It may repair pair-level contradictions only when the frozen sources and integrated plan
+      support the repair. Preserve every pair ID and lens, calculate advance and deferral counts,
+      identify cycles or contradictory choices for the memo, and write
+      /workspace/integrated/priority-arbitration.json plus
+      /workspace/integrated/arbitration-receipt.json. Do not spawn children or write final
+      deliverables.
+
+  - id: validate-integrated-state
+    parallel_group: validation
+    depends_on: [reconcile-priority-arbitration]
+    description: >-
+      Spawn exactly one validation sub-agent. It reads the integrated state, ID map, proof index,
+      source hashes, priority arbitration, arbitration receipt, and executable schema contracts.
+      It owns correction authority only within
+      /workspace/integrated/: repair schema, cardinality, ownership, source-binding, dependency,
+      claim-packet, and many-to-many propagation defects there, preserving canonical IDs. It may
+      not spawn sub-agents or write under /logs/agent. It reruns the portfolio contract and writes
+      /workspace/integrated/validated-state.json, including every arbitration record, and
+      /workspace/integrated/validation-receipt.json with values derived from the executable
+      result, then returns only paths, hashes, counts, and the result.
+
+  - id: assemble-and-repair-deliverables
+    parallel_group: assembly
+    depends_on: [validate-integrated-state]
+    description: >-
+      Spawn exactly one assembly sub-agent. It reads instruction.md,
+      /workspace/scope/deliverable-schemas.json, the validated state, ID map, proof index, and
+      validation receipt. It writes all nine required deliverables to their exact /logs/agent
+      paths. It runs /workspace/scope/validate-portfolio.py against the assembled files and may
+      repair only assembly or transcription defects in those files; it may not reopen or
+      reinterpret the source corpus, change canonical IDs, or alter validated analysis. After the
+      last repair it reruns the contract, writes /workspace/final-assembly-receipt.json with exact
+      file hashes and unresolved-count arithmetic, and returns only the receipt path and result.
+      It may not spawn sub-agents.
+
+  - id: read-only-handoff-audit
+    parallel_group: handoff
+    depends_on: [assemble-and-repair-deliverables]
+    description: >-
+      Do not spawn sub-agents. Read the final assembly receipt and the nine deliverables without
+      editing them. Confirm that the receipt hashes match, all required paths exist, and the saved
+      unresolved count agrees arithmetically with the receipt's handoff statement. Report the
+      exact deliverable paths and any unresolved contract result. After this stage begins, no
+      process may mutate an output under /logs/agent.

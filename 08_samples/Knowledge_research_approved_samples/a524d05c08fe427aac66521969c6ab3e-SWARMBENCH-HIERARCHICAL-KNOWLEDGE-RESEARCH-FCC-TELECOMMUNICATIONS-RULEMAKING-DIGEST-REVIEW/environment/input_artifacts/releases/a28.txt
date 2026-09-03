@@ -1,0 +1,879 @@
+FCC RULEMAKING RELEASE
+Rule subject: Implementation of the National Suicide Hotline Act of 2018
+Document number: 2025-17895
+Issuing agency: Federal Communications Commission
+Responsible Bureau: Public Safety and Homeland Security Bureau
+Federal Register citation: 90 FR 44564
+Publication date: 2025-09-16
+
+Federal Register, Volume 90 Issue 177 (Tuesday, September 16, 2025)
+
+
+[Federal Register Volume 90, Number 177 (Tuesday, September 16, 2025)]
+[Rules and Regulations]
+[Pages 44564-44580]
+From the Federal Register Online via the Government Publishing Office [ www.gpo.gov ]
+[FR Doc No: 2025-17895]
+
+
+-----------------------------------------------------------------------
+
+FEDERAL COMMUNICATIONS COMMISSION
+
+47 CFR Part 52
+
+[WC Docket No. 18-336; FCC 25-42; FR ID 313142]
+
+
+Implementation of the National Suicide Hotline Act of 2018
+
+AGENCY: Federal Communications Commission.
+
+ACTION: Final rule.
+
+-----------------------------------------------------------------------
+
+SUMMARY: In this document, the Federal Communications Commission
+(Commission) adopts rules requiring covered text providers, including
+wireless providers, to develop the capability to transmit georouting
+data in a format that is compatible with the Lifeline's platform to
+allow the routing of covered 988 text messages by the Lifeline
+Administrator to the appropriate crisis center based on the texter's
+general location, rather than area code; and to provide such georouting
+data for covered 988 text messages, when available, to the Lifeline
+Administrator. To protect the privacy of 988 texters, this document
+defines ``georouting data'' as location data generated from a cell-
+based location technology that is aggregated to a level that will not
+identify the precise location of the handset, but only the general area
+from which the text originated, thereby making local resources
+available while protecting texters' identities.
+
+DATES:
+ Effective date: This rule is effective October 16, 2025.
+ Compliance dates: Nationwide Commerical Mobile Radio Service (CMRS)
+providers must comply with the addition of 47 CFR 52.203 by 18 months
+after October 16, 2025. All covered text providers, including non-
+nationwide CMRS providers, must comply with the addition of 47 CFR
+52.203 by 36 months after October 16, 2025.
+
+FOR FURTHER INFORMATION CONTACT: For further information, contact Merry
+Wulff, Wireline Competition Bureau, Competition Policy Division, at
+ [email protected] or (202) 418-1084.
+
+SUPPLEMENTARY INFORMATION: This is a summary of the Commission's Fourth
+Report and Order in WC Docket No. 18-336, FCC 25-42, adopted on July
+24, 2025 and released on July 25, 2025. The full text of the document
+is available on the Commission's website at https://docs.fcc.gov/public/attachments/FCC-25-42A1.pdf . To request materials in accessible
+formats for people with disabilities (e.g., braille, large print,
+electronic files, audio format, etc.), send an email to [email protected]
+or call the Consumer & Governmental Affairs bureau at (202) 418-0530
+(voice).
+
+Synopsis
+
+I. Discussion
+
+ 1. In this Fourth Report and Order, we take further steps to
+facilitate access to the 988 Lifeline's critical local support services
+by requiring covered text providers to develop and implement georouting
+solutions for 988 text messages. First, based on a review of the record
+in the Implementation of the National Suicide Hotline Act of 2018,
+Third Further notice of Proposed Rulemaking (988 Georouting Third
+Further Notice), 89 FR 91636 (November 20, 2024) we find that
+establishing georouting for 988 text messages is essential to ensure
+that text users are routed to geographically appropriate crisis centers
+and will provide important benefits to Lifeline users. Next, we define
+``georouting data'' and other relevant terms for purposes of our rules,
+and adopt a two-part requirement to delineate the scope of covered text
+providers' obligations. Finally, in order to facilitate ongoing efforts
+to develop 988 text georouting capabilities, we adopt an implementation
+time frame of 18 months for nationwide providers, and 36 months for
+non-nationwide providers.
+
+A. Text-to-988 Georouting Will Improve Access and Efficiency of the
+Lifeline
+
+ 2. Georouting refers to the technical solutions for directing calls
+based on a geographic location of the originating call without
+transmitting information about the handset's precise location.
+Georouting is distinct from geolocation, which involves the
+transmission of precise location information (e.g., street address)
+often used to dispatch emergencies services. Today, in the absence of
+georouting, providers route 988 text messages to the Lifeline's
+centralized system. After a text message reaches 988, the Lifeline
+Administrator is responsible for routing the text message to an
+individual crisis center and currently does so based on the area code
+associated with the text user's wireless device. This inhibits the
+Lifeline's ability to provide access to more localized services when a
+text user's area code does not correspond to their geographic location.
+ Based on our review of the record, we find that requiring providers
+to implement a georouting solution for 988 text messages is essential
+to improving access to the Lifeline's critical mental health crisis and
+suicide prevention services. The record overwhelmingly supports the
+conclusion that georouting for 988 text messages will help connect
+individuals with more geographically appropriate crisis centers that
+should have a better understanding of available local resources and
+unique community stressors. As Reimagine Crisis Response explains,
+local crisis centers are better positioned to connect individuals
+``with local mental health care, resources, and support that can help .
+. . beyond the initial crisis.'' According to the current Lifeline
+Administrator, many individuals that reach out to 988 need
+
+[[Page 44565]]
+
+resources for follow-up care, including referrals to mental health
+resources within their current local communities. Several commenters
+agree that georouting for 988 text messages will improve access to
+referral and follow-up services that may reduce the risk of future
+mental health and suicidal crises.
+ Mental health and public safety commenters emphasize that
+georouting for 988 text messages will improve access for youth and
+young adults. Indeed, in response to the Implementation of the National
+Suicide Hotline Act of 2018, Second Further Notice of Proposed
+Rulemaking (988 Georouting Second Further Notice), 89 FR 46340 (May 29,
+2024), we received over 450 comments from American Foundation for
+Suicide Prevention (AFSP) advocates expressing support for requiring
+georouting for 988 text messages, all emphasizing the significant
+benefits for children and young adults. As the current Lifeline
+Administrator explains, georouting for 988 text messages will ``help
+connect young people with counselors who may have a deeper insight into
+the unique exacerbators within their local communities.'' AFSP further
+notes that georouting is particularly important for ``college-aged
+young adults [who] may be attending schools and universities . . . in
+areas that do not correspond with their cell phones' area codes.''
+ 3. Many commenters also agree that georouting for 988 text messages
+will enhance access to local resources and follow-up care services for
+individuals with disabilities, including individuals who are deaf, hard
+of hearing, or have a speech disability. As the Accessibility
+Organizations explain, text messaging is ``a preferred or necessary
+mode of communication, due to barriers to making voice calls,'' for
+many individuals with disabilities. The record further indicates that
+georouting for 988 text messages will provide benefits for other
+disproportionately impacted populations, including older men, rural
+communities, and individuals with low incomes or safety concerns.
+ 4. We also find georouting for 988 text messages will help ensure
+that Americans in crisis have access to help, regardless of whether
+they call or text the Lifeline. As the National Alliance on Mental
+Illness (NAMI) asserts, implementing georouting for voice calls but not
+for text messages may cause confusion and undermine trust in the 988
+Lifeline. Additionally, as several commenters emphasize, achieving
+routing parity with voice calls will help to minimize inconsistencies
+in service quality that might otherwise discourage individuals from
+seeking help, further increasing trust in the 988 Lifeline.
+
+B. Definitions
+
+ 5. As proposed in the 988 Georouting Third Further Notice, for the
+purposes of the rules we adopt today, we incorporate the definitions of
+the terms ``covered 988 text message'' and ``covered text provider,''
+as adopted in the Implementation of the National Suicide Hotline Act of
+2018, Second Report and Order (Text-to-988 Second Report and Order), 89
+FR 46340 (May 29, 2024). We similarly rely on the definitions of
+``Commercial Mobile Radio Service (CMRS)'' and ``georouting data''
+adopted by the Commission in the Implementation of the National Suicide
+Hotline Act of 2018, Third Report and Order (988 Georouting Third
+Report and Order), 89 FR 91636 (November 20, 2024). To preserve
+consistency across the requirements for georouting 988 calls and
+georouting text-to-988, we likewise use the definition of ``Lifeline
+Administrator'' adopted by the 988 Georouting Third Report and Order.
+No commenter opposed this approach. Although supportive of the
+Commission's existing definitions for these terms, the Accessibility
+Organizations urge the Commission to account for the accessibility
+needs of individuals who are deaf or hard of hearing, or have a speech
+or other disability that impacts communication in crafting rules for
+988 text georouting. We find that georouting text-to-988 will have a
+significant impact on connecting individuals, including those who are
+deaf or hard of hearing, or have a speech or other disability that
+impacts communication, to local resources and improve the accessibility
+of lifesaving resources. We therefore adopt our proposal in the Further
+Notice to incorporate the definitions adopted by the Commission in the
+Text-to-988 Second Report and Order and 988 Georouting Third Report and
+Order with our 988 text georouting rules. We find that relying on the
+Commission's existing definitions will ensure technological neutrality
+and regulatory consistency across our rules with respect to 988
+georouting.
+ 6. Covered 988 Text Message. We apply our 988 text georouting
+requirements to ``covered 988 text messages'' as that term is defined
+in the Text-to-988 Second Report and Order (defining a ``[c]overed 988
+text message'' as ``a 988 text message in SMS format and any other
+format that the Wireline Competition Bureau has determined must be
+supported by covered text providers''), thereby limiting our georouting
+rules to ``988 text messages'' that are in an Short Message Service
+(SMS) format. The record overwhelmingly supports limiting our
+requirements to SMS messages at this stage, in order to conform with
+the existing technical capabilities of the Lifeline, which can
+currently only receive SMS texts. While Intrado Life & Safety (Intrado)
+argues that the rules should obligate georouting of the text portion of
+Multimedia Message Service (MMS), we find that limiting our georouting
+rules to messages sent in SMS format will enable the 988 Lifeline to
+leverage current technology while developing georouting solutions that
+could adapt to messaging protocols such as MMS and Rich Communications
+Service (RCS) if necessary in the future. In this Fourth Report and
+Order, we use ``Intrado'' to refer to the entity previously referred to
+in this proceeding as ``Intrado Life & Safety.'' For a full discussion
+of the Intrado organization, see 988 Georouting Second Further Notice.
+In the Text-to-988 Second Report and Order, the Commission delegated to
+the Bureau the authority to make future determinations to require
+covered text providers to support additional text formats, in the event
+that the Lifeline developed the capability to receive such messages. In
+connection with this delegated authority, the Commission directed the
+Bureau to consult with the Substance Abuse and Mental Health Services
+Administration (SAMHSA) and the U.S. Department of Veterans Affairs
+(VA) on whether any text formats other than SMS are compatible with the
+988 Lifeline. To the extent that SAMHSA is reorganized, dissolved, or
+its responsibilities are transferred, all references to ``SAMHSA'' in
+this Order shall be interpreted to include any successor agency or
+entity that assumes authority for oversight of the 988 Lifeline, grants
+administration, or coordination on technical implementation of 988
+services. We further direct the Bureau to determine through its ongoing
+consultation process with SAMHSA and the VA whether the 988 Lifeline
+can accept georouting data with any newly identified text formats. In
+the event that the 988 Lifeline becomes capable of accepting any
+additional text formats, the Bureau shall seek comment on whether to
+require providers to transmit georouting data for such text formats in
+its annual public notice. We emphasize that this delegated authority is
+limited in scope. The Bureau may incorporate additional text formats
+into the Commission's rules if, and only if, the Lifeline becomes able
+to receive such messages, in which case it must provide
+
+[[Page 44566]]
+
+notice and an opportunity for comment before adopting any new
+requirements. The Bureau is also required to ``identify all
+implementation deadlines with certainty (i.e., by a specified calendar
+date)'' and in doing so, must ``assess factors such as technical and
+financial challenges with respect to implementation, the status of the
+Lifeline, and the public interest.''
+ 7. Covered Text Providers. We apply our 988 text georouting
+requirements to ``Covered Text Providers,'' as defined in the Text-to-
+988 Second Report and Order. Covered text providers include ``all
+[Commercial Mobile Radio Service (CMRS)] providers, as well as all
+providers of interconnected text messaging services that enable
+consumers to send text messages to and receive text messages from all
+or substantially all text-capable U.S. telephone numbers, including
+through the use of applications downloaded or otherwise installed on
+mobile phones.'' As noted above, our text georouting requirements are
+limited to 988 text messages sent in SMS format and therefore do not
+apply to over-the-top providers. An over-the-top provider refers to
+services accessed through broadband connections obtained by the
+consumer, or through public or private Wi-Fi connections that may not
+access cellular networks.
+ 8. Georouting Data. For the purposes of these rules, we define
+``georouting data'' to mean location data generated from cell-based
+location technology that is aggregated to a level that will not
+identify the location of the cell site or base station receiving the
+988 text message or otherwise identify the precise location of the
+handset. Vibrant initially raised concern that adopting this definition
+of georouting data for text-to-988 was too broad, however, it later
+indicated agreement with the proposed approach and ``recommend[ed] that
+any proposed georouting solution should utilize cell tower data,
+obtained from a carrier, to determine the geographic origin of 988
+Lifeline text messages.'' We note that this definition, which is
+consistent with that adopted in the 988 Georouting Third Report and
+Order, precludes the transmission of more precise location data. The
+definition of georouting data adopted in this Fourth Report and Order
+is the same as that used for our georouting rules for 988 voice calls,
+apart from its application to ``covered 988 text message[s],'' as
+opposed to ``988 call[s].'' The 988 Georouting Third Report and Order
+found that this approach would ``best identify a caller's location to
+enable routing of 988 calls to geographically appropriate crisis
+centers, while maintaining the privacy interests of callers'' and
+``provid[ing] nationwide providers flexibility to deploy current
+georouting solutions developed with the SAMHSA and the Lifeline
+Administrator.'' As explained below, we find that these considerations
+apply equally with respect to our text-to-988 georouting rules. Some
+commenters assert that georouting based on the location of the tower in
+which the contact was initiated does not provide sufficient granularity
+to dispatch emergency services. As discussed in greater detail below,
+we find that georouting based on aggregated, cell-based location
+information best balances the benefits of location-based routing with
+the privacy interests of 988 users.
+ 9. Commercial Mobile Radio Service. We also adopt our proposal to
+revise Sec. 52.201(b) of the Commission's rules to read ``Commercial
+Mobile Radio Service'' instead of ``Commercial Mobile Radio Services.''
+This correction is necessary to align the rule with the Commission's
+intent, as stated in the Text-to-988 Second Report and Order, to adopt
+the well-established text-to-911 definition of ``covered text
+provider.'' We note that no commenter questioned our proposal.
+
+C. Scope of Text-to-988 Georouting Requirement
+
+ 10. In this Fourth Report and Order, we adopt general requirements
+designed to enhance the Lifeline's ability to connect text users to
+geographically appropriate crisis centers, while safeguarding the
+critical privacy interests of individuals seeking life-saving
+assistance. Specifically, we require covered text providers to: (1)
+develop the capability to transmit georouting data in a format that is
+compatible with the Lifeline's system to allow routing of covered 988
+text messages by the Lifeline Administrator to the appropriate crisis
+center based on the geographic area where the handset is located at the
+time the text message is initiated; and (2) provide such georouting
+data for 988 text messages, when available, to the Lifeline
+Administrator. In adopting these rules, we support voluntary efforts to
+identify and develop industry-based georouting solutions for 988 text
+messages by providing a flexible, technology-neutral framework for our
+requirements.
+1. Capability To Provide Georouting Data
+ 11. Consistent with the 988 Georouting Third Further Notice, we
+first require covered text providers to develop the capability to
+transmit georouting data for 988 text messages in a format that is
+compatible with the Lifeline's routing platform. We find that this
+requirement is necessary to ensure that 988 text users receive the
+benefits of georouting, regardless of the covered text providers'
+network configurations. As with the other requirements we adopt today,
+we give covered text providers the flexibility to use technically
+feasible options that are best suited to their networks, provided that
+the georouting solutions are compatible with the Lifeline's system. We
+make clear that our rules create an ongoing obligation for covered text
+providers to ensure that georouting data remains compatible with the
+Lifeline's system, and we encourage stakeholders to collaborate in
+developing and testing such solutions.
+ 12. The record strongly supports requiring any text-to-988
+georouting solutions to be compatible with the Lifeline's system and
+infrastructure. For example, CTIA argues that we should ``continue to
+rely on technologies that are consistent with covered text providers'
+and the Lifeline's system[] to facilitate prompt and seamless
+implementation of new capabilities, including georouting.'' The
+Accessibility Organizations add that this approach ``ensures
+uniformity, reducing the chances of technical mismatches or delays in
+delivering critical support.'' We therefore agree with the Lifeline
+Administrator and T-Mobile that ``the best georouting solution will be
+one that can integrate with the 988 Lifeline's current routing
+network.'' And, as we have explained, we are adopting a rule that does
+not mandate geolocation reporting and that defines georouting data
+as``[l]ocation data generated from cell-based location technology that
+is aggregated to a level that will not identify the location of the
+cell site or base station receiving the covered 988 text message or
+otherwise identify the precise location of the handset.''
+ 13. We recognize that our federal partners may choose to expand the
+Lifeline's system to support a broader range of compatible text-to-988
+georouting solutions. Accordingly, and similar to the Commission's
+approach for voice-to-988 georouting, we direct the Bureau to routinely
+consult with SAMHSA regarding the format of text-to-988 georouting data
+that is compatible with the 988 Lifeline's system. We further direct
+the Bureau to monitor the development of text-to-988 georouting
+solutions and, if necessary, propose and seek comment on implementation
+parameters for covered text providers for any compatible text-to-988
+georouting data that is
+
+[[Page 44567]]
+
+substantially modified from the requirements adopted herein.
+ 14. Aggregation of Cell-Based Location Data. As numerous commenters
+observe, the privacy interests of 988 text users are paramount. For
+this reason, we require covered text providers to aggregate location
+data generated from cell-based technology to a level that will not
+identify the location of the cell site or base station receiving the
+988 text or otherwise identify the precise location of the handset. The
+rules we adopt today protect privacy interests by prohibiting the
+transmission of more granular cell site data or the precise location of
+the text user, while allowing covered text providers flexibility in
+implementing technical solutions that use different granularity of
+data, such as wire center or Federal Information Processing Series
+(FIPS) code geographic boundaries. As with the Commission's approach
+for voice-to-988 georouting, in adopting this requirement, we carefully
+balance the importance of maintaining user privacy with the need to
+expeditiously improve the routing of text messages to the Lifeline.
+ 15. The 988 Georouting Third Further Notice and 988 Text Georouting
+Privacy Notice sought comment to determine the necessary granularity of
+location data for text-to-988 georouting that protects the privacy
+expectations of text users, while still facilitating access to more
+localized services. In response, commenters generally argued that
+covered text providers need flexibility to develop and implement text-
+to-988 georouting solutions. To that end, rather than a prescriptive
+rule, we establish a general requirement that allows covered text
+providers flexibility to use technically feasible methods that are best
+suited to their networks to aggregate location data.
+ 16. Based on our review of the record, we find that aggregating
+location data to county-level or wire-center boundaries is sufficiently
+general to protect text users' privacy while improving the routing of
+988 text messages. The record indicates that the industry-based text
+georouting solution currently under development by nationwide wireless
+providers, the current Lifeline Administrator, and its vendor utilizes
+county-level FIPS code boundaries based on cell tower information and
+does not introduce precise location information into the 988 data flow.
+The Federal Information Processing Series (FIPS) codes are maintained
+and assigned by the Census Bureau to identify geographic areas. In its
+comments, the Lifeline Administrator states that the ``solutions under
+consideration will use county-level data,'' which ``minimizes user-
+specific data to simply connect a help seeker to the nearest crisis
+contact center based on cell phone tower data.'' We anticipate that our
+broad definition of ``georouting data'' will give covered text
+providers flexibility to implement technical solutions that use
+different granularity of data, such as wire center or FIPS code
+boundaries provided that such data does not reveal the precise location
+of the handset.
+ 17. We disagree with the Boulder Regional Emergency Telephone
+Service Authority's (BRETSA) contention that more precise location
+information should be transmitted with 988 text messages. The record
+reflects significant support for georouting solutions that provide
+geographic routing information to the Lifeline without identifying a
+text user's precise location. We are also persuaded by commenters that
+988 text users have unique privacy expectations as compared to 911
+users, and find that any text-to-988 georouting solution must maintain
+text users' confidence that their precise location information will
+remain confidential when communicating with the Lifeline. Additionally,
+as discussed below, we decline to take specific action at this time to
+extend text-to-988 georouting requirements to the Lifeline's
+specialized service lines. We believe that this approach should
+alleviate the concern raised by the Electronic Privacy Information
+Center and Wildflower Alliance (EPIC-WA) that text users contacting the
+Lifeline's specialized service lines may be at a greater risk of being
+personally identified. While EPIC-WA provides a cautionary example of a
+texter in a small county ``contacting a hotline focused on LGBTQ+
+specific needs,'' we note that, as of July 17, 2025, the 988 Lifeline
+``no longer silo[s] LGB+ youth services'' through a ``Press 3 option.''
+ 18. Although we agree with the Conservative Political Action
+Conference Foundation's Center for Regulatory Freedom (CPAC) that
+maintaining the privacy of 988 callers and text users has been integral
+to the Lifeline's ability to serve as a ``safe and dependable
+resource,'' the requirements we adopt today will not obligate covered
+text providers to engage in ``approximate geolocation reporting'' or
+undermine Americans' trust in the integrity of the Lifeline. The rules
+we adopt today do not require covered text providers to transmit more
+precise geolocation data with 988 text messages, but rather aggregated
+location data, such as county-level information, that maintains text
+users' privacy by not identifying the precise location of the text
+users' handset.
+ 19. We also disagree with those commenters that argue georouting
+data is not sufficiently granular to improve the routing of 988 text
+messages. While some commenters identify alternatives to georouting
+that may connect text users with local resources, we find that
+generating aggregated location information using cell-based technology
+will significantly improve the routing of 988 text messages and help
+connect text users to local resources in a timely manner while
+protecting user privacy. We disagree with BRETSA's inference that the
+benefits of improved routing are limited to instances in which
+individuals require emergency services intervention. As discussed
+above, georouting provides numerous benefits to individuals contacting
+988, including those that do not require dispatch of emergency
+services. Likewise, we acknowledge CPAC's contention that geolocation
+could alleviate routing errors more effectively than georouting data,
+as well as its concerns about ``further regulations aimed at correcting
+misrouting.'' As CPAC states, however, sharing a 988 text user's
+precise location data raises significant privacy concerns. We agree,
+and therefore the definition of georouting data we adopt today
+precludes the transmission of more precise location data for 988 text
+messages.
+2. Providing Georouting Data
+ 20. We next adopt the Commission's proposal to require covered text
+providers to provide georouting data, when available, to the Lifeline
+Administrator, sufficient to allow routing of the message to the
+appropriate crisis center based on the geographic area where the
+handset is located at the time the covered 988 text message is
+initiated. As discussed below, we find that this approach strikes the
+right balance between ensuring that covered text providers support
+georouting for 988 text messages and allowing sufficient flexibility to
+develop and implement solutions that maximize their network
+capabilities.
+ 21. Technical Considerations. To address technical limitations
+raised by the record, we require covered text providers to provide
+georouting data for 988 text messages to the Lifeline Administrator
+only when such data is available. We agree with CTIA and Intrado that
+limiting this requirement to providing georouting data ``when
+available'' is necessary to account for technical challenges and to
+enable
+
+[[Page 44568]]
+
+covered text providers to optimize their current technology and
+networks. For instance, several commenters raise concerns about the
+technical feasibility of transmitting georouting data with text
+messages originated when a text user is roaming. While we acknowledge
+the public benefits of supporting georouting for all 988 text messages,
+we believe that limiting the requirement to providing georouting data
+``when available'' strikes the appropriate balance between facilitating
+access to the Lifeline's resources and allowing providers the
+flexibility to address technical challenges.
+ 22. The record indicates that, in the event that georouting data is
+unavailable, the Lifeline will route text messages based on the area
+code of the user's device. We agree with CX360 that, while ``area code-
+based routing is imperfect,'' this ``alternative routing'' process will
+help ensure that text users receive assistance even if the closest
+crisis center cannot be identified or reached. We believe that the
+Lifeline's default routing mechanism also alleviates record concern
+about incorporating ``fallback mechanisms or alternative data sources''
+in our definition of georouting data. Additionally, we find that this
+approach provides parity with the Commission's rules for voice-to-988
+georouting, which helps minimize confusion for both providers and
+individuals texting the 988 Lifeline. We also believe that this
+approach alleviates record concern about scenarios where covered text
+providers are incapable of providing georouting data.
+ 23. Supporting Industry Efforts To Implement Text-to-988
+Georouting. The rules we adopt today provide a flexible, technology-
+neutral framework that enables covered text providers to make industry-
+based determinations on implementing georouting solutions for 988 text
+messages. The record reflects that nationwide wireless providers, the
+current Lifeline Administrator, and its vendors are actively
+collaborating to develop georouting solutions for 988 text messages. As
+the Lifeline Administrator notes, this process will help ``identify the
+necessary routing requirements for text messaging and explore solutions
+that protect the privacy of help-seekers.'' And, as CTIA observes,
+aligning our requirements with industry-based solutions developed by
+stakeholders and the Lifeline Administrator is integral to the
+successful, timely implementation and ongoing improvement of the 988
+Lifeline.
+ 24. We find that a flexible approach to 988 text georouting is
+essential to support further innovation, as urged by many commenters in
+this proceeding. As several commenters observe, allowing providers
+flexibility to use technically feasible options that are compatible
+with the Lifeline's system is ``appropriate, particularly given the
+ongoing technological development in this area.'' The Competitive
+Carriers Association (CCA) adds that a technology-neutral framework
+``offers providers the flexibility to adopt the solutions that work
+best for their networks and promote[s] the improvement of those
+solutions over time.'' We also share concerns that setting prescriptive
+requirements may compel providers to rely on underdeveloped solutions
+and potentially discourage further innovation to improve georouting for
+988 text messages. To further facilitate efforts to make an industry-
+based determination, as discussed below, we provide a longer compliance
+period for both nationwide and non-nationwide providers than proposed
+in the 988 Georouting Third Further Notice. As such, we decline at this
+time to adopt more prescriptive requirements for how covered text
+providers must develop the capability and provide georouting data to
+the Lifeline.
+ 25. We also agree with CCA that allowing ``robust industry-led
+development of a standardized and scalable approach to georouting data
+for text messages'' will better serve non-nationwide providers. The
+compliance deadlines we adopt below provide ample time for both
+nationwide and non-nationwide providers to implement and develop a
+georouting solution for 988 text messages, thereby minimizing
+compliance burdens. We strongly encourage non-nationwide covered text
+providers to collaborate with SAMHSA and the Lifeline Administrator in
+developing and testing georouting solutions for 988 text messages.
+ 26. We conclude, however, that purely voluntary implementation
+undermines our goal of ensuring that the clear public benefits of
+georouting for 988 text messages are realized in a timely manner. For
+example, some wireless providers and industry commenters argue that
+text-to-988 georouting requirements are unnecessary at this time
+because national systems, rather than local crisis centers, handle most
+988 text messages due to infrastructure limitations. We disagree. The
+record demonstrates that a significant number of local crisis centers
+are currently able to receive texts to 988. Moreover, the Lifeline
+Administrator indicates that this number is likely to grow in the
+future as more local crisis centers add text-to-988 capability. In any
+event, text-to-988 capability does not need to be universally available
+among the Lifeline's more than 200 local crisis centers in order to
+realize the significant benefits of georouting for 988 text messages,
+including improved access to local resources and counselors who may
+better understand unique community stressors. Notably, the current
+Lifeline Administrator does not dispute the need for us to adopt an
+affirmative requirement at this time. We therefore find that the
+benefits of georouting 988 text messages to those local crisis centers
+that are capable of receiving such messages easily support the
+commonsense, non-prescriptive requirements we adopt today.
+ 27. We also decline to adopt the Rural Wireless Association's (RWA)
+suggestion to allow small rural non-nationwide providers to implement
+georouting solutions for 988 text messages on a voluntary basis. While
+we acknowledge that non-nationwide providers may face operational
+limitations when implementing georouting solutions for 988 text
+messages, we offer flexibility and additional compliance time to non-
+nationwide providers to minimize such burdens. Additionally, several
+commenters emphasize the importance of implementing georouting
+solutions for 988 text messages to improve access to the Lifeline's
+critical intervention services for rural Americans. We find the
+benefits of ensuring that all Americans have improved access to the
+Lifeline's lifesaving resources support applying our requirements to
+all covered text providers, including small rural providers. Our
+approach also promotes parity between 988 calls and texts, ensuring
+consistent and predictable level of service across communication modes
+while reducing potential confusion for individuals in distress.
+ 28. We are unpersuaded by CTIA's argument that we should not extend
+georouting requirements to 988 text messages based on the Commission's
+actions in the 911 LBR Report and Order. In the 911 LBR Report and
+Order, the Commission declined to extend location-based routing (LBR)
+requirements to 911 SMS text messages, both because the industry had
+not yet developed standards for implementing location-based routing on
+SMS networks and to avoid requiring providers to retrofit legacy SMS
+networks. The Commission also noted that a number of Public Safety
+Answering Points (PSAPs) were incapable of receiving texts and that the
+volume of 911 text messages was far smaller than the volume of 911
+
+[[Page 44569]]
+
+voice calls. Although the record in this proceeding indicates that
+georouting solutions for 988 text messages may require some network and
+infrastructure changes, it does not raise the same concerns found in
+the context of 911 location-based routing about extensively
+retrofitting legacy SMS networks. The industry-based text-to-988
+georouting solution endorsed by CX360 also supports the conclusion that
+industry stakeholders have already developed some standards for
+implementing text-to-988 georouting solutions. Further, georouting
+solutions for 988 text messages and location-based routing for 911
+require different granularity of location data, and different entities
+perform the routing functions. Specifically, 911 location-based routing
+uses precise location data on the user's device to route 911 calls to
+the appropriate destination, whereas georouting solutions for 988 text
+messages use less granular aggregated location data, such as county-
+level FIPS codes or wire center boundaries. Moreover, in the context of
+911, providers determine the routing destination based on the precise
+location information of a device, whereas the Lifeline Administrator
+retains responsibility for routing 988 text messages to individual
+crisis centers using the georouting data provided by the covered text
+providers. We therefore find that the technical differences between the
+routing methodologies and the record received in this proceeding
+distinguish 911 location-based routing requirements from georouting for
+988 text messages.
+ 29. We also disagree with those commenters that argue it is
+premature for the Commission to consider adopting text-to-988
+georouting requirements. We believe that enabling georouting for 988
+text messages to improve service for text users should not be unduly
+delayed, and that the Commission's affirmative and timely decision to
+require implementation (with flexible, technology-neutral parameters)
+will minimize confusion for both providers and individuals texting 988.
+Adopting rules will also provide clarity and regulatory certainty for
+covered text providers, encouraging progress in developing and
+implementing text-to-988 georouting solutions. Given the clear public
+interest benefits of supporting georouting for 988 text messages, we
+find that deployment and implementation of georouting solutions for 988
+text messages should not be optional.
+ 30. Technological Feasibility. We find that implementing georouting
+for 988 text messages is technologically feasible for nationwide and
+non-nationwide covered text providers. In the 988 Georouting Third
+Further Notice, the Commission sought comment on technical challenges
+that may arise in providing georouting data with covered 988 text
+messages, noting that there was disagreement in the record regarding
+the difficulty of implementing text-to-988 georouting solutions. While
+we recognize that there are technical differences between georouting
+solutions for 988 calls and text messages, the record indicates that at
+least one technically feasible approach exists today for text-to-988
+georouting. Therefore, although the work to develop these solutions is
+ongoing, we find that deploying georouting solutions for 988 text
+messages is feasible for both nationwide and non-nationwide covered
+text providers within the compliance time frames we adopt in this
+Fourth Report and Order.
+ 31. As discussed above, the nationwide wireless providers, the
+current Lifeline Administrator, and other industry stakeholders are
+actively collaborating to develop an industry-based georouting solution
+for 988 text messages that maintains text users' privacy. For instance,
+under the approach endorsed by CX360, covered text providers route
+covered text messages to the Lifeline as required under the
+Commission's existing rules without georouting data. The Lifeline's
+interactive voice response (IVR) system--which allows 988 callers and
+text-users to select specialized service lines, such as the Veterans
+Crisis Line--requests georouting data from the providers via a
+``secure, industry-standard application programming interface'' only
+when the 988 text user does not request specialized services. To
+protect privacy, the covered text providers aggregate location data
+using county-level FIPS code boundaries, which is similar to the
+aggregation process used by some wireless providers for voice-to-988
+georouting solutions. The record indicates that nationwide providers
+are already offering and supporting the use of network application
+programming interfaces. Moreover, while the ``discovery phase'' to
+develop an industry-based georouting solution is ongoing, the Lifeline
+Administrator ``anticipates that it is technologically feasible for
+both nationwide and non-nationwide CMRS providers to identify
+georouting solutions that work best with their existing networks.''
+ 32. We are not persuaded by the arguments advanced by Intrado that
+the solution endorsed by CX360 raises privacy concerns due to the
+Lifeline querying for location data. Intrado argues that text-to-988
+georouting solutions must avoid designs that allow the Lifeline to
+query providers for location information to protect text users'
+privacy, adding that ``wireless providers should remain in full control
+of user location information with a push of only coarse location.'' As
+CX360 states, however, under its proposed approach, the Lifeline's
+system would only have access to FIPS codes from wireless providers.
+AT&T adds that the Lifeline Administrator prefers solutions that
+provide georouting data only with a user's initial text message in a
+single conversation series, and that such solutions will likely require
+the Lifeline to query providers for georouting data. We also note that
+there is support in the record for including georouting data with the
+text user's initial message to protect privacy by avoiding the
+transmission of precise location information to downstream parties.
+Moreover, we require covered text providers to aggregate location data
+in order to maintain the privacy interests of 988 text users. We thus
+reject Intrado's inference that, under the approach suggested by CX360,
+the ``Lifeline Administrator could have access to the location for
+every device on the carrier's network.''
+ 33. Text-to-911-Based Georouting Solutions. We decline, at this
+time, to expand the scope of our requirements to georouting solutions
+that utilize Text Control Centers (TCC) as intermediaries between
+covered text providers and the Lifeline, as proposed by some
+commenters. A Text Control Center (TCC) is a controlling functional
+element specified in a relevant standard for text-to-911. The TCC has
+the responsibility to ``(1) convert various protocols and act as a
+gateway; (2) request location that may be used for routing; (3) request
+routing instructions; and (4) initiate a dialogue with the [Public
+Safety Answering Point (PSAP)] through the appropriate interworking
+function of the TCC. When the TCC receives an initial text message, it
+obtains location from the [location server]. It then uses that location
+to obtain routing instructions from the [routing server]. Then, the TCC
+converts the text message to an appropriate protocol and initiates a
+dialogue with the PSAP (via the emergency services network) through the
+appropriate interworking function of the TCC.'' As the Commission
+emphasized in the 988 Georouting Third Further Notice, SAMHSA, the
+agency with oversight of the Lifeline Administrator, must ultimately
+determine the routing data
+
+[[Page 44570]]
+
+that it will deem acceptable for the Lifeline's system to process. In
+its comments, the current Lifeline Administrator strongly advises
+against georouting solutions that leverage text-to-911 infrastructure
+due to concerns about required modifications to the Lifeline's network
+and unknown costs and implementation time.
+ 34. While several commenters argue that text-to-911-based
+georouting solutions could provide benefits for text-to-988 georouting,
+we are convinced by the record that adopting such proposals at this
+time would be contrary to our goal of ensuring that georouting is
+available for 988 text messages without delay. For example, AT&T and
+CX360 argue that georouting solutions that utilize TCCs introduce an
+unnecessary ``point of failure'' and require modifications of the
+Lifeline's system. The record also raises concerns that using a system
+designed for 911 in the context of 988 may have a chilling effect due
+to differing privacy expectations. Several commenters also argue that
+georouting solutions based on text-to-911 infrastructure may compromise
+privacy due to access to, and potential inadvertent disclosure of,
+precise location information. Based on our review of the record, and
+given the concerns raised by commenters regarding implementation delays
+and the potential chilling effects associated with using geolocation
+data in the context of 988, we find that expanding our requirements to
+allow text-to-911-based georouting solutions is unwarranted at this
+time. Nevertheless, we encourage all industry stakeholders and the
+Lifeline Administrator to actively collaborate on the development and
+improvement of georouting solutions that protect privacy and are
+compatible with the Lifeline's system.
+ 35. Direct Routing. We also decline to adopt proposals that would
+bypass the Lifeline's initial direct and centralized routing platform.
+CPAC recommends an alternative approach to georouting solutions that
+focuses on providing local crisis centers with ``resources necessary to
+allow them to welcome calls and texts directly,'' arguing that this
+would improve the routing of 988 contacts while prioritizing
+confidentiality. The Commission previously concluded that the
+Lifeline's centralized routing process provides numerous benefits,
+including faster implementation, reduced routing costs, and improved
+service. In the 988 Georouting Third Further Notice, the Commission
+also declined to seek comment on text-to-988 georouting solutions that
+would bypass the Lifeline's centralized routing platform.
+ 36. The record reflects significant support for retaining the
+Lifeline's existing centralized routing structure. In particular, we
+are persuaded by commenters that the centralized routing system plays a
+critical role in managing the capacity of crisis centers, routing text
+messages to the national back-up center, and minimizing technical
+burdens placed on crisis centers. As the Lifeline Administrator states,
+the centralized structure facilitates network monitoring to resolve
+``any potential issues that arise'' and helps ensure that text messages
+are ``routed efficiently to the appropriate crisis contact center.''
+CX360 adds that this structure allows the ``Lifeline Administrator to
+balance text volumes within a certain geographic area to minimize
+response times,'' helping to connect text users ``to the resources they
+need . . . if a crisis center is particularly busy.'' CTIA and CX360
+similarly agree that proposals to bypass the Lifeline's centralized
+routing system ``should remain outside the scope of this proceeding.''
+Based on our review of the record, and consistent with the Commission's
+proposal and previous conclusions, we find that the benefits of
+maintaining the Lifeline's centralized routing system greatly exceed
+the costs of localized routing at this time.
+ 37. Specialized Service Lines. We decline to take specific action
+to apply our text-to-988 georouting requirements to the Lifeline's
+specialized service lines. Currently, when an individual texts 988 they
+are provided options to redirect to specialized service lines, for
+example, veterans and service members are redirected to text ``838255''
+to reach the Veterans Crisis Line. Individuals may also text ``AYUDA''
+to connect with a Spanish-speaking crisis counselor. The record
+indicates that individual crisis centers have varying capacities to
+provide specialized services, which complicates the Lifeline's ability
+to consistently connect text users with an appropriate local crisis
+center that handles specialized services. Moreover, we believe that our
+federal partners at SAMHSA and the VA are best positioned to evaluate
+the benefits and challenges of using georouting data for specialized
+service lines.
+
+D. Implementation Time Frame
+
+ 38. In order to support industry efforts to develop efficient and
+effective text georouting solutions for the Lifeline, we grant
+nationwide covered text providers a period of 18 months, and non-
+nationwide covered text providers a period of 36 months, following the
+effective date of this Fourth Report and Order in which to comply with
+the rules we adopt today. We find that this compliance window
+appropriately balances the need to expeditiously implement 988 text
+georouting with the burdens on providers of developing the necessary
+routing systems. In the 988 Georouting Third Further Notice, the
+Commission proposed a uniform implementation deadline of six months
+from the effective date of the rules. In response, a broad cross-
+section of stakeholders submitted arguments that additional time would
+be needed to sufficiently identify and implement georouting solutions
+for text-to-988. Commenters emphasized that efforts to identify
+georouting solutions for text-to-988 compatible with the Lifeline's
+centralized routing system are in the early stages of development and
+encourage the Commission to allow for its discovery phase, which could
+take approximately six to 12 months, to develop without regulatory
+impediment. The record indicates that the Lifeline Administrator plans
+to conduct a ``discovery'' pilot with its vendor and nationwide
+wireless providers in 2025 to identify, develop, and test text-to-988
+georouting solutions, and that it expects the process to take
+approximately six to 12 months. As such, we disagree with the assertion
+by the Crisis Text Line that we should not adopt rules requiring text-
+to-988 georouting because ``the length of time required to develop
+[such] a georouting solution is [] unknown.'' The Lifeline
+Administrator also expects to ``leverage its established relationship
+with industry stakeholders to expedite the georouting process for text
+messages.'' We anticipate that the flexible and technology-neutral
+landscape that our rules provide will allow industry stakeholders
+sufficient time to complete their collaborative efforts to identify an
+industry-based consensus technical solution for text-to-988 georouting.
+ 39. We therefore agree with those commenters who argue that a
+longer compliance period than that proposed in the 988 Georouting Third
+Further Notice is warranted. In particular, we note that, at the time
+the Commission adopted the 988 Georouting Third Report and Order, the
+nationwide providers were nearing the end of their collaboration with
+the Lifeline Administrator to develop and test voice georouting
+solutions. The 988 Georouting Third Report and Order's expedited
+implementation time frame for nationwide providers reflected this fact.
+Here, however, the development of technical solutions for text-to-988
+georouting remains in its early stages. We recognize the critical need
+for time
+
+[[Page 44571]]
+
+and resources to develop and test solutions, and to account for on-
+going collaboration amongst the Lifeline Administrator, SAMHSA,
+providers, and 988 Lifeline vendors. The rules we adopt today allow for
+this process to proceed while at the same time providing certainty that
+providers should keep working toward a specific completion date. We
+therefore grant an extended compliance time frame of 18 months for
+nationwide providers to reflect the time necessary to complete the
+discovery phase and subsequently implement its findings.
+ 40. Additionally, commenters called for additional time for non-
+nationwide providers to account for the fact that the 988 Georouting
+Third Report and Order grants those providers until December 2026 to
+implement georouting for voice calls to 988. For instance, RWA and
+Intrado emphasize the burden that imposing overlapping compliance
+deadlines would have on small and rural service providers and recommend
+the Commission impose a 36-month compliance time frame for non-
+nationwide providers. We agree with these commenters that the
+georouting text-to-988 requirement deadline should not be earlier than
+the deadline for voice-to-988 georouting. Non-nationwide providers must
+comply with the 988 Georouting Third Report and Order by December 14,
+2026. To account for non-nationwide providers' on-going efforts to
+comply with our voice-to-988 georouting implementation requirement, we
+require non-nationwide providers to comply with our 988 text georouting
+requirements within 36 months following the effective date of this
+Fourth Report and Order, which, as RWA explains, should allow non-
+nationwide providers a sufficient compliance period. Based on the
+record, we are confident that our extended compliance deadline will
+provide sufficient time for non-nationwide service providers to
+implement 988 text georouting solutions. We decline a request by CTIA
+that we ``delegate authority to the Wireline Competition Bureau to
+waive or stay the implementation deadlines'' we adopt in this item.
+CTIA states that it is ``hopeful that the 18-month timeline for
+nationwide providers [to implement text georouting solutions] will be
+sufficient'' but requests a provision under which the Bureau would
+monitor the development process and provide additional time for
+compliance, if warranted. As discussed above, we find that the 18- and
+36-month deadlines we adopt today will provide ample time for
+nationwide and non-nationwide providers, respectively, to develop and
+deploy text-to-988 georouting solutions. Nevertheless, we note that
+providers may seek a waiver of these deadlines, if necessary, under the
+Commission's existing rules.
+ 41. We recognize that the effectiveness of text-to-988 georouting
+benefits from public awareness. To support this, we encourage all
+stakeholders involved in the delivery and operation of 988 text
+georouting to engage in outreach that informs the public about the
+availability and purpose of georouting solutions. Additionally, we
+direct the Consumer and Governmental Affairs Bureau, in coordination
+with the Bureau and our federal partners at SAMHSA and the VA, to
+develop and publish a consumer-facing guide promoting awareness around
+988 and access to local crisis services, and what consumers should
+expect when utilizing text messaging to reach the 988 Lifeline.
