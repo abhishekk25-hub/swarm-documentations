@@ -6636,3 +6636,12 @@ PROMPT CHANGELOG
   `tests/verifier_inputs/` only, require direct route retrieval receipts and
   saved captures for the agent, and test an empty/default-shaped fixture so
   absent records cannot earn credit through true-by-default branches.
+
+- 2026-09-08 | multi decomp / STRUCTURAL CSVS WITH UNGROUNDED QUOTES SCORE ~0.3
+  EVEN WHEN FILES LOOK COMPLETE | MA can pass static schema checks while live
+  grounding zeros every evidence row when body quotes are paired with generic
+  metadata claims and context sentences are invented. Separate discovery from
+  staged fetch from evidence assembly; force context quote banks first; require
+  local/live substring proofs, >=12-word body quotes inside Gutenberg START/END
+  markers, and claim/quote token overlap in every research and validator seat;
+  keep the orchestrator dispatch-only; split plan vs audit ownership.
