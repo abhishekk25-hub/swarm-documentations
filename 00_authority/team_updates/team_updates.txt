@@ -1,4 +1,16 @@
-Hi Team @here To avoid high usage of Quality Gate usage follow the following workflow:
+Add python3 to your task Dockerfile — even if your task doesn't use Python @here 
+Hi all,
+If your task doesn't involve Python at all (C++, Java, Rust, Go, etc.), please still add python3 to your environment/Dockerfile's package install list.
+Our pipeline runs a small internal script inside the sandbox after the agent finishes, to export the run's trajectory logs — this happens regardless of what language the task itself is in. If python3 isn't installed in the container, that export step fails and can break trajectory pull for the task, even though the agent's actual work succeeded.
+Add it alongside whatever else your Dockerfile installs, e.g.:
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    <your task's usual dependencies> python3 \
+ && rm -rf /var/lib/apt/lists/*python3is enough — no pip or extra packages needed.
+Going forward: treat python3 as a mandatory line in every task Dockerfile, independent of the task's own tech stack. Please retrofit any of your existing/in-progress tasks that don't have it yet.
+The next update push to Cloud Run will resolve this automatically.
+cc: All the pod leads and onboarding team leads share this message with your team.
+Thanks!Hi Team @here To avoid high usage of Quality Gate usage follow the following workflow:
 
 
 Prepare your initial draft task.
