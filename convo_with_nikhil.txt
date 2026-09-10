@@ -1,0 +1,500 @@
+yeah, so if you asked me to share some knowledge. to you, from you.
+
+nikhil.m
+OK.
+
+abhishek.k25
+So, yeah, it's.
+
+nikhil.m
+So it's, yeah, one thing is it all depends on how you're creating your base task, no, at least. So that I'm not sure how we are trying to create it. And are you following the Codex?
+
+abhishek.k25
+now I have, I am following the cursor.
+
+nikhil.m
+OK.
+
+abhishek.k25
+Yeah.
+
+nikhil.m
+Yeah, even I use cursor only. Basically the flow that I do wash, I'll
+
+abhishek.k25
+OK.
+
+nikhil.m
+create the base task, OK?
+
+abhishek.k25
+Mhm.
+
+nikhil.m
+I mean, obviously everyone follows the same way. obviously, there might be a lot of issues in it.
+
+abhishek.k25
+Mm-hmm.
+
+nikhil.m
+But when I'm trying to create the dust. No, I, I give explicit instructions saying that it should be unique, and it should not have more similarity score, and it should
+
+abhishek.k25
+OK.
+
+nikhil.m
+pass all the queries as well. Basically I copy pasted all their queries into my local as a local verifier.
+
+abhishek.k25
+OK, from where did you get all the queries you have you are downloading from the bench on that.
+
+nikhil.m
+Yeah, yeah, so I'll share my screen with you.
+
+abhishek.k25
+OK.
+
+nikhil.m
+You're able to see?
+
+abhishek.k25
+Oh, yeah.
+
+nikhil.m
+If you go to this no LLM reviewer.
+
+abhishek.k25
+Oh
+
+nikhil.m
+There
+
+abhishek.k25
+yeah.
+
+nikhil.m
+is this quality dimensions.
+
+nikhil.m
+started screen sharing.
+
+nikhil.m
+So
+
+abhishek.k25
+OK,
+
+nikhil.m
+here
+
+abhishek.k25
+I
+
+nikhil.m
+if you
+
+abhishek.k25
+have.
+
+nikhil.m
+click on it. You can
+
+abhishek.k25
+AI.
+
+nikhil.m
+copy it.
+
+abhishek.k25
+OK, OK, so this is the file you are, OK.
+
+nikhil.m
+So that's how I copy pasted and I took it into my local. Then Most of the things would have been fine. But still it is possible that their cuties, that whatever they have displayed there, it might not be
+
+nikhil.m
+stopped screen sharing.
+
+nikhil.m
+updated. So what happens is that and some of the things our agents might be missing out. So what happens is that those will get caught by the draft reviewer. That's what I do. So more or less that the task is done, no, at least the base task.
+
+abhishek.k25
+Yes, but, so this is how you're creating the base task itself. So what if you
+
+nikhil.m
+Yes.
+
+abhishek.k25
+Face, issues like, in the gap.
+
+nikhil.m
+OK, so what I at least I do is I'll run single first. Then if I know that it is getting, it is getting low score. I'll run the multi as well. And I will try to say for example if gap is there pretty straightforward if no gap. What we have to, what at least the Flow that I follow here is, I'll try to see, I mean, not me, obviously, the agent, my agent. So I'll ask you to go through the logs and to understand.
+
+abhishek.k25
+Mhm.
+
+nikhil.m
+What is happening? Basically why is multi not able to crack the very virus, at least to get some good score.
+
+abhishek.k25
+Yeah
+
+nikhil.m
+And I will try to add some clues, but those should not be explicit clues. OK,
+
+abhishek.k25
+OK.
+
+nikhil.m
+because, or else what happens is that, your very, your LLM rever will flag those as a, you're
+
+abhishek.k25
+Yeah.
+
+nikhil.m
+trying to give me a some
+
+abhishek.k25
+In the decomposition where you're adding the clues.
+
+nikhil.m
+Yeah, take a position. Some leakings
+
+abhishek.k25
+OK
+
+nikhil.m
+to your decomposition. So
+
+abhishek.k25
+OK.
+
+nikhil.m
+you have to make sure to give your agent instructions, something like, don't leak instruction, just see if what is multi missing out. Are we not doing? Correctly with the decomposition or not. So that is one route I will take it out, OK? And one more route, what I, I, I asked you to do was, OK, this is fine. So you're saying multi decomposition is already good, OK?
+
+abhishek.k25
+Mhm.
+
+nikhil.m
+Then which means I can't touch the multi decomposition. Is there some place where single is struggling a lot. OK.
+
+abhishek.k25
+OK
+
+nikhil.m
+In some test cases it is possible that single might not be able to capture, but M is able to capture. So that time I'll take it into a different route, something like, I'll go for the instruction route this time, but this is it. A bit complex root. So what I do was I will change the instructions and the test cases such that the single failure rate increases. Because after getting your task outright, you have the execution logs and you will have some understanding where single is lagging behind and melting. So
+
+abhishek.k25
+Yeah.
+
+nikhil.m
+I'll try to eat that root. By giving more instructions in the instruction. Md. So that I'm explicitly asking you to do all the, all, all this stuff, but Singal is already failing on that, it would already fail again. Even if I add something else too. More
+
+abhishek.k25
+Oh
+
+nikhil.m
+most probably, no, not always. Most
+
+abhishek.k25
+Yeah.
+
+nikhil.m
+probably. Yeah, basically, these two routes I'm taking, Abhishek.
+
+abhishek.k25
+OK.
+
+nikhil.m
+Not sure how it's going to help you, but again, right, it all depends on how your agent is
+
+And I will try to add some clues, but those should not be explicit clues. OK,
+
+abhishek.k25
+OK.
+
+nikhil.m
+because, or else what happens is that, your very, your LLM rever will flag those as a, you're
+
+abhishek.k25
+Yeah.
+
+nikhil.m
+trying to give me a some
+
+abhishek.k25
+In the decomposition where you're adding the clues.
+
+nikhil.m
+Yeah, take a position. Some leakings
+
+abhishek.k25
+OK
+
+nikhil.m
+to your decomposition. So
+
+abhishek.k25
+OK.
+
+nikhil.m
+you have to make sure to give your agent instructions, something like, don't leak instruction, just see if what is multi missing out. Are we not doing? Correctly with the decomposition or not. So that is one route I will take it out, OK? And one more route, what I, I, I asked you to do was, OK, this is fine. So you're saying multi decomposition is already good, OK?
+
+abhishek.k25
+Mhm.
+
+nikhil.m
+Then which means I can't touch the multi decomposition. Is there some place where single is struggling a lot. OK.
+
+abhishek.k25
+OK
+
+nikhil.m
+In some test cases it is possible that single might not be able to capture, but M is able to capture. So that time I'll take it into a different route, something like, I'll go for the instruction route this time, but this is it. A bit complex root. So what I do was I will change the instructions and the test cases such that the single failure rate increases. Because after getting your task outright, you have the execution logs and you will have some understanding where single is lagging behind and melting. So
+
+abhishek.k25
+Yeah.
+
+nikhil.m
+I'll try to eat that root. By giving more instructions in the instruction. Md. So that I'm explicitly asking you to do all the, all, all this stuff, but Singal is already failing on that, it would already fail again. Even if I add something else too. More
+
+abhishek.k25
+Oh
+
+nikhil.m
+most probably, no, not always. Most
+
+abhishek.k25
+Yeah.
+
+nikhil.m
+probably. Yeah, basically, these two routes I'm taking, Abhishek.
+
+abhishek.k25
+OK.
+
+nikhil.m
+Not sure how it's going to help you, but again, right, it all depends on how your agent is picking up your instructions.
+
+abhishek.k25
+Yeah.
+
+nikhil.m
+That is also there if that starts hallucinated, right, the gun kiss. And I've faced this issue even last week as well. One of my tasks that I, I almost took almost 2 days' time to get that out.
+
+abhishek.k25
+Yeah, I'm stuck in, like, I have completed on task after running the query, it says like the instruction is leaking to the decomposition, so I had to change the decomposition. After changing that, the score
+
+nikhil.m
+Score will
+
+abhishek.k25
+is,
+
+nikhil.m
+go down.
+
+abhishek.k25
+yeah, it's coming like below 3 and below 2 only, so I'm still stuck in that which is which is I have run the day on Saturday itself. It's like more than 2 days. So I don't know how. What to do here? I, I also I have updated the, I mean update the decomposition like and running date and like like 6 to 7 times. Still
+
+nikhil.m
+Yeah,
+
+abhishek.k25
+it's,
+
+nikhil.m
+yeah.
+
+abhishek.k25
+yeah, it's still getting
+
+nikhil.m
+Some task, some tasks
+
+abhishek.k25
+worse.
+
+nikhil.m
+would be like that for sure, bro. Then it's just like you just have to scrap that task. No point in hanging around with that task. I almost scrabbed a 22 to 3 to 4 tasks. So far. It is possible
+
+yeah, it's coming like below 3 and below 2 only, so I'm still stuck in that which is which is I have run the day on Saturday itself. It's like more than 2 days. So I don't know how. What to do here? I, I also I have updated the, I mean update the decomposition like and running date and like like 6 to 7 times. Still
+
+nikhil.m
+Yeah,
+
+abhishek.k25
+it's,
+
+nikhil.m
+yeah.
+
+abhishek.k25
+yeah, it's still getting
+
+nikhil.m
+Some task, some tasks
+
+abhishek.k25
+worse.
+
+nikhil.m
+would be like that for sure, bro. Then it's just like you just have to scrap that task. No point in hanging around with that task. I almost scrabbed a 22 to 3 to 4 tasks. So far. It is possible that some tasks. are like that, which you can't get the gap at all. So if you tried almost 5 to 6 times, I would say this is the time you just grab the dusk. No point in hanging around with that task, no?
+
+abhishek.k25
+Yeah, OK.
+
+nikhil.m
+Did you try with this route, like, asking the agent to check single and multi to see where single is failing and multi is passing, and try to. And more test cases around it. This
+
+abhishek.k25
+No,
+
+nikhil.m
+is
+
+abhishek.k25
+actually,
+
+nikhil.m
+not
+
+abhishek.k25
+the
+
+nikhil.m
+adjustable.
+
+abhishek.k25
+everything is just, other than the decomposition, everything is perfect. So that's why I'm just updating the decomposition so that I can run only the multi-agent, and then submit the task. It's like just like that I thought, but it became like more than 2 days. So I'm still in the same loop, so. Even I have tried to, like, Running the welfare again and again also.
+
+nikhil.m
+Yeah.
+
+nikhil.m
+that's right. Have you tried this route? That try to increase the test cases where a single is failing more.
+
+abhishek.k25
+Yeah, I'll try that.
+
+nikhil.m
+But that is not suggestible. You can do that for hardly 1 or 2 tasks. Don't, don't do that for every task.
+
+abhishek.k25
+Yeah, OK, I can understand.
+
+nikhil.m
+Because that is, that, that, that's what the, the last option that I can think of, but If I if I'm going to take that route, what I used to do was I'll also edit the instructions such that it. Checks all this. So, You understand?
+
+abhishek.k25
+yeah, what, what are the checks?
+
+nikhil.m
+say for example, now we are saying you will add more test cases for our single is failing, right?
+
+abhishek.k25
+Yes.
+
+nikhil.m
+But those. A test cases should not be like exact same ones.
+
+abhishek.k25
+Oh yeah.
+
+nikhil.m
+Yeah, or even the similar ones also. You understand, no, because if you just try to copy paste the similar ones, there is no point. It is possible that your score will decrease.
+
+abhishek.k25
+Mm-hmm.
+
+nikhil.m
+But that's not the correct way to take it.
+
+nikhil.m
+Because see, in a, in a task, right, it is possible
+
+abhishek.k25
+OK.
+
+nikhil.m
+that you, you can come up with 1000 test cases also, 100 also, 10 also.
+
+abhishek.k25
+Yeah.
+
+nikhil.m
+It depends on what test cases. Should be given priority.
+
+abhishek.k25
+OK,
+
+nikhil.m
+So
+
+abhishek.k25
+yes.
+
+nikhil.m
+There you have to be very careful when trying to go with this route.
+
+abhishek.k25
+Mhm. OK.
+
+nikhil.m
+Yeah.
+
+abhishek.k25
+So
+
+nikhil.m
+I
+
+abhishek.k25
+you
+
+nikhil.m
+think
+
+abhishek.k25
+are doing?
+
+nikhil.m
+that's it. I have. And one last thing was, if you think, if you tried so many times, scrap the task and go for a fresh task, or else it will hit your head.
+
+abhishek.k25
+Yes. That's what,
+
+nikhil.m
+Yeah.
+
+abhishek.k25
+that's what I have to do now, I think.
+
+nikhil.m
+Yeah. And I think have a word with Benaya as well to see if you can understand something from his side too.
+
+abhishek.k25
+OK.
+
+nikhil.m
+Yeah.
+
+abhishek.k25
+Yeah, he also
+
+nikhil.m
+Yeah.
+
+abhishek.k25
+doing some. Very good task, I think.
+
+nikhil.m
+Yeah.
+
+nikhil.m
+Yes.
+
+abhishek.k25
+OK, I will do that, and I will if I have any doubt, and then I will ping you.
+
+nikhil.m
+Sure, sure

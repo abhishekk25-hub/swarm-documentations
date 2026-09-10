@@ -2,14 +2,38 @@ LOGIN -
 mascloud login --email abhishek.k25@turing.com --password RCALdRE8PhJW3dkF
 P.WORD - 
 RCALdRE8PhJW3dkF
-mascloud run $task14 --mode single
+mascloud run $task6 --mode single
+mascloud verify-only $task6 --target-mode multi
 
+cd D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\swarmbench-harness\mascloud_monitor_1\mascloud_monitor
+$env:MASCLOUD_TELEGRAM_BOT_TOKEN = "8692057391:AAEJZA5bYVPE_cu-VcCHvpawWjph6e7wxxc"
+$env:MASCLOUD_TELEGRAM_CHAT_ID = "541522294"
+py app.py
+
+$task8 = 'D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task8\9a113cab95ce4410a521e912cd3c9f80-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-USCG-MARINE-SAFETY-ALERT-FLEET-INTERVENTION-CAMPAIGN'
+
+$task49d3 = 'D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\1957633\his\submit_downloaded\49d37cc9dd594e328c1096d758e98b4f-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-BIOBANK-FREEZER-MIGRATION-CONTINUITY-CONTROL'
+
+
+
+
+$task7 = 'D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task7\bb48684f2fed462b95f432a08609840d-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-MINE-FATALITY-INTERVENTION-WAVE-CONTROL'
+
+mascloud verify-only $task7 --target-mode single
+
+
+D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task6\6163d393c851439f806c6c8f8593f7e1-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-DIASPORA-MEMORY-CAPSULE-EVIDENCE-CONTINUITY
 
 mascloud run "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\knowledge_research\task10\6e42d9f843aa4a83bce246ec9b6fd7a1-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-KEV-REMEDIATION-PROVENANCE-GRAPH" --mode multi
 single
 multi_noplan
 multi
 
+mascloud run $rework --mode single
+$rework = 'D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\knowledge_research\1957824\6e42d9f843aa4a83bce246ec9b6fd7a1-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-KEV-REMEDIATION-PROVENANCE-GRAPH'
+
+
+$task6 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task6\6163d393c851439f806c6c8f8593f7e1-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-DIASPORA-MEMORY-CAPSULE-EVIDENCE-CONTINUITY"
 
 mascloud verify-only "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\knowledge_research\1955605\submitted_task\5abd63556a1146ef8f79397d1efe9187-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-REGULATORY-CLOCK-CHANGE-CONTROL" --target-mode multi_noplan
 

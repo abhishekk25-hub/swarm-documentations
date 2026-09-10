@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 Going forward: treat python3 as a mandatory line in every task Dockerfile, independent of the task's own tech stack. Please retrofit any of your existing/in-progress tasks that don't have it yet.
 The next update push to Cloud Run will resolve this automatically.
 cc: All the pod leads and onboarding team leads share this message with your team.
+
+
 Thanks!Hi Team @here To avoid high usage of Quality Gate usage follow the following workflow:
 
 

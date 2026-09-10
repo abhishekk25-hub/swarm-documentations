@@ -6645,3 +6645,84 @@ PROMPT CHANGELOG
   local/live substring proofs, >=12-word body quotes inside Gutenberg START/END
   markers, and claim/quote token overlap in every research and validator seat;
   keep the orchestrator dispatch-only; split plan vs audit ownership.
+
+- 2026-09-08 | pre-run decomposition audit / UNDECLARED CHILD FAN-OUT BREAKS
+  ESTIMATED-AGENT CONSISTENCY | A compact manager plan can describe dozens of
+  child workers while declaring only the managers, making `dag_width` plausible
+  but leaving `estimated_sub_agents` irreconcilable with the YAML node count.
+  Declare every planned worker as a sub-task, keep its unit scope disjoint, and
+  compute width, depth, and estimated agents directly from the resulting DAG.
+
+- 2026-09-08 | verifier regression / WINDOWS TEMP PATHS REQUIRE CANONICAL
+  COMPARISON | A Harbor-staging regression loaded every trusted fallback but
+  failed because one `Path` was resolved and the expected temporary path was
+  compared lexically. Resolve both sides before asserting trusted-root identity;
+  report the physical resolved path in missing-input errors.
+
+- 2026-09-08 | rubric self-audit / INTERNAL CONSISTENCY IS NOT A CONTENT CHECK
+  BY ITSELF | Distinct prose, cross-file equality, recomputed self-reported
+  metrics, and visible IDs can all be fabricated coherently. When such checks
+  occupy a content bucket, bind each credited unit to a case-local quotation
+  and immutable public-source round trip, then reserve semantic judges for
+  causal adequacy, clustering, intervention quality, and prose claims.
+
+- 2026-09-08 | QG / HIDDEN NUMERIC GATES AND SHAPE-ONLY LEDGERS FAIL QD-03/10 |
+  An undeclared SVG byte floor is a hidden spec; unique-ID CSV headers and
+  schema mills (placeholder identity, empty causes, letterhead quotes, all
+  wave-1 NONE predecessors, ID-stuffed briefs) pass if content checks never
+  bind catalog dates/URLs, source-text identity, nonempty cells, clustered
+  campaigns, occupied waves, or coordinate heatmaps. Disclose every graded
+  product constraint in instruction/rules, make the manifest describe the
+  actual function, and do not treat an empty execution_logs tree as a
+  shippable fairness/gap proof (QD-07.10 hard-stops without orchestrator
+  sessions).
+
+- 2026-09-08 | live verifier / NESTED JSON RECOVERY SELECTED AN ITEM INSTEAD
+  OF ITS ENVELOPE | Scanning from every `{` and returning the last decodable
+  dictionary selects the final nested rubric item from `{"items":[...]}`.
+  Recover the last schema-bearing outer object, validate its complete ID set,
+  and regression-test fenced responses with nested item dictionaries before a
+  paid run.
+
+- 2026-09-09 | adversarial fixture / EVIDENCE BINDING MUST FIRST PROVE THE
+  EVIDENCE IS REAL | A shape-complete hollow submission earned action-binding
+  and claim-traceability credit by making generic actions overlap invented
+  quote text and by listing portfolio IDs without any   claim records. Require
+  exact immutable-source grounding before action credit, score every required
+  claim slot explicitly, and keep a schema-rich hollow fixture below the weak
+  score band before authorizing live runs.
+
+- 2026-09-09 | draft QG / HIDDEN DIVERSITY + SILENT CHECK ZEROS + WEAK SUSTAIN + UNGROUNDED JUDGE EVIDENCE | Draft REJECT for undisclosed roster diversity thresholds, instruction prohibitions with no verifier assertion, run_bucket exceptions still reported as all-checks-completed, sustain overlap at one keyword, and judge evidence accepted without source overlap. Disclose every graded diversity floor in instruction/rules and match the manifest to code; enforce already-exists/invention/citation prohibitions; escalate check exceptions into INFRA/status warnings; require >=2 term overlap for all action types; code-side ground judge evidence against trusted excerpts. Empty execution_logs remain a hard ship-blocker and must never be fabricated.
+
+- 2026-09-09 | frozen-source verifier / NORMALIZE BOTH SIDES BEFORE LOCATING
+  QUOTES OR PAGES | PDF text extracts may contain compatibility glyphs and
+  U+0002 page-break artifacts. Normalizing only submitted quotes causes valid
+  source spans to fail or shifts recommendation boundaries against the raw
+  string. Use one canonical representation for source searching, cue location,
+  and page-marker lookup, and regression-test at least one extract carrying
+  each artifact.
+
+- 2026-09-09 | MA trajectory audit / LOGICAL MANAGER LABELS DO NOT GUARANTEE
+  A NESTED SPAWN TREE | A decomposition can name managers yet realize a flat
+  root fan-out when managers only write briefs and leaf ownership is implicit;
+  general reducers may also add undeclared children. Declare exclusive parent
+  ownership in both manager and leaf descriptions, give each manager its exact
+  child IDs and sequencing contract, prohibit delegation in direct-execution
+  stages, and audit raw session `parent_id` links plus declared-versus-observed
+  task counts before accepting the run.
+
+- 2026-09-09 | final QG / ESTIMATED_SUB_AGENTS MUST EQUAL DECOMP COUNT NOT
+  REALIZED SESSIONS | Setting estimated_sub_agents to observed spawn count
+  (including nested helpers) fails when decomposition.yaml has fewer top-level
+  sub_tasks. Keep estimated_sub_agents == len(sub_tasks); put realized width/
+  depth in dag_width/dag_depth/why_multi_agent after the run; soften the
+  directive to allow nested helpers under a declared manager without inventing
+  new top-level IDs.
+
+- 2026-09-09 | final QG / RH KEYWORD OVERLAP AND EIGHT-WORD SPLICE ARE GAMEABLE
+  | Bare token-overlap action binding and bare eight-word quote presence in
+  wrapper prose can pass identical filler actions and dangling quote splices.
+  Require stricter term overlap, ban cross-alert repeated action n-grams /
+  known filler clauses, require analytical leftover terms outside the quote
+  span, and normalize spelled-out numbers before invention/already-exists
+  regexes.
