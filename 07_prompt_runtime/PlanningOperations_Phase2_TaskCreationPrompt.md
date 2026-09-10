@@ -6726,3 +6726,20 @@ PROMPT CHANGELOG
   known filler clauses, require analytical leftover terms outside the quote
   span, and normalize spelled-out numbers before invention/already-exists
   regexes.
+
+- 2026-09-10 | frozen-source build / HASH THE BYTES AFTER PLATFORM NEWLINE
+  TRANSLATION | Hashing an in-memory UTF-8 string before `Path.write_text` on
+  Windows made every legitimate frozen text fail its verifier hash because
+  on-disk newlines differed. Write the file first, hash `read_bytes()`, copy
+  that exact file into verifier inputs, and run a 100% manifest integrity
+  regression before packaging.
+
+- 2026-09-10 | local QG / A COMPLETE HIDDEN RELATION GRAPH IS AN ORACLE, NOT
+  A PARTIAL CHECK | Deriving a full pairwise answer set from a real public
+  tracker still fails self-sufficiency when the derived set is grader-only,
+  and source-valid quotes do not prove that they support the claimed edge.
+  Retain only a small mixed positive/negative spot oracle, make every rubric
+  item Boolean, and bind edge claims and semantic judges to compact immutable
+  source context. Also enforce every public word bound and output-root
+  prohibition, and keep infrastructure preflight explicit but outside the
+  task-quality reward path.
