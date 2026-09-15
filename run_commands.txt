@@ -2,25 +2,28 @@ LOGIN -
 mascloud login --email abhishek.k25@turing.com --password RCALdRE8PhJW3dkF
 P.WORD - 
 RCALdRE8PhJW3dkF
-mascloud run $task6 --mode single
-mascloud verify-only $task6 --target-mode multi
+mascloud run $task10 --mode multi_noplan
+mascloud verify-only $task10 --target-mode single
+single
+multi_noplan
+multi
 
 cd D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\swarmbench-harness\mascloud_monitor_1\mascloud_monitor
 $env:MASCLOUD_TELEGRAM_BOT_TOKEN = "8692057391:AAEJZA5bYVPE_cu-VcCHvpawWjph6e7wxxc"
 $env:MASCLOUD_TELEGRAM_CHAT_ID = "541522294"
 py app.py
 
+$task10 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task10\0d079c06f91043f8997769baf6843de2-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-UKCS-DECOMMISSIONING-COMPARATIVE-CAMPAIGN"
+
+$task9 = 'D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task9\47c02da5e4304b6c86fc904c9761f71d-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-GB-RAIL-ACCESS-CONTENTION-HEARING'
+
 $task8 = 'D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task8\9a113cab95ce4410a521e912cd3c9f80-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-USCG-MARINE-SAFETY-ALERT-FLEET-INTERVENTION-CAMPAIGN'
 
 $task49d3 = 'D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\1957633\his\submit_downloaded\49d37cc9dd594e328c1096d758e98b4f-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-BIOBANK-FREEZER-MIGRATION-CONTINUITY-CONTROL'
 
-
-
-
 $task7 = 'D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task7\bb48684f2fed462b95f432a08609840d-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-MINE-FATALITY-INTERVENTION-WAVE-CONTROL'
 
 mascloud verify-only $task7 --target-mode single
-
 
 D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task6\6163d393c851439f806c6c8f8593f7e1-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-DIASPORA-MEMORY-CAPSULE-EVIDENCE-CONTINUITY
 
@@ -32,29 +35,22 @@ multi
 mascloud run $rework --mode single
 $task6e42 = 'D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\knowledge_research\1957824\6e42d9f843aa4a83bce246ec9b6fd7a1-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-KEV-REMEDIATION-PROVENANCE-GRAPH'
 
-
 $task6 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task6\6163d393c851439f806c6c8f8593f7e1-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-DIASPORA-MEMORY-CAPSULE-EVIDENCE-CONTINUITY"
 
 mascloud verify-only "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\knowledge_research\1955605\submitted_task\5abd63556a1146ef8f79397d1efe9187-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-REGULATORY-CLOCK-CHANGE-CONTROL" --target-mode multi_noplan
 
-
 $task16 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\knowledge_research\task16\d7f2c1a84c6e4b3f9a0d2e7b6c5f8142-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-URBAN-HEAT-ADAPTATION-EVIDENCE-LEDGER-EQUITY-CONTINUITY"
-
 
 $task16kar = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\knowledge_research\task16\runs\SA\d7f2c1a84c6e4b3f9a0d2e7b6c5f8142-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-URBAN-HEAT-ADAPTATION-EVIDENCE-LEDGER-EQUITY-CONTINUITY"
 
-
 $task17 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\knowledge_research\task17\72c83aaf5f46494c9b0ec0e6c2d0922f-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-GROUNDWATER-DECISION-EVIDENCE-TRANSFERABILITY-ATLAS"
-
 
 $task4 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task4\49d37cc9dd594e328c1096d758e98b4f-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-BIOBANK-FREEZER-MIGRATION-CONTINUITY-CONTROL"
 
 $task4old = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task4\old\49d37cc9dd594e328c1096d758e98b4f-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-BIOBANK-FREEZER-MIGRATION-CONTINUITY-CONTROL"
 
-
 $task5 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task5\f2d6e91c7b4343d5970c4451d0627fbf-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-STREET-WORK-SAFETY-REINSTATEMENT-COMMAND"
 
 $task4his = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task4\his\49d37cc9dd594e328c1096d758e98b4f-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-BIOBANK-FREEZER-MIGRATION-CONTINUITY-CONTROL"
-
 
 $task10 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\knowledge_research\task10\done_by_him\6e42d9f843aa4a83bce246ec9b6fd7a1-SWARMBENCH-HIERARCHICAL-KNOWLEDGE-RESEARCH-KEV-REMEDIATION-PROVENANCE-GRAPH"

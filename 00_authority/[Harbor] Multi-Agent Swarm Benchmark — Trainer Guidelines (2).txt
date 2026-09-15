@@ -21,7 +21,7 @@ What the client needs from Phase 2.2:
 * A readable tests/rubric_manifest.json that documents every scored check implemented in tests/verify.py.
 * Rubrics that combine structural checks, reward-hacking checks, and trusted partial-oracle checks instead of rewarding file shape alone.
 * Recent, less-canonical source material that requires the agent to read the supplied evidence rather than answer from pretraining memory.
-* Fair SA and MA runs under the same instruction, environment, verifier, tools, and time budget. SA should score low for a genuine capability reason, while MA should improve but remain meaningfully challenged, with a minimum 20 percentage-point SA-to-MA gap.
+* Fair SA and MA runs under the same instruction, environment, verifier, tools, and time budget. SA should score low for a genuine capability reason, while MA should improve but remain meaningfully challenged, with a minimum 18 percentage-point SA-to-MA gap.
 * A faithful high_level_prompt.md, preserved separately from instruction.md, restating only the deliverables the requester actually asked for.
 * Three execution modes for every task — single, multi, and multi_noplan — run against the same final package, so the value of the supplied decomposition.yaml itself is demonstrated, not assumed.
 
@@ -152,7 +152,7 @@ Rule: Before submitting, open all three trajectory files (single, multi, multi_n
 * multi_noplan run: Did it finish cleanly enough to produce usable logs? A crash or an unrecovered rate-limit failure is not acceptable evidence — multi_noplan has no target reward of its own, but it must actually complete.
 
 
-* reward.json for single and multi: Is the gap ≥ 20pp? This is now a hard final-validation gate, not just an internal sanity check (see §3.9). Does the gap come from the MA system doing genuinely more work, or from a spec misread, a broken verifier, or an engineered scoring advantage?
+* reward.json for single and multi: Is the gap ≥ 18 pp? This is now a hard final-validation gate, not just an internal sanity check (see §3.9). Does the gap come from the MA system doing genuinely more work, or from a spec misread, a broken verifier, or an engineered scoring advantage?
 
 
 * Whether the gap was achieved due to a hallucinated LLM judge or Trainer created verifier fault, which does not resonate with the intent of the task.
@@ -328,35 +328,50 @@ ________________
 
 
 3.9 Reward Component Contract and Content-Weighted Scoring
-What happened: The client now requires reward.json to expose named component scores directly (not only the original four keys), a hard structural-vs-content composition split, and a minimum SA→MA gap enforced as a final-validation gate rather than an internal sanity check. Real submitted tasks show this can be satisfied additively — no per-check weighting, no multiplicative penalty formula — so this section states exactly how, without touching the existing hard-reject rules in §3.4/§3.5.
+What happened: The client requires standardized category-level scoring, a minimum 60% content-check composition, and a minimum SA→MA gap enforced as a final-validation gate. This section defines the required implementation without changing the existing hard-reject rules in §3.4/§3.5.
+Rule — reward.json component fields. reward.json must include the four required keys defined in §3.5:
+* reward
+* total_static_check_score
+* total_reward_hacking_check_score
+* total_partial_oracle_check_score
+The three total_* fields must contain the mean score for their respective check categories. The reward field must contain the final normalized score.
+Rule — standardized weighted scoring. First, calculate the mean score for each check category:
+static_mean = mean of all static check scores
+reward_hacking_mean = mean of all reward-hacking check scores
+partial_oracle_mean = mean of all partial-oracle check scores
+Then apply the required category weights:
+reward =
+(
+    static_mean × 1
+    + reward_hacking_mean × 2
+    + partial_oracle_mean × 3
+) / 6
+The denominator must be 6, which is the sum of the category weights: 1 + 2 + 3. This keeps the final reward normalized between 0 and 1.
+All checks within a category are averaged equally. The 1:2:3 weighting is applied only when combining the three category means. Do not use a simple /3 average, multiplicative penalty formula, clamp, or step ceiling.
+Rule — manifest weights must match the verifier. rubric_manifest.json must accurately reflect the weights applied by verify.py. The required category weights are:
+static_checks = 1
+reward_hacking_checks = 2
+partial_oracle_checks = 3
+Any change to the verifier must also be reflected in rubric_manifest.json. The manifest must not declare all checks with weight: 1 if the verifier applies category-level weights of 1:2:3.
+Rule — minimum 60% content-check composition. Content-based checks consist of:
+* reward_hacking_checks
+* partial_oracle_checks
+At least 60% of all checks by count must be content checks, and no more than 40% may be structural checks. This composition requirement is separate from the 1:2:3 scoring formula and must be satisfied in addition to it.
+content_check_count =
+reward_hacking_check_count + partial_oracle_check_count
 
 
-Rule — reward.json component fields. In addition to the four required keys in §3.5 (reward, total_static_check_score, total_reward_hacking_check_score, total_partial_oracle_check_score), reward.json must also expose:
+content_check_fraction =
+content_check_count /
+(structural_check_count + content_check_count)
+The content check fraction must be at least 0.6.
+Tasks should include at least three to five task-specific content rubrics. Minimum partial-oracle check requirement: Every task must contain at least six partial-oracle checks. Any task with fewer than six partial-oracle checks must be rejected and is not valid for submission. This requirement is independent of the 60% minimum content-check composition rule.
+The 1:2:3 formula gives the two content categories a combined category weight of 5/6, while the structural category receives 1/6. Do not replace this weighted formula with an equal average.
+Rule — minimum 18pp gap is a hard final-validation gate. Before submission, confirm that the final single and multi runs, using the same package, environment, verifier, and time budget, show a minimum 18 percentage-point gap. This is a submission-blocking requirement, not only an internal check described in §3.2.
 
 
-* static_checks, reward_hacking_checks, partial_oracle_checks — the same three category scores, under these shorter names.
-* final_score — the same value as reward. Keep reward too; do not remove it.
 
 
-Rule — the final score formula stays a simple, equal, additive average across the three category scores:
-
-
-final_score = (total_static_check_score + total_reward_hacking_check_score + total_partial_oracle_check_score) / 3
-
-Each category score is itself checks passed / total checks in that category, unchanged from §3.5 — every check is still weight: 1, additive, within its category. No category is weighted against another in the formula, and nothing here reintroduces multipliers, caps, or step ceilings; §3.4's hard rejects still apply exactly as written.
-
-
-Rule — content must dominate through check composition, not through the formula. The client requires structural (static_checks) checks to contribute at most 40% of the reward, and content-based checks (reward_hacking_checks + partial_oracle_checks) at least 60%, with at least three to five task-specific content rubrics. Achieve this by how you WRITE the manifest, not by weighting the formula: write rubric_manifest.json so that at least 60% of all checks by count are reward_hacking_checks/partial_oracle_checks entries, and at most 40% are static_checks entries. Report the composition directly in reward.json:
-
-
-* structural_check_count, content_check_count — the number of checks in each group.
-* content_check_fraction — content_check_count / (structural_check_count + content_check_count), must be ≥ 0.6.
-
-
-Because each category is an equal-weight average of its own checks, a rubric that is genuinely content-heavy by count naturally prevents a handful of easy formatting checks from diluting a real grounding or anti-gaming failure — that is what "content signal cannot be offset by easy formatting points" means here. It is achieved by composition, not by adding a multiplicative term to the score formula.
-
-
-Rule — minimum 20pp gap is a hard final-validation gate. Before submission, confirm the final single and multi runs (same package, environment, verifier, time budget) show a minimum 20 percentage-point gap. This is no longer only the internal check described in §3.2 — it blocks submission.
 
 
 ________________
@@ -891,6 +906,7 @@ These requirements apply immediately. Quality Gate automation is being extended 
 
 * tests/rubric_manifest.json exists and parses as JSON.
 * At least one static, reward-hacking, and partial-oracle check is present.
+* At least six partial-oracle checks are present; tasks with fewer than six are rejected.
 * Numbering is sequential within each category.
 * Every manifest entry contains the five required fields and declares weight: 1.
 * total_checks equals the number of manifest entries and registered verifier checks.
@@ -902,7 +918,7 @@ These requirements apply immediately. Quality Gate automation is being extended 
 * high_level_prompt.md exists at the task root, targets ~250 words (flagged outside ~100–450), and every deliverable it names also exists in instruction.md (§3.8).
 * All three execution modes (single, multi, multi_noplan) are present under execution_logs/, with multi-opencode-agent-noplan/ matching the same trial structure as the other two (§2.3, §6.5).
 * reward.json exposes static_checks, reward_hacking_checks, partial_oracle_checks, and final_score alongside the original four keys, and content_check_fraction is ≥ 0.6 (§3.9).
-* The final single vs multi gap is ≥ 20 percentage points under the same package, environment, verifier, and time budget (§3.9).
+* The final single vs multi gap is ≥ 18 percentage points under the same package, environment, verifier, and time budget (§3.9).
 
 
 Until these checks are fully automated, trainers and reviewers must verify them manually before submission.
@@ -1010,14 +1026,7 @@ ________________
 8.1 Where to Submit
 Submit completed tasks to the shared Google Drive delivery folder:
 
-
-Delivery shared drive: https://drive.google.com/drive/folders/1mcMPW-V0Hqm3xZCNQd0UmwcEsVTlu8ip
-
-
-Upload your task as a .zip file. The zip must contain your task folder at the top level — not nested inside another directory. File name should match the task folder name exactly:
-
-
-<uuid>-SWARMBENCH-<SLUG>-<DOMAIN>-<TASKNAME>.zip
+In Labeling Tool
 8.2 Turing Platform
 Tasks are also tracked and annotated on the Turing labeling platform. Access the workspace here:
 
@@ -1057,7 +1066,7 @@ Before uploading, confirm:
 * reward.json exposes static_checks, reward_hacking_checks, partial_oracle_checks, final_score, and content_check_fraction ≥ 0.6 (§3.9).
 
 
-* The final single vs. multi gap is ≥ 20 percentage points under the same package, environment, verifier, and time budget.
+* The final single vs. multi gap is ≥ 18 percentage points under the same package, environment, verifier, and time budget.
 
 
 * The static checker and the LLM Quality Gate review have both been run, and the LLM review report is attached — even when every finding was optional and nothing changed as a result.
@@ -1085,7 +1094,7 @@ The Phase 2.2 standard can be reduced to these rules:
 13. Ship a faithful high_level_prompt.md. ~250 words, deliverable-only, separate from instruction.md, never regenerated to disagree with it (§3.8).
 14. Run all three modes. single, multi, and multi_noplan against the same package, environment, verifier, and time budget — multi_noplan proves the decomposition is materially useful (§2.3, CR-14).
 15. Expose named reward components and stay content-heavy by count. reward.json adds static_checks/reward_hacking_checks/partial_oracle_checks/final_score; final_score is a plain equal average of the three category scores; at least 60% of checks by count are content-based (§3.9).
-16. Treat the 20pp gap and the LLM Quality Gate review as hard gates, not optional steps. Both block submission now, not just internal review (§3.9, §6).
+16. Treat the 18pp gap and the LLM Quality Gate review as hard gates, not optional steps. Both block submission now, not just internal review (§3.9, §6).
 
 
 The Quality Gate can catch many structural failures, but the trainer is still responsible for source novelty, realistic difficulty, verifier fairness, and whether the reward measures the actual task.
@@ -2848,7 +2857,17 @@ my-task-single.zip
 my-task-multi.zip
 my-task-multi_noplan.zip
 	Press Ctrl-C while a run is streaming to cancel it. The server stops the run and tears down its cloud sandbox.
-e
+8. verify-only: update verifier results without rerunning the agent
+Use verify-only when tests/verify.py changes after you already have a valid agent run—for example, when fixing reward formatting or verifier logic. This avoids paying the inference cost again when the agent output itself has not changed.
+mascloud verify-only ./my-task --target-mode multi
+	The command supports single, multi, and multi_noplan as target modes. Unlike a normal run, verify-only uploads the existing execution_logs/ because those logs are the input to the verifier replay.
+* No OpenCode agent is rerun and no new inference cost is incurred.
+* The server replays verification against the current tests/verify.py.
+* reward.json, test-stdout.txt, and result.json are refreshed in the same execution log folder.
+* trajectory.json, raw_trajectory/, and opencode.txt are preserved.
+* The request is rejected if the required existing execution log for the target mode is not present.
+Use this instead of a full rerun
+If only the verifier changed, do not waste a single/multi/multi_noplan agent run. Re-verify the existing run.
 	9. Command reference
 Command
 	What it does
@@ -3012,6 +3031,37 @@ Complete Task  →  Internal Review  →  Delivery Batch  →  Client Review  �
 Key principle: Payment is based on client-accepted deliverables, not simply on task completion. Jibble is the mechanism used to record the approved payable hours after the accepted-task count has been finalized.
 
 
+Access Request
+Access Requirements & Trial Period
+Before you begin working on production tasks, you must complete the required onboarding steps and obtain access to the project tools.
+Required Access
+Tool / Platform
+	Access From
+	Purpose
+	Labeling Tool – Project Access
+	Pod Lead
+	Claim, submit, review, and track project tasks
+	MAS Cloud Run
+	Pod Lead
+	Execute Single, Multi, and Multi-No-Plan agent runs and collect execution logs
+	Jibble
+	Project Management Team
+	Record approved payable hours for payment processing
+	Access Qualification Quiz
+Before access to these tools is provided, you must complete the onboarding quiz shared below. The quiz is intended to confirm that you understand the project workflow, task requirements, execution process, quality expectations, and payment process.
+Access will be provided after demonstrating a good understanding of the project through the quiz.
+Quiz: https://docs.google.com/forms/d/e/1FAIpQLSdqdmMofnCRt_jScVfbCPAtX0vS9s_Flep1Qum62zrm21FLQA/viewform?usp=dialog
+
+
+3-Day Trial Period
+Every newly onboarded trainer will begin with a 3-day trial period.
+During these three days, you are expected to successfully complete at least one valid task that meets the project requirements and successfully progresses through the expected review process.
+At the end of the trial:
+* Successful trial: If you demonstrate sufficient project understanding and complete at least one successful task, you will be moved to the production team.
+* Unsuccessful trial: If you are unable to meet the minimum trial expectations within the three-day period, you may be offboarded from the project.
+Important: The trial period is intended to verify that you can independently understand the workflow, create a valid task, use the required tools correctly, and meet the project's quality standards before moving into production.
+
+
 Mandatory Process
 SOP for Taking Leaves - 2026
 
@@ -3126,34 +3176,6 @@ This overlap period is especially important because it is when alignment calls, 
 Each trainer will have an assigned Pod Lead who acts as their primary mentor and point of contact throughout the project. Questions, blockers, task-related doubts, or process clarifications should be raised proactively with the Pod Lead rather than allowing them to delay task progress.
 Every day, the Pod Lead will conduct a mandatory 15-minute stand-up meeting near the overlap window. Trainers are expected to attend, provide a concise update on their progress, communicate any blockers, and clarify what they plan to work on next.
 Important: Slack availability during the mandatory overlap window and participation in the daily stand-up are core process expectations. Repeatedly missing these requirements without proper communication may negatively affect the trainer's behavior rating.
-
-
-Access Request
-Access Requirements & Trial Period
-Before you begin working on production tasks, you must complete the required onboarding steps and obtain access to the project tools.
-Required Access
-Tool / Platform
-	Access From
-	Purpose
-	Labeling Tool – Project Access
-	Pod Lead
-	Claim, submit, review, and track project tasks
-	MAS Cloud Run
-	Pod Lead
-	Execute Single, Multi, and Multi-No-Plan agent runs and collect execution logs
-	Jibble
-	Project Management Team
-	Record approved payable hours for payment processing
-	Access Qualification Quiz
-Before access to these tools is provided, you must complete the onboarding quiz shared below. The quiz is intended to confirm that you understand the project workflow, task requirements, execution process, quality expectations, and payment process.
-Access will be provided after demonstrating a good understanding of the project through the quiz.
-3-Day Trial Period
-Every newly onboarded trainer will begin with a 3-day trial period.
-During these three days, you are expected to successfully complete at least one valid task that meets the project requirements and successfully progresses through the expected review process.
-At the end of the trial:
-* Successful trial: If you demonstrate sufficient project understanding and complete at least one successful task, you will be moved to the production team.
-* Unsuccessful trial: If you are unable to meet the minimum trial expectations within the three-day period, you may be offboarded from the project.
-Important: The trial period is intended to verify that you can independently understand the workflow, create a valid task, use the required tools correctly, and meet the project's quality standards before moving into production.
 
 
 Phase 1

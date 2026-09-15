@@ -6743,3 +6743,162 @@ PROMPT CHANGELOG
   source context. Also enforce every public word bound and output-root
   prohibition, and keep infrastructure preflight explicit but outside the
   task-quality reward path.
+
+- 2026-09-10 | draft review / ENFORCE PROHIBITIONS AND EVIDENCE PER ROW |
+  Natural-language prohibitions such as route-family-only joins, cycle
+  reporting, uncertainty explanations, and later-outcome paraphrases need
+  explicit deterministic or semantic coverage. Never validate evidence as a
+  pooled union across a deliverable: require each row to cite its own relevant
+  source and regression-test the generic-boilerplate shortcut directly.
+
+- 2026-09-11 | planned MA / ONE MISSING PACKAGE MUST NOT HALT THE DAG, AND
+  MANAGERS MUST NOT PARAPHRASE CHILD PROMPTS | If a reducer or manager
+  BLOCKED the whole portfolio because one canonical file was missing, later
+  stages never wrote ledgers and the run collapsed. Require PARTIAL CONTINUE:
+  COMPLETE when any owned package exists, always emit full-row ledgers with
+  fail-closed stubs only for absent IDs, and BLOCKED only at zero coverage.
+  Also paste each child's decomposition `description` verbatim (appendix or
+  yaml.safe_load by id); a short invented manager prompt drops schema and
+  path contracts even when research succeeded.
+
+- 2026-09-11 | planned MA / PATCH KNOWN ASSEMBLY DEFECTS BEFORE THE CLOUD RUN,
+  BUT DO NOT CHASE THE HELD-OUT CEILING | If prior runs already failed on
+  schema aliases, string packets, blank official URLs, missing board markers,
+  NVD 1015, or narrative overwrite, put those contracts in the compact
+  decomposition before spending another multi run. Do not rewrite the shared
+  instruction, retune the verifier, or chase held-out cells that SA also
+  scores 0; those spend a second SA run without opening the gap. Keep YAML
+  compact so root/managers can still paste child prompts.
+
+- 2026-09-11 | verifier / CSV BOOLEAN SPELLINGS ARE PARSER, NOT RUBRIC |
+  Python/Excel dumps of True/False in a decision CSV are the same flags as
+  true/false. Rejecting them as schema-invalid also zeros every later
+  `== "true"` content comparison, so the swarm looks like it asserted false
+  on every case. Canonicalize only those two tokens (not yes/no/1/0). Role
+  labels may match case-insensitively as a lookup key, but empty URLs and
+  non-boolean field_located must still fail. Do not loosen stub receipts to
+  manufacture a gap.
+
+- 2026-09-11 | verifier / PARSER-ONLY VERIFY-ONLY DID NOT OPEN THE GAP; REVERT |
+  A CSV True/False and case-insensitive receipt-role parse did not produce a
+  shippable SA/MA pair on cloud verify-only. Restore the verifier to the
+  contract that scored the frozen SA and multi_noplan trees rather than
+  leaving a drifted parser in place. Fix packaging in decomposition next.
+
+- 2026-09-11 | planned MA / RECEIPT REDUCER MUST COPY CAPTURES, NOT EMIT A STUB FILE |
+  If PO1/source spans are high but receipts are 36 identical FETCH_FAILED
+  rows with empty URLs and lowercase roles, the research happened and the
+  reducer threw it away. Bind the receipt seat to copy handoff URLs and
+  7-60 word capture signatures, uppercase CISA/NVD/REMEDIATION, JSON boolean
+  field_located, and GATE: do not COMPLETE when all signatures match or all
+  URLs are empty. Also bind decision CSV lowercase true/false and PNG tEXt
+  keys. Do not loosen the verifier to accept the stub.
+
+- 2026-09-11 | freeze / REGISTER PDF LINKS MAY NEVER SAY DP |
+  A GOV.UK register row can point at the only programme PDF with link text
+  that never contains "programme" or "dp" (sailaway, disconnection, etc.).
+  Classify leftover PDFs as the DP when that role is required and missing,
+  instead of shipping an empty documents object.
+
+- 2026-09-11 | verifier / EMPTY-FIXTURE CONTENT CHECKS NEED A ROW COUNT |
+  A reward-hacking loop over OSPAR or casefile rows returns True on an
+  empty submission. Require the roster-sized row count before scanning
+  weights, dates, or labels so a do-nothing fixture stays at zero.
+
+- 2026-09-11 | freeze / OSPAR.ORG DOCUMENT FETCH CAN HANG |
+  `ospar.org/documents?v=` may never return under requests. Capture the
+  public consolidated Decision text once, record the official URL and
+  retrieval date, and freeze that UTF-8 extract for grading. Do not
+  fabricate OSPAR definitions.
+
+- 2026-09-11 | local QG / EMPTY execution_logs FAILS QD-07 CHECK 10 |
+  An empty `execution_logs/` folder still FAIL QD-07 check 10 (missing
+  `raw_trajectory/orchestrator_ses_*.json`). Do not spend a hosted Draft
+  Review until single, multi, and multi_noplan Harbor trees are merged in.
+
+- 2026-09-11 | local QG / RUBRIC FILE MUST CONTAIN QD-07 |
+  If `Quality_dimensions_phase_2.md` has two `# QD-06:` headers and no
+  `# QD-07:`, restore QD-07 from a sibling copy before the local gate.
+  Re-sync `LocalQualityGate_ReviewerPrompt_Phase2.md` check counts to the
+  live rubric (QD-02=6, QD-03=11, QD-04=13, QD-07=14).
+
+- 2026-09-11 | local QG / DISCLOSE SCORED CLOSED SETS, NEVER HIDE NUMERIC GATES |
+  If verify.py scores a 6-word note, a quote word-band, or a close-out
+  package subset, state those as task requirements in campaign_rules.md
+  and instruction.md. Do not leave Jaccard numbers in the instruction
+  (reverse leak); do not leave the requirement unstated (forward gap).
+
+- 2026-09-11 | local QG / CHECK CRASHES ARE INFRASTRUCTURE, NOT CONTENT ZERO |
+  A NameError or other unexpected exception inside a registered check must
+  write verifier_status.json infrastructure_error. Converting it to score
+  0.0 with status completed is a silent fail-closed content zero.
+
+- 2026-09-11 | local QG / DECOMP SCOPE ONLY; NO HELD-OUT ID CLUSTERS |
+  Sub-task text may name exclusive ID thirds, not a held-out shared-CA
+  sample. Quote word-bands belong in instruction/rules, not only in
+  decomposition. Strip quote-repair, legal-screen, and sequencing how-to.
+
+- 2026-09-11 | local QG / QUOTE ROUND-TRIP NEEDS ABOUTNESS |
+  Substring membership of any distinctive PDF span is not a commitment
+  quote. Require held-out posture tokens that are real extract substrings,
+  reject letterhead/location-only quotes, and require CA quote_ok whenever
+  a CA exists.
+
+- 2026-09-11 | local QG / HLP IS DELIVERABLES ONLY |
+  high_level_prompt.md fails if it tells the agent to fetch sources or
+  consult a rulebook. Restate the eight files and constraints; keep
+  process in instruction.md.
+
+- 2026-09-11 | local QG / BIND EVIDENCE TO THE PROGRAMME, NOT THE INSTRUMENT PREAMBLE |
+  An OSPAR Decision URL named in the instruction is a lazy evidence_source
+  if quote_ok accepts any span containing "installation". Bind
+  evidence_source to that row's own DP/CA/close-out official_url; allow
+  the Decision URL only for a unique definitional quote. Match
+  committed_solution_class to quote tokens, require exact shared-URL ID
+  sets, reject unknown where the frozen extract states a weight or
+  placement year, drop a bare "install" date trigger, and match host
+  oracle edges in the declared satellite-to-host direction only.
+  Unenforced "quote the disagreement" sentences should be deleted rather
+  than left as fake prohibitions. LLM per_id shards of 10–11 IDs fail
+  full-coverage; require every rostered ID in each judge theme.
+
+- 2026-09-11 | draft QG / AHT MUST MATCH THE 200K+ TOKEN BAND |
+  input_token_estimate above 200K requires human_solving_hours_estimate in
+  the 80-200h band. Count frozen-source words, convert honestly, and make
+  the justification add to that total. A 54h AHT on a ~1.6M-word corpus
+  fails QD-01.18 even when the rest of the instruction is clean.
+
+- 2026-09-11 | draft QG / OPTIONS TABLES ARE NOT CLASS COMMITMENTS |
+  Substring class matching still passes if an options list names both
+  full removal and leave in situ. Require the quote to hit the declared
+  class and no other exclusive class family. Pair that with a numeric
+  Annex-1 weight check, token-proximity false-consent detection that still
+  allows "not in hand", and phrase-level host regexes instead of lone
+  words such as export.
+
+- 2026-09-15 | verifier / HARBOR DROPS LOGS UNDER /logs/agent AND BOOLEAN 32/32 WIPES A NEAR-COMPLETE PACK |
+  Harbor may write trajectory.json, opencode.txt, and raw_trajectory/ beside
+  agent deliverables; extra-file checks must ignore those names. Exact
+  frozen-extract quotes fail live pdftotext punctuation; grade alphanumeric
+  token spans while keeping URL binding and the word band. "Not yet in hand"
+  is the same draft-consent fact as "not in hand". A 32/32 Boolean wipe on
+  one overlong summary or one comma-separated order line invents a zero;
+  score unit means so a near-complete multi pack can still clear 0.7.
+
+- 2026-09-15 | SA / A FETCH LOOP PLUS KEYWORD QUOTES IS A SCRIPTABLE BACKBONE |
+  A single agent that writes generate_pack.py over the roster, slices
+  18-120 word windows around "full removal" / "leave in situ", copies
+  register_status, and templates 50-word summaries will bank schema,
+  host-regex, and fluent-judge credit. Downloading PDFs is allowed;
+  emitting the graded pack from a for-loop is not. Grade committed
+  solution aboutness, exclusive-class quotes, exact shared-index schema,
+  and OSPAR evidence that is not letterhead/TOC. Do not let unit-mean
+  judges pass contents-list spans. Host edges need more than a tie-back
+  regex if that regex is the whole oracle.
+
+- 2026-09-15 | verifier / UNIT-MEAN JUDGES WILL PASS TOC QUOTES UNLESS THE DETERMINISTIC BOARD FAILS THEM |
+  Schema-valid 18-120 word contents-list or document-control spans can
+  round-trip into frozen extracts and bank static plus fluent-judge credit.
+  Reject dotted leaders, document-control sheets, options tables, and host
+  snips under the 18-word band in the quote checks, and overlay those fails
+  onto per_id so a fluent judge cannot wash them out.

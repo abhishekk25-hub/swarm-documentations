@@ -769,123 +769,322 @@ Return ONLY valid JSON:
 ```
 Result is FAIL if ANY check fails.
 
-# QD-06: Decomposition Soundness
+# QD-07: Benchmark Validity & Fairness
 
 ## Your Role
-You are evaluating the structural soundness of the decomposition blueprint in `decomposition.yaml`. Your focus is on whether the decomposition correctly partitions the work: sub-agents must have non-overlapping responsibilities, complete coverage of all inputs, correct dependency ordering, and a structure that matches the declared coordination pattern.
 
-**Scope boundary:** QD-04 checks whether `decomposition.yaml` contains leaked information (strategic hints, domain context, implementation directions, or ground-truth content beyond what coordination requires). QD-06 does NOT re-check for leakage — it checks only structural correctness. Read `instruction.md` to verify `decomposition.yaml` covers the full task scope, but flag content issues in QD-04, not here.
-
-If a description is vague, the sub-agent fails. If descriptions overlap, work is wasted. If dependencies are wrong, synthesis produces garbage.
+You are checking whether the single-agent vs multi-agent comparison is fair. If the multi-agent gets unfair advantages — domain knowledge the single agent doesn't have, or a decomposition that essentially solves the problem — the benchmark number is misleading.
 
 ## Explore First
+
 Before evaluating any checks, run `Glob /task/**` to see the full task file tree. The "Files to Read" section below is a minimum starting point — use Read, Grep, and Bash freely on any file that looks relevant to your checks.
 
 ## Files to Read
-- `/task/decomposition.yaml` (MUST read fully)
+
+- `/task/decomposition.yaml`
 - `/task/instruction.md`
-- `/task/task.toml` (read `coordination_pattern`)
-- `/task/execution_logs/multi-opencode-agent/*/agent/raw_trajectory/*.json` (literal folder name — not `multi-opencode-agent-noplan/`, which never received decomposition.yaml and is out of scope for this skill; required for Check 7 STEP D — realized-trajectory cross-check)
+- `/task/task.toml` (read `coordination_pattern` and `verifier_type`)
+- `/task/environment/` (ALL files — Dockerfile and everything inside; check for helper scripts in input artifacts)
+- `/task/execution_logs/multi-opencode-agent/` (literal folder name — not `multi-opencode-agent-noplan/`, which is out of scope for this skill's plan-guided fairness checks) — the multi-agent **raw** trajectory (`<run>/agent/raw_trajectory/`, containing `orchestrator_ses_*.json` + `subagent_ses_*.json`). Required for check 5; also used by checks 7, 10, 14.
+- `/task/tests/` (read ALL files for check 9)
 
 ## Grounding Rule
-**Before issuing any FAIL verdict on any check, you MUST copy the exact verbatim text from `decomposition.yaml` that triggered the violation into your `reason` field.** If you cannot produce an exact quote from `decomposition.yaml` itself, the check PASSES. Do not infer, paraphrase, or reconstruct text — only quote what is literally present.
+
+**Before issuing any FAIL verdict on any check, you MUST copy the exact verbatim text from the file being evaluated that triggered the violation into your `reason` field.** If you cannot produce an exact quote from that specific file, the check PASSES. Do not infer, paraphrase, or reconstruct text — only quote what is literally present.
+
+## Hard-Stop Checks (Check 10)
+
+Check 10 is a **hard stop** — it is evaluated before all other checks and **immediately terminates evaluation with overall FAIL** if any violation is found. Do not proceed to checks 1–9 if Check 10 fails. The reason is simple: if SA was handicapped at runtime, every score, gap, and reward value in this task is invalid. There is nothing to evaluate.
 
 ## Checks
-1. **Non-overlapping** — Each sub-agent has exactly one clear responsibility. FAIL if multiple agents assigned to the same data or same analysis.
-2. **Self-contained** — Each description includes what files to read, what to produce, and in what format. FAIL ONLY if a description delegates its core specification to another source with no independent scope of its own — e.g., "do whatever sub-task 1 decides" or "implement what the other sub-task specifies" with nothing else. Do NOT fail for: referencing upstream sub-tasks as causal context ("behavior introduced by sub-task 1", "introduced by the other sub-tasks"), cross-references in synthesize-phase sub-tasks that have `depends_on` populated (these are structurally expected to reference upstream work), or pointing to `instruction.md` for background.
-3. **Complete coverage** — Every part of the input data is assigned to at least one sub-agent. FAIL if some input segments have no assigned agent.
-4. **Dependencies correct** — Downstream sub-tasks depend on all the upstream sub-tasks they need. FAIL if a synthesis step is missing a dependency.
-5. **Minimal** — No redundant agents — each one is necessary. FAIL if two agents do the same work or an agent has no meaningful responsibility.
-6. **Coordination structure only — no solution guidance** — Each sub-task description is allowed to contain exactly three things: (1) scope — which partition of the input this sub-agent handles; (2) output — what file/format/schema to produce; (3) coordination — how this sub-task fits into the DAG (delegation instructions to the orchestrator, depends_on relationships, aggregation role). Anything beyond these three is a FAIL.
 
-   **FAIL for any of the following regardless of how it is phrased:**
-   - Named mechanisms or implementation tools: "use setattr", "through the C API", "apply regex X", "call function Y", "run git blame"
-   - Domain hard constraints about implementation: "must use the C API because super() is unavailable", "cannot use pandas for this step"
-   - Behavioral ordering hints: "after performing its own teardown", "stash references before close if needed"
-   - Failure-mode hints or recovery advice: "if the file is missing, fall back to...", "handle encoding errors by..."
-   - Step-by-step logic or algorithm walkthrough: "first parse X, then aggregate Y, then sort by Z"
-   - Before/after code strings or literal code/function call sequences
-   - Any analytical guidance telling the sub-agent how to approach the problem domain
+1. **Same role-neutral instruction, no mode-dependent scoring promises.** All three run modes (single, multi, multi-noplan) receive the identical task instruction. `instruction.md` must describe ONLY what to compute, what inputs to use, and what schema to produce — never how the work will be organized AND never how the score will be adjusted based on the agent's process. Two failure modes to check:
 
-   **PASS only for:**
-   - Scope assignment: "process papers 1–10", "handle the authentication module", "cover files in /src/utils/"
-   - Output format: "write results to output.json with schema {field: value}", "produce a list of {id, score}"
-   - Coordination instructions to the orchestrator: "dispatch a sub-agent for each file", "spawn one sub-agent per shard", "fan out to N parallel sub-agents", "delegate to a specialist sub-agent, don't do it yourself"
-   - Dependency statements: "depends on the map agents completing first", "synthesize the results from sub-tasks A and B"
+   **(a) Orchestration-language leak.** FAIL if `instruction.md` contains multi-agent-only execution language such as assigning work to "each agent", referring to "map agents", "sub-agents", "shards", "your module assignment", or saying that "a synthesizer agent will run after all agents finish". These orchestration details belong in `decomposition.yaml`, not in the shared `instruction.md`. Example violations: _"Each agent in this task is assigned one SciPy module"_, _"A synthesizer agent will run after all 16 map agents finish"_.
 
-   The test: would a single agent reading this field learn anything about HOW to solve the problem that it could not derive from `instruction.md`? If yes, FAIL — this is also a QD-04 Check 2 violation (flag in reason). If the field only tells the agent WHAT scope to cover, WHAT to output, or WHO does the work, PASS.
-7. **Pattern match** — The decomposition structure must match the declared `coordination_pattern` in `task.toml`. Use the signatures below to classify the actual decomposition structure, then compare against the declared pattern. FAIL if they differ.
+   **(b) Mode-dependent scoring-rubric leak.** FAIL if `instruction.md` describes scoring rubric details that are keyed on the agent's PROCESS rather than its OUTPUT — bonuses or penalties for sub-agent coordination, trajectory marker presence, delegation counts, map/reduce structure, orchestration evidence, or any other process-shape signal. The agent's process is invisible to the grading; only output quality against the oracle is graded. Example violations: _"You will receive +40 points for evidence of sub-agent coordination in your trajectory"_, _"-45 if the trajectory does not contain map-reduce markers"_, _"Orchestration patterns will be rewarded"_, _"Score bonus awarded for delegating to specialist agents"_. This pairs with QD-14 Check 1, which forbids the verifier from APPLYING such mode-dependent adjustments — the instruction must not PROMISE them either. The principle is symmetric: process is invisible on both the input side (instruction) and the output side (verifier).
 
-   **Pattern signatures — what each coordination_pattern requires:**
+2. **Same timeout** — Both configurations have the same `agent.timeout_sec`. FAIL if asymmetric timeouts.
+3. **Coordination-driven gap** — Multi-agent advantage comes from coordination quality — context splitting, specialist reasoning, structured synthesis. FAIL if gap is only from parallelism (same work faster, not better). **Exception: if the single-agent fails due to timeout while the multi-agent completes within the same timeout, a parallelism-driven gap is acceptable — decomposing context across sub-agents to fit within the timeout budget is a valid coordination mechanism, not mere speed. Do not fail this check when the timeout scenario in check 7 applies.**
+4. **No custom tooling advantage** — Input artifacts are data for the agent to process, not scripts that do the processing. FAIL if executable scripts in input artifacts perform substantive analysis.
+5. **Multi-agent trajectory follows the declared coordination pattern — reconstructed from the raw trajectory** — Do not accept the declared pattern on faith. Open the multi-agent **raw** trajectory and reconstruct what the orchestrator actually did, then confirm it matches the declared `coordination_pattern`.
 
-   | Declared pattern | Required decomposition structure |
-   |---|---|
-   | `map-reduce` | All workers in one parallel group (e.g. `map`), one or more assemblers in a second group (e.g. `reduce`) that depend on all workers. Two levels total. |
-   | `fan-out-synthesize` | All workers in one parallel group (e.g. `fan-out`), one or more synthesizers in a second group that aggregate results. Workers are independent of each other. Two levels total. |
-   | `hierarchical` | At least THREE distinct dependency levels: a root coordinator dispatches to one or more intermediate sub-coordinators, each of which dispatches to leaf workers. A flat structure (all workers → one assembler) is NOT hierarchical — that is map-reduce or fan-out-synthesize. |
-   | `pipeline` | Sequential chain: each stage depends on the previous stage's output. No large parallel fan-out. |
-   | `specialist-routing` | A router/dispatcher sub-task assigns work to domain-specialist sub-tasks; each specialist handles a different area of expertise. |
-   | `debate` | Multiple agents independently evaluate the same input from different perspectives, then a judge/synthesizer reconciles their outputs. |
+   **Procedure — MANDATORY:**
 
-   **Anti-gaming clause:** the number of distinct sub-task ROLES or NAMES is irrelevant — what matters is the number of distinct DEPENDENCY LEVELS, counted strictly by hops between a leaf worker and the final output node. Four independently-named specialists that ALL feed directly into one integrator is TWO levels, no matter how sophisticated or specialized their descriptions sound. An "intermediate" node only counts as a genuine third level if it (a) does NOT depend on every leaf worker directly (it must aggregate a real SUBSET, not all of them), and (b) performs actual synthesis on its inputs rather than forwarding them unchanged. FAIL if an intermediate node is a decorative pass-through inserted only to manufacture a fake third level.
+   STEP A. Read the declared `coordination_pattern` from `task.toml` and the intended structure in `decomposition.yaml`.
 
-   **Procedure — mandatory, do not skip:**
-   STEP A. List EVERY sub-task with its `id`, `parallel_group`, and `depends_on` verbatim in your reason, even for a PASS. From this list, compute Level 0 = sub-tasks with no `depends_on`, Level 1 = sub-tasks depending only on Level 0, Level 2 = depending on Level 1, etc. State the maximum level number found.
-   STEP B. Classify the actual structure using the table above AND the anti-gaming clause — a node that satisfies (a) or (b) above does not count toward the level total.
-   STEP C. Compare to the declared `coordination_pattern` from `task.toml`. FAIL if they do not match — quote the full `parallel_group`/`depends_on` list and the declared pattern in your reason.
+   STEP B. Glob `execution_logs/multi-opencode-agent/*/agent/raw_trajectory/` (literal folder name — not `multi-opencode-agent-noplan/`) and read every session file: the `orchestrator_ses_*.json` (root) and all `subagent_ses_*.json`. Each session JSON carries its own `id` and a `parent_id` pointing to the session that spawned it — this is the ground truth of the coordination graph.
 
-   STEP D. **Cross-check against the realized multi-agent trajectory — do not accept decomposition.yaml's own structure as proof of what actually happened at runtime.** Steps A–C establish whether `decomposition.yaml`'s OWN dependency/parallel_group structure matches the declared `coordination_pattern` on paper. That is necessary but not sufficient: an LLM orchestrator reads `decomposition.yaml` as guidance, not as an executable script, and can dispatch sub-agents differently than the plan specifies. Perform this second, independent check on every available multi-agent run:
+   STEP C. Reconstruct the actual spawn tree from `id`/`parent_id`:
+   - The orchestrator is the root (its `id` equals the `orchestrator_ses_*` file's id and appears as the `parent_id` of the top-level sub-agents).
+   - A sub-agent whose `parent_id` is another **sub-agent's** `id` is a nested (level-2+) agent → a real hierarchy. If every sub-agent's `parent_id` is the orchestrator, the graph is a single-level fan-out.
+   - Corroborate with `task`-tool spawn calls per session: a session that made `task` calls is a spawner (orchestrator or manager); a session with zero is a leaf worker. Probe: `for f in .../raw_trajectory/*.json; do python3 -c "import json,sys;d=json.load(open(sys.argv[1]));print(d['id'],d.get('parent_id'))" "$f"; done`.
 
-   1. Glob `execution_logs/multi-opencode-agent/*/agent/raw_trajectory/*.json` (literal folder name — not `multi-opencode-agent-noplan/`) and read every session file: the `orchestrator_ses_*.json` (root) and all `subagent_ses_*.json`. Each session JSON carries its own `id` and a `parent_id` pointing to the session that spawned it.
-   2. Reconstruct the realized spawn tree from `id`/`parent_id`: the orchestrator is the root; a sub-agent whose `parent_id` is another sub-agent's `id` (not the orchestrator's) is a nested, level-2+ agent — a real hierarchy. If every sub-agent's `parent_id` is the orchestrator, the realized graph is a single-level fan-out, no matter how many sub-agents there are. Corroborate with `task`-tool spawn calls per session (a session that made `task` calls is a spawner; a session with zero `task` calls is a leaf worker).
-   3. Compute the realized level count using the same level-counting definition as STEP A (hops from a leaf worker to the final output node), applied to the id/parent_id tree instead of decomposition.yaml's depends_on graph.
-   4. Compare the realized level count and shape against BOTH: (a) the level count computed from `decomposition.yaml` in STEP A, and (b) the declared `coordination_pattern` from `task.toml`, using the same pattern-signature table as STEP B.
+   STEP D. Confirm the reconstructed tree matches the exact `coordination_pattern` string the trainer declared in `task.toml` — whatever that value is. The realized spawn structure (the `id`/`parent_id` graph plus per-session spawn counts) must be consistent with the declared pattern's plain meaning. For example, a declared `hierarchical` pattern requires multi-level parent chains (some workers' `parent_id` is a manager sub-agent, not the orchestrator), whereas a flat structure where every sub-agent's `parent_id` is the orchestrator is a fan-out — a mismatch. The check is not about which pattern is "best"; it is strictly whether the actual multi-agent coordination matches what the trainer claimed.
 
-   FAIL if either comparison diverges:
-   - **Divergence from decomposition.yaml** — the realized spawn tree has a different level count or shape than STEP A computed from `decomposition.yaml` itself (e.g. decomposition.yaml specifies a manager layer, but every sub-agent's `parent_id` in the actual run is the orchestrator directly — the declared manager layer was never dispatched). This means the orchestrator deviated from the gold decomposition at runtime.
-   - **Divergence from the declared coordination_pattern** — the realized tree, independently of decomposition.yaml, does not match the pattern-signature table (e.g. `coordination_pattern = hierarchical` but every sub-agent's `parent_id` is the orchestrator — a flat fan-out was realized) — even if decomposition.yaml's own structure, on paper, would have satisfied the hierarchical signature.
+   **Verdict — state it explicitly in `reason`, citing the reconstructed tree (parent_id linkages + per-session spawn counts):** FAIL if the orchestrator solved the task monolithically (no or negligible sub-agent spawns), if it ignored the decomposition, or if the realized graph is a different pattern than declared (e.g., `coordination_pattern = hierarchical` but every sub-agent's `parent_id` is the orchestrator — a flat fan-out, not a hierarchy). PASS only if the realized spawn tree demonstrably matches the declared pattern. Per the Grounding Rule, quote the declared `coordination_pattern` and the actual `id`/`parent_id` values that establish the realized structure.
 
-   Quote: the full list of session `id`/`parent_id` pairs with file names, the computed realized level count, the STEP A decomposition-derived level count, and the declared `coordination_pattern`. If both match, PASS and state so explicitly, quoting the id/parent_id evidence that establishes the match — do not PASS this step on the strength of STEP A/B/C alone.
+6. **Partial credit supported — HARD FAIL on any cap or multiplier in the reward formula** — The verifier must award fractional scores strictly proportional to how much of the task was completed. The reward must flow continuously from agent output quality to final score with no caps, no multipliers, and no tiers applied after scoring. Documentation in `instruction.md` does not make a cap or multiplier valid — it must be removed entirely.
 
-   **If multiple multi-agent runs exist**, check each; FAIL if the majority of runs diverge, and note any single-run outlier separately rather than letting one anomalous run drive the verdict — multi-agent dispatch has run-to-run variance, and this step is checking systemic pattern mismatch, not one bad roll.
+   **HARD FAIL immediately if the verifier contains ANY of the following patterns — no exceptions, no threshold, no override:**
+   - **Any multiplicative factor on a partial score** — e.g. `reward = K × (passed/total)` for any K < 1.0, `final *= 0.5`, `score = 0.5 * base_reward`. A multiplier on a partial score compresses the range of achievable scores and creates a cliff between partial and perfect work. It does not matter whether K is 0.5, 0.3, or 0.0 — any constant scaling of a partial score is a cap by another name.
+   - **Any hard cap at any stage of scoring** — e.g. `cap = min(cap, X)`, `reward = min(reward, X)`, `score = min(score, X)` applied after any scoring has begun, regardless of whether the score is normalized to [0,1] or expressed as a raw point total (e.g. `score = min(score, 60.0)` out of 100 is identical in effect to `score = min(score, 0.6)` out of 1.0). A cap sets a ceiling that partial work cannot exceed regardless of quality, at any stage of the pipeline — before normalization, after normalization, or during intermediate accumulation. Hard FAIL for any cap, including X = 0.85, X = 0.70, X = 0.60, X = 0.55, X = 0.30, X = 0.14.
+   - **Any binary-zero gate** — e.g. `if condition: final *= 0.0`, `if not passes: reward = 0.0`. Collapses any partial score to zero.
+   - **Any two-tier formula** — e.g. `if all_pass: reward = 1.0 else: reward = K × proportion`. Creates an unreachable dead zone [K, 1.0). A 99% completion scores identically to a 50% completion — both hit the same ceiling K.
+   - **Any heuristic cap formula that can reach 0.0** — e.g. `cap = max(0.0, 1.0 - n × 0.09)` where cap hits 0.0 at n ≥ 12. Designed to be graduated but functionally binary at the boundary.
+   - **Any reward assignment to a fixed constant** — e.g. `reward = 0.0` or `reward = 0.14` triggered by any threshold on a continuous metric, regardless of whether the threshold is disclosed.
+   - **Catch-all: any `min(score, X)` or `min(reward, X)` expression anywhere in the verifier** — regardless of the value of X, the name of the variable, the stage of scoring, or whether the cap is conditional. The presence of `min(` applied to a score or reward variable is a HARD FAIL. Scan the entire verifier file for `min(` and flag every instance where the argument could constrain a score below what the agent earned. Do not allow a conditional cap to pass because the condition "rarely fires" — the code path exists and will distort scores.
 
-   **If no multi-agent execution logs / raw_trajectory exist yet** (task package under review pre-execution), mark this STEP D sub-result `NOT_APPLICABLE`, state that no trajectory was available, and let STEP A–C's paper-based verdict stand as the check's result — do not FAIL for missing logs.
+   **The only valid reward formula is one where the score moves continuously and proportionally with task completion quality — no floor, no ceiling below 1.0, no multiplier, no tier, no cap at any stage.**
 
-   **Note on scope overlap:** this procedure deliberately mirrors QD-05 Checks 5–6 and QD-07 Check 5, which perform the same id/parent_id spawn-tree reconstruction for different purposes (QD-05: depth/width sufficiency; QD-07: fairness/pattern-fidelity of SA-vs-MA comparison). This step's angle is distinct: it asks whether the REALIZED run matches THIS TASK's specific `decomposition.yaml` blueprint and declared pattern, as a decomposition-soundness question. Do not skip this step by reasoning that another QD already read the trajectory — your verdict must independently quote the id/parent_id evidence per the Grounding Rule.
+   **For each verifier type:**
+   - **Executable verifier**: Read `tests/verify.py` or `tests/test.sh` or any tests/ related files end-to-end. Every scored dimension must contribute fractionally. FAIL if any final multiplier or assignment can reduce a non-zero weighted sum to 0.0. FAIL if any individual check is worth more than 50% of the total score and is evaluated as binary pass/fail.
+   - **LLM judge verifier**: Read the judge prompt — it must explicitly instruct the judge to award a score between 0.0 and 1.0 based on how many sub-tasks or requirements were met, with each scoreable criterion listed. FAIL if the judge prompt asks only for a binary verdict or contains no instruction about partial scoring.
 
-   Common false claim to flag: decomposition has workers all in `parallel_group: map` and one assembler in `parallel_group: reduce` (two flat levels) but `task.toml` declares `hierarchical`. That is map-reduce, not hierarchical — this holds even if there are 4+ distinctly-named workers, and even if a pass-through node sits between them and the assembler.
-8. **Parallel-group consistency** — A sub-task in `parallel_group: X` cannot list any `depends_on` entry that resolves (directly or transitively) to another sub-task that is also in `parallel_group: X`. Tasks in the same parallel group run concurrently by definition, so they cannot have dependency relationships among themselves. Walk every sub-task: collect its `depends_on` list, follow the dependency chain, and FAIL if any node in that chain shares its `parallel_group`. The contradiction is logical, not stylistic — `depends_on` says "I wait for these to finish" while same-group `parallel_group` says "I run alongside these". Both cannot be true.
+   **The instruction.md exception does NOT apply**: a trainer cannot make a binary gate valid by documenting it in `instruction.md`. The gate must be removed or replaced with a graduated penalty (e.g., linearly scaling the multiplier between 0.5 and 1.0 rather than between 0.0 and 1.0). If you see a threshold like "≥7/8 entries required" that fires a `× 0.0` multiplier, that is a HARD FAIL regardless of whether the threshold appears in the instruction.
 
-   Example violation to recognize:
-   ```yaml
-   - id: documentation
-     depends_on:
-       - lookups-and-key-transforms       # also parallel_group: fan-out
-       - backend-features-and-sqlite      # also parallel_group: fan-out
-     parallel_group: fan-out
-   ```
-   `documentation` cannot belong to `parallel_group: fan-out` while waiting on other `fan-out` tasks to finish. Either move `documentation` to a later group (e.g. `synthesize`) or remove the same-group dependencies.
+7. **Meaningful performance gap — absolute, not waived by timeout.** Read the execution logs for both single-agent and multi-agent configurations. **The multi-agent reward must be at least 18% higher than the single-agent reward. This requirement is ABSOLUTE — it applies whether or not the single agent timed out.** A timeout is not proof of difficulty if the single agent already produced a high-reward output before the timer expired (Issue 3.14: _"single agent timed out but received reward 1.0"_ is logically incoherent — single solved the task; the timeout is irrelevant). The combination of `AgentTimeoutError` and `reward >= 0.9` on the single-agent side means the task is NOT multi-agent-requiring; single just happened to finish the work before the timer fired. FAIL if `multi.mean_reward - single.mean_reward < 0.18`, regardless of single's exception status.
+
+   You MUST quote the actual reward values from the execution logs in your reason — both `single.mean_reward` and `multi.mean_reward` verbatim, plus the computed gap. If a timeout was present on the single agent, also quote the recorded reward — that combination needs to be visible in your reasoning, not hidden behind the timeout. Also verify the timeout values from check 2 are identical between single and multi — a gap produced by giving multi-agent a longer timeout is forgery and fails this check. If you cannot find execution log evidence at all, this check PASSES — do not infer or estimate.
+
+8. **Verifier type matches implementation** — Read `verifier_type` from `/task/task.toml`. Then read every file in `/task/tests/` to determine what scoring mechanism is actually implemented. Apply the following rules:
+
+   **If `verifier_type = "llm-judge"`:**
+   - The scoring decision for the agent's output must be made by an LLM. Look for evidence of an LLM API call in any test file — for example, a model completion call, an LLM client being instantiated, or an API key being read from the environment and passed to a model call.
+   - FAIL if the actual scoring logic is fully deterministic — i.e., if correctness is determined purely by JSON field comparison, regex matching, numeric tolerance checks, or string normalization with no LLM involved. Such a verifier cannot handle the full space of valid agent responses and will silently penalize correct answers that differ in phrasing, format, or structure from the oracle.
+   - FAIL if an LLM is invoked only for formatting or post-processing (e.g., parsing the agent's output into JSON) while the correctness decision itself is still made deterministically. The LLM must be the judge of correctness, not a preprocessor.
+   - **HARD FAIL if the judge script contains any of the following deterministic score-suppression mechanisms that can fire regardless of LLM output:** (a) a pre-gate function (`pregate`, `pre_gate`, `structural_gate`, or any block that assigns `reward = 0.0` and returns before LLM scoring runs); (b) score caps (`cap = min(cap, X)` or `reward = min(reward, X)` where X ≤ 0.55) applied by the script after or before the LLM; (c) additive penalty deductions applied by the script that in aggregate can reduce the score to 0.0 regardless of LLM score. These patterns mean the script is doing the real scoring and the LLM is window-dressing — the task is effectively `executable` not `llm-judge`. A legitimate `llm-judge` verifier lets the LLM score freely against the oracle and instruction rules; the script only handles I/O (reading the agent output, writing the reward file). Any script logic that modifies the score is a de-facto executable verifier and must be rejected.
+
+   **If `verifier_type = "executable"`:**
+   - The scoring logic must be fully deterministic — no LLM API calls, no model client instantiation, no API keys. FAIL if any test file makes a model call to determine correctness.
+
+   **If `verifier_type = "hybrid"`:**
+   - The scoring logic must show evidence of BOTH a real LLM API call that materially contributes to the correctness decision AND a deterministic/structural scoring component (regex, schema check, numeric tolerance, etc.).
+   - FAIL if either side is entirely absent from `tests/verify.py` — that means the task is actually a plain `llm-judge` or plain `executable` verifier mislabeled as `hybrid`.
+
+   **Additionally — output type vs verifier type alignment:**
+   - If the task's expected outputs are open-ended, interpretive, or admit multiple valid forms (e.g., analytical reports, natural-language explanations, ranked lists with justifications, structured summaries where content matters more than exact values), the verifier MUST be `llm-judge` or `hybrid`. FAIL if `verifier_type = "executable"` for such a task — deterministic code and regex matching cannot cover the full range of correct responses and will produce invalid scores.
+   - If the task's expected outputs are fully deterministic (e.g., exact numeric values, fixed-schema JSON, specific file modifications, pass/fail unit tests), `executable` is the correct type and an LLM judge introduces unnecessary variance. This is not a FAIL condition but note it in your reason if the declared type is `llm-judge` for a fully deterministic task.
+   - `hybrid` is appropriate when the task has both a fully-deterministic sub-part (exact values/schema) and an open-ended sub-part (narrative/synthesis) that genuinely needs LLM judgment. Not a FAIL condition either way — informational only.
+
+   You MUST quote the `verifier_type` value from `task.toml` and cite the specific file(s) in `tests/` — or their absence — that support your verdict.
+
+9. **No gap-distorting verifier floors, cliffs, or binary gates** — Read `tests/judge.py` (or `tests/verify.py`) end-to-end. Search for score-modifying patterns: `max(score,`, `min(score,`, `score *=`, and explicit assignments like `score = 0.0` or `reward = 0.0`. For each one found, determine whether the triggering condition is **asymmetric** — i.e., a well-structured multi-agent output would satisfy (or fail) it more often than a single-agent output simply because of how multi-agent outputs are produced.
+
+   Common asymmetric patterns to flag:
+   - **Floor triggered by aggregate count** — e.g., `if verified_excerpts >= 30: score = max(score, 0.55)`. Multi-agent outputs fan out across sub-agents and naturally accumulate more excerpt-level hits, pushing the count above the floor threshold even when LLM judge quality is low. Single-agent outputs rarely reach the threshold. The floor then manufactures a gap that does not reflect true quality.
+   - **Completeness gate unlocked by structural shape** — e.g., `if complete_report_shape(output): score = max(score, 0.5)`. The multi-agent orchestrator synthesizes a complete report schema by construction; a single agent may produce a partial schema under time or context pressure. The structural completeness is an artifact of the coordination pattern, not a quality signal.
+   - **Binary multiplier on a field a single agent more often omits** — e.g., `if not has_summary_section: score *= 0`. Multi-agent synthesis stages reliably produce a summary section; single agents may omit it. The multiplier collapses single-agent scores disproportionately.
+   - **Cliff compressing multi-agent scores** — e.g., `if precheck_failures: score = min(score, 0.65)`. If precheck failures are more likely when an agent produces MORE content (e.g., a long multi-agent output triggers a regex that a terse single-agent output does not), the cliff deflates multi-agent scores artificially.
+
+   **Verdict rules:**
+   - FAIL if any floor, cliff, or binary gate **exists in the verifier code** such that a well-structured multi-agent output would trigger it more often than a single-agent output — **regardless of whether it fired in the recorded run**. The presence of the asymmetric pattern in the code is the violation, not whether it happened to be triggered in the execution logs. A trainer cannot fix this by making the threshold harder to reach (e.g., switching from lenient to strict excerpt matching so that the floor is rarely triggered) — the code must be removed or made symmetric.
+   - PASS if every floor/cliff/gate mechanism applies identically to both agent types, OR if the modifier protects against a degenerate edge case that applies equally to both (e.g., `score = max(0.0, score)` to prevent negatives — this is always symmetric).
+   - **Band-aid mitigations do not pass.** If you see TWO excerpt-matching functions (one strict, one lenient) where strict is used for the floor count and lenient for prechecks, this is a sign the trainer tried to make the floor harder to trigger rather than removing it. Still FAIL — the floor code is still present.
+
+   You MUST quote the exact line(s) from `tests/judge.py` (or `tests/verify.py`) in the `reason` field before issuing a FAIL. If no such patterns are present, state that explicitly and PASS.
+
+10. **SA runtime prompt matches instruction.md exactly — no injected handicaps.**
+
+Check 1 audits `instruction.md` on disk for mode-dependent language. This check goes one level deeper: it verifies that the instruction SA _actually received at runtime_ (recorded in `raw_trajectory/orchestrator_ses_*.json`) is identical to the current `instruction.md` — no extra content inserted, no content removed.
+
+**Why this matters:** A trainer can write a clean `instruction.md`, inject a handicap block into the runtime prompt at execution time (e.g. via a harness config or a pre-run script), run SA, then delete the block from `instruction.md` before delivery. The static file looks fine; only the runtime logs expose the fraud.
+
+**Procedure — MANDATORY, do not skip:**
+
+STEP A. Read `instruction.md` and record its first non-empty line as `ANCHOR`.
+
+STEP B. Open `execution_logs/single-opencode-agent/*/agent/raw_trajectory/orchestrator_ses_*.json` (all SA runs). Read `messages[0]["parts"][0]["data"]["text"]` from each file — this is the harness prompt that contains `instruction.md`. Because the field is stored as a JSON-encoded string, internal double-quotes appear as `\"` (escaped). Unescape `\"` → `"` before comparing.
+
+STEP C. In the unescaped text, find `ANCHOR`. Extract everything from `ANCHOR` to end-of-string as `SA_INSTRUCTION_SLICE`. If the string `## Gold Decomposition Guide` appears in the slice, truncate at that point (it should not be in SA runs, but be defensive).
+
+STEP D. Normalize both `SA_INSTRUCTION_SLICE` and `instruction.md` by replacing `\r\n` → `\n`, stripping leading/trailing whitespace.
+
+STEP E. **Hard FAIL if `SA_INSTRUCTION_SLICE != instruction.md` (after normalization).** Quote the first ~200 characters of divergence in `reason`. Do not attempt to characterize whether the difference is "minor" — any difference is a FAIL.
+
+STEP F. **Additionally, scan the full unescaped text for gap-widener fingerprints regardless of the above result.** Hard FAIL if any of the following strings appear (case-insensitive) or any order sentence or keywords patterns fall under the below mentioned one:
+
+- `TEMP-GAP-WIDENER`
+- `GAP-WIDENER`
+- `remove before submission`
+- `remove before llm review`
+- `MANDATORY EXECUTION CONSTRAINTS`
+- `NO SCRIPTING` (when followed by constraint language, not task-content references)
+- `MANUAL ACCUMULATION`
+- `intentional differentiator`
+- `k=4` or `k = 4` (reward-exponent gap wideners)
+
+Quote the exact matched string and surrounding context (~100 chars) in `reason`.
+
+STEP G. Open `execution_logs/multi-opencode-agent/*/agent/raw_trajectory/orchestrator_ses_*.json` (all MA runs). Extract and unescape `messages[0]["parts"][0]["data"]["text"]`. Verify `instruction.md` appears verbatim as a substring. FAIL if not found (MA was run with a different instruction). This is the same as Check 1 / S-07 but applied to the runtime logs explicitly.
+
+STEP H. Open `execution_logs/multi-opencode-agent-noplan/*/agent/raw_trajectory/orchestrator_ses_*.json` (all noplan runs). Extract and unescape `messages[0]["parts"][0]["data"]["text"]`. Verify `instruction.md` appears verbatim as a substring — same check as STEP G. Confirms noplan received the identical instruction.md; only the decomposition guide is withheld, nothing else about the prompt changed. This check applies regardless of noplan's reward/completion outcome — it is about prompt integrity, not performance.
+
+**Verdict rules — no exceptions, no partial credit, no WARN:**
+
+- FAIL if SA slice ≠ instruction.md (Step E) — any divergence, however small
+- FAIL if any gap-widener fingerprint found in SA prompt (Step F)
+- FAIL if instruction.md not found verbatim in MA prompt (Step G)
+- FAIL if instruction.md not found verbatim in noplan prompt (Step H)
+- FAIL if `raw_trajectory/orchestrator_ses_*.json` is missing for any run — unverifiable logs are treated as a violation
+- PASS only if Steps E, F, G, and H are all clean across every run
+- **A FAIL on Check 10 forces the overall QD-10 result to FAIL regardless of all other checks. The overall result field MUST be "FAIL" if Check 10 is "FAIL".**
+
+11. **Structural/schema compliance penalties must not be capable of zeroing out genuine task-intent quality.**
+
+Every task has a **primary intent** — the thing it is actually trying to measure: extraction accuracy, code correctness, answer quality, synthesis coherence. Structural penalties (exact-format field copying, flag combinations, key schema compliance, type enforcement, count rules) are secondary — they enforce output hygiene, not task quality. A verifier that lets structural penalties alone cancel out a high task-intent score is grading format compliance as if it were the task goal. This check applies to every task, regardless of domain or verifier type.
+
+**Procedure:**
+
+STEP A. Identify the task's **primary intent score component** from the rubric in `tests/judge.py` or the judge prompt. This is the component that directly measures whether the agent produced correct output (e.g., extraction accuracy, test pass rate, answer correctness, synthesis quality). Record its **maximum possible contribution** as `I_max` (the fraction of 1.0 that this component can earn at full credit).
+
+STEP B. Enumerate every **structural/compliance penalty** in the verifier — any deduction that fires based on format or schema rule violations rather than wrong content. Examples: per-field exact-match penalties, per-missing-key deductions, per-type-mismatch penalties, per-flag-combination violations, per-count-mismatch deductions. For each, record:
+
+- `rate`: the per-violation deduction amount
+- `max_violations`: the maximum number of violations possible given the task's stated output schema (e.g., if the task has 50 questions, max q-field violations = 50; if 10 papers, max page violations = 10)
+- `max_contribution = rate × max_violations`
+
+STEP C. Sum all structural penalty max contributions → `P_max_structural`. Separately record any uncapped hallucination penalty as `P_hallucination = penalty_per_instance × (number of quotable fields in the schema)`.
+
+STEP D. Apply verdict logic:
+
+- **FAIL if `P_max_structural >= I_max`** — structural penalties alone can cancel out every point earned for correct answers. The verifier is rewarding schema compliance, not task performance.
+- **FAIL if any single structural penalty category contributes `max_contribution >= I_max`** — one compliance axis alone can erase full credit for correct content.
+- **FAIL if `P_hallucination` (uncapped, no per-agent ceiling) `>= I_max`** — the hallucination deduction alone can zero out full extraction credit regardless of accuracy.
+- **FAIL if `P_max_structural + P_hallucination > 1.0`** — penalties can exceed the entire possible score, making it impossible for any agent to score above 0.0 under worst-case structural conditions regardless of answer quality.
+- PASS if all structural penalty categories are individually bounded well below `I_max`, and combined `P_max_structural < 0.5 × I_max`.
+
+STEP E. If any FAIL triggered: quote the exact penalty instruction lines, state `P_max_structural`, state `I_max`, and note whether SA scored 0.0 in execution logs despite a non-trivial extraction base. If no structural penalties exist beyond standard numeric tolerance checks (e.g., ±5% for floats), state that explicitly and PASS.
+
+**This check is task-domain-neutral.** It applies equally to extraction tasks, code tasks, synthesis tasks, audit tasks, and any other task type. Any verifier where schema compliance penalties dominate content quality signals fails this check.
+
+12. **Oracle comparison values must be derivable from instruction.md alone — no hidden weights or undisclosed formulas.**
+
+When the verifier scores by comparing agent output numerically against a static oracle file (e.g., `oracle.json`, `gold.json`, `expected_output.json`) using tolerance-based matching (`close()`, `abs(a - b) <= tol`, etc.), those oracle values must be fully reproducible by an agent reading only `instruction.md` and the disclosed input artifacts. If the oracle was generated using a weighting scheme, calibration formula, or multi-factor aggregation method that `instruction.md` does not describe, agents are penalized for failing to guess a formula they were never given. This is **undisclosed oracle dependency** — a **hard FAIL**.
+
+**Why this matters:** When oracle values require an undisclosed formula, neither SA nor MA can derive them correctly. The score gap between the two modes then reflects which mode's ad-hoc guess was closer to the trainer's private formula — not which coordination pattern produced better reasoning. The gap is random luck, not benchmark signal.
+
+**Procedure — MANDATORY for any task where a static oracle file is present in `tests/`:**
+
+STEP A. Check whether a static oracle file exists in `tests/` (common names: `oracle.json`, `gold.json`, `ground_truth.json`, `expected_output.json`, or any `.json` file loaded by the verifier as a reference answer). If no static oracle file exists — the oracle is generated dynamically at run time from the same input artifacts the agent reads, using only the methodology in `instruction.md` — this check **PASSES**. Skip remaining steps.
+
+STEP B. Read the oracle file. Identify every numeric field that the verifier compares against agent output using tolerance-based or exact matching (look for `close()`, `abs(a - b) <= tol`, `==`, or equivalent). Record the field names and example values (e.g., `probability: 0.7231`, `risk_score: 0.8412`).
+
+STEP C. Read `instruction.md` in full. Identify every constraint it places on HOW the agent must compute its numeric outputs — formulas, weights, normalization rules, aggregation functions, scoring methodology. A valid instruction specifies the methodology precisely enough that a careful reader could reproduce the oracle values (e.g., "compute risk score as the equally-weighted average of z-scored signals across all four sources").
+
+STEP D. For each numeric oracle field identified in Step B, ask: **can an agent, following only the methodology described in `instruction.md` and reading only the disclosed input artifacts, deterministically reproduce this value?** Apply the following verdict rules:
+
+**HARD FAIL** if any of the following:
+
+- `instruction.md` says "use all four sources" or equivalent but does not specify the relative weights or aggregation formula, yet the oracle contains specific probability or score values derived from a trainer-chosen weighting scheme (e.g., `climate × 0.08 + population × 0.32 + ...`). Agents cannot reverse-engineer weights from oracle values they are not shown.
+- The oracle contains entity-level numeric outputs derived from a non-trivial formula (normalization + weighted sum + calibration step) and `instruction.md` describes the output schema but not the computation.
+- The verifier applies a tolerance-based cap or penalty based on deviation from oracle values (e.g., `if avg_error > threshold: cap = min(cap, X)`) and the threshold was calibrated to the oracle formula rather than disclosed in `instruction.md`.
+
+**PASS** if any of the following:
+
+- Oracle values are direct extractions from the input data — no formula is required because the value appears verbatim in the input CSV or JSON.
+- `instruction.md` specifies the exact formula, weights, and/or algorithm sufficient to reproduce the oracle values from the input artifacts.
+- The oracle contains only categorical, qualitative, or ordering values (e.g., entity names, rank order) where no undisclosed numeric formula is needed.
+
+STEP E. If HARD FAIL: quote (i) the specific oracle field(s) whose values cannot be derived, (ii) the exact text from `instruction.md` that was supposed to specify the methodology but does not (or its absence), and (iii) the verifier lines that compare against those oracle values. Estimate the score impact: what fraction of the verifier's point budget depends on matching undisclosed-formula oracle values?
+
+**Verdict rules — no exceptions, no partial credit, no WARN:**
+
+- HARD FAIL if any oracle numeric field is undisclosed-formula-dependent (Step D FAIL conditions).
+- PASS only after confirming every tolerance-matched oracle field is derivable from `instruction.md` alone.
+- **A FAIL on Check 12 forces the overall QD-10 result to FAIL regardless of all other check results.**
+
+13. **LLM judge must not truncate agent output before scoring — when judge weight ≥ 50%.**
+
+When a task uses an embedded LLM judge as the dominant scoring component (weight ≥ 50%), the verifier must pass the agent's complete output to the judge. Truncating the submission before the judge sees it means the judge scores a partial view — sections that fall outside the truncation window are silently penalised as absent regardless of quality.
+
+**Why this matters asymmetrically:** Single-agent outputs are often denser (all content in a flat monolithic response). Multi-agent outputs are naturally longer (orchestrator synthesis across sub-agent results produces more tokens). A character or token cutoff penalises SA disproportionately when key scored sections fall in the second half of a long SA response but within the first half of a verbose MA synthesis. This matches the Bayway Refinery rejection pattern: SA's 62 KB output was truncated to 12 KB before the judge, key sections fell outside the window, SA scored 29% despite high static recall while MA's verbose output filled the window and scored 88%.
+
+**Procedure:**
+
+STEP A. Read `task.toml` `verifier_type`. If `executable` with no LLM API call in `tests/`, PASS immediately — no judge to truncate. For `hybrid`, do NOT auto-pass — apply the same procedure as `llm-judge` below, since a hybrid verifier also has an LLM-judged component that can be truncated.
+
+STEP B. Read `tests/judge.py` (or equivalent judge script) end-to-end. Search for any truncation or slicing of the agent's raw output before it is passed to the LLM:
+
+- String slice: `agent_output[:N]`, `text[:12000]`, `output[:max_chars]`
+- Length-based branch: `if len(text) > N: text = text[:N]`
+- Token-level truncation: `tokens[:N]` followed by detokenisation
+- Helper calls: `truncate(output, limit)`, `clip_text(output, N)`, or any wrapping function that reduces the string length
+
+STEP C. If truncation exists, determine the LLM judge's weight in the final reward formula (the fraction of `reward.json` that comes from the judge's score).
+
+STEP D. Determine whether a complete agent response for this task plausibly exceeds the truncation limit. Read `instruction.md` to understand the output deliverable: if the task asks for a multi-section report, a long analysis, or content over many input documents, a `[:12000]` character limit can easily cut off the last third of a valid response.
+
+**HARD FAIL if ALL three conditions hold:**
+
+- Truncation code exists in the judge script (Step B)
+- LLM judge weight ≥ 50% in the final reward formula (Step C)
+- The truncation limit is short enough that sections of a complete agent response could fall outside it given the task's stated output scope (Step D)
+
+**PASS if:** No truncation exists, OR the LLM judge weight is < 50% and a deterministic component independently covers the truncated content, OR the truncation limit demonstrably exceeds any plausible complete agent response for this task.
+
+Quote the exact truncation line (with file path and line number) and the judge weight derivation in `reason` before issuing FAIL.
+
+14. **SA reward=0.0 from FileNotFoundError must not coexist with SA having produced correct output.**
+
+A verifier that records `reward=0.0` because it cannot find the agent's output file — when the agent actually wrote the file — is reporting an infrastructure failure as a task failure. This produces a fake gap: SA is scored as if it produced nothing, while MA (whose output may be structured differently and found by the verifier) gets a real quality score.
+
+Two variants exist:
+
+- **Pattern 6a (wrong expected path):** The verifier looks for output at a path the agent was not told to write to, or there is a prefix mismatch between instruction.md and tests/. The agent wrote a file; the verifier looked in the wrong place.
+- **Pattern 6b (volume isolation):** SA wrote to the correct path — confirmed by a subsequent `ls` or read-back in the agent's trajectory — but the Docker volume mount failed and the verifier container could not see the file.
+
+**Procedure:**
+
+STEP A. Read `execution_logs/single-opencode-agent/result.json`. If `mean_reward > 0.0`, PASS immediately — no output-missing failure.
+
+STEP B. If `mean_reward = 0.0`: read every file under `execution_logs/single-opencode-agent/*/verifier/`. Look for `FileNotFoundError`, `No such file or directory`, `OSError`, or any path-not-found error string. Also read `test-stdout.txt` for lines showing tests failed exclusively because a file was missing.
+
+STEP C. If a missing-file error exists: read SA's agent trajectory (`trajectory.json` or `raw_trajectory/orchestrator_ses_*.json`) to find file-write operations — tool calls to `write_file`, shell `>` redirection, `open(..., 'w')`, or equivalent. Note the exact path SA wrote to.
+
+STEP D. Read `instruction.md` for the required output path. Read `tests/verify.py` or `tests/test.sh` for the path the verifier expects.
+
+**HARD FAIL if ALL of the following are true:**
+
+- SA's recorded `mean_reward` is 0.0 AND a FileNotFoundError (or equivalent missing-output error) appears in SA's verifier logs
+- SA's trajectory shows SA wrote an output file to some path
+- Either: (6a) the written path and the expected path differ when both are plausible interpretations of `instruction.md`, OR (6b) SA's trajectory confirms the file was written to the exact correct path and a subsequent `ls` or read-back succeeded during agent execution
+
+**PASS if:** SA's verifier logs contain no FileNotFoundError, OR SA's trajectory confirms no output file was written (genuine task failure, not infrastructure failure), OR only MA is affected by the missing-file condition.
+
+**N/A if:** SA output was non-zero reward (STEP A), or `trajectory.json` / `raw_trajectory/orchestrator_ses_*.json` is absent and the failure mode cannot be determined.
+
+Quote: (i) the FileNotFoundError line with the path the verifier expected, (ii) the write operation from SA's trajectory with the path SA wrote to, (iii) the output path stated in `instruction.md`.
 
 ## Output Format
+
 Return ONLY valid JSON:
+
 ```json
 {
-  "dimension": "QD-06",
+  "dimension": "QD-07",
   "result": "PASS" or "FAIL",
   "checks": [
-    {"id": 1, "name": "non_overlapping", "result": "...", "reason": "..."},
-    {"id": 2, "name": "self_contained", "result": "...", "reason": "..."},
-    {"id": 3, "name": "complete_coverage", "result": "...", "reason": "..."},
-    {"id": 4, "name": "dependencies_correct", "result": "...", "reason": "..."},
-    {"id": 5, "name": "minimal", "result": "...", "reason": "..."},
-    {"id": 6, "name": "what_not_how", "result": "...", "reason": "..."},
-    {"id": 7, "name": "pattern_match", "result": "...", "reason": "..."},
-    {"id": 8, "name": "parallel_group_consistency", "result": "...", "reason": "..."}
+    {"id": 1, "name": "same_role_neutral_instruction", "result": "...", "reason": "..."},
+    {"id": 2, "name": "same_timeout", "result": "...", "reason": "..."},
+    {"id": 3, "name": "coordination_driven_gap", "result": "...", "reason": "..."},
+    {"id": 4, "name": "no_custom_tooling", "result": "...", "reason": "..."},
+    {"id": 5, "name": "trajectory_follows_pattern", "result": "...", "reason": "..."},
+    {"id": 6, "name": "partial_credit_supported", "result": "...", "reason": "..."},
+    {"id": 7, "name": "meaningful_performance_gap", "result": "...", "reason": "..."},
+    {"id": 8, "name": "verifier_type_matches_implementation", "result": "...", "reason": "..."},
+    {"id": 9, "name": "no_gap_distorting_verifier_floors_cliffs_gates", "result": "...", "reason": "..."},
+    {"id": 10, "name": "sa_runtime_prompt_matches_instruction_md", "result": "...", "reason": "..."},
+    {"id": 11, "name": "structural_penalties_do_not_overwhelm_task_intent", "result": "...", "reason": "..."},
+    {"id": 12, "name": "oracle_values_derivable_from_instruction", "result": "...", "reason": "..."},
+    {"id": 13, "name": "llm_judge_input_not_truncated", "result": "...", "reason": "..."},
+    {"id": 14, "name": "sa_zero_reward_not_from_path_mismatch", "result": "...", "reason": "..."}
   ],
   "justification": "Overall assessment in 2-3 sentences."
 }
 ```
-Result is FAIL if ANY check fails.
+
+**Result is FAIL if ANY check fails. Check 10 failure forces overall FAIL unconditionally — no other check result can override it. Check 12 failure also forces overall FAIL unconditionally.**
 
 # QD-08: Infrastructure & Harbor Compliance
 

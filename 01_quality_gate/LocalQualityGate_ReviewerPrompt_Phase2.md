@@ -45,11 +45,12 @@
   items, or the three-tier structure/reward-hacking/partial-oracle
   category weights from `new_verifier_reward_system.md`) — do not fail a
   package for choosing the shape the other document prescribes.
-- **`tests/rubric_manifest.json` is mandatory** (Phase 2.1) and is graded:
-  QD-03 checks 6–9 cover manifest truthfulness, real weight vs declared
-  weight, reverse coverage of every reward-touching function, and the
-  hard **content ≥ 60% / structural ≤ 40%** floor (check 9). Read the
-  manifest on every run.
+- **  `tests/rubric_manifest.json` is mandatory** (Phase 2.1) and is graded:
+  QD-03 checks 6–11 cover manifest truthfulness, real weight vs declared
+  weight, reverse coverage of every reward-touching function, the
+  hard **content ≥ 60% / structural ≤ 40%** floor (check 9), no single
+  check ≥10% of reward (check 10), and manifest weights matching applied
+  weights (check 11). Read the manifest on every run.
 - **opencode agents — three modes.** `swarm-opencode-single`,
   `swarm-opencode-multi`, and `swarm-opencode-multi` no-plan /
   `multi_noplan` (kimi variants also exist). `execution_logs/` must hold
@@ -106,25 +107,36 @@ Load-bearing constraints (do NOT alter the prompt body):
    anchor lines in the file — a dimension starts at its `# QD-0X:`
    markdown header and runs to the next `# QD-` header (or EOF). Always
    Grep the **first** matching `# QD-0X:` header (do not take a later
-   duplicate if one reappears). Section boundaries as of 2026-08-05:
+   duplicate if one reappears).    Section boundaries as of 2026-09-11 (canonical
+   `01_quality_gate/Quality_dimensions_phase_2.md` after restoring the
+   missing QD-07 block that had been overwritten by a duplicate QD-06):
 
    ```
-   QD-01   Task Quality, Instruction & Authenticity      lines    1–154
-   QD-02   Instruction–Verifier Alignment                lines  155–209
-   QD-03   Verifier Rubric Integrity                     lines  210–294
-   QD-04   Reward-Hacking Resistance                     lines  295–459
-   QD-05   Multi-Agent Necessity                         lines  460–526
-   QD-06   Decomposition Soundness                       lines  527–643
-   QD-07   Benchmark Validity & Fairness                 lines  644–959
-   QD-08   Infrastructure & Harbor Compliance            lines  960–1150
-   QD-09   Coordination Value & Gap Integrity            lines 1151–1351
-   QD-10b  Reward-Hacking Exploit Grading (Grader)       lines 1352–1446
-   QD-10a  Reward-Hacking Exploit Generation (Exploiter) lines 1447–EOF
+   QD-01   Task Quality, Instruction & Authenticity      lines    1–156
+   QD-02   Instruction–Verifier Alignment                lines  157–215
+   QD-03   Verifier Rubric Integrity                     lines  216–364
+   QD-04   Reward-Hacking Resistance                     lines  365–585
+   QD-05   Multi-Agent Necessity                         lines  586–653
+   QD-06   Decomposition Soundness                       lines  654–771
+   QD-07   Benchmark Validity & Fairness                 lines  772–1088
+   QD-08   Infrastructure & Harbor Compliance            lines 1089–1286
+   QD-09   Coordination Value & Gap Integrity            lines 1287–1489
+   QD-10a  Reward-Hacking Exploit Generation (Exploiter) lines 1490–1563
+   QD-10b  Reward-Hacking Exploit Grading (Grader)       lines 1564–EOF
    ```
    (Line numbers are hints — always locate a section by Grepping its
-   `# QD-0X:` header, since edits may shift lines. **QD-10b appears
-   before QD-10a** in the file; that is intentional file order, not a
-   grading order — Groups F then G still run exploiter → grader.)
+   `# QD-0X:` header, since edits may shift lines. **QD-10a currently
+   appears before QD-10b** in the file; that is file order, not grading
+   order — Groups F then G still run exploiter → grader.)
+
+   Latest numbered-check counts the local gate MUST evaluate (do not
+   stop at older 9-check / 5-check memories):
+   QD-01 = 20; QD-02 = 6 (includes `spec_to_code_fidelity`); QD-03 = 11
+   (checks 10–11 are `no_check_worth_10_percent_or_more` and
+   `manifest_weights_match_applied_weights`); QD-04 = 13; QD-05 = 6;
+   QD-06 = 8; QD-07 = 14; QD-08 = 24; QD-09 = 4 dimensions; QD-10a/b as
+   in the rubric. The prompt previously mentioned only QD-03 checks 6–9
+   for the manifest; checks 10–11 are now mandatory.
 
    Known rubric-file defects to read past, not to reproduce: QD-07's
    check 10 and check 12 verdict rules say a FAIL "forces the overall
@@ -201,7 +213,7 @@ You are reviewing a SwarmBench PHASE 2 task that runs on the Harbor evaluation h
 ├── tests/
 │   ├── test.sh             ← Verifier entrypoint. Invokes the grader and writes reward (or an explicit INFRA error state).
 │   ├── verify.py           ← The single grader (judge.py is retired; older packages may still ship one). Boolean rubric. NO oracle.json.
-│   ├── rubric_manifest.json ← MANDATORY client-readable rubric, 1:1 with verify.py's checks. Graded by QD-03 checks 6–9.
+│   ├── rubric_manifest.json ← MANDATORY client-readable rubric, 1:1 with verify.py's checks. Graded by QD-03 checks 6–11.
 │   └── ground_truth/       ← Frozen grounding facts for the grader (e.g. registry_facts.json). NOT an answer key the agent must match.
 └── execution_logs/
     ├── single-opencode-agent/         ← 1 single-agent run (Task/sub-agent tools blocked)
@@ -338,7 +350,7 @@ QD-10 has failed every hosted review since it was introduced. Expect findings he
 
   QD-01  → /rubric  section "# QD-01: Task Quality, Instruction & Authenticity"      (Sections A instruction, B authenticity, C AHT, D high-level prompt)
   QD-02  → /rubric  section "# QD-02: Instruction–Verifier Alignment"
-  QD-03  → /rubric  section "# QD-03: Verifier Rubric Integrity"                    (checks 1–9 incl. content ≥60%)
+  QD-03  → /rubric  section "# QD-03: Verifier Rubric Integrity"                    (checks 1–11 incl. content ≥60%, per-check ≤10%, manifest weights)
   QD-04  → /rubric  section "# QD-04: Reward-Hacking Resistance"
   QD-05  → /rubric  section "# QD-05: Multi-Agent Necessity"
   QD-06  → /rubric  section "# QD-06: Decomposition Soundness"
@@ -347,7 +359,7 @@ QD-10 has failed every hosted review since it was introduced. Expect findings he
   QD-09  → /rubric  section "# QD-09: Coordination Value & Gap Integrity (Client Perspective)"
   QD-10a → /rubric  section "# QD-10a: Reward-Hacking Exploit Generation (Exploiter)"
   QD-10b → /rubric  section "# QD-10b: Reward-Hacking Exploit Grading (Grader)"
-  (Note: in the rubric file, the QD-10b header currently appears above QD-10a — always Grep by header name.)
+  (Note: in the rubric file, QD-10a currently appears above QD-10b — always Grep by header name. Grading order is still F then G.)
 
 ### Per-sub-agent prompt template
 
@@ -370,8 +382,8 @@ For each Agent call, use this exact prompt (substitute `<group_name>`, the group
   >   1. Open /rubric and locate your QD by Grepping its **first** header (e.g. `# QD-05:`).
   >      Read from that header to the next `# QD-` header (or EOF) to learn its
   >      numbered checks and its "Files to Read" / procedure text. There are no
-  >      `QD-0X_` anchor lines in the file. (QD-10b's header currently sits above
-  >      QD-10a — still Grep by the exact header string.)
+  >      `QD-0X_` anchor lines in the file. (QD-10a currently sits above
+  >      QD-10b — still Grep by the exact header string.)
   >   2. Read every task file the rubric names, and treat its "read ALL files"
   >      instructions literally: task.toml, instruction.md, high_level_prompt.md,
   >      decomposition.yaml, environment/Dockerfile, environment/input_artifacts/,
@@ -381,8 +393,10 @@ For each Agent call, use this exact prompt (substitute `<group_name>`, the group
   >      (single-opencode-agent/, multi-opencode-agent/,
   >      multi-opencode-agent-noplan/) as the rubric requires. rubric_manifest.json
   >      is graded for truthfulness (QD-03 check 6), real weights (check 7), reverse
-  >      coverage (check 8), and content ≥ 60% (check 9); do not skip it. Use Glob
-  >      and Grep freely.
+  >      coverage (check 8), content ≥ 60% (check 9), no check ≥10% (check 10),
+  >      and manifest weights matching code (check 11); do not skip it. Use Glob
+  >      and Grep freely. Evaluate every numbered check in the current rubric
+  >      section (QD-02 has 6; QD-03 has 11; QD-04 has 13; QD-07 has 14).
   >   3. Evaluate EVERY numbered check in the rubric section. Do NOT stop after the
   >      first FAIL.
   >   4. You MAY append further findings after the last numbered check, numbered from
