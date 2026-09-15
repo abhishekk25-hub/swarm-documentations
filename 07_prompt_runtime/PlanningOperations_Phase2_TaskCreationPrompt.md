@@ -6902,3 +6902,32 @@ PROMPT CHANGELOG
   Reject dotted leaders, document-control sheets, options tables, and host
   snips under the 18-word band in the quote checks, and overlay those fails
   onto per_id so a fluent judge cannot wash them out.
+
+- 2026-09-15 | verifier / ALL-OUT-OF-SCOPE BOARDS BANK DECOY RECALL UNLESS ANCHORS BIND |
+  A format-only ledger that tags every row not_in_scope correctly classifies
+  every held-out decoy and can clear 0.35+ before substance. Multiply decoy
+  recall by recall on a few must-include in-scope anchors, and multiply
+  in-scope recall by out-of-scope recall inside the scope oracle, so skipping
+  the roster or tagging the majority class cannot bank the anti-gaming bucket.
+
+- 2026-09-15 | packaging / HARBOR MULTI ZIPS CAN OMIT OPENCODE.TXT AND TRAJECTORY.JSON |
+  S-02 requires those two names under each trial `agent/` and exactly one
+  `tests/*.py` named `verify.py`. A finished mascloud zip may keep
+  `opencode-internal.log` plus `raw_trajectory/` and still omit the tee file
+  and ATIF write. Recover `opencode.txt` / ATIF-v1.6 `trajectory.json` from
+  the orchestrator session export using Harbor's event mapping; do not invent
+  a narrative. Keep trainer regression scripts out of delivered `tests/`.
+
+- 2026-09-15 | local QG / QUOTE SKIP-EMPTY, ANY-TOKEN DRIFT, AND PNG-ONLY CHARTS ARE HIGH EXPLOITS |
+  A content quote check that `continue`s blank cells, a mismatch check that
+  accepts any closed drift token, and chart scoring that only tests PNG
+  magic will FAIL QD-04/10 even with a real corpus. Score every roster row
+  in the quote denominator, reject the first-N HTML-token prefix, require
+  Item-local needles, grade each followup against held-out gold not set
+  membership, and join chart sidecar counts to the ledger. HLP must stay
+  deliverable-only. Empty `execution_logs/` cannot close QD-05/07/08/09;
+  do not fabricate Harbor trees to pass those checks.
+
+- 2026-09-15 | local QG / HEADING HARVEST, SELF-JOIN CHARTS, WORD FLOORS, AND K<1 PRODUCTS RE-FAIL THE PACKAGE |
+  A 12-word Item heading, a CSV that echoes the agent's own heatmap, a 1x1 PNG, and 220/400-word padding will CONFIRM QD-10 HIGH exploits. Require the quote text itself to contain the conclusion phrase (or 4.01/Exhibit 16/2.02 for OOS), freeze chart gold from held-out scope/probes, parse PNG IHDR size, and score notes by held-out decoy accessions not word count. Intra-group `depends_on` fails QD-06.8 — put sequential clerks in distinct `parallel_group`s. Manifest probe IDs must include every collapse/issue branch the code claims to run. Judge memos in the PO bucket must receive filing excerpts in the system role. Use additive unit means only; uniqueness/anchor/overlay factors averaged, never multiplied by K<1. Empty logs still cannot close QD-07.10 / QD-08.24 / QD-09.
+
