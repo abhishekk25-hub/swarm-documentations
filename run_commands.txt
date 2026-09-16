@@ -2,7 +2,7 @@ LOGIN -
 mascloud login --email abhishek.k25@turing.com --password RCALdRE8PhJW3dkF
 P.WORD - 
 RCALdRE8PhJW3dkF
-mascloud run $task10 --mode multi_noplan
+mascloud run $task1 --mode multi_noplan
 mascloud verify-only $task10 --target-mode single
 single
 multi_noplan
@@ -12,6 +12,8 @@ cd D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\swarmbench-harness\mascloud_mon
 $env:MASCLOUD_TELEGRAM_BOT_TOKEN = "8692057391:AAEJZA5bYVPE_cu-VcCHvpawWjph6e7wxxc"
 $env:MASCLOUD_TELEGRAM_CHAT_ID = "541522294"
 py app.py
+
+$task1 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\data_analysis\task1\9ecd857b65234137a06b459c28788429-SWARMBENCH-HIERARCHICAL-DATA-ANALYSIS-SEC-ITEM-402-IC-SCREEN"
 
 $task10 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task10\0d079c06f91043f8997769baf6843de2-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-UKCS-DECOMMISSIONING-COMPARATIVE-CAMPAIGN"
 
