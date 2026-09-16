@@ -3,7 +3,7 @@ mascloud login --email abhishek.k25@turing.com --password RCALdRE8PhJW3dkF
 P.WORD - 
 RCALdRE8PhJW3dkF
 mascloud run $task1 --mode multi_noplan
-mascloud verify-only $task10 --target-mode single
+mascloud verify-only $task1 --target-mode single
 single
 multi_noplan
 multi
@@ -12,6 +12,8 @@ cd D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\swarmbench-harness\mascloud_mon
 $env:MASCLOUD_TELEGRAM_BOT_TOKEN = "8692057391:AAEJZA5bYVPE_cu-VcCHvpawWjph6e7wxxc"
 $env:MASCLOUD_TELEGRAM_CHAT_ID = "541522294"
 py app.py
+
+$task2 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\data_analysis\task2\c7d93f2a8b4e41d6970c5d1fa3926e58-SWARMBENCH-HIERARCHICAL-DATA-ANALYSIS-CISA-INDUSTRIAL-CONTROL-ADVISORY-EXPOSURE-CONCORDANCE"
 
 $task1 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\data_analysis\task1\9ecd857b65234137a06b459c28788429-SWARMBENCH-HIERARCHICAL-DATA-ANALYSIS-SEC-ITEM-402-IC-SCREEN"
 

@@ -1,3 +1,5 @@
+The issues are mainly related to submission metadata, packaging, environment/evaluation handling, and agent execution. The actual task structure, instructions, real-world complexity, verifier alignment, and multi-agent design are valid overall. The identified problems are mostly implementation and evaluation-side inconsistencies rather than fundamental issues with the task itself.
+
 Package Format & Static Compliance:
 The issue is with submission metadata, while the actual package structure is valid and complete.
 
@@ -17,7 +19,7 @@ Instruction–Verifier Alignment:
 The verifier broadly matches the task, with the main problems arising from evaluation-path and infrastructure handling.
 
 Verifier Rubric Integrity:
-These concerns relate to scoring	implementation and reward handling rather than the underlying task itself.
+These concerns relate to scoring implementation and reward handling rather than the underlying task itself.
 
 Ground-Truth Leakage:
 The task is largely protected; the minor concern comes from shared-log visibility during agent execution.

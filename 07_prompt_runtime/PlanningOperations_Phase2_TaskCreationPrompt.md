@@ -6934,3 +6934,10 @@ PROMPT CHANGELOG
 - 2026-09-16 | rubric / PER-CVE MEANS LET ONE BULK CSAF FILE DOMINATE |
   Averaging content checks across every CVE lets a 300+ third-party-component dump set ~80% of PO/RH even when the other advisories are unread. Average per advisory, keep mechanical completeness of bulk files on a separate register, and require distinctive-subset prose only. Shared document-level ICS recommended-practice notes are not evidence. Product-tree vendor/product joins are real concordance work when CVE IDs do not collide.
 
+- 2026-09-16 | difficulty / STRUCTURED CSAF JSON IS SCRIPTABLE PAST 0.90 |
+  If the gold lives in vendor/product/CVSS enum fields and the instruction publishes the derivation, a single-agent Python walk will bank ~0.98. Switch the source of truth to frozen HTML, hold labels in verifier_inputs, and grade leftover-unique notes plus HTML quote round-trips. A script clone that dumps majority posture and recycled closers must score below ~0.28 before any mascloud run.
+
+- 2026-09-16 | local QG / PUBLIC SCOPE LABELS, CUE GREPS, AND CITE-6 MEMOS ARE HIGH EXPLOITS |
+  A roster column that equals gold scope_token, a PO quote check that greps unigrams such as remote/local, and a memo probe that saturates at six alert codes will FAIL QD-04/10 even with frozen HTML. Strip held-out labels from agent-visible CSVs, bind scope/posture quotes to verbatim RISK EVALUATION spans, reject ATTENTION-line quotes, score unique gold knot pairs, walk the full knot list, and require H1 alert-code plus product plus nearby posture cites. Empty sector trees and intra-group depends_on fail QD-06. Print every judge item pass/score/reason to stdout. Empty execution_logs cannot close QD-07.10; do not fabricate Harbor trees.
+
+
