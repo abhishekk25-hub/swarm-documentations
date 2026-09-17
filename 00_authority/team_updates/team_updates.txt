@@ -1,3 +1,15 @@
+@here,
+:important2:  Hey team,
+We are seeing trainers using network_enabled = false , or some other fields to try and block network access in the environment.
+But this will not work:
+First of all, there is no official network_enabled field for harbor. So, it doesn't do anything.
+Secondly, we are using opencode inside the harness which needs network to call models, so if you do manage to block network for the task, the task will not work at all.
+So, moving forward:
+Do not enforce any network blocking rules in the environment, also, avoid adding instructions like work offline, don't access network etc in the instructions.
+Remove the network_enabled field from any future tasks, as it does nothing.
+cc: @Maddy @Ruturaj
+
+
 Add python3 to your task Dockerfile — even if your task doesn't use Python @here 
 Hi all,
 If your task doesn't involve Python at all (C++, Java, Rust, Go, etc.), please still add python3 to your environment/Dockerfile's package install list.

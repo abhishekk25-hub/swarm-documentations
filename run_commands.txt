@@ -2,7 +2,7 @@ LOGIN -
 mascloud login --email abhishek.k25@turing.com --password RCALdRE8PhJW3dkF
 P.WORD - 
 RCALdRE8PhJW3dkF
-mascloud run $task1 --mode multi_noplan
+mascloud run $task10 --mode single
 mascloud verify-only $task1 --target-mode single
 single
 multi_noplan
@@ -13,11 +13,11 @@ $env:MASCLOUD_TELEGRAM_BOT_TOKEN = "8692057391:AAEJZA5bYVPE_cu-VcCHvpawWjph6e7wx
 $env:MASCLOUD_TELEGRAM_CHAT_ID = "541522294"
 py app.py
 
-$task2 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\data_analysis\task2\c7d93f2a8b4e41d6970c5d1fa3926e58-SWARMBENCH-HIERARCHICAL-DATA-ANALYSIS-CISA-INDUSTRIAL-CONTROL-ADVISORY-EXPOSURE-CONCORDANCE"
+$task2 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\data_analysis\task2\c7d93f2a8b4e41d6970c5d1fa3926e58-SWARMBENCH-HIERARCHICAL-DATA-ANALYSIS-CISA-ICS-HTML-VENDOR-KNOT"
 
 $task1 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\data_analysis\task1\9ecd857b65234137a06b459c28788429-SWARMBENCH-HIERARCHICAL-DATA-ANALYSIS-SEC-ITEM-402-IC-SCREEN"
 
-$task10 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task10\0d079c06f91043f8997769baf6843de2-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-UKCS-DECOMMISSIONING-COMPARATIVE-CAMPAIGN"
+$task10 = "D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task10\7f3a9c2e6d1b4a8f90c5e7d2b6a1f4c8-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-FEDERAL-REGISTER-OPERATIVE-DATE-PORTFOLIO"
 
 $task9 = 'D:\Abisheik\Projects\swarmbench\Tasks\PHASE_2\phase_2_tasks\new_planning_operations\task9\47c02da5e4304b6c86fc904c9761f71d-SWARMBENCH-HIERARCHICAL-PLANNING-OPERATIONS-GB-RAIL-ACCESS-CONTENTION-HEARING'
 
